@@ -1,0 +1,298 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ChevronRight, ChevronLeft } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { useLanguage } from '../context/LanguageContext';
+
+// Mock Data for Client Logos (using images instead of text)
+const clients = [
+    { name: "BİM", image: "/src/public/images/refences/bim.jpg" },
+    { name: "A-101", image:  "/src/public/images/refences/a101.jpg" },
+    { name: "ŞOK", image:  "/src/public/images/refences/kayaCiftligi.jpg" },
+    { name: "Sarıyer", image:  "/src/public/images/refences/metro.jpg" },
+    { name: "Çağrı", image:  "/src/public/images/refences/peynircibaba.jpg" },
+    { name: "Bizim", image:  "/src/public/images/refences/sa.jpg" },
+    { name: "CarrefourSA", image:  "/src/public/images/refences/sok.jpg"},
+];
+
+// Mock Data for Projects
+export const projects = [
+    {
+        id: 'byKasap',
+        title: 'BY KASAP',
+        location: 'İSTANBUL / ÜMRANİYE',
+        coverImage: 'src/public/images/refences/byKasap/byKasap1.jpg',
+        images: [
+            '/src/public/images/refences/byKasap/byKasap1.jpg',
+            '/src/public/images/refences/byKasap/byKasap2.jpg',
+            '/src/public/images/refences/byKasap/byKasap12.mp4',
+        ]
+    },
+    {
+        id: 'kaleRestoran',
+        title: 'KALE RESTORAN',
+        location: 'İSTANBUL / MALTEPE',
+        coverImage: '/src/public/images/refences/kaleRestoran/kaleRestoran5.jpg',
+        images: [
+            '/src/public/images/refences/kaleRestoran/kaleRestoran.jpg',
+            '/src/public/images/refences/kaleRestoran/kaleRestora2.jpg',
+            '/src/public/images/refences/kaleRestoran/kaleRestoran3.jpg',
+            '/src/public/images/refences/kaleRestoran/kaleRestoran4.jpg',
+            '/src/public/images/refences/kaleRestoran/kaleRestoran5.jpg',
+            '/src/public/images/refences/kaleRestoran/kaleRestoran6.jpg',
+
+        ]
+    },
+    {
+        id: 'yildirimEt',
+        title: 'YILDIRIM ET',
+        location: 'Bursa / İznik',
+        coverImage:   'src/public/images/refences/yildirimEt/bursa4.jpg',
+        images: [
+            '/src/public/images/refences/yildirimEt/bursa1.jpg',
+            '/src/public/images/refences/yildirimEt/bursa2.jpg',
+            '/src/public/images/refences/yildirimEt/bursa3.jpg',
+            '/src/public/images/refences/yildirimEt/bursa4.jpg',
+            '/src/public/images/refences/yildirimEt/bursa5.jpg',
+            '/src/public/images/refences/yildirimEt/bursa6.jpg',
+        ]
+    },
+    {
+        id: 'yagizCiftligi',
+        title: 'YAĞIZ ÇİFTLİĞİM',
+        location: 'İSATNBUL / BEYLİK DÜZÜ',
+        coverImage:  'src/public/images/refences/yagizCiftligi/yagizCiftligi1.jpg',
+        images: [
+
+            '/src/public/images/refences/yagizCiftligi/yagizCiftligi1.jpg',
+            '/src/public/images/refences/yagizCiftligi/yagizCiftligi2.jpg',
+            '/src/public/images/refences/yagizCiftligi/yagizCiftligi3.jpg',
+            '/src/public/images/refences/yagizCiftligi/yagizCiftligi4.jpg',
+            '/src/public/images/refences/yagizCiftligi/yagizCiftligi5.jpg',
+            '/src/public/images/refences/yagizCiftligi/yagizCiftligi6.jpg',
+            '/src/public/images/refences/yagizCiftligi/yagizCiftligi7.jpg',
+            '/src/public/images/refences/yagizCiftligi/yagizCiftligi8.jpg',
+            '/src/public/images/refences/yagizCiftligi/yagizCiftligi9.jpg',
+        ]
+    },
+    {
+        id: 'tatOglu',
+        title: 'TAT OĞLU FIRIN PASTANESİ',
+        location: 'KOCAELİ / GEBZE',
+        coverImage: 'src/public/images/refences/tatOglu/tatOglu.jpg',
+        images: [
+            '/src/public/images/refences/tatOglu/tatOglu.jpg',
+            '/src/public/images/refences/tatOglu/tatOglu2.jpg',
+            '/src/public/images/refences/tatOglu/tatOglu3.jpg',
+            '/src/public/images/refences/tatOglu/tatOglu4.jpg',
+            '/src/public/images/refences/tatOglu/tatOglu5.jpg',
+            '/src/public/images/refences/tatOglu/tatOglu6.jpg',
+
+
+
+        ]
+    },
+    {
+        id: 'tireBolu',
+        title: 'TİREBOLU UNLU MAMÜLLER ',
+        location: 'İSTANBUL / ÜMRANİYE',
+        coverImage: 'src/public/images/refences/tireBolu/tirebolu.jpg',
+        images: [
+            '/src/public/images/refences/tireBolu/tirebolu.jpg',
+            '/src/public/images/refences/tireBolu/tirebolu1.jpg',
+            '/src/public/images/refences/tireBolu/tirebolu2.jpg',
+            '/src/public/images/refences/tireBolu/tirebolu3.jpg',
+            '/src/public/images/refences/tireBolu/tirebolu4.jpg',
+            '/src/public/images/refences/tireBolu/tirebolu5.jpg',
+            '/src/public/images/refences/tireBolu/tirebolu6.jpg',
+            '/src/public/images/refences/tireBolu/tirebolu7.jpg',
+            '/src/public/images/refences/tireBolu/tirebolu8.jpg',
+
+
+        ]
+    },
+    {
+        id: 'nuvo',
+        title: 'TALHA ET GIDA',
+        location: 'İSTANBUL / KARTAL',
+        coverImage: 'src/public/images/refences/talhaEt/talhaEt.jpg',
+        images: [
+            '/src/public/images/refences/talhaEt/talhaEt.jpg',
+            '/src/public/images/refences/talhaEt/talhaEt1.jpg'
+        ]
+    },
+    {
+        id: 'İstanbul-Kartal',
+        title: 'NUVO PASTANE',
+        location: 'İSTANBUL / KARTAL',
+        coverImage: 'src/public/images/refences/nuvo/nuvo.jpg',
+        images: [
+            '/src/public/images/refences/nuvo/nuvo.jpg',
+            '/src/public/images/refences/nuvo/nuvo1.jpg',
+            '/src/public/images/refences/nuvo/nuvo2.jpg',
+            '/src/public/images/refences/nuvo/nuvo3.jpg',
+            '/src/public/images/refences/nuvo/nuvo4.jpg',
+
+
+        ]
+    },
+    {
+        id: 'doganKasap',
+        title: 'DOĞAN KASAP',
+        location: 'İSTANBUL / KADIKÖY',
+        coverImage: 'src/public/images/refences/doganKasap/doganKasap.jpg',
+        images: [
+            '/src/public/images/refences/doganKasap/doganKasap.jpg',
+            '/src/public/images/refences/doganKasap/doganKasap1.jpg',
+        ]
+    }
+];
+
+export default function References() {
+    const { t } = useLanguage();
+    const navigate = useNavigate();
+
+    // Pagination State
+    const [currentPage, setCurrentPage] = useState(1);
+    const [direction, setDirection] = useState(1); // 1 ileri, -1 geri
+    const itemsPerPage = 6;
+
+    const projectsRef = React.useRef<HTMLDivElement | null>(null);
+
+    // Calculate total pages
+    const totalPages = Math.ceil(projects.length / itemsPerPage);
+
+    // Get current projects
+    const indexOfLastProject = currentPage * itemsPerPage;
+    const indexOfFirstProject = indexOfLastProject - itemsPerPage;
+    const currentProjects = projects.slice(indexOfFirstProject, indexOfLastProject);
+
+    const handlePageChange = (pageNumber: number) => {
+        setDirection(pageNumber > currentPage ? 1 : -1);
+        setCurrentPage(pageNumber);
+
+        requestAnimationFrame(() => {
+            projectsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    };
+
+    return (
+        <div className="bg-white dark:bg-[#111827] h-auto md:min-h-screen pt-24 pb-12 md:pb-24 transition-colors duration-300">
+            {/* Header Banner */}
+            <div className="bg-[#111827] dark:bg-white text-white dark:text-black py-4 md:py-16 mb-12 transition-colors duration-300">
+                <div className="container mx-auto px-4 md:px-12 text-center">
+                    <h1 className="text-lg md:text-4xl font-bold mb-4">{t('menu.references')}</h1>
+                    <div className="text-xs md:text-sm text-gray-400 dark:text-gray-600 flex items-center justify-center gap-2 uppercase tracking-wider">
+                        <span>{t('menu.home')}</span>
+                        <span>/</span>
+                        <span className="text-white dark:text-black">{t('menu.references')}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div className="container mx-auto px-4 md:px-12">
+                {/* Client Logos Grid */}
+                <div className="grid grid-cols-5 md:grid-cols-2 lg:grid-cols-7 gap-2 md:gap-5 mb-12 md:mb-24">
+                    {clients.map((client, index) => (
+                        <div key={index} className="flex items-center justify-center border border-gray-300 transition-all duration-300 rounded-lg overflow-hidden bg-white">
+                            <img
+                                src={client.image}
+                                alt={client.name}
+                                className="max-w-full max-h-full object-cover"
+                                referrerPolicy="no-referrer"
+                            />
+                        </div>
+                    ))}
+                </div>
+
+                <div ref={projectsRef} className="scroll-mt-28" />
+
+                {/* Projects Grid with Animation */}
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={currentPage}
+                        custom={direction}
+                        variants={{
+                            enter: (dir: number) => ({ opacity: 0, x: dir > 0 ? 30 : -30 }),
+                            center: { opacity: 1, x: 0 },
+                            exit: (dir: number) => ({ opacity: 0, x: dir > 0 ? -30 : 30 }),
+                        }}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                        className="grid grid-cols-3 md:grid-cols-2 gap-8"
+                    >
+                        {currentProjects.map((project) => (
+                            <div
+                                key={project.id}
+                                className="group cursor-pointer"
+                                onClick={() => navigate(`/references/${project.id}`)}
+                            >
+                                <div className="relative overflow-hidden aspect-[4/3] mb-4 rounded-lg">
+                                    <img
+                                        src={project.coverImage}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                    />
+                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                                </div>
+                                <div className="text-center">
+                                    <h3 className="text-xs md:text-xl font-bold text-black dark:text-white group-hover:text-[#009FE3] transition-colors">{project.title}</h3>
+                                    <p className="text-[10px] md:text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">{project.location}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </motion.div>
+                </AnimatePresence>
+
+                {/* Animated Pagination Controls */}
+                {totalPages > 1 && (
+                    <div className="flex justify-center items-center gap-2 mt-16">
+                        <button
+                            onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
+                            disabled={currentPage === 1}
+                            className="md:w-10 md:h-10 w-8 h-8 rounded-full flex items-center justify-center
+                 text-black dark:text-white dark:hover:text-black
+                 disabled:opacity-30 disabled:cursor-not-allowed
+                 hover:bg-gray-100 dark:hover:bg-gray-200 transition-colors"
+                        >
+                            <ChevronLeft size={20} />
+                        </button>
+
+                        {[...Array(totalPages)].map((_, i) => {
+                            const page = i + 1;
+                            const isActive = currentPage === page;
+
+                            return (
+                                <button
+                                    key={i}
+                                    onClick={() => handlePageChange(page)}
+                                    className={`w-8 h-8 md:h-10 md:w-10 rounded-full flex items-center justify-center font-medium
+                      transition-all duration-300  
+                      ${isActive
+                                        ? 'bg-black text-white shadow-md scale-110 dark:bg-white dark:text-black'
+                                        : 'bg-transparent text-black dark:text-white hover:bg-gray-100 dark:hover:text-black dark:hover:bg-gray-200'
+                                    }`}
+                                >
+                                    {page}
+                                </button>
+                            );
+                        })}
+
+                        <button
+                            onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
+                            disabled={currentPage === totalPages}
+                            className="md:w-10 md:h-10 w-8 h-8 rounded-full flex items-center justify-center
+                 text-black dark:text-white dark:hover:text-black
+                 disabled:opacity-30 disabled:cursor-not-allowed
+                 hover:bg-gray-100 dark:hover:bg-gray-200 transition-colors"
+                        >
+                            <ChevronRight size={20} />
+                        </button>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+}
