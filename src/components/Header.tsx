@@ -114,7 +114,7 @@ export default function Header() {
             title: 'Severek',
             icon: (
                 <img
-                    src="src/public/images/parsLogo.png"
+                    src="../../public/images/parsLogo.png"
                     alt="Pars Logo"
                     className="h-10 object-cover invert hue-rotate-180 saturate-150 dark:invert-0 dark:hue-rotate-0 dark:saturate-100 transition-all duration-300"
                 />
@@ -129,7 +129,7 @@ export default function Header() {
         setIsLangMenuOpen(false);
     };
 
-    const flagSrc = language === 'TR' ? '/src/public/assets/icons/tr.svg' : '/src/public/assets/icons/us.svg';
+    const flagSrc = language === 'TR' ? '/public/assets/icons/tr.svg' : '/public/assets/icons/us.svg';
 
     const searchPanelInputClasses = isHome
         ? "bg-transparent border-none ml-2  focus:outline-none text-white text-sm w-full placeholder-white/50"

@@ -66,13 +66,13 @@ export default function HeroSection() {
     const swipeResetTimerRef = useRef<number | null>(null);
 
     const slides = [
-        { id: 1, subtitle: t('hero.slide1.title'), title: t('menu.refrigerators'), image: 'src/public/images/home/buzdolabi2.jpg' },
-        { id: 2, subtitle: t('hero.slide2.title'), title: t('menu.industrialKitchen'), image: 'src/public/images/home/masa.jpg' },
-        { id: 3, subtitle: t('hero.slide3.title'), title: t('menu.marketEquip'), image: 'src/public/images/home/marketx.jpg' },
-        { id: 4, subtitle: t('hero.slide4.title'), title: t('menu.coldStorage'), image: 'src/public/images/home/sogukHava2.jpg' },
-        { id: 5, subtitle: t('hero.slide5.title'), title: t('menu.coolingSystems'), image: 'src/public/images/home/sogutma.jpg' },
-        { id: 6, subtitle: t('hero.slide6.title'), title: t('menu.coolingAisles'), image: 'src/public/images/home/sogutmareyon.jpg' },
-        { id: 7, subtitle: t('hero.slide7.title'), title: t('menu.bakery'), image: 'src/public/images/home/unluMamül.jpg' },
+        { id: 1, subtitle: t('hero.slide1.title'), title: t('menu.refrigerators'), image: '/images/home/buzdolabi2.jpg' },
+        { id: 2, subtitle: t('hero.slide2.title'), title: t('menu.industrialKitchen'), image: '/images/home/masa.jpg' },
+        { id: 3, subtitle: t('hero.slide3.title'), title: t('menu.marketEquip'), image: '/images/home/marketx.jpg' },
+        { id: 4, subtitle: t('hero.slide4.title'), title: t('menu.coldStorage'), image: '/images/home/sogukHava2.jpg' },
+        { id: 5, subtitle: t('hero.slide5.title'), title: t('menu.coolingSystems'), image: '/images/home/sogutma.jpg' },
+        { id: 6, subtitle: t('hero.slide6.title'), title: t('menu.coolingAisles'), image: '/images/home/sogutmareyon.jpg' },
+        { id: 7, subtitle: t('hero.slide7.title'), title: t('menu.bakery'), image: '/images/home/unluMamül.jpg' },
     ];
 
     const markSwipeJustHappened = () => {

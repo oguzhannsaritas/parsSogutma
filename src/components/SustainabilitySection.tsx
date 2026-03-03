@@ -61,7 +61,7 @@ export default function SustainabilitySection() {
                   playsInline
                   preload="metadata"
               >
-                  <source src="src/public/videos/gorsel1.mp4" type="video/mp4" />
+                  <source src="/videos/gorsel1.mp4" type="video/mp4" />
               </video>
           </div>
       </div>
