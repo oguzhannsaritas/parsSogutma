@@ -7,7 +7,7 @@ export const products: Product[] = [
         name: { TR: 'Reyon Dolabı', EN: 'Display Cabinet' },
         category: { TR: 'Servis Reyonları', EN: 'Service Aisles' },
         type: { TR: 'Reyon Dolabı', EN: 'Display Cabinet' },
-        image: 'src/public/images/products/servisReyonlari/reyonDolabi/reyonDolabix.jpg',
+        image: '/images/products/servisReyonlari/reyonDolabi/reyonDolabix.jpg',
         thumbnails:[
             '/src/public/images/products/servisReyonlari/reyonDolabi/reyonDolabi.jpg',
             '/src/public/images/products/servisReyonlari/reyonDolabi/reyonDolabi2.jpg',
