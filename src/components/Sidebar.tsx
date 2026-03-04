@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence, useDragControls } from 'motion/react';
 import { Search, ChevronRight, X, Globe } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
@@ -12,9 +12,34 @@ interface SidebarProps {
 export default function Sidebar({ isOpen, onClose }: SidebarProps) {
     const { t, language, setLanguage } = useLanguage();
     const navigate = useNavigate();
+    const dragControls = useDragControls();
 
     const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
     const [searchQuery, setSearchQuery] = useState('');
+
+    // ✅ sadece mobilde drag/bottom-sheet kullan
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+
+        const mq = window.matchMedia('(max-width: 767px)');
+        const update = () => setIsMobile(mq.matches);
+        update();
+
+        // Safari eski sürüm uyumu
+        // @ts-ignore
+        if (mq.addEventListener) mq.addEventListener('change', update);
+        // @ts-ignore
+        else mq.addListener(update);
+
+        return () => {
+            // @ts-ignore
+            if (mq.removeEventListener) mq.removeEventListener('change', update);
+            // @ts-ignore
+            else mq.removeListener(update);
+        };
+    }, []);
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
@@ -22,10 +47,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         const q = searchQuery.trim();
         if (q) {
             const encoded = encodeURIComponent(q);
-
-            // Hem search (genel arama fallback) hem filter (otomatik checkbox seçimi) gönderiyoruz
             navigate(`/products?search=${encoded}&filter=${encoded}`);
-
             onClose();
             setSearchQuery('');
         }
@@ -44,18 +66,14 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
             path: '/products',
             hasSubmenu: true,
             submenuItems: [
-                // ✅ Yeni eklenen seçenek
-                {
-                    label: 'Tüm Ürünlerimiz', // i18n kullanacaksan t('menu.allProducts')
-                    path: '/products'
-                },
+                { label: 'Tüm Ürünlerimiz', path: '/products' },
                 {
                     label: t('menu.refrigerators'),
                     path: '#',
                     children: [
                         { label: t('menu.verticalCooling'), path: '/products?cat=vertical' },
                         { label: t('menu.wallCooling'), path: '/products?cat=wall' },
-                        { label: t('menu.serviceAisles'), path: '/products?cat=service' },
+                        { label: t('menu.serviceAisles'), path: '/products?cat=service' }
                     ]
                 },
                 {
@@ -67,112 +85,155 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                         { label: t('menu.marketEquip'), path: '/products?cat=market' },
                         { label: t('menu.coldStorage'), path: '/products?cat=coldStorage' },
                         { label: t('menu.coolingSystems'), path: '/products?cat=coolingSystems' },
-                        { label: t('menu.coolingAisles'), path: '/products?cat=coolingAisles' },
+                        { label: t('menu.coolingAisles'), path: '/products?cat=coolingAisles' }
                     ]
                 }
             ]
         },
         { label: t('menu.references'), path: '/references', hasSubmenu: false },
         { label: t('menu.gallery'), path: '/gallery', hasSubmenu: false },
-        { label: t('menu.contact'), path: '/contact', hasSubmenu: false },
+        { label: t('menu.contact'), path: '/contact', hasSubmenu: false }
     ];
 
-    const toggleLanguage = () => {
-        setLanguage(language === 'TR' ? 'EN' : 'TR');
-    };
+    const toggleLanguage = () => setLanguage(language === 'TR' ? 'EN' : 'TR');
+    const toggleSubmenu = (label: string) => setExpandedMenu(expandedMenu === label ? null : label);
 
-    const toggleSubmenu = (label: string) => {
-        setExpandedMenu(expandedMenu === label ? null : label);
-    };
+    // ✅ Desktop: soldan kay, Mobile: alttan çık
+    const sidebarInitial = isMobile ? { y: '100%', x: 0 } : { x: '-100%', y: 0 };
+    const sidebarAnimate = isMobile ? { y: 0, x: 0 } : { x: 0, y: 0 };
+    const sidebarExit = isMobile ? { y: '100%', x: 0 } : { x: '-100%', y: 0 };
 
     return (
         <AnimatePresence>
             {isOpen && (
                 <>
-                    {/* Overlay with Blur */}
+                    {/* Overlay */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
+                        transition={{ duration: 0.25 }}
                         onClick={onClose}
-                        className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[60]"
+                        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
                     />
 
                     {/* Sidebar */}
                     <motion.div
-                        initial={{ x: "-100%" }}
-                        animate={{ x: 0 }}
-                        exit={{ x: "-100%" }}
-                        transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                        className="fixed top-0 left-0 h-full w-[320px] sm:w-[380px] bg-white dark:bg-[#111827] z-[70] shadow-[4px_0_24px_rgba(0,0,0,0.1)] flex flex-col rounded-r-3xl border-r border-gray-100 dark:border-neutral-800 overflow-hidden"
+                        // ✅ drag sadece mobilde aktif
+                        drag={isMobile ? 'y' : false}
+                        dragControls={dragControls}
+                        dragListener={false}
+                        dragConstraints={isMobile ? { top: 0, bottom: 9999 } : undefined}
+                        dragElastic={isMobile ? 0.05 : undefined}
+                        onDragEnd={(_, info) => {
+                            if (!isMobile) return;
+                            if (info.offset.y > 120 || info.velocity.y > 800) onClose();
+                        }}
+                        initial={sidebarInitial}
+                        animate={sidebarAnimate}
+                        exit={sidebarExit}
+                        transition={{
+                            type: 'spring',
+                            bounce: 0,
+                            duration: 0.4
+                        }}
+                        style={{ touchAction: isMobile ? 'pan-y' : 'auto' }}
+                        className={[
+                            'fixed z-[70] bg-white dark:bg-[#1f2937] overflow-hidden flex flex-col',
+                            // mobile sheet
+                            'inset-x-0 bottom-0 h-[85vh] w-full rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.1)]',
+                            // desktop drawer
+                            'md:inset-y-0 md:left-0 md:right-auto md:h-full md:w-[380px] md:rounded-none md:rounded-r-3xl md:shadow-[4px_0_24px_rgba(0,0,0,0.1)]'
+                        ].join(' ')}
                     >
+                        {/* Mobile drag handle */}
+                        {isMobile && (
+                            <div
+                                className="touch-none cursor-grab active:cursor-grabbing bg-white dark:bg-[#1f2937] z-10 md:hidden"
+                                onPointerDown={(e) => dragControls.start(e)}
+                            >
+                                <div className="w-full flex justify-center pt-4 pb-2">
+                                    <div className="w-12 h-1.5 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+                                </div>
+                            </div>
+                        )}
+
                         {/* Header */}
-                        <div className="flex items-center justify-between p-6 pb-2">
-                            <span className="text-[15px] md:text-xl font-bold text-gray-900 dark:text-white tracking-tight">Menu</span>
+                        <div className="flex items-center justify-between px-6 py-4 md:pt-6 md:pb-2 border-b border-gray-100 dark:border-gray-800 md:border-none">
+              <span className="text-[15px] md:text-xl font-bold text-gray-900 dark:text-white tracking-tight">
+                Menu
+              </span>
                             <button
+                                onPointerDown={(e) => e.stopPropagation()}
                                 onClick={onClose}
-                                className="p-2 rounded-full bg-gray-50 dark:bg-neutral-800 text-gray-500 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-neutral-700 transition-all"
+                                className="p-2 rounded-full bg-gray-50 dark:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all"
+                                aria-label="Close"
                             >
                                 <X size={18} />
                             </button>
                         </div>
 
-                        {/* Search Bar */}
-                        <div className="px-4 py-2 md:py-4">
+                        {/* Search */}
+                        <div className="px-4 py-3 md:py-4 border-b border-gray-100 dark:border-gray-800">
                             <form onSubmit={handleSearch} className="relative group">
                                 <input
                                     type="text"
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
                                     placeholder={t('menu.search')}
-                                    className="w-full bg-gray-50  text-gray-800  text-sm py-2 md.py-3.5 pl-11 pr-4 rounded-2xl  border-gray-300 border-[thin]  focus:bg-white  focus:outline-none  focus:ring-[#009FE3]/10 transition-all placeholder-gray-400"
+                                    className="w-full bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-white text-sm py-3 pl-11 pr-4 rounded-2xl border border-gray-200 dark:border-gray-700 focus:bg-white dark:focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-[#009FE3]/50 transition-all placeholder-gray-400 dark:placeholder-gray-500"
                                 />
-                                <button type="submit" className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-[#009FE3] transition-colors">
+                                <button
+                                    type="submit"
+                                    className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 group-focus-within:text-[#009FE3] transition-colors"
+                                    aria-label="Search"
+                                >
                                     <Search size={18} />
                                 </button>
                             </form>
                         </div>
 
                         {/* Menu Items */}
-                        <div className="flex-1 overflow-y-auto px-4 pb-6 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-200 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-700 [&::-webkit-scrollbar-thumb]:rounded-full">
+                        <div className="flex-1 overflow-y-auto px-4 py-2 pb-6 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-thumb]:bg-gray-600 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-gray-400 dark:hover:[&::-webkit-scrollbar-thumb]:bg-gray-500">
                             <div className="space-y-1">
                                 {menuItems.map((item, index) => (
                                     <div key={index} className="flex flex-col">
                                         <div
-                                            className={`flex items-center   justify-between px-4 py-3.5 rounded-2xl cursor-pointer transition-all group ${
+                                            className={`flex items-center justify-between px-4 py-3.5 rounded-2xl cursor-pointer transition-all group ${
                                                 expandedMenu === item.label
-                                                    ? 'bg-gray-50 '
-                                                    : 'hover:bg-gray-50 '
+                                                    ? 'bg-gray-100 dark:bg-gray-800'
+                                                    : 'hover:bg-gray-50 dark:hover:bg-gray-800/50'
                                             }`}
                                             onClick={() => {
-                                                if (item.hasSubmenu) {
-                                                    toggleSubmenu(item.label);
-                                                } else {
-                                                    onClose();
-                                                }
+                                                if (item.hasSubmenu) toggleSubmenu(item.label);
+                                                else onClose();
                                             }}
                                         >
                                             <Link
                                                 to={item.path}
                                                 onClick={(e) => {
-                                                    if (item.hasSubmenu) {
-                                                        e.preventDefault();
-                                                    }
+                                                    if (item.hasSubmenu) e.preventDefault();
                                                 }}
                                                 className={`flex-1 text-[13px] md:text-sm font-semibold tracking-wide transition-colors ${
                                                     expandedMenu === item.label
-                                                        ? 'text-'
-                                                        : 'text-gray-700 dark:text-gray-200 group-hover:text-black'
+                                                        ? 'text-[#009FE3] dark:text-[#009FE3]'
+                                                        : 'text-gray-700 dark:text-gray-200 group-hover:text-black dark:group-hover:text-white'
                                                 }`}
                                             >
                                                 {item.label}
                                             </Link>
+
                                             {item.hasSubmenu && (
-                                                <div className="flex items-center justify-center w-6 h-6 rounded-full bg-white  shadow-md border-gray-900   dark:border-neutral-300  transition-colors">
+                                                <div
+                                                    className={`flex items-center justify-center w-6 h-6 rounded-full transition-colors ${
+                                                        expandedMenu === item.label ? 'bg-white dark:bg-gray-700 shadow-sm' : 'bg-transparent'
+                                                    }`}
+                                                >
                                                     <ChevronRight
-                                                        size={14}
-                                                        className={`text-gray-400  transition-transform duration-300 ${expandedMenu === item.label ? 'rotate-90 text-[#009FE3]' : ''}`}
+                                                        size={16}
+                                                        className={`text-gray-400 dark:text-gray-500 transition-transform duration-300 ${
+                                                            expandedMenu === item.label ? 'rotate-90 text-[#009FE3] dark:text-[#009FE3]' : ''
+                                                        }`}
                                                     />
                                                 </div>
                                             )}
@@ -188,11 +249,11 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                                                     transition={{ duration: 0.2 }}
                                                     className="overflow-hidden"
                                                 >
-                                                    <div className="ml-6 pl-4 border-l-2 border-gray-100 dark:border-neutral-800 py-2 space-y-1 mt-1">
+                                                    <div className="ml-6 pl-4 border-l-2 border-gray-100 dark:border-gray-700 py-2 space-y-1 mt-1">
                                                         {item.submenuItems.map((subItem, subIndex) => (
                                                             <div key={subIndex} className="flex flex-col">
                                                                 <div
-                                                                    className="flex items-center justify-between px-4 py-2.5 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors group/sub"
+                                                                    className="flex items-center justify-between px-4 py-2.5 rounded-xl cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group/sub"
                                                                     onClick={(e) => {
                                                                         if (subItem.children) {
                                                                             e.preventDefault();
@@ -208,21 +269,20 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                                                                             if (subItem.children) e.preventDefault();
                                                                             else onClose();
                                                                         }}
-                                                                        className="text-[13px] md:text-sm font-bold text-gray-600 dark:text-white group-hover/sub:text-black transition-colors flex-1"
+                                                                        className="text-[13px] md:text-sm font-bold text-gray-600 dark:text-gray-300 group-hover/sub:text-black dark:group-hover/sub:text-white transition-colors flex-1"
                                                                     >
                                                                         {subItem.label}
                                                                     </Link>
                                                                 </div>
 
-                                                                {/* Nested Submenu Items */}
                                                                 {subItem.children && (
-                                                                    <div className="ml-4 pl-3 border-l-2 border-gray-100 dark:border-neutral-800 space-y-0.5 mt-1 mb-2">
+                                                                    <div className="ml-4 pl-3 border-l-2 border-gray-100 dark:border-gray-700 space-y-0.5 mt-1 mb-2">
                                                                         {subItem.children.map((child, childIdx) => (
                                                                             <Link
                                                                                 key={childIdx}
                                                                                 to={child.path}
                                                                                 onClick={onClose}
-                                                                                className="block px-4 py-2 text-xs font-thin text-gray-500 dark:text-gray-300  dark:hover:text-white hover:bg-gray-50 dark:hover:bg-neutral-800/50 rounded-lg transition-all"
+                                                                                className="block px-4 py-2 text-xs font-medium text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800/50 rounded-lg transition-all"
                                                                             >
                                                                                 {child.label}
                                                                             </Link>
@@ -240,23 +300,35 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                             </div>
                         </div>
 
-                        {/* Language Selector Footer */}
-                        <div className="p-5  bg-gray-50/50 dark:bg-[#111827]">
+                        {/* Language Footer */}
+                        <div className="p-5 bg-gray-50/50 dark:bg-[#1f2937] border-t border-gray-100 dark:border-gray-800">
                             <button
                                 onClick={toggleLanguage}
-                                className="w-full flex items-center justify-between px-4 py-3 bg-white dark:bg-[#111827] dark:shadow-sm dark:shadow-amber-50 hover:bg-gray-50 dark:hover:bg-neutral-700 rounded-2xl shadow-sm border border-gray-100 dark:border-neutral-700 transition-all group"
+                                className="w-full flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 transition-all group"
                             >
                                 <div className="flex items-center gap-3">
-                                    <div className="w-8 h-8 rounded-full bg-gray-50  flex items-center justify-center group-hover:scale-110 transition-transform">
-                                        <Globe size={16} className="text-[#009FE3] dark:text-black " />
+                                    <div className="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                        <Globe size={16} className="text-[#009FE3]" />
                                     </div>
                                     <span className="text-sm font-bold text-gray-700 dark:text-white">
                     {language === 'TR' ? 'Türkçe' : 'English'}
                   </span>
                                 </div>
-                                <div className="flex items-center gap-1 bg-gray-100  p-1 rounded-xl">
-                                    <span className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-colors ${language === 'TR' ? 'bg-[#009FE3] text-white shadow-sm' : 'text-gray-500 dark:text-black'}`}>TR</span>
-                                    <span className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-colors ${language === 'EN' ? 'bg-[#009FE3] text-white shadow-sm' : 'text-gray-500 dark:text-black'}`}>EN</span>
+                                <div className="flex items-center gap-1 bg-gray-100 dark:bg-gray-900 p-1 rounded-xl">
+                  <span
+                      className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-colors ${
+                          language === 'TR' ? 'bg-[#009FE3] text-white shadow-sm' : 'text-gray-500 dark:text-gray-400'
+                      }`}
+                  >
+                    TR
+                  </span>
+                                    <span
+                                        className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-colors ${
+                                            language === 'EN' ? 'bg-[#009FE3] text-white shadow-sm' : 'text-gray-500 dark:text-gray-400'
+                                        }`}
+                                    >
+                    EN
+                  </span>
                                 </div>
                             </button>
                         </div>

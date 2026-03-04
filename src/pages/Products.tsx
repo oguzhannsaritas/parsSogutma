@@ -257,6 +257,7 @@ export default function Products() {
 
         'filters.items.yarimBoySurtlukDolabi': 'Yarım Boy Sütlük Dolabı'
     };
+
     const getTrValue = (key: string) => FILTER_TR_VALUE[key] ?? key;
 
     const appliedUrlPresetKeyRef = useRef<string | null>(null);
@@ -505,7 +506,6 @@ export default function Products() {
         ],
         [t]
     );
-
     const allFilterKeys = useMemo(() => {
         return Array.from(new Set(filterCategories.flatMap((category) => category.items)));
     }, [filterCategories]);
@@ -773,15 +773,18 @@ export default function Products() {
                         drag="y"
                         dragControls={dragControls}
                         dragListener={false}
-                        dragConstraints={{ top: 0, bottom: 0 }}
-                        dragElastic={0.2}
+                        dragConstraints={{ top: 0 }}
+                        dragElastic={0.05}
+                        initial={{ y: "100%" }}
+                        animate={{ y: isMobileFilterOpen ? 0 : "100%" }}
+                        transition={{ type: "spring", bounce: 0, duration: 0.4 }}
                         onDragEnd={(_, info) => {
                             if (info.offset.y > 100 || info.velocity.y > 500) {
                                 setIsMobileFilterOpen(false);
                             }
                         }}
-                        className={`fixed inset-x-0 bottom-0 z-[70] h-[85vh] w-full bg-white dark:bg-[#1f2937] rounded-t-3xl flex flex-col transition-transform duration-300 transform lg:static lg:h-auto lg:w-1/4 lg:rounded-none lg:bg-transparent lg:z-auto lg:block lg:translate-y-0 ${
-                            isMobileFilterOpen ? 'translate-y-0 shadow-[0_-10px_40px_rgba(0,0,0,0.1)]' : 'translate-y-full'
+                        className={`fixed inset-x-0 bottom-0 z-[70] h-[85vh] w-full bg-white dark:bg-[#1f2937] rounded-t-3xl flex flex-col lg:static lg:h-auto lg:w-1/4 lg:rounded-none lg:bg-transparent lg:z-auto lg:block lg:!transform-none ${
+                            isMobileFilterOpen ? 'shadow-[0_-10px_40px_rgba(0,0,0,0.1)]' : ''
                         }`}
                     >
                         {/* Draggable Header Area for Mobile */}
