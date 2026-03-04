@@ -72,7 +72,7 @@ export default function HeroSection() {
         { id: 4, subtitle: t('hero.slide4.title'), title: t('menu.coldStorage'), image: '/images/home/sogukHava2.jpg' },
         { id: 5, subtitle: t('hero.slide5.title'), title: t('menu.coolingSystems'), image: '/images/home/sogutma.jpg' },
         { id: 6, subtitle: t('hero.slide6.title'), title: t('menu.coolingAisles'), image: '/images/home/sogutmareyon.jpg' },
-        { id: 7, subtitle: t('hero.slide7.title'), title: t('menu.bakery'), image: '/images/home/unluMamül.jpg' },
+        { id: 7, subtitle: t('hero.slide7.title'), title: t('menu.bakery'), image: '/images/home/unluMamülx.jpg' },
     ];
 
     const markSwipeJustHappened = () => {

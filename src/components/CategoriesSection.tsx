@@ -14,7 +14,7 @@ export default function CategoriesSection() {
         { title: t('menu.verticalCooling'), image: "/images/dikeyTip.jpg" },
         { title: t('menu.wallCooling'), image: "/images/duvarTipix.jpg" },
         { title: t('menu.bakery'), image: "/images/home/unluMamülx.jpg" },
-        { title: t('menu.industrialKitchen'), image: "/images/home/endüstriyelMutfakx.jpg" },
+        { title: t('menu.industrialKitchen'), image: "/images/home/endüstriyelMutfakhome.jpg" },
         { title: t('menu.marketEquip'), image: "/images/home/marketx.jpg" },
         { title: t('menu.coolingSystems'),  image: "/images/home/sogutma.jpg" },
         { title: t('menu.coolingAisles'),  image: "/images/sogutmaliReyon.jpg"  },
