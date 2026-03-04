@@ -6,13 +6,13 @@ import { useLanguage } from '../context/LanguageContext';
 
 // Mock Data for Client Logos (using images instead of text)
 const clients = [
-    { name: "BİM", image: "/src/public/images/refences/bim.jpg" },
-    { name: "A-101", image:  "/src/public/images/refences/a101.jpg" },
-    { name: "ŞOK", image:  "/src/public/images/refences/kayaCiftligi.jpg" },
-    { name: "Sarıyer", image:  "/src/public/images/refences/metro.jpg" },
-    { name: "Çağrı", image:  "/src/public/images/refences/peynircibaba.jpg" },
-    { name: "Bizim", image:  "/src/public/images/refences/sa.jpg" },
-    { name: "CarrefourSA", image:  "/src/public/images/refences/sok.jpg"},
+    { name: "BİM", image: "/images/refences/bim.jpg" },
+    { name: "A-101", image:  "/images/refences/a101.jpg" },
+    { name: "ŞOK", image:  "/images/refences/kayaCiftligi.jpg" },
+    { name: "Sarıyer", image:  "/images/refences/metro.jpg" },
+    { name: "Çağrı", image:  "/images/refences/peynircibaba.jpg" },
+    { name: "Bizim", image:  "/images/refences/sa.jpg" },
+    { name: "CarrefourSA", image:  "/images/refences/sok.jpg"},
 ];
 
 // Mock Data for Projects
@@ -21,25 +21,25 @@ export const projects = [
         id: 'byKasap',
         title: 'BY KASAP',
         location: 'İSTANBUL / ÜMRANİYE',
-        coverImage: 'src/public/images/refences/byKasap/byKasap1.jpg',
+        coverImage: '/images/refences/byKasap/byKasap1.jpg',
         images: [
-            '/src/public/images/refences/byKasap/byKasap1.jpg',
-            '/src/public/images/refences/byKasap/byKasap2.jpg',
-            '/src/public/images/refences/byKasap/byKasap12.mp4',
+            '/images/refences/byKasap/byKasap1.jpg',
+            '/images/refences/byKasap/byKasap2.jpg',
+            '/images/refences/byKasap/byKasap12.mp4',
         ]
     },
     {
         id: 'kaleRestoran',
         title: 'KALE RESTORAN',
         location: 'İSTANBUL / MALTEPE',
-        coverImage: '/src/public/images/refences/kaleRestoran/kaleRestoran5.jpg',
+        coverImage: '/images/refences/kaleRestoran/kaleRestoran5.jpg',
         images: [
-            '/src/public/images/refences/kaleRestoran/kaleRestoran.jpg',
-            '/src/public/images/refences/kaleRestoran/kaleRestora2.jpg',
-            '/src/public/images/refences/kaleRestoran/kaleRestoran3.jpg',
-            '/src/public/images/refences/kaleRestoran/kaleRestoran4.jpg',
-            '/src/public/images/refences/kaleRestoran/kaleRestoran5.jpg',
-            '/src/public/images/refences/kaleRestoran/kaleRestoran6.jpg',
+            '/images/refences/kaleRestoran/kaleRestoran.jpg',
+            '/images/refences/kaleRestoran/kaleRestora2.jpg',
+            '/images/refences/kaleRestoran/kaleRestoran3.jpg',
+            '/images/refences/kaleRestoran/kaleRestoran4.jpg',
+            '/images/refences/kaleRestoran/kaleRestoran5.jpg',
+            '/images/refences/kaleRestoran/kaleRestoran6.jpg',
 
         ]
     },
@@ -47,46 +47,46 @@ export const projects = [
         id: 'yildirimEt',
         title: 'YILDIRIM ET',
         location: 'Bursa / İznik',
-        coverImage:   'src/public/images/refences/yildirimEt/bursa4.jpg',
+        coverImage:   '/images/refences/yildirimEt/bursa4.jpg',
         images: [
-            '/src/public/images/refences/yildirimEt/bursa1.jpg',
-            '/src/public/images/refences/yildirimEt/bursa2.jpg',
-            '/src/public/images/refences/yildirimEt/bursa3.jpg',
-            '/src/public/images/refences/yildirimEt/bursa4.jpg',
-            '/src/public/images/refences/yildirimEt/bursa5.jpg',
-            '/src/public/images/refences/yildirimEt/bursa6.jpg',
+            '/images/refences/yildirimEt/bursa1.jpg',
+            '/images/refences/yildirimEt/bursa2.jpg',
+            '/images/refences/yildirimEt/bursa3.jpg',
+            '/images/refences/yildirimEt/bursa4.jpg',
+            '/images/refences/yildirimEt/bursa5.jpg',
+            '/images/refences/yildirimEt/bursa6.jpg',
         ]
     },
     {
         id: 'yagizCiftligi',
         title: 'YAĞIZ ÇİFTLİĞİM',
         location: 'İSATNBUL / BEYLİK DÜZÜ',
-        coverImage:  'src/public/images/refences/yagizCiftligi/yagizCiftligi1.jpg',
+        coverImage:  '/images/refences/yagizCiftligi/yagizCiftligi1.jpg',
         images: [
 
-            '/src/public/images/refences/yagizCiftligi/yagizCiftligi1.jpg',
-            '/src/public/images/refences/yagizCiftligi/yagizCiftligi2.jpg',
-            '/src/public/images/refences/yagizCiftligi/yagizCiftligi3.jpg',
-            '/src/public/images/refences/yagizCiftligi/yagizCiftligi4.jpg',
-            '/src/public/images/refences/yagizCiftligi/yagizCiftligi5.jpg',
-            '/src/public/images/refences/yagizCiftligi/yagizCiftligi6.jpg',
-            '/src/public/images/refences/yagizCiftligi/yagizCiftligi7.jpg',
-            '/src/public/images/refences/yagizCiftligi/yagizCiftligi8.jpg',
-            '/src/public/images/refences/yagizCiftligi/yagizCiftligi9.jpg',
+            '/images/refences/yagizCiftligi/yagizCiftligi1.jpg',
+            '/images/refences/yagizCiftligi/yagizCiftligi2.jpg',
+            '/images/refences/yagizCiftligi/yagizCiftligi3.jpg',
+            '/images/refences/yagizCiftligi/yagizCiftligi4.jpg',
+            '/images/refences/yagizCiftligi/yagizCiftligi5.jpg',
+            '/images/refences/yagizCiftligi/yagizCiftligi6.jpg',
+            '/images/refences/yagizCiftligi/yagizCiftligi7.jpg',
+            '/images/refences/yagizCiftligi/yagizCiftligi8.jpg',
+            '/images/refences/yagizCiftligi/yagizCiftligi9.jpg',
         ]
     },
     {
         id: 'tatOglu',
         title: 'TAT OĞLU FIRIN PASTANESİ',
         location: 'KOCAELİ / GEBZE',
-        coverImage: 'src/public/images/refences/tatOglu/tatOglu.jpg',
+        coverImage: '/images/refences/tatOglu/tatOglu.jpg',
         images: [
-            '/src/public/images/refences/tatOglu/tatOglu.jpg',
-            '/src/public/images/refences/tatOglu/tatOglu2.jpg',
-            '/src/public/images/refences/tatOglu/tatOglu3.jpg',
-            '/src/public/images/refences/tatOglu/tatOglu4.jpg',
-            '/src/public/images/refences/tatOglu/tatOglu5.jpg',
-            '/src/public/images/refences/tatOglu/tatOglu6.jpg',
+            '/images/refences/tatOglu/tatOglu.jpg',
+            '/images/refences/tatOglu/tatOglu2.jpg',
+            '/images/refences/tatOglu/tatOglu3.jpg',
+            '/images/refences/tatOglu/tatOglu4.jpg',
+            '/images/refences/tatOglu/tatOglu5.jpg',
+            '/images/refences/tatOglu/tatOglu6.jpg',
 
 
 
@@ -96,17 +96,17 @@ export const projects = [
         id: 'tireBolu',
         title: 'TİREBOLU UNLU MAMÜLLER ',
         location: 'İSTANBUL / ÜMRANİYE',
-        coverImage: 'src/public/images/refences/tireBolu/tirebolu.jpg',
+        coverImage: '/images/refences/tireBolu/tirebolu.jpg',
         images: [
-            '/src/public/images/refences/tireBolu/tirebolu.jpg',
-            '/src/public/images/refences/tireBolu/tirebolu1.jpg',
-            '/src/public/images/refences/tireBolu/tirebolu2.jpg',
-            '/src/public/images/refences/tireBolu/tirebolu3.jpg',
-            '/src/public/images/refences/tireBolu/tirebolu4.jpg',
-            '/src/public/images/refences/tireBolu/tirebolu5.jpg',
-            '/src/public/images/refences/tireBolu/tirebolu6.jpg',
-            '/src/public/images/refences/tireBolu/tirebolu7.jpg',
-            '/src/public/images/refences/tireBolu/tirebolu8.jpg',
+            '/images/refences/tireBolu/tirebolu.jpg',
+            '/images/refences/tireBolu/tirebolu1.jpg',
+            '/images/refences/tireBolu/tirebolu2.jpg',
+            '/images/refences/tireBolu/tirebolu3.jpg',
+            '/images/refences/tireBolu/tirebolu4.jpg',
+            '/images/refences/tireBolu/tirebolu5.jpg',
+            '/images/refences/tireBolu/tirebolu6.jpg',
+            '/images/refences/tireBolu/tirebolu7.jpg',
+            '/images/refences/tireBolu/tirebolu8.jpg',
 
 
         ]
@@ -115,23 +115,23 @@ export const projects = [
         id: 'nuvo',
         title: 'TALHA ET GIDA',
         location: 'İSTANBUL / KARTAL',
-        coverImage: 'src/public/images/refences/talhaEt/talhaEt.jpg',
+        coverImage: '/images/refences/talhaEt/talhaEt.jpg',
         images: [
-            '/src/public/images/refences/talhaEt/talhaEt.jpg',
-            '/src/public/images/refences/talhaEt/talhaEt1.jpg'
+            '/images/refences/talhaEt/talhaEt.jpg',
+            '/images/refences/talhaEt/talhaEt1.jpg'
         ]
     },
     {
         id: 'İstanbul-Kartal',
         title: 'NUVO PASTANE',
         location: 'İSTANBUL / KARTAL',
-        coverImage: 'src/public/images/refences/nuvo/nuvo.jpg',
+        coverImage: '/images/refences/nuvo/nuvo.jpg',
         images: [
-            '/src/public/images/refences/nuvo/nuvo.jpg',
-            '/src/public/images/refences/nuvo/nuvo1.jpg',
-            '/src/public/images/refences/nuvo/nuvo2.jpg',
-            '/src/public/images/refences/nuvo/nuvo3.jpg',
-            '/src/public/images/refences/nuvo/nuvo4.jpg',
+            '/images/refences/nuvo/nuvo.jpg',
+            '/images/refences/nuvo/nuvo1.jpg',
+            '/images/refences/nuvo/nuvo2.jpg',
+            '/images/refences/nuvo/nuvo3.jpg',
+            '/images/refences/nuvo/nuvo4.jpg',
 
 
         ]
@@ -140,10 +140,10 @@ export const projects = [
         id: 'doganKasap',
         title: 'DOĞAN KASAP',
         location: 'İSTANBUL / KADIKÖY',
-        coverImage: 'src/public/images/refences/doganKasap/doganKasap.jpg',
+        coverImage: '/images/refences/doganKasap/doganKasap.jpg',
         images: [
-            '/src/public/images/refences/doganKasap/doganKasap.jpg',
-            '/src/public/images/refences/doganKasap/doganKasap1.jpg',
+            '/images/refences/doganKasap/doganKasap.jpg',
+            '/images/refences/doganKasap/doganKasap1.jpg',
         ]
     }
 ];
