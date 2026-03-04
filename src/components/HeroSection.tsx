@@ -50,15 +50,15 @@ export default function HeroSection() {
         };
     }, []);
 
-    const SWIPE_THRESHOLD = 80; // kaç px sürükleyince slide değişsin
-    const MOVE_START_THRESHOLD = 8; // küçük titremeleri ignore et
+    const SWIPE_THRESHOLD = 80;
+    const MOVE_START_THRESHOLD = 8;
 
     const swipeRef = useRef({
         active: false,
         pointerId: -1,
         startX: 0,
         startY: 0,
-        decided: false, // yatay/dikey kararı verildi mi
+        decided: false,
         isHorizontal: false,
     });
 

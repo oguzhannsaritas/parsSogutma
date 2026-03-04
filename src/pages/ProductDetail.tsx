@@ -178,7 +178,7 @@ export default function ProductDetail() {
                     </div>
                 </div>
 
-                <h1 className="text-4xl font-bold mb-12 text-gray-900 dark:text-white">
+                <h1 className="text-lg md:text-4xl font-bold mb-2 md:mb-12   text-gray-900 dark:text-white">
                     {product.name[language]}
                 </h1>
 

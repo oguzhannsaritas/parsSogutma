@@ -233,7 +233,7 @@ export default function Products() {
         'filters.items.paslanmazCalismaTezgahi': 'Paslanmaz Çalışma Tezgahı',
 
         'filters.items.sutluk': 'Sütlük',
-        'filters.items.zeyitnDolabi': 'Zeyitn Dolabı',
+        'filters.items.zeytinDolabi': 'Zeytin Dolabı',
         'filters.items.manavTezgahi': 'Manav Tezgahı',
         'filters.items.zeytinlikVeRecetelikDolabi': 'Zeytinlik ve Reçetelik Dolabı',
 
@@ -244,19 +244,18 @@ export default function Products() {
         'filters.items.bireyselSogutmaGruplari': 'Bireysel Soğutma Grupları',
 
         'filters.items.sogukHavaDeposu': 'Soğuk Hava Deposu',
-        'filters.items.eksi18DereceSogukHavaDeposu': '-18 Derece Soğuk Hava Deposu',
+        'filters.items.eksi18SogukHavaDeposu': '-18 Derece Soğuk Hava Deposu',
         'filters.items.pvcSeritHavaPerdesi': 'PVC Şerit Hava Perdesi',
         'filters.items.pvcPerde': 'PVC Perde',
         'filters.items.pvcPerdeSistemleri': 'PVC Perde Sistemleri',
         'filters.items.sogukOdaPanelleri': 'Soğuk Oda Panelleri',
-        'filters.items.sogukHavaDeposuPvcPerdeSistemleriAksesuar':
+        'filters.items.sogukHavaDeposuPvcAksesuar':
             'Soğuk Hava Deposu PVC Perde Sistemleri Soğuk Hava Deposu Aksesuarları',
         'filters.items.menteseliSogukHavaDeposuKapisi': 'Menteşeli Soğuk Hava Deposu Kapısı',
         'filters.items.surguluSogukHavaDeposuKapisi': 'Sürgülü Soğuk Hava Deposu Kapısı',
 
-        'filters.items.yarimBoySurlukDolabi': 'Yarım Boy Sürlük Dolabı'
+        'filters.items.yarimBoySurtlukDolabi': 'Yarım Boy Sütlük Dolabı'
     };
-
 
     const getTrValue = (key: string) => FILTER_TR_VALUE[key] ?? key;
 
@@ -428,7 +427,7 @@ export default function Products() {
                 title: t('menu.marketEquip'),
                 items: [
                     'filters.items.sutluk',
-                    'filters.items.zeyitnDolabi',
+                    'filters.items.zeytinDolabi',
                     'filters.items.manavTezgahi',
                     'filters.items.zeytinlikVeRecetelikDolabi'
                 ]
@@ -482,7 +481,7 @@ export default function Products() {
                     'filters.items.duvarTipiSutlukReyonlari',
                     'filters.items.promosyonDolabi',
                     'filters.items.manavSutlukDolabi',
-                    'filters.items.yarimBoySurlukDolabi',
+                    'filters.items.yarimBoySutlukDolabi',
                     'filters.items.camKapakliSutlukDolabi',
                     'filters.items.sutlukDolabi',
                     'filters.items.etAskiDolabi'
@@ -493,12 +492,12 @@ export default function Products() {
                 title: t('menu.coldStorage'),
                 items: [
                     'filters.items.sogukHavaDeposu',
-                    'filters.items.eksi18DereceSogukHavaDeposu',
+                    'filters.items.eksi18SogukHavaDeposu',
                     'filters.items.pvcSeritHavaPerdesi',
                     'filters.items.pvcPerde',
                     'filters.items.pvcPerdeSistemleri',
                     'filters.items.sogukOdaPanelleri',
-                    'filters.items.sogukHavaDeposuPvcPerdeSistemleriAksesuar',
+                    'filters.items.sogukHavaDeposuPvcAksesuar',
                     'filters.items.menteseliSogukHavaDeposuKapisi',
                     'filters.items.surguluSogukHavaDeposuKapisi'
                 ]
@@ -765,48 +764,57 @@ export default function Products() {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                className="fixed inset-0 z-[60] bg-black/50 lg:hidden backdrop-blur-sm"
+                                className="fixed inset-0 z-[60] bg-black/60 lg:hidden backdrop-blur-sm"
                                 onClick={() => setIsMobileFilterOpen(false)}
                             />
                         )}
                     </AnimatePresence>
 
                     <div
-                        className={`fixed inset-y-0 left-0 z-[70] w-[85%] sm:w-[320px] md:w-[360px] max-w-sm bg-white dark:bg-[#111827] flex flex-col transition-transform duration-300 transform lg:static lg:translate-x-0 lg:w-1/4 lg:bg-transparent lg:z-auto lg:block ${
-                            isMobileFilterOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full'
+                        className={`fixed inset-x-0 bottom-0 z-[70] h-[85vh] w-full bg-white dark:bg-[#111827] rounded-t-3xl flex flex-col transition-transform duration-300 transform lg:static lg:h-auto lg:w-1/4 lg:rounded-none lg:bg-transparent lg:z-auto lg:block lg:translate-y-0 ${
+                            isMobileFilterOpen ? 'translate-y-0 shadow-[0_-10px_40px_rgba(0,0,0,0.1)]' : 'translate-y-full'
                         }`}
                     >
-                        <div className="flex items-center justify-between p-4 border-b border-gray-100 dark:border-neutral-800 lg:hidden">
-                            <div className="flex items-center gap-2 text-gray-900 dark:text-white font-bold">
-                                <SlidersHorizontal size={20} />
-                                <span className="text-lg">{t('products.filter')}</span>
+                        {/* Drag Handle for Mobile */}
+                        <div className="w-full flex justify-center pt-3 pb-1 lg:hidden">
+                            <div className="w-12 h-1.5 bg-gray-300 dark:bg-neutral-700 rounded-full"></div>
+                        </div>
+
+                        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-neutral-800 lg:hidden">
+                            <div className="flex items-center gap-3 text-gray-900 dark:text-white font-bold">
+                                <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-[#009FE3]">
+                                    <SlidersHorizontal size={20} />
+                                </div>
+                                <span className="text-xl">{t('products.filter')}</span>
                             </div>
                             <button
                                 onClick={() => setIsMobileFilterOpen(false)}
-                                className="p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-neutral-800 rounded-full transition-colors"
+                                className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-neutral-800 rounded-full transition-colors"
                             >
-                                <X size={20} />
+                                <X size={24} />
                             </button>
                         </div>
 
-                        <div className="flex-1 overflow-y-auto p-4 lg:p-0 space-y-4 lg:space-y-8">
+                        <div className="flex-1 overflow-y-auto p-6 lg:p-0 space-y-6 lg:space-y-8">
                             {filterCategories.map((category) => (
                                 <div
                                     key={category.id}
-                                    className="border-b border-gray-100 dark:border-neutral-800 pb-4 lg:pb-6 last:border-0"
+                                    className="border border-gray-100 dark:border-neutral-800 rounded-2xl p-4 lg:border-0 lg:p-0 lg:border-b lg:rounded-none pb-4 lg:pb-6 last:border-0 bg-gray-50/50 dark:bg-neutral-800/20 lg:bg-transparent"
                                 >
                                     <div
-                                        className="flex items-center justify-between cursor-pointer mb-2 lg:mb-4 group"
+                                        className="flex items-center justify-between cursor-pointer group"
                                         onClick={() => toggleCategory(category.id)}
                                     >
-                                        <h3 className="font-bold text-xs sm:text-base md:text-lg uppercase text-gray-900 dark:text-white group-hover:text-[#009FE3] transition-colors leading-tight">
+                                        <h3 className="font-bold text-sm sm:text-base md:text-lg uppercase text-gray-900 dark:text-white group-hover:text-[#009FE3] transition-colors leading-tight">
                                             {category.title}
                                         </h3>
-                                        {expandedCategories.includes(category.id) ? (
-                                            <ChevronUp size={16} className="text-gray-500 dark:text-gray-400 md:w-4 md:h-4 flex-shrink-0" />
-                                        ) : (
-                                            <ChevronDown size={16} className="text-gray-500 dark:text-gray-400 md:w-4 md:h-4 flex-shrink-0" />
-                                        )}
+                                        <div className={`p-1.5 rounded-full transition-colors ${expandedCategories.includes(category.id) ? 'bg-gray-200 dark:bg-neutral-700' : 'bg-gray-100 dark:bg-neutral-800 group-hover:bg-gray-200 dark:group-hover:bg-neutral-700'}`}>
+                                            {expandedCategories.includes(category.id) ? (
+                                                <ChevronUp size={16} className="text-gray-600 dark:text-gray-300" />
+                                            ) : (
+                                                <ChevronDown size={16} className="text-gray-600 dark:text-gray-300" />
+                                            )}
+                                        </div>
                                     </div>
 
                                     <AnimatePresence>
@@ -817,33 +825,37 @@ export default function Products() {
                                                 exit={{ height: 0, opacity: 0 }}
                                                 className="overflow-hidden"
                                             >
-                                                <div className="space-y-3 lg:space-y-3 pl-1 mt-2 lg:mt-0 max-h-48 lg:max-h-60 overflow-y-auto overscroll-contain pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-600 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-gray-400 dark:hover:[&::-webkit-scrollbar-thumb]:bg-neutral-500 transition-colors">
+                                                <div className="space-y-1 pl-1 mt-4 max-h-48 lg:max-h-60 overflow-y-auto overscroll-contain pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-600 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-gray-400 dark:hover:[&::-webkit-scrollbar-thumb]:bg-neutral-500 transition-colors">
                                                     {category.items.map((itemKey, idx) => (
                                                         <div
                                                             key={idx}
-                                                            className="flex items-center justify-between group cursor-pointer py-1 lg:py-0"
+                                                            className="flex items-center justify-between group cursor-pointer py-2 lg:py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-800/50 px-2 -mx-2 transition-colors"
                                                             onClick={() => toggleFilter(itemKey)}
                                                         >
-                                                            <div className="flex items-center gap-2.5 lg:gap-3">
+                                                            <div className="flex items-center gap-3 lg:gap-3">
                                                                 <div
-                                                                    className={`w-4 h-4 lg:w-4 lg:h-4 border border-gray-300 dark:border-neutral-600 rounded-sm flex items-center justify-center transition-colors flex-shrink-0 mt-[2px] lg:mt-0 ${
+                                                                    className={`w-5 h-5 lg:w-4 lg:h-4 border-2 lg:border rounded flex items-center justify-center transition-all flex-shrink-0 ${
                                                                         isChecked(itemKey)
                                                                             ? 'bg-[#009FE3] border-[#009FE3]'
-                                                                            : 'group-hover:border-gray-400 dark:group-hover:border-neutral-500'
+                                                                            : 'border-gray-300 dark:border-neutral-600 group-hover:border-[#009FE3]'
                                                                     }`}
                                                                 >
                                                                     {isChecked(itemKey) && (
-                                                                        <div className="w-2 h-2 lg:w-2 lg:h-2 bg-white rounded-sm" />
+                                                                        <motion.div
+                                                                            initial={{ scale: 0 }}
+                                                                            animate={{ scale: 1 }}
+                                                                            className="w-2.5 h-2.5 lg:w-2 lg:h-2 bg-white rounded-sm"
+                                                                        />
                                                                     )}
                                                                 </div>
 
                                                                 <span
-                                                                    className={`text-[10px] md:text-xs text-gray-600 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors leading-tight ${
+                                                                    className={`text-sm lg:text-xs text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors leading-tight ${
                                                                         isChecked(itemKey) ? 'font-bold text-black dark:text-white' : ''
                                                                     }`}
                                                                 >
-                                  {t(itemKey)}
-                                </span>
+                                                                    {t(itemKey)}
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     ))}
@@ -855,7 +867,7 @@ export default function Products() {
                             ))}
                         </div>
 
-                        <div className="p-4 border-t border-gray-100 dark:border-neutral-800 lg:hidden bg-white dark:bg-[#111827]">
+                        <div className="p-4 lg:hidden bg-white dark:bg-[#111827] border-t border-gray-100 dark:border-neutral-800 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] z-10">
                             <div className="flex gap-3">
                                 <button
                                     onClick={() => {
@@ -863,7 +875,7 @@ export default function Products() {
                                         setAppliedFilters([]);
                                         setCurrentPage(1);
                                     }}
-                                    className="flex-1 py-3 px-4 border text-xs bg-[#0f172a] dark:bg-white text-white border-gray-200 dark:border-neutral-800 rounded-xl dark:text-gray-700 font-medium hover:bg-gray-50 dark:hover:bg-neutral-800 transition-colors"
+                                    className="flex-1 py-3.5 px-4 text-sm font-semibold text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-neutral-800 rounded-xl hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors"
                                 >
                                     Temizle
                                 </button>
@@ -873,9 +885,10 @@ export default function Products() {
                                         setCurrentPage(1);
                                         setIsMobileFilterOpen(false);
                                     }}
-                                    className="flex-[2] py-3 px-4 text-xs bg-[#0f172a] dark:bg-white text-white dark:text-black rounded-xl font-medium transition-colors shadow-lg shadow-[#009FE3]/20"
+                                    className="flex-[2] py-3.5 px-4 text-sm font-semibold bg-[#009FE3] text-white rounded-xl hover:bg-[#0085c2] transition-colors shadow-lg shadow-[#009FE3]/30 flex items-center justify-center gap-2"
                                 >
-                                    Sonuçları Gör ({previewFilteredCount})
+                                    <span>Sonuçları Gör</span>
+                                    <span className="bg-white/20 px-2 py-0.5 rounded-full text-xs">{previewFilteredCount}</span>
                                 </button>
                             </div>
                         </div>

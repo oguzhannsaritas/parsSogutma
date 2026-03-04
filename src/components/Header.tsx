@@ -129,7 +129,7 @@ export default function Header() {
         setIsLangMenuOpen(false);
     };
 
-    const flagSrc = language === 'TR' ? '/public/assets/icons/tr.svg' : '/public/assets/icons/us.svg';
+    const flagSrc = language === 'TR' ? '/assets/icons/tr.svg' : '/assets/icons/us.svg';
 
     const searchPanelInputClasses = isHome
         ? "bg-transparent border-none ml-2  focus:outline-none text-white text-sm w-full placeholder-white/50"

@@ -169,9 +169,9 @@ export const products: Product[] = [
     },
     {
         id: 4,
-        name: { TR: 'Kebab-Meze Dolabı', EN: 'Kebab-Mezze Cabinet' },
+        name: { TR: 'Kebap-Meze Dolabı', EN: 'Kebap-Mezze Cabinet' },
         category: { TR: 'Servis Reyonları', EN: 'Service Aisles' },
-        type: { TR: 'Kebab-Meze Dolabı', EN: 'Kebab-Mezze Cabinet' },
+        type: { TR: 'Kebap-Meze Dolabı', EN: 'Kebap-Mezze Cabinet' },
         image: '/images/products/servisReyonlari/kebapMezeDolabi/kabapMezeDolabix.jpg',
         thumbnails:[
             '/images/products/servisReyonlari/kebapMezeDolabi/kabapMezeDolabi.jpg',
