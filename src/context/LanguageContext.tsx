@@ -300,6 +300,9 @@ const translations: Translations = {
     'filters.items.sogukHavaDeposuPvcAksesuar': { TR: 'Soğuk Hava Deposu PVC Perde Sistemleri Soğuk Hava Deposu Aksesuarları', EN: 'Cold Storage PVC Curtain Systems & Accessories'},
     'filters.items.menteseliSogukHavaDeposuKapisi': { TR: 'Menteşeli Soğuk Hava Deposu Kapısı', EN: 'Hinged Cold Room Door' },
     'filters.items.surguluSogukHavaDeposuKapisi': { TR: 'Sürgülü Soğuk Hava Deposu Kapısı', EN: 'Sliding Cold Room Door' },
+    'filter.items.clear':{TR:'Temzile',EN:'Clear'},
+    'filter.items.seeResults':{TR:'Sonuçları Gör',EN:'See results'},
+
 
     //FOOTER
 

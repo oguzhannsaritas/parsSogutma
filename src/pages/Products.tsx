@@ -506,7 +506,6 @@ export default function Products() {
         [t]
     );
 
-
     const allFilterKeys = useMemo(() => {
         return Array.from(new Set(filterCategories.flatMap((category) => category.items)));
     }, [filterCategories]);
@@ -770,26 +769,34 @@ export default function Products() {
                         )}
                     </AnimatePresence>
 
-                    <div
-                        className={`fixed inset-x-0 bottom-0 z-[70] h-[85vh] w-full bg-white dark:bg-[#111827] rounded-t-3xl flex flex-col transition-transform duration-300 transform lg:static lg:h-auto lg:w-1/4 lg:rounded-none lg:bg-transparent lg:z-auto lg:block lg:translate-y-0 ${
+                    <motion.div
+                        drag="y"
+                        dragConstraints={{ top: 0, bottom: 0 }}
+                        dragElastic={0.2}
+                        onDragEnd={(_, info) => {
+                            if (info.offset.y > 100 || info.velocity.y > 500) {
+                                setIsMobileFilterOpen(false);
+                            }
+                        }}
+                        className={`fixed inset-x-0 bottom-0 z-[70] h-[85vh] w-full bg-white dark:bg-[#1f2937] rounded-t-3xl flex flex-col transition-transform duration-300 transform lg:static lg:h-auto lg:w-1/4 lg:rounded-none lg:bg-transparent lg:z-auto lg:block lg:translate-y-0 ${
                             isMobileFilterOpen ? 'translate-y-0 shadow-[0_-10px_40px_rgba(0,0,0,0.1)]' : 'translate-y-full'
                         }`}
                     >
                         {/* Drag Handle for Mobile */}
-                        <div className="w-full flex justify-center pt-3 pb-1 lg:hidden">
-                            <div className="w-12 h-1.5 bg-gray-300 dark:bg-neutral-700 rounded-full"></div>
+                        <div className="w-full flex justify-center pt-4 pb-2 lg:hidden cursor-grab active:cursor-grabbing">
+                            <div className="w-12 h-1.5 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
                         </div>
 
-                        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-neutral-800 lg:hidden">
+                        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800 lg:hidden">
                             <div className="flex items-center gap-3 text-gray-900 dark:text-white font-bold">
-                                <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-[#009FE3]">
+                                <div className="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg text-[#009FE3]">
                                     <SlidersHorizontal size={20} />
                                 </div>
                                 <span className="text-xl">{t('products.filter')}</span>
                             </div>
                             <button
                                 onClick={() => setIsMobileFilterOpen(false)}
-                                className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-neutral-800 rounded-full transition-colors"
+                                className="p-2 text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
                             >
                                 <X size={24} />
                             </button>
@@ -799,16 +806,16 @@ export default function Products() {
                             {filterCategories.map((category) => (
                                 <div
                                     key={category.id}
-                                    className="border border-gray-100 dark:border-neutral-800 rounded-2xl p-4 lg:border-0 lg:p-0 lg:border-b lg:rounded-none pb-4 lg:pb-6 last:border-0 bg-gray-50/50 dark:bg-neutral-800/20 lg:bg-transparent"
+                                    className="border border-gray-100 dark:border-gray-800 rounded-2xl p-4 lg:border-0 lg:p-0 lg:border-b lg:rounded-none pb-4 lg:pb-6 last:border-0 bg-gray-50/50 dark:bg-gray-800/30 lg:bg-transparent"
                                 >
                                     <div
                                         className="flex items-center justify-between cursor-pointer group"
                                         onClick={() => toggleCategory(category.id)}
                                     >
-                                        <h3 className="font-bold text-sm sm:text-base md:text-lg uppercase text-gray-900 dark:text-white group-hover:text-[#009FE3] transition-colors leading-tight">
+                                        <h3 className="font-bold text-sm sm:text-base md:text-lg uppercase text-gray-900 dark:text-white group-hover:text-[#009FE3] dark:group-hover:text-[#009FE3] transition-colors leading-tight">
                                             {category.title}
                                         </h3>
-                                        <div className={`p-1.5 rounded-full transition-colors ${expandedCategories.includes(category.id) ? 'bg-gray-200 dark:bg-neutral-700' : 'bg-gray-100 dark:bg-neutral-800 group-hover:bg-gray-200 dark:group-hover:bg-neutral-700'}`}>
+                                        <div className={`p-1.5 rounded-full transition-colors ${expandedCategories.includes(category.id) ? 'bg-gray-200 dark:bg-gray-700' : 'bg-gray-100 dark:bg-gray-800 group-hover:bg-gray-200 dark:group-hover:bg-gray-700'}`}>
                                             {expandedCategories.includes(category.id) ? (
                                                 <ChevronUp size={16} className="text-gray-600 dark:text-gray-300" />
                                             ) : (
@@ -825,11 +832,11 @@ export default function Products() {
                                                 exit={{ height: 0, opacity: 0 }}
                                                 className="overflow-hidden"
                                             >
-                                                <div className="space-y-1 pl-1 mt-4 max-h-48 lg:max-h-60 overflow-y-auto overscroll-contain pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-600 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-gray-400 dark:hover:[&::-webkit-scrollbar-thumb]:bg-neutral-500 transition-colors">
+                                                <div className="space-y-1 pl-1 mt-4 max-h-48 lg:max-h-60 overflow-y-auto overscroll-contain pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-thumb]:bg-gray-600 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-gray-400 dark:hover:[&::-webkit-scrollbar-thumb]:bg-gray-500 transition-colors">
                                                     {category.items.map((itemKey, idx) => (
                                                         <div
                                                             key={idx}
-                                                            className="flex items-center justify-between group cursor-pointer py-2 lg:py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-800/50 px-2 -mx-2 transition-colors"
+                                                            className="flex items-center justify-between group cursor-pointer py-2 lg:py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/80 px-2 -mx-2 transition-colors"
                                                             onClick={() => toggleFilter(itemKey)}
                                                         >
                                                             <div className="flex items-center gap-3 lg:gap-3">
@@ -837,7 +844,7 @@ export default function Products() {
                                                                     className={`w-5 h-5 lg:w-4 lg:h-4 border-2 lg:border rounded flex items-center justify-center transition-all flex-shrink-0 ${
                                                                         isChecked(itemKey)
                                                                             ? 'bg-[#009FE3] border-[#009FE3]'
-                                                                            : 'border-gray-300 dark:border-neutral-600 group-hover:border-[#009FE3]'
+                                                                            : 'border-gray-300 dark:border-gray-600 group-hover:border-[#009FE3] dark:group-hover:border-[#009FE3]'
                                                                     }`}
                                                                 >
                                                                     {isChecked(itemKey) && (
@@ -867,7 +874,7 @@ export default function Products() {
                             ))}
                         </div>
 
-                        <div className="p-4 lg:hidden bg-white dark:bg-[#111827] border-t border-gray-100 dark:border-neutral-800 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] z-10">
+                        <div className="p-4 lg:hidden bg-white dark:bg-[#1f2937] border-t border-gray-100 dark:border-gray-800 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] z-10">
                             <div className="flex gap-3">
                                 <button
                                     onClick={() => {
@@ -875,9 +882,9 @@ export default function Products() {
                                         setAppliedFilters([]);
                                         setCurrentPage(1);
                                     }}
-                                    className="flex-1 py-3.5 px-4 text-sm font-semibold text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-neutral-800 rounded-xl hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors"
+                                    className="flex-1 py-3.5 px-4 text-sm font-semibold text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                                 >
-                                    Temizle
+                                    {t('filter.items.clear')}
                                 </button>
                                 <button
                                     onClick={() => {
@@ -887,12 +894,12 @@ export default function Products() {
                                     }}
                                     className="flex-[2] py-3.5 px-4 text-sm font-semibold bg-[#009FE3] text-white rounded-xl hover:bg-[#0085c2] transition-colors shadow-lg shadow-[#009FE3]/30 flex items-center justify-center gap-2"
                                 >
-                                    <span>Sonuçları Gör</span>
+                                    <span>{t('filter.items.seeResults')}</span>
                                     <span className="bg-white/20 px-2 py-0.5 rounded-full text-xs">{previewFilteredCount}</span>
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
                     <div className="w-full lg:w-3/4">
                         <div
