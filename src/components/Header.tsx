@@ -120,7 +120,7 @@ export default function Header() {
                 />
             )
         },
-        { title: 'Pasta Reyonları', path: '/products?cat=bakery', image: '/images/home/unluMamülx.jpg' },
+        { title: 'Pasta Reyonları', path: '/products?cat=bakery', image: '/images/home/unluMamullx.jpg' },
         { title: 'Soğutma Sistemleri', path: '/products?cat=coolingSystems', image: '/images/home/sogutma.jpg' },
     ];
 
