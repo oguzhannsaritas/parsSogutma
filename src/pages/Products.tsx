@@ -783,7 +783,7 @@ export default function Products() {
                                 setIsMobileFilterOpen(false);
                             }
                         }}
-                        className={`fixed inset-x-0 bottom-0 z-[70] h-[85vh] w-full bg-white dark:bg-[#1f2937] rounded-t-3xl flex flex-col lg:static lg:h-auto lg:w-1/4 lg:rounded-none lg:bg-transparent lg:z-auto lg:block lg:!transform-none ${
+                        className={`fixed inset-x-0 bottom-0 z-[70] h-[85vh] w-full bg-white dark:bg-[#1f2937] md:dark:bg-transparent rounded-t-3xl flex flex-col lg:static lg:h-auto lg:w-1/4 lg:rounded-none lg:bg-transparent lg:z-auto lg:block lg:!transform-none ${
                             isMobileFilterOpen ? 'shadow-[0_-10px_40px_rgba(0,0,0,0.1)]' : ''
                         }`}
                     >
@@ -796,7 +796,7 @@ export default function Products() {
                                 <div className="w-12 h-1.5 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
                             </div>
 
-                            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800">
+                            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-700">
                                 <div className="flex items-center gap-3 text-gray-900 dark:text-white font-bold">
                                     <div className="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg text-[#009FE3]">
                                         <SlidersHorizontal size={20} />
@@ -813,20 +813,20 @@ export default function Products() {
                             </div>
                         </div>
 
-                        <div className="flex-1 overflow-y-auto p-6 lg:p-0 space-y-6 lg:space-y-8">
+                        <div className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-0 space-y-6 lg:space-y-8">
                             {filterCategories.map((category) => (
                                 <div
                                     key={category.id}
-                                    className="border border-gray-100 dark:border-gray-800 rounded-2xl p-4 lg:border-0 lg:p-0 lg:border-b lg:rounded-none pb-4 lg:pb-6 last:border-0 bg-gray-50/50 dark:bg-gray-800/30 lg:bg-transparent"
+                                    className="border border-gray-100 dark:border-gray-800 rounded-2xl  p-4 lg:border-0 lg:p-0  lg:rounded-none pb-4 lg:pb-6 last:border-0 bg-gray-50/50  md:dark:bg-transparent dark:bg-gray-700/30 lg:bg-transparent"
                                 >
                                     <div
                                         className="flex items-center justify-between cursor-pointer group"
                                         onClick={() => toggleCategory(category.id)}
                                     >
-                                        <h3 className="font-bold text-sm sm:text-base md:text-lg uppercase text-gray-900 dark:text-white group-hover:text-[#009FE3] dark:group-hover:text-[#009FE3] transition-colors leading-tight">
+                                        <h3 className="font-bold text-xs sm:text-base md:text-lg uppercase text-gray-900 dark:text-white group-hover:text-[#009FE3] dark:group-hover:text-[#009FE3] transition-colors leading-tight">
                                             {category.title}
                                         </h3>
-                                        <div className={`p-1.5 rounded-full transition-colors ${expandedCategories.includes(category.id) ? 'bg-gray-200 dark:bg-gray-700' : 'bg-gray-100 dark:bg-gray-800 group-hover:bg-gray-200 dark:group-hover:bg-gray-700'}`}>
+                                        <div className={`p-1.5 rounded-full transition-colors ${expandedCategories.includes(category.id) ? 'bg-gray-200 dark:bg-transparent' : 'bg-gray-100 dark:bg-transparent group-hover:bg-gray-200 dark:group-hover:bg-gray-700'}`}>
                                             {expandedCategories.includes(category.id) ? (
                                                 <ChevronUp size={16} className="text-gray-600 dark:text-gray-300" />
                                             ) : (
@@ -868,7 +868,7 @@ export default function Products() {
                                                                 </div>
 
                                                                 <span
-                                                                    className={`text-sm lg:text-xs text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors leading-tight ${
+                                                                    className={`text-xs md:text-sm text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors leading-tight ${
                                                                         isChecked(itemKey) ? 'font-bold text-black dark:text-white' : ''
                                                                     }`}
                                                                 >

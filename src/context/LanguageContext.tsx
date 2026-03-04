@@ -316,9 +316,10 @@ const translations: Translations = {
     'pars.footer.semiVertical':{TR:'Yarı Dikey Reyonlar', EN : 'Semi-Vertical Counters'},
     'pars.footer.horizontal':{TR:'Yatay (Servis) Reyonlar',EN:'Horizontal (Service) Counters'},
     'pars.footer.home':{TR: 'Ana Sayfa', EN :'Home Page'},
+    'pars.footer.corporate':{TR: 'Kurumsal', EN :'Corporate'},
     'pars.footer.about':{TR: 'Hakkımızda', EN :'About Page'},
     'pars.footer.products':{TR:'Ürünlerimiz', EN :'Products Page'},
-    'pars.footer.telephone':{TR:'İletişim', EN :'Contact'},
+    'pars.footer.telephone':{TR:'İletişim Bilgilerimiz', EN :'Contact Information'},
     'pars.footer.info':{TR:'Pars Soğutma, süpermarketler, soğuk odalar ve endüstriyel soğutma sistemleri alanında sektörün öncü firmalarından biri olma yolunda emin adımlarla ilerlemektedir. Kuruluşumuzdan bu yana, müşterilerimizin ihtiyaçlarına özel çözümler sunarak, yüksek kalite ve enerji tasarrufunu bir araya getiren projelerle fark yaratmayı hedefledik.\n', EN:' Pars Refrigeration is taking firm steps towards becoming one of the leading companies in the sector in the field of supermarkets, cold rooms and industrial refrigeration systems. Since our establishment, we have aimed to make a difference by offering customized solutions to our customers\' needs and projects that combine high quality and energy savings.\n'}
 
 

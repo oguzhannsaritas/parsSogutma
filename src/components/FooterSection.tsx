@@ -4,7 +4,7 @@ import { ArrowUp, Youtube, Facebook, Instagram, Linkedin, MapPin, Phone, Mail, S
 import { useLanguage } from '../context/LanguageContext';
 
 export default function FooterSection() {
-    const [open, setOpen] = React.useState(null); // 'kurumsal' | 'urunler' | 'iletisim' | null
+    const [open, setOpen] = React.useState(null);
 
     const ToggleHeader = ({ id, title }) => {
         const isOpen = open === id;
@@ -92,7 +92,7 @@ export default function FooterSection() {
                             {/* Desktop */}
                             <div className="hidden md:block">
                                 <h4 className="font-bold text-white text-lg mb-6 border-b border-gray-600 pb-2 inline-block">
-                                    Kurumsal
+                                    {t('pars.footer.corporate')}
                                 </h4>
                                 <ul className="space-y-4 text-gray-300 text-xs lg:text-sm font-medium">
                                     <li><Link to="/" className="hover:text-white transition-colors">{t('pars.footer.home')}</Link></li>
@@ -104,7 +104,7 @@ export default function FooterSection() {
 
                             {/* Mobile */}
                             <div className="md:hidden">
-                                <ToggleHeader id="kurumsal" title="Kurumsal" />
+                                <ToggleHeader id="kurumsal" title={t('pars.footer.corporate')} />
 
                                 <div
                                     className={`grid transition-all duration-300 ease-in-out ${
@@ -130,7 +130,7 @@ export default function FooterSection() {
                             {/* Desktop */}
                             <div className="hidden md:block">
                                 <h4 className="font-bold text-white text-lg mb-6 border-b border-gray-600 pb-2 inline-block">
-                                    Ürünlerimiz
+                                    {t('pars.footer.products')}
                                 </h4>
                                 <ul className="space-y-4 text-gray-300 text-xs lg:text-sm font-medium">
                                     <li><Link to="#" className="hover:text-white transition-colors">{t('pars.footer.deepFreezers')}</Link></li>
@@ -144,7 +144,7 @@ export default function FooterSection() {
 
                             {/* Mobile */}
                             <div className="md:hidden">
-                                <ToggleHeader id="urunler" title="Ürünlerimiz" />
+                                <ToggleHeader id="urunler" title={t('pars.footer.products')} />
 
                                 <div
                                     className={`grid transition-all duration-300 ease-in-out ${
@@ -210,7 +210,7 @@ export default function FooterSection() {
 
                             {/* Mobile */}
                             <div className="md:hidden">
-                                <ToggleHeader id="iletisim" title="İletişim Bilgilerimiz" />
+                                <ToggleHeader id="iletisim" title={t('pars.footer.telephone')}/>
 
                                 <div
                                     className={`grid transition-all duration-300 ease-in-out ${

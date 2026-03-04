@@ -174,18 +174,18 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                         </div>
 
                         {/* Search */}
-                        <div className="px-4 py-3 md:py-4 border-b border-gray-100 dark:border-gray-800">
+                        <div className="px-4 py-3 md:py-4 border-b border-gray-100 dark:border-gray-700">
                             <form onSubmit={handleSearch} className="relative group">
                                 <input
                                     type="text"
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
                                     placeholder={t('menu.search')}
-                                    className="w-full bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-white text-sm py-3 pl-11 pr-4 rounded-2xl border border-gray-200 dark:border-gray-700 focus:bg-white dark:focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-[#009FE3]/50 transition-all placeholder-gray-400 dark:placeholder-gray-500"
+                                    className="w-full bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white text-sm py-3 pl-11 pr-4 rounded-2xl border border-gray-200 dark:border-gray-700 focus:bg-white dark:focus:bg-gray-700 focus:outline-none focus:ring-1  transition-all placeholder-gray-400 dark:placeholder-gray-500"
                                 />
                                 <button
                                     type="submit"
-                                    className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 group-focus-within:text-[#009FE3] transition-colors"
+                                    className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500  transition-colors"
                                     aria-label="Search"
                                 >
                                     <Search size={18} />
@@ -301,13 +301,13 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                         </div>
 
                         {/* Language Footer */}
-                        <div className="p-5 bg-gray-50/50 dark:bg-[#1f2937] border-t border-gray-100 dark:border-gray-800">
+                        <div className="p-5 bg-gray-50/50 dark:bg-[#1f2937] border-t border-gray-100 dark:border-gray-700">
                             <button
                                 onClick={toggleLanguage}
                                 className="w-full flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 transition-all group"
                             >
                                 <div className="flex items-center gap-3">
-                                    <div className="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <div className="w-8 h-8 rounded-full bg-blue-50 dark:bg-gray-700 flex items-center justify-center group-hover:scale-110 transition-transform">
                                         <Globe size={16} className="text-[#009FE3]" />
                                     </div>
                                     <span className="text-sm font-bold text-gray-700 dark:text-white">
