@@ -210,7 +210,7 @@ const translations: Translations = {
     'filters.items.venusPastaTeshirDolabi': { TR: 'VENUS - Pasta Teşhir Dolabı', EN: 'VENUS - Pastry Showcase' },
     'filters.items.moonBombeCamliReyonDolabi': { TR: 'MOON - Bombe Camlı Reyon Dolabı', EN: 'MOON - Curved Glass Display' },
     'filters.items.fullMoonDikCamliReyonDolabi': { TR: 'FULL MOON - Dik Camlı Reyon Dolabı', EN: 'FULL MOON - Upright Glass Display' },
-    'filters.items.newMoonDuzeCamliReyonDolabi': { TR: 'NEW MOON - Düz Camlı Reyon Dolabı', EN: 'NEW MOON - Flat Glass Display' },
+    'filters.items.newMoonDuzCamliReyonDolabi': { TR: 'NEW MOON - Düz Camlı Reyon Dolabı', EN: 'NEW MOON - Flat Glass Display' },
     'filters.items.duzCamliReyonDolabi': { TR: 'Düz Camlı Reyon Dolabı', EN: 'Flat Glass Display Cabinet' },
     'filters.items.kuruSogutmaliReyonDolabi': { TR: 'Kuru Soğutmalı Reyon Dolabı', EN: 'Dry-Cooled Display Cabinet' },
     'filters.items.reyonTeshirDolabi': { TR: 'Reyon Teşhir Dolabı', EN: 'Display Showcase Cabinet' },
