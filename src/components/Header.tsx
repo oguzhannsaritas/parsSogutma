@@ -103,7 +103,7 @@ export default function Header() {
 
     const megaMenuItems = [
         { title: 'Dikey Reyonlar', path: '/products?cat=vertical', image: '/images/home/buzdolabi.jpg' },
-        { title: 'Yatay Reyonlar', path: '/products?cat=service', image: '/images/home/yatayReyonx.jpg' },
+        { title: 'Yatay Reyonlar', path: '/products?cat=service', image: '/images/home/yatayReyonx.web' },
         { title: 'Dikey Dondurucular', path: '/products?cat=vertical', image: '/images/home/buzdolabi.jpg' },
         { title: 'Yatay Dondurucular', path: '/products?cat=service', image: '/images/home/sogutmareyon.jpg' },
         { title: 'Soğuk Hava Depoları', path: '/products?cat=coldStorage', image: '/images/home/sogukHava2.jpg' },
@@ -167,13 +167,21 @@ export default function Header() {
 
                             {/* Center: Logo */}
                             <div className="flex flex-col items-center justify-center">
-                                <img
-                                    src="https://parsogutma.com/wp-content/uploads/2022/03/pars-logo.png"
-                                    alt="PARS SOĞUTMA"
-                                    className={`h-12 object-contain transition-all duration-300 ${
-                                        (isScrolled || theme === 'dark') ? 'invert hue-rotate-180' : ''
-                                    }`}
-                                />
+                                <AnimatePresence>
+                                    {isScrolled && (
+                                        <motion.img
+                                            initial={{ opacity: 0, y: -20 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -20 }}
+                                            transition={{ duration: 0.3 }}
+                                            src="https://parsogutma.com/wp-content/uploads/2022/03/pars-logo.png"
+                                            alt="PARS SOĞUTMA"
+                                            className={`h-12 object-contain transition-all duration-300 ${
+                                                (isScrolled || theme === 'dark') ? 'invert hue-rotate-180' : ''
+                                            }`}
+                                        />
+                                    )}
+                                </AnimatePresence>
                             </div>
 
                             {/* Right: Actions */}

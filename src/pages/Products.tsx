@@ -817,18 +817,18 @@ export default function Products() {
                             {filterCategories.map((category) => (
                                 <div
                                     key={category.id}
-                                    className="border border-gray-100 dark:border-gray-800 rounded-2xl  p-4 lg:border-0 lg:p-0  lg:rounded-none pb-4 lg:pb-6 last:border-0 bg-gray-50/50  md:dark:bg-transparent dark:bg-gray-700/30 lg:bg-transparent"
+                                    className="border border-gray-100 dark:border-gray-800 rounded-2xl  p-4 lg:border-0 lg:p-0  lg:rounded-none pb-4 lg:pb-0 last:border-0 bg-gray-50/50  md:dark:bg-transparent dark:bg-gray-700/30 lg:bg-transparent"
                                 >
                                     <div
                                         className="flex items-center justify-between cursor-pointer group"
                                         onClick={() => toggleCategory(category.id)}
                                     >
-                                        <h3 className="font-bold text-xs sm:text-base md:text-lg uppercase text-gray-900 dark:text-white group-hover:text-[#009FE3] dark:group-hover:text-[#009FE3] transition-colors leading-tight">
+                                        <h3 className="font-bold text-xs sm:text-base md:text-[15px] uppercase text-gray-900 dark:text-white group-hover:text-[#009FE3] dark:group-hover:text-[#009FE3] transition-colors leading-tight">
                                             {category.title}
                                         </h3>
-                                        <div className={`p-1.5 rounded-full transition-colors ${expandedCategories.includes(category.id) ? 'bg-gray-200 dark:bg-transparent' : 'bg-gray-100 dark:bg-transparent group-hover:bg-gray-200 dark:group-hover:bg-gray-700'}`}>
+                                        <div className={`p-1.5 rounded-full transition-colors ${expandedCategories.includes(category.id) ? 'bg-transparent dark:bg-transparent' : 'bg-transparent dark:bg-transparent  '}`}>
                                             {expandedCategories.includes(category.id) ? (
-                                                <ChevronUp size={16} className="text-gray-600 dark:text-gray-300" />
+                                                <ChevronUp size={16} className="text-gray-600  dark:text-gray-300" />
                                             ) : (
                                                 <ChevronDown size={16} className="text-gray-600 dark:text-gray-300" />
                                             )}

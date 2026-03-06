@@ -1,12 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUp, Youtube, Facebook, Instagram, Linkedin, MapPin, Phone, Mail, Sun, Moon, ChevronDown , LucideMessageCircleMore} from 'lucide-react';
+import {
+    ArrowUp,
+    Youtube,
+    MapPin,
+    Phone,
+    Mail,
+    ChevronDown,
+    LucideMessageCircleMore
+} from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-export default function FooterSection() {
-    const [open, setOpen] = React.useState(null);
+type OpenId = 'kurumsal' | 'urunler' | 'iletisim' | null;
 
-    const ToggleHeader = ({ id, title }) => {
+export default function FooterSection() {
+    const { t } = useLanguage();
+    const [open, setOpen] = React.useState<OpenId>(null);
+
+    // ✅ YouTube video (watch: https://www.youtube.com/watch?v=oZmSKiyZ7zM)
+    const YT_EMBED_URL = 'https://www.youtube.com/embed/oZmSKiyZ7zM?rel=0&modestbranding=1';
+
+    const ToggleHeader = ({ id, title }: { id: Exclude<OpenId, null>; title: string }) => {
         const isOpen = open === id;
         return (
             <button
@@ -22,7 +36,6 @@ export default function FooterSection() {
             </button>
         );
     };
-    const { t } = useLanguage();
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -34,7 +47,7 @@ export default function FooterSection() {
             <div className="container mx-auto px-4 md:px-12 py-4 md:py-16">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <h2 className="text-xl md:text-4xl  font-bold text-gray-900 dark:text-white">
+                        <h2 className="text-xl md:text-4xl font-bold text-gray-900 dark:text-white">
                             {t('footer.visit')}
                         </h2>
                         <p className="text-gray-700 dark:text-gray-200 text-sm lg:text-lg">
@@ -42,19 +55,15 @@ export default function FooterSection() {
                         </p>
                     </div>
 
-                    <div className="relative w-full aspect-video bg-black group cursor-pointer overflow-hidden rounded-lg shadow-xl">
-                        <img
-                            src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?auto=format&fit=crop&q=80&w=1000"
-                            alt="Exhibition Stand"
-                            className="w-full h-full object-cover opacity-70 group-hover:opacity-60 transition-opacity"
+                    {/* ✅ Direkt YouTube embed (her zaman görünür) */}
+                    <div className="relative w-full aspect-video overflow-hidden rounded-lg shadow-xl bg-black">
+                        <iframe
+                            className="w-full h-full"
+                            src={YT_EMBED_URL}
+                            title="Pars Soğutma YouTube"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
                         />
-                        <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-                            <div className="w-16 h-16 bg-red-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                                <Youtube size={32}  />
-                            </div>
-                            <h3 className="text-xs lg:text-2xl font-bold">Pars Soğutma</h3>
-                            <p className="text-xs lg:text-lg">Sultanbeyli / İstanbul</p>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -63,7 +72,6 @@ export default function FooterSection() {
             <footer className="bg-[#111827] text-white pt-10 md:pt-24 pb-4 md:pb-8 relative mt-20">
                 {/* Wavy Background Top */}
                 <div className="absolute top-2 left-0 w-full overflow-hidden leading-none transform -translate-y-full">
-
                     <svg viewBox="0 0 1440 320" className="w-full h-[100px] md:h-[200px] block" preserveAspectRatio="none">
                         <path fill="#334155" fillOpacity="1" d="M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,197.3C672,224,768,224,864,208C960,192,1056,160,1152,144C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
                         <path fill="#1e293b" fillOpacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,218.7C672,235,768,245,864,229.3C960,213,1056,171,1152,149.3C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
@@ -79,7 +87,7 @@ export default function FooterSection() {
                                 <img
                                     src="https://parsogutma.com/wp-content/uploads/2022/03/pars-logo.png"
                                     alt="PARS SOĞUTMA"
-                                    className="h-12 object-contain invert hue-rotate-180  transition-all duration-300"
+                                    className="h-12 object-contain invert hue-rotate-180 transition-all duration-300"
                                 />
                             </div>
                             <p className="text-gray-300 lg:text-sm text-xs leading-relaxed font-medium">
@@ -112,7 +120,7 @@ export default function FooterSection() {
                                     }`}
                                 >
                                     <div className="overflow-hidden">
-                                        <div >
+                                        <div>
                                             <ul className="space-y-3 text-gray-300 text-sm font-medium">
                                                 <li><Link to="/" className="block py-1 hover:text-white transition-colors">{t('pars.footer.home')}</Link></li>
                                                 <li><Link to="/corporate" className="block py-1 hover:text-white transition-colors">{t('pars.footer.about')}</Link></li>
@@ -154,7 +162,7 @@ export default function FooterSection() {
                                     }`}
                                 >
                                     <div className="overflow-hidden">
-                                        <div >
+                                        <div>
                                             <ul className="space-y-3 text-gray-300 text-sm font-medium">
                                                 <li><Link to="#" className="block py-1 hover:text-white transition-colors">{t('pars.footer.deepFreezers')}</Link></li>
                                                 <li><Link to="#" className="block py-1 hover:text-white transition-colors">{t('pars.footer.vertical')}</Link></li>
@@ -173,7 +181,7 @@ export default function FooterSection() {
                         <div>
                             {/* Desktop */}
                             <div className="hidden md:block">
-                                <h4 className="font-bold text-white text-lg mb-6  border-gray-600 pb-2 inline-block">
+                                <h4 className="font-bold text-white text-lg mb-6 border-gray-600 pb-2 inline-block">
                                     {t('pars.footer.contact')}
                                 </h4>
                                 <ul className="space-y-6 text-gray-300 text-sm font-medium">
@@ -210,7 +218,7 @@ export default function FooterSection() {
 
                             {/* Mobile */}
                             <div className="md:hidden">
-                                <ToggleHeader id="iletisim" title={t('pars.footer.telephone')}/>
+                                <ToggleHeader id="iletisim" title={t('pars.footer.telephone')} />
 
                                 <div
                                     className={`grid transition-all duration-300 ease-in-out ${
@@ -220,14 +228,13 @@ export default function FooterSection() {
                                     }`}
                                 >
                                     <div className="overflow-hidden">
-                                        <div >
+                                        <div>
                                             <ul className="space-y-4 text-gray-300 text-sm font-medium">
                                                 <li className="flex items-center gap-3">
                                                     <div className="w-8 h-8 rounded-full bg-white text-[#0f172a] flex items-center justify-center flex-shrink-0">
                                                         <MapPin size={16} />
                                                     </div>
-                                                    <span className="mt-1">{t('pars.footer.adress')}
-                                                    </span>
+                                                    <span className="mt-1">{t('pars.footer.adress')}</span>
                                                 </li>
 
                                                 <li className="flex items-center gap-4">
@@ -237,7 +244,6 @@ export default function FooterSection() {
 
                                                     <div className="flex flex-col items-center leading-tight">
                                                         <span className="text-xs lg:text-sm mb-1">+90 543 170 72 77</span>
-
                                                         <span className="text-xs lg:text-sm">+90 537 645 82 91</span>
                                                     </div>
                                                 </li>
@@ -248,6 +254,7 @@ export default function FooterSection() {
                                                     </div>
                                                     <span>info@parsogutma.com</span>
                                                 </li>
+
                                                 <li className="flex items-center gap-4">
                                                     <div className="w-8 h-8 rounded-full bg-white text-[#0f172a] flex items-center justify-center flex-shrink-0">
                                                         <LucideMessageCircleMore size={16} />
@@ -271,6 +278,7 @@ export default function FooterSection() {
                 <button
                     onClick={scrollToTop}
                     className="absolute bottom-8 right-8 w-10 h-10 bg-white text-[#0f172a] rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors shadow-lg z-20"
+                    type="button"
                 >
                     <ArrowUp size={20} />
                 </button>
