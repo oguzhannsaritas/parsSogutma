@@ -102,26 +102,26 @@ export default function Header() {
     ];
 
     const megaMenuItems = [
-        { title: 'Dikey Reyonlar', path: '/products?cat=vertical', image: '/images/home/buzdolabi.jpg' },
+        { title: 'Dikey Reyonlar', path: '/products?cat=vertical', image: '/images/home/buzdolabi.web' },
         { title: 'Yatay Reyonlar', path: '/products?cat=service', image: '/images/home/yatayReyonx.web' },
-        { title: 'Dikey Dondurucular', path: '/products?cat=vertical', image: '/images/home/buzdolabi.jpg' },
-        { title: 'Yatay Dondurucular', path: '/products?cat=service', image: '/images/home/sogutmareyon.jpg' },
-        { title: 'Soğuk Hava Depoları', path: '/products?cat=coldStorage', image: '/images/home/sogukHava2.jpg' },
-        { title: 'Alçak Dikey Reyonlar', path: '/products?cat=vertical', image: '/images/home/yarimx.jpg' },
-        { title: 'Servis Reyonları', path: '/products?cat=service', image: '/images/home/servisx.jpg' },
+        { title: 'Dikey Dondurucular', path: '/products?cat=vertical', image: '/images/home/buzdolabi.web' },
+        { title: 'Yatay Dondurucular', path: '/products?cat=service', image: '/images/home/sogutmareyon.web' },
+        { title: 'Soğuk Hava Depoları', path: '/products?cat=coldStorage', image: '/images/home/sogukHava2.web' },
+        { title: 'Alçak Dikey Reyonlar', path: '/products?cat=vertical', image: '/images/home/yarimx.web' },
+        { title: 'Servis Reyonları', path: '/products?cat=service', image: '/images/home/servisx.web' },
         {
             isSpecial: true,
             title: 'Severek',
             icon: (
                 <img
-                    src="../../public/images/parsLogo.png"
+                    src="../../public/images/parsLogo.web"
                     alt="Pars Logo"
                     className="h-10 object-cover invert hue-rotate-180 saturate-150 dark:invert-0 dark:hue-rotate-0 dark:saturate-100 transition-all duration-300"
                 />
             )
         },
-        { title: 'Pasta Reyonları', path: '/products?cat=bakery', image: '/images/home/unluMamullx.jpg' },
-        { title: 'Soğutma Sistemleri', path: '/products?cat=coolingSystems', image: '/images/home/sogutma.jpg' },
+        { title: 'Pasta Reyonları', path: '/products?cat=bakery', image: '/images/home/unluMamullx.web' },
+        { title: 'Soğutma Sistemleri', path: '/products?cat=coolingSystems', image: '/images/home/sogutma.web' },
     ];
 
     const toggleLanguage = () => {

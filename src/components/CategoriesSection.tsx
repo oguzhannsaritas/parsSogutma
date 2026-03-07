@@ -10,15 +10,15 @@ export default function CategoriesSection() {
     const itemsPerPage = 8;
 
     const categories = [
-        { title: t('menu.serviceAisles'), image: "/images/home/servisx.jpg" },
-        { title: t('menu.verticalCooling'), image: "/images/dikeyTip.jpg" },
-        { title: t('menu.wallCooling'), image: "/images/duvarTipix.jpg" },
-        { title: t('menu.bakery'), image: "/images/home/unluMamullx.jpg" },
-        { title: t('menu.industrialKitchen'), image: "/images/home/endustriyel-mutfak-home.jpg" },
-        { title: t('menu.marketEquip'), image: "/images/home/marketx.jpg" },
-        { title: t('menu.coolingSystems'),  image: "/images/home/sogutma.jpg" },
-        { title: t('menu.coolingAisles'),  image: "/images/sogutmaliReyon.jpg"  },
-        { title: t('menu.coldStorage'),  image:'/images/home/sogukHava2.jpg' },
+        { title: t('menu.serviceAisles'), image: "/images/home/servisx.web" },
+        { title: t('menu.verticalCooling'), image: "/images/dikeyTip.web" },
+        { title: t('menu.wallCooling'), image: "/images/duvarTipix.web" },
+        { title: t('menu.bakery'), image: "/images/home/unluMamullx.web" },
+        { title: t('menu.industrialKitchen'), image: "/images/home/endustriyel-mutfak-home.web" },
+        { title: t('menu.marketEquip'), image: "/images/home/marketx.web" },
+        { title: t('menu.coolingSystems'),  image: "/images/home/sogutma.web" },
+        { title: t('menu.coolingAisles'),  image: "/images/sogutmaliReyon.web"  },
+        { title: t('menu.coldStorage'),  image:'/images/home/sogukHava2.web' },
     ];
 
     const totalPages = Math.ceil(categories.length / itemsPerPage);

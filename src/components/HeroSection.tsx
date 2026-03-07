@@ -18,14 +18,14 @@ export default function HeroSection() {
     useEffect(() => {
         // Resimleri önceden yükle (preload) ki geçişlerde donma olmasın
         const imageUrls = [
-            '/images/parsLogo.png',
-            '/images/home/buzdolabi2.jpg',
-            '/images/home/masa.jpg',
-            '/images/home/marketx.jpg',
-            '/images/home/sogukHava2.jpg',
-            '/images/home/sogutma.jpg',
-            '/images/home/sogutmareyon.jpg',
-            '/images/home/unluMamullx.jpg'
+            '/images/parsLogo.web',
+            '/images/home/buzdolabi2.web',
+            '/images/home/masa.web',
+            '/images/home/marketx.web',
+            '/images/home/sogukHava2.web',
+            '/images/home/sogutma.web',
+            '/images/home/sogutmareyon.web',
+            '/images/home/unluMamullx.web'
         ];
         imageUrls.forEach(url => {
             const img = new Image();
@@ -88,16 +88,16 @@ export default function HeroSection() {
             id: 0,
             title: 'Pars Soğutma Sistemleri',
             description: 'İşletmeniz için yüksek verimli, yenilikçi ve estetik soğutma çözümleri üretiyoruz. Sosyal Medya kanallarımızdan bizleri takip edebilir aynı zamanda iletişime geçebilirsiniz.',
-            image: '/images/parsLogo.png',
+            image: '/images/parsLogo.web',
             isSocial: true
         },
-        { id: 1, subtitle: t('hero.slide1.title'), title: t('menu.refrigerators'), image: '/images/home/buzdolabi2.jpg' },
-        { id: 2, subtitle: t('hero.slide2.title'), title: t('menu.industrialKitchen'), image: '/images/home/masa.jpg' },
-        { id: 3, subtitle: t('hero.slide3.title'), title: t('menu.marketEquip'), image: '/images/home/marketx.jpg' },
-        { id: 4, subtitle: t('hero.slide4.title'), title: t('menu.coldStorage'), image: '/images/home/sogukHava2.jpg' },
-        { id: 5, subtitle: t('hero.slide5.title'), title: t('menu.coolingSystems'), image: '/images/home/sogutma.jpg' },
-        { id: 6, subtitle: t('hero.slide6.title'), title: t('menu.coolingAisles'), image: '/images/home/sogutmareyon.jpg' },
-        { id: 7, subtitle: t('hero.slide7.title'), title: t('menu.bakery'), image: '/images/home/unluMamullx.jpg' },
+        { id: 1, subtitle: t('hero.slide1.title'), title: t('menu.refrigerators'), image: '/images/home/buzdolabi2.web' },
+        { id: 2, subtitle: t('hero.slide2.title'), title: t('menu.industrialKitchen'), image: '/images/home/masa.web' },
+        { id: 3, subtitle: t('hero.slide3.title'), title: t('menu.marketEquip'), image: '/images/home/marketx.web' },
+        { id: 4, subtitle: t('hero.slide4.title'), title: t('menu.coldStorage'), image: '/images/home/sogukHava2.web' },
+        { id: 5, subtitle: t('hero.slide5.title'), title: t('menu.coolingSystems'), image: '/images/home/sogutma.web' },
+        { id: 6, subtitle: t('hero.slide6.title'), title: t('menu.coolingAisles'), image: '/images/home/sogutmareyon.web' },
+        { id: 7, subtitle: t('hero.slide7.title'), title: t('menu.bakery'), image: '/images/home/unluMamullx.web' },
     ];
 
     const isSocialText = !!slides[textSlide]?.isSocial;     // mobil tasarım kararları (ilk slayt için)
