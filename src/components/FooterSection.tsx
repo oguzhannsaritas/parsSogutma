@@ -85,7 +85,7 @@ export default function FooterSection() {
                         <div className="space-y-6">
                             <div className="flex items-center gap-1">
                                 <img
-                                    src="https://parsogutma.com/wp-content/uploads/2022/03/pars-logo.png"
+                                    src="/images/home/parsLogo.webp"
                                     alt="PARS SOĞUTMA"
                                     className="h-12 object-contain invert hue-rotate-180 transition-all duration-300"
                                 />

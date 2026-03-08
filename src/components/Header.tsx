@@ -102,26 +102,26 @@ export default function Header() {
     ];
 
     const megaMenuItems = [
-        { title: 'Dikey Reyonlar', path: '/products?cat=vertical', image: '/images/home/buzdolabi.web' },
-        { title: 'Yatay Reyonlar', path: '/products?cat=service', image: '/images/home/yatayReyonx.web' },
-        { title: 'Dikey Dondurucular', path: '/products?cat=vertical', image: '/images/home/buzdolabi.web' },
-        { title: 'Yatay Dondurucular', path: '/products?cat=service', image: '/images/home/sogutmareyon.web' },
-        { title: 'Soğuk Hava Depoları', path: '/products?cat=coldStorage', image: '/images/home/sogukHava2.web' },
-        { title: 'Alçak Dikey Reyonlar', path: '/products?cat=vertical', image: '/images/home/yarimx.web' },
-        { title: 'Servis Reyonları', path: '/products?cat=service', image: '/images/home/servisx.web' },
+        { title: 'Dikey Reyonlar', path: '/products?cat=vertical', image: '/images/home/buzdolabi.webp' },
+        { title: 'Yatay Reyonlar', path: '/products?cat=service', image: '/images/home/yatayReyonx.webp' },
+        { title: 'Dikey Dondurucular', path: '/products?cat=vertical', image: '/images/home/buzdolabi.webp' },
+        { title: 'Yatay Dondurucular', path: '/products?cat=service', image: '/images/home/sogutmareyon.webp' },
+        { title: 'Soğuk Hava Depoları', path: '/products?cat=coldStorage', image: '/images/home/sogukHava2.webp' },
+        { title: 'Alçak Dikey Reyonlar', path: '/products?cat=vertical', image: '/images/home/yarimx.webp' },
+        { title: 'Servis Reyonları', path: '/products?cat=service', image: '/images/home/servisx.webp' },
         {
             isSpecial: true,
             title: 'Severek',
             icon: (
                 <img
-                    src="../../public/images/parsLogo.web"
+                    src="../../public/images/home/parsLogo.webp"
                     alt="Pars Logo"
                     className="h-10 object-cover invert hue-rotate-180 saturate-150 dark:invert-0 dark:hue-rotate-0 dark:saturate-100 transition-all duration-300"
                 />
             )
         },
-        { title: 'Pasta Reyonları', path: '/products?cat=bakery', image: '/images/home/unluMamullx.web' },
-        { title: 'Soğutma Sistemleri', path: '/products?cat=coolingSystems', image: '/images/home/sogutma.web' },
+        { title: 'Pasta Reyonları', path: '/products?cat=bakery', image: '/images/home/unluMamullx.webp' },
+        { title: 'Soğutma Sistemleri', path: '/products?cat=coolingSystems', image: '/images/home/sogutma.webp' },
     ];
 
     const toggleLanguage = () => {
@@ -174,7 +174,7 @@ export default function Header() {
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: -20 }}
                                             transition={{ duration: 0.3 }}
-                                            src="https://parsogutma.com/wp-content/uploads/2022/03/pars-logo.png"
+                                            src="/images/home/parsLogo.webp"
                                             alt="PARS SOĞUTMA"
                                             className={`h-12 object-contain transition-all duration-300 ${
                                                 (isScrolled || theme === 'dark') ? 'invert hue-rotate-180' : ''
@@ -226,7 +226,7 @@ export default function Header() {
                             {/* Left: Logo */}
                             <Link to="/" className="flex flex-col items-center justify-center cursor-pointer">
                                 <img
-                                    src="https://parsogutma.com/wp-content/uploads/2022/03/pars-logo.png"
+                                    src="/images/home/parsLogo.webp"
                                     alt="PARS SOĞUTMA"
                                     className="h-10 object-contain dark:invert dark:hue-rotate-180 transition-all duration-300"
                                 />

@@ -14,23 +14,88 @@ export default function HeroSection() {
 
     // Sadece mobilde swipe aktif olsun
     const [swipeEnabled, setSwipeEnabled] = useState(false);
+    const slides = [
+        {
+            id: 0,
+            title: 'Pars Soğutma Sistemleri',
+            description: 'İşletmeniz için yüksek verimli, yenilikçi ve estetik soğutma çözümleri üretiyoruz. Sosyal Medya kanallarımızdan bizleri takip edebilir aynı zamanda iletişime geçebilirsiniz.',
+            image: '/images/home/parsLogo.webp',
+            isSocial: true
+        },
+        { id: 1, subtitle: t('hero.slide1.title'), title: t('menu.refrigerators'), image: '/images/home/buzdolabi2.webp' },
+        { id: 2, subtitle: t('hero.slide2.title'), title: t('menu.industrialKitchen'), image: '/images/home/masa.webp' },
+        { id: 3, subtitle: t('hero.slide3.title'), title: t('menu.marketEquip'), image: '/images/home/marketx.webp' },
+        { id: 4, subtitle: t('hero.slide4.title'), title: t('menu.coldStorage'), image: '/images/home/sogukHava2.webp' },
+        { id: 5, subtitle: t('hero.slide5.title'), title: t('menu.coolingSystems'), image: '/images/home/sogutma.webp' },
+        { id: 6, subtitle: t('hero.slide6.title'), title: t('menu.coolingAisles'), image: '/images/home/sogutmareyon.webp' },
+        { id: 7, subtitle: t('hero.slide7.title'), title: t('menu.bakery'), image: '/images/home/unluMamullx.webp' },
+    ];
+
 
     useEffect(() => {
-        // Resimleri önceden yükle (preload) ki geçişlerde donma olmasın
-        const imageUrls = [
-            '/images/parsLogo.web',
-            '/images/home/buzdolabi2.web',
-            '/images/home/masa.web',
-            '/images/home/marketx.web',
-            '/images/home/sogukHava2.web',
-            '/images/home/sogutma.web',
-            '/images/home/sogutmareyon.web',
-            '/images/home/unluMamullx.web'
-        ];
-        imageUrls.forEach(url => {
+        if (typeof window === 'undefined') return;
+
+        const preload = (url: string) => {
             const img = new Image();
+            img.decoding = 'async';
             img.src = url;
-        });
+        };
+
+        const nextIndex = (currentSlide + 1) % slides.length;
+        const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+
+        const run = () => {
+            // LCP görseli zaten eager/high; diğerlerini hafifçe önden al
+            preload(slides[nextIndex].image);
+            preload(slides[prevIndex].image);
+        };
+
+        // @ts-ignore
+        if (window.requestIdleCallback) {
+            // @ts-ignore
+            const id = window.requestIdleCallback(run, { timeout: 800 });
+            return () => {
+                // @ts-ignore
+                if (window.cancelIdleCallback) window.cancelIdleCallback(id);
+            };
+        } else {
+            const t = window.setTimeout(run, 300);
+            return () => window.clearTimeout(t);
+        }
+    }, [currentSlide, slides]);
+
+    // ✅ LCP görselini HTML'de erken keşfedilir yap: <link rel="preload" as="image" ... />
+    useEffect(() => {
+        if (typeof document === 'undefined') return;
+
+        // İlk açılışta LCP olma olasılığı en yüksek görsel: ilk slaytın görseli
+        const lcpUrl = '/images/home/parsLogo.webp';
+
+        // Aynı preload'u iki kere basmayalım
+        const existing = document.querySelector(`link[data-lcp-preload="hero"][href="${lcpUrl}"]`);
+        if (existing) return;
+
+        const link = document.createElement('link');
+        link.setAttribute('rel', 'preload');
+        link.setAttribute('as', 'image');
+        link.setAttribute('href', lcpUrl);
+
+        // Eğer server doğru content-type veriyorsa type vermek şart değil.
+        // Ama uzantın .web (standart değil) olduğu için type vermek bazen faydalı olabilir:
+        // link.setAttribute('type', 'image/webp');
+
+        link.setAttribute('fetchpriority', 'high');
+        link.setAttribute('data-lcp-preload', 'hero');
+
+        document.head.appendChild(link);
+
+        return () => {
+            try {
+                document.head.removeChild(link);
+            } catch {
+                // ignore
+            }
+        };
     }, []);
 
     useEffect(() => {
@@ -83,22 +148,6 @@ export default function HeroSection() {
     const swipeJustHappenedRef = useRef(false);
     const swipeResetTimerRef = useRef<number | null>(null);
 
-    const slides = [
-        {
-            id: 0,
-            title: 'Pars Soğutma Sistemleri',
-            description: 'İşletmeniz için yüksek verimli, yenilikçi ve estetik soğutma çözümleri üretiyoruz. Sosyal Medya kanallarımızdan bizleri takip edebilir aynı zamanda iletişime geçebilirsiniz.',
-            image: '/images/parsLogo.web',
-            isSocial: true
-        },
-        { id: 1, subtitle: t('hero.slide1.title'), title: t('menu.refrigerators'), image: '/images/home/buzdolabi2.web' },
-        { id: 2, subtitle: t('hero.slide2.title'), title: t('menu.industrialKitchen'), image: '/images/home/masa.web' },
-        { id: 3, subtitle: t('hero.slide3.title'), title: t('menu.marketEquip'), image: '/images/home/marketx.web' },
-        { id: 4, subtitle: t('hero.slide4.title'), title: t('menu.coldStorage'), image: '/images/home/sogukHava2.web' },
-        { id: 5, subtitle: t('hero.slide5.title'), title: t('menu.coolingSystems'), image: '/images/home/sogutma.web' },
-        { id: 6, subtitle: t('hero.slide6.title'), title: t('menu.coolingAisles'), image: '/images/home/sogutmareyon.web' },
-        { id: 7, subtitle: t('hero.slide7.title'), title: t('menu.bakery'), image: '/images/home/unluMamullx.web' },
-    ];
 
     const isSocialText = !!slides[textSlide]?.isSocial;     // mobil tasarım kararları (ilk slayt için)
     const isSocialImage = !!slides[currentSlide]?.isSocial; // görsel tarafı (o an gösterilen resim)
@@ -235,6 +284,9 @@ export default function HeroSection() {
         e.stopPropagation();
         swipeJustHappenedRef.current = false;
     };
+
+    // ✅ LCP görsel tespiti: sayfa ilk açıldığında currentSlide=0 => bu görsel LCP olmaya aday
+    const isLcpImage = currentSlide === 0;
 
     return (
         <section
@@ -394,7 +446,7 @@ export default function HeroSection() {
 
                                     {/* Instagram */}
                                     <a
-                                        href="http://instagram.com/parsogutma/"
+                                        href="https://instagram.com/parsogutma/"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
@@ -526,6 +578,10 @@ export default function HeroSection() {
                                             : ''
                                     }`}
                                     draggable={false}
+                                    // ✅ LCP için: eager + high priority
+                                    loading={isLcpImage ? 'eager' : 'lazy'}
+                                    decoding="async"
+                                    fetchPriority={isLcpImage ? 'high' : 'auto'}
                                 />
                             </div>
                         </motion.div>
