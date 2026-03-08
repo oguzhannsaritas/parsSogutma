@@ -11,6 +11,14 @@ export default function HeroSection() {
     const [isAnimating, setIsAnimating] = useState(false);
     const [wipeState, setWipeState] = useState<'idle' | 'in' | 'out'>('idle');
     const { t } = useLanguage();
+    const isFirstRenderRef = useRef(true);
+    const [lcpLoaded, setLcpLoaded] = useState(false);
+    const isLcpImage = currentSlide === 0;
+
+
+    useEffect(() => {
+        isFirstRenderRef.current = false;
+    }, []);
 
     // Sadece mobilde swipe aktif olsun
     const [swipeEnabled, setSwipeEnabled] = useState(false);
@@ -34,6 +42,7 @@ export default function HeroSection() {
 
     useEffect(() => {
         if (typeof window === 'undefined') return;
+        if (!lcpLoaded) return; // ✅ LCP bitmeden diğerlerine saldırma
 
         const preload = (url: string) => {
             const img = new Image();
@@ -45,7 +54,6 @@ export default function HeroSection() {
         const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
 
         const run = () => {
-            // LCP görseli zaten eager/high; diğerlerini hafifçe önden al
             preload(slides[nextIndex].image);
             preload(slides[prevIndex].image);
         };
@@ -53,16 +61,16 @@ export default function HeroSection() {
         // @ts-ignore
         if (window.requestIdleCallback) {
             // @ts-ignore
-            const id = window.requestIdleCallback(run, { timeout: 800 });
+            const id = window.requestIdleCallback(run, { timeout: 1200 });
             return () => {
                 // @ts-ignore
                 if (window.cancelIdleCallback) window.cancelIdleCallback(id);
             };
         } else {
-            const t = window.setTimeout(run, 300);
-            return () => window.clearTimeout(t);
+            const timer = window.setTimeout(run, 500);
+            return () => window.clearTimeout(timer);
         }
-    }, [currentSlide, slides]);
+    }, [currentSlide, lcpLoaded, slides]);
 
     // ✅ LCP görselini HTML'de erken keşfedilir yap: <link rel="preload" as="image" ... />
     useEffect(() => {
@@ -284,9 +292,6 @@ export default function HeroSection() {
         e.stopPropagation();
         swipeJustHappenedRef.current = false;
     };
-
-    // ✅ LCP görsel tespiti: sayfa ilk açıldığında currentSlide=0 => bu görsel LCP olmaya aday
-    const isLcpImage = currentSlide === 0;
 
     return (
         <section
@@ -552,7 +557,7 @@ export default function HeroSection() {
                                 animate: { opacity: 1, x: 0, transition: { duration: 0.5, ease: 'easeInOut' } },
                                 exit: { opacity: 0, x: -20, transition: { duration: 0.3 } },
                             }}
-                            initial="initial"
+                            initial={isFirstRenderRef.current ? false : "initial"}
                             animate="animate"
                             exit="exit"
                             className={`flex relative z-10 w-full
@@ -582,6 +587,7 @@ export default function HeroSection() {
                                     loading={isLcpImage ? 'eager' : 'lazy'}
                                     decoding="async"
                                     fetchPriority={isLcpImage ? 'high' : 'auto'}
+                                    onLoad={() => { if (isLcpImage) setLcpLoaded(true); }}
                                 />
                             </div>
                         </motion.div>

@@ -114,7 +114,7 @@ export default function Header() {
             title: 'Severek',
             icon: (
                 <img
-                    src="../../public/images/home/parsLogo.webp"
+                    src="/images/home/parsLogo.webp"
                     alt="Pars Logo"
                     className="h-10 object-cover invert hue-rotate-180 saturate-150 dark:invert-0 dark:hue-rotate-0 dark:saturate-100 transition-all duration-300"
                 />
@@ -316,6 +316,11 @@ export default function Header() {
                                                                             src={item.image}
                                                                             alt={item.title}
                                                                             className="w-full h-full object-contain transform group-hover/card:scale-110 transition-transform duration-500"
+                                                                            loading="lazy"
+                                                                            decoding="async"
+                                                                            fetchPriority="low"
+                                                                            width={600}
+                                                                            height={450}
                                                                         />
                                                                     </div>
                                                                 </Link>
