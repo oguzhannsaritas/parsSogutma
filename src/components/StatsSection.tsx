@@ -65,8 +65,13 @@ export default function StatsSection() {
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-1 md:mb-12">
-                    <h4 className="text-gray-400 dark:text-gray-600 md:font-bold tracking-widest uppercase text-[10px] md:text-xs mb-0 md:mb-3 opacity-60">{t('stats.number')}</h4>
-                    <h2 className="text-lg md:text-4xl font-bold flex relative md:top-5 justify-center items-center text-white dark:text-black">{t('stats.whatWeHaveDoneSoFar')}</h2>
+                    <p className="text-gray-400 dark:text-gray-600 md:font-bold tracking-widest uppercase text-[10px] md:text-xs mb-0 md:mb-3 opacity-60">
+                        {t('stats.number')}
+                    </p>
+
+                    <h2 className="text-lg md:text-4xl font-bold flex relative md:top-5 justify-center items-center text-white dark:text-black">
+                        {t('stats.whatWeHaveDoneSoFar')}
+                    </h2>
                 </div>
 
                 <div className="grid grid-cols-5 md:grid-cols-3 lg:grid-cols-5 ">
@@ -87,8 +92,8 @@ export default function StatsSection() {
                                 <div className="absolute inset-0 bg-white/20  dark:bg-[#6b7280]  rounded-full blur-xl transform scale-90 group-hover:scale-110 transition-transform duration-300"></div>
                             </div>
 
-                            <h3 className="text-[10px] md:text-3xl font-bold text-white dark:text-black ">{stat.value}</h3>
-                            <h3 className="text-[10px] md:text-[11px] font-bold text-white dark:text-black uppercase tracking-widest opacity-90">{stat.label}</h3>
+                            <p className="text-[10px] md:text-3xl font-bold text-white dark:text-black">{stat.value}</p>
+                            <p className="text-[10px] md:text-[11px] font-bold text-white dark:text-black uppercase tracking-widest opacity-90">{stat.label}</p>
                         </motion.div>
                     ))}
                 </div>

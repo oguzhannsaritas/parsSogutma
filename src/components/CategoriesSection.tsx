@@ -71,6 +71,8 @@ export default function CategoriesSection() {
                     <button
                         onClick={() => handlePageChange(currentPage - 1)}
                         disabled={currentPage === 1}
+                        aria-label="Önceki sayfa"
+                        title="Önceki sayfa"
                         className={`p-2 rounded-full ${currentPage === 1 ? 'text-gray-300 dark:text-gray-600 cursor-not-allowed' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'}`}
                     >
                         <ChevronLeft size={20} />
@@ -93,6 +95,8 @@ export default function CategoriesSection() {
                     <button
                         onClick={() => handlePageChange(currentPage + 1)}
                         disabled={currentPage === totalPages}
+                        aria-label="Sonraki sayfa"
+                        title="Sonraki sayfa"
                         className={`p-2 rounded-full ${currentPage === totalPages ? 'text-gray-300 dark:text-gray-600 cursor-not-allowed' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'}`}
                     >
                         <ChevronRight size={20} />

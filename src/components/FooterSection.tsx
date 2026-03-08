@@ -99,9 +99,9 @@ export default function FooterSection() {
                         <div>
                             {/* Desktop */}
                             <div className="hidden md:block">
-                                <h4 className="font-bold text-white text-lg mb-6 border-b border-gray-600 pb-2 inline-block">
+                                <h3 className="font-bold text-white text-lg mb-6 border-b border-gray-600 pb-2 inline-block">
                                     {t('pars.footer.corporate')}
-                                </h4>
+                                </h3>
                                 <ul className="space-y-4 text-gray-300 text-xs lg:text-sm font-medium">
                                     <li><Link to="/" className="hover:text-white transition-colors">{t('pars.footer.home')}</Link></li>
                                     <li><Link to="/corporate" className="hover:text-white transition-colors">{t('pars.footer.about')}</Link></li>
