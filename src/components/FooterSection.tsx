@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
     ArrowUp,
@@ -18,7 +18,30 @@ export default function FooterSection() {
     const [open, setOpen] = React.useState<OpenId>(null);
 
     // ✅ YouTube video (watch: https://www.youtube.com/watch?v=oZmSKiyZ7zM)
+    // İstersen privacy için: https://www.youtube-nocookie.com/embed/...
     const YT_EMBED_URL = 'https://www.youtube.com/embed/oZmSKiyZ7zM?rel=0&modestbranding=1';
+
+    // ✅ YouTube iframe'i görünür olana kadar yükleme
+    const ytRef = useRef<HTMLDivElement | null>(null);
+    const [ytVisible, setYtVisible] = useState(false);
+
+    useEffect(() => {
+        if (!ytRef.current) return;
+
+        const io = new IntersectionObserver(
+            (entries) => {
+                const e = entries[0];
+                if (e && e.isIntersecting) {
+                    setYtVisible(true);
+                    io.disconnect();
+                }
+            },
+            { rootMargin: '400px 0px' } // footer'a yaklaşınca başlasın
+        );
+
+        io.observe(ytRef.current);
+        return () => io.disconnect();
+    }, []);
 
     const ToggleHeader = ({ id, title }: { id: Exclude<OpenId, null>; title: string }) => {
         const isOpen = open === id;
@@ -27,11 +50,14 @@ export default function FooterSection() {
                 type="button"
                 onClick={() => setOpen(isOpen ? null : id)}
                 className="w-full flex items-center justify-between py-4 text-left"
+                aria-expanded={isOpen}
+                aria-controls={`footer-panel-${id}`}
             >
                 <span className="font-bold text-white text-base">{title}</span>
                 <ChevronDown
                     size={18}
                     className={`transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                    aria-hidden="true"
                 />
             </button>
         );
@@ -55,15 +81,29 @@ export default function FooterSection() {
                         </p>
                     </div>
 
-                    {/* ✅ Direkt YouTube embed (her zaman görünür) */}
-                    <div className="relative w-full aspect-video overflow-hidden rounded-lg shadow-xl bg-black">
-                        <iframe
-                            className="w-full h-full"
-                            src={YT_EMBED_URL}
-                            title="Pars Soğutma YouTube"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen
-                        />
+                    {/* ✅ YouTube: görünür olunca yükle (layout aynı kalır) */}
+                    <div
+                        ref={ytRef}
+                        className="relative w-full aspect-video overflow-hidden rounded-lg shadow-xl bg-black"
+                    >
+                        {ytVisible ? (
+                            <iframe
+                                className="w-full h-full"
+                                src={YT_EMBED_URL}
+                                title="Pars Soğutma YouTube"
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowFullScreen
+                            />
+                        ) : (
+                            // Placeholder: aynı boyut, sıfır YouTube yükü
+                            <div className="w-full h-full flex items-center justify-center">
+                                <div className="flex items-center gap-2 text-white/80">
+                                    <Youtube size={22} aria-hidden="true" />
+                                    <span className="text-sm font-medium">Video yükleniyor…</span>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
@@ -88,6 +128,10 @@ export default function FooterSection() {
                                     src="/images/home/parsLogo.webp"
                                     alt="PARS SOĞUTMA"
                                     className="h-12 object-contain invert hue-rotate-180 transition-all duration-300"
+                                    width={250}
+                                    height={450}
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                             <p className="text-gray-300 lg:text-sm text-xs leading-relaxed font-medium">
@@ -115,6 +159,7 @@ export default function FooterSection() {
                                 <ToggleHeader id="kurumsal" title={t('pars.footer.corporate')} />
 
                                 <div
+                                    id="footer-panel-kurumsal"
                                     className={`grid transition-all duration-300 ease-in-out ${
                                         open === 'kurumsal' ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
                                     }`}
@@ -137,9 +182,9 @@ export default function FooterSection() {
                         <div>
                             {/* Desktop */}
                             <div className="hidden md:block">
-                                <h4 className="font-bold text-white text-lg mb-6 border-b border-gray-600 pb-2 inline-block">
+                                <h3 className="font-bold text-white text-lg mb-6 border-b border-gray-600 pb-2 inline-block">
                                     {t('pars.footer.products')}
-                                </h4>
+                                </h3>
                                 <ul className="space-y-4 text-gray-300 text-xs lg:text-sm font-medium">
                                     <li><Link to="#" className="hover:text-white transition-colors">{t('pars.footer.deepFreezers')}</Link></li>
                                     <li><Link to="#" className="hover:text-white transition-colors">{t('pars.footer.deepFreezers')}</Link></li>
@@ -155,6 +200,7 @@ export default function FooterSection() {
                                 <ToggleHeader id="urunler" title={t('pars.footer.products')} />
 
                                 <div
+                                    id="footer-panel-urunler"
                                     className={`grid transition-all duration-300 ease-in-out ${
                                         open === 'urunler'
                                             ? 'grid-rows-[1fr] opacity-100'
@@ -181,19 +227,19 @@ export default function FooterSection() {
                         <div>
                             {/* Desktop */}
                             <div className="hidden md:block">
-                                <h4 className="font-bold text-white text-lg mb-6 border-gray-600 pb-2 inline-block">
+                                <h3 className="font-bold text-white text-lg mb-6 border-gray-600 pb-2 inline-block">
                                     {t('pars.footer.contact')}
-                                </h4>
+                                </h3>
                                 <ul className="space-y-6 text-gray-300 text-sm font-medium">
                                     <li className="flex items-center gap-4">
                                         <div className="w-8 h-8 rounded-full bg-white text-[#0f172a] flex items-center justify-center flex-shrink-0">
-                                            <MapPin size={16} />
+                                            <MapPin size={16} aria-hidden="true" />
                                         </div>
                                         <span className="mt-1 text-xs lg:text-sm">{t('pars.footer.adress')}</span>
                                     </li>
                                     <li className="flex items-center gap-4">
                                         <div className="w-8 h-8 rounded-full bg-white text-[#0f172a] flex items-center justify-center flex-shrink-0">
-                                            <Phone size={16} />
+                                            <Phone size={16} aria-hidden="true" />
                                         </div>
 
                                         <div className="flex flex-col items-center leading-tight">
@@ -203,13 +249,13 @@ export default function FooterSection() {
                                     </li>
                                     <li className="flex items-center gap-4">
                                         <div className="w-8 h-8 rounded-full bg-white text-[#0f172a] flex items-center justify-center flex-shrink-0">
-                                            <Mail size={16} />
+                                            <Mail size={16} aria-hidden="true" />
                                         </div>
                                         <span className="text-xs lg:text-sm">info@parsogutma.com</span>
                                     </li>
                                     <li className="flex items-center gap-4">
                                         <div className="w-8 h-8 rounded-full bg-white text-[#0f172a] flex items-center justify-center flex-shrink-0">
-                                            <LucideMessageCircleMore size={16} />
+                                            <LucideMessageCircleMore size={16} aria-hidden="true" />
                                         </div>
                                         <span className="text-xs lg:text-sm">+90 543 170 72 77</span>
                                     </li>
@@ -221,6 +267,7 @@ export default function FooterSection() {
                                 <ToggleHeader id="iletisim" title={t('pars.footer.telephone')} />
 
                                 <div
+                                    id="footer-panel-iletisim"
                                     className={`grid transition-all duration-300 ease-in-out ${
                                         open === 'iletisim'
                                             ? 'grid-rows-[1fr] opacity-100'
@@ -232,14 +279,14 @@ export default function FooterSection() {
                                             <ul className="space-y-4 text-gray-300 text-sm font-medium">
                                                 <li className="flex items-center gap-3">
                                                     <div className="w-8 h-8 rounded-full bg-white text-[#0f172a] flex items-center justify-center flex-shrink-0">
-                                                        <MapPin size={16} />
+                                                        <MapPin size={16} aria-hidden="true" />
                                                     </div>
                                                     <span className="mt-1">{t('pars.footer.adress')}</span>
                                                 </li>
 
                                                 <li className="flex items-center gap-4">
                                                     <div className="w-8 h-8 rounded-full bg-white text-[#0f172a] flex items-center justify-center flex-shrink-0">
-                                                        <Phone size={16} />
+                                                        <Phone size={16} aria-hidden="true" />
                                                     </div>
 
                                                     <div className="flex flex-col items-center leading-tight">
@@ -250,14 +297,14 @@ export default function FooterSection() {
 
                                                 <li className="flex items-center gap-3">
                                                     <div className="w-8 h-8 rounded-full bg-white text-[#0f172a] flex items-center justify-center flex-shrink-0">
-                                                        <Mail size={16} />
+                                                        <Mail size={16} aria-hidden="true" />
                                                     </div>
                                                     <span>info@parsogutma.com</span>
                                                 </li>
 
                                                 <li className="flex items-center gap-4">
                                                     <div className="w-8 h-8 rounded-full bg-white text-[#0f172a] flex items-center justify-center flex-shrink-0">
-                                                        <LucideMessageCircleMore size={16} />
+                                                        <LucideMessageCircleMore size={16} aria-hidden="true" />
                                                     </div>
                                                     <span className="text-xs lg:text-sm">+90 543 170 72 77</span>
                                                 </li>
@@ -279,8 +326,10 @@ export default function FooterSection() {
                     onClick={scrollToTop}
                     className="absolute bottom-8 right-8 w-10 h-10 bg-white text-[#0f172a] rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors shadow-lg z-20"
                     type="button"
+                    aria-label="Back to top"
+                    title="Back to top"
                 >
-                    <ArrowUp size={20} />
+                    <ArrowUp size={20} aria-hidden="true" />
                 </button>
             </footer>
         </section>

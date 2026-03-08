@@ -71,8 +71,8 @@ export default function CategoriesSection() {
                     <button
                         onClick={() => handlePageChange(currentPage - 1)}
                         disabled={currentPage === 1}
-                        aria-label="Önceki sayfa"
-                        title="Önceki sayfa"
+                        aria-label="Previous Page"
+                        title="Previous Page"
                         className={`p-2 rounded-full ${currentPage === 1 ? 'text-gray-300 dark:text-gray-600 cursor-not-allowed' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'}`}
                     >
                         <ChevronLeft size={20} />
@@ -81,6 +81,8 @@ export default function CategoriesSection() {
                     {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                         <button
                             key={page}
+                            aria-label="Current page"
+                            title="Current page"
                             onClick={() => handlePageChange(page)}
                             className={`w-8 h-8 flex items-center justify-center rounded-full text-sm font-medium transition-colors ${
                                 currentPage === page
@@ -95,8 +97,8 @@ export default function CategoriesSection() {
                     <button
                         onClick={() => handlePageChange(currentPage + 1)}
                         disabled={currentPage === totalPages}
-                        aria-label="Sonraki sayfa"
-                        title="Sonraki sayfa"
+                        aria-label="Next Page"
+                        title="Next Page"
                         className={`p-2 rounded-full ${currentPage === totalPages ? 'text-gray-300 dark:text-gray-600 cursor-not-allowed' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'}`}
                     >
                         <ChevronRight size={20} />
