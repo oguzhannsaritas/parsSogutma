@@ -17,7 +17,7 @@ export default function Header() {
 
     const [hidden, setHidden] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-    const [lastScrollY, setLastScrollY] = useState(0);
+    const lastScrollYRef = useRef(0);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -56,14 +56,14 @@ export default function Header() {
     }, [isSearchOpen]);
 
     useMotionValueEvent(scrollY, "change", (latest) => {
-        const previous = lastScrollY;
-        setLastScrollY(latest);
+        const previous = lastScrollYRef.current;
+        lastScrollYRef.current = latest;
 
-        if (latest > 50) setIsScrolled(true);
-        else setIsScrolled(false);
+        const nextScrolled = latest > 50;
+        const nextHidden = latest > previous && latest > 150;
 
-        if (latest > previous && latest > 150) setHidden(true);
-        else setHidden(false);
+        setIsScrolled(prev => (prev === nextScrolled ? prev : nextScrolled));
+        setHidden(prev => (prev === nextHidden ? prev : nextHidden));
     });
 
     const handleSearch = (e: React.FormEvent) => {
