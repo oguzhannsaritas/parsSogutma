@@ -13,6 +13,12 @@ export default function About() {
           src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000" 
           alt="About Us Banner" 
           className="w-full h-full object-cover"
+          width={1600}
+          height={900}
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+          referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center mt-20  text-white">
           <h1 className="text-2xl md:text-5xl font-bold mb-4">{t('about.title')}</h1>
