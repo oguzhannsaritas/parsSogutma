@@ -229,6 +229,8 @@ export default function Header() {
                                     src="/images/home/parsLogo.webp"
                                     alt="PARS SOĞUTMA"
                                     className="h-10 object-contain dark:invert dark:hue-rotate-180 transition-all duration-300"
+                                    width={200}
+                                    height={400}
                                 />
                             </Link>
 
