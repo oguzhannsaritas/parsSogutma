@@ -6,13 +6,13 @@ import { useLanguage } from '../context/LanguageContext';
 
 // Mock Data for Client Logos (using images instead of text)
 const clients = [
-    { name: "BİM", image: "/images/refences/bim.jpg" },
-    { name: "A-101", image:  "/images/refences/a101.jpg" },
-    { name: "ŞOK", image:  "/images/refences/kayaCiftligi.jpg" },
-    { name: "Sarıyer", image:  "/images/refences/metro.jpg" },
-    { name: "Çağrı", image:  "/images/refences/peynircibaba.jpg" },
-    { name: "Bizim", image:  "/images/refences/sa.jpg" },
-    { name: "CarrefourSA", image:  "/images/refences/sok.jpg"},
+    { name: "BİM", image: "/images/refences/bim.webp" },
+    { name: "A-101", image: "/images/refences/a101.jpg" },
+    { name: "ŞOK", image: "/images/refences/kayaCiftligi.webp" },
+    { name: "Sarıyer", image: "/images/refences/metro.jpg" },
+    { name: "Çağrı", image: "/images/refences/peynircibaba.webp" },
+    { name: "Bizim", image: "/images/refences/sa.webp" },
+    { name: "CarrefourSA", image: "/images/refences/sok.webp" },
 ];
 
 // Mock Data for Projects
@@ -32,13 +32,13 @@ export const projects = [
         id: 'kaleRestoran',
         title: 'KALE RESTORAN',
         location: 'İSTANBUL / MALTEPE',
-        coverImage: '/images/refences/kaleRestoran/kaleRestoran5.jpg',
+        coverImage: '/images/refences/kaleRestoran/kaleRestoran5.webp',
         images: [
             '/images/refences/kaleRestoran/kaleRestoran.jpg',
             '/images/refences/kaleRestoran/kaleRestora2.jpg',
             '/images/refences/kaleRestoran/kaleRestoran3.jpg',
             '/images/refences/kaleRestoran/kaleRestoran4.jpg',
-            '/images/refences/kaleRestoran/kaleRestoran5.jpg',
+            '/images/refences/kaleRestoran/kaleRestoran5.webp',
             '/images/refences/kaleRestoran/kaleRestoran6.jpg',
 
         ]
@@ -61,10 +61,10 @@ export const projects = [
         id: 'yagizCiftligi',
         title: 'YAĞIZ ÇİFTLİĞİM',
         location: 'İSATNBUL / BEYLİK DÜZÜ',
-        coverImage:  '/images/refences/yagizCiftligi/yagizCiftligi1.jpg',
+        coverImage:  '/images/refences/yagizCiftligi/yagizCiftligi1.webp',
         images: [
 
-            '/images/refences/yagizCiftligi/yagizCiftligi1.jpg',
+            '/images/refences/yagizCiftligi/yagizCiftligi1.webp',
             '/images/refences/yagizCiftligi/yagizCiftligi2.jpg',
             '/images/refences/yagizCiftligi/yagizCiftligi3.jpg',
             '/images/refences/yagizCiftligi/yagizCiftligi4.jpg',
@@ -73,15 +73,16 @@ export const projects = [
             '/images/refences/yagizCiftligi/yagizCiftligi7.jpg',
             '/images/refences/yagizCiftligi/yagizCiftligi8.jpg',
             '/images/refences/yagizCiftligi/yagizCiftligi9.jpg',
+            '/images/refences/yagizCiftligi/yagizCiftligi.webp',
         ]
     },
     {
         id: 'tatOglu',
         title: 'TAT OĞLU FIRIN PASTANESİ',
         location: 'KOCAELİ / GEBZE',
-        coverImage: '/images/refences/tatOglu/tatOglu.jpg',
+        coverImage: '/images/refences/tatOglu/tatOglu.webp',
         images: [
-            '/images/refences/tatOglu/tatOglu.jpg',
+            '/images/refences/tatOglu/tatOglu.webp',
             '/images/refences/tatOglu/tatOglu2.jpg',
             '/images/refences/tatOglu/tatOglu3.jpg',
             '/images/refences/tatOglu/tatOglu4.jpg',
@@ -93,9 +94,9 @@ export const projects = [
         id: 'tireBolu',
         title: 'TİREBOLU UNLU MAMÜLLER ',
         location: 'İSTANBUL / ÜMRANİYE',
-        coverImage: '/images/refences/tireBolu/tirebolu.jpg',
+        coverImage: '/images/refences/tireBolu/tirebolu.webp',
         images: [
-            '/images/refences/tireBolu/tirebolu.jpg',
+            '/images/refences/tireBolu/tirebolu.webp',
             '/images/refences/tireBolu/tirebolu1.jpg',
             '/images/refences/tireBolu/tirebolu2.jpg',
             '/images/refences/tireBolu/tirebolu3.jpg',
@@ -175,6 +176,10 @@ export default function References() {
         });
     };
 
+    // ✅ LCP adayı görseller: ilk sayfanın ilk satırı (grid-cols-3 -> 3 kart)
+    // Lighthouse bazen 1. kart yerine 2./3. kartı LCP seçebiliyor; bu yüzden ilk 3'ü "eager/high" yapıyoruz.
+    const LCP_CANDIDATES = 3;
+
     return (
         <div className="bg-white dark:bg-[#111827] h-auto md:min-h-screen pt-24 pb-12 md:pb-24 transition-colors duration-300">
             {/* Header Banner */}
@@ -237,7 +242,7 @@ export default function References() {
                         className="grid grid-cols-3 md:grid-cols-2 gap-8"
                     >
                         {currentProjects.map((project, idx) => {
-                            const isFirstVisibleCard = currentPage === 1 && idx === 0;
+                            const isLcpCandidate = currentPage === 1 && idx < LCP_CANDIDATES;
 
                             return (
                                 <div
@@ -253,8 +258,8 @@ export default function References() {
                                             width={800}
                                             height={600}
                                             decoding="async"
-                                            loading={isFirstVisibleCard ? "eager" : "lazy"}
-                                            fetchPriority={isFirstVisibleCard ? "high" : "low"}
+                                            loading={isLcpCandidate ? "eager" : "lazy"}
+                                            fetchPriority={isLcpCandidate ? "high" : "low"}
                                         />
                                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
                                     </div>
