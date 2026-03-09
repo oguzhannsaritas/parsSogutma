@@ -320,9 +320,16 @@ const translations: Translations = {
     'pars.footer.about':{TR: 'Hakkımızda', EN :'About Page'},
     'pars.footer.products':{TR:'Ürünlerimiz', EN :'Products Page'},
     'pars.footer.telephone':{TR:'İletişim Bilgilerimiz', EN :'Contact Information'},
-    'pars.footer.info':{TR:'Pars Soğutma, süpermarketler, soğuk odalar ve endüstriyel soğutma sistemleri alanında sektörün öncü firmalarından biri olma yolunda emin adımlarla ilerlemektedir. Kuruluşumuzdan bu yana, müşterilerimizin ihtiyaçlarına özel çözümler sunarak, yüksek kalite ve enerji tasarrufunu bir araya getiren projelerle fark yaratmayı hedefledik.\n', EN:' Pars Refrigeration is taking firm steps towards becoming one of the leading companies in the sector in the field of supermarkets, cold rooms and industrial refrigeration systems. Since our establishment, we have aimed to make a difference by offering customized solutions to our customers\' needs and projects that combine high quality and energy savings.\n'}
+    'pars.footer.info':{TR:'Pars Soğutma, süpermarketler, soğuk odalar ve endüstriyel soğutma sistemleri alanında sektörün öncü firmalarından biri olma yolunda emin adımlarla ilerlemektedir. Kuruluşumuzdan bu yana, müşterilerimizin ihtiyaçlarına özel çözümler sunarak, yüksek kalite ve enerji tasarrufunu bir araya getiren projelerle fark yaratmayı hedefledik.\n', EN:' Pars Refrigeration is taking firm steps towards becoming one of the leading companies in the sector in the field of supermarkets, cold rooms and industrial refrigeration systems. Since our establishment, we have aimed to make a difference by offering customized solutions to our customers\' needs and projects that combine high quality and energy savings.\n'},
 
+// NOT FOUND PAGE
 
+    'notfound.title': { TR: 'Sayfa Bulunamadı', EN: 'Page Not Found' },
+    'notfound.desc': { TR: 'Üzgünüz, aradığınız sayfaya şu anda ulaşılamıyor. Sayfa kaldırılmış, adı değiştirilmiş veya geçici olarak kullanım dışı olabilir.', EN: 'Sorry, the page you are looking for is currently unavailable. The page may have been removed, had its name changed, or is temporarily unavailable.' },
+    'notfound.back': { TR: 'Geri Dön', EN: 'Go Back' },
+    'notfound.home': { TR: 'Ana Sayfa', EN: 'Home' },
+    'notfound.meta.title': { TR: '404 - Sayfa Bulunamadı | Pars Soğutma Sistemleri', EN: '404 - Page Not Found | Pars Cooling Systems' },
+    'notfound.meta.desc': { TR: 'Aradığınız sayfa bulunamadı. Pars Soğutma Sistemleri ana sayfasına dönerek endüstriyel soğutma çözümlerimizi inceleyebilirsiniz.', EN: 'The page you are looking for could not be found. You can return to the Pars Cooling Systems home page to examine our industrial cooling solutions.' },
 
 };
 

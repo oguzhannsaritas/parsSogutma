@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pars-sogutma.vercel.app/sitemap.xml

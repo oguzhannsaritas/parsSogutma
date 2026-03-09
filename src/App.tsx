@@ -16,6 +16,7 @@ import { LanguageProvider } from './context/LanguageContext';
 
 import { ThemeProvider } from './context/ThemeContext';
 import WhatsAppButton from "@/src/components/WhatsAppButton.tsx";
+import NotFound from "@/src/pages/NotFound.tsx";
 
 function LoaderController() {
   const location = useLocation();
@@ -58,6 +59,7 @@ export default function App() {
                 <Route path="/references/:id" element={<ReferenceDetail />} />
                 <Route path="/gallery" element={<PhotoGallery />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
             <FooterSection />
