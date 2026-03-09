@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
     ArrowUp,
@@ -17,31 +17,23 @@ export default function FooterSection() {
     const { t } = useLanguage();
     const [open, setOpen] = React.useState<OpenId>(null);
 
-    // ✅ YouTube video (watch: https://www.youtube.com/watch?v=oZmSKiyZ7zM)
-    // İstersen privacy için: https://www.youtube-nocookie.com/embed/...
-    const YT_EMBED_URL = 'https://www.youtube.com/embed/oZmSKiyZ7zM?rel=0&modestbranding=1';
+    // ✅ YouTube: cookie + unused JS sorunu için "tıklayınca yükle" (2-click)
+    const YT_VIDEO_ID = 'oZmSKiyZ7zM';
 
-    // ✅ YouTube iframe'i görünür olana kadar yükleme
-    const ytRef = useRef<HTMLDivElement | null>(null);
-    const [ytVisible, setYtVisible] = useState(false);
+    // Privacy mode (daha iyi): youtube-nocookie
+    const YT_EMBED_URL = `https://www.youtube-nocookie.com/embed/${YT_VIDEO_ID}?rel=0&modestbranding=1`;
 
-    useEffect(() => {
-        if (!ytRef.current) return;
+    // Placeholder görsel: istersen local bir resim koy (öneri)
+    // Örn: public/images/home/youtube-cover.webp
+    // Yoksa YouTube thumbnail ile fallback yapıyoruz.
+    const YT_PLACEHOLDER_IMG =
+        '/images/home/youtube-cover.webp';
 
-        const io = new IntersectionObserver(
-            (entries) => {
-                const e = entries[0];
-                if (e && e.isIntersecting) {
-                    setYtVisible(true);
-                    io.disconnect();
-                }
-            },
-            { rootMargin: '400px 0px' } // footer'a yaklaşınca başlasın
-        );
+    const YT_THUMB_FALLBACK =
+        `https://i.ytimg.com/vi/${YT_VIDEO_ID}/hqdefault.jpg`;
 
-        io.observe(ytRef.current);
-        return () => io.disconnect();
-    }, []);
+    const [ytEnabled, setYtEnabled] = useState(false);
+    const [ytImgError, setYtImgError] = useState(false);
 
     const ToggleHeader = ({ id, title }: { id: Exclude<OpenId, null>; title: string }) => {
         const isOpen = open === id;
@@ -81,12 +73,9 @@ export default function FooterSection() {
                         </p>
                     </div>
 
-                    {/* ✅ YouTube: görünür olunca yükle (layout aynı kalır) */}
-                    <div
-                        ref={ytRef}
-                        className="relative w-full aspect-video overflow-hidden rounded-lg shadow-xl bg-black"
-                    >
-                        {ytVisible ? (
+                    {/* ✅ YouTube: Tıklayınca iframe yükle (ilk yükte cookie yok, 700KB JS yok) */}
+                    <div className="relative w-full aspect-video overflow-hidden rounded-lg shadow-xl bg-black">
+                        {ytEnabled ? (
                             <iframe
                                 className="w-full h-full"
                                 src={YT_EMBED_URL}
@@ -96,13 +85,29 @@ export default function FooterSection() {
                                 allowFullScreen
                             />
                         ) : (
-                            // Placeholder: aynı boyut, sıfır YouTube yükü
-                            <div className="w-full h-full flex items-center justify-center">
-                                <div className="flex items-center gap-2 text-white/80">
-                                    <Youtube size={22} aria-hidden="true" />
-                                    <span className="text-sm font-medium">Video yükleniyor…</span>
+                            <button
+                                type="button"
+                                onClick={() => setYtEnabled(true)}
+                                className="absolute inset-0 w-full h-full"
+                                aria-label="YouTube videosunu yükle"
+                                title="YouTube videosunu yükle"
+                            >
+                                <img
+                                    src={ytImgError ? YT_THUMB_FALLBACK : YT_PLACEHOLDER_IMG}
+                                    onError={() => setYtImgError(true)}
+                                    alt=""
+                                    aria-hidden="true"
+                                    className="w-full h-full object-cover opacity-90"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                                <div className="absolute inset-0 bg-black/35" />
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                    <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-red-500 text-white text-sm font-semibold">
+                                        <Youtube size={20} aria-hidden="true" />
+                                    </div>
                                 </div>
-                            </div>
+                            </button>
                         )}
                     </div>
                 </div>
