@@ -11,7 +11,6 @@ export default function Contact() {
     const [message, setMessage] = useState('');
 
     // ✅ LCP fix: Haritayı tıklayana kadar yükleme
-    const [mapLoaded, setMapLoaded] = useState(false);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -38,24 +37,7 @@ export default function Contact() {
         <div className="bg-white dark:bg-[#111827] min-h-screen pt-24 pb-4 md:pb-16 transition-colors duration-300">
             {/* Map Section */}
             <div className="w-full h-[400px] bg-gray-200 dark:bg-neutral-800 mb-16 relative overflow-hidden">
-                {!mapLoaded ? (
-                    <button
-                        type="button"
-                        onClick={() => setMapLoaded(true)}
-                        className="absolute inset-0 w-full h-full flex items-center justify-center"
-                        aria-label="Haritayı yükle"
-                        title="Haritayı yükle"
-                    >
-                        <div className="flex flex-col items-center gap-3">
-                            <div className="px-4 py-2 rounded-lg bg-black/70 text-white text-sm font-semibold">
-                                Haritayı Yükle
-                            </div>
-                            <div className="text-xs text-gray-600 dark:text-gray-300">
-                                Google Haritalar içerikleri tıklayınca yüklenir
-                            </div>
-                        </div>
-                    </button>
-                ) : (
+                {(
                     <iframe
                         title="Pars Soğutma Konum Haritası"
                         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d895.3683344167697!2d29.269102942284555!3d40.989186053399436!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cacf694dfd5897%3A0xcd8ea58029f9d9f!2sPars%20So%C4%9Futma%20Ekipmanlar%C4%B1%20Ltd.%20%C5%9Eti.!5e0!3m2!1str!2str!4v1743767405972!5m2!1str!2str"
