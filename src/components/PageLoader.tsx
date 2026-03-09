@@ -47,18 +47,27 @@ export default function PageLoader() {
                 >
                     {/* Logo Section */}
                     <div className="flex items-center justify-center mb-8">
-                        <motion.img
-                            src="/images/home/parsLogo.webp"
-                            alt="PARS SOĞUTMA"
-                            className="h-24 object-contain dark:invert dark:hue-rotate-180 transition-all duration-300"
+                        {/* ✅ Animasyon aynı: sadece motion.img -> motion.div + img */}
+                        <motion.div
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            // ✅ Loader’da doğru olan: eager (lazy değil)
-                            loading="eager"
-                            decoding="async"
-                            fetchPriority="high"
-                        />
+                            style={{ willChange: 'transform, opacity' }}
+                        >
+                            <img
+                                src="/images/home/parsLogo.webp"
+                                alt="PARS SOĞUTMA"
+                                className="h-24 object-contain dark:invert dark:hue-rotate-180 transition-all duration-300"
+                                // ✅ Loader’da doğru olan: eager (lazy değil)
+                                loading="eager"
+                                decoding="async"
+                                fetchPriority="high"
+                                // ✅ CLS/LCP için intrinsic size
+                                width={320}
+                                height={96}
+                                draggable={false}
+                            />
+                        </motion.div>
                     </div>
 
                     {/* Progress Bar */}
