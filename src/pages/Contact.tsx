@@ -36,7 +36,9 @@ export default function Contact() {
             {/* Map Section */}
             <div className="w-full h-[400px] bg-gray-200 dark:bg-neutral-800 mb-16">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d895.3683344167697!2d29.269102942284555!3d40.989186053399436!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cacf694dfd5897%3A0xcd8ea58029f9d9f!2sPars%20So%C4%9Futma%20Ekipmanlar%C4%B1%20Ltd.%20%C5%9Eti.!5e0!3m2!1str!2str!4v1743767405972!5m2!1str!2str"                    width="100%"
+                    title="Pars Soğutma Konum Haritası"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d895.3683344167697!2d29.269102942284555!3d40.989186053399436!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cacf694dfd5897%3A0xcd8ea58029f9d9f!2sPars%20So%C4%9Futma%20Ekipmanlar%C4%B1%20Ltd.%20%C5%9Eti.!5e0!3m2!1str!2str!4v1743767405972!5m2!1str!2str"
+                    width="100%"
                     height="100%"
                     style={{ border: 0 }}
                     allowFullScreen={true}
@@ -71,10 +73,10 @@ export default function Contact() {
                                     {t('contact.headquartersContact')}
                                 </span>
                                 <div className="flex-1">
-                                    <p className="text-[#009FE3] text-[10px] md:text-sm font-medium">
+                                    <p className="text-[#0077B6] dark:text-[#38BDF8] text-[10px] md:text-sm font-medium">
                                         : +90 543 170 72 77
                                     </p>
-                                    <p className="text-[#009FE3] font-medium text-[10px] md:text-sm">
+                                    <p className="text-[#0077B6] dark:text-[#38BDF8] font-medium text-[10px] md:text-sm">
                                         +90 537 645 82 91
                                     </p>
                                 </div>
@@ -101,12 +103,13 @@ export default function Contact() {
                             className="space-y-2 md:space-y-6  shadow-lg bg-gray-50  shadow-gray-400 rounded-lg border-gray-300 border-0 p-4 md:border-0 "
                         >
                             {/* Name & Email Row */}
-                            <div className="grid grid-cols-2 md:grid-cols-2 gap-2 md:ap-6">
+                            <div className="grid grid-cols-2 md:grid-cols-2 gap-2 md:gap-6">
                                 <div className="space-y-2">
-                                    <label className="text-[13px] md:text-sm font-bold text-gray-700 ">
+                                    <label htmlFor="name" className="text-[13px] md:text-sm font-bold text-gray-700 ">
                                         {t('contact.form.name')}
                                     </label>
                                     <input
+                                        id="name"
                                         type="text"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
@@ -114,10 +117,11 @@ export default function Contact() {
                                     />
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-[13px] md:text-sm  font-bold text-gray-700 ">
+                                    <label htmlFor="email" className="text-[13px] md:text-sm  font-bold text-gray-700 ">
                                         {t('contact.form.email')}
                                     </label>
                                     <input
+                                        id="email"
                                         type="email"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
@@ -129,10 +133,11 @@ export default function Contact() {
                             {/* Phone & Subject Row */}
                             <div className="grid grid-cols-2 md:grid-cols-2 gap-2 md:gap-6">
                                 <div className="space-y-2">
-                                    <label className="text-[13px] md:text-sm  font-bold text-gray-700 ">
+                                    <label htmlFor="phone" className="text-[13px] md:text-sm  font-bold text-gray-700 ">
                                         {t('contact.form.phone')}
                                     </label>
                                     <input
+                                        id="phone"
                                         type="tel"
                                         value={phone}
                                         onChange={(e) => setPhone(e.target.value)}
@@ -140,10 +145,11 @@ export default function Contact() {
                                     />
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-[13px] md:text-sm  font-bold text-gray-700 ">
+                                    <label htmlFor="subject" className="text-[13px] md:text-sm  font-bold text-gray-700 ">
                                         {t('contact.form.subject')}
                                     </label>
                                     <input
+                                        id="subject"
                                         type="text"
                                         value={subject}
                                         onChange={(e) => setSubject(e.target.value)}
@@ -154,10 +160,11 @@ export default function Contact() {
 
                             {/* Message */}
                             <div className="space-y-2">
-                                <label className="text-sm font-bold text-gray-700 ">
+                                <label htmlFor="message" className="text-sm font-bold text-gray-700 ">
                                     {t('contact.form.message')}
                                 </label>
                                 <textarea
+                                    id="message"
                                     rows={6}
                                     value={message}
                                     onChange={(e) => setMessage(e.target.value)}
