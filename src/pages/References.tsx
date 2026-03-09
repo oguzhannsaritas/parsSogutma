@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -87,9 +87,6 @@ export const projects = [
             '/images/refences/tatOglu/tatOglu4.jpg',
             '/images/refences/tatOglu/tatOglu5.jpg',
             '/images/refences/tatOglu/tatOglu6.jpg',
-
-
-
         ]
     },
     {
@@ -107,8 +104,6 @@ export const projects = [
             '/images/refences/tireBolu/tirebolu6.jpg',
             '/images/refences/tireBolu/tirebolu7.jpg',
             '/images/refences/tireBolu/tirebolu8.jpg',
-
-
         ]
     },
     {
@@ -132,8 +127,6 @@ export const projects = [
             '/images/refences/nuvo/nuvo2.jpg',
             '/images/refences/nuvo/nuvo3.jpg',
             '/images/refences/nuvo/nuvo4.jpg',
-
-
         ]
     },
     {
@@ -157,7 +150,13 @@ export default function References() {
     const [direction, setDirection] = useState(1); // 1 ileri, -1 geri
     const itemsPerPage = 6;
 
-    const projectsRef = React.useRef<HTMLDivElement | null>(null);
+    const projectsRef = useRef<HTMLDivElement | null>(null);
+
+    // ✅ İlk render’da animasyon LCP’yi geciktirmesin
+    const firstRenderRef = useRef(true);
+    useEffect(() => {
+        firstRenderRef.current = false;
+    }, []);
 
     // Calculate total pages
     const totalPages = Math.ceil(projects.length / itemsPerPage);
@@ -191,21 +190,35 @@ export default function References() {
             </div>
 
             <div className="container mx-auto px-4 md:px-12">
+                {/* ✅ Heading order fix: h2 ekledik */}
+                <h2 className="sr-only">Müşteri Logoları</h2>
+
                 {/* Client Logos Grid */}
                 <div className="grid grid-cols-5 md:grid-cols-2 lg:grid-cols-7 gap-2 md:gap-5 mb-12 md:mb-24">
                     {clients.map((client, index) => (
-                        <div key={index} className="flex items-center justify-center border border-gray-300 transition-all duration-300 rounded-lg overflow-hidden bg-white">
+                        <div
+                            key={index}
+                            className="flex items-center justify-center border border-gray-300 transition-all duration-300 rounded-lg overflow-hidden bg-white aspect-[3/2]"
+                        >
                             <img
                                 src={client.image}
                                 alt={client.name}
-                                className="max-w-full max-h-full object-cover"
+                                className="w-full h-full object-cover"
                                 referrerPolicy="no-referrer"
+                                width={300}
+                                height={200}
+                                loading="lazy"
+                                decoding="async"
+                                fetchPriority="low"
                             />
                         </div>
                     ))}
                 </div>
 
                 <div ref={projectsRef} className="scroll-mt-28" />
+
+                {/* ✅ Heading order fix: h2 */}
+                <h2 className="sr-only">Projeler</h2>
 
                 {/* Projects Grid with Animation */}
                 <AnimatePresence mode="wait">
@@ -217,32 +230,45 @@ export default function References() {
                             center: { opacity: 1, x: 0 },
                             exit: (dir: number) => ({ opacity: 0, x: dir > 0 ? -30 : 30 }),
                         }}
-                        initial="enter"
+                        initial={firstRenderRef.current ? false : "enter"}
                         animate="center"
                         exit="exit"
                         transition={{ duration: 0.4, ease: "easeInOut" }}
                         className="grid grid-cols-3 md:grid-cols-2 gap-8"
                     >
-                        {currentProjects.map((project) => (
-                            <div
-                                key={project.id}
-                                className="group cursor-pointer"
-                                onClick={() => navigate(`/references/${project.id}`)}
-                            >
-                                <div className="relative overflow-hidden aspect-[4/3] mb-4 rounded-lg">
-                                    <img
-                                        src={project.coverImage}
-                                        alt={project.title}
-                                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                                    />
-                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                        {currentProjects.map((project, idx) => {
+                            const isFirstVisibleCard = currentPage === 1 && idx === 0;
+
+                            return (
+                                <div
+                                    key={project.id}
+                                    className="group cursor-pointer"
+                                    onClick={() => navigate(`/references/${project.id}`)}
+                                >
+                                    <div className="relative overflow-hidden aspect-[4/3] mb-4 rounded-lg bg-black/5">
+                                        <img
+                                            src={project.coverImage}
+                                            alt={project.title}
+                                            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                            width={800}
+                                            height={600}
+                                            decoding="async"
+                                            loading={isFirstVisibleCard ? "eager" : "lazy"}
+                                            fetchPriority={isFirstVisibleCard ? "high" : "low"}
+                                        />
+                                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                                    </div>
+                                    <div className="text-center">
+                                        <h3 className="text-xs md:text-xl font-bold text-black dark:text-white group-hover:text-[#009FE3] transition-colors">
+                                            {project.title}
+                                        </h3>
+                                        <p className="text-[10px] md:text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                            {project.location}
+                                        </p>
+                                    </div>
                                 </div>
-                                <div className="text-center">
-                                    <h3 className="text-xs md:text-xl font-bold text-black dark:text-white group-hover:text-[#009FE3] transition-colors">{project.title}</h3>
-                                    <p className="text-[10px] md:text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">{project.location}</p>
-                                </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </motion.div>
                 </AnimatePresence>
 
@@ -250,14 +276,16 @@ export default function References() {
                 {totalPages > 1 && (
                     <div className="flex justify-center items-center gap-2 mt-16">
                         <button
+                            aria-label="Previous"
                             onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
                             disabled={currentPage === 1}
                             className="md:w-10 md:h-10 w-8 h-8 rounded-full flex items-center justify-center
                  text-black dark:text-white dark:hover:text-black
                  disabled:opacity-30 disabled:cursor-not-allowed
                  hover:bg-gray-100 dark:hover:bg-gray-200 transition-colors"
+                            type="button"
                         >
-                            <ChevronLeft size={20} />
+                            <ChevronLeft size={20} aria-hidden="true" />
                         </button>
 
                         {[...Array(totalPages)].map((_, i) => {
@@ -266,14 +294,17 @@ export default function References() {
 
                             return (
                                 <button
+                                    aria-label={`${page}. sayfaya git`}
                                     key={i}
                                     onClick={() => handlePageChange(page)}
+                                    aria-current={isActive ? "page" : undefined}
                                     className={`w-8 h-8 md:h-10 md:w-10 rounded-full flex items-center justify-center font-medium
                       transition-all duration-300  
                       ${isActive
                                         ? 'bg-black text-white shadow-md scale-110 dark:bg-white dark:text-black'
                                         : 'bg-transparent text-black dark:text-white hover:bg-gray-100 dark:hover:text-black dark:hover:bg-gray-200'
                                     }`}
+                                    type="button"
                                 >
                                     {page}
                                 </button>
@@ -281,14 +312,16 @@ export default function References() {
                         })}
 
                         <button
+                            aria-label="Next"
                             onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
                             disabled={currentPage === totalPages}
                             className="md:w-10 md:h-10 w-8 h-8 rounded-full flex items-center justify-center
                  text-black dark:text-white dark:hover:text-black
                  disabled:opacity-30 disabled:cursor-not-allowed
                  hover:bg-gray-100 dark:hover:bg-gray-200 transition-colors"
+                            type="button"
                         >
-                            <ChevronRight size={20} />
+                            <ChevronRight size={20} aria-hidden="true" />
                         </button>
                     </div>
                 )}
