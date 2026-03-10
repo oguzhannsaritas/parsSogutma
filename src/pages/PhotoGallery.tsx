@@ -86,7 +86,10 @@ export default function PhotoGallery() {
               onClick={() => openLightbox(index)}
             >
               <img 
-                src={image} 
+                src={image}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
                 alt={`Gallery Image ${index + 1}`} 
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
               />
