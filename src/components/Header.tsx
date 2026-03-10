@@ -114,6 +114,8 @@ export default function Header() {
             title: 'Severek',
             icon: (
                 <img
+                    width={400}
+                    height={600}
                     src="/images/home/parsLogo.webp"
                     alt="Pars Logo"
                     className="h-10 object-cover invert hue-rotate-180 saturate-150 dark:invert-0 dark:hue-rotate-0 dark:saturate-100 transition-all duration-300"
