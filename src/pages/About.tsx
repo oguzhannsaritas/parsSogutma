@@ -46,6 +46,8 @@ export default function About() {
                       src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1000"
                       alt="Pars Factory"
                       className="w-full h-auto object-cover"
+                      width={250}
+                      height={450}
                   />
               </div>
 
@@ -69,6 +71,8 @@ export default function About() {
                       src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1000"
                       alt="Pars Factory"
                       className="w-full h-auto object-cover"
+                      width={250}
+                      height={450}
                   />
               </div>
           </div>
