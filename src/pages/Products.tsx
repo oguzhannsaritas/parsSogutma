@@ -17,8 +17,8 @@ import { Product } from "@/src/data/products/types.ts";
 
 function ProductCard({
                          product,
-                         priority = 'auto',
-                         loading = 'lazy',
+                         priority = 'high',
+                         loading = 'eager',
                      }: {
     product: Product;
     key?: React.Key;
