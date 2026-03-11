@@ -130,10 +130,12 @@ function ProductCard({
                 <h3 className="font-bold text-xs sm:text-sm md:text-base lg:text-lg text-gray-900 transition-colors leading-tight line-clamp-2">
                     {product.name[language]}
                 </h3>
-                <p className="text-[10px] sm:text-xs md:text-sm text-gray-500 dark:text-gray-400 leading-tight truncate">
+
+                <p className="text-xs sm:text-sm md:text-sm text-gray-700 leading-tight truncate">
                     {product.category[language]}
                 </p>
-                <p className="text-[9px] sm:text-[10px] md:text-xs text-gray-400 dark:text-gray-500 leading-tight truncate">
+
+                <p className="text-xs sm:text-xs md:text-sm text-gray-600  leading-tight truncate">
                     {product.type[language]}
                 </p>
             </div>
@@ -989,13 +991,15 @@ export default function Products() {
                                         : 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-3'
                             }`}
                         >
-                            {paginatedProducts.map((product: Product) => {
+                            {paginatedProducts.map((product: Product, idx: number) => {
+                                const isLcpCandidate = currentPage === 1 && idx === 0;
+
                                 return (
                                     <ProductCard
                                         key={product.id}
                                         product={product}
-                                        loading="eager"     // ✅ geç yükleme yok
-                                        priority="high"     // ✅ fetchpriority=high
+                                        loading="eager"                     // geç yükleme yok
+                                        priority={isLcpCandidate ? 'high' : 'low'}  // sadece LCP high
                                     />
                                 );
                             })}
