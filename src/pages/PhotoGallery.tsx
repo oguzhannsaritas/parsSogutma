@@ -37,7 +37,6 @@ function setUnsplashWidth(url: string, width: number) {
     try {
         const u = new URL(url);
         u.searchParams.set('w', String(width));
-        // q zaten var ama garanti:
         if (!u.searchParams.get('q')) u.searchParams.set('q', '80');
         if (!u.searchParams.get('auto')) u.searchParams.set('auto', 'format');
         if (!u.searchParams.get('fit')) u.searchParams.set('fit', 'crop');
@@ -57,8 +56,8 @@ export default function PhotoGallery() {
 
     const items = useMemo(() => {
         return galleryImages.map((url) => {
-            const thumb = setUnsplashWidth(url, 600);   // grid için yeter
-            const full = setUnsplashWidth(url, 1600);   // lightbox için yeter
+            const thumb = setUnsplashWidth(url, 600);
+            const full = setUnsplashWidth(url, 1600);
             const srcSet = buildUnsplashSrcSet(url, [320, 480, 640, 800, 960, 1200]);
             return { url, thumb, full, srcSet };
         });
@@ -127,8 +126,10 @@ export default function PhotoGallery() {
                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                                     width={600}
                                     height={600}
+                                    // ✅ Lazy uygula: sadece LCP eager
                                     loading={isLcp ? "eager" : "lazy"}
                                     decoding="async"
+                                    // ✅ fetchpriority uygula: sadece LCP high, diğerleri low
                                     fetchPriority={isLcp ? "high" : "low"}
                                     referrerPolicy="no-referrer"
                                     draggable={false}
