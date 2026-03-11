@@ -207,7 +207,6 @@ export default function Products() {
         'filters.items.duvarTipiSutlukReyonlari': 'Duvar Tipi Sütlük Reyonları',
 
         'filters.items.pastaCikolataDolabi': 'Pasta - Çikolata Dolabı',
-        'filters.items.yatayTipPastaDolabi': 'Yatay Tip Pasta Dolabı',
         'filters.items.eklerPastaDolabi': 'Ekler Pasta Dolabı',
         'filters.items.pastaDolabi': 'Pasta Dolabı',
         'filters.items.yatayPastaDolabi': 'Yatay Pasta Dolabı',
@@ -521,6 +520,7 @@ export default function Products() {
         ],
         [t]
     );
+
     const allFilterKeys = useMemo(() => {
         return Array.from(new Set(filterCategories.flatMap((category) => category.items)));
     }, [filterCategories]);
@@ -638,7 +638,6 @@ export default function Products() {
             result = result.filter((product: Product) =>
                 appliedFilters.some((k) => {
                     const trValue = getTrValue(k);
-                    // We check against TR value for filtering logic compatibility
                     return (
                         normalize(product.type.TR) === normalize(trValue) ||
                         normalize(product.category.TR) === normalize(trValue)
@@ -688,6 +687,28 @@ export default function Products() {
         return filteredProducts.slice(startIndex, startIndex + itemsPerPage);
     }, [filteredProducts, currentPage, itemsPerPage]);
 
+    // ✅ LCP: ilk kartın görselini mümkün olduğunca erken çekmeye çalış
+    useEffect(() => {
+        if (typeof document === 'undefined') return;
+        if (currentPage !== 1) return;
+
+        const first = paginatedProducts[0];
+        if (!first?.image) return;
+
+        const href = first.image;
+        const selector = `link[data-lcp-preload="products-first"][href="${href}"]`;
+        const existing = document.head.querySelector(selector);
+        if (existing) return;
+
+        const link = document.createElement('link');
+        link.setAttribute('rel', 'preload');
+        link.setAttribute('as', 'image');
+        link.setAttribute('href', href);
+        link.setAttribute('fetchpriority', 'high');
+        link.setAttribute('data-lcp-preload', 'products-first');
+        document.head.appendChild(link);
+    }, [currentPage, paginatedProducts]);
+
     const handlePageChange = (page: number) => {
         if (page >= 1 && page <= totalPages) {
             setCurrentPage(page);
@@ -716,6 +737,7 @@ export default function Products() {
                             className="flex items-center gap-2 text-black dark:text-white font-bold text-sm cursor-pointer lg:hidden bg-gray-100 dark:bg-neutral-800 px-4 py-2 rounded-full transition-colors hover:bg-gray-200 dark:hover:bg-neutral-700"
                             onClick={() => setIsMobileFilterOpen(true)}
                             aria-label="Filter"
+                            type="button"
                         >
                             <SlidersHorizontal size={16} />
                             <span className="text-xs">
@@ -723,9 +745,14 @@ export default function Products() {
                             </span>
                         </button>
 
-                        <div className="hidden md:flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+                        <label
+                            htmlFor="products-items-per-page"
+                            className="hidden md:flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"
+                        >
                             <span>{t('products.show')}:</span>
+
                             <select
+                                id="products-items-per-page"
                                 value={itemsPerPage}
                                 onChange={(e) => {
                                     setItemsPerPage(Number(e.target.value));
@@ -738,7 +765,7 @@ export default function Products() {
                                 <option value={20}>20</option>
                                 <option value={25}>25</option>
                             </select>
-                        </div>
+                        </label>
 
                         <div className="hidden md:block text-sm text-gray-600 dark:text-gray-300">
                             {t('products.view')} :{' '}
@@ -824,11 +851,15 @@ export default function Products() {
                                     onPointerDown={(e) => e.stopPropagation()}
                                     onClick={() => setIsMobileFilterOpen(false)}
                                     className="p-2 text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
+                                    type="button"
                                 >
                                     <X size={24} />
                                 </button>
                             </div>
                         </div>
+
+                        {/* ✅ Heading order fix: h1’den sonra h2 ekledik */}
+                        <h2 className="sr-only">{t('products.filter')}</h2>
 
                         <div className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-0 space-y-6 lg:space-y-8">
                             {filterCategories.map((category) => (
@@ -912,6 +943,7 @@ export default function Products() {
                                         setCurrentPage(1);
                                     }}
                                     className="flex-1 py-3.5 px-4 text-sm font-semibold text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                                    type="button"
                                 >
                                     {t('filter.items.clear')}
                                 </button>
@@ -923,8 +955,9 @@ export default function Products() {
                                         setIsMobileFilterOpen(false);
                                     }}
                                     className="flex-[2] py-3.5 px-4 text-sm font-semibold bg-[#009FE3] text-white rounded-xl hover:bg-[#0085c2] transition-colors shadow-lg shadow-[#009FE3]/30 flex items-center justify-center gap-2"
+                                    type="button"
                                 >
-                                    <span>  {t('filter.items.seeResults')}</span>
+                                    <span>{t('filter.items.seeResults')}</span>
                                     <span className="bg-white/20 px-2 py-0.5 rounded-full text-xs">{previewFilteredCount}</span>
                                 </button>
                             </div>
@@ -932,6 +965,9 @@ export default function Products() {
                     </motion.div>
 
                     <div className="w-full lg:w-3/4">
+                        {/* ✅ Heading order fix: h3 ürün adları için önce h2 */}
+                        <h2 className="sr-only">{t('products.title')}</h2>
+
                         <div
                             className={`grid gap-3 sm:gap-4 md:gap-6 lg:gap-8 ${
                                 viewMode === 'grid4'
@@ -943,6 +979,7 @@ export default function Products() {
                         >
                             {paginatedProducts.map((product: Product, idx: number) => {
                                 const isLcpCandidate = currentPage === 1 && idx === 0;
+
                                 return (
                                     <ProductCard
                                         key={product.id}
@@ -971,6 +1008,7 @@ export default function Products() {
                                             ? 'text-gray-400 dark:text-gray-600 cursor-not-allowed'
                                             : 'text-gray-600 dark:text-gray-300 hover:bg-[#111827] dark:hover:bg-neutral-700 hover:text-white hover:shadow-md'
                                     }`}
+                                    type="button"
                                 >
                                     <ChevronRight className="w-4 h-4 md:w-5 md:h-5 rotate-180" />
                                 </button>
@@ -986,6 +1024,7 @@ export default function Products() {
                                                     ? 'bg-[#111827] dark:bg-white text-white dark:text-black font-bold shadow-md transform scale-105'
                                                     : 'text-gray-600 dark:text-gray-400 hover:bg-white dark:hover:bg-neutral-700 hover:text-[#009FE3] dark:hover:text-white hover:shadow-sm'
                                             }`}
+                                            type="button"
                                         >
                                             {page}
                                         </button>
@@ -1001,6 +1040,7 @@ export default function Products() {
                                             ? 'text-gray-400 dark:text-gray-600 cursor-not-allowed'
                                             : 'text-gray-600 dark:text-gray-300 hover:bg-[#111827] dark:hover:bg-neutral-700 hover:text-white hover:shadow-md'
                                     }`}
+                                    type="button"
                                 >
                                     <ChevronRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-0.5 transition-transform" />
                                 </button>

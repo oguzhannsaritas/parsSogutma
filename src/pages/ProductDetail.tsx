@@ -255,8 +255,8 @@ export default function ProductDetail() {
                                     onClick={() => setActiveTab(tab.id as TabKey)}
                                     className={`px-6 py-4 text-xs md:text-sm font-bold uppercase tracking-wide whitespace-nowrap border-b-2 transition-colors ${
                                         activeTab === tab.id
-                                            ? 'border-[#009FE3] text-[#009FE3]'
-                                            : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-[#009FE3] dark:hover:text-[#009FE3]'
+                                            ? 'border-[#009FE3] text-[#005A8E] dark:text-[#38BDF8]'
+                                            : 'border-transparent text-gray-700 dark:text-gray-300 hover:text-[#005A8E] dark:hover:text-[#38BDF8]'
                                     }`}
                                 >
                                     {tab.label}
