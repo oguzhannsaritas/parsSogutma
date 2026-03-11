@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ChevronRight, ChevronLeft, LayoutGrid, Maximize2, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
@@ -9,6 +9,12 @@ type TabKey = 'about' | 'drawings' | 'catalog' | 'options';
 
 type LightboxKind = 'main' | 'drawing';
 type LightboxState = { kind: LightboxKind; index: number };
+
+function useIsomorphicLayoutEffect(effect: React.EffectCallback, deps: React.DependencyList) {
+    const useLE = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useLE(effect, deps);
+}
 
 export default function ProductDetail() {
     const { id } = useParams();
@@ -89,7 +95,6 @@ export default function ProductDetail() {
 
             const nextIndex = (prev.index + dir + len) % len;
 
-            // Alttaki sayfadaki seçimi de senkron tut
             if (prev.kind === 'main') setSelectedImage(nextIndex);
             else setSelectedDrawingImage(nextIndex);
 
@@ -99,6 +104,34 @@ export default function ProductDetail() {
 
     const goPrev = () => goStep(-1);
     const goNext = () => goStep(1);
+
+    // ✅ LCP ana görseli için preload (SPA’da en erken hamle)
+    useIsomorphicLayoutEffect(() => {
+        if (typeof document === 'undefined') return;
+
+        const href = thumbnails[0];
+        if (!href) return;
+
+        const selector = `link[data-lcp-preload="product-detail-main"][href="${href}"]`;
+        const existing = document.head.querySelector(selector);
+        if (existing) return;
+
+        const link = document.createElement('link');
+        link.setAttribute('rel', 'preload');
+        link.setAttribute('as', 'image');
+        link.setAttribute('href', href);
+        link.setAttribute('fetchpriority', 'high');
+        link.setAttribute('data-lcp-preload', 'product-detail-main');
+        document.head.appendChild(link);
+
+        return () => {
+            try {
+                document.head.removeChild(link);
+            } catch {
+                // ignore
+            }
+        };
+    }, [id, thumbnails]);
 
     // Lightbox açıkken klavye kontrolü
     useEffect(() => {
@@ -198,7 +231,6 @@ export default function ProductDetail() {
                                 draggable={false}
                             />
 
-                            {/* Main image maximize button */}
                             <button
                                 type="button"
                                 onClick={() => openLightbox('main', selectedImage)}
@@ -221,7 +253,6 @@ export default function ProductDetail() {
                                             : 'border-transparent hover:border-gray-300 dark:hover:border-neutral-600'
                                     }`}
                                 >
-                                    {/* ✅ Thumbnail: lazy + fetchPriority=low */}
                                     <img
                                         src={thumb}
                                         alt={`Thumbnail ${idx}`}
@@ -241,7 +272,6 @@ export default function ProductDetail() {
 
                     {/* Right Column: Info & Tabs */}
                     <div>
-                        {/* Tabs */}
                         <div className="flex border-b border-gray-200 dark:border-neutral-700 mb-8 overflow-x-auto">
                             {[
                                 { id: 'about', label: t('product.tabs.about') },
@@ -264,7 +294,6 @@ export default function ProductDetail() {
                             ))}
                         </div>
 
-                        {/* Tab Content */}
                         <div className="mb-12 min-h-[300px]">
                             {activeTab === 'about' && (
                                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
@@ -316,9 +345,7 @@ export default function ProductDetail() {
                                     <div className="rounded-lg p-4">
                                         {drawingImages.length > 0 ? (
                                             <div className="space-y-4">
-                                                {/* Ana teknik çizim */}
                                                 <div className="relative rounded-lg border border-gray-200 dark:border-neutral-700 bg-gray-50 dark:bg-neutral-800 overflow-hidden">
-                                                    {/* ✅ Teknik çizim: lazy + fetchPriority=low (ilk yükte LCP değil) */}
                                                     <img
                                                         src={drawingImages[selectedDrawingImage]}
                                                         alt={`${product.name[language]} teknik çizim ${selectedDrawingImage + 1}`}
@@ -332,7 +359,6 @@ export default function ProductDetail() {
                                                         draggable={false}
                                                     />
 
-                                                    {/* Drawing maximize button */}
                                                     <button
                                                         type="button"
                                                         onClick={() => openLightbox('drawing', selectedDrawingImage)}
@@ -344,7 +370,6 @@ export default function ProductDetail() {
                                                     </button>
                                                 </div>
 
-                                                {/* Teknik çizim thumbnail listesi (birden fazlaysa) */}
                                                 {drawingImages.length > 1 && (
                                                     <div className="flex gap-3 overflow-x-auto pb-2">
                                                         {drawingImages.map((img: string, idx: number) => (
@@ -360,7 +385,6 @@ export default function ProductDetail() {
                                                                 aria-label={`Teknik çizim ${idx + 1}`}
                                                                 title={`Teknik çizim ${idx + 1}`}
                                                             >
-                                                                {/* ✅ Teknik çizim thumb: lazy + fetchPriority=low */}
                                                                 <img
                                                                     src={img}
                                                                     alt={`Teknik çizim thumb ${idx + 1}`}
@@ -394,7 +418,6 @@ export default function ProductDetail() {
                             )}
                         </div>
 
-                        {/* Additional Info Accordion */}
                         <div className="border-t border-gray-200 dark:border-neutral-700 pt-4">
                             <button
                                 type="button"
@@ -441,7 +464,6 @@ export default function ProductDetail() {
                                                 </span>
                                             </div>
 
-                                            {/* Specification */}
                                             <div>
                                                 <div
                                                     onClick={() => setIsSpecificationOpen((prev) => !prev)}
@@ -491,7 +513,7 @@ export default function ProductDetail() {
                                                                         ))}
                                                                     </ul>
                                                                 ) : (
-                                                                    <span> {t('product.technical')}</span>
+                                                                    <span>{t('product.technical')}</span>
                                                                 )}
                                                             </div>
                                                         </motion.div>
@@ -499,7 +521,6 @@ export default function ProductDetail() {
                                                 </AnimatePresence>
                                             </div>
 
-                                            {/* Optional Accessories */}
                                             <div>
                                                 <div
                                                     onClick={() => setIsAccessoriesOpen((prev) => !prev)}
@@ -549,7 +570,7 @@ export default function ProductDetail() {
                                                                         ))}
                                                                     </ul>
                                                                 ) : (
-                                                                    <span> {t('product.optional')}</span>
+                                                                    <span>{t('product.optional')}</span>
                                                                 )}
                                                             </div>
                                                         </motion.div>
@@ -565,7 +586,6 @@ export default function ProductDetail() {
                 </div>
             </div>
 
-            {/* Lightbox / Image Preview Modal */}
             <AnimatePresence>
                 {lightbox && (
                     <motion.div
@@ -583,7 +603,6 @@ export default function ProductDetail() {
                             transition={{ duration: 0.2 }}
                             onClick={(e) => e.stopPropagation()}
                         >
-                            {/* Close */}
                             <button
                                 type="button"
                                 onClick={closeLightbox}
@@ -594,7 +613,6 @@ export default function ProductDetail() {
                                 <X size={18} className="text-black dark:text-white" aria-hidden="true" />
                             </button>
 
-                            {/* Counter */}
                             <div className="absolute top-3 left-3 z-20 px-3 py-1 rounded-full bg-black/50 text-white text-xs">
                                 {(() => {
                                     const len = getLightboxLen(lightbox.kind);
@@ -602,7 +620,6 @@ export default function ProductDetail() {
                                 })()}
                             </div>
 
-                            {/* Prev/Next buttons */}
                             {getLightboxLen(lightbox.kind) > 1 && (
                                 <>
                                     <button
@@ -633,7 +650,6 @@ export default function ProductDetail() {
                                 </>
                             )}
 
-                            {/* Swipeable image (drag x) */}
                             <AnimatePresence mode="wait">
                                 <motion.img
                                     key={`${lightbox.kind}-${lightbox.index}`}
