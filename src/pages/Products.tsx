@@ -17,8 +17,8 @@ import { Product } from "@/src/data/products/types.ts";
 
 function ProductCard({
                          product,
-                         priority = 'high',
-                         loading = 'eager',
+                         priority = 'auto',
+                         loading = 'lazy',
                      }: {
     product: Product;
     key?: React.Key;
@@ -938,8 +938,8 @@ export default function Products() {
                                 >
                                     <span>{t('filter.items.seeResults')}</span>
                                     <span className="bg-white text-[#003b5c] px-2 py-0.5 rounded-full text-xs font-bold">
-                                        {previewFilteredCount}
-                                    </span>
+        {previewFilteredCount}
+    </span>
                                 </button>
                             </div>
                         </div>
