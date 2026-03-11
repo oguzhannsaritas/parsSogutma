@@ -13,9 +13,18 @@ import { useLanguage } from '../context/LanguageContext';
 import { Link, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence, useDragControls } from 'motion/react';
 import { products } from '../data/products';
-import {Product} from "@/src/data/products/types.ts";
+import { Product } from "@/src/data/products/types.ts";
 
-function ProductCard({ product }: { product: Product; key?: React.Key }) {
+function ProductCard({
+                         product,
+                         priority = 'low',
+                         loading = 'lazy',
+                     }: {
+    product: Product;
+    key?: React.Key;
+    priority?: 'high' | 'low' | 'auto';
+    loading?: 'eager' | 'lazy';
+}) {
     const { language } = useLanguage();
     const [currentImage, setCurrentImage] = useState(0);
     const [touchStartX, setTouchStartX] = useState<number | null>(null);
@@ -89,6 +98,12 @@ function ProductCard({ product }: { product: Product; key?: React.Key }) {
                     src={images[currentImage]}
                     alt={product.name[language]}
                     className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500"
+                    loading={loading}
+                    decoding="async"
+                    fetchPriority={priority}
+                    width={800}
+                    height={800}
+                    draggable={false}
                 />
 
                 {images.length > 1 && (
@@ -700,11 +715,12 @@ export default function Products() {
                         <button
                             className="flex items-center gap-2 text-black dark:text-white font-bold text-sm cursor-pointer lg:hidden bg-gray-100 dark:bg-neutral-800 px-4 py-2 rounded-full transition-colors hover:bg-gray-200 dark:hover:bg-neutral-700"
                             onClick={() => setIsMobileFilterOpen(true)}
+                            aria-label="Filter"
                         >
                             <SlidersHorizontal size={16} />
                             <span className="text-xs">
-                {t('products.filter')} {appliedFilters.length > 0 && `(${appliedFilters.length})`}
-              </span>
+                                {t('products.filter')} {appliedFilters.length > 0 && `(${appliedFilters.length})`}
+                            </span>
                         </button>
 
                         <div className="hidden md:flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
@@ -804,6 +820,7 @@ export default function Products() {
                                     <span className="text-xl">{t('products.filter')}</span>
                                 </div>
                                 <button
+                                    aria-label="Close"
                                     onPointerDown={(e) => e.stopPropagation()}
                                     onClick={() => setIsMobileFilterOpen(false)}
                                     className="p-2 text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
@@ -888,6 +905,7 @@ export default function Products() {
                         <div className="p-4 lg:hidden bg-white dark:bg-[#1f2937] border-t border-gray-100 dark:border-gray-800 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] z-10">
                             <div className="flex gap-3">
                                 <button
+                                    aria-label="Clear"
                                     onClick={() => {
                                         setDraftFilters([]);
                                         setAppliedFilters([]);
@@ -895,9 +913,10 @@ export default function Products() {
                                     }}
                                     className="flex-1 py-3.5 px-4 text-sm font-semibold text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                                 >
-                                    Temizle
+                                    {t('filter.items.clear')}
                                 </button>
                                 <button
+                                    aria-label="See Results"
                                     onClick={() => {
                                         setAppliedFilters(draftFilters);
                                         setCurrentPage(1);
@@ -905,7 +924,7 @@ export default function Products() {
                                     }}
                                     className="flex-[2] py-3.5 px-4 text-sm font-semibold bg-[#009FE3] text-white rounded-xl hover:bg-[#0085c2] transition-colors shadow-lg shadow-[#009FE3]/30 flex items-center justify-center gap-2"
                                 >
-                                    <span>Sonuçları Gör</span>
+                                    <span>  {t('filter.items.seeResults')}</span>
                                     <span className="bg-white/20 px-2 py-0.5 rounded-full text-xs">{previewFilteredCount}</span>
                                 </button>
                             </div>
@@ -922,9 +941,17 @@ export default function Products() {
                                         : 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-3'
                             }`}
                         >
-                            {paginatedProducts.map((product: Product) => (
-                                <ProductCard key={product.id} product={product} />
-                            ))}
+                            {paginatedProducts.map((product: Product, idx: number) => {
+                                const isLcpCandidate = currentPage === 1 && idx === 0;
+                                return (
+                                    <ProductCard
+                                        key={product.id}
+                                        product={product}
+                                        loading={isLcpCandidate ? 'eager' : 'lazy'}
+                                        priority={isLcpCandidate ? 'high' : 'low'}
+                                    />
+                                );
+                            })}
                         </div>
 
                         {paginatedProducts.length === 0 && (
@@ -936,6 +963,7 @@ export default function Products() {
                         {totalPages > 1 && (
                             <div className="mt-8 lg:mt-16 flex justify-center items-center gap-1.5 sm:gap-2 lg:gap-3">
                                 <button
+                                    aria-label="Right"
                                     onClick={() => handlePageChange(currentPage - 1)}
                                     disabled={currentPage === 1}
                                     className={`w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
@@ -950,6 +978,7 @@ export default function Products() {
                                 <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 p-1 rounded-full">
                                     {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                                         <button
+                                            aria-label="Now Page"
                                             key={page}
                                             onClick={() => handlePageChange(page)}
                                             className={`w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 text-xs sm:text-sm md:text-base rounded-full flex items-center justify-center font-medium transition-all duration-300 ${
@@ -964,6 +993,7 @@ export default function Products() {
                                 </div>
 
                                 <button
+                                    aria-label="Left"
                                     onClick={() => handlePageChange(currentPage + 1)}
                                     disabled={currentPage === totalPages}
                                     className={`w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-all duration-300 group ${

@@ -190,6 +190,10 @@ const translations: Translations = {
     'product.table.specification': { TR: 'Ürün Teknik Özelliği', EN: 'Product Specification' },
     'product.table.optionalAccessories': { TR: 'Opsiyonel Aksesuarlar', EN: 'Optional Accessories' },
     'product.table.technicalDrawingImageNotAdded': { TR: 'Teknik çizim görseli mevcut değil', EN: 'Technical drawing image not available' },
+    'product.notFound': {TR : 'Ürünler sayfasında geri dön', EN :"Back to Products Page"},
+    'product.notFoundButton': {TR : 'Ürün Bulunumadı', EN : 'Product Not Found'},
+    'product.technical':{TR : 'Teknik özellik bilgisi bulunmuyor', EN : 'No technical specification information'},
+    'product.optional':{TR : 'Opsiyonel aksesuar bilgisi bulunmuyor', EN:'No optional accessory information'},
 
     // Product Filter Menu
 

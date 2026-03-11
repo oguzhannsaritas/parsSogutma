@@ -45,25 +45,24 @@ export default function ProductDetail() {
     if (!product) {
         return (
             <div className="min-h-screen pt-32 text-center">
-                <h1 className="text-2xl font-bold">Product not found</h1>
+                <h1 className="text-2xl font-bold dark:text-white">{t('product.notFoundButton')}</h1>
                 <button
+                    aria-label="Back to Product"
                     onClick={() => navigate('/products')}
-                    className="mt-4 text-[#009FE3] hover:underline"
+                    className="mt-4 text-[#009FE3]  hover:underline"
+                    type="button"
                 >
-                    Back to Products
+                    {t('product.notFound')}
                 </button>
             </div>
         );
     }
 
-    // Default thumbnails if not present
     const thumbnails = product.thumbnails || [product.image, product.image];
 
-    // Teknik çizim görselleri (birden fazla olabilir)
-    const drawingImages = Array.isArray(product.drawingImage) ? product.drawingImage : [];
+    const drawingImages = Array.isArray((product as any).drawingImage) ? (product as any).drawingImage : [];
 
-    // Default specs if not present
-    const specs = product.specs || {
+    const specs = (product as any).specs || {
         modules: [937, 1250, 1875, 2500],
         sidePanel: 40,
         temp: 'M1 (-1/+5°C) - M2 (-1/+7°C)',
@@ -135,14 +134,11 @@ export default function ProductDetail() {
                         <Link to="/" className="hover:text-black dark:hover:text-white transition-colors">
                             {t('products.breadcrumb.home')}
                         </Link>
-                        <ChevronRight size={14} />
-                        <Link
-                            to="/products"
-                            className="hover:text-black dark:hover:text-white transition-colors"
-                        >
+                        <ChevronRight size={14} aria-hidden="true" />
+                        <Link to="/products" className="hover:text-black dark:hover:text-white transition-colors">
                             {t('menu.products')}
                         </Link>
-                        <ChevronRight size={14} />
+                        <ChevronRight size={14} aria-hidden="true" />
                         <span className="font-bold text-black dark:text-white">{product.name[language]}</span>
                     </div>
 
@@ -150,46 +146,56 @@ export default function ProductDetail() {
                         <button
                             type="button"
                             className="hover:text-black dark:hover:text-white transition-colors"
-                            onClick={() =>
-                                navigate(`/products/${Number(id) > 1 ? Number(id) - 1 : 1}`)
-                            }
+                            onClick={() => navigate(`/products/${Number(id) > 1 ? Number(id) - 1 : 1}`)}
+                            aria-label="Önceki ürün"
+                            title="Önceki ürün"
                         >
-                            <ChevronLeft size={20} />
+                            <ChevronLeft size={20} aria-hidden="true" />
                         </button>
 
                         <Link
                             to="/products"
                             className="hover:text-black dark:hover:text-white transition-colors"
+                            aria-label="Ürün listesi"
+                            title="Ürün listesi"
                         >
-                            <LayoutGrid size={20} />
+                            <LayoutGrid size={20} aria-hidden="true" />
                         </Link>
 
                         <button
                             type="button"
                             className="hover:text-black dark:hover:text-white transition-colors"
                             onClick={() =>
-                                navigate(
-                                    `/products/${Number(id) < products.length ? Number(id) + 1 : products.length}`
-                                )
+                                navigate(`/products/${Number(id) < products.length ? Number(id) + 1 : products.length}`)
                             }
+                            aria-label="Sonraki ürün"
+                            title="Sonraki ürün"
                         >
-                            <ChevronRight size={20} />
+                            <ChevronRight size={20} aria-hidden="true" />
                         </button>
                     </div>
                 </div>
 
-                <h1 className="text-lg md:text-4xl font-bold mb-2 md:mb-12   text-gray-900 dark:text-white">
+                <h1 className="text-lg md:text-4xl font-bold mb-2 md:mb-12 text-gray-900 dark:text-white">
                     {product.name[language]}
                 </h1>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
                     {/* Left Column: Images */}
                     <div className="space-y-8">
-                        <div className="relative aspect-[4/3]  rounded-lg overflow-hidden   ">
+                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-black/5">
+                            {/* ✅ LCP adayı ana görsel: eager + fetchPriority=high */}
                             <img
                                 src={thumbnails[selectedImage]}
                                 alt={product.name[language]}
-                                className="w-full h-full object-cover   "
+                                className="w-full h-full object-cover"
+                                width={1200}
+                                height={900}
+                                loading="eager"
+                                decoding="async"
+                                fetchPriority="high"
+                                referrerPolicy="no-referrer"
+                                draggable={false}
                             />
 
                             {/* Main image maximize button */}
@@ -198,8 +204,9 @@ export default function ProductDetail() {
                                 onClick={() => openLightbox('main', selectedImage)}
                                 className="absolute bottom-4 left-4 p-2 bg-white dark:bg-neutral-700 rounded-full shadow-md hover:bg-gray-100 dark:hover:bg-neutral-600 transition-colors"
                                 aria-label="Görseli büyüt"
+                                title="Görseli büyüt"
                             >
-                                <Maximize2 size={20} className="text-black dark:text-white" />
+                                <Maximize2 size={20} className="text-black dark:text-white" aria-hidden="true" />
                             </button>
                         </div>
 
@@ -214,10 +221,18 @@ export default function ProductDetail() {
                                             : 'border-transparent hover:border-gray-300 dark:hover:border-neutral-600'
                                     }`}
                                 >
+                                    {/* ✅ Thumbnail: lazy + fetchPriority=low */}
                                     <img
                                         src={thumb}
                                         alt={`Thumbnail ${idx}`}
                                         className="w-full h-full object-cover p-2"
+                                        width={200}
+                                        height={200}
+                                        loading="lazy"
+                                        decoding="async"
+                                        fetchPriority="low"
+                                        referrerPolicy="no-referrer"
+                                        draggable={false}
                                     />
                                 </div>
                             ))}
@@ -234,10 +249,11 @@ export default function ProductDetail() {
                                 { id: 'options', label: t('product.tabs.options') },
                             ].map((tab) => (
                                 <button
+                                    aria-label="info"
                                     key={tab.id}
                                     type="button"
                                     onClick={() => setActiveTab(tab.id as TabKey)}
-                                    className={`px-6 py-4 text-sm font-bold uppercase tracking-wide whitespace-nowrap border-b-2 transition-colors ${
+                                    className={`px-6 py-4 text-xs md:text-sm font-bold uppercase tracking-wide whitespace-nowrap border-b-2 transition-colors ${
                                         activeTab === tab.id
                                             ? 'border-[#009FE3] text-[#009FE3]'
                                             : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-[#009FE3] dark:hover:text-[#009FE3]'
@@ -251,46 +267,42 @@ export default function ProductDetail() {
                         {/* Tab Content */}
                         <div className="mb-12 min-h-[300px]">
                             {activeTab === 'about' && (
-                                <motion.div
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ duration: 0.3 }}
-                                >
+                                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
                                     <div className="border border-gray-200 dark:border-neutral-700 rounded-sm overflow-hidden">
-                                        <div className="bg-gray-50 px-6 py-3 border-b border-gray-200 dark:border-neutral-700 text-sm font-bold text-gray-700">
+                                        <div className="bg-gray-50 px-6 py-3 border-b border-gray-200 dark:border-neutral-700 text-xs md:text-sm font-bold text-gray-700">
                                             {t('product.table.modules')}
                                         </div>
 
                                         <div className="divide-y divide-gray-200 dark:divide-neutral-700">
                                             <div className="grid grid-cols-2">
-                                                <div className="p-4 text-sm text-gray-600 dark:text-white border-r border-gray-200 dark:border-neutral-700">
+                                                <div className="p-4 text-xs md:text-sm text-gray-600 dark:text-white border-r border-gray-200 dark:border-neutral-700">
                                                     {t('product.table.length')}
                                                 </div>
-                                                <div className="p-4 text-sm font-medium text-black dark:text-white">
+                                                <div className="p-4 text-xs md:text-sm font-medium text-black dark:text-white">
                                                     {specs.modules}
                                                 </div>
                                             </div>
 
                                             <div className="grid grid-cols-2">
-                                                <div className="p-4 text-sm text-gray-600 dark:text-white border-r border-gray-200 dark:border-neutral-700">
+                                                <div className="p-4 text-xs md:text-sm text-gray-600 dark:text-white border-r border-gray-200 dark:border-neutral-700">
                                                     {t('product.table.sidePanel')}
                                                 </div>
-                                                <div className="p-4 text-sm font-medium text-black dark:text-white">
+                                                <div className="p-4 text-xs md:text-sm font-medium text-black dark:text-white">
                                                     {specs.sidePanel}
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div className="bg-gray-50 px-6 py-3 border-y border-gray-200 dark:border-neutral-700 text-sm font-bold text-gray-700 mt-4">
+                                        <div className="bg-gray-50 px-6 py-3 border-y border-gray-200 dark:border-neutral-700 text-xs md:text-sm font-bold text-gray-700 mt-4">
                                             {t('product.table.temp')}
                                         </div>
 
                                         <div className="divide-y divide-gray-200 dark:divide-neutral-700">
                                             <div className="grid grid-cols-2">
-                                                <div className="p-4 text-sm text-gray-600 dark:text-white border-r border-gray-200 dark:border-neutral-700">
+                                                <div className="p-4 text-xs md:text-sm text-gray-600 dark:text-white border-r border-gray-200 dark:border-neutral-700">
                                                     {t('product.table.temp')}
                                                 </div>
-                                                <div className="p-4 text-sm font-medium text-black dark:text-white">
+                                                <div className="p-4 text-xs md:text-sm font-medium text-black dark:text-white">
                                                     {specs.temp}
                                                 </div>
                                             </div>
@@ -300,20 +312,24 @@ export default function ProductDetail() {
                             )}
 
                             {activeTab === 'drawings' && (
-                                <motion.div
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ duration: 0.3 }}
-                                >
+                                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
                                     <div className="rounded-lg p-4">
                                         {drawingImages.length > 0 ? (
                                             <div className="space-y-4">
                                                 {/* Ana teknik çizim */}
                                                 <div className="relative rounded-lg border border-gray-200 dark:border-neutral-700 bg-gray-50 dark:bg-neutral-800 overflow-hidden">
+                                                    {/* ✅ Teknik çizim: lazy + fetchPriority=low (ilk yükte LCP değil) */}
                                                     <img
                                                         src={drawingImages[selectedDrawingImage]}
                                                         alt={`${product.name[language]} teknik çizim ${selectedDrawingImage + 1}`}
                                                         className="w-full h-auto object-contain rounded"
+                                                        width={1400}
+                                                        height={900}
+                                                        loading="lazy"
+                                                        decoding="async"
+                                                        fetchPriority="low"
+                                                        referrerPolicy="no-referrer"
+                                                        draggable={false}
                                                     />
 
                                                     {/* Drawing maximize button */}
@@ -322,18 +338,16 @@ export default function ProductDetail() {
                                                         onClick={() => openLightbox('drawing', selectedDrawingImage)}
                                                         className="absolute bottom-3 left-3 p-2 bg-white/90 dark:bg-neutral-700/90 rounded-full shadow-md hover:bg-white dark:hover:bg-neutral-600 transition-colors"
                                                         aria-label="Teknik çizimi büyüt"
+                                                        title="Teknik çizimi büyüt"
                                                     >
-                                                        <Maximize2
-                                                            size={18}
-                                                            className="text-black dark:text-white"
-                                                        />
+                                                        <Maximize2 size={18} className="text-black dark:text-white" aria-hidden="true" />
                                                     </button>
                                                 </div>
 
                                                 {/* Teknik çizim thumbnail listesi (birden fazlaysa) */}
                                                 {drawingImages.length > 1 && (
                                                     <div className="flex gap-3 overflow-x-auto pb-2">
-                                                        {drawingImages.map((img, idx) => (
+                                                        {drawingImages.map((img: string, idx: number) => (
                                                             <button
                                                                 key={`${img}-${idx}`}
                                                                 type="button"
@@ -343,11 +357,21 @@ export default function ProductDetail() {
                                                                         ? 'border-white'
                                                                         : 'border-transparent hover:border-gray-300 dark:hover:border-neutral-600'
                                                                 }`}
+                                                                aria-label={`Teknik çizim ${idx + 1}`}
+                                                                title={`Teknik çizim ${idx + 1}`}
                                                             >
+                                                                {/* ✅ Teknik çizim thumb: lazy + fetchPriority=low */}
                                                                 <img
                                                                     src={img}
                                                                     alt={`Teknik çizim thumb ${idx + 1}`}
                                                                     className="w-full h-full object-cover p-1"
+                                                                    width={200}
+                                                                    height={200}
+                                                                    loading="lazy"
+                                                                    decoding="async"
+                                                                    fetchPriority="low"
+                                                                    referrerPolicy="no-referrer"
+                                                                    draggable={false}
                                                                 />
                                                             </button>
                                                         ))}
@@ -355,7 +379,7 @@ export default function ProductDetail() {
                                                 )}
                                             </div>
                                         ) : (
-                                            <div className="text-gray-500 dark:text-white italic p-8 text-center">
+                                            <div className="text-gray-500 md:text-sm text-xs dark:text-white italic p-8 text-center">
                                                 {t('product.table.technicalDrawingImageNotAdded')}
                                             </div>
                                         )}
@@ -376,8 +400,9 @@ export default function ProductDetail() {
                                 type="button"
                                 onClick={() => setIsExtraInfoOpen(!isExtraInfoOpen)}
                                 className="flex items-center justify-between w-full py-4 text-left group"
+                                aria-expanded={isExtraInfoOpen}
                             >
-                                <span className="font-bold text-sm uppercase tracking-wider text-black dark:text-white">
+                                <span className="font-bold text-xs md:text-sm uppercase tracking-wider text-black dark:text-white">
                                     {t('product.extra.title')}
                                 </span>
                                 <ChevronRight
@@ -385,6 +410,7 @@ export default function ProductDetail() {
                                     className={`transform transition-transform text-black dark:text-white ${
                                         isExtraInfoOpen ? '-rotate-90' : 'rotate-90'
                                     }`}
+                                    aria-hidden="true"
                                 />
                             </button>
 
@@ -398,19 +424,19 @@ export default function ProductDetail() {
                                     >
                                         <div className="py-4 space-y-4">
                                             <div className="flex justify-between border-b border-gray-100 dark:border-neutral-800 pb-2 border-dotted">
-                                                <span className="font-bold text-sm text-black dark:text-white">
+                                                <span className="font-bold text-xs md:text-sm text-black dark:text-white">
                                                     {t('product.extra.product')}
                                                 </span>
-                                                <span className="text-sm text-gray-600 dark:text-gray-400">
+                                                <span className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
                                                     {product.type[language]}
                                                 </span>
                                             </div>
 
                                             <div className="flex justify-between border-b border-gray-100 dark:border-neutral-800 pb-2 border-dotted">
-                                                <span className="font-bold text-sm text-black dark:text-white">
+                                                <span className="font-bold text-xs md:text-sm text-black dark:text-white">
                                                     {t('product.extra.categories')}
                                                 </span>
-                                                <span className="text-sm text-gray-600 dark:text-gray-400">
+                                                <span className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
                                                     {product.category[language]}
                                                 </span>
                                             </div>
@@ -429,16 +455,17 @@ export default function ProductDetail() {
                                                         }
                                                     }}
                                                 >
-                                                    <span className="font-bold text-sm text-black dark:text-white">
+                                                    <span className="font-bold text-xs md:text-sm text-black dark:text-white">
                                                         {t('product.table.specification')}
                                                     </span>
 
-                                                    <span className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                                                    <span className="flex items-center gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-400">
                                                         <ChevronRight
                                                             size={16}
                                                             className={`transition-transform duration-200 ${
                                                                 isSpecificationOpen ? 'rotate-90' : 'rotate-0'
                                                             }`}
+                                                            aria-hidden="true"
                                                         />
                                                     </span>
                                                 </div>
@@ -452,24 +479,19 @@ export default function ProductDetail() {
                                                             transition={{ duration: 0.25 }}
                                                             className="overflow-hidden"
                                                         >
-                                                            <div className="pt-3 pb-2 text-sm text-gray-600 dark:text-gray-300">
+                                                            <div className="pt-3 pb-2 text-xs md:text-sm text-gray-600 dark:text-gray-300">
                                                                 {Array.isArray(specs.technicalSpecification) &&
                                                                 specs.technicalSpecification.length > 0 ? (
                                                                     <ul className="list-none pl-0 space-y-1">
-                                                                        {specs.technicalSpecification.map((item, index) => (
-                                                                            <li
-                                                                                key={index}
-                                                                                className="flex items-start gap-2"
-                                                                            >
-                                                                                <span className="text-[#009FE3] leading-5">
-                                                                                    •
-                                                                                </span>
+                                                                        {specs.technicalSpecification.map((item: any, index: number) => (
+                                                                            <li key={index} className="flex items-start gap-2">
+                                                                                <span className="text-[#009FE3] leading-5">•</span>
                                                                                 <span>{item[language]}</span>
                                                                             </li>
                                                                         ))}
                                                                     </ul>
                                                                 ) : (
-                                                                    <span>Teknik özellik bilgisi bulunmuyor.</span>
+                                                                    <span> {t('product.technical')}</span>
                                                                 )}
                                                             </div>
                                                         </motion.div>
@@ -491,16 +513,17 @@ export default function ProductDetail() {
                                                         }
                                                     }}
                                                 >
-                                                    <span className="font-bold text-sm text-black dark:text-white">
+                                                    <span className="font-bold text-xs md:text-sm text-black dark:text-white">
                                                         {t('product.table.optionalAccessories')}
                                                     </span>
 
-                                                    <span className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                                                    <span className="flex items-center gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-400">
                                                         <ChevronRight
                                                             size={16}
                                                             className={`transition-transform duration-200 ${
                                                                 isAccessoriesOpen ? 'rotate-90' : 'rotate-0'
                                                             }`}
+                                                            aria-hidden="true"
                                                         />
                                                     </span>
                                                 </div>
@@ -514,23 +537,19 @@ export default function ProductDetail() {
                                                             transition={{ duration: 0.25 }}
                                                             className="overflow-hidden"
                                                         >
-                                                            <div className="pt-3 pb-2 text-sm text-gray-600 dark:text-gray-300">
-                                                                {Array.isArray(specs.optionalAccessory) && specs.optionalAccessory.length > 0 ? (
+                                                            <div className="pt-3 pb-2 text-xs md:text-sm text-gray-600 dark:text-gray-300">
+                                                                {Array.isArray(specs.optionalAccessory) &&
+                                                                specs.optionalAccessory.length > 0 ? (
                                                                     <ul className="list-none pl-0 space-y-1">
-                                                                        {specs.optionalAccessory.map((item, index) => (
-                                                                            <li
-                                                                                key={index}
-                                                                                className="flex items-start gap-2"
-                                                                            >
-                                                                                <span className="text-[#009FE3] leading-5">
-                                                                                    •
-                                                                                </span>
+                                                                        {specs.optionalAccessory.map((item: any, index: number) => (
+                                                                            <li key={index} className="flex items-start gap-2">
+                                                                                <span className="text-[#009FE3] leading-5">•</span>
                                                                                 <span>{item[language]}</span>
                                                                             </li>
                                                                         ))}
                                                                     </ul>
                                                                 ) : (
-                                                                    <span>Opsiyonel aksesuar bilgisi bulunmuyor.</span>
+                                                                    <span> {t('product.optional')}</span>
                                                                 )}
                                                             </div>
                                                         </motion.div>
@@ -570,8 +589,9 @@ export default function ProductDetail() {
                                 onClick={closeLightbox}
                                 className="absolute -top-10 right-0 md:top-3 md:right-3 z-20 p-2 rounded-full bg-white/90 dark:bg-neutral-700/90 hover:bg-white dark:hover:bg-neutral-600 transition-colors"
                                 aria-label="Kapat"
+                                title="Kapat"
                             >
-                                <X size={18} className="text-black dark:text-white" />
+                                <X size={18} className="text-black dark:text-white" aria-hidden="true" />
                             </button>
 
                             {/* Counter */}
@@ -593,8 +613,9 @@ export default function ProductDetail() {
                                         }}
                                         className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
                                         aria-label="Önceki"
+                                        title="Önceki"
                                     >
-                                        <ChevronLeft size={28} className="text-white" />
+                                        <ChevronLeft size={28} className="text-white" aria-hidden="true" />
                                     </button>
 
                                     <button
@@ -605,8 +626,9 @@ export default function ProductDetail() {
                                         }}
                                         className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
                                         aria-label="Sonraki"
+                                        title="Sonraki"
                                     >
-                                        <ChevronRight size={28} className="text-white" />
+                                        <ChevronRight size={28} className="text-white" aria-hidden="true" />
                                     </button>
                                 </>
                             )}
@@ -615,11 +637,7 @@ export default function ProductDetail() {
                             <AnimatePresence mode="wait">
                                 <motion.img
                                     key={`${lightbox.kind}-${lightbox.index}`}
-                                    src={
-                                        lightbox.kind === 'main'
-                                            ? thumbnails[lightbox.index]
-                                            : drawingImages[lightbox.index]
-                                    }
+                                    src={lightbox.kind === 'main' ? thumbnails[lightbox.index] : drawingImages[lightbox.index]}
                                     alt={
                                         lightbox.kind === 'main'
                                             ? `${product.name[language]} görsel ${lightbox.index + 1}`
@@ -639,6 +657,10 @@ export default function ProductDetail() {
                                         if (info.offset.x < -80) goNext();
                                     }}
                                     onClick={(e) => e.stopPropagation()}
+                                    loading="eager"
+                                    decoding="async"
+                                    fetchPriority="high"
+                                    referrerPolicy="no-referrer"
                                 />
                             </AnimatePresence>
                         </motion.div>
