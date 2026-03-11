@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useRef, useLayoutEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import {
     Grid,
     List,
@@ -15,16 +15,10 @@ import { motion, AnimatePresence, useDragControls } from 'motion/react';
 import { products } from '../data/products';
 import { Product } from "@/src/data/products/types.ts";
 
-function useIsomorphicLayoutEffect(effect: React.EffectCallback, deps: React.DependencyList) {
-    const useLE = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useLE(effect, deps);
-}
-
 function ProductCard({
                          product,
-                         priority = 'high',
-                         loading = 'eager',
+                         priority = 'auto',
+                         loading = 'lazy',
                      }: {
     product: Product;
     key?: React.Key;
@@ -61,6 +55,7 @@ function ProductCard({
 
     const handleTouchEnd = () => {
         if (!touchStartX || !touchEndX) return;
+
         const distance = touchStartX - touchEndX;
         const isLeftSwipe = distance > 30;
         const isRightSwipe = distance < -30;
@@ -90,11 +85,11 @@ function ProductCard({
         <Link
             to={`/products/${product.id}`}
             onClick={handleClick}
-            className="group cursor-pointer border border-gray-300 dark:border-neutral-800 hover:border-gray-500 dark:hover:border-neutral-600 hover:shadow-lg transition-all duration-300 bg-white p-2 sm:p-3 lg:p-4 flex flex-col rounded-xl"
+            className="group cursor-pointer border border-gray-300 dark:border-neutral-800 hover:border-gray-500 dark:hover:border-neutral-600 hover:shadow-lg transition-all duration-300 bg-white dark:bg-[#1a2232] p-2 sm:p-3 lg:p-4 flex flex-col rounded-xl"
             onMouseLeave={() => setCurrentImage(0)}
         >
             <div
-                className="aspect-square overflow-hidden mb-2 sm:mb-3 lg:mb-4 relative bg-white rounded-lg touch-pan-y"
+                className="aspect-square overflow-hidden mb-2 sm:mb-3 lg:mb-4 relative bg-white dark:bg-[#1a2232] rounded-lg touch-pan-y"
                 onMouseMove={handleMouseMove}
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
@@ -104,9 +99,9 @@ function ProductCard({
                     src={images[currentImage]}
                     alt={product.name[language]}
                     className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500"
-                    loading={loading}                 // ✅ lazy yok
+                    loading={loading}
                     decoding="async"
-                    fetchPriority={priority}          // ✅ high
+                    fetchPriority={priority}
                     width={800}
                     height={800}
                     draggable={false}
@@ -127,15 +122,15 @@ function ProductCard({
             </div>
 
             <div className="space-y-1 flex-grow flex flex-col justify-end">
-                <h3 className="font-bold text-xs sm:text-sm md:text-base lg:text-lg text-gray-900 transition-colors leading-tight line-clamp-2">
+                <h3 className="font-bold text-xs sm:text-sm md:text-base lg:text-lg text-gray-900 dark:text-white transition-colors leading-tight line-clamp-2">
                     {product.name[language]}
                 </h3>
 
-                <p className="text-xs sm:text-sm md:text-sm text-gray-700 leading-tight truncate">
+                <p className="text-xs sm:text-sm md:text-sm text-gray-700 dark:text-gray-300 leading-tight truncate">
                     {product.category[language]}
                 </p>
 
-                <p className="text-xs sm:text-xs md:text-sm text-gray-600  leading-tight truncate">
+                <p className="text-xs sm:text-xs md:text-sm text-gray-600 dark:text-gray-300 leading-tight truncate">
                     {product.type[language]}
                 </p>
             </div>
@@ -299,6 +294,7 @@ export default function Products() {
         } else {
             document.body.style.overflow = 'unset';
         }
+
         return () => {
             document.body.style.overflow = 'unset';
         };
@@ -601,7 +597,6 @@ export default function Products() {
             );
 
             setCurrentPage(1);
-            return;
         }
     }, [urlFilter, matchedUrlFilterKey, matchedUrlCategory, filterCategories]);
 
@@ -694,36 +689,6 @@ export default function Products() {
         const startIndex = (currentPage - 1) * itemsPerPage;
         return filteredProducts.slice(startIndex, startIndex + itemsPerPage);
     }, [filteredProducts, currentPage, itemsPerPage]);
-
-    // ✅ LCP: ilk kartın görselini preload + high yap (SPA’da en iyi yaklaşım)
-    useIsomorphicLayoutEffect(() => {
-        if (typeof document === 'undefined') return;
-        if (currentPage !== 1) return;
-
-        const first = paginatedProducts[0];
-        if (!first?.image) return;
-
-        const href = first.image;
-        const selector = `link[data-lcp-preload="products-first"][href="${href}"]`;
-        const existing = document.head.querySelector(selector);
-        if (existing) return;
-
-        const link = document.createElement('link');
-        link.setAttribute('rel', 'preload');
-        link.setAttribute('as', 'image');
-        link.setAttribute('href', href);
-        link.setAttribute('fetchpriority', 'high');
-        link.setAttribute('data-lcp-preload', 'products-first');
-        document.head.appendChild(link);
-
-        return () => {
-            try {
-                document.head.removeChild(link);
-            } catch {
-                // ignore
-            }
-        };
-    }, [currentPage, paginatedProducts]);
 
     const handlePageChange = (page: number) => {
         if (page >= 1 && page <= totalPages) {
@@ -846,7 +811,6 @@ export default function Products() {
                             isMobileFilterOpen ? 'shadow-[0_-10px_40px_rgba(0,0,0,0.1)]' : ''
                         }`}
                     >
-                        {/* Draggable Header Area for Mobile */}
                         <div
                             className="lg:hidden touch-none cursor-grab active:cursor-grabbing"
                             onPointerDown={(e) => dragControls.start(e)}
@@ -880,7 +844,7 @@ export default function Products() {
                             {filterCategories.map((category) => (
                                 <div
                                     key={category.id}
-                                    className="border border-gray-100 dark:border-gray-800 rounded-2xl  p-4 lg:border-0 lg:p-0  lg:rounded-none pb-4 lg:pb-0 last:border-0 bg-gray-50/50  md:dark:bg-transparent dark:bg-gray-700/30 lg:bg-transparent"
+                                    className="border border-gray-100 dark:border-gray-800 rounded-2xl p-4 lg:border-0 lg:p-0 lg:rounded-none pb-4 lg:pb-0 last:border-0 bg-gray-50/50 md:dark:bg-transparent dark:bg-gray-700/30 lg:bg-transparent"
                                 >
                                     <div
                                         className="flex items-center justify-between cursor-pointer group"
@@ -889,9 +853,9 @@ export default function Products() {
                                         <h3 className="font-bold text-xs sm:text-base md:text-[15px] uppercase text-gray-900 dark:text-white group-hover:text-[#009FE3] dark:group-hover:text-[#009FE3] transition-colors leading-tight">
                                             {category.title}
                                         </h3>
-                                        <div className={`p-1.5 rounded-full transition-colors ${expandedCategories.includes(category.id) ? 'bg-transparent dark:bg-transparent' : 'bg-transparent dark:bg-transparent  '}`}>
+                                        <div className="p-1.5 rounded-full transition-colors bg-transparent dark:bg-transparent">
                                             {expandedCategories.includes(category.id) ? (
-                                                <ChevronUp size={16} className="text-gray-600  dark:text-gray-300" />
+                                                <ChevronUp size={16} className="text-gray-600 dark:text-gray-300" />
                                             ) : (
                                                 <ChevronDown size={16} className="text-gray-600 dark:text-gray-300" />
                                             )}
@@ -998,8 +962,8 @@ export default function Products() {
                                     <ProductCard
                                         key={product.id}
                                         product={product}
-                                        loading="eager"                     // geç yükleme yok
-                                        priority={isLcpCandidate ? 'high' : 'low'}  // sadece LCP high
+                                        loading={isLcpCandidate ? 'eager' : 'lazy'}
+                                        priority={isLcpCandidate ? 'high' : 'auto'}
                                     />
                                 );
                             })}
