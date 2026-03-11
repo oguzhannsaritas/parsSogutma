@@ -958,14 +958,15 @@ export default function Products() {
                             }`}
                         >
                             {paginatedProducts.map((product: Product, idx: number) => {
-                                const isLcpCandidate = currentPage === 1 && idx === 0;
+                                const priorityCount = viewMode === 'list' ? 1 : 2;
+                                const isPotentialLcp = currentPage === 1 && idx < priorityCount;
 
                                 return (
                                     <ProductCard
                                         key={product.id}
                                         product={product}
-                                        loading={isLcpCandidate ? 'eager' : 'lazy'}
-                                        priority={isLcpCandidate ? 'high' : 'auto'}
+                                        loading={isPotentialLcp ? 'eager' : 'lazy'}
+                                        priority={isPotentialLcp ? 'high' : 'auto'}
                                     />
                                 );
                             })}
