@@ -17,8 +17,8 @@ import { Product } from "@/src/data/products/types.ts";
 
 function ProductCard({
                          product,
-                         priority = 'high',
-                         loading = 'eager',
+                         priority = 'auto',
+                         loading = 'lazy',
                      }: {
     product: Product;
     key?: React.Key;
@@ -957,13 +957,15 @@ export default function Products() {
                                         : 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-3'
                             }`}
                         >
-                            {paginatedProducts.map((product: Product) => {
+                            {paginatedProducts.map((product: Product, idx: number) => {
+                                const isLcpCandidate = currentPage === 1 && idx === 0;
+
                                 return (
                                     <ProductCard
                                         key={product.id}
                                         product={product}
-                                        loading="eager"
-                                        priority="high"
+                                        loading={isLcpCandidate ? 'eager' : 'lazy'}
+                                        priority={isLcpCandidate ? 'high' : 'auto'}
                                     />
                                 );
                             })}
