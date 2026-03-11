@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+import React, { useState, useMemo, useEffect, useRef, useLayoutEffect } from 'react';
 import {
     Grid,
     List,
@@ -15,10 +15,16 @@ import { motion, AnimatePresence, useDragControls } from 'motion/react';
 import { products } from '../data/products';
 import { Product } from "@/src/data/products/types.ts";
 
+function useIsomorphicLayoutEffect(effect: React.EffectCallback, deps: React.DependencyList) {
+    const useLE = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useLE(effect, deps);
+}
+
 function ProductCard({
                          product,
-                         priority = 'low',
-                         loading = 'lazy',
+                         priority = 'high',
+                         loading = 'eager',
                      }: {
     product: Product;
     key?: React.Key;
@@ -98,9 +104,9 @@ function ProductCard({
                     src={images[currentImage]}
                     alt={product.name[language]}
                     className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500"
-                    loading={loading}
+                    loading={loading}                 // ✅ lazy yok
                     decoding="async"
-                    fetchPriority={priority}
+                    fetchPriority={priority}          // ✅ high
                     width={800}
                     height={800}
                     draggable={false}
@@ -687,8 +693,8 @@ export default function Products() {
         return filteredProducts.slice(startIndex, startIndex + itemsPerPage);
     }, [filteredProducts, currentPage, itemsPerPage]);
 
-    // ✅ LCP: ilk kartın görselini mümkün olduğunca erken çekmeye çalış
-    useEffect(() => {
+    // ✅ LCP: ilk kartın görselini preload + high yap (SPA’da en iyi yaklaşım)
+    useIsomorphicLayoutEffect(() => {
         if (typeof document === 'undefined') return;
         if (currentPage !== 1) return;
 
@@ -707,6 +713,14 @@ export default function Products() {
         link.setAttribute('fetchpriority', 'high');
         link.setAttribute('data-lcp-preload', 'products-first');
         document.head.appendChild(link);
+
+        return () => {
+            try {
+                document.head.removeChild(link);
+            } catch {
+                // ignore
+            }
+        };
     }, [currentPage, paginatedProducts]);
 
     const handlePageChange = (page: number) => {
@@ -858,7 +872,6 @@ export default function Products() {
                             </div>
                         </div>
 
-                        {/* ✅ Heading order fix: h1’den sonra h2 ekledik */}
                         <h2 className="sr-only">{t('products.filter')}</h2>
 
                         <div className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-0 space-y-6 lg:space-y-8">
@@ -965,7 +978,6 @@ export default function Products() {
                     </motion.div>
 
                     <div className="w-full lg:w-3/4">
-                        {/* ✅ Heading order fix: h3 ürün adları için önce h2 */}
                         <h2 className="sr-only">{t('products.title')}</h2>
 
                         <div
@@ -977,15 +989,13 @@ export default function Products() {
                                         : 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-3'
                             }`}
                         >
-                            {paginatedProducts.map((product: Product, idx: number) => {
-                                const isLcpCandidate = currentPage === 1 && idx === 0;
-
+                            {paginatedProducts.map((product: Product) => {
                                 return (
                                     <ProductCard
                                         key={product.id}
                                         product={product}
-                                        loading={isLcpCandidate ? 'eager' : 'lazy'}
-                                        priority={isLcpCandidate ? 'high' : 'low'}
+                                        loading="eager"     // ✅ geç yükleme yok
+                                        priority="high"     // ✅ fetchpriority=high
                                     />
                                 );
                             })}
