@@ -933,11 +933,13 @@ export default function Products() {
                                         setCurrentPage(1);
                                         setIsMobileFilterOpen(false);
                                     }}
-                                    className="flex-[2] py-3.5 px-4 text-sm font-semibold bg-[#009FE3] text-white rounded-xl hover:bg-[#0085c2] transition-colors shadow-lg shadow-[#009FE3]/30 flex items-center justify-center gap-2"
+                                    className="flex-[2] py-3.5 px-4 text-sm font-semibold bg-[#005F91] text-white rounded-xl hover:bg-[#004a72] transition-colors shadow-lg shadow-[#005F91]/30 flex items-center justify-center gap-2"
                                     type="button"
                                 >
                                     <span>{t('filter.items.seeResults')}</span>
-                                    <span className="bg-white/20 px-2 py-0.5 rounded-full text-xs">{previewFilteredCount}</span>
+                                    <span className="bg-white text-[#003b5c] px-2 py-0.5 rounded-full text-xs font-bold">
+        {previewFilteredCount}
+    </span>
                                 </button>
                             </div>
                         </div>
