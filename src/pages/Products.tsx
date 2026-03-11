@@ -17,8 +17,8 @@ import { Product } from "@/src/data/products/types.ts";
 
 function ProductCard({
                          product,
-                         priority = 'auto',
-                         loading = 'lazy',
+                         priority = 'high',
+                         loading = 'eager',
                      }: {
     product: Product;
     key?: React.Key;
@@ -938,8 +938,8 @@ export default function Products() {
                                 >
                                     <span>{t('filter.items.seeResults')}</span>
                                     <span className="bg-white text-[#003b5c] px-2 py-0.5 rounded-full text-xs font-bold">
-        {previewFilteredCount}
-    </span>
+                                        {previewFilteredCount}
+                                    </span>
                                 </button>
                             </div>
                         </div>
@@ -957,15 +957,13 @@ export default function Products() {
                                         : 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-3'
                             }`}
                         >
-                            {paginatedProducts.map((product: Product, idx: number) => {
-                                const isLcpCandidate = currentPage === 1 && idx === 0;
-
+                            {paginatedProducts.map((product: Product) => {
                                 return (
                                     <ProductCard
                                         key={product.id}
                                         product={product}
-                                        loading={isLcpCandidate ? 'eager' : 'lazy'}
-                                        priority={isLcpCandidate ? 'high' : 'auto'}
+                                        loading="eager"
+                                        priority="high"
                                     />
                                 );
                             })}
