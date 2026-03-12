@@ -41,7 +41,7 @@ export default function About() {
             </div>
               <div className="rounded-lg overflow-hidden shadow-xl mt-8">
                   <img
-                      src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1000"
+                      src="/images/about/abouts.webp"
                       alt="Pars Factory"
                       className="w-full h-auto object-cover"
                       width={250}
@@ -65,7 +65,7 @@ export default function About() {
             </ul>
               <div className="rounded-lg overflow-hidden shadow-xl mt-8">
                   <img
-                      src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1000"
+                      src="/images/about/meeting.webp"
                       alt="Pars Factory"
                       className="w-full h-auto object-cover"
                       width={250}

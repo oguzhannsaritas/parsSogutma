@@ -687,7 +687,7 @@ export default function Products() {
             <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 lg:mb-8 pb-4 border-b border-gray-200 dark:border-neutral-700 gap-4">
                     <div className="text-xs md:text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
-                        <span>{t('products.breadcrumb.home')}</span>
+                        <Link to="/" >{t('products.breadcrumb.home')}</Link>
                         <ChevronRight size={14} />
                         <span className="font-bold text-black dark:text-white">{t('products.title')}</span>
                     </div>

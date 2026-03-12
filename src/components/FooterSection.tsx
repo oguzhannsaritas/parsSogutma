@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
     ArrowUp,
-    Youtube,
     MapPin,
     Phone,
     Mail,
@@ -53,10 +52,10 @@ export default function FooterSection() {
             <div className="container mx-auto px-4 md:px-12 py-4 md:py-16">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <h2 className="text-xl md:text-4xl font-bold text-gray-900 dark:text-white">
+                        <h2 className="text-lg md:text-3xl font-bold text-gray-900 dark:text-white">
                             {t('footer.visit')}
                         </h2>
-                        <p className="text-gray-700 dark:text-gray-200 text-sm lg:text-lg">
+                        <p className="text-gray-700 dark:text-gray-200 font-thin text-xs md:text-lg">
                             {t('footer.desc')}
                         </p>
                     </div>
@@ -88,10 +87,9 @@ export default function FooterSection() {
                                     loading="lazy"
                                     decoding="async"
                                 />
-                                <div className="absolute inset-0 bg-black/35" />
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-red-500 text-white text-sm font-semibold">
-                                        <Youtube size={20} aria-hidden="true" />
+                                    <div className="flex     ">
+                                        <img width={70} src="/assets/icons/youtube.svg" alt="Youtube icons" aria-hidden={true} className="cursor-pointer"/>
                                     </div>
                                 </div>
                             </button>
@@ -170,12 +168,12 @@ export default function FooterSection() {
                                     {t('pars.footer.products')}
                                 </h3>
                                 <ul className="space-y-4 text-gray-300 text-xs lg:text-sm font-medium">
-                                    <li><Link to="#" className="hover:text-white transition-colors">{t('pars.footer.deepFreezers')}</Link></li>
-                                    <li><Link to="#" className="hover:text-white transition-colors">{t('pars.footer.deepFreezers')}</Link></li>
-                                    <li><Link to="#" className="hover:text-white transition-colors">{t('pars.footer.cake')}</Link></li>
-                                    <li><Link to="#" className="hover:text-white transition-colors">{t('pars.footer.promotions')}</Link></li>
-                                    <li><Link to="#" className="hover:text-white transition-colors">{t('pars.footer.semiVertical')}</Link></li>
-                                    <li><Link to="#" className="hover:text-white transition-colors">{t('pars.footer.horizontal')}</Link></li>
+                                    <li><Link to="/products" className="hover:text-white transition-colors">{t('pars.footer.deepFreezers')}</Link></li>
+                                    <li><Link to="/products" className="hover:text-white transition-colors">{t('pars.footer.deepFreezers')}</Link></li>
+                                    <li><Link to="/products" className="hover:text-white transition-colors">{t('pars.footer.cake')}</Link></li>
+                                    <li><Link to="/products" className="hover:text-white transition-colors">{t('pars.footer.promotions')}</Link></li>
+                                    <li><Link to="/products" className="hover:text-white transition-colors">{t('pars.footer.semiVertical')}</Link></li>
+                                    <li><Link to="/products" className="hover:text-white transition-colors">{t('pars.footer.horizontal')}</Link></li>
                                 </ul>
                             </div>
 
@@ -193,12 +191,12 @@ export default function FooterSection() {
                                     <div className="overflow-hidden">
                                         <div>
                                             <ul className="space-y-3 text-gray-300 text-sm font-medium">
-                                                <li><Link to="#" className="block py-1 hover:text-white transition-colors">{t('pars.footer.deepFreezers')}</Link></li>
-                                                <li><Link to="#" className="block py-1 hover:text-white transition-colors">{t('pars.footer.vertical')}</Link></li>
-                                                <li><Link to="#" className="block py-1 hover:text-white transition-colors">{t('pars.footer.cake')}</Link></li>
-                                                <li><Link to="#" className="block py-1 hover:text-white transition-colors">{t('pars.footer.promotions')}</Link></li>
-                                                <li><Link to="#" className="block py-1 hover:text-white transition-colors">{t('pars.footer.semiVertical')}</Link></li>
-                                                <li><Link to="#" className="block py-1 hover:text-white transition-colors">{t('pars.footer.horizontal')}</Link></li>
+                                                <li><Link to="/products" className="block py-1 hover:text-white transition-colors">{t('pars.footer.deepFreezers')}</Link></li>
+                                                <li><Link to="/products" className="block py-1 hover:text-white transition-colors">{t('pars.footer.vertical')}</Link></li>
+                                                <li><Link to="/products" className="block py-1 hover:text-white transition-colors">{t('pars.footer.cake')}</Link></li>
+                                                <li><Link to="/products" className="block py-1 hover:text-white transition-colors">{t('pars.footer.promotions')}</Link></li>
+                                                <li><Link to="/products" className="block py-1 hover:text-white transition-colors">{t('pars.footer.semiVertical')}</Link></li>
+                                                <li><Link to="/products" className="block py-1 hover:text-white transition-colors">{t('pars.footer.horizontal')}</Link></li>
                                             </ul>
                                         </div>
                                     </div>

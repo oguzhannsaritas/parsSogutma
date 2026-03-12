@@ -49,8 +49,8 @@ const translations: Translations = {
     'products.notFound':{TR:'Sonuç bulunamadı. Filtreleri temizleyip tekrar deneyin.', EN:'No results found. Clean the filters and try again.'},
 
   // Footer / General
-  'footer.visit': { TR: 'Bizi ziyaret edin', EN: 'Visit us' },
-  'footer.desc': { TR: 'Dilerseniz uluslararası ve ulusal birçok fuarda standımızı ziyaret edebilir, ürünlerimizi inceleyebilirsiniz.', EN: 'You can visit our stand at many international and national fairs and examine our products.' },
+  'footer.visit': { TR: 'Çalışmalarımızı Yakından İnceleyin', EN: 'Take a Closer Look at Our Work' },
+  'footer.desc': { TR: 'Ürettiğimiz soğutma sistemlerini, özel üretim çözümlerimizi ve üretimden montaja kadar sunduğumuz projeleri hızlıca inceleyebilirsiniz.', EN: 'You can quickly explore the cooling systems we manufacture, our custom production solutions, and the projects we deliver from production to installation.' },
   'footer.quickMenu': { TR: 'HIZLI MENÜ', EN: 'QUICK MENU' },
   'footer.productCategories': { TR: 'ÜRÜN KATEGORİLERİ', EN: 'PRODUCT CATEGORIES' },
   'footer.rights': { TR: 'Prosogutma Tüm Hakları Saklıdır.', EN: 'Prosogutma All Rights Reserved.' },

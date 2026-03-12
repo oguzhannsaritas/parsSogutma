@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
@@ -172,7 +172,7 @@ export default function References() {
                 <div className="container mx-auto px-4 md:px-12 text-center">
                     <h1 className="text-lg md:text-4xl font-bold mb-4">{t('menu.references')}</h1>
                     <div className="text-xs md:text-sm text-gray-400 dark:text-gray-600 flex items-center justify-center gap-2 uppercase tracking-wider">
-                        <span>{t('menu.home')}</span>
+                        <Link to="/" >{t('menu.home')}</Link>
                         <span>/</span>
                         <span className="text-white dark:text-black">{t('menu.references')}</span>
                     </div>

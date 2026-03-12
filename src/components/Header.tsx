@@ -129,11 +129,11 @@ export default function Header() {
     const flagSrc = language === 'TR' ? '/assets/icons/tr.svg' : '/assets/icons/us.svg';
 
     const searchPanelInputClasses = isHome
-        ? "bg-transparent border-none ml-2  focus:outline-none text-white text-sm w-full placeholder-white/50"
-        : "bg-transparent border-none focus:outline-none ml-2 text-gray-900 dark:text-white text-sm w-full placeholder-gray-500 dark:placeholder-gray-400";
+        ? "bg-transparent border-none ml-2 focus:outline-none text-white text-sm w-full min-w-0 placeholder-white/50"
+        : "bg-transparent border-none focus:outline-none ml-2 text-gray-900 dark:text-white text-sm w-full min-w-0 placeholder-gray-500 dark:placeholder-gray-400";
 
     const searchPanelWrapperClasses = isHome
-        ? "bg-gray-400 "
+        ? "bg-white/10 backdrop-blur-md"
         : "bg-gray-100 dark:bg-neutral-800";
 
     return (
@@ -162,21 +162,35 @@ export default function Header() {
                             </div>
 
                             <div className="flex flex-col items-center justify-center">
-                                <AnimatePresence>
-                                    {isScrolled && (
-                                        <motion.img
-                                            initial={{ opacity: 0, y: -20 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, y: -20 }}
-                                            transition={{ duration: 0.3 }}
-                                            src="/images/home/parsLogo.webp"
-                                            alt="PARS SOĞUTMA"
-                                            className={`h-12 object-contain transition-all duration-300 ${
-                                                (isScrolled || theme === 'dark') ? 'invert hue-rotate-180' : ''
-                                            }`}
-                                        />
-                                    )}
-                                </AnimatePresence>
+                                <div className="flex flex-col items-center justify-center">
+                                    {/* Mobilde logo her zaman görünsün */}
+                                    <img
+                                        src="/images/home/parsLogo.webp"
+                                        alt="PARS SOĞUTMA"
+                                        className={`h-10 object-contain md:hidden transition-all duration-300 ${
+                                            theme === 'dark' ? 'invert hue-rotate-180' : ''
+                                        }`}
+                                    />
+
+                                    {/* Tablet + masaüstünde mevcut scroll davranışı aynen devam etsin */}
+                                    <div className="hidden md:flex items-center justify-center">
+                                        <AnimatePresence>
+                                            {isScrolled && (
+                                                <motion.img
+                                                    initial={{ opacity: 0, y: -20 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: -20 }}
+                                                    transition={{ duration: 0.3 }}
+                                                    src="/images/home/parsLogo.webp"
+                                                    alt="PARS SOĞUTMA"
+                                                    className={`h-12 object-contain transition-all duration-300 ${
+                                                        (isScrolled || theme === 'dark') ? 'invert hue-rotate-180' : ''
+                                                    }`}
+                                                />
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
+                                </div>
                             </div>
 
                             <div className="flex items-center ">
@@ -205,7 +219,7 @@ export default function Header() {
                                 <button
                                     type="button"
                                     onClick={() => setIsSearchOpen(true)}
-                                    className="pl-4 rounded-full hover:bg-white/10 transition-colors text-white"
+                                    className="pl-4 relative right-3 md:right-0 rounded-full hover:bg-white/10 transition-colors text-white"
                                     aria-label="Open search"
                                 >
                                     <Search size={20} className="cursor-pointer" />
@@ -384,15 +398,18 @@ export default function Header() {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
                                 transition={{ duration: 0.22, ease: "easeOut" }}
-                                className="fixed top-16 md:left-0 left-2/4 md:w-full  w-[550]  z-[60] px-4 md:px-12"
+                                className="fixed top-20 right-6 sm:right-8 md:right-10 lg:right-12 z-[60]"
                             >
-                                <div className="w-full md:max-w-[520px] md:ml-auto">
+                                <div className="w-[286px] sm:w-[310px] md:w-[340px] lg:w-[400px]">
                                     <form
                                         onSubmit={handleSearch}
-                                        className={`flex items-center rounded-2xl px-4 py-3 shadow-lg border border-white/10 ${searchPanelWrapperClasses}`}
+                                        className={`flex items-center rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 shadow-lg border border-white/10 ${searchPanelWrapperClasses}`}
                                         onClick={(e) => e.stopPropagation()}
                                     >
-                                        <Search size={20} className={isHome ? "text-white/80" : "text-gray-500 dark:text-gray-400"} />
+                                        <Search
+                                            size={18}
+                                            className={`shrink-0 ${isHome ? "text-white/80" : "text-gray-500 dark:text-gray-400"}`}
+                                        />
 
                                         <input
                                             ref={searchInputRef}
@@ -406,7 +423,11 @@ export default function Header() {
                                         <button
                                             type="button"
                                             onClick={() => setIsSearchOpen(false)}
-                                            className={isHome ? "text-white hover:text-gray-300 ml-2" : "text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 ml-2"}
+                                            className={`ml-2 shrink-0 rounded-full p-1 transition-colors ${
+                                                isHome
+                                                    ? "text-white hover:text-gray-300 hover:bg-white/10"
+                                                    : "text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-200/70 dark:hover:bg-neutral-700"
+                                            }`}
                                             aria-label="Close search"
                                         >
                                             <X size={18} />

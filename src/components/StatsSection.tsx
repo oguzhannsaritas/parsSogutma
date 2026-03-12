@@ -61,7 +61,7 @@ export default function StatsSection() {
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-1 md:mb-12">
-                    <p className="text-gray-400 dark:text-gray-600 md:font-bold tracking-widest uppercase text-[10px] md:text-xs mb-0 md:mb-3 opacity-60">
+                    <p className="text-gray-400 dark:text-gray-600 md:font-bold tracking-widest uppercase text-[10px] md:text-sm mb-0 relative md:top-2 opacity-60">
                         {t('stats.number')}
                     </p>
 
