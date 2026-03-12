@@ -45,6 +45,7 @@ export default function App() {
         <Router>
           <LoaderController />
           <div className="min-h-screen bg-white dark:bg-[#111827] font-sans transition-colors duration-300">
+            <Header />
             <main>
               <Routes>
                 <Route path="/" element={<Home />} />
