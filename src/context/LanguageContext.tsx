@@ -208,7 +208,6 @@ const translations: Translations = {
     'filters.items.kasapDolabiDikCamli': { TR: 'Kasap Dolabı Dik Camlı', EN: 'Butcher Cabinet (Upright Glass)' },
     'filters.items.reyonDolabiDikCamli': { TR: 'Reyon Dolabı Dik Camlı', EN: 'Display Cabinet (Upright Glass)' },
     'filters.items.balikMostraDolabi': { TR: 'Balık Mostra Dolabı', EN: 'Fish Mostra Cabinet' },
-    'filters.items.kasapDolabiDuzeCamli': { TR: 'Kasap Reyon Dolabı Düz Camlı', EN: 'Butcher Cabinet (Flat Glass)' },
     'filters.items.sogutmaliBalikDolabi': { TR: 'Soğutmalı Balık Dolabı', EN: 'Refrigerated Fish Cabinet' },
     'filters.items.kasapReyonDolabiBombeCamli': { TR: 'Kasap Reyon Dolabı Bombe Camlı', EN: 'Butcher Display (Curved Glass)' },
     'filters.items.mezeDolabiDikeyTip': { TR: 'Meze Dolabı Dikey Tip', EN: 'Mezze Cabinet (Vertical)' },
