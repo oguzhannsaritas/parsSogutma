@@ -168,7 +168,7 @@ export default function Header() {
                                         src="/images/home/parsLogo.webp"
                                         alt="PARS SOĞUTMA"
                                         className={`h-10 object-contain md:hidden transition-all duration-300 ${
-                                            theme === 'dark' ? 'invert hue-rotate-180' : ''
+                                            (isScrolled || theme === 'dark') ? 'invert hue-rotate-180' : ''
                                         }`}
                                     />
 
@@ -219,7 +219,7 @@ export default function Header() {
                                 <button
                                     type="button"
                                     onClick={() => setIsSearchOpen(true)}
-                                    className="pl-4 relative right-3 md:right-0 rounded-full hover:bg-white/10 transition-colors text-white"
+                                    className="pl-4 relative right-1 md:right-0 rounded-full hover:bg-white/10 transition-colors text-white"
                                     aria-label="Open search"
                                 >
                                     <Search size={20} className="cursor-pointer" />

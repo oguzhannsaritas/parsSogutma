@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, Twitter, Instagram, Youtube } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Instagram, Youtube } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
@@ -9,23 +9,24 @@ export default function HeroSection() {
     const [textSlide, setTextSlide] = useState(0);
     const [showText, setShowText] = useState(true);
     const [isAnimating, setIsAnimating] = useState(false);
-    const [wipeState, setWipeState] = useState<'idle' | 'in' | 'out'>('idle');
+    const [wipeRun, setWipeRun] = useState(0);
+    const [wipeDirection, setWipeDirection] = useState<'next' | 'prev'>('next');
     const { t } = useLanguage();
     const isFirstRenderRef = useRef(true);
     const [lcpLoaded, setLcpLoaded] = useState(false);
     const isLcpImage = currentSlide === 0;
-
 
     useEffect(() => {
         isFirstRenderRef.current = false;
     }, []);
 
     const [swipeEnabled, setSwipeEnabled] = useState(false);
+
     const slides = [
         {
             id: 0,
             title: 'Pars Soğutma Sistemleri',
-            description:  t('hero.socialMediaInfo'),
+            description: t('hero.socialMediaInfo'),
             image: '/images/home/parsLogo.webp',
             isSocial: true
         },
@@ -37,7 +38,6 @@ export default function HeroSection() {
         { id: 6, subtitle: t('hero.slide6.title'), title: t('menu.coolingAisles'), image: '/images/home/sogutmareyon.webp' },
         { id: 7, subtitle: t('hero.slide7.title'), title: t('menu.bakery'), image: '/images/home/unluMamullx.webp' },
     ];
-
 
     useEffect(() => {
         if (typeof window === 'undefined') return;
@@ -69,7 +69,7 @@ export default function HeroSection() {
             const timer = window.setTimeout(run, 500);
             return () => window.clearTimeout(timer);
         }
-    }, [currentSlide, lcpLoaded, slides]);
+    }, [currentSlide, lcpLoaded]);
 
     useEffect(() => {
         if (typeof document === 'undefined') return;
@@ -115,6 +115,7 @@ export default function HeroSection() {
             // @ts-ignore
             else mq.addListener(update);
         };
+
         const remove = (mq: MediaQueryList) => {
             // @ts-ignore
             if (mq.removeEventListener) mq.removeEventListener('change', update);
@@ -146,44 +147,51 @@ export default function HeroSection() {
     const swipeJustHappenedRef = useRef(false);
     const swipeResetTimerRef = useRef<number | null>(null);
 
-
     const isSocialText = !!slides[textSlide]?.isSocial;
     const isSocialImage = !!slides[currentSlide]?.isSocial;
 
     const markSwipeJustHappened = () => {
         swipeJustHappenedRef.current = true;
-        if (swipeResetTimerRef.current) window.clearTimeout(swipeResetTimerRef.current);
+
+        if (swipeResetTimerRef.current) {
+            window.clearTimeout(swipeResetTimerRef.current);
+        }
+
         swipeResetTimerRef.current = window.setTimeout(() => {
             swipeJustHappenedRef.current = false;
             swipeResetTimerRef.current = null;
         }, 250);
     };
 
-    const changeSlide = (direction: 'next' | 'prev') => {
+    const changeSlide = (
+        direction: 'next' | 'prev',
+        visualDirection?: 'next' | 'prev'
+    ) => {
         if (isAnimating) return;
+
+        const resolvedVisualDirection = visualDirection ?? direction;
+
         setIsAnimating(true);
+        setWipeDirection(resolvedVisualDirection);
+        setWipeRun((prev) => prev + 1);
 
         const nextIndex =
             direction === 'next'
                 ? (currentSlide + 1) % slides.length
                 : (currentSlide - 1 + slides.length) % slides.length;
 
-        setWipeState('in');
         setShowText(false);
         setCurrentSlide(nextIndex);
 
         setTimeout(() => {
             setTextSlide(nextIndex);
             setShowText(true);
-            setWipeState('out');
 
             setTimeout(() => {
-                setWipeState('idle');
                 setIsAnimating(false);
-            }, 600);
+            }, 200);
         }, 800);
     };
-
     const nextSlide = () => changeSlide('next');
     const prevSlide = () => changeSlide('prev');
 
@@ -239,19 +247,24 @@ export default function HeroSection() {
         if (dx > SWIPE_THRESHOLD) {
             resetSwipeState();
             markSwipeJustHappened();
-            prevSlide();
+
+            // Sağa swipe: önceki slayta git ama gölge soldan sağa aksın
+            changeSlide('prev', 'next');
             return;
         }
 
         if (dx < -SWIPE_THRESHOLD) {
             resetSwipeState();
             markSwipeJustHappened();
-            nextSlide();
+
+            // Sola swipe: sonraki slayta git ama gölge sağdan sola aksın
+            changeSlide('next', 'prev');
         }
     };
 
     const onPointerUp = (e: React.PointerEvent<HTMLElement>) => {
         if (!swipeEnabled) return;
+
         if (swipeRef.current.pointerId === e.pointerId) {
             try {
                 e.currentTarget.releasePointerCapture(e.pointerId);
@@ -264,6 +277,7 @@ export default function HeroSection() {
 
     const onPointerCancel = (e: React.PointerEvent<HTMLElement>) => {
         if (!swipeEnabled) return;
+
         if (swipeRef.current.pointerId === e.pointerId) {
             try {
                 e.currentTarget.releasePointerCapture(e.pointerId);
@@ -277,6 +291,7 @@ export default function HeroSection() {
     const onClickCapture = (e: React.MouseEvent<HTMLElement>) => {
         if (!swipeEnabled) return;
         if (!swipeJustHappenedRef.current) return;
+
         e.preventDefault();
         e.stopPropagation();
         swipeJustHappenedRef.current = false;
@@ -291,17 +306,27 @@ export default function HeroSection() {
             onPointerCancel={onPointerCancel}
             onClickCapture={onClickCapture}
         >
-            <motion.div
-                initial={false}
-                animate={{
-                    x: wipeState === 'idle' ? '-100%' : wipeState === 'in' ? '0%' : '100%',
-                }}
-                transition={{
-                    duration: wipeState === 'idle' ? 0 : wipeState === 'in' ? 0.4 : 0.6,
-                    ease: [0.4, 0, 0.2, 1],
-                }}
-                className="absolute inset-0 z-20 bg-black/40 pointer-events-none"
-            />
+            {wipeRun > 0 && (
+                <motion.div
+                    key={`${wipeDirection}-${wipeRun}`}
+                    initial={{
+                        x: wipeDirection === 'next' ? '-100%' : '100%',
+                    }}
+                    animate={{
+                        x: [
+                            wipeDirection === 'next' ? '-100%' : '100%',
+                            '0%',
+                            wipeDirection === 'next' ? '100%' : '-100%',
+                        ],
+                    }}
+                    transition={{
+                        duration: 1,
+                        times: [0, 0.4, 1],
+                        ease: 'easeInOut',
+                    }}
+                    className="absolute inset-0 z-20 bg-black/40 pointer-events-none"
+                />
+            )}
 
             <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute top-0 right-0 w-[80%] h-full bg-white dark:bg-[#1f2937] transform -skew-x-[20deg] translate-x-[20%] shadow-[-20px_0_40px_rgba(0,0,0,0.02)]"></div>
@@ -335,12 +360,11 @@ export default function HeroSection() {
 
             <div className="container mx-auto justify-center items-center px-8 sm:px-12 md:px-24 relative z-30 py-6 md:py-12 h-full">
                 <div
-                    className={`grid justify-center items-center w-full transition-all duration-500
-                        ${isSocialText
-                        ? 'grid-cols-1 lg:grid-cols-2  lg:gap-32 xl:gap-96'
-                        : 'grid-cols-2 gap-2 sm:gap-4 lg:gap-32 xl:gap-96'
-                    }
-                    `}
+                    className={`grid justify-center items-center w-full transition-all duration-500 ${
+                        isSocialText
+                            ? 'grid-cols-1 lg:grid-cols-2 lg:gap-32 xl:gap-96'
+                            : 'grid-cols-2 gap-2 sm:gap-4 lg:gap-32 xl:gap-96'
+                    }`}
                 >
                     <motion.div
                         key={textSlide}
@@ -352,7 +376,7 @@ export default function HeroSection() {
                         animate={showText ? 'show' : 'hide'}
                         className={`flex flex-col justify-center items-center space-y-2 sm:space-y-4 lg:space-y-9 relative text-center
                             ${isSocialText ? 'order-2 lg:order-1 w-full max-w-md mx-auto' : ''}
-                            ${isSocialText ? ' dark:bg-white/5 backdrop-blur-sm rounded-2xl p-4   md:dark:bg-transparent lg:backdrop-blur-0' : ''}
+                            ${isSocialText ? 'dark:bg-white/5 backdrop-blur-sm rounded-2xl p-4 md:dark:bg-transparent lg:backdrop-blur-0' : ''}
                         `}
                         style={{ pointerEvents: showText ? 'auto' : 'none' }}
                     >
@@ -379,6 +403,7 @@ export default function HeroSection() {
                                 >
                                     {slides[textSlide].title}
                                 </motion.h1>
+
                                 <motion.p
                                     variants={{
                                         hide: { opacity: 0, y: -20, transition: { duration: 0.3 } },
@@ -410,8 +435,9 @@ export default function HeroSection() {
                                 className="flex flex-col items-center mt-4 w-full"
                             >
                                 <span className="text-[10px] sm:text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">
-                                       {t('hero.socialMedia')}
+                                    {t('hero.socialMedia')}
                                 </span>
+
                                 <div className="flex flex-wrap gap-3 sm:gap-4 justify-center">
                                     <a
                                         href="https://wa.me/905431707277"
@@ -432,7 +458,6 @@ export default function HeroSection() {
                                         </svg>
                                     </a>
 
-                                    {/* Instagram */}
                                     <a
                                         href="https://instagram.com/parsogutma/"
                                         target="_blank"
@@ -444,7 +469,6 @@ export default function HeroSection() {
                                         <Instagram size={18} />
                                     </a>
 
-                                    {/* Twitter / X */}
                                     <a
                                         href="https://x.com/ParsSogutma"
                                         target="_blank"
@@ -454,7 +478,7 @@ export default function HeroSection() {
                                         onClick={(e) => e.stopPropagation()}
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                                         </svg>
                                     </a>
 
@@ -478,7 +502,7 @@ export default function HeroSection() {
                                         onClick={(e) => e.stopPropagation()}
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12.04 2C6.58 2 3 5.64 3 9.89c0 2.64 1.49 4.16 2.39 4.16.37 0 .58-.96.58-1.23 0-.32-.92-1.14-.92-2.65 0-3.12 2.38-5.33 5.54-5.33 2.7 0 4.7 1.53 4.7 4.35 0 2.08-.84 6.02-3.57 6.02-.99 0-1.84-.72-1.84-1.73 0-1.49 1.03-2.92 1.03-4.5 0-2.62-3.7-2.15-3.7.88 0 .83.1 1.75.46 2.5L6.3 20.2c-.18.77-.26 1.53-.24 2.3h2.02l1.31-5.04c.36.69 1.28 1.04 2.06 1.04 4.25 0 6.55-4.23 6.55-8.06C18 5.33 15.27 2 12.04 2z"/>
+                                            <path d="M12.04 2C6.58 2 3 5.64 3 9.89c0 2.64 1.49 4.16 2.39 4.16.37 0 .58-.96.58-1.23 0-.32-.92-1.14-.92-2.65 0-3.12 2.38-5.33 5.54-5.33 2.7 0 4.7 1.53 4.7 4.35 0 2.08-.84 6.02-3.57 6.02-.99 0-1.84-.72-1.84-1.73 0-1.49 1.03-2.92 1.03-4.5 0-2.62-3.7-2.15-3.7.88 0 .83.1 1.75.46 2.5L6.3 20.2c-.18.77-.26 1.53-.24 2.3h2.02l1.31-5.04c.36.69 1.28 1.04 2.06 1.04 4.25 0 6.55-4.23 6.55-8.06C18 5.33 15.27 2 12.04 2z" />
                                         </svg>
                                     </a>
 
@@ -491,7 +515,7 @@ export default function HeroSection() {
                                         onClick={(e) => e.stopPropagation()}
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.266 2.37 4.266 5.455v6.286zM5.337 7.433a2.063 2.063 0 1 1 0-4.126 2.063 2.063 0 0 1 0 4.126zM6.814 20.452H3.861V9h2.953v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.727v20.545C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.273V1.727C24 .774 23.2 0 22.222 0z"/>
+                                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.266 2.37 4.266 5.455v6.286zM5.337 7.433a2.063 2.063 0 1 1 0-4.126 2.063 2.063 0 0 1 0 4.126zM6.814 20.452H3.861V9h2.953v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.727v20.545C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.273V1.727C24 .774 23.2 0 22.222 0z" />
                                         </svg>
                                     </a>
 
@@ -504,7 +528,7 @@ export default function HeroSection() {
                                         onClick={(e) => e.stopPropagation()}
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 23.403.597 24 1.326 24h11.495v-9.294H9.691V11.01h3.13V8.309c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24h-1.918c-1.504 0-1.796.715-1.796 1.764v2.313h3.59l-.467 3.696h-3.123V24h6.127C23.403 24 24 23.403 24 22.674V1.326C24 .597 23.403 0 22.675 0z"/>
+                                            <path d="M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 23.403.597 24 1.326 24h11.495v-9.294H9.691V11.01h3.13V8.309c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24h-1.918c-1.504 0-1.796.715-1.796 1.764v2.313h3.59l-.467 3.696h-3.123V24h6.127C23.403 24 24 23.403 24 22.674V1.326C24 .597 23.403 0 22.675 0z" />
                                         </svg>
                                     </a>
                                 </div>
@@ -535,12 +559,12 @@ export default function HeroSection() {
                                 animate: { opacity: 1, x: 0, transition: { duration: 0.5, ease: 'easeInOut' } },
                                 exit: { opacity: 0, x: -20, transition: { duration: 0.3 } },
                             }}
-                            initial={isFirstRenderRef.current ? false : "initial"}
+                            initial={isFirstRenderRef.current ? false : 'initial'}
                             animate="animate"
                             exit="exit"
-                            className={`flex relative z-10 w-full
-                                ${isSocialText ? 'justify-center lg:justify-start order-1 lg:order-2' : 'justify-end lg:justify-start'}
-                            `}
+                            className={`flex relative z-10 w-full ${
+                                isSocialText ? 'justify-center lg:justify-start order-1 lg:order-2' : 'justify-end lg:justify-start'
+                            }`}
                         >
                             <div
                                 className={`relative w-full flex items-center justify-center lg:scale-[1.5] xl:scale-[1.8]
@@ -550,9 +574,10 @@ export default function HeroSection() {
                                 {slides[currentSlide].isSocial && (
                                     <div className="absolute inset-0 bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-3xl scale-150 animate-pulse pointer-events-none" />
                                 )}
+
                                 <motion.img
                                     animate={slides[currentSlide].isSocial ? { y: [0, -15, 0] } : { y: 0 }}
-                                    transition={slides[currentSlide].isSocial ? { duration: 4, repeat: Infinity, ease: "easeInOut" } : {}}
+                                    transition={slides[currentSlide].isSocial ? { duration: 4, repeat: Infinity, ease: 'easeInOut' } : {}}
                                     src={slides[currentSlide].image}
                                     alt={slides[currentSlide].title}
                                     className={`object-contain w-full h-full drop-shadow-2xl select-none relative z-10 ${
@@ -564,7 +589,9 @@ export default function HeroSection() {
                                     loading={isLcpImage ? 'eager' : 'lazy'}
                                     decoding="async"
                                     fetchPriority={isLcpImage ? 'high' : 'auto'}
-                                    onLoad={() => { if (isLcpImage) setLcpLoaded(true); }}
+                                    onLoad={() => {
+                                        if (isLcpImage) setLcpLoaded(true);
+                                    }}
                                 />
                             </div>
                         </motion.div>
