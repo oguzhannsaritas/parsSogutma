@@ -66,7 +66,6 @@ export default function CategoriesSection() {
                     </motion.div>
                 </AnimatePresence>
 
-                {/* Pagination Controls */}
                 <div className="mt-12 flex justify-center items-center gap-2">
                     <button
                         onClick={() => handlePageChange(currentPage - 1)}

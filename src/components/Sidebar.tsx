@@ -13,11 +13,8 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
     const { t, language, setLanguage } = useLanguage();
     const navigate = useNavigate();
     const dragControls = useDragControls();
-
     const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
     const [searchQuery, setSearchQuery] = useState('');
-
-    // ✅ sadece mobilde drag/bottom-sheet kullan
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
@@ -27,7 +24,6 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         const update = () => setIsMobile(mq.matches);
         update();
 
-        // Safari eski sürüm uyumu
         // @ts-ignore
         if (mq.addEventListener) mq.addEventListener('change', update);
         // @ts-ignore
@@ -98,7 +94,6 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
     const toggleLanguage = () => setLanguage(language === 'TR' ? 'EN' : 'TR');
     const toggleSubmenu = (label: string) => setExpandedMenu(expandedMenu === label ? null : label);
 
-    // ✅ Desktop: soldan kay, Mobile: alttan çık
     const sidebarInitial = isMobile ? { y: '100%', x: 0 } : { x: '-100%', y: 0 };
     const sidebarAnimate = isMobile ? { y: 0, x: 0 } : { x: 0, y: 0 };
     const sidebarExit = isMobile ? { y: '100%', x: 0 } : { x: '-100%', y: 0 };
@@ -107,7 +102,6 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         <AnimatePresence>
             {isOpen && (
                 <>
-                    {/* Overlay */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -117,9 +111,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                         className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
                     />
 
-                    {/* Sidebar */}
                     <motion.div
-                        // ✅ drag sadece mobilde aktif
                         drag={isMobile ? 'y' : false}
                         dragControls={dragControls}
                         dragListener={false}
@@ -140,13 +132,10 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                         style={{ touchAction: isMobile ? 'pan-y' : 'auto' }}
                         className={[
                             'fixed z-[70] bg-white dark:bg-[#1f2937] overflow-hidden flex flex-col',
-                            // mobile sheet
                             'inset-x-0 bottom-0 h-[85vh] w-full rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.1)]',
-                            // desktop drawer
                             'md:inset-y-0 md:left-0 md:right-auto md:h-full md:w-[380px] md:rounded-none md:rounded-r-3xl md:shadow-[4px_0_24px_rgba(0,0,0,0.1)]'
                         ].join(' ')}
                     >
-                        {/* Mobile drag handle */}
                         {isMobile && (
                             <div
                                 className="touch-none cursor-grab active:cursor-grabbing bg-white dark:bg-[#1f2937] z-10 md:hidden"
@@ -158,7 +147,6 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                             </div>
                         )}
 
-                        {/* Header */}
                         <div className="flex items-center justify-between px-6 py-4 md:pt-6 md:pb-2 border-b border-gray-100 dark:border-gray-800 md:border-none">
               <span className="text-[15px] md:text-xl font-bold text-gray-900 dark:text-white tracking-tight">
                 Menu
@@ -173,7 +161,6 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                             </button>
                         </div>
 
-                        {/* Search */}
                         <div className="px-4 py-3 md:py-4 border-b border-gray-100 dark:border-gray-700">
                             <form onSubmit={handleSearch} className="relative group">
                                 <input
@@ -193,7 +180,6 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                             </form>
                         </div>
 
-                        {/* Menu Items */}
                         <div className="flex-1 overflow-y-auto px-4 py-2 pb-6 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-thumb]:bg-gray-600 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-gray-400 dark:hover:[&::-webkit-scrollbar-thumb]:bg-gray-500">
                             <div className="space-y-1">
                                 {menuItems.map((item, index) => (
@@ -239,7 +225,6 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                                             )}
                                         </div>
 
-                                        {/* Submenu */}
                                         <AnimatePresence>
                                             {item.hasSubmenu && expandedMenu === item.label && item.submenuItems && (
                                                 <motion.div
@@ -300,7 +285,6 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                             </div>
                         </div>
 
-                        {/* Language Footer */}
                         <div className="p-5 bg-gray-50/50 dark:bg-[#1f2937] border-t border-gray-100 dark:border-gray-700">
                             <button
                                 onClick={toggleLanguage}

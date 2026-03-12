@@ -1,54 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- Ana Sayfa -->
     <url>
-        <loc>https://www.pars-sogutma.com/</loc>
+        <loc>https://www.parssogutma.com/</loc>
         <lastmod>2026-03-09</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
-
-    <!-- Kurumsal / Hakkımızda -->
     <url>
-        <loc>https://www.pars-sogutma.com/about</loc>
+        <loc>https://www.parssogutma.com/about</loc>
         <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.pars-sogutma.com/corporate</loc>
+        <loc>https://www.parssogutma.com/corporate</loc>
         <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-
-    <!-- Ürünler -->
     <url>
-        <loc>https://www.pars-sogutma.com/products</loc>
+        <loc>https://www.parssogutma.com/products</loc>
         <lastmod>2026-03-09</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
-
-    <!-- Referanslar -->
     <url>
-        <loc>https://www.pars-sogutma.com/references</loc>
+        <loc>https://www.parssogutma.com/references</loc>
         <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-
-    <!-- Galeri -->
     <url>
-        <loc>https://www.pars-sogutma.com/gallery</loc>
+        <loc>https://www.parssogutma.com/gallery</loc>
         <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
-
-    <!-- İletişim -->
     <url>
-        <loc>https://www.pars-sogutma.com/contact</loc>
+        <loc>https://www.parssogutma.com/contact</loc>
         <lastmod>2026-03-09</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.9</priority>

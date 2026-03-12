@@ -20,16 +20,13 @@ export default function ProductDetail() {
     const { id } = useParams();
     const navigate = useNavigate();
     const { t, language } = useLanguage();
-
     const product = products.find((p) => p.id === Number(id));
-
     const [activeTab, setActiveTab] = useState<TabKey>('about');
     const [selectedImage, setSelectedImage] = useState(0);
     const [isExtraInfoOpen, setIsExtraInfoOpen] = useState(true);
     const [isSpecificationOpen, setIsSpecificationOpen] = useState(false);
     const [isAccessoriesOpen, setIsAccessoriesOpen] = useState(false);
     const [selectedDrawingImage, setSelectedDrawingImage] = useState(0);
-
     const [lightbox, setLightbox] = useState<LightboxState | null>(null);
 
     useEffect(() => {
@@ -38,7 +35,6 @@ export default function ProductDetail() {
         setLightbox(null);
     }, [id]);
 
-    // Lightbox açıkken body scroll kilitle
     useEffect(() => {
         if (!lightbox) return;
         const prev = document.body.style.overflow;
@@ -105,7 +101,6 @@ export default function ProductDetail() {
     const goPrev = () => goStep(-1);
     const goNext = () => goStep(1);
 
-    // ✅ LCP ana görseli için preload (SPA’da en erken hamle)
     useIsomorphicLayoutEffect(() => {
         if (typeof document === 'undefined') return;
 
@@ -133,7 +128,6 @@ export default function ProductDetail() {
         };
     }, [id, thumbnails]);
 
-    // Lightbox açıkken klavye kontrolü
     useEffect(() => {
         if (!lightbox) return;
 
@@ -214,10 +208,8 @@ export default function ProductDetail() {
                 </h1>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                    {/* Left Column: Images */}
                     <div className="space-y-8">
                         <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-black/5">
-                            {/* ✅ LCP adayı ana görsel: eager + fetchPriority=high */}
                             <img
                                 src={thumbnails[selectedImage]}
                                 alt={product.name[language]}
@@ -270,7 +262,6 @@ export default function ProductDetail() {
                         </div>
                     </div>
 
-                    {/* Right Column: Info & Tabs */}
                     <div>
                         <div className="flex border-b border-gray-200 dark:border-neutral-700 mb-8 overflow-x-auto">
                             {[

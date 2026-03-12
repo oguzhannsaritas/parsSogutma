@@ -21,6 +21,8 @@ const translations: Translations = {
   'loader.tagline': { TR: 'PROFESYONEL SOĞUTMA', EN: 'PROFESSIONAL COOLING' },
   'menu.search': { TR: 'Ürün Ara', EN: 'Search Products' },
   'menu.menu': { TR: 'MENU', EN: 'MENU' },
+    'hero.socialMedia':{TR:' İletişim & Sosyal Medya', EN: ' Contact & Social Media'},
+    'hero.socialMediaInfo':{TR : 'İşletmeniz için yüksek verimli, yenilikçi ve estetik soğutma çözümleri üretiyoruz. Sosyal Medya kanallarımızdan bizleri takip edebilir aynı zamanda iletişime geçebilirsiniz', EN: ' We produce highly efficient, innovative and aesthetic cooling solutions for your business. You can follow us on our Social Media channels and contact us at the same time'},
 
   // Hero Section
   'hero.slide1.subtitle': { TR: 'Maksimize Edilmiş Şeffaf Isıcamlı\nDuvar Tipi Soğutucu Reyon', EN: 'Maximized Transparent Double Glazed\nWall Type Cooling Unit' },

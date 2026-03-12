@@ -6,7 +6,6 @@ export default function About() {
 
   return (
     <div className="bg-white dark:bg-[#111827]  min-h-screen transition-colors duration-300">
-      {/* Hero Banner */}
       <div className="relative h-[300px] md:h-[400px] w-full overflow-hidden">
         <div className="absolute inset-0 bg-black/10 z-10" />
         <img 
@@ -32,7 +31,6 @@ export default function About() {
 
       <div className="container mx-auto px-4 md:px-12 py-8 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-16 items-start">
-          {/* Left Column: Company Info & Image */}
           <div className="space-y-8">
 
             <div>
@@ -53,7 +51,6 @@ export default function About() {
 
           </div>
 
-          {/* Right Column: Working Principles */}
           <div className="bg-gray-50 dark:bg-[#374151] shadow shadow-gray-400 p-6 md:p-10 rounded-xl">
             <h2 className="text-xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 md:mb-8">{t('about.section2.title')}</h2>
             <ul className="space-y-2 md:space-y-6">

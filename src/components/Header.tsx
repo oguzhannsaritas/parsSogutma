@@ -12,9 +12,7 @@ export default function Header() {
     const navigate = useNavigate();
     const isHome = location.pathname === '/';
     const { t, language, setLanguage } = useLanguage();
-
     const { theme, toggleTheme } = useTheme();
-
     const [hidden, setHidden] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const lastScrollYRef = useRef(0);
@@ -22,11 +20,8 @@ export default function Header() {
     const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
-
-    // Search input focus
     const searchInputRef = useRef<HTMLInputElement>(null);
 
-    // Animated Words State
     const [wordIndex, setWordIndex] = useState(0);
     const animatedWords = ['Severek', 'Çalışıyoruz', 'Severek', 'Üretiyoruz'];
 
@@ -158,7 +153,6 @@ export default function Header() {
                 <div className="w-full h-full flex items-center justify-between px-4 md:px-12 relative z-10">
                     {isHome ? (
                         <>
-                            {/* Left: Menu */}
                             <div
                                 className="flex items-center gap-2 cursor-pointer m-4 hover:text-gray-300 transition-colors"
                                 onClick={() => setIsSidebarOpen(true)}
@@ -167,7 +161,6 @@ export default function Header() {
                                 <span className="font-bold text-sm tracking-wide hidden sm:block">{t('menu.menu')}</span>
                             </div>
 
-                            {/* Center: Logo */}
                             <div className="flex flex-col items-center justify-center">
                                 <AnimatePresence>
                                     {isScrolled && (
@@ -186,9 +179,7 @@ export default function Header() {
                                 </AnimatePresence>
                             </div>
 
-                            {/* Right: Actions */}
                             <div className="flex items-center ">
-                                {/* Theme */}
                                 <button
                                     onClick={toggleTheme}
                                     className="pl-2 rounded-full cursor-pointer hover:bg-white/10 transition-colors text-white"
@@ -197,7 +188,6 @@ export default function Header() {
                                     {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
                                 </button>
 
-                                {/* Language */}
                                 <button
                                     onClick={toggleLanguage}
                                     className="p-2 rounded-full cursor-pointer hover:bg-white/10 transition-colors text-white flex items-center gap-2"
@@ -212,7 +202,6 @@ export default function Header() {
                                     <span className="text-[11px] font-bold tracking-wide">{language}</span>
                                 </button>
 
-                                {/* Search (ikon sabit, input aşağıda açılıyor) */}
                                 <button
                                     type="button"
                                     onClick={() => setIsSearchOpen(true)}
@@ -225,7 +214,6 @@ export default function Header() {
                         </>
                     ) : (
                         <>
-                            {/* Left: Logo */}
                             <Link to="/" className="flex flex-col items-center justify-center cursor-pointer">
                                 <img
                                     src="/images/home/parsLogo.webp"
@@ -236,7 +224,6 @@ export default function Header() {
                                 />
                             </Link>
 
-                            {/* Center: Nav Links (Desktop) */}
                             <nav className="hidden lg:flex items-center gap-6 h-full">
                                 {navLinks.map((link, index) => (
                                     <div key={index} className="relative group h-full flex items-center">
@@ -248,7 +235,6 @@ export default function Header() {
                                             {(link.hasDropdown || link.isMegaMenu) && <ChevronDown size={14} />}
                                         </Link>
 
-                                        {/* Normal Dropdown Menu */}
                                         {link.hasDropdown && link.dropdownItems && !link.isMegaMenu && (
                                             <div className="absolute top-full left-0 bg-white dark:bg-neutral-800 shadow-lg rounded-sm py-2 min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-100 dark:border-neutral-700 z-50">
                                                 {link.dropdownItems.map((item, idx) => (
@@ -261,7 +247,6 @@ export default function Header() {
                                                             {item.children && <ChevronRight size={12} />}
                                                         </Link>
 
-                                                        {/* Nested Dropdown */}
                                                         {item.children && (
                                                             <div className="absolute top-0 left-full bg-white dark:bg-neutral-800 shadow-lg rounded-sm py-2 min-w-[220px] opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-200 border border-gray-100 dark:border-neutral-700 z-50 -ml-1 mt-0">
                                                                 {item.children.map((child, childIdx) => (
@@ -280,7 +265,6 @@ export default function Header() {
                                             </div>
                                         )}
 
-                                        {/* Mega Menu */}
                                         {link.isMegaMenu && (
                                             <div className="fixed top-20 left-0 w-full dark:bg-white bg-[#111827] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border-t border-neutral-800 shadow-2xl">
                                                 <div className="container mx-auto py-8">
@@ -338,9 +322,7 @@ export default function Header() {
                                 ))}
                             </nav>
 
-                            {/* Right: Actions */}
                             <div className="flex items-center gap-2">
-                                {/* Theme */}
                                 <button
                                     onClick={toggleTheme}
                                     className="rounded-full hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors text-gray-900 dark:text-white"
@@ -349,7 +331,6 @@ export default function Header() {
                                     {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
                                 </button>
 
-                                {/* Language */}
                                 <button
                                     onClick={toggleLanguage}
                                     className="rounded-full hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors text-gray-900 dark:text-white flex items-center gap-2"
@@ -364,7 +345,6 @@ export default function Header() {
                                     <span className="text-[11px] font-bold tracking-wide">{language}</span>
                                 </button>
 
-                                {/* Search (ikon sabit, input aşağıda açılıyor) */}
                                 <button
                                     type="button"
                                     onClick={() => setIsSearchOpen(true)}
@@ -377,7 +357,6 @@ export default function Header() {
                                     />
                                 </button>
 
-                                {/* Mobile Menu Trigger */}
                                 <div
                                     className="lg:hidden cursor-pointer text-gray-900 dark:text-white hover:text-[#009FE3] dark:hover:text-[#009FE3]"
                                     onClick={() => setIsSidebarOpen(true)}
@@ -389,11 +368,9 @@ export default function Header() {
                     )}
                 </div>
 
-                {/* SEARCH PANEL (header altı, animasyonlu, ikonları itmez) */}
                 <AnimatePresence>
                     {isSearchOpen && (
                         <>
-                            {/* Backdrop */}
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
@@ -402,7 +379,6 @@ export default function Header() {
                                 onClick={() => setIsSearchOpen(false)}
                             />
 
-                            {/* Panel */}
                             <motion.div
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}

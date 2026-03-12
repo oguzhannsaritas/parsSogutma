@@ -10,7 +10,6 @@ export default function Contact() {
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
 
-    // ✅ LCP fix: Haritayı tıklayana kadar yükleme
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -35,7 +34,6 @@ export default function Contact() {
 
     return (
         <div className="bg-white dark:bg-[#111827] min-h-screen pt-24 pb-4 md:pb-16 transition-colors duration-300">
-            {/* Map Section */}
             <div className="w-full h-[400px] bg-gray-200 dark:bg-neutral-800 mb-16 relative overflow-hidden">
                 {(
                     <iframe
@@ -54,14 +52,12 @@ export default function Contact() {
 
             <div className="container mx-auto px-4 md:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-16">
-                    {/* Contact Information */}
                     <div>
                         <h2 className="text-lg md:text-xl font-bold mb-8 text-black dark:text-white uppercase">
                             {t('contact.title')}
                         </h2>
 
                         <div className="space-y-4 md:space-y-8">
-                            {/* Headquarters */}
                             <div className="flex items-start border-b border-gray-100 dark:border-neutral-800 pb-6">
                 <span className="w-28 md:w-40 shrink-0 font-bold text-gray-500 dark:text-gray-400 uppercase text-xs md:text-sm">
                   {t('contact.headquarters')}
@@ -71,13 +67,11 @@ export default function Contact() {
                 </span>
                             </div>
 
-                            {/* Headquarters Contact */}
                             <div className="flex items-start border-b border-gray-100 dark:border-neutral-800 pb-6">
                 <span className="w-28 md:w-40 shrink-0 font-bold text-gray-500 dark:text-gray-400 uppercase text-xs md:text-sm">
                   {t('contact.headquartersContact')}
                 </span>
                                 <div className="flex-1">
-                                    {/* ✅ Kontrast daha sağlam */}
                                     <p className="text-[#005A8E] dark:text-[#38BDF8] text-[10px] md:text-sm font-bold">
                                         : +90 543 170 72 77
                                     </p>
@@ -87,12 +81,10 @@ export default function Contact() {
                                 </div>
                             </div>
 
-                            {/* Email */}
                             <div className="flex items-start border-b border-gray-100 dark:border-neutral-800 pb-6">
                 <span className="w-28 md:w-40 shrink-0 font-bold text-gray-500 dark:text-gray-400 uppercase text-xs md:text-sm">
                   {t('contact.email')}
                 </span>
-                                {/* ✅ Burada domain typo var; mailto ile aynı yap */}
                                 <span className="flex-1 text-xs md:text-sm text-gray-600 dark:text-gray-300">
                   : info@parsogutma.com
                 </span>
@@ -100,7 +92,6 @@ export default function Contact() {
                         </div>
                     </div>
 
-                    {/* Contact Form */}
                     <div>
                         <h2 className="text-lg md:text-2xl font-bold mb-4 md:mb-8 text-black dark:text-white uppercase">
                             {t('contact.formTitle')}
@@ -110,7 +101,6 @@ export default function Contact() {
                             onSubmit={handleSubmit}
                             className="space-y-2 md:space-y-6 shadow-lg bg-gray-50 shadow-gray-400 rounded-lg border-gray-300 border-0 p-4 md:border-0"
                         >
-                            {/* Name & Email Row */}
                             <div className="grid grid-cols-2 md:grid-cols-2 gap-2 md:gap-6">
                                 <div className="space-y-2">
                                     <label htmlFor="contact-name" className="text-[13px] md:text-sm font-bold text-gray-700">
@@ -143,7 +133,6 @@ export default function Contact() {
                                 </div>
                             </div>
 
-                            {/* Phone & Subject Row */}
                             <div className="grid grid-cols-2 md:grid-cols-2 gap-2 md:gap-6">
                                 <div className="space-y-2">
                                     <label htmlFor="contact-phone" className="text-[13px] md:text-sm font-bold text-gray-700">
@@ -176,7 +165,6 @@ export default function Contact() {
                                 </div>
                             </div>
 
-                            {/* Message */}
                             <div className="space-y-2">
                                 <label htmlFor="contact-message" className="text-sm font-bold text-gray-700">
                                     {t('contact.form.message')}
@@ -192,7 +180,6 @@ export default function Contact() {
                                 />
                             </div>
 
-                            {/* Submit Button */}
                             <button
                                 type="submit"
                                 className="bg-gray-100 rounded-lg dark:bg-[#111827] text-black dark:text-white font-bold px-8 py-3 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors uppercase text-xs md:text-sm tracking-wider"

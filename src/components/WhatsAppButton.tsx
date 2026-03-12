@@ -6,7 +6,6 @@ import { useLocation } from 'react-router-dom';
 type Pos = { x: number; y: number };
 
 const STORAGE_KEY = 'wa_fab_pos_v1';
-
 function clamp(n: number, min: number, max: number) {
     return Math.max(min, Math.min(max, n));
 }
@@ -15,11 +14,9 @@ export default function WhatsAppButton() {
     const [isVisible, setIsVisible] = useState(true);
     const location = useLocation();
 
-    // draggable container ölçüsü (yaklaşık: close btn dahil)
     const FAB_SIZE = useMemo(() => ({ w: 76, h: 76 }), []);
 
     const [pos, setPos] = useState<Pos>(() => {
-        // SSR guard
         if (typeof window === 'undefined') return { x: 0, y: 0 };
         try {
             const raw = window.localStorage.getItem(STORAGE_KEY);
@@ -27,15 +24,12 @@ export default function WhatsAppButton() {
         } catch {
             // ignore
         }
-        // default: sağ alt (tailwind bottom-6 right-6 gibi)
         return { x: 0, y: 0 };
     });
 
-    // ilk mount'ta default konumu viewport'a göre ayarla (ilk kez geliyorsa)
     useEffect(() => {
         if (typeof window === 'undefined') return;
 
-        // localStorage boşsa defaultu sağ alta ayarla
         let hasSaved = false;
         try {
             hasSaved = Boolean(window.localStorage.getItem(STORAGE_KEY));
@@ -44,18 +38,16 @@ export default function WhatsAppButton() {
         }
         if (hasSaved) return;
 
-        const margin = 24; // bottom-6 / right-6
+        const margin = 24;
         const x = window.innerWidth - FAB_SIZE.w - margin;
         const y = window.innerHeight - FAB_SIZE.h - margin;
         setPos({ x: Math.max(0, x), y: Math.max(0, y) });
     }, [FAB_SIZE.h, FAB_SIZE.w]);
 
-    // sayfa değişince tekrar göster
     useEffect(() => {
         setIsVisible(true);
     }, [location.key]);
 
-    // viewport değişince (resize/orientation change) ekrandan taşmasın
     useEffect(() => {
         if (typeof window === 'undefined') return;
 
@@ -84,7 +76,6 @@ export default function WhatsAppButton() {
         };
     }, [FAB_SIZE.h, FAB_SIZE.w]);
 
-    // drag sonrası yanlış tıklamayı engellemek için
     const dragHappenedRef = useRef(false);
 
     const savePos = (p: Pos) => {
@@ -99,19 +90,17 @@ export default function WhatsAppButton() {
         <AnimatePresence>
             {isVisible && (
                 <motion.div
-                    // ✅ draggable fixed container
                     className="fixed z-[100]"
                     style={{
                         left: 0,
                         top: 0,
                         x: pos.x,
                         y: pos.y,
-                        touchAction: 'none', // mobilde drag düzgün olsun (scroll ile kavga etmesin)
+                        touchAction: 'none',
                     }}
                     drag
                     dragMomentum={false}
                     dragElastic={0.12}
-                    // ✅ ekran sınırları içinde kalsın
                     dragConstraints={{
                         left: 0,
                         top: 0,
@@ -122,7 +111,6 @@ export default function WhatsAppButton() {
                         dragHappenedRef.current = false;
                     }}
                     onDrag={(_, info) => {
-                        // çok küçük kıpırtıyı drag sayma
                         if (Math.abs(info.offset.x) > 3 || Math.abs(info.offset.y) > 3) {
                             dragHappenedRef.current = true;
                         }
@@ -142,7 +130,7 @@ export default function WhatsAppButton() {
                 >
                     <div className="relative flex flex-col items-center">
                         <button
-                            onPointerDown={(e) => e.stopPropagation()} // drag başlatmasın
+                            onPointerDown={(e) => e.stopPropagation()}
                             onClick={() => setIsVisible(false)}
                             className="absolute -top-4 -right-2 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full p-1 shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors z-10 border border-gray-200 dark:border-gray-700"
                             aria-label="Close WhatsApp"
@@ -159,7 +147,6 @@ export default function WhatsAppButton() {
                             aria-label="Chat on WhatsApp"
                             draggable={false}
                             onClick={(e) => {
-                                // drag olduysa linke tıklamasın
                                 if (dragHappenedRef.current) {
                                     e.preventDefault();
                                     e.stopPropagation();

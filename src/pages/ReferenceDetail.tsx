@@ -9,13 +9,9 @@ export default function ReferenceDetail() {
     const { t } = useLanguage();
     const { id } = useParams();
     const navigate = useNavigate();
-
     const project = useMemo(() => projects.find((p) => p.id === id), [id]);
-
     const [isOpen, setIsOpen] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
-
-    // Basit mobil tespiti (SSR yoksa yeterli)
     const isMobile = typeof window !== 'undefined' ? window.matchMedia('(max-width: 767px)').matches : false;
 
     if (!project) {
@@ -30,23 +26,19 @@ export default function ReferenceDetail() {
     }
 
     const total = project.images.length;
-
     const openAt = (index: number) => {
         setActiveIndex(index);
         setIsOpen(true);
     };
-
     const close = () => setIsOpen(false);
-
     const prev = () => {
         setActiveIndex((i) => (i - 1 + total) % total);
     };
-
     const next = () => {
         setActiveIndex((i) => (i + 1) % total);
     };
-
-    // ESC + Arrow keys
+    const SWIPE_DISTANCE = 80;
+    const SWIPE_VELOCITY = 500;
     useEffect(() => {
         if (!isOpen) return;
 
@@ -58,10 +50,8 @@ export default function ReferenceDetail() {
 
         window.addEventListener('keydown', onKeyDown);
         return () => window.removeEventListener('keydown', onKeyDown);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isOpen, total]);
 
-    // Body scroll lock
     useEffect(() => {
         if (!isOpen) return;
         const original = document.body.style.overflow;
@@ -71,13 +61,8 @@ export default function ReferenceDetail() {
         };
     }, [isOpen]);
 
-    // Swipe ayarları
-    const SWIPE_DISTANCE = 80; // px: kaç px sürüklerse sayfa değişsin
-    const SWIPE_VELOCITY = 500; // px/s: hızlı swipe için
-
     return (
         <div className="bg-white dark:bg-[#111827] h-auto md:min-h-screen pt-24 pb-16 transition-colors duration-300">
-            {/* Header Banner */}
             <div className="bg-[#111827] dark:bg-white text-white dark:text-black py-4 md:py-16 mb-12">
                 <div className="container mx-auto px-4 md:px-12 text-center">
                     <h1 className="text-lg md:text-4xl font-bold mb-4">{project.title}</h1>
@@ -120,8 +105,6 @@ export default function ReferenceDetail() {
                     ))}
                 </div>
             </div>
-
-            {/* Lightbox / Modal (Animated) */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -155,7 +138,6 @@ export default function ReferenceDetail() {
                                 <X size={20} />
                             </button>
 
-                            {/* Prev */}
                             {total > 1 && (
                                 <button
                                     type="button"
@@ -167,7 +149,6 @@ export default function ReferenceDetail() {
                                 </button>
                             )}
 
-                            {/* Next */}
                             {total > 1 && (
                                 <button
                                     type="button"
@@ -179,7 +160,6 @@ export default function ReferenceDetail() {
                                 </button>
                             )}
 
-                            {/* Image (Swipe + animated when switching) */}
                             <div className="w-full h-full md:h-auto px-4 md:px-14 flex items-center justify-center touch-pan-y">
                                 <AnimatePresence mode="wait">
                                     <motion.img
@@ -192,23 +172,17 @@ export default function ReferenceDetail() {
                                         animate={{ opacity: 1, scale: 1 }}
                                         exit={{ opacity: 0, scale: 0.99 }}
                                         transition={{ duration: 0.18, ease: 'easeOut' }}
-                                        // --- SWIPE ---
                                         drag={isMobile ? 'x' : false}
                                         dragConstraints={{ left: 0, right: 0 }}
                                         dragElastic={0.15}
                                         onDragEnd={(_, info) => {
-                                            // info.offset.x = toplam sürükleme mesafesi
-                                            // info.velocity.x = sürükleme hızı
                                             if (total <= 1) return;
-
                                             const offsetX = info.offset.x;
                                             const velocityX = info.velocity.x;
-
                                             const shouldGoNext =
                                                 offsetX < -SWIPE_DISTANCE || velocityX < -SWIPE_VELOCITY;
                                             const shouldGoPrev =
                                                 offsetX > SWIPE_DISTANCE || velocityX > SWIPE_VELOCITY;
-
                                             if (shouldGoNext) next();
                                             else if (shouldGoPrev) prev();
                                         }}
@@ -216,12 +190,10 @@ export default function ReferenceDetail() {
                                 </AnimatePresence>
                             </div>
 
-                            {/* Counter */}
                             <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 text-white text-xs md:text-sm bg-white/10 px-3 py-1.5 rounded-full">
                                 {activeIndex + 1} / {total}
                             </div>
 
-                            {/* Thumbnails (desktop only) */}
                             {total > 1 && (
                                 <div className="hidden md:flex absolute -bottom-20 left-1/2 -translate-x-1/2 gap-2">
                                     {project.images.map((img, idx) => {

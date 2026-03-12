@@ -20,17 +20,14 @@ import NotFound from "@/src/pages/NotFound.tsx";
 
 function LoaderController() {
   const location = useLocation();
-  const [loading, setLoading] = useState(true); // Start true for initial load
+  const [loading, setLoading] = useState(true);
 
   useLayoutEffect(() => {
-    // Scroll to top on route change
     window.scrollTo(0, 0);
-    
     setLoading(true);
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // 2s delay to ensure animation completes
-
+    }, 2000);
     return () => clearTimeout(timer);
   }, [location.pathname]);
 

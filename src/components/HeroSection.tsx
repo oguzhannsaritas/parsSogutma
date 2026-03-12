@@ -20,13 +20,12 @@ export default function HeroSection() {
         isFirstRenderRef.current = false;
     }, []);
 
-    // Sadece mobilde swipe aktif olsun
     const [swipeEnabled, setSwipeEnabled] = useState(false);
     const slides = [
         {
             id: 0,
             title: 'Pars Soğutma Sistemleri',
-            description: 'İşletmeniz için yüksek verimli, yenilikçi ve estetik soğutma çözümleri üretiyoruz. Sosyal Medya kanallarımızdan bizleri takip edebilir aynı zamanda iletişime geçebilirsiniz.',
+            description:  t('hero.socialMediaInfo'),
             image: '/images/home/parsLogo.webp',
             isSocial: true
         },
@@ -42,7 +41,7 @@ export default function HeroSection() {
 
     useEffect(() => {
         if (typeof window === 'undefined') return;
-        if (!lcpLoaded) return; // ✅ LCP bitmeden diğerlerine saldırma
+        if (!lcpLoaded) return;
 
         const preload = (url: string) => {
             const img = new Image();
@@ -72,14 +71,11 @@ export default function HeroSection() {
         }
     }, [currentSlide, lcpLoaded, slides]);
 
-    // ✅ LCP görselini HTML'de erken keşfedilir yap: <link rel="preload" as="image" ... />
     useEffect(() => {
         if (typeof document === 'undefined') return;
 
-        // İlk açılışta LCP olma olasılığı en yüksek görsel: ilk slaytın görseli
         const lcpUrl = '/images/home/parsLogo.webp';
 
-        // Aynı preload'u iki kere basmayalım
         const existing = document.querySelector(`link[data-lcp-preload="hero"][href="${lcpUrl}"]`);
         if (existing) return;
 
@@ -87,11 +83,6 @@ export default function HeroSection() {
         link.setAttribute('rel', 'preload');
         link.setAttribute('as', 'image');
         link.setAttribute('href', lcpUrl);
-
-        // Eğer server doğru content-type veriyorsa type vermek şart değil.
-        // Ama uzantın .web (standart değil) olduğu için type vermek bazen faydalı olabilir:
-        // link.setAttribute('type', 'image/webp');
-
         link.setAttribute('fetchpriority', 'high');
         link.setAttribute('data-lcp-preload', 'hero');
 
@@ -118,7 +109,6 @@ export default function HeroSection() {
 
         update();
 
-        // Safari eski sürümlerde addEventListener olmayabilir
         const add = (mq: MediaQueryList) => {
             // @ts-ignore
             if (mq.addEventListener) mq.addEventListener('change', update);
@@ -157,8 +147,8 @@ export default function HeroSection() {
     const swipeResetTimerRef = useRef<number | null>(null);
 
 
-    const isSocialText = !!slides[textSlide]?.isSocial;     // mobil tasarım kararları (ilk slayt için)
-    const isSocialImage = !!slides[currentSlide]?.isSocial; // görsel tarafı (o an gösterilen resim)
+    const isSocialText = !!slides[textSlide]?.isSocial;
+    const isSocialImage = !!slides[currentSlide]?.isSocial;
 
     const markSwipeJustHappened = () => {
         swipeJustHappenedRef.current = true;
@@ -205,7 +195,7 @@ export default function HeroSection() {
     };
 
     const onPointerDown = (e: React.PointerEvent<HTMLElement>) => {
-        if (!swipeEnabled) return;     // ✅ sadece mobil
+        if (!swipeEnabled) return;
         if (isAnimating) return;
         if (e.isPrimary === false) return;
 
@@ -218,7 +208,7 @@ export default function HeroSection() {
     };
 
     const onPointerMove = (e: React.PointerEvent<HTMLElement>) => {
-        if (!swipeEnabled) return;     // ✅ sadece mobil
+        if (!swipeEnabled) return;
         if (isAnimating) return;
         if (!swipeRef.current.active) return;
         if (swipeRef.current.pointerId !== e.pointerId) return;
@@ -261,7 +251,7 @@ export default function HeroSection() {
     };
 
     const onPointerUp = (e: React.PointerEvent<HTMLElement>) => {
-        if (!swipeEnabled) return;     // ✅ sadece mobil
+        if (!swipeEnabled) return;
         if (swipeRef.current.pointerId === e.pointerId) {
             try {
                 e.currentTarget.releasePointerCapture(e.pointerId);
@@ -273,7 +263,7 @@ export default function HeroSection() {
     };
 
     const onPointerCancel = (e: React.PointerEvent<HTMLElement>) => {
-        if (!swipeEnabled) return;     // ✅ sadece mobil
+        if (!swipeEnabled) return;
         if (swipeRef.current.pointerId === e.pointerId) {
             try {
                 e.currentTarget.releasePointerCapture(e.pointerId);
@@ -284,9 +274,8 @@ export default function HeroSection() {
         }
     };
 
-    // Mobil swipe sonrası “yanlış click”leri engelle
     const onClickCapture = (e: React.MouseEvent<HTMLElement>) => {
-        if (!swipeEnabled) return;     // ✅ sadece mobil
+        if (!swipeEnabled) return;
         if (!swipeJustHappenedRef.current) return;
         e.preventDefault();
         e.stopPropagation();
@@ -302,7 +291,6 @@ export default function HeroSection() {
             onPointerCancel={onPointerCancel}
             onClickCapture={onClickCapture}
         >
-            {/* Wipe Animation Overlay */}
             <motion.div
                 initial={false}
                 animate={{
@@ -315,14 +303,12 @@ export default function HeroSection() {
                 className="absolute inset-0 z-20 bg-black/40 pointer-events-none"
             />
 
-            {/* Modern Geometric Background */}
             <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute top-0 right-0 w-[80%] h-full bg-white dark:bg-[#1f2937] transform -skew-x-[20deg] translate-x-[20%] shadow-[-20px_0_40px_rgba(0,0,0,0.02)]"></div>
                 <div className="absolute top-0 right-0 w-[60%] h-full bg-[#f1f3f5] dark:bg-[#374151] transform -skew-x-[20deg] translate-x-[40%] opacity-50"></div>
                 <div className="absolute inset-0 bg-gradient-to-r from-[#f8f9fa] via-transparent to-transparent dark:from-[#111827] opacity-80"></div>
             </div>
 
-            {/* Navigation Arrows */}
             <button
                 onClick={(e) => {
                     e.stopPropagation();
@@ -347,7 +333,6 @@ export default function HeroSection() {
                 <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
             </button>
 
-            {/* Content Container */}
             <div className="container mx-auto justify-center items-center px-8 sm:px-12 md:px-24 relative z-30 py-6 md:py-12 h-full">
                 <div
                     className={`grid justify-center items-center w-full transition-all duration-500
@@ -357,7 +342,6 @@ export default function HeroSection() {
                     }
                     `}
                 >
-                    {/* Text Content */}
                     <motion.div
                         key={textSlide}
                         variants={{
@@ -426,10 +410,9 @@ export default function HeroSection() {
                                 className="flex flex-col items-center mt-4 w-full"
                             >
                                 <span className="text-[10px] sm:text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">
-                                    İletişim & Sosyal Medya
+                                       {t('hero.socialMedia')}
                                 </span>
                                 <div className="flex flex-wrap gap-3 sm:gap-4 justify-center">
-                                    {/* WhatsApp */}
                                     <a
                                         href="https://wa.me/905431707277"
                                         target="_blank"
@@ -475,7 +458,6 @@ export default function HeroSection() {
                                         </svg>
                                     </a>
 
-                                    {/* YouTube */}
                                     <a
                                         href="https://www.youtube.com/@parssogutma/videos?app=desktop"
                                         target="_blank"
@@ -487,7 +469,6 @@ export default function HeroSection() {
                                         <Youtube size={18} />
                                     </a>
 
-                                    {/* Pinterest */}
                                     <a
                                         href="https://tr.pinterest.com/parsogutma/"
                                         target="_blank"
@@ -501,7 +482,6 @@ export default function HeroSection() {
                                         </svg>
                                     </a>
 
-                                    {/* LinkedIn */}
                                     <a
                                         href="https://linkedin.com/in/parsogutma?originalSubdomain=tr"
                                         target="_blank"
@@ -515,7 +495,6 @@ export default function HeroSection() {
                                         </svg>
                                     </a>
 
-                                    {/* Facebook */}
                                     <a
                                         href="https://www.facebook.com/parsogutma/"
                                         target="_blank"
@@ -548,7 +527,6 @@ export default function HeroSection() {
                         )}
                     </motion.div>
 
-                    {/* Image Content */}
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={currentSlide}
@@ -583,7 +561,6 @@ export default function HeroSection() {
                                             : ''
                                     }`}
                                     draggable={false}
-                                    // ✅ LCP için: eager + high priority
                                     loading={isLcpImage ? 'eager' : 'lazy'}
                                     decoding="async"
                                     fetchPriority={isLcpImage ? 'high' : 'auto'}

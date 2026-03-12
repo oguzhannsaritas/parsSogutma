@@ -4,7 +4,6 @@ import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 
-// Mock data for gallery images
 const galleryImages = [
     "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&q=80&w=1200",
     "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200",
@@ -87,12 +86,10 @@ export default function PhotoGallery() {
         }
     };
 
-    // ✅ LCP adayı: ilk grid görseli
     const LCP_INDEX = 0;
 
     return (
         <div className="bg-white dark:bg-[#111827] h-auto md:min-h-screen pt-24 pb-2 md:pb-16 transition-colors duration-300">
-            {/* Header Banner */}
             <div className="bg-[#111827] dark:bg-white text-white dark:text-black py-4 md:py-16 mb-12 transition-colors duration-300">
                 <div className="container mx-auto px-4 md:px-12 text-center">
                     <h1 className="text-lg md:text-4xl font-bold mb-4">{t('menu.gallery')}</h1>
@@ -126,10 +123,8 @@ export default function PhotoGallery() {
                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                                     width={600}
                                     height={600}
-                                    // ✅ Lazy uygula: sadece LCP eager
                                     loading={isLcp ? "eager" : "lazy"}
                                     decoding="async"
-                                    // ✅ fetchpriority uygula: sadece LCP high, diğerleri low
                                     fetchPriority={isLcp ? "high" : "low"}
                                     referrerPolicy="no-referrer"
                                     draggable={false}
@@ -143,7 +138,6 @@ export default function PhotoGallery() {
                 </div>
             </div>
 
-            {/* Lightbox */}
             <AnimatePresence>
                 {selectedImageIndex !== null && (
                     <motion.div

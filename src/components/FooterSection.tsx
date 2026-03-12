@@ -10,28 +10,17 @@ import {
     LucideMessageCircleMore
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-
 type OpenId = 'kurumsal' | 'urunler' | 'iletisim' | null;
 
 export default function FooterSection() {
     const { t } = useLanguage();
     const [open, setOpen] = React.useState<OpenId>(null);
-
-    // ✅ YouTube: cookie + unused JS sorunu için "tıklayınca yükle" (2-click)
     const YT_VIDEO_ID = 'oZmSKiyZ7zM';
-
-    // Privacy mode (daha iyi): youtube-nocookie
     const YT_EMBED_URL = `https://www.youtube-nocookie.com/embed/${YT_VIDEO_ID}?rel=0&modestbranding=1`;
-
-    // Placeholder görsel: istersen local bir resim koy (öneri)
-    // Örn: public/images/home/youtube-cover.webp
-    // Yoksa YouTube thumbnail ile fallback yapıyoruz.
     const YT_PLACEHOLDER_IMG =
         '/images/home/youtube-cover.webp';
-
     const YT_THUMB_FALLBACK =
         `https://i.ytimg.com/vi/${YT_VIDEO_ID}/hqdefault.jpg`;
-
     const [ytEnabled, setYtEnabled] = useState(false);
     const [ytImgError, setYtImgError] = useState(false);
 
@@ -61,7 +50,6 @@ export default function FooterSection() {
 
     return (
         <section className="w-full bg-white dark:bg-[#111827] transition-colors duration-300">
-            {/* Visit Us Section */}
             <div className="container mx-auto px-4 md:px-12 py-4 md:py-16">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
@@ -73,7 +61,6 @@ export default function FooterSection() {
                         </p>
                     </div>
 
-                    {/* ✅ YouTube: Tıklayınca iframe yükle (ilk yükte cookie yok, 700KB JS yok) */}
                     <div className="relative w-full aspect-video overflow-hidden rounded-lg shadow-xl bg-black">
                         {ytEnabled ? (
                             <iframe
@@ -113,9 +100,7 @@ export default function FooterSection() {
                 </div>
             </div>
 
-            {/* Main Footer */}
             <footer className="bg-[#111827] text-white pt-10 md:pt-24 pb-4 md:pb-8 relative mt-20">
-                {/* Wavy Background Top */}
                 <div className="absolute top-2 left-0 w-full overflow-hidden leading-none transform -translate-y-full">
                     <svg viewBox="0 0 1440 320" className="w-full h-[100px] md:h-[200px] block" preserveAspectRatio="none">
                         <path fill="#334155" fillOpacity="1" d="M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,197.3C672,224,768,224,864,208C960,192,1056,160,1152,144C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
@@ -126,7 +111,6 @@ export default function FooterSection() {
 
                 <div className="container mx-auto px-4 md:px-12 relative z-10">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-12 mb-16">
-                        {/* Column 1: Info */}
                         <div className="space-y-6">
                             <div className="flex items-center gap-1">
                                 <img
@@ -144,9 +128,7 @@ export default function FooterSection() {
                             </p>
                         </div>
 
-                        {/* Column 2: Kurumsal */}
                         <div>
-                            {/* Desktop */}
                             <div className="hidden md:block">
                                 <h3 className="font-bold text-white text-lg mb-6 border-b border-gray-600 pb-2 inline-block">
                                     {t('pars.footer.corporate')}
@@ -159,7 +141,6 @@ export default function FooterSection() {
                                 </ul>
                             </div>
 
-                            {/* Mobile */}
                             <div className="md:hidden">
                                 <ToggleHeader id="kurumsal" title={t('pars.footer.corporate')} />
 
@@ -183,9 +164,7 @@ export default function FooterSection() {
                             </div>
                         </div>
 
-                        {/* Column 3: Ürünlerimiz */}
                         <div>
-                            {/* Desktop */}
                             <div className="hidden md:block">
                                 <h3 className="font-bold text-white text-lg mb-6 border-b border-gray-600 pb-2 inline-block">
                                     {t('pars.footer.products')}
@@ -200,7 +179,6 @@ export default function FooterSection() {
                                 </ul>
                             </div>
 
-                            {/* Mobile */}
                             <div className="md:hidden">
                                 <ToggleHeader id="urunler" title={t('pars.footer.products')} />
 
@@ -228,9 +206,7 @@ export default function FooterSection() {
                             </div>
                         </div>
 
-                        {/* Column 4: İletişim Bilgilerimiz */}
                         <div>
-                            {/* Desktop */}
                             <div className="hidden md:block">
                                 <h3 className="font-bold text-white text-lg mb-6 border-gray-600 pb-2 inline-block">
                                     {t('pars.footer.contact')}
@@ -267,7 +243,6 @@ export default function FooterSection() {
                                 </ul>
                             </div>
 
-                            {/* Mobile */}
                             <div className="md:hidden">
                                 <ToggleHeader id="iletisim" title={t('pars.footer.telephone')} />
 
@@ -326,7 +301,6 @@ export default function FooterSection() {
                     </div>
                 </div>
 
-                {/* Scroll to Top Button */}
                 <button
                     onClick={scrollToTop}
                     className="absolute bottom-8 right-8 w-10 h-10 bg-white text-[#0f172a] rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors shadow-lg z-20"

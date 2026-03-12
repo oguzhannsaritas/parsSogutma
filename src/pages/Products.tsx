@@ -30,48 +30,38 @@ function ProductCard({
     const [touchStartX, setTouchStartX] = useState<number | null>(null);
     const [touchEndX, setTouchEndX] = useState<number | null>(null);
     const images = [product.image, ...(product.thumbnails || [])];
-
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         if (images.length <= 1) return;
-
         const { left, width } = e.currentTarget.getBoundingClientRect();
         const x = e.clientX - left;
         const sectionWidth = width / images.length;
         const newIndex = Math.min(Math.floor(x / sectionWidth), images.length - 1);
-
         setCurrentImage(Math.max(0, newIndex));
     };
-
     const handleTouchStart = (e: React.TouchEvent) => {
         if (images.length <= 1) return;
         setTouchStartX(e.targetTouches[0].clientX);
         setTouchEndX(null);
     };
-
     const handleTouchMove = (e: React.TouchEvent) => {
         if (images.length <= 1) return;
         setTouchEndX(e.targetTouches[0].clientX);
     };
-
     const handleTouchEnd = () => {
         if (!touchStartX || !touchEndX) return;
-
         const distance = touchStartX - touchEndX;
         const isLeftSwipe = distance > 30;
         const isRightSwipe = distance < -30;
-
         if (isLeftSwipe) {
             setCurrentImage((prev) => (prev + 1) % images.length);
         } else if (isRightSwipe) {
             setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
         }
-
         setTimeout(() => {
             setTouchStartX(null);
             setTouchEndX(null);
         }, 50);
     };
-
     const handleClick = (e: React.MouseEvent) => {
         if (touchStartX && touchEndX) {
             const distance = Math.abs(touchStartX - touchEndX);
@@ -142,7 +132,6 @@ export default function Products() {
     const { t, language } = useLanguage();
     const [searchParams] = useSearchParams();
     const dragControls = useDragControls();
-
     const searchQuery = (searchParams.get('search') || '').trim();
     const urlFilter = (searchParams.get('filter') || '').trim();
     const urlCat = (searchParams.get('cat') || '').trim();
@@ -276,15 +265,12 @@ export default function Products() {
     };
 
     const getTrValue = (key: string) => FILTER_TR_VALUE[key] ?? key;
-
     const appliedUrlPresetKeyRef = useRef<string | null>(null);
     const [draftFilters, setDraftFilters] = useState<string[]>([]);
     const [appliedFilters, setAppliedFilters] = useState<string[]>([]);
-
     const [viewMode, setViewMode] = useState<'grid3' | 'grid4' | 'list'>('grid3');
     const [expandedCategories, setExpandedCategories] = useState<string[]>(['service']);
     const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
-
     const [itemsPerPage, setItemsPerPage] = useState<number>(10);
     const [currentPage, setCurrentPage] = useState<number>(1);
 
@@ -531,18 +517,13 @@ export default function Products() {
 
     const matchedUrlFilterKey = useMemo(() => {
         if (!urlFilter) return null;
-
         const q = normalize(urlFilter);
-
         const exactKey = allFilterKeys.find((k) => normalize(getTrValue(k)) === q);
         if (exactKey) return exactKey;
-
         const partial = allFilterKeys.filter((k) => normalize(getTrValue(k)).includes(q));
         if (partial.length === 1) return partial[0];
-
         const startsWith = allFilterKeys.filter((k) => normalize(getTrValue(k)).startsWith(q));
         if (startsWith.length === 1) return startsWith[0];
-
         return null;
     }, [urlFilter, allFilterKeys]);
 
@@ -684,12 +665,10 @@ export default function Products() {
     }, [draftFilters, searchQuery, urlFilter, urlCat, language]);
 
     const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
-
     const paginatedProducts = useMemo(() => {
         const startIndex = (currentPage - 1) * itemsPerPage;
         return filteredProducts.slice(startIndex, startIndex + itemsPerPage);
     }, [filteredProducts, currentPage, itemsPerPage]);
-
     const handlePageChange = (page: number) => {
         if (page >= 1 && page <= totalPages) {
             setCurrentPage(page);

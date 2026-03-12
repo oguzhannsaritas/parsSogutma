@@ -4,7 +4,6 @@ import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
 
-// Mock Data for Client Logos (using images instead of text)
 const clients = [
     { name: "BİM", image: "/images/refences/bim.webp" },
     { name: "A-101", image: "/images/refences/a101.jpg" },
@@ -15,7 +14,6 @@ const clients = [
     { name: "CarrefourSA", image: "/images/refences/sok.webp" },
 ];
 
-// Mock Data for Projects
 export const projects = [
     {
         id: 'byKasap',
@@ -145,28 +143,15 @@ export const projects = [
 export default function References() {
     const { t } = useLanguage();
     const navigate = useNavigate();
-
-    // Pagination State
     const [currentPage, setCurrentPage] = useState(1);
-    const [direction, setDirection] = useState(1); // 1 ileri, -1 geri
+    const [direction, setDirection] = useState(1);
     const itemsPerPage = 6;
-
     const projectsRef = useRef<HTMLDivElement | null>(null);
-
-    // ✅ İlk render’da animasyon LCP’yi geciktirmesin
     const firstRenderRef = useRef(true);
-    useEffect(() => {
-        firstRenderRef.current = false;
-    }, []);
-
-    // Calculate total pages
     const totalPages = Math.ceil(projects.length / itemsPerPage);
-
-    // Get current projects
     const indexOfLastProject = currentPage * itemsPerPage;
     const indexOfFirstProject = indexOfLastProject - itemsPerPage;
     const currentProjects = projects.slice(indexOfFirstProject, indexOfLastProject);
-
     const handlePageChange = (pageNumber: number) => {
         setDirection(pageNumber > currentPage ? 1 : -1);
         setCurrentPage(pageNumber);
@@ -175,10 +160,10 @@ export default function References() {
             projectsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     };
-
-    // ✅ LCP adayı görseller: ilk sayfanın ilk satırı (grid-cols-3 -> 3 kart)
-    // Lighthouse bazen 1. kart yerine 2./3. kartı LCP seçebiliyor; bu yüzden ilk 3'ü "eager/high" yapıyoruz.
     const LCP_CANDIDATES = 3;
+    useEffect(() => {
+        firstRenderRef.current = false;
+    }, []);
 
     return (
         <div className="bg-white dark:bg-[#111827] h-auto md:min-h-screen pt-24 pb-12 md:pb-24 transition-colors duration-300">
@@ -195,10 +180,7 @@ export default function References() {
             </div>
 
             <div className="container mx-auto px-4 md:px-12">
-                {/* ✅ Heading order fix: h2 ekledik */}
-                <h2 className="sr-only">Müşteri Logoları</h2>
 
-                {/* Client Logos Grid */}
                 <div className="grid grid-cols-5 md:grid-cols-2 lg:grid-cols-7 gap-2 md:gap-5 mb-12 md:mb-24">
                     {clients.map((client, index) => (
                         <div
@@ -219,13 +201,7 @@ export default function References() {
                         </div>
                     ))}
                 </div>
-
                 <div ref={projectsRef} className="scroll-mt-28" />
-
-                {/* ✅ Heading order fix: h2 */}
-                <h2 className="sr-only">Projeler</h2>
-
-                {/* Projects Grid with Animation */}
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={currentPage}
@@ -277,7 +253,6 @@ export default function References() {
                     </motion.div>
                 </AnimatePresence>
 
-                {/* Animated Pagination Controls */}
                 {totalPages > 1 && (
                     <div className="flex justify-center items-center gap-2 mt-16">
                         <button

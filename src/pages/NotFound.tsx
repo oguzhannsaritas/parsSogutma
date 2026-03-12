@@ -8,10 +8,8 @@ export default function NotFound() {
     const { t } = useLanguage();
 
     useEffect(() => {
-        // Update document title for SEO
         document.title = t('notfound.meta.title');
 
-        // Update meta description
         let metaDescription = document.querySelector('meta[name="description"]');
         if (!metaDescription) {
             metaDescription = document.createElement('meta');
@@ -20,7 +18,6 @@ export default function NotFound() {
         }
         metaDescription.setAttribute('content', t('notfound.meta.desc'));
 
-        // Add noindex meta tag to prevent search engines from indexing the 404 page
         let metaRobots = document.querySelector('meta[name="robots"]');
         if (!metaRobots) {
             metaRobots = document.createElement('meta');
@@ -29,7 +26,6 @@ export default function NotFound() {
         }
         metaRobots.setAttribute('content', 'noindex, follow');
 
-        // Cleanup function to restore default meta tags when leaving the page
         return () => {
             document.title = "Pars Soğutma Sistemleri";
             metaDescription?.setAttribute('content', 'Pars Soğutma Sistemleri - Endüstriyel Soğutma Çözümleri');
@@ -40,7 +36,6 @@ export default function NotFound() {
     return (
         <main className="min-h-[calc(100vh-80px)] bg-[#f8f9fa] dark:bg-[#111827] flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 mb-20  transition-colors duration-300">
             <div className="max-w-3xl w-full text-center space-y-6 sm:space-y-8">
-                {/* 404 Graphic */}
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -59,7 +54,6 @@ export default function NotFound() {
                     </div>
                 </motion.div>
 
-                {/* Message */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -71,7 +65,6 @@ export default function NotFound() {
                     </p>
                 </motion.div>
 
-                {/* Action Buttons */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}

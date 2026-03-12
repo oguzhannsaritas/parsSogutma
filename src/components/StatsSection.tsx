@@ -34,9 +34,7 @@ export default function StatsSection() {
 
     return (
         <section className="relative w-full bg-[#111827] dark:bg-white text-white dark:text-black py-2 overflow-hidden transition-colors duration-300">
-            {/* Background Elements */}
             <div className="absolute inset-0 pointer-events-none">
-                {/* Dotted Pattern Top Left */}
                 <div className="absolute -top-10 -left-10 md:w-96 md:h-96 opacity-[0.03] dark:opacity-[0.05]">
                     <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <pattern id="dot-pattern" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse">
@@ -46,14 +44,12 @@ export default function StatsSection() {
                     </svg>
                 </div>
 
-                {/* Dotted Pattern Bottom Right */}
                 <div className="absolute -bottom-20 -right-20 w-[500px] h-[500px] opacity-[0.03] dark:opacity-[0.05]">
                     <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="100" height="100" fill="url(#dot-pattern)" />
                     </svg>
                 </div>
 
-                {/* Wavy Lines */}
                 <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 opacity-20 dark:opacity-30">
                     <svg viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto min-h-[300px] object-cover">
                         <path d="M0,160L60,149.3C120,139,240,117,360,128C480,139,600,181,720,186.7C840,192,960,160,1080,144C1200,128,1320,128,1380,128L1440,128" strokeWidth="1.5" strokeDasharray="4 4" className="stroke-white dark:stroke-black opacity-30" />
@@ -88,7 +84,6 @@ export default function StatsSection() {
                                 <div className="md:w-16 md:h-16  w-10 h-10 bg-white  dark:bg-[#111827] rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300 relative z-10">
                                     {stat.icon}
                                 </div>
-                                {/* Subtle glow behind the circle */}
                                 <div className="absolute inset-0 bg-white/20  dark:bg-[#6b7280]  rounded-full blur-xl transform scale-90 group-hover:scale-110 transition-transform duration-300"></div>
                             </div>
 
