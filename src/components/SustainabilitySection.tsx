@@ -39,26 +39,26 @@ export default function SustainabilitySection() {
             <div className="container mx-auto px-4 md:px-12">
                 <div className="grid grid-cols-1 items-center justify-center text-center lg:grid-cols-2 gap-12 mb-5 md:mb-16">
                     <div className="space-y-0">
-                        <h2 className="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-2">
+                        <h2 className="text-xl md:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-2">
                             {t('sust.title')}
                         </h2>
 
-                        <p className="text-gray-700 dark:text-gray-300 text-sm md:text-lg leading-relaxed">
+                        <p className="text-gray-700 dark:text-gray-300 text-xs md:text-lg leading-relaxed">
                             {t('sust.desc')}
                         </p>
 
-                        <div className="grid grid-cols-3 relative left-[8%] items-center justify-center text-center lg:grid-cols-3 gap-3 md:gap-6 mt-3 md:mb-0 -mb-7 md:mt-8">
+                        <div className="grid grid-cols-3 mx-auto w-full justify-items-center items-center text-center gap-3 md:gap-6 mt-3 md:mb-0 -mb-7 md:mt-8">
                             {features.map((feature, index) => (
                                 <div
                                     key={index}
-                                    className="flex flex-col items-center h-16 lg:h-32 justify-center border-1 border-gray-400 dark:border-neutral-600 rounded-xl dark:hover:border-white transition-colors aspect-square group"
+                                    className="flex flex-col items-center w-full max-w-[70px] sm:max-w-[90px] lg:max-w-[128px] aspect-square justify-center border border-gray-400 dark:border-neutral-600 rounded-xl dark:hover:border-white transition-colors group p-1"
                                 >
                                     <div className="text-gray-600 dark:text-gray-400 dark:group-hover:text-white transition-colors">
                                         {feature.icon}
                                     </div>
-                                    <span className="dark:text-white font-thin mt-2 md:text-sm text-[9px]">
-                    {feature.label}
-                  </span>
+                                    <span className="dark:text-white font-thin mt-1 md:mt-2 md:text-sm text-[9px] leading-tight">
+                                        {feature.label}
+                                    </span>
                                 </div>
                             ))}
                         </div>

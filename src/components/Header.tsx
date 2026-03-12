@@ -130,11 +130,11 @@ export default function Header() {
 
     const searchPanelInputClasses = isHome
         ? "bg-transparent border-none ml-2 focus:outline-none text-white text-sm w-full min-w-0 placeholder-white/50"
-        : "bg-transparent border-none focus:outline-none ml-2 text-gray-900 dark:text-white text-sm w-full min-w-0 placeholder-gray-500 dark:placeholder-gray-400";
+        : "bg-transparent border-none focus:outline-none ml-2 text-white text-sm w-full min-w-0 placeholder-gray-500 dark:placeholder-gray-400";
 
     const searchPanelWrapperClasses = isHome
-        ? "bg-white/10 backdrop-blur-md"
-        : "bg-gray-100 dark:bg-neutral-800";
+        ? "bg-gray-400 dark:bg-white/10 backdrop-blur-lg"
+        : "bg-gray-900 dark:bg-neutral-800";
 
     return (
         <>
@@ -425,7 +425,7 @@ export default function Header() {
                                             onClick={() => setIsSearchOpen(false)}
                                             className={`ml-2 shrink-0 rounded-full p-1 transition-colors ${
                                                 isHome
-                                                    ? "text-white hover:text-gray-300 hover:bg-white/10"
+                                                    ? " text-white hover:text-gray-300 hover:bg-white/10"
                                                     : "text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-200/70 dark:hover:bg-neutral-700"
                                             }`}
                                             aria-label="Close search"
