@@ -79,7 +79,7 @@ function ProductCard({
             onMouseLeave={() => setCurrentImage(0)}
         >
             <div
-                className="aspect-square overflow-hidden mb-2 sm:mb-3 lg:mb-4 relative bg-white dark:bg-[#1a2232] rounded-lg touch-pan-y"
+                className="aspect-square overflow-hidden mb-2 sm:mb-3 lg:mb-4 relative bg-white rounded-lg touch-pan-y"
                 onMouseMove={handleMouseMove}
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
@@ -685,76 +685,180 @@ export default function Products() {
             </div>
 
             <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 lg:mb-8 pb-4 border-b border-gray-200 dark:border-neutral-700 gap-4">
-                    <div className="text-xs md:text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
+                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6 lg:mb-8 pb-4 border-b border-gray-200 dark:border-neutral-700 gap-4">                    <div className="text-xs md:text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
                         <Link to="/" >{t('products.breadcrumb.home')}</Link>
                         <ChevronRight size={14} />
                         <span className="font-bold text-black dark:text-white">{t('products.title')}</span>
                     </div>
 
-                    <div className="flex items-center gap-3 sm:gap-4 lg:gap-6 flex-wrap justify-between w-full md:w-auto">
-                        <button
-                            className="flex items-center gap-2 text-black dark:text-white font-bold text-sm cursor-pointer lg:hidden bg-gray-100 dark:bg-neutral-800 px-4 py-2 rounded-full transition-colors hover:bg-gray-200 dark:hover:bg-neutral-700"
-                            onClick={() => setIsMobileFilterOpen(true)}
-                            aria-label="Filter"
-                            type="button"
-                        >
-                            <SlidersHorizontal size={16} />
-                            <span className="text-xs">
-                                {t('products.filter')} {appliedFilters.length > 0 && `(${appliedFilters.length})`}
-                            </span>
-                        </button>
-
-                        <label
-                            htmlFor="products-items-per-page"
-                            className="hidden md:flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"
-                        >
-                            <span>{t('products.show')}:</span>
-
-                            <select
-                                id="products-items-per-page"
-                                value={itemsPerPage}
-                                onChange={(e) => {
-                                    setItemsPerPage(Number(e.target.value));
-                                    setCurrentPage(1);
-                                }}
-                                className="bg-gray-50 dark:bg-[#1f2937] border border-gray-200 dark:border-neutral-700 rounded px-2 py-1 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#009FE3]"
+                    <div className="w-full lg:w-auto">
+                        <div className="flex md:hidden items-center gap-3 sm:gap-4 justify-between w-full">
+                            <button
+                                className="flex items-center gap-2 text-black dark:text-white font-bold text-sm cursor-pointer bg-gray-100 dark:bg-[#1f2937] px-4 py-2 rounded-full transition-colors hover:bg-gray-200 dark:hover:bg-neutral-700"
+                                onClick={() => setIsMobileFilterOpen(true)}
+                                aria-label="Filter"
+                                type="button"
                             >
-                                <option value={10}>10</option>
-                                <option value={15}>15</option>
-                                <option value={20}>20</option>
-                                <option value={25}>25</option>
-                            </select>
-                        </label>
+                                <SlidersHorizontal size={16} />
+                                <span className="text-xs">
+                {t('products.filter')} {appliedFilters.length > 0 && `(${appliedFilters.length})`}
+            </span>
+                            </button>
 
-                        <div className="hidden md:block text-sm text-gray-600 dark:text-gray-300">
-                            {t('products.view')} :{' '}
-                            <span className="font-bold text-black dark:text-white">{filteredProducts.length}</span> /{' '}
-                            {products.length}
+                            <div className="flex items-center gap-2 text-gray-400">
+                                <LayoutGrid
+                                    size={20}
+                                    className={`cursor-pointer hover:text-black dark:hover:text-white ${
+                                        viewMode === 'grid3' ? 'text-black dark:text-white' : ''
+                                    }`}
+                                    onClick={() => setViewMode('grid3')}
+                                />
+                                <Grid
+                                    size={20}
+                                    className={`cursor-pointer hover:text-black dark:hover:text-white hidden sm:block ${
+                                        viewMode === 'grid4' ? 'text-black dark:text-white' : ''
+                                    }`}
+                                    onClick={() => setViewMode('grid4')}
+                                />
+                                <List
+                                    size={20}
+                                    className={`cursor-pointer hover:text-black dark:hover:text-white ${
+                                        viewMode === 'list' ? 'text-black dark:text-white' : ''
+                                    }`}
+                                    onClick={() => setViewMode('list')}
+                                />
+                            </div>
                         </div>
 
-                        <div className="flex items-center gap-2 text-gray-400">
-                            <LayoutGrid
-                                size={20}
-                                className={`cursor-pointer hover:text-black dark:hover:text-white ${
-                                    viewMode === 'grid3' ? 'text-black dark:text-white' : ''
-                                }`}
-                                onClick={() => setViewMode('grid3')}
-                            />
-                            <Grid
-                                size={20}
-                                className={`cursor-pointer hover:text-black dark:hover:text-white hidden sm:block ${
-                                    viewMode === 'grid4' ? 'text-black dark:text-white' : ''
-                                }`}
-                                onClick={() => setViewMode('grid4')}
-                            />
-                            <List
-                                size={20}
-                                className={`cursor-pointer hover:text-black dark:hover:text-white ${
-                                    viewMode === 'list' ? 'text-black dark:text-white' : ''
-                                }`}
-                                onClick={() => setViewMode('list')}
-                            />
+                        <div className="hidden md:flex lg:hidden w-full items-center justify-between gap-4">
+                            <div className="flex items-center gap-3">
+                                <button
+                                    className="flex items-center gap-2 text-black dark:text-white font-bold text-sm cursor-pointer bg-gray-100 dark:bg-[#1f2937] px-4 py-2.5 rounded-full transition-colors hover:bg-gray-200 dark:hover:bg-neutral-700 whitespace-nowrap"
+                                    onClick={() => setIsMobileFilterOpen(true)}
+                                    aria-label="Filter"
+                                    type="button"
+                                >
+                                    <SlidersHorizontal size={16} />
+                                    <span className="text-sm">
+                    {t('products.filter')} {appliedFilters.length > 0 && `(${appliedFilters.length})`}
+                </span>
+                                </button>
+
+                            </div>
+
+                            <div className="flex items-center gap-1.5 p-1.5 rounded-full bg-gray-100 dark:bg-[#1f2937] border border-gray-200 dark:border-neutral-700">
+                                <button
+                                    type="button"
+                                    aria-label="3 column view"
+                                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
+                                        viewMode === 'grid3'
+                                            ? 'bg-[#111827] dark:bg-white text-white dark:text-black shadow-sm'
+                                            : 'text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white'
+                                    }`}
+                                    onClick={() => setViewMode('grid3')}
+                                >
+                                    <LayoutGrid size={18} />
+                                </button>
+
+                                <button
+                                    type="button"
+                                    aria-label="4 column view"
+                                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
+                                        viewMode === 'grid4'
+                                            ? 'bg-[#111827] dark:bg-white text-white dark:text-black shadow-sm'
+                                            : 'text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white'
+                                    }`}
+                                    onClick={() => setViewMode('grid4')}
+                                >
+                                    <Grid size={18} />
+                                </button>
+
+                                <button
+                                    type="button"
+                                    aria-label="List view"
+                                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
+                                        viewMode === 'list'
+                                            ? 'bg-[#111827] dark:bg-white text-white dark:text-black shadow-sm'
+                                            : 'text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white'
+                                    }`}
+                                    onClick={() => setViewMode('list')}
+                                >
+                                    <List size={18} />
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Desktop - dokunma */}
+                        <div className="hidden lg:flex items-center gap-3 sm:gap-4 lg:gap-6 flex-wrap justify-between w-full lg:w-auto">
+                            <label
+                                htmlFor="products-items-per-page"
+                                className="hidden lg:flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"
+                            >
+                                <span>{t('products.show')}:</span>
+
+                                <select
+                                    id="products-items-per-page"
+                                    value={itemsPerPage}
+                                    onChange={(e) => {
+                                        setItemsPerPage(Number(e.target.value));
+                                        setCurrentPage(1);
+                                    }}
+                                    className="bg-gray-50 dark:bg-[#1f2937] border border-gray-200 dark:border-neutral-700 rounded px-2 py-1 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#009FE3]"
+                                >
+                                    <option value={10}>10</option>
+                                    <option value={15}>15</option>
+                                    <option value={20}>20</option>
+                                    <option value={25}>25</option>
+                                </select>
+                            </label>
+
+                            <div className="hidden lg:block text-sm text-gray-600 dark:text-gray-300">
+                                {t('products.view')} :{' '}
+                                <span className="font-bold text-black dark:text-white">{filteredProducts.length}</span> /{' '}
+                                {products.length}
+                            </div>
+
+                            <div className="flex items-center gap-1.5 p-1.5 rounded-full bg-gray-100 dark:bg-[#1f2937] border border-gray-200 dark:border-neutral-700">
+
+                            <button
+                                    type="button"
+                                    aria-label="3 column view"
+                                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
+                                        viewMode === 'grid3'
+                                            ? 'bg-[#111827] dark:bg-white text-white dark:text-black shadow-sm'
+                                            : 'text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white'
+                                    }`}
+                                    onClick={() => setViewMode('grid3')}
+                                >
+                                    <LayoutGrid size={18} />
+                                </button>
+
+                                <button
+                                    type="button"
+                                    aria-label="4 column view"
+                                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
+                                        viewMode === 'grid4'
+                                            ? 'bg-[#111827] dark:bg-white text-white dark:text-black shadow-sm'
+                                            : 'text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white'
+                                    }`}
+                                    onClick={() => setViewMode('grid4')}
+                                >
+                                    <Grid size={18} />
+                                </button>
+
+                                <button
+                                    type="button"
+                                    aria-label="List view"
+                                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
+                                        viewMode === 'list'
+                                            ? 'bg-[#111827] dark:bg-white text-white dark:text-black shadow-sm'
+                                            : 'text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white'
+                                    }`}
+                                    onClick={() => setViewMode('list')}
+                                >
+                                    <List size={18} />
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -786,7 +890,7 @@ export default function Products() {
                                 setIsMobileFilterOpen(false);
                             }
                         }}
-                        className={`fixed inset-x-0 bottom-0 z-[70] h-[85vh] w-full bg-white dark:bg-[#1f2937] md:dark:bg-transparent rounded-t-3xl flex flex-col lg:static lg:h-auto lg:w-1/4 lg:rounded-none lg:bg-transparent lg:z-auto lg:block lg:!transform-none ${
+                        className={`fixed inset-x-0 bottom-0 z-[70] h-[85vh] w-full bg-white dark:bg-[#1f2937] rounded-t-3xl flex flex-col lg:static lg:h-auto lg:w-1/4 lg:rounded-none lg:bg-transparent lg:dark:bg-transparent lg:z-auto lg:block lg:!transform-none ${
                             isMobileFilterOpen ? 'shadow-[0_-10px_40px_rgba(0,0,0,0.1)]' : ''
                         }`}
                     >
@@ -823,8 +927,7 @@ export default function Products() {
                             {filterCategories.map((category) => (
                                 <div
                                     key={category.id}
-                                    className="border border-gray-100 dark:border-gray-800 rounded-2xl p-4 lg:border-0 lg:p-0 lg:rounded-none pb-4 lg:pb-0 last:border-0 bg-gray-50/50 md:dark:bg-transparent dark:bg-gray-700/30 lg:bg-transparent"
-                                >
+                                    className="border border-gray-100 dark:border-gray-800 rounded-2xl p-4 lg:border-0 lg:p-0 lg:rounded-none pb-4 lg:pb-0 last:border-0 bg-gray-50/50 dark:bg-gray-700/30 lg:bg-transparent lg:dark:bg-transparent"                                >
                                     <div
                                         className="flex items-center justify-between cursor-pointer group"
                                         onClick={() => toggleCategory(category.id)}
