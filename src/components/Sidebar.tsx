@@ -144,28 +144,33 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                                 <div className="w-full flex justify-center pt-4 pb-2">
                                     <div className="w-12 h-1.5 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
                                 </div>
+                                <div className="flex items-center justify-between px-6 py-4 md:pt-6 md:pb-2 border-b border-gray-100 dark:border-gray-800 md:border-none"
+                                     onPointerDown={(e) => dragControls.start(e)}>
+                            <span className="text-[15px] md:text-xl font-bold  text-gray-900 dark:text-white tracking-tight">
+                                Menu
+                            </span>
+                                    <button
+                                        onPointerDown={(e) => e.stopPropagation()}
+                                        onClick={onClose}
+                                        className="p-2 rounded-full bg-gray-50 dark:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all"
+                                        aria-label="Close"
+                                    >
+                                        <X size={18} />
+                                    </button>
+                                </div>
                             </div>
-                        )}
 
-                        <div className="flex items-center justify-between px-6 py-4 md:pt-6 md:pb-2 border-b border-gray-100 dark:border-gray-800 md:border-none">
-              <span className="text-[15px] md:text-xl font-bold text-gray-900 dark:text-white tracking-tight">
-                Menu
-              </span>
-                            <button
-                                onPointerDown={(e) => e.stopPropagation()}
-                                onClick={onClose}
-                                className="p-2 rounded-full bg-gray-50 dark:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all"
-                                aria-label="Close"
-                            >
-                                <X size={18} />
-                            </button>
-                        </div>
+
+                            )}
+
+
 
                         <div className="px-4 py-3 md:py-4 border-b border-gray-100 dark:border-gray-700">
                             <form onSubmit={handleSearch} className="relative group">
                                 <input
                                     type="text"
                                     value={searchQuery}
+
                                     onChange={(e) => setSearchQuery(e.target.value)}
                                     placeholder={t('menu.search')}
                                     className="w-full bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white text-sm py-3 pl-11 pr-4 rounded-2xl border border-gray-200 dark:border-gray-700 focus:bg-white dark:focus:bg-gray-700 focus:outline-none focus:ring-1  transition-all placeholder-gray-400 dark:placeholder-gray-500"
