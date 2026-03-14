@@ -1537,5 +1537,873 @@ export const products: Product[] = [
                 { TR: 'Kolon tipi açık ayak veya kapalı dekor uygulamaları.', EN: 'Column type open leg or closed decor applications.' },
             ]
         }
-    }
+    },
+    {
+        id: 34,
+        name: { TR: 'Kuzu Et Askı Dolabı', EN: 'Lamb Meat Hanger Cabinet'},
+        category: { TR: 'Dikey Tip Soğutuculu Reyonlar', EN: 'Vertical Type Cooling Aisles' },
+        type: { TR: 'Kuzu Et Askı Dolabı', EN: 'Lamb Meat Hanger Cabinet'},
+        image: '/images/products/dikeyTipSogutuculuReyonlar/kuzuEtAskiDolabi/kuzuEtAskiDolabix.webp',
+        thumbnails:[
+            '/images/products/dikeyTipSogutuculuReyonlar/kuzuEtAskiDolabi/kuzuEtAskiDolabi1.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/kuzuEtAskiDolabi/kuzuEtAskiDolabi2.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/kuzuEtAskiDolabi/kuzuEtAskiDolabi3.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/kuzuEtAskiDolabi/kuzuEtAskiDolabi4.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/kuzuEtAskiDolabi/kuzuEtAskiDolabi.webp',
+
+        ],
+        specs: {
+            modules: '937 / 1250 / 1875 / 2500 / 2812 / 3125',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Dıştan ve İçten motorlu soğutma', EN: 'Internal & external motor refrigeration' },
+                { TR: 'Aksiyel fanlı soğutma', EN: 'Axial fan cooling' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Alçak baza sayesinde geniş teşhir alanı.', EN: 'Large display area thanks to the low base.' },
+                { TR: 'Yüksek soğutma verimi düşük enerji sarfiyatı.', EN: 'High cooling efficiency with low energy consumption.' },
+                { TR: 'Ayarlanabilir raf sistemi.', EN: 'Adjustable shelving system.' },
+                { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design for ease of use.' },
+                { TR: 'Led aydınlatma.', EN: 'LED lighting.' },
+                { TR: 'Manuel gece perdesi.', EN: 'Manual night curtain.' },
+                { TR: '40kg / m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood furniture decor applications to match your interior.' },
+            ],
+            optionalAccessory:[
+                { TR: 'Aynalı veya Camlı dolap yanı.', EN: 'Mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+            ]
+        }
+    },
+    {
+        id: 35,
+        name: { TR: 'Dikey Pasta Dolabı', EN: 'Vertical Pastry Cabinet' },
+        category: { TR: 'Dikey Tip Soğutuculu Reyonlar', EN: 'Vertical Type Cooling Aisles' },
+        type: { TR: 'Dikey Pasta Dolabı', EN: 'Vertical Pastry Cabinet' },
+        image: '/images/products/dikeyTipSogutuculuReyonlar/dikeyPastaDolabi/dikeyPastaDolabi5.webp',
+        thumbnails:[
+            '/images/products/dikeyTipSogutuculuReyonlar/dikeyPastaDolabi/dikeyPastaDolabi.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/dikeyPastaDolabi/dikeyPastaDolabi1.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/dikeyPastaDolabi/dikeyPastaDolabi2.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/dikeyPastaDolabi/dikeyPastaDolabi3.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/dikeyPastaDolabi/dikeyPastaDolabi4.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/dikeyPastaDolabi/dikeyPastaDolabi6.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/dikeyPastaDolabi/dikeyPastaDolabi7.webp',
+
+        ],
+        specs: {
+            modules: '937 / 1250 / 1875 / 2500 / 2812',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Soğutmalı, soğutmasız dolap versiyonları.', EN: 'Refrigerated and non-refrigerated cabinet versions.' },
+                { TR: 'İçten veya dıştan soğutma grubu.', EN: 'Internal or external refrigeration unit.' },
+                { TR: 'Devirme cam özelliğiyle kolay temizlik rahatlığı.', EN: 'Tilt glass feature for easy cleaning.' },
+                { TR: 'Sürgülü cam sistemi.', EN: 'Sliding glass system.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Ayarlanabilir raf kolları.', EN: 'Adjustable shelf brackets.' },
+                { TR: '40 Watt Şerit Led ve 40 Watt Led Bant Armatür Aydınlatma.', EN: '40W LED strip and 40W LED band lighting.' },
+                { TR: 'Cam Raf Altı Şerit Led Aydınlatma.', EN: 'LED strip lighting under glass shelves.' },
+                { TR: 'Gün Işığı ve Beyaz 40 Watt Led Aydınlatma Seçenekleri.', EN: 'Daylight and white 40W LED lighting options.' },
+                { TR: 'Camlı Raf Sistemi.', EN: 'Glass shelf system.' },
+                { TR: 'Temperli Kırılmaz Camlar.', EN: 'Tempered shatter-resistant glass.' },
+                { TR: 'Ayarlanabilir Dokunmatik Dijital Termometre.', EN: 'Adjustable touch digital thermometer.' },
+                { TR: 'Argon Gazlı Terleme Buğu Yapmayan Cam Sistemi.', EN: 'Argon-filled anti-fog, anti-condensation glass system.' },
+                { TR: 'Tavan Soğutucu ve Zemin Soğutucu Sistemi.', EN: 'Ceiling and base cooling system.' },
+                { TR: 'Aksiyel Fanlı Soğutma.', EN: 'Axial fan cooling.' },
+                { TR: 'Hava sirkülasyonlu soğutma sistemi.', EN: 'Air-circulation cooling system.' },
+                { TR: '40 kg/m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Cephe Pasta Teşhir Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Front pastry display cabinet with color options or wood decor finishes.' },
+                { TR: 'Müşteri isteğine uygun dekor ve standart dışı imalat imkanı.', EN: 'Custom decor and non-standard manufacturing available.' },
+                { TR: 'Soğutma Grubu ve Kendinden Motorlu Ürün Seçenekleri.', EN: 'Refrigeration unit and self-contained motor options.' },
+                { TR: 'Ayarlanabilir Rotil Ayak.', EN: 'Adjustable swivel feet.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Dikey Pasta Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Vertical pastry cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+                { TR: 'Tek Cam ve Isıcam Seçenekleri.', EN: 'Single glass and double-glazed glass options.' },
+                { TR: 'Depolu Cephe Pasta Dolabı Seçeneği.', EN: 'Front pastry cabinet option with storage base.' },
+                { TR: 'Sürgü Cam ve Çarpma Kapı Seçenekleri.', EN: 'Sliding glass and hinged door options.' },
+
+            ]
+        }
+    },
+    {
+        id: 36,
+        name: { TR: 'Manav Sütlük Dolabı', EN: 'Produce Dairy Cabinet' },
+        category: { TR: 'Dikey Tip Soğutuculu Reyonlar', EN: 'Vertical Type Cooling Aisles' },
+        type: { TR: 'Manav Sütlük Dolabı', EN: 'Produce Dairy Cabinet' },
+        image: '/images/products/dikeyTipSogutuculuReyonlar/manvaSutlukDolabi/manvaSutlukDolabi.webp',
+        thumbnails:[
+            '/images/products/dikeyTipSogutuculuReyonlar/manvaSutlukDolabi/manvaSutlukDolabi2.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/manvaSutlukDolabi/manvaSutlukDolabi.webp',
+
+
+        ],
+        drawingImage:[
+            '/images/products/dikeyTipSogutuculuReyonlar/manvaSutlukDolabi/manvaSutlukDolabi1.webp',
+        ],
+        specs: {
+            modules: '937 / 1250 / 1875 / 2500 / 2812 / 3125 / 3750',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Manav Sütlük Dolabı Dıştan ve İçten motorlu soğutma grubu.', EN: 'Grocery dairy cabinet with internal & external motor refrigeration unit.' },
+                { TR: 'Aksiyel fanlı soğutma', EN: 'Axial fan cooling.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Alçak baza sayesinde geniş teşhir alanı.', EN: 'Large display area thanks to the low base.' },
+                { TR: 'Yüksek soğutma verimi düşük enerji sarfiyatı.', EN: 'High cooling efficiency with low energy consumption.' },
+                { TR: 'Ayarlanabilir raf sistemi.', EN: 'Adjustable shelving system.' },
+                { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design for ease of use.' },
+                { TR: 'Led aydınlatma.', EN: 'LED lighting.' },
+                { TR: 'Manuel gece perdesi.', EN: 'Manual night curtain.' },
+                { TR: '40kg / m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Sütlük Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+
+
+            ],
+            optionalAccessory:[
+                { TR: 'Sütlük Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Dairy cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+
+
+            ]
+        }
+    },
+    {
+        id: 37,
+        name: { TR: 'Yarım Boy Sütlük Dolabı', EN: 'Half-Height Dairy Cabinet' },
+        category: { TR: 'Dikey Tip Soğutuculu Reyonlar', EN: 'Vertical Type Cooling Aisles' },
+        type: { TR: 'Yarım Boy Sütlük Dolabı', EN: 'Half-Height Dairy Cabinet' },
+        image: '/images/products/dikeyTipSogutuculuReyonlar/yarimBoySutlukDolabi/yarimBoySutlukDolabi5.webp',
+        thumbnails:[
+            '/images/products/dikeyTipSogutuculuReyonlar/yarimBoySutlukDolabi/yarimBoySutlukDolabi.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/yarimBoySutlukDolabi/yarimBoySutlukDolabi1.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/yarimBoySutlukDolabi/yarimBoySutlukDolabi3.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/yarimBoySutlukDolabi/yarimBoySutlukDolabi4.webp',
+
+
+
+        ],
+        drawingImage:[
+            '/images/products/dikeyTipSogutuculuReyonlar/yarimBoySutlukDolabi/yarimBoySutlukDolabi2.webp',
+        ],
+        specs: {
+            modules: '937 / 1250 / 1875 / 2500 / 2812 / 3125 / 3750',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Pluton Yarım Boy Sütlük Dolabı Dıştan ve İçten motorlu soğutma', EN: 'Pluton half-height dairy cabinet with internal & external motor refrigeration.' },
+                { TR: 'Aksiyel fanlı soğutma', EN: 'Axial fan cooling.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Alçak baza sayesinde geniş teşhir alanı.', EN: 'Large display area thanks to the low base.' },
+                { TR: 'Yüksek soğutma verimi düşük enerji sarfiyatı.', EN: 'High cooling efficiency with low energy consumption.' },
+                { TR: 'Ayarlanabilir raf sistemi.', EN: 'Adjustable shelving system.' },
+                { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design for ease of use.' },
+                { TR: 'Led aydınlatma.', EN: 'LED lighting.' },
+                { TR: 'Manuel gece perdesi.', EN: 'Manual night curtain.' },
+                { TR: '40kg / m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Sütlük Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+
+
+            ],
+            optionalAccessory:[
+                { TR: 'Sütlük Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Dairy cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+                { TR: 'Sütlük Dolabı Sürgülü cam sistemi.', EN: 'Dairy cabinet sliding glass system.' },
+
+
+            ]
+        }
+    },
+    {
+        id: 38,
+        name: { TR: 'Cam Kapaklı Sütlük Dolabı', EN: 'Glass-Door Dairy Cabinet' },
+        category: { TR: 'Dikey Tip Soğutuculu Reyonlar', EN: 'Vertical Type Cooling Aisles' },
+        type: { TR: 'Cam Kapaklı Sütlük Dolabı', EN: 'Glass-Door Dairy Cabinet' },
+        image: '/images/products/dikeyTipSogutuculuReyonlar/camKapakliSutlukDolabi/camKapakliSutlukDolabi10.webp',
+        thumbnails:[
+            '/images/products/dikeyTipSogutuculuReyonlar/camKapakliSutlukDolabi/camKapakliSutlukDolabi.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/camKapakliSutlukDolabi/camKapakliSutlukDolabi1.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/camKapakliSutlukDolabi/camKapakliSutlukDolabi2.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/camKapakliSutlukDolabi/camKapakliSutlukDolabi3.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/camKapakliSutlukDolabi/camKapakliSutlukDolabi4.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/camKapakliSutlukDolabi/camKapakliSutlukDolabi5.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/camKapakliSutlukDolabi/camKapakliSutlukDolabi8.webp',
+
+
+        ],
+        drawingImage:[
+            '/images/products/dikeyTipSogutuculuReyonlar/camKapakliSutlukDolabi/camKapakliSutlukDolabi6.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/camKapakliSutlukDolabi/camKapakliSutlukDolabi7.webp',
+
+        ],
+        specs: {
+            modules: '937 / 1250 / 1875 / 2500 / 2812 / 3125 / 3750',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Sunny – Sütlük Dolabı Dıştan ve İçten motorlu soğutma', EN: 'Sunny dairy cabinet with internal & external motor refrigeration.' },
+                { TR: 'Aksiyel fanlı soğutma', EN: 'Axial fan cooling.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Alçak baza sayesinde geniş teşhir alanı.', EN: 'Large display area thanks to the low base.' },
+                { TR: 'Ayarlanabilir raf sistemi.', EN: 'Adjustable shelving system.' },
+                { TR: 'Yüksek soğutma verimi düşük enerji sarfiyatı.', EN: 'High cooling efficiency with low energy consumption.' },
+                { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design for ease of use.' },
+                { TR: 'Led aydınlatma.', EN: 'LED lighting.' },
+                { TR: '40kg / m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Sütlük Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Sütlük Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Dairy cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+                { TR: 'Camlar isteğe göre tek cam veya çift cam olarak uygulanabilmektedir.', EN: 'Glass can be applied as single or double glazing on request.' },
+                { TR: 'Sütlük Dolabı Çarpma kapılı veya sürgülü cam sistemi.', EN: 'Dairy cabinet with hinged door or sliding glass system.' },
+
+            ]
+        }
+    },
+    {
+        id: 39,
+        name: { TR: 'Sütlük Dolabı', EN: 'Dairy Cabinet' },
+        category: { TR: 'Dikey Tip Soğutuculu Reyonlar', EN: 'Vertical Type Cooling Aisles' },
+        type: { TR: 'Sütlük Dolabı', EN: 'Dairy Cabinet' },
+        image: '/images/products/dikeyTipSogutuculuReyonlar/sutlukDolabi/sutlukDolabi8.webp',
+        thumbnails:[
+            '/images/products/dikeyTipSogutuculuReyonlar/sutlukDolabi/sutlukDolabi1.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/sutlukDolabi/sutlukDolabi2.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/sutlukDolabi/sutlukDolabi5.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/sutlukDolabi/sutlukDolabi6.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/sutlukDolabi/sutlukDolabi7.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/sutlukDolabi/sutlukDolabi9.webp',
+
+
+
+        ],
+        drawingImage:[
+            '/images/products/dikeyTipSogutuculuReyonlar/sutlukDolabi/sutlukDolabi4.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/sutlukDolabi/sutlukDolabi.webp',
+
+        ],
+        specs: {
+            modules: '937 / 1250 / 1875 / 2500 / 2812 / 3125 / 3750',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Sütlük Dolabı Dıştan ve İçten motorlu soğutma', EN: 'Dairy cabinet with internal & external motor refrigeration.' },
+                { TR: 'Aksiyel fanlı soğutma', EN: 'Axial fan cooling.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Alçak baza sayesinde geniş teşhir alanı.', EN: 'Large display area thanks to the low base.' },
+                { TR: 'Yüksek soğutma verimi düşük enerji sarfiyatı.', EN: 'High cooling efficiency with low energy consumption.' },
+                { TR: 'Ayarlanabilir raf sistemi.', EN: 'Adjustable shelving system.' },
+                { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design for ease of use.' },
+                { TR: 'Led aydınlatma.', EN: 'LED lighting.' },
+                { TR: 'Manuel gece perdesi.', EN: 'Manual night curtain.' },
+                { TR: '40kg / m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Sütlük Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Milk Cabinet Color options suitable for decoration or tree furniture décor applications'}
+
+            ],
+            optionalAccessory:[
+                { TR: 'Sütlük Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Dairy cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+
+            ]
+        }
+    },
+    {
+        id: 40,
+        name:  { TR: 'Et Askı Dolabı', EN: 'Hanging Meat Cabinet' },
+        category: { TR: 'Dikey Tip Soğutuculu Reyonlar', EN: 'Vertical Type Cooling Aisles' },
+        type:  { TR: 'Et Askı Dolabı', EN: 'Hanging Meat Cabinet' },
+        image: '/images/products/dikeyTipSogutuculuReyonlar/kuzuEtAskiDolabi/kuzuEtAskiDolabix.webp',
+        thumbnails:[
+            '/images/products/dikeyTipSogutuculuReyonlar/kuzuEtAskiDolabi/kuzuEtAskiDolabi.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/kuzuEtAskiDolabi/kuzuEtAskiDolabi1.webp',
+
+        ],
+        specs: {
+            modules: '937 / 1250 / 1875 / 2500 / 2812 / 3125 / 3750',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Dıştan ve İçten motorlu soğutma', EN: 'Internal & external motor refrigeration.' },
+                { TR: 'Aksiyel fanlı soğutma', EN: 'Axial fan cooling.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Alçak baza sayesinde geniş teşhir alanı.', EN: 'Large display area thanks to the low base.' },
+                { TR: 'Yüksek soğutma verimi düşük enerji sarfiyatı.', EN: 'High cooling efficiency with low energy consumption.' },
+                { TR: 'Ayarlanabilir raf sistemi.', EN: 'Adjustable shelving system.' },
+                { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design for ease of use.' },
+                { TR: 'Led aydınlatma.', EN: 'LED lighting.' },
+                { TR: 'Manuel gece perdesi.', EN: 'Manual night curtain.' },
+                { TR: '40kg / m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Aynalı veya Camlı dolap yanı.', EN: 'Mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+
+            ]
+        }
+    },
+    {
+        id: 41,
+        name:  { TR: 'Dry Aged Dolabı', EN: 'Dry-Aged Cabinet' },
+        category: { TR: 'Dikey Tip Soğutuculu Reyonlar', EN: 'Vertical Type Cooling Aisles' },
+        type:  { TR: 'Dry Aged Dolabı', EN: 'Dry-Aged Cabinet' },
+        image: '/images/products/dikeyTipSogutuculuReyonlar/trDryAgedDolabi/trDryAgedDolabi4.webp',
+        thumbnails:[
+            '/images/products/dikeyTipSogutuculuReyonlar/trDryAgedDolabi/trDryAgedDolabi.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/trDryAgedDolabi/trDryAgedDolabi1.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/trDryAgedDolabi/trDryAgedDolabi2.webp',
+            '/images/products/dikeyTipSogutuculuReyonlar/trDryAgedDolabi/trDryAgedDolabi3.webp',
+
+
+        ],
+        specs: {
+            modules: '937 / 1250 / 1875 / 2500 / 2812 / 3125 / 3750',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Dry Aged Dolabı Et Yaşlandırma Dolabı', EN: 'Dry Aged Meat Aging Cabinet' },
+                { TR: 'Dry Aged Himalaya Tuzu Bakteri oluşumunu önleyip Ete kuru yaşlandırma sağlar.', EN: 'Dry Aged Himalayan salt helps prevent bacteria and enables dry aging for meat.' },
+                { TR: 'Dry Aged Et Yaşlandırma Dıştan ve İçten Motorlu Soğutma Motorlu Seçenekleri Mevcuttur.', EN: 'Dry Aged meat aging cabinets are available with internal and external motor refrigeration options.' },
+                { TR: 'Dry Aged Dolabı Aksiyel fanlı soğutma sağlar.', EN: 'Provides axial fan cooling.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Alçak baza sayesinde geniş teşhir alanı.', EN: 'Large display area thanks to the low base.' },
+                { TR: 'Yüksek soğutma verimi düşük enerji sarfiyatı.', EN: 'High cooling efficiency with low energy consumption.' },
+                { TR: 'Ayarlanabilir raf sistemi.', EN: 'Adjustable shelving system.' },
+                { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design for ease of use.' },
+                { TR: 'Led aydınlatma.', EN: 'LED lighting.' },
+                { TR: 'Manuel gece perdesi.', EN: 'Manual night curtain.' },
+                { TR: '40kg / m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Aynalı veya Camlı dolap yanı.', EN: 'Mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+
+            ]
+        }
+    },
+    {
+        id: 42,
+        name: { TR: 'Meze Dolabı Dikey Tip', EN: 'Vertical Type Mezze Cabinet' },
+        category: { TR: 'Duvar Tipi Soğutmalı Reyonlar', EN: 'Wall Type Cooling Aisles' },
+        type: { TR: 'Meze Dolabı Dikey Tip', EN: 'Vertical Type Mezze Cabinet' },
+        image: '/images/products/servisReyonlari/mezeDolabiDikeyTip/mezeDolabiDikeyTipx.webp',
+        thumbnails:[
+            '/images/products/servisReyonlari/mezeDolabiDikeyTip/mezeDolabiDikeyTip.webp',
+            '/images/products/servisReyonlari/mezeDolabiDikeyTip/mezeDolabiDikeyTip1.webp',
+            '/images/products/servisReyonlari/mezeDolabiDikeyTip/mezeDolabiDikeyTip2.webp',
+            '/images/products/servisReyonlari/mezeDolabiDikeyTip/mezeDolabiDikeyTip3.webp',
+            '/images/products/servisReyonlari/mezeDolabiDikeyTip/mezeDolabiDikeyTip4.webp',
+            '/images/products/servisReyonlari/mezeDolabiDikeyTip/mezeDolabiDikeyTip5.webp',
+            '/images/products/servisReyonlari/mezeDolabiDikeyTip/mezeDolabiDikeyTip6.webp',
+            '/images/products/servisReyonlari/mezeDolabiDikeyTip/mezeDolabiDikeyTip7.webp',
+            '/images/products/servisReyonlari/mezeDolabiDikeyTip/mezeDolabiDikeyTip8.webp',
+            '/images/products/servisReyonlari/mezeDolabiDikeyTip/mezeDolabiDikeyTip9.webp',
+            '/images/products/servisReyonlari/mezeDolabiDikeyTip/mezeDolabiDikeyTip10.webp',
+        ],
+        specs: {
+            modules: '937 / 1250 / 1875 / 2500 / 2812',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            optionalAccessory:[
+                { TR: 'Meze Teşhir Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Mezze Showcase Cabinet Side Panel with Mirror or Glass.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+            ],
+            technicalSpecification:[
+                { TR: 'Meze, Et, tavuk ve meze teşhir vitrini.', EN: 'Mezze, Meat, chicken and mezze showcase.' },
+                { TR: 'Soğutmalı Meze Dolabı Hava soğutmalı veya kuru soğutmalı dolap versiyonları olarak üretimi yapılmaktadır.', EN: 'Refrigerated Mezze Cabinet Produced as air-cooled or dry-cooled cabinet versions.' },
+                { TR: 'İçten veya dıştan soğutma grubu.', EN: 'Internal or external cooling unit.' },
+                { TR: 'Devirme cam özelliğiyle kolay temizlik rahatlığı.', EN: 'Easy cleaning convenience with tilt glass feature.' },
+                { TR: 'Sürgülü cam veya kapaklı sistem.', EN: 'Sliding glass or lidded system.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel floor and pan sheets.' },
+                { TR: 'Ayarlanabilir raf kolları.', EN: 'Adjustable shelf brackets.' },
+                { TR: 'Hava sirkülasyonlu soğutma sistemi.', EN: 'Air circulation cooling system.' },
+                { TR: '40 kg/m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: '40 kg/m3 polyurethane injected body design.' },
+                { TR: 'Meze Dolapları Dekorasyona uygun renk seçenekleri veya mobilya dekor uygulamaları.', EN: 'Mezze Cabinets Color options suitable for decoration or furniture decor applications.' },
+                { TR: 'Müşteri isteğine uygun dekor ve standart dışı imalat imkanı.', EN: 'Decoration according to customer request and non-standard manufacturing capability.' },
+            ]
+        }
+    } ,
+    {
+        id: 43,
+        name: { TR: 'Dry Aged Dolabı', EN: 'Dry-Aged Cabinet' },
+        category: { TR: 'Duvar Tipi Soğutmalı Reyonlar', EN: 'Wall Type Cooling Aisles' },
+        type: { TR: 'Dry Aged Dolabı', EN: 'Dry-Aged Cabinet' },
+        image: '/images/products/duvarTipiSogutmaliReyonlari/dryAgedDolabi/drayAgedDolabi11.webp',
+        thumbnails:[
+            '/images/products/duvarTipiSogutmaliReyonlari/dryAgedDolabi/drayAgedDolabi.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/dryAgedDolabi/drayAgedDolabi1.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/dryAgedDolabi/drayAgedDolabi2.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/dryAgedDolabi/drayAgedDolabi3.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/dryAgedDolabi/drayAgedDolabi4.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/dryAgedDolabi/drayAgedDolabi5.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/dryAgedDolabi/drayAgedDolabi6.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/dryAgedDolabi/drayAgedDolabi7.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/dryAgedDolabi/drayAgedDolabi8.webp',
+
+        ],
+        specs: {
+            modules: '937 / 1250 / 1875 / 2500 / 2812 / 3125 / 3750',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Dry Aged Dolabı Et Yaşlandırma Dolabı', EN: 'Dry Aged Meat Aging Cabinet' },
+                { TR: 'Dry Aged Himalaya Tuzu Bakteri oluşumunu önleyip Ete kuru yaşlandırma sağlar.', EN: 'Dry Aged Himalayan salt helps prevent bacteria and enables dry aging for meat.' },
+                { TR: 'Dry Aged Et Yaşlandırma Dıştan ve İçten Motorlu Soğutma Motorlu Seçenekleri Mevcuttur.', EN: 'Dry Aged meat aging cabinets are available with internal and external motor refrigeration options.' },
+                { TR: 'Dry Aged Dolabı Aksiyel fanlı soğutma sağlar.', EN: 'Provides axial fan cooling.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Alçak baza sayesinde geniş teşhir alanı.', EN: 'Large display area thanks to the low base.' },
+                { TR: 'Yüksek soğutma verimi düşük enerji sarfiyatı.', EN: 'High cooling efficiency with low energy consumption.' },
+                { TR: 'Ayarlanabilir raf sistemi.', EN: 'Adjustable shelving system.' },
+                { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design for ease of use.' },
+                { TR: 'Led aydınlatma.', EN: 'LED lighting.' },
+                { TR: 'Manuel gece perdesi.', EN: 'Manual night curtain.' },
+                { TR: '40kg / m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Aynalı veya Camlı dolap yanı.', EN: 'Mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+
+            ]
+        }
+    },
+    {
+        id: 44,
+        name: { TR: 'Dikey Tip Alttan Motorlu Sütlük', EN: 'Vertical Under-Motor Dairy' },
+        category: { TR: 'Duvar Tipi Soğutmalı Reyonlar', EN: 'Wall Type Cooling Aisles' },
+        type: { TR: 'Dikey Tip Alttan Motorlu Sütlük', EN: 'Vertical Under-Motor Dairy' },
+        image: '/images/products/duvarTipiSogutmaliReyonlari/dikeyTipAlttanMotorluSutluk/dikeyTipAlttanMotorluSutlukx.webp',
+        thumbnails:[
+            '/images/products/duvarTipiSogutmaliReyonlari/dikeyTipAlttanMotorluSutluk/dikeyTipAlttanMotorluSutluk2.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/dikeyTipAlttanMotorluSutluk/dikeyTipAlttanMotorluSutluk5.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/dikeyTipAlttanMotorluSutluk/dikeyTipAlttanMotorluSutluk6.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/dikeyTipAlttanMotorluSutluk/dikeyTipAlttanMotorluSutluk7.webp',
+
+        ],
+        drawingImage:[
+            '/images/products/duvarTipiSogutmaliReyonlari/dikeyTipAlttanMotorluSutluk/dikeyTipAlttanMotorluSutluk.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/dikeyTipAlttanMotorluSutluk/dikeyTipAlttanMotorluSutluk1.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/dikeyTipAlttanMotorluSutluk/dikeyTipAlttanMotorluSutluk4.webp',
+
+        ],
+        specs: {
+            modules: '937 / 1250 / 1875 / 2500 / 2812 / 3125 / 3750',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Dikey Tip Alttan Motorlu Sütlük Dıştan ve İçten motorlu soğutma', EN: 'Vertical bottom-motor dairy cabinet with internal & external motor refrigeration.' },
+                { TR: 'Aksiyel fanlı soğutma', EN: 'Axial fan cooling.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Alçak baza sayesinde geniş teşhir alanı.', EN: 'Large display area thanks to the low base.' },
+                { TR: 'Yüksek soğutma verimi düşük enerji sarfiyatı.', EN: 'High cooling efficiency with low energy consumption.' },
+                { TR: 'Ayarlanabilir raf sistemi.', EN: 'Adjustable shelving system.' },
+                { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design for ease of use.' },
+                { TR: 'Led aydınlatma.', EN: 'LED lighting.' },
+                { TR: 'Manuel gece perdesi.', EN: 'Manual night curtain.' },
+                { TR: '40kg / m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Sütlük Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+
+
+            ],
+            optionalAccessory:[
+                { TR: 'Sütlük Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Dairy cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+
+            ]
+        }
+    },
+    {
+        id: 45,
+        name: { TR: 'Dikey Şişe soğutucu Ahşap Kaplamalı', EN: 'Vertical Bottle Cooler (Wood Clad)' },
+        category: { TR: 'Duvar Tipi Soğutmalı Reyonlar', EN: 'Wall Type Cooling Aisles' },
+        type: { TR: 'Dikey Şişe soğutucu Ahşap Kaplamalı', EN: 'Vertical Bottle Cooler (Wood Clad)' },
+        image: '/images/products/duvarTipiSogutmaliReyonlari/dikeySiseSogutucuAhsapKaplamali/dikeySiseSogutucuAhsapKaplamalix.webp',
+        thumbnails:[
+            '/images/products/duvarTipiSogutmaliReyonlari/dikeySiseSogutucuAhsapKaplamali/dikeySiseSogutucuAhsapKaplamali1.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/dikeySiseSogutucuAhsapKaplamali/dikeySiseSogutucuAhsapKaplamali2.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/dikeySiseSogutucuAhsapKaplamali/dikeySiseSogutucuAhsapKaplamali5.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/dikeySiseSogutucuAhsapKaplamali/dikeySiseSogutucuAhsapKaplamali6.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/dikeySiseSogutucuAhsapKaplamali/dikeySiseSogutucuAhsapKaplamali7.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/dikeySiseSogutucuAhsapKaplamali/dikeySiseSogutucuAhsapKaplamali8.webp',
+
+        ],
+        drawingImage:[
+            '/images/products/duvarTipiSogutmaliReyonlari/dikeySiseSogutucuAhsapKaplamali/dikeySiseSogutucuAhsapKaplamali4.webp',
+
+
+        ],
+        specs: {
+            modules: '625 / 937 / 1250 / 1875 / 2500 / 2812 / 3125 / 3750',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Dikey Şişe Soğutucu Ahşap Kaplamalı', EN: 'Vertical Bottle Cooler with Wood Finish' },
+                { TR: 'Dıştan ve İçten motorlu soğutma', EN: 'Internal & external motor refrigeration.' },
+                { TR: 'Aksiyel fanlı soğutma', EN: 'Axial fan cooling.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Alçak baza sayesinde geniş teşhir alanı.', EN: 'Large display area thanks to the low base.' },
+                { TR: 'Yüksek soğutma verimi düşük enerji sarfiyatı.', EN: 'High cooling efficiency with low energy consumption.' },
+                { TR: 'Ayarlanabilir raf sistemi.', EN: 'Adjustable shelving system.' },
+                { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design for ease of use.' },
+                { TR: 'Led aydınlatma.', EN: 'LED lighting.' },
+                { TR: 'Manuel gece perdesi.', EN: 'Manual night curtain.' },
+                { TR: '40kg / m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Dikey Şişe Soğutucu Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları', EN: 'Color options or wood decor finishes to match your interior.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Dikey Şişe Soğutucu Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Vertical bottle cooler with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+
+
+            ]
+        }
+    },
+    {
+        id: 46,
+        name: { TR: 'Petrol Dolabı Şişe Soğutucu', EN: 'Gas Station Bottle Cooler' },
+        category: { TR: 'Duvar Tipi Soğutmalı Reyonlar', EN: 'Wall Type Cooling Aisles' },
+        type: { TR: 'Petrol Dolabı Şişe Soğutucu', EN: 'Gas Station Bottle Cooler' },
+        image: '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucux.webp',
+        thumbnails:[
+            '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucu1.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucu3.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucu4.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucu5.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucu6.webp',
+
+        ],
+        drawingImage:[
+            '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucu2.webp',
+
+
+        ],
+        specs: {
+            modules: '625 / 937 / 1250 / 1875 / 2500 / 2812 / 3125 / 3750',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Sütlük Dolabı Dıştan ve İçten motorlu soğutma', EN: 'Dairy cabinet with internal & external motor refrigeration.' },
+                { TR: 'Aksiyel fanlı soğutma', EN: 'Axial fan cooling.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Alçak baza sayesinde geniş teşhir alanı.', EN: 'Large display area thanks to the low base.' },
+                { TR: 'Yüksek soğutma verimi düşük enerji sarfiyatı.', EN: 'High cooling efficiency with low energy consumption.' },
+                { TR: 'Ayarlanabilir raf sistemi.', EN: 'Adjustable shelving system.' },
+                { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design for ease of use.' },
+                { TR: 'Led aydınlatma.', EN: 'LED lighting.' },
+                { TR: 'Manuel gece perdesi.', EN: 'Manual night curtain.' },
+                { TR: '40kg / m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Sütlük Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Sütlük Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Dairy cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+
+            ]
+        }
+    },
+    {
+        id: 47,
+        name: { TR: 'Meşrubat ve kola Dolabı', EN: 'Soft Drinks & Cola Cabinet' },
+        category: { TR: 'Duvar Tipi Soğutmalı Reyonlar', EN: 'Wall Type Cooling Aisles' },
+        type:{ TR: 'Meşrubat ve kola Dolabı', EN: 'Soft Drinks & Cola Cabinet' },
+        image: '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucux.webp',
+        thumbnails:[
+            '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucu1.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucu3.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucu4.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucu5.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucu6.webp',
+
+        ],
+        drawingImage:[
+            '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucu2.webp',
+
+
+        ],
+        specs: {
+            modules: '625 / 937 / 1250 / 1875 / 2500 / 2812 / 3125 / 3750',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Sütlük Dolabı Dıştan ve İçten motorlu soğutma', EN: 'Dairy cabinet with internal & external motor refrigeration.' },
+                { TR: 'Aksiyel fanlı soğutma', EN: 'Axial fan cooling.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Alçak baza sayesinde geniş teşhir alanı.', EN: 'Large display area thanks to the low base.' },
+                { TR: 'Yüksek soğutma verimi düşük enerji sarfiyatı.', EN: 'High cooling efficiency with low energy consumption.' },
+                { TR: 'Ayarlanabilir raf sistemi.', EN: 'Adjustable shelving system.' },
+                { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design for ease of use.' },
+                { TR: 'Led aydınlatma.', EN: 'LED lighting.' },
+                { TR: 'Manuel gece perdesi.', EN: 'Manual night curtain.' },
+                { TR: '40kg / m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Sütlük Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Sütlük Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Dairy cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+
+            ]
+        }
+    },
+    {
+        id: 48,
+        name: { TR: 'Şişe Soğutucu Dolabı', EN: 'Bottle Cooler Cabinet' },
+        category: { TR: 'Duvar Tipi Soğutmalı Reyonlar', EN: 'Wall Type Cooling Aisles' },
+        type:{ TR: 'Şişe Soğutucu Dolabı', EN: 'Bottle Cooler Cabinet' },
+        image: '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucux.webp',
+        thumbnails:[
+            '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucu1.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucu3.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucu4.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucu5.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucu6.webp',
+
+        ],
+        drawingImage:[
+            '/images/products/duvarTipiSogutmaliReyonlari/petrolDolabiSiseSogutucu/petrolDolabiSiseSogutucu2.webp',
+
+
+        ],
+        specs: {
+            modules: '625 / 937 / 1250 / 1875 / 2500 / 2812 / 3125 / 3750',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Sütlük Dolabı Dıştan ve İçten motorlu soğutma', EN: 'Dairy cabinet with internal & external motor refrigeration.' },
+                { TR: 'Aksiyel fanlı soğutma', EN: 'Axial fan cooling.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Alçak baza sayesinde geniş teşhir alanı.', EN: 'Large display area thanks to the low base.' },
+                { TR: 'Yüksek soğutma verimi düşük enerji sarfiyatı.', EN: 'High cooling efficiency with low energy consumption.' },
+                { TR: 'Ayarlanabilir raf sistemi.', EN: 'Adjustable shelving system.' },
+                { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design for ease of use.' },
+                { TR: 'Led aydınlatma.', EN: 'LED lighting.' },
+                { TR: 'Manuel gece perdesi.', EN: 'Manual night curtain.' },
+                { TR: '40kg / m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Sütlük Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Sütlük Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Dairy cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+
+            ]
+        }
+    },
+    {
+        id: 49,
+        name:  { TR: 'Market Dolabı', EN: 'Market Cabinet' },
+        category: { TR: 'Duvar Tipi Soğutmalı Reyonlar', EN: 'Wall Type Cooling Aisles' },
+        type: { TR: 'Market Dolabı', EN: 'Market Cabinet' },
+        image: '/images/products/duvarTipiSogutmaliReyonlari/marketDolabi/marketDolabix.webp',
+        thumbnails:[
+            '/images/products/duvarTipiSogutmaliReyonlari/marketDolabi/marketDolabi.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/marketDolabi/marketDolabi2.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/marketDolabi/marketDolabi3.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/marketDolabi/marketDolabi4.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/marketDolabi/marketDolabi5.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/marketDolabi/marketDolabi6.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/marketDolabi/marketDolabi7.webp',
+
+        ],
+        drawingImage:[
+            '/images/products/duvarTipiSogutmaliReyonlari/marketDolabi/marketDolabi1.webp',
+
+
+        ],
+        specs: {
+            modules: ' 937 / 1250 / 1875 / 2500 / 2812 / 3125 / 3750',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Market Dolabı İçten ve dıştan motorlu soğutma grubu', EN: 'Market cabinet with internal & external motor refrigeration unit.' },
+                { TR: 'Aksiyel fanlı soğutma', EN: 'Axial fan cooling.' },
+                { TR: 'Market Dolabı Isıtma tava ve hazır yemek versiyonu.', EN: 'Market cabinet with heated tray and hot meal version.' },
+                { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design for ease of use.' },
+                { TR: 'Önden yukarı doğru açılan amortisörlü ve Devirme camlar.', EN: 'Front up-opening gas-spring glass and tilt glass options.' },
+                { TR: 'Market Dolabı Camları Temperli Kırılmaz Camdır.', EN: 'Tempered shatter-resistant glass.' },
+                { TR: 'Camlar Cnc Cam Kesim Olarak Üretilmektedir.', EN: 'Glass is produced with CNC cutting.' },
+                { TR: 'Paslanmaz çelik zemin, tezgah ve tava sacları.', EN: 'Stainless steel base, counter and tray sheets.' },
+                { TR: 'Gün Işığı ve Beyaz Led aydınlatma.', EN: 'Daylight and white LED lighting.' },
+                { TR: 'Aydınlatma; 40 Watt Şerit Led Armatür ve 40 Watt Bant Armatür Kullanılmaktadır.', EN: 'Lighting uses 40W LED strip fixtures and 40W band fixtures.' },
+                { TR: '40kg / m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Reyon Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+                { TR: 'Kolon tipi açık ayak veya kapalı dekor uygulamaları.', EN: 'Column-type open feet or closed decor base options.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Market Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Market cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+                { TR: 'Amortisörlü Cam ve Devirme Cam Seçenekleri.', EN: 'Gas-spring glass and tilt glass options.' },
+                { TR: 'Depolu Reyon Dolabı Seçeneği.', EN: 'Display cabinet option with storage base.' },
+                { TR: 'Pleksi Sürgü Cam Seçenekleri.', EN: 'Plexiglass sliding panel options.' },
+
+            ]
+        }
+    },
+    {
+        id: 50,
+        name:  { TR: 'Şarküteri Dolabı', EN: 'Deli Cabinet' },
+        category: { TR: 'Duvar Tipi Soğutmalı Reyonlar', EN: 'Wall Type Cooling Aisles' },
+        type: { TR: 'Şarküteri Dolabı', EN: 'Deli Cabinet' },
+        image: '/images/products/duvarTipiSogutmaliReyonlari/sarkuteriDolabi/sarkuteriDolabi7.webp',
+        thumbnails:[
+            '/images/products/duvarTipiSogutmaliReyonlari/sarkuteriDolabi/sarkuteriDolabi.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/sarkuteriDolabi/sarkuteriDolabi8.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/sarkuteriDolabi/sarkuteriDolabi9.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/sarkuteriDolabi/sarkuteriDolabi10.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/sarkuteriDolabi/sarkuteriDolabi11.webp',
+
+
+        ],
+        drawingImage:[
+            '/images/products/duvarTipiSogutmaliReyonlari/sarkuteriDolabi/sarkuteriDolabi1.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/sarkuteriDolabi/sarkuteriDolabi2.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/sarkuteriDolabi/sarkuteriDolabi3.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/sarkuteriDolabi/sarkuteriDolabi4.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/sarkuteriDolabi/sarkuteriDolabi5.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/sarkuteriDolabi/sarkuteriDolabi6.webp',
+
+
+
+        ],
+        specs: {
+            modules: ' 937 / 1250 / 1875 / 2500 / 2812 / 3125 / 3750',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Şarküteri Dolabı İçten ve dıştan motorlu soğutma grubu', EN: 'Deli display cabinet with internal & external motor refrigeration unit.' },
+                { TR: 'Aksiyel fanlı soğutma', EN: 'Axial fan cooling.' },
+                { TR: 'Reyon Dolabı Isıtma tava ve hazır yemek versiyonu.', EN: 'Display cabinet with heated tray and hot meal version.' },
+                { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design for ease of use.' },
+                { TR: 'Önden yukarı doğru açılan amortisörlü ve Devirme camlar.', EN: 'Front up-opening gas-spring glass and tilt glass options.' },
+                { TR: 'Şarküteri Dolabı Camları Temperli Kırılmaz Camdır.', EN: 'Tempered shatter-resistant glass.' },
+                { TR: 'Camlar Cnc Cam Kesim Olarak Üretilmektedir.', EN: 'Glass is produced with CNC cutting.' },
+                { TR: 'Paslanmaz çelik zemin, tezgah ve tava sacları.', EN: 'Stainless steel base, counter and tray sheets.' },
+                { TR: 'Gün Işığı ve Beyaz Led aydınlatma.', EN: 'Daylight and white LED lighting.' },
+                { TR: 'Aydınlatma; 40 Watt Şerit Led Armatür ve 40 Watt Bant Armatür Kullanılmaktadır.', EN: 'Lighting uses 40W LED strip fixtures and 40W band fixtures.' },
+                { TR: '40kg / m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Reyon Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+                { TR: 'Kolon tipi açık ayak veya kapalı dekor uygulamaları.', EN: 'Column-type open feet or closed decor base options.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Şarküteri Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Deli display cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+                { TR: 'Amortisörlü Cam ve Devirme Cam Seçenekleri.', EN: 'Gas-spring glass and tilt glass options.' },
+                { TR: 'Depolu Reyon Dolabı Seçeneği.', EN: 'Display cabinet option with storage base.' },
+                { TR: 'Pleksi Sürgü Cam Seçenekleri.', EN: 'Plexiglass sliding panel options.' },
+
+            ]
+        }
+    },
+    {
+        id: 51,
+        name:  { TR: 'Duvar Tipi Peynir Reyonları', EN: 'Wall-Type Cheese Aisles' },
+        category: { TR: 'Duvar Tipi Soğutmalı Reyonlar', EN: 'Wall Type Cooling Aisles' },
+        type: { TR: 'Duvar Tipi Peynir Reyonları', EN: 'Wall-Type Cheese Aisles' },
+        image: '/images/products/duvarTipiSogutmaliReyonlari/duvarTipiPeynirReyonlari/duvarTipiPeynirReyonlari1.webp',
+        thumbnails:[
+            '/images/products/duvarTipiSogutmaliReyonlari/duvarTipiPeynirReyonlari/duvarTipiPeynirReyonlari.webp',
+        ],
+
+        specs: {
+            modules: ' 937 / 1250 / 1875 / 2500 / 2812 / 3125 / 3750',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 52,
+        name:   { TR: 'Duvar Tipi Sütlük Reyonları', EN: 'Wall-Type Dairy Aisles' },
+        category: { TR: 'Duvar Tipi Soğutmalı Reyonlar', EN: 'Wall Type Cooling Aisles' },
+        type:  { TR: 'Duvar Tipi Sütlük Reyonları', EN: 'Wall-Type Dairy Aisles' },
+        image: '/images/products/duvarTipiSogutmaliReyonlari/duvarTipiSutlukReyonlari/duvarTipiSutlukReyonlari.webp',
+        thumbnails:[
+            '/images/products/duvarTipiSogutmaliReyonlari/duvarTipiSutlukReyonlari/duvarTipiSutlukReyonlari.webp',
+
+
+        ],
+        specs: {
+            modules: ' 937 / 1250 / 1875 / 2500 / 2812 / 3125 / 3750',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Sütlük Dolabı Dıştan ve İçten motorlu soğutma', EN: 'Dairy cabinet with internal & external motor refrigeration.' },
+                { TR: 'Aksiyel fanlı soğutma', EN: 'Axial fan cooling.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Alçak baza sayesinde geniş teşhir alanı.', EN: 'Large display area thanks to the low base.' },
+                { TR: 'Yüksek soğutma verimi düşük enerji sarfiyatı.', EN: 'High cooling efficiency with low energy consumption.' },
+                { TR: 'Ayarlanabilir raf sistemi.', EN: 'Adjustable shelving system.' },
+                { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design for ease of use.' },
+                { TR: 'Led aydınlatma.', EN: 'LED lighting.' },
+                { TR: 'Manuel gece perdesi.', EN: 'Manual night curtain.' },
+                { TR: '40kg / m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Sütlük Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Sütlük Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Dairy cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+
+            ]
+        }
+    },
+    {
+        id: 53,
+        name:   { TR: 'Promosyon Dolabı', EN: 'Promotion Cabinet' },
+        category: { TR: 'Duvar Tipi Soğutmalı Reyonlar', EN: 'Wall Type Cooling Aisles' },
+        type:   { TR: 'Promosyon Dolabı', EN: 'Promotion Cabinet' },
+        image: '/images/products/duvarTipiSogutmaliReyonlari/promosyonDolabi/promosyonDolabi3.webp',
+        thumbnails:[
+            '/images/products/duvarTipiSogutmaliReyonlari/promosyonDolabi/promosyonDolabi1.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/promosyonDolabi/promosyonDolabi.webp',
+
+
+
+        ],
+        drawingImage:[
+            '/images/products/duvarTipiSogutmaliReyonlari/promosyonDolabi/promosyonDolabi4.webp',
+            '/images/products/duvarTipiSogutmaliReyonlari/promosyonDolabi/promosyonDolabi2.webp',
+
+
+
+
+        ],
+        specs: {
+            modules: ' 937 / 1250 / 1875 ',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Havuz Dolabı İçten motorlu soğutma', EN: 'Island freezer/cooler cabinet with internal motor refrigeration.' },
+                { TR: 'Aksiyel fanlı soğutma', EN: 'Axial fan cooling.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Alçak baza sayesinde geniş teşhir alanı.', EN: 'Large display area thanks to the low base.' },
+                { TR: 'Yüksek soğutma verimi düşük enerji sarfiyatı.', EN: 'High cooling efficiency with low energy consumption.' },
+                { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design for ease of use.' },
+                { TR: '40kg / m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Promosyon Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
 ];

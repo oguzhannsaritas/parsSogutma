@@ -163,7 +163,7 @@ const translations: Translations = {
 
   // Nested Menu Items
   'menu.refrigerators': { TR: 'BUZDOLAPLARI', EN: 'REFRIGERATORS' },
-  'menu.verticalCooling': { TR: 'Dikey Tip Soğutucu Reyonlar', EN: 'Vertical Type Cooling Aisles' },
+  'menu.verticalCooling': { TR: 'Dikey Tip Soğutuculu Reyonlar', EN: 'Vertical Type Cooling Aisles' },
   'menu.wallCooling': { TR: 'Duvar Tipi Soğutmalı Reyonlar', EN: 'Wall Type Cooling Aisles' },
   'menu.serviceAisles': { TR: 'Servis Reyonları', EN: 'Service Aisles' },
   'menu.productGroups': { TR: 'ÜRÜN GRUPLARI', EN: 'PRODUCT GROUPS' },

@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ChevronRight, ChevronLeft, LayoutGrid, Maximize2, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
@@ -14,6 +14,120 @@ function useIsomorphicLayoutEffect(effect: React.EffectCallback, deps: React.Dep
     const useLE = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useLE(effect, deps);
+}
+
+type HorizontalScrollerProps = {
+    children: ReactNode;
+    ariaLabel: string;
+    wrapperClassName?: string;
+    viewportClassName?: string;
+    contentClassName?: string;
+};
+
+function HorizontalScroller({
+                                children,
+                                ariaLabel,
+                                wrapperClassName = '',
+                                viewportClassName = '',
+                                contentClassName = '',
+                            }: HorizontalScrollerProps) {
+    const viewportRef = useRef<HTMLDivElement | null>(null);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(false);
+
+    const updateScrollState = () => {
+        const el = viewportRef.current;
+        if (!el) return;
+
+        const maxScrollLeft = el.scrollWidth - el.clientWidth;
+        setCanScrollLeft(el.scrollLeft > 4);
+        setCanScrollRight(el.scrollLeft < maxScrollLeft - 4);
+    };
+
+    const scrollByAmount = (dir: -1 | 1) => {
+        const el = viewportRef.current;
+        if (!el) return;
+
+        const amount = Math.max(el.clientWidth * 0.72, 220);
+        el.scrollBy({
+            left: dir * amount,
+            behavior: 'smooth',
+        });
+    };
+
+    useEffect(() => {
+        updateScrollState();
+
+        const el = viewportRef.current;
+        if (!el) return;
+
+        const handleScroll = () => updateScrollState();
+
+        el.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('resize', updateScrollState);
+
+        let resizeObserver: ResizeObserver | null = null;
+
+        if (typeof ResizeObserver !== 'undefined') {
+            resizeObserver = new ResizeObserver(() => updateScrollState());
+            resizeObserver.observe(el);
+        }
+
+        return () => {
+            el.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', updateScrollState);
+            resizeObserver?.disconnect();
+        };
+    }, [children]);
+
+    return (
+        <div className={`relative ${wrapperClassName}`}>
+            <div
+                className={`pointer-events-none absolute inset-y-0 left-0 z-10 w-10 md:w-14 bg-gradient-to-r from-white via-white/95 to-transparent dark:from-[#111827] dark:via-[#111827]/95 transition-opacity duration-300 ${
+                    canScrollLeft ? 'opacity-100' : 'opacity-0'
+                }`}
+            />
+
+            <div
+                className={`pointer-events-none absolute inset-y-0 right-0 z-10 w-10 md:w-14 bg-gradient-to-l from-white via-white/95 to-transparent dark:from-[#111827] dark:via-[#111827]/95 transition-opacity duration-300 ${
+                    canScrollRight ? 'opacity-100' : 'opacity-0'
+                }`}
+            />
+
+            {canScrollLeft && (
+                <button
+                    type="button"
+                    onClick={() => scrollByAmount(-1)}
+                    className="hidden sm:flex absolute left-2 top-1/2 z-20 -translate-y-1/2 h-9 w-9 items-center justify-center rounded-full border border-gray-200/80 dark:border-neutral-700/80 bg-white/95 dark:bg-neutral-900/95 shadow-lg backdrop-blur hover:scale-105 hover:bg-white dark:hover:bg-neutral-800 transition-all"
+                    aria-label="Sola kaydır"
+                    title="Sola kaydır"
+                >
+                    <ChevronLeft size={18} className="text-gray-800 dark:text-white" aria-hidden="true" />
+                </button>
+            )}
+
+            {canScrollRight && (
+                <button
+                    type="button"
+                    onClick={() => scrollByAmount(1)}
+                    className="hidden sm:flex absolute right-2 top-1/2 z-20 -translate-y-1/2 h-9 w-9 items-center justify-center rounded-full border border-gray-200/80 dark:border-neutral-700/80 bg-white/95 dark:bg-neutral-900/95 shadow-lg backdrop-blur hover:scale-105 hover:bg-white dark:hover:bg-neutral-800 transition-all"
+                    aria-label="Sağa kaydır"
+                    title="Sağa kaydır"
+                >
+                    <ChevronRight size={18} className="text-gray-800 dark:text-white" aria-hidden="true" />
+                </button>
+            )}
+
+            <div
+                ref={viewportRef}
+                aria-label={ariaLabel}
+                className={`overflow-x-auto overflow-y-hidden scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden touch-pan-x ${viewportClassName}`}
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+                <div className={`inline-flex min-w-full ${contentClassName}`}>{children}</div>
+            </div>
+        </div>
+    );
 }
 
 export default function ProductDetail() {
@@ -51,7 +165,7 @@ export default function ProductDetail() {
                 <button
                     aria-label="Back to Product"
                     onClick={() => navigate('/products')}
-                    className="mt-4 text-[#009FE3]  hover:underline"
+                    className="mt-4 text-[#009FE3] hover:underline"
                     type="button"
                 >
                     {t('product.notFound')}
@@ -71,6 +185,12 @@ export default function ProductDetail() {
         optionalAccessory: [],
         technicalSpecification: [],
     };
+
+    const tabs = [
+        { id: 'about', label: t('product.tabs.about') },
+        { id: 'drawings', label: t('product.tabs.drawings') },
+        { id: 'options', label: t('product.tabs.options') },
+    ] as const;
 
     const openLightbox = (kind: LightboxKind, index: number) => {
         setLightbox({ kind, index });
@@ -155,9 +275,8 @@ export default function ProductDetail() {
     return (
         <div className="bg-white dark:bg-[#111827] min-h-screen pt-24 pb-16 transition-colors duration-300">
             <div className="container mx-auto px-4 md:px-12">
-                {/* Breadcrumb & Navigation */}
                 <div className="flex flex-col md:flex-row justify-between items-center mb-8 text-xs md:text-sm text-gray-500 dark:text-gray-400">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 flex-wrap">
                         <Link to="/" className="hover:text-black dark:hover:text-white transition-colors">
                             {t('products.breadcrumb.home')}
                         </Link>
@@ -207,13 +326,13 @@ export default function ProductDetail() {
                     {product.name[language]}
                 </h1>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                    <div className="space-y-8">
-                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-black/5">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16">
+                    <div className="space-y-6">
+                        <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-gray-200/70 dark:border-neutral-700/70 bg-gradient-to-br from-gray-50 to-white dark:from-neutral-900 dark:to-neutral-800 shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
                             <img
                                 src={thumbnails[selectedImage]}
                                 alt={product.name[language]}
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-inherit"
                                 width={1200}
                                 height={900}
                                 loading="eager"
@@ -226,70 +345,89 @@ export default function ProductDetail() {
                             <button
                                 type="button"
                                 onClick={() => openLightbox('main', selectedImage)}
-                                className="absolute bottom-4 left-4 p-2 bg-white dark:bg-neutral-700 rounded-full shadow-md hover:bg-gray-100 dark:hover:bg-neutral-600 transition-colors"
+                                className="absolute bottom-4 left-4 p-2.5 bg-white/95 dark:bg-neutral-800/95 border border-gray-200 dark:border-neutral-700 rounded-full shadow-lg hover:scale-105 hover:bg-white dark:hover:bg-neutral-700 transition-all"
                                 aria-label="Görseli büyüt"
                                 title="Görseli büyüt"
                             >
-                                <Maximize2 size={20} className="text-black dark:text-white" aria-hidden="true" />
+                                <Maximize2 size={18} className="text-black dark:text-white" aria-hidden="true" />
                             </button>
                         </div>
 
-                        <div className="flex gap-4 overflow-x-auto pb-2">
-                            {thumbnails.map((thumb, idx) => (
-                                <div
-                                    key={idx}
-                                    onClick={() => setSelectedImage(idx)}
-                                    className={`w-24 h-24 flex-shrink-0 border-2 rounded-md cursor-pointer overflow-hidden ${
-                                        selectedImage === idx
-                                            ? 'border-black dark:border-white'
-                                            : 'border-transparent hover:border-gray-300 dark:hover:border-neutral-600'
-                                    }`}
-                                >
-                                    <img
-                                        src={thumb}
-                                        alt={`Thumbnail ${idx}`}
-                                        className="w-full h-full object-cover p-2"
-                                        width={200}
-                                        height={200}
-                                        loading="lazy"
-                                        decoding="async"
-                                        fetchPriority="low"
-                                        referrerPolicy="no-referrer"
-                                        draggable={false}
-                                    />
-                                </div>
-                            ))}
-                        </div>
+                        <HorizontalScroller
+                            ariaLabel="Ürün küçük görselleri"
+                            wrapperClassName="rounded-2xl border border-gray-200/70 dark:border-neutral-700/70 bg-gray-50/70 dark:bg-neutral-900/50 px-2 py-2"
+                            viewportClassName="px-1"
+                            contentClassName="gap-3"
+                        >
+                            {thumbnails.map((thumb, idx) => {
+                                const active = selectedImage === idx;
+
+                                return (
+                                    <button
+                                        key={`${thumb}-${idx}`}
+                                        type="button"
+                                        onClick={() => setSelectedImage(idx)}
+                                        className={`group relative shrink-0 snap-start w-[84px] h-[84px] md:w-24 md:h-24 rounded-2xl overflow-hidden border transition-all duration-200 ${
+                                            active
+                                                ? 'border-[#009FE3] bg-white dark:bg-neutral-800 shadow-[0_8px_24px_rgba(0,159,227,0.20)] scale-[0.98]'
+                                                : 'border-gray-200 dark:border-neutral-700 bg-white/90 dark:bg-neutral-900 hover:border-gray-300 dark:hover:border-neutral-500 hover:-translate-y-0.5'
+                                        }`}
+                                        aria-label={`Görsel ${idx + 1}`}
+                                        title={`Görsel ${idx + 1}`}
+                                    >
+                                        <img
+                                            src={thumb}
+                                            alt={`Thumbnail ${idx + 1}`}
+                                            className="w-full h-full object-cover p-0 rounded-2xl"
+                                            width={200}
+                                            height={200}
+                                            loading="lazy"
+                                            decoding="async"
+                                            fetchPriority="low"
+                                            referrerPolicy="no-referrer"
+                                            draggable={false}
+                                        />
+
+                                        <div
+                                            className={`absolute inset-0 ring-1 ring-inset rounded-2xl transition-colors ${
+                                                active
+                                                    ? 'ring-[#009FE3]/30'
+                                                    : 'ring-transparent group-hover:ring-gray-300/70 dark:group-hover:ring-neutral-600/70'
+                                            }`}
+                                        />
+                                    </button>
+                                );
+                            })}
+                        </HorizontalScroller>
                     </div>
 
                     <div>
-                        <div className="flex border-b border-gray-200 dark:border-neutral-700 mb-8 overflow-x-auto">
-                            {[
-                                { id: 'about', label: t('product.tabs.about') },
-                                { id: 'drawings', label: t('product.tabs.drawings') },
-                                { id: 'options', label: t('product.tabs.options') },
-                            ].map((tab) => (
-                                <button
-                                    aria-label="info"
-                                    key={tab.id}
-                                    type="button"
-                                    onClick={() => setActiveTab(tab.id as TabKey)}
-                                    className={`px-6 py-4 text-xs md:text-sm font-bold uppercase tracking-wide whitespace-nowrap border-b-2 transition-colors ${
-                                        activeTab === tab.id
-                                            ? 'border-[#009FE3] text-[#005A8E] dark:text-[#38BDF8]'
-                                            : 'border-transparent text-gray-700 dark:text-gray-300 hover:text-[#005A8E] dark:hover:text-[#38BDF8]'
-                                    }`}
-                                >
-                                    {tab.label}
-                                </button>
-                            ))}
+                        <div className="mb-8 rounded-2xl border border-gray-200/80 dark:border-neutral-700/80 bg-gray-50/80 dark:bg-transparent p-1.5">
+                            <div className="grid grid-cols-3 gap-1.5">
+                                {tabs.map((tab) => (
+                                    <button
+                                        key={tab.id}
+                                        type="button"
+                                        onClick={() => setActiveTab(tab.id as TabKey)}
+                                        className={`min-h-[52px] rounded-xl px-3 md:px-4 py-3 text-[11px] md:text-sm font-bold uppercase tracking-[0.08em] transition-all duration-200 ${
+                                            activeTab === tab.id
+                                                ? 'bg-white  text-black   shadow-sm dark:shadow-gray-600 '
+                                                : 'text-gray-700 dark:text-white    hover:bg-gray-100 dark:hover:bg-white/30'
+                                        }`}
+                                        aria-label={tab.label}
+                                        title={tab.label}
+                                    >
+                                        <span className="block leading-tight text-center break-words">{tab.label}</span>
+                                    </button>
+                                ))}
+                            </div>
                         </div>
 
                         <div className="mb-12 min-h-[300px]">
                             {activeTab === 'about' && (
                                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
-                                    <div className="border border-gray-200 dark:border-neutral-700 rounded-sm overflow-hidden">
-                                        <div className="bg-gray-50 px-6 py-3 border-b border-gray-200 dark:border-neutral-700 text-xs md:text-sm font-bold text-gray-700">
+                                    <div className="border border-gray-200 dark:border-neutral-700 rounded-2xl overflow-hidden bg-white dark:bg-transparent">
+                                        <div className="bg-gray-50 dark:text-black px-6 py-3 border-b border-gray-200 dark:border-neutral-700 text-xs md:text-sm font-bold text-gray-700 ">
                                             {t('product.table.modules')}
                                         </div>
 
@@ -313,12 +451,12 @@ export default function ProductDetail() {
                                             </div>
                                         </div>
 
-                                        <div className="bg-gray-50 px-6 py-3 border-y border-gray-200 dark:border-neutral-700 text-xs md:text-sm font-bold text-gray-700 mt-4">
+                                        <div className="bg-gray-50  px-6 py-3 border-y border-gray-200 dark:border-neutral-700 text-xs md:text-sm font-bold text-gray-700 dark:text-black mt-4">
                                             {t('product.table.temp')}
                                         </div>
 
-                                        <div className="divide-y divide-gray-200 dark:divide-neutral-700">
-                                            <div className="grid grid-cols-2">
+                                        <div className="divide-y   ">
+                                            <div className="grid grid-cols-2 ">
                                                 <div className="p-4 text-xs md:text-sm text-gray-600 dark:text-white border-r border-gray-200 dark:border-neutral-700">
                                                     {t('product.table.temp')}
                                                 </div>
@@ -333,10 +471,10 @@ export default function ProductDetail() {
 
                             {activeTab === 'drawings' && (
                                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
-                                    <div className="rounded-lg p-4">
+                                    <div className="rounded-2xl border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 p-4">
                                         {drawingImages.length > 0 ? (
                                             <div className="space-y-4">
-                                                <div className="relative rounded-lg border border-gray-200 dark:border-neutral-700 bg-gray-50 dark:bg-neutral-800 overflow-hidden">
+                                                <div className="relative rounded-2xl border border-gray-200 dark:border-neutral-700 bg-gray-50 dark:bg-neutral-800 overflow-hidden">
                                                     <img
                                                         src={drawingImages[selectedDrawingImage]}
                                                         alt={`${product.name[language]} teknik çizim ${selectedDrawingImage + 1}`}
@@ -362,35 +500,52 @@ export default function ProductDetail() {
                                                 </div>
 
                                                 {drawingImages.length > 1 && (
-                                                    <div className="flex gap-3 overflow-x-auto pb-2">
-                                                        {drawingImages.map((img: string, idx: number) => (
-                                                            <button
-                                                                key={`${img}-${idx}`}
-                                                                type="button"
-                                                                onClick={() => setSelectedDrawingImage(idx)}
-                                                                className={`w-20 h-20 flex-shrink-0 rounded-md overflow-hidden border-2 bg-white dark:bg-neutral-900 ${
-                                                                    selectedDrawingImage === idx
-                                                                        ? 'border-white'
-                                                                        : 'border-transparent hover:border-gray-300 dark:hover:border-neutral-600'
-                                                                }`}
-                                                                aria-label={`Teknik çizim ${idx + 1}`}
-                                                                title={`Teknik çizim ${idx + 1}`}
-                                                            >
-                                                                <img
-                                                                    src={img}
-                                                                    alt={`Teknik çizim thumb ${idx + 1}`}
-                                                                    className="w-full h-full object-cover p-1"
-                                                                    width={200}
-                                                                    height={200}
-                                                                    loading="lazy"
-                                                                    decoding="async"
-                                                                    fetchPriority="low"
-                                                                    referrerPolicy="no-referrer"
-                                                                    draggable={false}
-                                                                />
-                                                            </button>
-                                                        ))}
-                                                    </div>
+                                                    <HorizontalScroller
+                                                        ariaLabel="Teknik çizim küçük görselleri"
+                                                        wrapperClassName="rounded-2xl border border-gray-200/70 dark:border-neutral-700/70 bg-gray-50/70 dark:bg-neutral-900/50 px-2 py-2"
+                                                        viewportClassName="px-1"
+                                                        contentClassName="gap-3"
+                                                    >
+                                                        {drawingImages.map((img: string, idx: number) => {
+                                                            const active = selectedDrawingImage === idx;
+
+                                                            return (
+                                                                <button
+                                                                    key={`${img}-${idx}`}
+                                                                    type="button"
+                                                                    onClick={() => setSelectedDrawingImage(idx)}
+                                                                    className={`group relative shrink-0 snap-start w-[78px] h-[78px] md:w-20 md:h-20 rounded-2xl overflow-hidden border transition-all duration-200 ${
+                                                                        active
+                                                                            ? 'border-[#009FE3] bg-white dark:bg-neutral-800 shadow-[0_8px_24px_rgba(0,159,227,0.20)]'
+                                                                            : 'border-gray-200 dark:border-neutral-700 bg-white/90 dark:bg-neutral-900 hover:border-gray-300 dark:hover:border-neutral-500 hover:-translate-y-0.5'
+                                                                    }`}
+                                                                    aria-label={`Teknik çizim ${idx + 1}`}
+                                                                    title={`Teknik çizim ${idx + 1}`}
+                                                                >
+                                                                    <img
+                                                                        src={img}
+                                                                        alt={`Teknik çizim thumb ${idx + 1}`}
+                                                                        className="w-full h-full object-cover p-0 rounded-2xl"
+                                                                        width={200}
+                                                                        height={200}
+                                                                        loading="lazy"
+                                                                        decoding="async"
+                                                                        fetchPriority="low"
+                                                                        referrerPolicy="no-referrer"
+                                                                        draggable={false}
+                                                                    />
+
+                                                                    <div
+                                                                        className={`absolute inset-0 ring-1 ring-inset rounded-2xl transition-colors ${
+                                                                            active
+                                                                                ? 'ring-[#009FE3]/30'
+                                                                                : 'ring-transparent group-hover:ring-gray-300/70 dark:group-hover:ring-neutral-600/70'
+                                                                        }`}
+                                                                    />
+                                                                </button>
+                                                            );
+                                                        })}
+                                                    </HorizontalScroller>
                                                 )}
                                             </div>
                                         ) : (
@@ -403,7 +558,7 @@ export default function ProductDetail() {
                             )}
 
                             {activeTab === 'options' && (
-                                <div className="text-gray-500 dark:text-white italic p-8 text-center bg-gray-50 dark:bg-neutral-800 rounded-lg">
+                                <div className="text-gray-500 dark:text-white italic p-8 text-center bg-gray-50 dark:bg-neutral-800 rounded-2xl border border-gray-200 dark:border-neutral-700">
                                     Options content coming soon...
                                 </div>
                             )}
