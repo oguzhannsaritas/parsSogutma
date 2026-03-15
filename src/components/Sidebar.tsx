@@ -9,11 +9,31 @@ interface SidebarProps {
     onClose: () => void;
 }
 
+interface SidebarChildItem {
+    label: string;
+    path: string;
+}
+
+interface SidebarSubItem {
+    label: string;
+    path: string;
+    children?: SidebarChildItem[];
+}
+
+interface SidebarMenuItem {
+    label: string;
+    path: string;
+    hasSubmenu: boolean;
+    submenuItems?: SidebarSubItem[];
+}
+
 export default function Sidebar({ isOpen, onClose }: SidebarProps) {
     const { t, language, setLanguage } = useLanguage();
     const navigate = useNavigate();
     const dragControls = useDragControls();
+
     const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
+    const [expandedSubmenus, setExpandedSubmenus] = useState<Record<string, boolean>>({});
     const [searchQuery, setSearchQuery] = useState('');
     const [isMobile, setIsMobile] = useState(false);
 
@@ -37,6 +57,19 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         };
     }, []);
 
+    useEffect(() => {
+        if (!isOpen) {
+            setExpandedMenu(null);
+            setExpandedSubmenus({});
+        }
+    }, [isOpen]);
+
+    const handleClose = () => {
+        setExpandedMenu(null);
+        setExpandedSubmenus({});
+        onClose();
+    };
+
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -44,12 +77,12 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         if (q) {
             const encoded = encodeURIComponent(q);
             navigate(`/products?search=${encoded}&filter=${encoded}`);
-            onClose();
+            handleClose();
             setSearchQuery('');
         }
     };
 
-    const menuItems = [
+    const menuItems: SidebarMenuItem[] = [
         { label: t('menu.home'), path: '/', hasSubmenu: false },
         {
             label: t('menu.corporate'),
@@ -92,7 +125,37 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
     ];
 
     const toggleLanguage = () => setLanguage(language === 'TR' ? 'EN' : 'TR');
-    const toggleSubmenu = (label: string) => setExpandedMenu(expandedMenu === label ? null : label);
+
+    const toggleSubmenu = (label: string) => {
+        setExpandedSubmenus({});
+        setExpandedMenu((prev) => (prev === label ? null : label));
+    };
+
+    const makeNestedKey = (parentLabel: string, subLabel: string) => `${parentLabel}__${subLabel}`;
+
+    const isNestedOpen = (parentLabel: string, subLabel: string) => {
+        return !!expandedSubmenus[makeNestedKey(parentLabel, subLabel)];
+    };
+
+    const toggleNestedSubmenu = (parentLabel: string, subLabel: string) => {
+        const key = makeNestedKey(parentLabel, subLabel);
+
+        setExpandedSubmenus((prev) => {
+            const next: Record<string, boolean> = {};
+
+            Object.keys(prev).forEach((existingKey) => {
+                if (!existingKey.startsWith(`${parentLabel}__`)) {
+                    next[existingKey] = prev[existingKey];
+                }
+            });
+
+            if (!prev[key]) {
+                next[key] = true;
+            }
+
+            return next;
+        });
+    };
 
     const sidebarInitial = isMobile ? { y: '100%', x: 0 } : { x: '-100%', y: 0 };
     const sidebarAnimate = isMobile ? { y: 0, x: 0 } : { x: 0, y: 0 };
@@ -107,7 +170,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.25 }}
-                        onClick={onClose}
+                        onClick={handleClose}
                         className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
                     />
 
@@ -119,7 +182,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                         dragElastic={isMobile ? 0.05 : undefined}
                         onDragEnd={(_, info) => {
                             if (!isMobile) return;
-                            if (info.offset.y > 120 || info.velocity.y > 800) onClose();
+                            if (info.offset.y > 120 || info.velocity.y > 800) handleClose();
                         }}
                         initial={sidebarInitial}
                         animate={sidebarAnimate}
@@ -144,14 +207,18 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                                 <div className="w-full flex justify-center pt-4 pb-2">
                                     <div className="w-12 h-1.5 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
                                 </div>
-                                <div className="flex items-center justify-between px-6 py-4 md:pt-6 md:pb-2 border-b border-gray-100 dark:border-gray-800 md:border-none"
-                                     onPointerDown={(e) => dragControls.start(e)}>
-                            <span className="text-[15px] md:text-xl font-bold  text-gray-900 dark:text-white tracking-tight">
-                                Menu
-                            </span>
+
+                                <div
+                                    className="flex items-center justify-between px-6 py-4 md:pt-6 md:pb-2 border-b border-gray-100 dark:border-gray-800 md:border-none"
+                                    onPointerDown={(e) => dragControls.start(e)}
+                                >
+                                    <span className="text-[15px] md:text-xl font-bold text-gray-900 dark:text-white tracking-tight">
+                                        Menu
+                                    </span>
+
                                     <button
                                         onPointerDown={(e) => e.stopPropagation()}
-                                        onClick={onClose}
+                                        onClick={handleClose}
                                         className="p-2 rounded-full bg-gray-50 dark:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all"
                                         aria-label="Close"
                                     >
@@ -159,25 +226,20 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                                     </button>
                                 </div>
                             </div>
-
-
-                            )}
-
-
+                        )}
 
                         <div className="px-4 py-3 md:py-4 border-b border-gray-100 dark:border-gray-700">
                             <form onSubmit={handleSearch} className="relative group">
                                 <input
                                     type="text"
                                     value={searchQuery}
-
                                     onChange={(e) => setSearchQuery(e.target.value)}
                                     placeholder={t('menu.search')}
-                                    className="w-full bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white text-sm py-3 pl-11 pr-4 rounded-2xl border border-gray-200 dark:border-gray-700 focus:bg-white dark:focus:bg-gray-700 focus:outline-none focus:ring-1  transition-all placeholder-gray-400 dark:placeholder-gray-500"
+                                    className="w-full bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white text-sm py-3 pl-11 pr-4 rounded-2xl border border-gray-200 dark:border-gray-700 focus:bg-white dark:focus:bg-gray-700 focus:outline-none focus:ring-1 transition-all placeholder-gray-400 dark:placeholder-gray-500"
                                 />
                                 <button
                                     type="submit"
-                                    className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500  transition-colors"
+                                    className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 transition-colors"
                                     aria-label="Search"
                                 >
                                     <Search size={18} />
@@ -189,46 +251,54 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                             <div className="space-y-1">
                                 {menuItems.map((item, index) => (
                                     <div key={index} className="flex flex-col">
-                                        <div
-                                            className={`flex items-center justify-between px-4 py-3.5 rounded-2xl cursor-pointer transition-all group ${
-                                                expandedMenu === item.label
-                                                    ? 'bg-gray-100 dark:bg-gray-800'
-                                                    : 'hover:bg-gray-50 dark:hover:bg-gray-800/50'
-                                            }`}
-                                            onClick={() => {
-                                                if (item.hasSubmenu) toggleSubmenu(item.label);
-                                                else onClose();
-                                            }}
-                                        >
-                                            <Link
-                                                to={item.path}
-                                                onClick={(e) => {
-                                                    if (item.hasSubmenu) e.preventDefault();
-                                                }}
-                                                className={`flex-1 text-[13px] md:text-sm font-semibold tracking-wide transition-colors ${
+                                        {item.hasSubmenu ? (
+                                            <button
+                                                type="button"
+                                                onClick={() => toggleSubmenu(item.label)}
+                                                className={`flex items-center justify-between w-full px-4 py-3.5 rounded-2xl transition-all group text-left ${
                                                     expandedMenu === item.label
-                                                        ? 'text-[#009FE3] dark:text-[#009FE3]'
-                                                        : 'text-gray-700 dark:text-gray-200 group-hover:text-black dark:group-hover:text-white'
+                                                        ? 'bg-gray-100 dark:bg-gray-800'
+                                                        : 'hover:bg-gray-50 dark:hover:bg-gray-800/50'
                                                 }`}
                                             >
-                                                {item.label}
-                                            </Link>
+                                                <span
+                                                    className={`flex-1 text-[13px] md:text-sm font-semibold tracking-wide transition-colors ${
+                                                        expandedMenu === item.label
+                                                            ? 'text-[#009FE3] dark:text-[#009FE3]'
+                                                            : 'text-gray-700 dark:text-gray-200 group-hover:text-black dark:group-hover:text-white'
+                                                    }`}
+                                                >
+                                                    {item.label}
+                                                </span>
 
-                                            {item.hasSubmenu && (
                                                 <div
                                                     className={`flex items-center justify-center w-6 h-6 rounded-full transition-colors ${
-                                                        expandedMenu === item.label ? 'bg-white dark:bg-gray-700 shadow-sm' : 'bg-transparent'
+                                                        expandedMenu === item.label
+                                                            ? 'bg-white dark:bg-gray-700 shadow-sm'
+                                                            : 'bg-transparent'
                                                     }`}
                                                 >
                                                     <ChevronRight
                                                         size={16}
                                                         className={`text-gray-400 dark:text-gray-500 transition-transform duration-300 ${
-                                                            expandedMenu === item.label ? 'rotate-90 text-[#009FE3] dark:text-[#009FE3]' : ''
+                                                            expandedMenu === item.label
+                                                                ? 'rotate-90 text-[#009FE3] dark:text-[#009FE3]'
+                                                                : ''
                                                         }`}
                                                     />
                                                 </div>
-                                            )}
-                                        </div>
+                                            </button>
+                                        ) : (
+                                            <Link
+                                                to={item.path}
+                                                onClick={handleClose}
+                                                className="flex items-center justify-between w-full px-4 py-3.5 rounded-2xl transition-all group text-left hover:bg-gray-50 dark:hover:bg-gray-800/50"
+                                            >
+                                                <span className="flex-1 text-[13px] md:text-sm font-semibold tracking-wide text-gray-700 dark:text-gray-200 group-hover:text-black dark:group-hover:text-white transition-colors">
+                                                    {item.label}
+                                                </span>
+                                            </Link>
+                                        )}
 
                                         <AnimatePresence>
                                             {item.hasSubmenu && expandedMenu === item.label && item.submenuItems && (
@@ -240,47 +310,82 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                                                     className="overflow-hidden"
                                                 >
                                                     <div className="ml-6 pl-4 border-l-2 border-gray-100 dark:border-gray-700 py-2 space-y-1 mt-1">
-                                                        {item.submenuItems.map((subItem, subIndex) => (
-                                                            <div key={subIndex} className="flex flex-col">
-                                                                <div
-                                                                    className="flex items-center justify-between px-4 py-2.5 rounded-xl cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group/sub"
-                                                                    onClick={(e) => {
-                                                                        if (subItem.children) {
-                                                                            e.preventDefault();
-                                                                            e.stopPropagation();
-                                                                        } else {
-                                                                            onClose();
-                                                                        }
-                                                                    }}
-                                                                >
-                                                                    <Link
-                                                                        to={subItem.path}
-                                                                        onClick={(e) => {
-                                                                            if (subItem.children) e.preventDefault();
-                                                                            else onClose();
-                                                                        }}
-                                                                        className="text-[13px] md:text-sm font-bold text-gray-600 dark:text-gray-300 group-hover/sub:text-black dark:group-hover/sub:text-white transition-colors flex-1"
-                                                                    >
-                                                                        {subItem.label}
-                                                                    </Link>
-                                                                </div>
+                                                        {item.submenuItems.map((subItem, subIndex) => {
+                                                            const nestedOpen = isNestedOpen(item.label, subItem.label);
 
-                                                                {subItem.children && (
-                                                                    <div className="ml-4 pl-3 border-l-2 border-gray-100 dark:border-gray-700 space-y-0.5 mt-1 mb-2">
-                                                                        {subItem.children.map((child, childIdx) => (
-                                                                            <Link
-                                                                                key={childIdx}
-                                                                                to={child.path}
-                                                                                onClick={onClose}
-                                                                                className="block px-4 py-2 text-xs font-medium text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800/50 rounded-lg transition-all"
+                                                            if (subItem.children) {
+                                                                return (
+                                                                    <div key={subIndex} className="flex flex-col">
+                                                                        <button
+                                                                            type="button"
+                                                                            onClick={() => toggleNestedSubmenu(item.label, subItem.label)}
+                                                                            className={`flex items-center justify-between w-full px-4 py-2.5 rounded-xl transition-colors group/sub text-left ${
+                                                                                nestedOpen
+                                                                                    ? 'bg-gray-50 dark:bg-gray-800/60'
+                                                                                    : 'hover:bg-gray-50 dark:hover:bg-gray-800/50'
+                                                                            }`}
+                                                                        >
+                                                                            <span
+                                                                                className={`text-[13px] md:text-sm font-bold transition-colors flex-1 ${
+                                                                                    nestedOpen
+                                                                                        ? 'text-[#009FE3] dark:text-[#009FE3]'
+                                                                                        : 'text-gray-600 dark:text-gray-300 group-hover/sub:text-black dark:group-hover/sub:text-white'
+                                                                                }`}
                                                                             >
-                                                                                {child.label}
-                                                                            </Link>
-                                                                        ))}
+                                                                                {subItem.label}
+                                                                            </span>
+
+                                                                            <ChevronRight
+                                                                                size={15}
+                                                                                className={`transition-transform duration-300 ${
+                                                                                    nestedOpen
+                                                                                        ? 'rotate-90 text-[#009FE3]'
+                                                                                        : 'text-gray-400 dark:text-gray-500'
+                                                                                }`}
+                                                                            />
+                                                                        </button>
+
+                                                                        <AnimatePresence>
+                                                                            {nestedOpen && (
+                                                                                <motion.div
+                                                                                    initial={{ height: 0, opacity: 0 }}
+                                                                                    animate={{ height: 'auto', opacity: 1 }}
+                                                                                    exit={{ height: 0, opacity: 0 }}
+                                                                                    transition={{ duration: 0.2 }}
+                                                                                    className="overflow-hidden"
+                                                                                >
+                                                                                    <div className="ml-4 pl-3 border-l-2 border-gray-100 dark:border-gray-700 space-y-0.5 mt-1 mb-2">
+                                                                                        {subItem.children.map((child, childIdx) => (
+                                                                                            <Link
+                                                                                                key={childIdx}
+                                                                                                to={child.path}
+                                                                                                onClick={handleClose}
+                                                                                                className="block px-4 py-2 text-xs font-medium text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800/50 rounded-lg transition-all"
+                                                                                            >
+                                                                                                {child.label}
+                                                                                            </Link>
+                                                                                        ))}
+                                                                                    </div>
+                                                                                </motion.div>
+                                                                            )}
+                                                                        </AnimatePresence>
                                                                     </div>
-                                                                )}
-                                                            </div>
-                                                        ))}
+                                                                );
+                                                            }
+
+                                                            return (
+                                                                <Link
+                                                                    key={subIndex}
+                                                                    to={subItem.path}
+                                                                    onClick={handleClose}
+                                                                    className="flex items-center justify-between px-4 py-2.5 rounded-xl cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group/sub"
+                                                                >
+                                                                    <span className="text-[13px] md:text-sm font-bold text-gray-600 dark:text-gray-300 group-hover/sub:text-black dark:group-hover/sub:text-white transition-colors flex-1">
+                                                                        {subItem.label}
+                                                                    </span>
+                                                                </Link>
+                                                            );
+                                                        })}
                                                     </div>
                                                 </motion.div>
                                             )}
@@ -300,24 +405,30 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                                         <Globe size={16} className="text-[#009FE3]" />
                                     </div>
                                     <span className="text-sm font-bold text-gray-700 dark:text-white">
-                    {language === 'TR' ? 'Türkçe' : 'English'}
-                  </span>
+                                        {language === 'TR' ? 'Türkçe' : 'English'}
+                                    </span>
                                 </div>
+
                                 <div className="flex items-center gap-1 bg-gray-100 dark:bg-gray-900 p-1 rounded-xl">
-                  <span
-                      className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-colors ${
-                          language === 'TR' ? 'bg-[#009FE3] text-white shadow-sm' : 'text-gray-500 dark:text-gray-400'
-                      }`}
-                  >
-                    TR
-                  </span>
                                     <span
                                         className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-colors ${
-                                            language === 'EN' ? 'bg-[#009FE3] text-white shadow-sm' : 'text-gray-500 dark:text-gray-400'
+                                            language === 'TR'
+                                                ? 'bg-[#009FE3] text-white shadow-sm'
+                                                : 'text-gray-500 dark:text-gray-400'
                                         }`}
                                     >
-                    EN
-                  </span>
+                                        TR
+                                    </span>
+
+                                    <span
+                                        className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-colors ${
+                                            language === 'EN'
+                                                ? 'bg-[#009FE3] text-white shadow-sm'
+                                                : 'text-gray-500 dark:text-gray-400'
+                                        }`}
+                                    >
+                                        EN
+                                    </span>
                                 </div>
                             </button>
                         </div>
