@@ -4060,6 +4060,64 @@ export const products: Product[] = [
     },
     {
         id: 90,
+        name:  { TR: 'Manav Tezgahı', EN: 'Produce Counter' },
+        category:  { TR: 'Market Ekipmanları', EN: 'Market Equipment' },
+        type:   { TR: 'Manav Tezgahı', EN: 'Produce Counter' },
+        image: '/images/products/marketEkipmanlari/manavTezgahi/manavTezgahix.webp',
+        thumbnails:[
+            '/images/products/marketEkipmanlari/manavTezgahi/manavTezgahi1.webp',
+            '/images/products/marketEkipmanlari/manavTezgahi/manavTezgahi2.webp',
+
+
+        ],
+        drawingImage:[
+            '/images/products/marketEkipmanlari/manavTezgahi/manavTezgahi.webp',
+
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Manav dükkanları için yapılmış mimari çalışmalara manav dizaynı denir.', EN: 'Architectural projects designed for greengrocer shops are called greengrocer design.' },
+                { TR: 'Günümüzde hele de discount marketlerin arması ve virüslerin hayatımıza girmesiyle beraber bütün gıda sektörü kendisini çek-up yapma fırsatı bulmuştur.', EN: 'Today, especially with the rise of discount markets and viruses entering our lives, the entire food sector has had the opportunity to reassess itself.' },
+                { TR: 'Artık eski plastik kasalar üzerinde yada brandalarla satılan meyve ve sebzeler oldukça riskli ve dikkat edilmesi gereken bir husustur.', EN: 'Fruits and vegetables sold on old plastic crates or under tarps are now quite risky and require attention.' },
+                { TR: 'Hatta bu konu insan sağlığını tehlikeye attığı için kamusal bir sorun olarak ta değerlendirilebilecek bir konudur.', EN: 'In fact, since it endangers public health, this can also be considered a public issue.' },
+                { TR: 'Öncelikle bir bütçe planı yapmakla başlamak gerekir.', EN: 'First, it is necessary to start with a budget plan.' },
+                { TR: 'Bu süreç sonrasında konusunda tecrübeli kişilerle karşılıklı görüşerek yapılacak iş planı oluşturulur.', EN: 'After this, a work plan is created through mutual discussions with experienced professionals.' },
+                { TR: 'Gerekirse projenin durumuna göre keşifte istenebilir.', EN: 'If needed, an on-site survey can be requested depending on the project.' },
+                { TR: 'Sonrasında bir mimari plan oluşturulur.', EN: 'Then, an architectural plan is prepared.' },
+                { TR: 'Önceki yapıdaki kapasite bilgisi alınmalıdır.', EN: 'Capacity information from the previous setup should be obtained.' },
+                { TR: 'Yani kaç metre ürün sergilendiği bilgisine sahip olunmalıdır.', EN: 'In other words, you should know how many meters of product display area existed.' },
+                { TR: 'Yapılacak yeni dizaynda aynı en az kapasite sağlanmalıdır.', EN: 'The new design should provide at least the same capacity.' },
+                { TR: 'Yeni dizaynda hijyen ve doğal hava akışı iyi planlanmalıdır.', EN: 'Hygiene and natural airflow should be well planned in the new design.' },
+                { TR: 'Bunun için ürünlerin yapısı ve tercih sebepleri de dikkate alınmalıdır.', EN: 'For this, the nature of the products and the reasons customers choose them should also be considered.' },
+                { TR: 'Yani bir yeşillik tezgahına yapılamaz fakat geri kalan çoğu alanlarda doğal hava akış unsuru uygulanabilir?', EN: 'For example, it may not be suitable for a greens stand, but natural airflow elements can be applied in most other areas.' },
+                { TR: 'Yapılacak yeni manav dükkanı dizaynı hedef kitlesi iyi belirlenmelidir.', EN: 'The target audience of the new greengrocer shop design should be clearly defined.' },
+                { TR: 'Bir yatırım söz konusudur.', EN: 'This is an investment.' },
+                { TR: 'Yalnız fiyatı baz alıp sıfır ürün koymak için manav dizaynı yapmak yanlıştır.', EN: 'It is wrong to design a shop solely around price and simply fill it with basic products.' },
+                { TR: 'Çalışmanın bir anlamı olmalıdır.', EN: 'The work should have a clear purpose.' },
+                { TR: 'Sektördeki bazı uygulama işletmeleri yalnız değişiklik kavramını kullanarak müşteriye uygun gibi gelen seçenekler sunmaktadırlar.', EN: 'Some businesses in the sector offer options that seem suitable to customers by focusing only on the idea of “change”.' },
+                { TR: 'Fakat bir katma değer sağlamayan bir çalışma yapmaktadırlar.', EN: 'However, they deliver work that adds no real value.' },
+                { TR: '(Japon ‘ların sözü; eğer yapılan iş katma değerli değilse onun için harcanan zaman israftır.)', EN: '(As a Japanese saying goes: if the work is not value-adding, the time spent on it is waste.)' },
+                { TR: 'Geliştirilebilir ve değiştirilebilir bir tasarım olmalıdır.', EN: 'The design should be improvable and adaptable.' },
+                { TR: 'Aslında içerisinde mühendislik olmalıdır.', EN: 'In fact, it should include engineering.' },
+                { TR: 'Tasarım ve teknik tecrübeler olmalıdır.', EN: 'It should be backed by design and technical experience.' },
+                { TR: 'Çalışmış olduğumuz bütün sektörlerde mutlaka bir mühendislik vardır.', EN: 'In every sector we work in, there is always engineering involved.' },
+                { TR: 'Mesela manav dükkanlarında sattığımız domates.', EN: 'For example, the tomatoes sold in greengrocer shops.' },
+                { TR: 'Çiftçi onu bir traktörle ekecek.', EN: 'The farmer plants them with a tractor.' },
+                { TR: 'Bir araçla hale taşıyacak gibi….', EN: 'Then transports them to the wholesale market by vehicle, and so on…' },
+                { TR: 'Biz bu kadar mühendislik çalışmalarından faydalanırken yapmış olduğumuz ticaretimizde mühendisliği göz ardı etmemiz söz konusu değildir.', EN: 'Since we benefit from so much engineering, we cannot ignore engineering in our own business.' },
+                { TR: 'Dolayısıyla basit , sıradan ve her türlü bilinçten uzak bir üründen fazla bir şey beklenmeyeceği bilinmelidir.', EN: 'Therefore, it should be understood that you cannot expect much from a simple, ordinary product made without real awareness.' },
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 91,
         name:  { TR: 'Zeytinlik ve Reçetelik Dolabı', EN: 'Olive & Condiments Cabinet' },
         category:  { TR: 'Market Ekipmanları', EN: 'Market Equipment' },
         type:   { TR: 'Zeytinlik ve Reçetelik Dolabı', EN: 'Olive & Condiments Cabinet' },
@@ -4099,7 +4157,7 @@ export const products: Product[] = [
         }
     },
     {
-        id: 91,
+        id: 92,
         name: { TR: 'Endüstriyel Soğutma Sistemleri', EN: 'Industrial Refrigeration Systems' },
         category:  { TR: 'Soğutma Sistemleri', EN: 'Cooling Systems' },
         type:  { TR: 'Endüstriyel Soğutma Sistemleri', EN: 'Industrial Refrigeration Systems' },
@@ -4145,7 +4203,7 @@ export const products: Product[] = [
         }
     },
     {
-        id: 92,
+        id: 93,
         name: { TR: 'Monoblok Soğutma Sistemleri', EN: 'Monoblock Refrigeration Systems' },
         category:  { TR: 'Soğutma Sistemleri', EN: 'Cooling Systems' },
         type:  { TR: 'Monoblok Soğutma Sistemleri', EN: 'Monoblock Refrigeration Systems' },
@@ -4202,7 +4260,7 @@ export const products: Product[] = [
         }
     },
     {
-        id: 93,
+        id: 94,
         name: { TR: 'Split Soğutma Grubu', EN: 'Split Refrigeration Unit' },
         category:  { TR: 'Soğutma Sistemleri', EN: 'Cooling Systems' },
         type: { TR: 'Split Soğutma Grubu', EN: 'Split Refrigeration Unit' },
@@ -4261,7 +4319,7 @@ export const products: Product[] = [
         }
     },
     {
-        id: 94,
+        id: 95,
         name: { TR: 'Merkezi Soğutma Sistemleri', EN: 'Central Refrigeration Systems' },
         category:  { TR: 'Soğutma Sistemleri', EN: 'Cooling Systems' },
         type: { TR: 'Merkezi Soğutma Sistemleri', EN: 'Central Refrigeration Systems' },
@@ -4299,7 +4357,7 @@ export const products: Product[] = [
         }
     },
     {
-        id: 95,
+        id: 96,
         name: { TR: 'Bireysel Soğutma Grupları', EN: 'Individual Refrigeration Units' },
         category:  { TR: 'Soğutma Sistemleri', EN: 'Cooling Systems' },
         type: { TR: 'Bireysel Soğutma Grupları', EN: 'Individual Refrigeration Units' },
@@ -4333,7 +4391,7 @@ export const products: Product[] = [
         }
     },
     {
-        id: 96,
+        id: 97,
         name: { TR: 'Soğuk Hava Deposu', EN: 'Cold Storage Room' },
         category:  { TR: 'Soğuk Hava Depoları', EN: 'Cold Storage' },
         type: { TR: 'Soğuk Hava Deposu', EN: 'Cold Storage Room' },
@@ -4377,7 +4435,7 @@ export const products: Product[] = [
         }
     },
     {
-        id: 97,
+        id: 98,
         name: { TR: '-18 Derece Soğuk Hava Deposu', EN: '-18°C Cold Storage Room' },
         category:  { TR: 'Soğuk Hava Depoları', EN: 'Cold Storage' },
         type: { TR: '-18 Derece Soğuk Hava Deposu', EN: '-18°C Cold Storage Room' },
@@ -4419,7 +4477,7 @@ export const products: Product[] = [
         }
     },
     {
-        id: 98,
+        id: 99,
         name:  { TR: 'PVC Şerit Hava Perdesi', EN: 'PVC Strip Air Curtain' },
         category:  { TR: 'Soğuk Hava Depoları', EN: 'Cold Storage' },
         type:  { TR: 'PVC Şerit Hava Perdesi', EN: 'PVC Strip Air Curtain' },
@@ -4471,7 +4529,7 @@ export const products: Product[] = [
         }
     },
     {
-        id: 99,
+        id: 100,
         name:   { TR: 'PVC Perde', EN: 'PVC Curtain' },
         category:  { TR: 'Soğuk Hava Depoları', EN: 'Cold Storage' },
         type:   { TR: 'PVC Perde', EN: 'PVC Curtain' },
@@ -4523,7 +4581,7 @@ export const products: Product[] = [
         }
     },
     {
-        id: 100,
+        id: 101,
         name:   { TR: 'PVC Perde Sistemleri', EN: 'PVC Curtain Systems' },
         category:  { TR: 'Soğuk Hava Depoları', EN: 'Cold Storage' },
         type:  { TR: 'PVC Perde Sistemleri', EN: 'PVC Curtain Systems' },
@@ -4575,7 +4633,7 @@ export const products: Product[] = [
         }
     },
     {
-        id: 101,
+        id: 102,
         name:   { TR: 'Soğuk Oda Panelleri', EN: 'Cold Room Panels' },
         category:  { TR: 'Soğuk Hava Depoları', EN: 'Cold Storage' },
         type:  { TR: 'Soğuk Oda Panelleri', EN: 'Cold Room Panels' },
@@ -4617,7 +4675,7 @@ export const products: Product[] = [
         }
     },
     {
-        id: 102,
+        id: 103,
         name:   { TR: 'Soğuk Hava Deposu PVC Perde Sistemleri', EN: 'Cold Storage PVC Curtain Systems'},
         category:  { TR: 'Soğuk Hava Depoları', EN: 'Cold Storage' },
         type:  { TR: 'Soğuk Hava Deposu PVC Perde Sistemleri', EN: 'Cold Storage PVC Curtain Systems'},
@@ -4670,7 +4728,7 @@ export const products: Product[] = [
         }
     },
     {
-        id: 103,
+        id: 104,
         name:   { TR: 'Soğuk Hava Deposu Aksesuarlari', EN: 'Cold Storage and Accessories'},
         category:  { TR: 'Soğuk Hava Depoları', EN: 'Cold Storage' },
         type:  { TR: 'Soğuk Hava Deposu Aksesuarlari', EN: 'Cold Storage and Accessories'},
@@ -4719,7 +4777,7 @@ export const products: Product[] = [
         }
     },
     {
-        id: 104,
+        id: 105,
         name:   { TR: 'Menteşeli Soğuk Hava Deposu Kapısı', EN: 'Hinged Cold Room Door' },
         category:  { TR: 'Soğuk Hava Depoları', EN: 'Cold Storage' },
         type: { TR: 'Menteşeli Soğuk Hava Deposu Kapısı', EN: 'Hinged Cold Room Door' },
@@ -4763,7 +4821,7 @@ export const products: Product[] = [
         }
     },
     {
-        id: 105,
+        id: 106,
         name:   { TR: 'Sürgülü Soğuk Hava Deposu Kapısı', EN: 'Sliding Cold Room Door' },
         category:  { TR: 'Soğuk Hava Depoları', EN: 'Cold Storage' },
         type: { TR: 'Sürgülü Soğuk Hava Deposu Kapısı', EN: 'Sliding Cold Room Door' },

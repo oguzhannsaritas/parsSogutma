@@ -12,6 +12,14 @@ const clients = [
     { name: "Çağrı", image: "/images/refences/peynircibaba.webp" },
     { name: "Bizim", image: "/images/refences/sa.webp" },
     { name: "CarrefourSA", image: "/images/refences/sok.webp" },
+    { name: "TR TARIM KREDİ KOOPERATIF", image: "/images/refences/koperatif.webp" },
+    { name: "KIPA", image: "/images/refences/kipa.webp" },
+    { name: "PINAR", image: "/images/refences/pinar.webp" },
+    { name: "ERPILIC", image: "/images/refences/erpilic.webp" },
+
+
+
+
 ];
 
 export const projects = [
@@ -190,7 +198,7 @@ export default function References() {
                             <img
                                 src={client.image}
                                 alt={client.name}
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-contain"
                                 referrerPolicy="no-referrer"
                                 width={300}
                                 height={200}

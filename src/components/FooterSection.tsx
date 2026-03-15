@@ -168,12 +168,16 @@ export default function FooterSection() {
                                     {t('pars.footer.products')}
                                 </h3>
                                 <ul className="space-y-4 text-gray-300 text-xs lg:text-sm font-medium">
-                                    <li><Link to="/products" className="hover:text-white transition-colors">{t('pars.footer.deepFreezers')}</Link></li>
-                                    <li><Link to="/products" className="hover:text-white transition-colors">{t('pars.footer.deepFreezers')}</Link></li>
-                                    <li><Link to="/products" className="hover:text-white transition-colors">{t('pars.footer.cake')}</Link></li>
-                                    <li><Link to="/products" className="hover:text-white transition-colors">{t('pars.footer.promotions')}</Link></li>
-                                    <li><Link to="/products" className="hover:text-white transition-colors">{t('pars.footer.semiVertical')}</Link></li>
-                                    <li><Link to="/products" className="hover:text-white transition-colors">{t('pars.footer.horizontal')}</Link></li>
+                                    <li><Link to="/products?cat=vertical" className="hover:text-white transition-colors">{t('pars.footer.verticalTypeRefrigeratedCounters')}</Link></li>
+                                    <li><Link to="/products?cat=wall" className="hover:text-white transition-colors">{t('pars.footer.wallMountedRefrigeratedCounters')}</Link></li>
+                                    <li><Link to="/products?cat=service" className="hover:text-white transition-colors">{t('pars.footer.serviceCounters')}</Link></li>
+                                    <li><Link to="/products?cat=bakery" className="hover:text-white transition-colors">{t('pars.footer.bakeryProducts')}</Link></li>
+                                    <li><Link to="/products?cat=kitchen" className="hover:text-white transition-colors">{t('pars.footer.industrialKitchenEquipment')}</Link></li>
+                                    <li><Link to="/products?cat=market" className="hover:text-white transition-colors">{t('pars.footer.marketEquipment')}</Link></li>
+                                    <li><Link to="/products?cat=coldStorage" className="hover:text-white transition-colors">{t('pars.footer.coldStorage')}</Link></li>
+                                    <li><Link to="/products?cat=coolingSystems'" className="hover:text-white transition-colors">{t('pars.footer.coolingSystems')}</Link></li>
+
+
                                 </ul>
                             </div>
 
@@ -191,12 +195,15 @@ export default function FooterSection() {
                                     <div className="overflow-hidden">
                                         <div>
                                             <ul className="space-y-3 text-gray-300 text-sm font-medium">
-                                                <li><Link to="/products" className="block py-1 hover:text-white transition-colors">{t('pars.footer.deepFreezers')}</Link></li>
-                                                <li><Link to="/products" className="block py-1 hover:text-white transition-colors">{t('pars.footer.vertical')}</Link></li>
-                                                <li><Link to="/products" className="block py-1 hover:text-white transition-colors">{t('pars.footer.cake')}</Link></li>
-                                                <li><Link to="/products" className="block py-1 hover:text-white transition-colors">{t('pars.footer.promotions')}</Link></li>
-                                                <li><Link to="/products" className="block py-1 hover:text-white transition-colors">{t('pars.footer.semiVertical')}</Link></li>
-                                                <li><Link to="/products" className="block py-1 hover:text-white transition-colors">{t('pars.footer.horizontal')}</Link></li>
+                                                <li><Link to="/products?cat=vertical" className="block py-1 hover:text-white transition-colors">{t('pars.footer.verticalTypeRefrigeratedCounters')}</Link></li>
+                                                <li><Link to="/products?cat=wall" className="block py-1 hover:text-white transition-colors">{t('pars.footer.wallMountedRefrigeratedCounters')}</Link></li>
+                                                <li><Link to="/products?cat=service" className="block py-1 hover:text-white transition-colors">{t('pars.footer.serviceCounters')}</Link></li>
+                                                <li><Link to="/products?cat=bakery" className="block py-1 hover:text-white transition-colors">{t('pars.footer.bakeryProducts')}</Link></li>
+                                                <li><Link to="/products?cat=kitchen" className="block py-1 hover:text-white transition-colors">{t('pars.footer.industrialKitchenEquipment')}</Link></li>
+                                                <li><Link to="/products?cat=market" className="block py-1 hover:text-white transition-colors">{t('pars.footer.marketEquipment')}</Link></li>
+                                                <li><Link to="/products?cat=coldStorage" className="block py-1 hover:text-white transition-colors">{t('pars.footer.coldStorage')}</Link></li>
+                                                <li><Link to="/products?cat=coolingSystems" className="block py-1 hover:text-white transition-colors">{t('pars.footer.coolingSystems')}</Link></li>
+
                                             </ul>
                                         </div>
                                     </div>

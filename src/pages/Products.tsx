@@ -664,6 +664,27 @@ export default function Products() {
     }, [draftFilters, searchQuery, urlFilter, urlCat, language]);
 
     const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+
+    const visiblePages = useMemo(() => {
+        const maxVisiblePages = 5;
+
+        if (totalPages <= maxVisiblePages) {
+            return Array.from({ length: totalPages }, (_, i) => i + 1);
+        }
+
+        const half = Math.floor(maxVisiblePages / 2);
+
+        let startPage = Math.max(currentPage - half, 1);
+        let endPage = startPage + maxVisiblePages - 1;
+
+        if (endPage > totalPages) {
+            endPage = totalPages;
+            startPage = Math.max(endPage - maxVisiblePages + 1, 1);
+        }
+
+        return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
+    }, [currentPage, totalPages]);
+
     const paginatedProducts = useMemo(() => {
         const startIndex = (currentPage - 1) * itemsPerPage;
         return filteredProducts.slice(startIndex, startIndex + itemsPerPage);
@@ -1076,9 +1097,26 @@ export default function Products() {
                                 </button>
 
                                 <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 p-1 rounded-full">
-                                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                                    {visiblePages[0] > 1 && (
+                                        <>
+                                            <button
+                                                aria-label="Page 1"
+                                                onClick={() => handlePageChange(1)}
+                                                className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 text-xs sm:text-sm md:text-base rounded-full flex items-center justify-center font-medium transition-all duration-300 text-gray-600 dark:text-gray-400 hover:bg-white dark:hover:bg-neutral-700 hover:text-[#009FE3] dark:hover:text-white hover:shadow-sm"
+                                                type="button"
+                                            >
+                                                1
+                                            </button>
+
+                                            {visiblePages[0] > 2 && (
+                                                <span className="px-1 text-gray-400 dark:text-gray-500 select-none">...</span>
+                                            )}
+                                        </>
+                                    )}
+
+                                    {visiblePages.map((page) => (
                                         <button
-                                            aria-label="Now Page"
+                                            aria-label={`Page ${page}`}
                                             key={page}
                                             onClick={() => handlePageChange(page)}
                                             className={`w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 text-xs sm:text-sm md:text-base rounded-full flex items-center justify-center font-medium transition-all duration-300 ${
@@ -1091,6 +1129,23 @@ export default function Products() {
                                             {page}
                                         </button>
                                     ))}
+
+                                    {visiblePages[visiblePages.length - 1] < totalPages && (
+                                        <>
+                                            {visiblePages[visiblePages.length - 1] < totalPages - 1 && (
+                                                <span className="px-1 text-gray-400 dark:text-gray-500 select-none">...</span>
+                                            )}
+
+                                            <button
+                                                aria-label={`Page ${totalPages}`}
+                                                onClick={() => handlePageChange(totalPages)}
+                                                className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 text-xs sm:text-sm md:text-base rounded-full flex items-center justify-center font-medium transition-all duration-300 text-gray-600 dark:text-gray-400 hover:bg-white dark:hover:bg-neutral-700 hover:text-[#009FE3] dark:hover:text-white hover:shadow-sm"
+                                                type="button"
+                                            >
+                                                {totalPages}
+                                            </button>
+                                        </>
+                                    )}
                                 </div>
 
                                 <button
