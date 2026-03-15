@@ -189,7 +189,7 @@ export default function ProductDetail() {
     const tabs = [
         { id: 'about', label: t('product.tabs.about') },
         { id: 'drawings', label: t('product.tabs.drawings') },
-        { id: 'options', label: t('product.tabs.options') },
+
     ] as const;
 
     const openLightbox = (kind: LightboxKind, index: number) => {
@@ -403,21 +403,21 @@ export default function ProductDetail() {
 
                     <div>
                         <div className="mb-8 rounded-2xl border border-gray-200/80 dark:border-neutral-700/80 bg-gray-50/80 dark:bg-transparent p-1.5">
-                            <div className="grid grid-cols-3 gap-1.5">
+                            <div className="grid grid-cols-2 gap-1.5">
                                 {tabs.map((tab) => (
                                     <button
                                         key={tab.id}
                                         type="button"
                                         onClick={() => setActiveTab(tab.id as TabKey)}
-                                        className={`min-h-[52px] rounded-xl px-3 md:px-4 py-3 text-[11px] md:text-sm font-bold uppercase tracking-[0.08em] transition-all duration-200 ${
+                                        className={` min-h-[52px] rounded-xl px-3 md:px-4 py-3 text-[10px] md:text-sm font-bold uppercase tracking-[0.08em] transition-all duration-200 ${
                                             activeTab === tab.id
-                                                ? 'bg-white  text-black   shadow-sm dark:shadow-gray-600 '
+                                                ? 'bg-white  text-black    shadow-sm dark:shadow-gray-600 '
                                                 : 'text-gray-700 dark:text-white    hover:bg-gray-100 dark:hover:bg-white/30'
                                         }`}
                                         aria-label={tab.label}
                                         title={tab.label}
                                     >
-                                        <span className="block leading-tight text-center break-words">{tab.label}</span>
+                                        <span className="block leading-tight   text-center break-words">{tab.label}</span>
                                     </button>
                                 ))}
                             </div>

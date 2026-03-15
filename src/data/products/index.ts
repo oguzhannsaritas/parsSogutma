@@ -2406,4 +2406,1569 @@ export const products: Product[] = [
             ]
         }
     },
+    {
+        id: 54,
+        name:   { TR: 'Pasta - Çikolata Dolabı', EN: 'Pastry & Chocolate Cabinet' },
+        category:  { TR: 'Unlu Mamüller', EN: 'Bakery Products' },
+        type:   { TR: 'Pasta - Çikolata Dolabı', EN: 'Pastry & Chocolate Cabinet' },
+        image: '/images/products/unluMamuller/pastaCikolataDolabi/pastaCikolataDolabi11.webp',
+        thumbnails:[
+            '/images/products/unluMamuller/pastaCikolataDolabi/pastaCikolataDolabi.webp',
+            '/images/products/unluMamuller/pastaCikolataDolabi/pastaCikolataDolabi1.webp',
+            '/images/products/unluMamuller/pastaCikolataDolabi/pastaCikolataDolabi2.webp',
+            '/images/products/unluMamuller/pastaCikolataDolabi/pastaCikolataDolabi3.webp',
+            '/images/products/unluMamuller/pastaCikolataDolabi/pastaCikolataDolabi4.webp',
+            '/images/products/unluMamuller/pastaCikolataDolabi/pastaCikolataDolabi5.webp',
+            '/images/products/unluMamuller/pastaCikolataDolabi/pastaCikolataDolabi6.webp',
+            '/images/products/unluMamuller/pastaCikolataDolabi/pastaCikolataDolabi7.webp',
+            '/images/products/unluMamuller/pastaCikolataDolabi/pastaCikolataDolabi8.webp',
+            '/images/products/unluMamuller/pastaCikolataDolabi/pastaCikolataDolabi9.webp',
+            '/images/products/unluMamuller/pastaCikolataDolabi/pastaCikolataDolabi10.webp',
+
+        ],
+        specs: {
+            modules: ' 937 / 1250 / 1875 / 2500 / 2812 / 3125',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Pasta – Çikolata Dolabı, Yaş pasta, kuru pasta teşhir vitrini.', EN: 'Pastry & chocolate display cabinet for fresh and dry pastries.' },
+                { TR: 'Soğutmalı, soğutmasız dolap versiyonları.', EN: 'Refrigerated and non-refrigerated cabinet versions.' },
+                { TR: 'İçten veya dıştan soğutma grubu.', EN: 'Internal or external refrigeration unit.' },
+                { TR: 'Devirme cam özelliğiyle kolay temizlik rahatlığı.', EN: 'Tilt glass feature for easy cleaning.' },
+                { TR: 'Sürgülü cam sistemi.', EN: 'Sliding glass system.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Ayarlanabilir raf kolları.', EN: 'Adjustable shelf brackets.' },
+                { TR: '40 Watt Şerit Led ve 40 Watt Led Bant Armatür Aydınlatma.', EN: '40W LED strip and 40W LED band lighting.' },
+                { TR: 'Cam Raf Altı Şerit Led Aydınlatma.', EN: 'LED strip lighting under glass shelves.' },
+                { TR: 'Gün Işığı ve Beyaz 40 Watt Led Aydınlatma Seçenekleri.', EN: 'Daylight and white 40W LED lighting options.' },
+                { TR: 'Camlı Raf Sistemi.', EN: 'Glass shelf system.' },
+                { TR: 'Temperli Kırılmaz Camlar.', EN: 'Tempered shatter-resistant glass.' },
+                { TR: 'Ayarlanabilir Dokunmatik Dijital Termometre.', EN: 'Adjustable touch digital thermometer.' },
+                { TR: 'Argon Gazlı Terleme Buğu Yapmayan Cam Sistemi.', EN: 'Argon-filled anti-fog, anti-condensation glass system.' },
+                { TR: 'Tavan Soğutucu ve Zemin Soğutucu Sistemi.', EN: 'Ceiling and base cooling system.' },
+                { TR: 'Aksiyel Fanlı Soğutma.', EN: 'Axial fan cooling.' },
+                { TR: 'Hava sirkülasyonlu soğutma sistemi.', EN: 'Air-circulation cooling system.' },
+                { TR: '40 kg/m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Cephe Pasta Teşhir Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Front pastry display cabinet with color options or wood decor finishes.' },
+                { TR: 'Müşteri isteğine uygun dekor ve standart dışı imalat imkanı.', EN: 'Custom decor and non-standard manufacturing available.' },
+                { TR: 'Soğutma Grubu ve Kendinden Motorlu Ürün Seçenekleri.', EN: 'Refrigeration unit and self-contained motor options.' },
+                { TR: 'Ayarlanabilir Rotil Ayak.', EN: 'Adjustable swivel feet.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Pasta – Çikolata Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Pastry & chocolate cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+                { TR: 'Tek Cam ve Isıcam Seçenekleri.', EN: 'Single glass and double-glazed glass options.' },
+                { TR: 'Depolu Cephe Pasta Dolabı Seçeneği.', EN: 'Front pastry cabinet option with storage base.' },
+                { TR: 'Sürgü Cam ve Çarpma Kapı Seçenekleri.', EN: 'Sliding glass and hinged door options.' },
+
+            ]
+        }
+    },
+    {
+        id: 55,
+        name:   { TR: 'Ekler Pasta Dolabı', EN: 'Eclair Pastry Cabinet' },
+        category:  { TR: 'Unlu Mamüller', EN: 'Bakery Products' },
+        type: { TR: 'Ekler Pasta Dolabı', EN: 'Eclair Pastry Cabinet' },
+        image: '/images/products/unluMamuller/eklerPastaDolabi/eklerPastaDolabix.webp',
+        thumbnails:[
+            '/images/products/unluMamuller/eklerPastaDolabi/eklerPastaDolabi.webp',
+            '/images/products/unluMamuller/eklerPastaDolabi/eklerPastaDolabi1.webp',
+            '/images/products/unluMamuller/eklerPastaDolabi/eklerPastaDolabi2.webp',
+            '/images/products/unluMamuller/eklerPastaDolabi/eklerPastaDolabi3.webp',
+            '/images/products/unluMamuller/eklerPastaDolabi/eklerPastaDolabi5.webp',
+            '/images/products/unluMamuller/eklerPastaDolabi/eklerPastaDolabi6.webp',
+            '/images/products/unluMamuller/eklerPastaDolabi/eklerPastaDolabi7.webp',
+
+        ],
+        specs: {
+            modules: '937 / 1250 / 1875 / 2500 / 2812 / 3125',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Soğutmalı, soğutmasız dolap versiyonları.', EN: 'Refrigerated and non-refrigerated cabinet versions.' },
+                { TR: 'İçten veya dıştan soğutma grubu.', EN: 'Internal or external refrigeration unit.' },
+                { TR: 'Devirme cam özelliğiyle kolay temizlik rahatlığı.', EN: 'Tilt glass feature for easy cleaning.' },
+                { TR: 'Sürgülü cam sistemi.', EN: 'Sliding glass system.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Ayarlanabilir raf kolları.', EN: 'Adjustable shelf brackets.' },
+                { TR: '40 Watt Şerit Led ve 40 Watt Led Bant Armatür Aydınlatma.', EN: '40W LED strip and 40W LED band lighting.' },
+                { TR: 'Cam Raf Altı Şerit Led Aydınlatma.', EN: 'LED strip lighting under glass shelves.' },
+                { TR: 'Gün Işığı ve Beyaz 40 Watt Led Aydınlatma Seçenekleri.', EN: 'Daylight and white 40W LED lighting options.' },
+                { TR: 'Camlı Raf Sistemi.', EN: 'Glass shelf system.' },
+                { TR: 'Temperli Kırılmaz Camlar.', EN: 'Tempered shatter-resistant glass.' },
+                { TR: 'Ayarlanabilir Dokunmatik Dijital Termometre.', EN: 'Adjustable touch digital thermometer.' },
+                { TR: 'Argon Gazlı Terleme Buğu Yapmayan Cam Sistemi.', EN: 'Argon-filled anti-fog, anti-condensation glass system.' },
+                { TR: 'Tavan Soğutucu ve Zemin Soğutucu Sistemi.', EN: 'Ceiling and base cooling system.' },
+                { TR: 'Aksiyel Fanlı Soğutma.', EN: 'Axial fan cooling.' },
+                { TR: 'Hava sirkülasyonlu soğutma sistemi.', EN: 'Air-circulation cooling system.' },
+                { TR: '40 kg/m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Cephe Pasta Teşhir Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Front pastry display cabinet with color options or wood decor finishes.' },
+                { TR: 'Müşteri isteğine uygun dekor ve standart dışı imalat imkanı.', EN: 'Custom decor and non-standard manufacturing available.' },
+                { TR: 'Soğutma Grubu ve Kendinden Motorlu Ürün Seçenekleri.', EN: 'Refrigeration unit and self-contained motor options.' },
+                { TR: 'Ayarlanabilir Rotil Ayak.', EN: 'Adjustable swivel feet.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Ekler Pasta Dolabı, Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Eclair pastry cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+                { TR: 'Tek Cam ve Isıcam Seçenekleri.', EN: 'Single glass and double-glazed glass options.' },
+                { TR: 'Depolu Cephe Pasta Dolabı Seçeneği.', EN: 'Front pastry cabinet option with storage base.' },
+                { TR: 'Sürgü Cam ve Çarpma Kapı Seçenekleri.', EN: 'Sliding glass and hinged door options.' },
+
+            ]
+        }
+    },
+    {
+        id: 56,
+        name:   { TR: 'Pasta Dolabı', EN: 'Pastry Cabinet' },
+        category:  { TR: 'Unlu Mamüller', EN: 'Bakery Products' },
+        type: { TR: 'Pasta Dolabı', EN: 'Pastry Cabinet' },
+        image: '/images/products/unluMamuller/pastaDolabi/pastaDolabi7.webp',
+        thumbnails:[
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi3.webp',
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi4.webp',
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi5.webp',
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi6.webp',
+
+        ],
+        drawingImage:[
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi.webp',
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi1.webp',
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi2.webp',
+
+
+        ],
+        specs: {
+            modules: ' 1875 / 2500 / 2812 / 3125',
+            sidePanel: "-",
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Pasta Dolapları Soğutmalı, soğutmasız dolap versiyonları.', EN: 'Pastry cabinets available in refrigerated and non-refrigerated versions.' },
+                { TR: 'İçten veya dıştan soğutma grubu.', EN: 'Internal or external refrigeration unit.' },
+                { TR: 'Sürgülü cam sistemi.', EN: 'Sliding glass system.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Hava sirkülasyonlu soğutma sistemi.', EN: 'Air-circulation cooling system.' },
+                { TR: 'Temperli Kırılmaz Camlar.', EN: 'Tempered shatter-resistant glass.' },
+                { TR: 'Ayarlanabilir Dokunmatik Dijital Termometre.', EN: 'Adjustable touch digital thermometer.' },
+                { TR: '40 Watt Şerit Led ve 40 Watt Led Bant Armatür Aydınlatma.', EN: '40W LED strip and 40W LED band lighting.' },
+                { TR: 'Cam Raf Altı Şerit Led Aydınlatma.', EN: 'LED strip lighting under glass shelves.' },
+                { TR: 'Gün Işığı ve Beyaz 40 Watt Led Aydınlatma Seçenekleri.', EN: 'Daylight and white 40W LED lighting options.' },
+                { TR: '40 kg/m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Pasta Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+                { TR: 'Müşteri isteğine uygun dekor ve standart dışı imalat imkanı.', EN: 'Custom decor and non-standard manufacturing available.' },
+                { TR: 'Ayarlanabilir Rotil Ayak.', EN: 'Adjustable swivel feet.' },
+                { TR: 'Soğutma Grubu ve Kendinden Motorlu Ürün Seçenekleri', EN: 'Refrigeration unit and self-contained motor options.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+                { TR: 'Tek Cam ve Isıcam Seçenekleri.', EN: 'Single glass and double-glazed glass options.' },
+                { TR: 'Depolu Cephe Pasta Dolabı Seçeneği.', EN: 'Front pastry cabinet option with storage base.' },
+                { TR: 'Sürgü Cam ve Çarpma Kapı Seçenekleri.', EN: 'Sliding glass and hinged door options.' },
+
+            ]
+        }
+    },
+    {
+        id: 56,
+        name:  { TR: 'Yatay Pasta Dolabı', EN: 'Horizontal Pastry Cabinet' },
+        category:  { TR: 'Unlu Mamüller', EN: 'Bakery Products' },
+        type: { TR: 'Yatay Pasta Dolabı', EN: 'Horizontal Pastry Cabinet' },
+        image: '/images/products/unluMamuller/pastaDolabi/pastaDolabix.webp',
+        thumbnails:[
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi3.webp',
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi4.webp',
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi5.webp',
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi6.webp',
+
+        ],
+        drawingImage:[
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi.webp',
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi1.webp',
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi2.webp',
+
+
+        ],
+        specs: {
+            modules: ' 1875 / 2500 / 2812 / 3125',
+            sidePanel: "-",
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Yatay Pasta Dolabı, Pasta Dolabı, Yatay Pasta Teşhir Dolabı, Yaş pasta, kuru pasta teşhir vitrini.', EN: 'Horizontal pastry display cabinet for fresh and dry pastries.' },
+                { TR: 'Pasta Dolapları Soğutmalı, soğutmasız dolap versiyonları.', EN: 'Pastry cabinets available in refrigerated and non-refrigerated versions.' },
+                { TR: 'İçten veya dıştan soğutma grubu.', EN: 'Internal or external refrigeration unit.' },
+                { TR: 'Sürgülü cam sistemi.', EN: 'Sliding glass system.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Hava sirkülasyonlu soğutma sistemi.', EN: 'Air-circulation cooling system.' },
+                { TR: 'Temperli Kırılmaz Camlar.', EN: 'Tempered shatter-resistant glass.' },
+                { TR: 'Ayarlanabilir Dokunmatik Dijital Termometre.', EN: 'Adjustable touch digital thermometer.' },
+                { TR: '40 Watt Şerit Led ve 40 Watt Led Bant Armatür Aydınlatma.', EN: '40W LED strip and 40W LED band lighting.' },
+                { TR: 'Cam Raf Altı Şerit Led Aydınlatma.', EN: 'LED strip lighting under glass shelves.' },
+                { TR: 'Gün Işığı ve Beyaz 40 Watt Led Aydınlatma Seçenekleri.', EN: 'Daylight and white 40W LED lighting options.' },
+                { TR: '40 kg/m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Pasta Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+                { TR: 'Müşteri isteğine uygun dekor ve standart dışı imalat imkanı.', EN: 'Custom decor and non-standard manufacturing available.' },
+                { TR: 'Ayarlanabilir Rotil Ayak.', EN: 'Adjustable swivel feet.' },
+                { TR: 'Soğutma Grubu ve Kendinden Motorlu Ürün Seçenekleri.', EN: 'Refrigeration unit and self-contained motor options.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Yatay Pasta Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Horizontal pastry cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+                { TR: 'Tek Cam ve Isıcam Seçenekleri.', EN: 'Single glass and double-glazed glass options.' },
+                { TR: 'Depolu Cephe Pasta Dolabı Seçeneği.', EN: 'Front pastry cabinet option with storage base.' },
+                { TR: 'Sürgü Cam ve Çarpma Kapı Seçenekleri.', EN: 'Sliding glass and hinged door options.' },
+
+            ]
+        }
+    },
+    {
+        id: 57,
+        name:  { TR: 'Yatay Tip Pasta Dolabı', EN: 'Horizontal Pastry Cabinet' },
+        category:  { TR: 'Unlu Mamüller', EN: 'Bakery Products' },
+        type: { TR: 'Yatay Tip Pasta Dolabı', EN: 'Horizontal Pastry Cabinet' },
+        image: '/images/products/unluMamuller/yatayTipPastaDolabi/yatayTipPastaDolabix.webp',
+        thumbnails:[
+            '/images/products/unluMamuller/yatayTipPastaDolabi/yatayTipPastaDolabi.webp',
+            '/images/products/unluMamuller/yatayTipPastaDolabi/yatayTipPastaDolabi1.webp',
+            '/images/products/unluMamuller/yatayTipPastaDolabi/yatayTipPastaDolabi2.webp',
+            '/images/products/unluMamuller/yatayTipPastaDolabi/yatayTipPastaDolabi3.webp',
+            '/images/products/unluMamuller/yatayTipPastaDolabi/yatayTipPastaDolabi4.webp',
+            '/images/products/unluMamuller/yatayTipPastaDolabi/yatayTipPastaDolabi5.webp',
+
+
+        ],
+        specs: {
+            modules: ' 1875 / 2500 / 2812 / 3125',
+            sidePanel: "-",
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Yatay Pasta Dolabı, Pasta Dolabı, Yatay Pasta Teşhir Dolabı, Yaş pasta, kuru pasta teşhir vitrini.', EN: 'Horizontal pastry display cabinet for fresh and dry pastries.' },
+                { TR: 'Pasta Dolapları Soğutmalı, soğutmasız dolap versiyonları.', EN: 'Pastry cabinets available in refrigerated and non-refrigerated versions.' },
+                { TR: 'İçten veya dıştan soğutma grubu.', EN: 'Internal or external refrigeration unit.' },
+                { TR: 'Sürgülü cam sistemi.', EN: 'Sliding glass system.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Hava sirkülasyonlu soğutma sistemi.', EN: 'Air-circulation cooling system.' },
+                { TR: 'Temperli Kırılmaz Camlar.', EN: 'Tempered shatter-resistant glass.' },
+                { TR: 'Ayarlanabilir Dokunmatik Dijital Termometre.', EN: 'Adjustable touch digital thermometer.' },
+                { TR: '40 Watt Şerit Led ve 40 Watt Led Bant Armatür Aydınlatma.', EN: '40W LED strip and 40W LED band lighting.' },
+                { TR: 'Cam Raf Altı Şerit Led Aydınlatma.', EN: 'LED strip lighting under glass shelves.' },
+                { TR: 'Gün Işığı ve Beyaz 40 Watt Led Aydınlatma Seçenekleri.', EN: 'Daylight and white 40W LED lighting options.' },
+                { TR: '40 kg/m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Pasta Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+                { TR: 'Müşteri isteğine uygun dekor ve standart dışı imalat imkanı.', EN: 'Custom decor and non-standard manufacturing available.' },
+                { TR: 'Ayarlanabilir Rotil Ayak.', EN: 'Adjustable swivel feet.' },
+                { TR: 'Soğutma Grubu ve Kendinden Motorlu Ürün Seçenekleri.', EN: 'Refrigeration unit and self-contained motor options.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Yatay Pasta Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Horizontal pastry cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+                { TR: 'Tek Cam ve Isıcam Seçenekleri.', EN: 'Single glass and double-glazed glass options.' },
+                { TR: 'Depolu Cephe Pasta Dolabı Seçeneği.', EN: 'Front pastry cabinet option with storage base.' },
+                { TR: 'Sürgü Cam ve Çarpma Kapı Seçenekleri.', EN: 'Sliding glass and hinged door options.' },
+
+            ]
+        }
+    },
+    {
+        id: 58,
+        name:  { TR: 'Pastane Tezgahı', EN: 'Pastry Counter' },
+        category:  { TR: 'Unlu Mamüller', EN: 'Bakery Products' },
+        type: { TR: 'Pastane Tezgahı', EN: 'Pastry Counter' },
+        image: '/images/products/unluMamuller/pastaneTezgahi/pastaneTezgahix.webp',
+        thumbnails:[
+            '/images/products/unluMamuller/pastaneTezgahi/pastaneTezgahi8.webp',
+            '/images/products/unluMamuller/pastaneTezgahi/pastaneTezgahi9.webp',
+            '/images/products/unluMamuller/pastaneTezgahi/pastaneTezgahi10.webp',
+
+
+        ],
+
+        drawingImage:[
+            '/images/products/unluMamuller/pastaneTezgahi/pastaneTezgahi.webp',
+            '/images/products/unluMamuller/pastaneTezgahi/pastaneTezgahi2.webp',
+            '/images/products/unluMamuller/pastaneTezgahi/pastaneTezgahi3.webp',
+            '/images/products/unluMamuller/pastaneTezgahi/pastaneTezgahi4.webp',
+            '/images/products/unluMamuller/pastaneTezgahi/pastaneTezgahi5.webp',
+            '/images/products/unluMamuller/pastaneTezgahi/pastaneTezgahi6.webp',
+            '/images/products/unluMamuller/pastaneTezgahi/pastaneTezgahi7.webp',
+
+
+
+
+        ],
+        specs: {
+            modules: ' 937 / 1250 / 1875 / 2500 / 2812',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Pastane Tezgahı', EN: 'Pastry Counter' },
+                { TR: 'Ekmek Tezgahı', EN: 'Bread Counter' },
+                { TR: 'Fırın Tezgahı', EN: 'Bakery Counter' },
+                { TR: 'Kuru Pasta Tezgahı', EN: 'Dry Pastry Counter' },
+                { TR: 'Nötr, Isıtmalı dolap versiyonları.', EN: 'Neutral and heated cabinet versions.' },
+                { TR: 'Dik cam, Yatık cam ve Bombe cam çeşitliliğiyle farklı konsept uygulaması.', EN: 'Different concept applications with vertical, slanted, and curved glass options.' },
+                { TR: 'Çalışma Tezgahında Sürgülü sistem ve çekmece sistemi.', EN: 'Sliding system and drawer system on the work counter.' },
+                { TR: 'Isıtmalı Granit Mermer zemin ve elektrostatik fırın boyalı sac özellikleri.', EN: 'Heated granite/marble base and electrostatic oven-baked painted sheet metal features.' },
+                { TR: 'Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+                { TR: 'Müşteri isteğine uygun dekor ve standart dışı imalat imkanı.', EN: 'Custom decor and non-standard manufacturing available.' },
+                { TR: 'Hareketli ve ısıtmalı raf sistemi ile farklılık yaratan, ürünlerin istenilen sıcaklıkta teşhir edilmesine olanak sağlayan dik camlı teşhir ünitesidir.', EN: 'A vertical-glass display unit with movable and heated shelves, allowing products to be displayed at the desired temperature.' },
+                { TR: 'Ölçü kısıtlaması olmadan, isteğe bağlı genişlikte üretim,', EN: 'Custom width production with no size limitations,' },
+                { TR: 'Taban dahil 2 veya 3 katlı hareketli, düz ve eğik kullanıma sahip raf sistemi,', EN: '2- or 3-tier movable shelf system (including base) for flat or angled use,' },
+                { TR: 'Taban sergileme alanında granit, paslanmaz sac ısıtmalı yüzey fonksiyonu,', EN: 'Heated base display surface options in granite or stainless sheet,' },
+                { TR: 'Rezistans ısıtmalı yüzeyde, dijital termostat sayesinde ürün ihtiyacına uygun derece ayar ve kontrol imkanı,', EN: 'Temperature adjustment and control via digital thermostat on a resistance-heated surface,' },
+                { TR: 'Nötr veya ısıtmalı raf seçenekleri,', EN: 'Neutral or heated shelf options,' },
+                { TR: 'Ürün çeşitliliği ve satış sirkülasyonuna bağlı olarak, kolay hareket ettirilebilen raflar sayesinde ihtiyaca uygun kullanım olanağı,', EN: 'Flexible use with easily movable shelves depending on product variety and sales circulation,' },
+                { TR: 'Ürünü ön plana çıkaran, yoğun ve canlı LED armatür aydınlatma sistemi,', EN: 'Bright, vivid LED fixture lighting system that highlights the products,' },
+                { TR: 'Teşhir kısmının altında işlevsel, ihtiyaca uygun, hareketli ahşap modül kullanımları,', EN: 'Functional, needs-based movable wooden modules under the display area,' },
+                { TR: 'Dolap içerinde ve etrafında kullanılan materyallerde, sınırsız renk ve malzeme seçenekleri ile, mekana özel tasarımlar,', EN: 'Venue-specific designs with unlimited color and material options for the cabinet interior and surroundings,' },
+                { TR: 'Sınırsız ve özgün dış giydirme seçenekleri,', EN: 'Unlimited and unique exterior cladding options,' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Pastane Tezgahı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Pastry counter with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+                { TR: 'Tek Cam ve Isıcam Seçenekleri.', EN: 'Single glass and double-glazed glass options.' },
+                { TR: 'Depolu Kuru Pasta Dolabı Seçeneği.', EN: 'Dry pastry cabinet option with storage base.' },
+                { TR: 'Sürgü Cam ve Çarpma Kapı Seçenekleri.', EN: 'Sliding glass and hinged door options.' },
+
+
+            ]
+        }
+    },
+    {
+        id: 59,
+        name:  { TR: 'Isıtmalı Börek Tezgahı', EN: 'Heated Borek Counter' },
+        category:  { TR: 'Unlu Mamüller', EN: 'Bakery Products' },
+        type: { TR: 'Isıtmalı Börek Tezgahı', EN: 'Heated Borek Counter' },
+        image: '/images/products/unluMamuller/isitmaliBörekTezgahi/isitmaliBörekTezgahi.webp',
+        thumbnails:[
+            '/images/products/unluMamuller/isitmaliBörekTezgahi/isitmaliBörekTezgahi1.webp',
+            '/images/products/unluMamuller/isitmaliBörekTezgahi/isitmaliBörekTezgahi2.webp',
+            '/images/products/unluMamuller/isitmaliBörekTezgahi/isitmaliBörekTezgahi3.webp',
+            '/images/products/unluMamuller/isitmaliBörekTezgahi/isitmaliBörekTezgahi4.webp',
+
+
+        ],
+
+        specs: {
+            modules: ' 937 / 1250 / 1875 / 2500 / 2812',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Pastane Tezgahı', EN: 'Pastry Counter' },
+                { TR: 'Ekmek Tezgahı', EN: 'Bread Counter' },
+                { TR: 'Fırın Tezgahı', EN: 'Bakery Counter' },
+                { TR: 'Kuru Pasta Tezgahı', EN: 'Dry Pastry Counter' },
+                { TR: 'Nötr, Isıtmalı dolap versiyonları.', EN: 'Neutral and heated cabinet versions.' },
+                { TR: 'Dik cam, Yatık cam ve Bombe cam çeşitliliğiyle farklı konsept uygulaması.', EN: 'Different concept applications with vertical, slanted, and curved glass options.' },
+                { TR: 'Çalışma Tezgahında Sürgülü sistem ve çekmece sistemi.', EN: 'Sliding system and drawer system on the work counter.' },
+                { TR: 'Isıtmalı Granit Mermer zemin ve elektrostatik fırın boyalı sac özellikleri.', EN: 'Heated granite/marble base and electrostatic oven-baked painted sheet metal features.' },
+                { TR: 'Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+                { TR: 'Müşteri isteğine uygun dekor ve standart dışı imalat imkanı.', EN: 'Custom decor and non-standard manufacturing available.' },
+                { TR: 'Hareketli ve ısıtmalı raf sistemi ile farklılık yaratan, ürünlerin istenilen sıcaklıkta teşhir edilmesine olanak sağlayan dik camlı teşhir ünitesidir.', EN: 'A vertical-glass display unit with movable and heated shelves, allowing products to be displayed at the desired temperature.' },
+                { TR: 'Ölçü kısıtlaması olmadan, isteğe bağlı genişlikte üretim,', EN: 'Custom width production with no size limitations,' },
+                { TR: 'Taban dahil 2 veya 3 katlı hareketli, düz ve eğik kullanıma sahip raf sistemi,', EN: '2- or 3-tier movable shelf system (including base) for flat or angled use,' },
+                { TR: 'Taban sergileme alanında granit, paslanmaz sac ısıtmalı yüzey fonksiyonu,', EN: 'Heated base display surface options in granite or stainless sheet,' },
+                { TR: 'Rezistans ısıtmalı yüzeyde, dijital termostat sayesinde ürün ihtiyacına uygun derece ayar ve kontrol imkanı,', EN: 'Temperature adjustment and control via digital thermostat on a resistance-heated surface,' },
+                { TR: 'Nötr veya ısıtmalı raf seçenekleri,', EN: 'Neutral or heated shelf options,' },
+                { TR: 'Ürün çeşitliliği ve satış sirkülasyonuna bağlı olarak, kolay hareket ettirilebilen raflar sayesinde ihtiyaca uygun kullanım olanağı,', EN: 'Flexible use with easily movable shelves depending on product variety and sales circulation,' },
+                { TR: 'Ürünü ön plana çıkaran, yoğun ve canlı LED armatür aydınlatma sistemi,', EN: 'Bright, vivid LED fixture lighting system that highlights the products,' },
+                { TR: 'Teşhir kısmının altında işlevsel, ihtiyaca uygun, hareketli ahşap modül kullanımları,', EN: 'Functional, needs-based movable wooden modules under the display area,' },
+                { TR: 'Dolap içerinde ve etrafında kullanılan materyallerde, sınırsız renk ve malzeme seçenekleri ile, mekana özel tasarımlar,', EN: 'Venue-specific designs with unlimited color and material options for the cabinet interior and surroundings,' },
+                { TR: 'Sınırsız ve özgün dış giydirme seçenekleri,', EN: 'Unlimited and unique exterior cladding options,' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Fırın Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Bakery cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+                { TR: 'Tek Cam ve Isıcam Seçenekleri.', EN: 'Single glass and double-glazed glass options.' },
+                { TR: 'Depolu Kuru Pasta Dolabı Seçeneği.', EN: 'Dry pastry cabinet option with storage base.' },
+                { TR: 'Sürgü Cam ve Çarpma Kapı Seçenekleri.', EN: 'Sliding glass and hinged door options.' },
+
+
+            ]
+        }
+    },
+    {
+        id: 60,
+        name:  { TR: 'Fırın Dolabı', EN: 'Oven Cabinet' },
+        category:  { TR: 'Unlu Mamüller', EN: 'Bakery Products' },
+        type: { TR: 'Fırın Dolabı', EN: 'Oven Cabinet' },
+        image: '/images/products/unluMamuller/firinDolabi/firinDolabix.webp',
+        thumbnails:[
+            '/images/products/unluMamuller/firinDolabi/firinDolabi.webp',
+            '/images/products/unluMamuller/firinDolabi/firinDolabi1.webp',
+            '/images/products/unluMamuller/firinDolabi/firinDolabi2.webp',
+            '/images/products/unluMamuller/firinDolabi/firinDolabi3.webp',
+            '/images/products/unluMamuller/firinDolabi/firinDolabi4.webp',
+            '/images/products/unluMamuller/firinDolabi/firinDolabi5.webp',
+            '/images/products/unluMamuller/firinDolabi/firinDolabi6.webp',
+            '/images/products/unluMamuller/firinDolabi/firinDolabi7.webp',
+
+        ],
+
+        specs: {
+            modules: ' 937 / 1250 / 1875 / 2500 / 2812',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Pastane Tezgahı', EN: 'Pastry Counter' },
+                { TR: 'Ekmek Tezgahı', EN: 'Bread Counter' },
+                { TR: 'Fırın Tezgahı', EN: 'Bakery Counter' },
+                { TR: 'Kuru Pasta Tezgahı', EN: 'Dry Pastry Counter' },
+                { TR: 'Nötr, Isıtmalı dolap versiyonları.', EN: 'Neutral and heated cabinet versions.' },
+                { TR: 'Dik cam, Yatık cam ve Bombe cam çeşitliliğiyle farklı konsept uygulaması.', EN: 'Different concept applications with vertical, slanted, and curved glass options.' },
+                { TR: 'Çalışma Tezgahında Sürgülü sistem ve çekmece sistemi.', EN: 'Sliding system and drawer system on the work counter.' },
+                { TR: 'Isıtmalı Granit Mermer zemin ve elektrostatik fırın boyalı sac özellikleri.', EN: 'Heated granite/marble base and electrostatic oven-baked painted sheet metal features.' },
+                { TR: 'Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+                { TR: 'Müşteri isteğine uygun dekor ve standart dışı imalat imkanı.', EN: 'Custom decor and non-standard manufacturing available.' },
+                { TR: 'Hareketli ve ısıtmalı raf sistemi ile farklılık yaratan, ürünlerin istenilen sıcaklıkta teşhir edilmesine olanak sağlayan dik camlı teşhir ünitesidir.', EN: 'A vertical-glass display unit with movable and heated shelves, allowing products to be displayed at the desired temperature.' },
+                { TR: 'Ölçü kısıtlaması olmadan, isteğe bağlı genişlikte üretim,', EN: 'Custom width production with no size limitations,' },
+                { TR: 'Taban dahil 2 veya 3 katlı hareketli, düz ve eğik kullanıma sahip raf sistemi,', EN: '2- or 3-tier movable shelf system (including base) for flat or angled use,' },
+                { TR: 'Taban sergileme alanında granit, paslanmaz sac ısıtmalı yüzey fonksiyonu,', EN: 'Heated base display surface options in granite or stainless sheet,' },
+                { TR: 'Rezistans ısıtmalı yüzeyde, dijital termostat sayesinde ürün ihtiyacına uygun derece ayar ve kontrol imkanı,', EN: 'Temperature adjustment and control via digital thermostat on a resistance-heated surface,' },
+                { TR: 'Nötr veya ısıtmalı raf seçenekleri,', EN: 'Neutral or heated shelf options,' },
+                { TR: 'Ürün çeşitliliği ve satış sirkülasyonuna bağlı olarak, kolay hareket ettirilebilen raflar sayesinde ihtiyaca uygun kullanım olanağı,', EN: 'Flexible use with easily movable shelves depending on product variety and sales circulation,' },
+                { TR: 'Ürünü ön plana çıkaran, yoğun ve canlı LED armatür aydınlatma sistemi,', EN: 'Bright, vivid LED fixture lighting system that highlights the products,' },
+                { TR: 'Teşhir kısmının altında işlevsel, ihtiyaca uygun, hareketli ahşap modül kullanımları,', EN: 'Functional, needs-based movable wooden modules under the display area,' },
+                { TR: 'Dolap içerinde ve etrafında kullanılan materyallerde, sınırsız renk ve malzeme seçenekleri ile, mekana özel tasarımlar,', EN: 'Venue-specific designs with unlimited color and material options for the cabinet interior and surroundings,' },
+                { TR: 'Sınırsız ve özgün dış giydirme seçenekleri,', EN: 'Unlimited and unique exterior cladding options,' },
+
+            ],
+            optionalAccessory:[
+
+                { TR: 'Fırın Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Bakery cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+                { TR: 'Tek Cam ve Isıcam Seçenekleri.', EN: 'Single glass and double-glazed glass options.' },
+                { TR: 'Depolu Kuru Pasta Dolabı Seçeneği.', EN: 'Dry pastry cabinet option with storage base.' },
+                { TR: 'Sürgü Cam ve Çarpma Kapı Seçenekleri.', EN: 'Sliding glass and hinged door options.' },
+
+            ]
+        }
+    },
+    {
+        id: 61,
+        name:  { TR: 'Isıtmalı Poğaça Tezgahı', EN: 'Heated Pogaca Counter' },
+        category:  { TR: 'Unlu Mamüller', EN: 'Bakery Products' },
+        type: { TR: 'Isıtmalı Poğaça Tezgahı', EN: 'Heated Pogaca Counter' },
+        image: '/images/products/unluMamuller/isitmaliPogacaTezgahi/isitmaliPogacaTezgahix.webp',
+        thumbnails:[
+            '/images/products/unluMamuller/isitmaliPogacaTezgahi/isitmaliPogacaTezgahi45.webp',
+            '/images/products/unluMamuller/isitmaliPogacaTezgahi/isitmaliPogacaTezgahi.webp',
+            '/images/products/unluMamuller/isitmaliPogacaTezgahi/isitmaliPogacaTezgahi1.webp',
+            '/images/products/unluMamuller/isitmaliPogacaTezgahi/isitmaliPogacaTezgahi2.webp',
+            '/images/products/unluMamuller/isitmaliPogacaTezgahi/isitmaliPogacaTezgahi3.webp',
+            '/images/products/unluMamuller/isitmaliPogacaTezgahi/isitmaliPogacaTezgahi4.webp',
+
+
+        ],
+
+        specs: {
+            modules: ' 937 / 1250 / 1875 / 2500 / 2812',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Pastane Tezgahı', EN: 'Pastry Counter' },
+                { TR: 'Ekmek Tezgahı', EN: 'Bread Counter' },
+                { TR: 'Fırın Tezgahı', EN: 'Bakery Counter' },
+                { TR: 'Kuru Pasta Tezgahı', EN: 'Dry Pastry Counter' },
+                { TR: 'Nötr, Isıtmalı dolap versiyonları.', EN: 'Neutral and heated cabinet versions.' },
+                { TR: 'Dik cam, Yatık cam ve Bombe cam çeşitliliğiyle farklı konsept uygulaması.', EN: 'Different concept applications with vertical, slanted, and curved glass options.' },
+                { TR: 'Çalışma Tezgahında Sürgülü sistem ve çekmece sistemi.', EN: 'Sliding system and drawer system on the work counter.' },
+                { TR: 'Isıtmalı Granit Mermer zemin ve elektrostatik fırın boyalı sac özellikleri.', EN: 'Heated granite/marble base and electrostatic oven-baked painted sheet metal features.' },
+                { TR: 'Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+                { TR: 'Müşteri isteğine uygun dekor ve standart dışı imalat imkanı.', EN: 'Custom decor and non-standard manufacturing available.' },
+                { TR: 'Hareketli ve ısıtmalı raf sistemi ile farklılık yaratan, ürünlerin istenilen sıcaklıkta teşhir edilmesine olanak sağlayan dik camlı teşhir ünitesidir.', EN: 'A vertical-glass display unit with movable and heated shelves, allowing products to be displayed at the desired temperature.' },
+                { TR: 'Ölçü kısıtlaması olmadan, isteğe bağlı genişlikte üretim,', EN: 'Custom width production with no size limitations,' },
+                { TR: 'Taban dahil 2 veya 3 katlı hareketli, düz ve eğik kullanıma sahip raf sistemi,', EN: '2- or 3-tier movable shelf system (including base) for flat or angled use,' },
+                { TR: 'Taban sergileme alanında granit, paslanmaz sac ısıtmalı yüzey fonksiyonu,', EN: 'Heated base display surface options in granite or stainless sheet,' },
+                { TR: 'Rezistans ısıtmalı yüzeyde, dijital termostat sayesinde ürün ihtiyacına uygun derece ayar ve kontrol imkanı,', EN: 'Temperature adjustment and control via digital thermostat on a resistance-heated surface,' },
+                { TR: 'Nötr veya ısıtmalı raf seçenekleri,', EN: 'Neutral or heated shelf options,' },
+                { TR: 'Ürün çeşitliliği ve satış sirkülasyonuna bağlı olarak, kolay hareket ettirilebilen raflar sayesinde ihtiyaca uygun kullanım olanağı,', EN: 'Flexible use with easily movable shelves depending on product variety and sales circulation,' },
+                { TR: 'Ürünü ön plana çıkaran, yoğun ve canlı LED armatür aydınlatma sistemi,', EN: 'Bright, vivid LED fixture lighting system that highlights the products,' },
+                { TR: 'Teşhir kısmının altında işlevsel, ihtiyaca uygun, hareketli ahşap modül kullanımları,', EN: 'Functional, needs-based movable wooden modules under the display area,' },
+                { TR: 'Dolap içerinde ve etrafında kullanılan materyallerde, sınırsız renk ve malzeme seçenekleri ile, mekana özel tasarımlar,', EN: 'Venue-specific designs with unlimited color and material options for the cabinet interior and surroundings,' },
+                { TR: 'Sınırsız ve özgün dış giydirme seçenekleri,', EN: 'Unlimited and unique exterior cladding options,' },
+
+            ],
+            optionalAccessory:[
+
+                { TR: 'Fırın Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Bakery cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+                { TR: 'Tek Cam ve Isıcam Seçenekleri.', EN: 'Single glass and double-glazed glass options.' },
+                { TR: 'Depolu Kuru Pasta Dolabı Seçeneği.', EN: 'Dry pastry cabinet option with storage base.' },
+                { TR: 'Sürgü Cam ve Çarpma Kapı Seçenekleri.', EN: 'Sliding glass and hinged door options.' },
+
+            ]
+        }
+    },
+    {
+        id: 62,
+        name:  { TR: 'Kumpir Waffle Dolabı', EN: 'Kumpir & Waffle Cabinet' },
+        category:  { TR: 'Unlu Mamüller', EN: 'Bakery Products' },
+        type: { TR: 'Kumpir Waffle Dolabı', EN: 'Kumpir & Waffle Cabinet' },
+        image: '/images/products/unluMamuller/kumpirWaffleDolabi/kumpirWaffleDolabi6.webp',
+        thumbnails:[
+            '/images/products/unluMamuller/kumpirWaffleDolabi/kumpirWaffleDolabi1.webp',
+            '/images/products/unluMamuller/kumpirWaffleDolabi/kumpirWaffleDolabi2.webp',
+            '/images/products/unluMamuller/kumpirWaffleDolabi/kumpirWaffleDolabi3.webp',
+            '/images/products/unluMamuller/kumpirWaffleDolabi/kumpirWaffleDolabi4.webp',
+            '/images/products/unluMamuller/kumpirWaffleDolabi/kumpirWaffleDolabi5.webp',
+        ],
+
+        specs: {
+            modules: ' 937 / 1250 / 1875 / 2500 / 2812',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Kumpir Dolabı, Waffle Dolabı.', EN: 'Kumpir & waffle display cabinet.' },
+                { TR: 'Paslanmaz Gastronom Küvet Seçenekleri.', EN: 'Stainless gastronorm pan options.' },
+                { TR: 'Nötr, Isıtmalı dolap versiyonları.', EN: 'Neutral and heated cabinet versions.' },
+                { TR: 'Dik cam, Yatık cam ve Bombe cam çeşitliliğiyle farklı konsept uygulaması.', EN: 'Different concept applications with vertical, slanted, and curved glass options.' },
+                { TR: 'Çalışma Tezgahında Sürgülü sistem ve çekmece sistemi.', EN: 'Sliding system and drawer system on the work counter.' },
+                { TR: 'Isıtmalı Granit Mermer zemin ve elektrostatik fırın boyalı sac özellikleri.', EN: 'Heated granite/marble base and electrostatic oven-baked painted sheet metal features.' },
+                { TR: 'Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+                { TR: 'Müşteri isteğine uygun dekor ve standart dışı imalat imkanı.', EN: 'Custom decor and non-standard manufacturing available.' },
+                { TR: 'Hareketli ve ısıtmalı raf sistemi ile farklılık yaratan, ürünlerin istenilen sıcaklıkta teşhir edilmesine olanak sağlayan dik camlı teşhir ünitesidir.', EN: 'A vertical-glass display unit with movable and heated shelves, allowing products to be displayed at the desired temperature.' },
+                { TR: 'Ölçü kısıtlaması olmadan, isteğe bağlı genişlikte üretim,', EN: 'Custom width production with no size limitations,' },
+                { TR: 'Taban dahil 2 veya 3 katlı hareketli, düz ve eğik kullanıma sahip raf sistemi,', EN: '2- or 3-tier movable shelf system (including base) for flat or angled use,' },
+                { TR: 'Taban sergileme alanında granit, paslanmaz sac ısıtmalı yüzey fonksiyonu,', EN: 'Heated base display surface options in granite or stainless sheet,' },
+                { TR: 'Rezistans ısıtmalı yüzeyde, dijital termostat sayesinde ürün ihtiyacına uygun derece ayar ve kontrol imkanı,', EN: 'Temperature adjustment and control via digital thermostat on a resistance-heated surface,' },
+                { TR: 'Nötr veya ısıtmalı raf seçenekleri,', EN: 'Neutral or heated shelf options,' },
+                { TR: 'Ürün çeşitliliği ve satış sirkülasyonuna bağlı olarak, kolay hareket ettirilebilen raflar sayesinde ihtiyaca uygun kullanım olanağı,', EN: 'Flexible use with easily movable shelves depending on product variety and sales circulation,' },
+                { TR: 'Ürünü ön plana çıkaran, yoğun ve canlı LED armatür aydınlatma sistemi,', EN: 'Bright, vivid LED fixture lighting system that highlights the products,' },
+                { TR: 'Teşhir kısmının altında işlevsel, ihtiyaca uygun, hareketli ahşap modül kullanımları,', EN: 'Functional, needs-based movable wooden modules under the display area,' },
+                { TR: 'Dolap içerinde ve etrafında kullanılan materyallerde, sınırsız renk ve malzeme seçenekleri ile, mekana özel tasarımlar,', EN: 'Venue-specific designs with unlimited color and material options for the cabinet interior and surroundings,' },
+                { TR: 'Sınırsız ve özgün dış giydirme seçenekleri.', EN: 'Unlimited and unique exterior cladding options.' },
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 63,
+        name:  { TR: 'Kuruyemiş Dolabı', EN: 'Nuts Cabinet' },
+        category:  { TR: 'Unlu Mamüller', EN: 'Bakery Products' },
+        type: { TR: 'Kuruyemiş Dolabı', EN: 'Nuts Cabinet' },
+        image: '/images/products/unluMamuller/kuruyemisDolabi/kuruyemisDolabix.webp',
+        thumbnails:[
+            '/images/products/unluMamuller/kuruyemisDolabi/kuruyemisDolabi.webp',
+            '/images/products/unluMamuller/kuruyemisDolabi/kuruyemisDolabi1.webp',
+            '/images/products/unluMamuller/kuruyemisDolabi/kuruyemisDolabi2.webp',
+            '/images/products/unluMamuller/kuruyemisDolabi/kuruyemisDolabi3.webp',
+            '/images/products/unluMamuller/kuruyemisDolabi/kuruyemisDolabi4.webp',
+
+        ],
+
+        specs: {
+            modules: ' 937 / 1250 / 1875 / 2500 / 2812',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Kuruyemiş Dolabı, Isıtıcılı Kuruyemiş Dolabı.', EN: 'Nuts display cabinet, heated nuts cabinet.' },
+                { TR: 'Nötr, Isıtmalı dolap versiyonları.', EN: 'Neutral and heated cabinet versions.' },
+                { TR: 'Dik cam, Yatık cam ve Bombe cam çeşitliliğiyle farklı konsept uygulaması.', EN: 'Different concept applications with vertical, slanted, and curved glass options.' },
+                { TR: 'Çalışma Tezgahında Sürgülü sistem ve çekmece sistemi.', EN: 'Sliding system and drawer system on the work counter.' },
+                { TR: 'Isıtmalı Granit Mermer zemin ve elektrostatik fırın boyalı sac özellikleri.', EN: 'Heated granite/marble base and electrostatic oven-baked painted sheet metal features.' },
+                { TR: 'Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+                { TR: 'Müşteri isteğine uygun dekor ve standart dışı imalat imkanı.', EN: 'Custom decor and non-standard manufacturing available.' },
+                { TR: 'Hareketli ve ısıtmalı raf sistemi ile farklılık yaratan, ürünlerin istenilen sıcaklıkta teşhir edilmesine olanak sağlayan dik camlı teşhir ünitesidir.', EN: 'A vertical-glass display unit with movable and heated shelves, allowing products to be displayed at the desired temperature.' },
+                { TR: 'Ölçü kısıtlaması olmadan, isteğe bağlı genişlikte üretim,', EN: 'Custom width production with no size limitations,' },
+                { TR: 'Taban dahil 2 veya 3 katlı hareketli, düz ve eğik kullanıma sahip raf sistemi,', EN: '2- or 3-tier movable shelf system (including base) for flat or angled use,' },
+                { TR: 'Taban sergileme alanında granit, paslanmaz sac ısıtmalı yüzey fonksiyonu,', EN: 'Heated base display surface options in granite or stainless sheet,' },
+                { TR: 'Rezistans ısıtmalı yüzeyde, dijital termostat sayesinde ürün ihtiyacına uygun derece ayar ve kontrol imkanı,', EN: 'Temperature adjustment and control via digital thermostat on a resistance-heated surface,' },
+                { TR: 'Nötr veya ısıtmalı raf seçenekleri,', EN: 'Neutral or heated shelf options,' },
+                { TR: 'Ürün çeşitliliği ve satış sirkülasyonuna bağlı olarak, kolay hareket ettirilebilen raflar sayesinde ihtiyaca uygun kullanım olanağı,', EN: 'Flexible use with easily movable shelves depending on product variety and sales circulation,' },
+                { TR: 'Ürünü ön plana çıkaran, yoğun ve canlı LED armatür aydınlatma sistemi,', EN: 'Bright, vivid LED fixture lighting system that highlights the products,' },
+                { TR: 'Teşhir kısmının altında işlevsel, ihtiyaca uygun, hareketli ahşap modül kullanımları,', EN: 'Functional, needs-based movable wooden modules under the display area,' },
+                { TR: 'Dolap içerinde ve etrafında kullanılan materyallerde, sınırsız renk ve malzeme seçenekleri ile, mekana özel tasarımlar,', EN: 'Venue-specific designs with unlimited color and material options for the cabinet interior and surroundings,' },
+                { TR: 'Sınırsız ve özgün dış giydirme seçenekleri,', EN: 'Unlimited and unique exterior cladding options,' },
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 64,
+        name:  { TR: 'Çikolata Dolabı', EN: 'Chocolate Cabinet' },
+        category:  { TR: 'Unlu Mamüller', EN: 'Bakery Products' },
+        type: { TR: 'Çikolata Dolabı', EN: 'Chocolate Cabinet' },
+        image: '/images/products/unluMamuller/cikolataDolabi/cikolataDolabi2.webp',
+        thumbnails:[
+            '/images/products/unluMamuller/cikolataDolabi/cikolataDolabi.webp',
+            '/images/products/unluMamuller/cikolataDolabi/cikolataDolabix.webp',
+            '/images/products/unluMamuller/cikolataDolabi/cikolataDolabi3.webp',
+
+        ],
+        drawingImage:[
+            '/images/products/unluMamuller/cikolataDolabi/cikolataDolabi1.webp',
+
+        ],
+
+        specs: {
+            modules: ' 937 / 1250 / 1875 / 2500 / 2812',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Çikolata Dolabı, Yaş pasta dolabı, kuru pasta teşhir vitrini.', EN: 'Chocolate & pastry display cabinet for fresh and dry pastries.' },
+                { TR: 'Soğutmalı, soğutmasız dolap versiyonları.', EN: 'Refrigerated and non-refrigerated cabinet versions.' },
+                { TR: 'İçten veya dıştan soğutma grubu.', EN: 'Internal or external refrigeration unit.' },
+                { TR: 'Hareketli raf kolu özelliğiyle kolay temizlik rahatlığı.', EN: 'Easy cleaning with movable shelf arm feature.' },
+                { TR: 'Çikolata Dolabı Camları Temperli Kırılmaz Camdır.', EN: 'Tempered shatter-resistant glass.' },
+                { TR: 'Camlar Cnc Cam Kesim Olarak Üretilmektedir.', EN: 'Glass is produced with CNC cutting.' },
+                { TR: 'Sürgülü cam sistemi.', EN: 'Sliding glass system.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Ayarlanabilir raf kolları.', EN: 'Adjustable shelf brackets.' },
+                { TR: 'Hava sirkülasyonlu soğutma sistemi.', EN: 'Air-circulation cooling system.' },
+                { TR: 'Gün Işığı ve Beyaz Led aydınlatma.', EN: 'Daylight and white LED lighting.' },
+                { TR: 'Aydınlatma; 40 Watt Şerit Led Armatür ve 40 Watt Bant Armatür Kullanılmaktadır.', EN: 'Lighting uses 40W LED strip fixtures and 40W band fixtures.' },
+                { TR: '40 kg/m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Pasta Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Çikolata Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Chocolate cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+                { TR: 'Tek Cam ve Isıcam Seçenekleri.', EN: 'Single glass and double-glazed glass options.' },
+                { TR: 'Depolu Çikolata Dolabı Seçeneği.', EN: 'Chocolate cabinet option with storage base.' },
+                { TR: 'Sürgü Cam ve Çarpma Kapı Seçenekleri.', EN: 'Sliding glass and hinged door options.' },
+
+            ]
+        }
+    },
+    {
+        id: 65,
+        name:  { TR: 'Baklava Tezgahı', EN: 'Baklava Counter' },
+        category:  { TR: 'Unlu Mamüller', EN: 'Bakery Products' },
+        type:{ TR: 'Baklava Tezgahı', EN: 'Baklava Counter' },
+        image: '/images/products/unluMamuller/baklavaTezgahi/baklavaTezgahi.webp',
+        thumbnails:[
+            '/images/products/unluMamuller/baklavaTezgahi/baklavaTezgahi1.webp',
+            '/images/products/unluMamuller/baklavaTezgahi/baklavaTezgahi2.webp',
+            '/images/products/unluMamuller/baklavaTezgahi/baklavaTezgahi3.webp',
+            '/images/products/unluMamuller/baklavaTezgahi/baklavaTezgahi4.webp',
+
+        ],
+        specs: {
+            modules: ' 937 / 1250 / 1875 / 2500 / 2812',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Baklava Tezgahı, Isıtıcılı Baklava Tezgahı.', EN: 'Baklava counter, heated baklava display counter.' },
+                { TR: 'Nötr, Isıtmalı dolap versiyonları.', EN: 'Neutral and heated cabinet versions.' },
+                { TR: 'Dik cam, Yatık cam ve Bombe cam çeşitliliğiyle farklı konsept uygulaması.', EN: 'Different concept applications with vertical, slanted, and curved glass options.' },
+                { TR: 'Çalışma Tezgahında Sürgülü sistem ve çekmece sistemi.', EN: 'Sliding system and drawer system on the work counter.' },
+                { TR: 'Isıtmalı Granit Mermer zemin ve elektrostatik fırın boyalı sac özellikleri.', EN: 'Heated granite/marble base and electrostatic oven-baked painted sheet metal features.' },
+                { TR: 'Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+                { TR: 'Müşteri isteğine uygun dekor ve standart dışı imalat imkanı.', EN: 'Custom decor and non-standard manufacturing available.' },
+                { TR: 'Hareketli ve ısıtmalı raf sistemi ile farklılık yaratan, ürünlerin istenilen sıcaklıkta teşhir edilmesine olanak sağlayan dik camlı teşhir ünitesidir.', EN: 'A vertical-glass display unit with movable and heated shelves, allowing products to be displayed at the desired temperature.' },
+                { TR: 'Ölçü kısıtlaması olmadan, isteğe bağlı genişlikte üretim,', EN: 'Custom width production with no size limitations,' },
+                { TR: 'Taban dahil 2 veya 3 katlı hareketli, düz ve eğik kullanıma sahip raf sistemi,', EN: '2- or 3-tier movable shelf system (including base) for flat or angled use,' },
+                { TR: 'Taban sergileme alanında granit, paslanmaz sac ısıtmalı yüzey fonksiyonu,', EN: 'Heated base display surface options in granite or stainless sheet,' },
+                { TR: 'Rezistans ısıtmalı yüzeyde, dijital termostat sayesinde ürün ihtiyacına uygun derece ayar ve kontrol imkanı,', EN: 'Temperature adjustment and control via digital thermostat on a resistance-heated surface,' },
+                { TR: 'Nötr veya ısıtmalı raf seçenekleri,', EN: 'Neutral or heated shelf options,' },
+                { TR: 'Ürün çeşitliliği ve satış sirkülasyonuna bağlı olarak, kolay hareket ettirilebilen raflar sayesinde ihtiyaca uygun kullanım olanağı,', EN: 'Flexible use with easily movable shelves depending on product variety and sales circulation,' },
+                { TR: 'Ürünü ön plana çıkaran, yoğun ve canlı LED armatür aydınlatma sistemi,', EN: 'Bright, vivid LED fixture lighting system that highlights the products,' },
+                { TR: 'Teşhir kısmının altında işlevsel, ihtiyaca uygun, hareketli ahşap modül kullanımları,', EN: 'Functional, needs-based movable wooden modules under the display area,' },
+                { TR: 'Dolap içerinde ve etrafında kullanılan materyallerde, sınırsız renk ve malzeme seçenekleri ile, mekana özel tasarımlar,', EN: 'Venue-specific designs with unlimited color and material options for the cabinet interior and surroundings,' },
+                { TR: 'Sınırsız ve özgün dış giydirme seçenekleri,', EN: 'Unlimited and unique exterior cladding options,' },
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 66,
+        name:  { TR: 'Kuru Pasta Dolabı', EN: 'Dry Pastry Cabinet' },
+        category:  { TR: 'Unlu Mamüller', EN: 'Bakery Products' },
+        type: { TR: 'Kuru Pasta Dolabı', EN: 'Dry Pastry Cabinet' },
+        image: '/images/products/unluMamuller/kuruPastaDolabi/kuruPastaDolabix.webp',
+        thumbnails:[
+            '/images/products/unluMamuller/kuruPastaDolabi/kuruPastaDolabi1.webp',
+            '/images/products/unluMamuller/kuruPastaDolabi/kuruPastaDolabi2.webp',
+            '/images/products/unluMamuller/kuruPastaDolabi/kuruPastaDolabi3.webp',
+            '/images/products/unluMamuller/kuruPastaDolabi/kuruPastaDolabi4.webp',
+            '/images/products/unluMamuller/kuruPastaDolabi/kuruPastaDolabi5.webp',
+            '/images/products/unluMamuller/kuruPastaDolabi/kuruPastaDolabi6.webp',
+            '/images/products/unluMamuller/kuruPastaDolabi/kuruPastaDolabi7.webp',
+
+
+        ],
+        specs: {
+            modules: ' 937 / 1250 / 1875 / 2500 / 2812',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Kuru Pasta Tezgahı', EN: 'Dry Pastry Counter' },
+                { TR: 'Nötr, Isıtmalı dolap versiyonları.', EN: 'Neutral and heated cabinet versions.' },
+                { TR: 'Dik cam, Yatık cam ve Bombe cam çeşitliliğiyle farklı konsept uygulaması.', EN: 'Different concept applications with vertical, slanted, and curved glass options.' },
+                { TR: 'Çalışma Tezgahında Sürgülü sistem ve çekmece sistemi.', EN: 'Sliding system and drawer system on the work counter.' },
+                { TR: 'Isıtmalı Granit Mermer zemin ve elektrostatik fırın boyalı sac özellikleri.', EN: 'Heated granite/marble base and electrostatic oven-baked painted sheet metal features.' },
+                { TR: 'Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+                { TR: 'Müşteri isteğine uygun dekor ve standart dışı imalat imkanı.', EN: 'Custom decor and non-standard manufacturing available.' },
+                { TR: 'Hareketli ve ısıtmalı raf sistemi ile farklılık yaratan, ürünlerin istenilen sıcaklıkta teşhir edilmesine olanak sağlayan dik camlı teşhir ünitesidir.', EN: 'A vertical-glass display unit with movable and heated shelves, allowing products to be displayed at the desired temperature.' },
+                { TR: 'Ölçü kısıtlaması olmadan, isteğe bağlı genişlikte üretim,', EN: 'Custom width production with no size limitations,' },
+                { TR: 'Taban dahil 2 veya 3 katlı hareketli, düz ve eğik kullanıma sahip raf sistemi,', EN: '2- or 3-tier movable shelf system (including base) for flat or angled use,' },
+                { TR: 'Taban sergileme alanında granit, paslanmaz sac ısıtmalı yüzey fonksiyonu,', EN: 'Heated base display surface options in granite or stainless sheet,' },
+                { TR: 'Rezistans ısıtmalı yüzeyde, dijital termostat sayesinde ürün ihtiyacına uygun derece ayar ve kontrol imkanı,', EN: 'Temperature adjustment and control via digital thermostat on a resistance-heated surface,' },
+                { TR: 'Nötr veya ısıtmalı raf seçenekleri,', EN: 'Neutral or heated shelf options,' },
+                { TR: 'Ürün çeşitliliği ve satış sirkülasyonuna bağlı olarak, kolay hareket ettirilebilen raflar sayesinde ihtiyaca uygun kullanım olanağı,', EN: 'Flexible use with easily movable shelves depending on product variety and sales circulation,' },
+                { TR: 'Ürünü ön plana çıkaran, yoğun ve canlı LED armatür aydınlatma sistemi,', EN: 'Bright, vivid LED fixture lighting system that highlights the products,' },
+                { TR: 'Teşhir kısmının altında işlevsel, ihtiyaca uygun, hareketli ahşap modül kullanımları,', EN: 'Functional, needs-based movable wooden modules under the display area,' },
+                { TR: 'Dolap içerinde ve etrafında kullanılan materyallerde, sınırsız renk ve malzeme seçenekleri ile, mekana özel tasarımlar,', EN: 'Venue-specific designs with unlimited color and material options for the cabinet interior and surroundings,' },
+                { TR: 'Sınırsız ve özgün dış giydirme seçenekleri,', EN: 'Unlimited and unique exterior cladding options,' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Kuru Pasta Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Dry pastry cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+                { TR: 'Tek Cam ve Isıcam Seçenekleri.', EN: 'Single glass and double-glazed glass options.' },
+                { TR: 'Depolu Kuru Pasta Dolabı Seçeneği.', EN: 'Dry pastry cabinet option with storage base.' },
+                { TR: 'Sürgü Cam ve Çarpma Kapı Seçenekleri.', EN: 'Sliding glass and hinged door options.' },
+
+            ]
+        }
+    },
+    {
+        id: 67,
+        name:  { TR: 'Cephe Pasta Teşhir Dolabı', EN: 'Front Pastry Showcase' },
+        category:  { TR: 'Unlu Mamüller', EN: 'Bakery Products' },
+        type: { TR: 'Cephe Pasta Teşhir Dolabı', EN: 'Front Pastry Showcase' },
+        image: '/images/products/unluMamuller/cephePastaTeshirDolabi/cephePastaTeshirDolabi9.webp',
+        thumbnails:[
+            '/images/products/unluMamuller/cephePastaTeshirDolabi/cephePastaTeshirDolabi.webp',
+            '/images/products/unluMamuller/cephePastaTeshirDolabi/cephePastaTeshirDolabi1.webp',
+            '/images/products/unluMamuller/cephePastaTeshirDolabi/cephePastaTeshirDolabi2.webp',
+            '/images/products/unluMamuller/cephePastaTeshirDolabi/cephePastaTeshirDolabi3.webp',
+            '/images/products/unluMamuller/cephePastaTeshirDolabi/cephePastaTeshirDolabi4.webp',
+            '/images/products/unluMamuller/cephePastaTeshirDolabi/cephePastaTeshirDolabi5.webp',
+            '/images/products/unluMamuller/cephePastaTeshirDolabi/cephePastaTeshirDolabi6.webp',
+            '/images/products/unluMamuller/cephePastaTeshirDolabi/cephePastaTeshirDolabi9.webp',
+            '/images/products/unluMamuller/cephePastaTeshirDolabi/cephePastaTeshirDolabi10.webp',
+
+        ],
+        specs: {
+            modules: ' 937 / 1250 / 1875 / 2500 / 2812',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Kuru Pasta Tezgahı', EN: 'Dry Pastry Counter' },
+                { TR: 'Nötr, Isıtmalı dolap versiyonları.', EN: 'Neutral and heated cabinet versions.' },
+                { TR: 'Dik cam, Yatık cam ve Bombe cam çeşitliliğiyle farklı konsept uygulaması.', EN: 'Different concept applications with vertical, slanted, and curved glass options.' },
+                { TR: 'Çalışma Tezgahında Sürgülü sistem ve çekmece sistemi.', EN: 'Sliding system and drawer system on the work counter.' },
+                { TR: 'Isıtmalı Granit Mermer zemin ve elektrostatik fırın boyalı sac özellikleri.', EN: 'Heated granite/marble base and electrostatic oven-baked painted sheet metal features.' },
+                { TR: 'Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+                { TR: 'Müşteri isteğine uygun dekor ve standart dışı imalat imkanı.', EN: 'Custom decor and non-standard manufacturing available.' },
+                { TR: 'Hareketli ve ısıtmalı raf sistemi ile farklılık yaratan, ürünlerin istenilen sıcaklıkta teşhir edilmesine olanak sağlayan dik camlı teşhir ünitesidir.', EN: 'A vertical-glass display unit with movable and heated shelves, allowing products to be displayed at the desired temperature.' },
+                { TR: 'Ölçü kısıtlaması olmadan, isteğe bağlı genişlikte üretim,', EN: 'Custom width production with no size limitations,' },
+                { TR: 'Taban dahil 2 veya 3 katlı hareketli, düz ve eğik kullanıma sahip raf sistemi,', EN: '2- or 3-tier movable shelf system (including base) for flat or angled use,' },
+                { TR: 'Taban sergileme alanında granit, paslanmaz sac ısıtmalı yüzey fonksiyonu,', EN: 'Heated base display surface options in granite or stainless sheet,' },
+                { TR: 'Rezistans ısıtmalı yüzeyde, dijital termostat sayesinde ürün ihtiyacına uygun derece ayar ve kontrol imkanı,', EN: 'Temperature adjustment and control via digital thermostat on a resistance-heated surface,' },
+                { TR: 'Nötr veya ısıtmalı raf seçenekleri,', EN: 'Neutral or heated shelf options,' },
+                { TR: 'Ürün çeşitliliği ve satış sirkülasyonuna bağlı olarak, kolay hareket ettirilebilen raflar sayesinde ihtiyaca uygun kullanım olanağı,', EN: 'Flexible use with easily movable shelves depending on product variety and sales circulation,' },
+                { TR: 'Ürünü ön plana çıkaran, yoğun ve canlı LED armatür aydınlatma sistemi,', EN: 'Bright, vivid LED fixture lighting system that highlights the products,' },
+                { TR: 'Teşhir kısmının altında işlevsel, ihtiyaca uygun, hareketli ahşap modül kullanımları,', EN: 'Functional, needs-based movable wooden modules under the display area,' },
+                { TR: 'Dolap içerinde ve etrafında kullanılan materyallerde, sınırsız renk ve malzeme seçenekleri ile, mekana özel tasarımlar,', EN: 'Venue-specific designs with unlimited color and material options for the cabinet interior and surroundings,' },
+                { TR: 'Sınırsız ve özgün dış giydirme seçenekleri,', EN: 'Unlimited and unique exterior cladding options,' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Kuru Pasta Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Dry pastry cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+                { TR: 'Tek Cam ve Isıcam Seçenekleri.', EN: 'Single glass and double-glazed glass options.' },
+                { TR: 'Depolu Kuru Pasta Dolabı Seçeneği.', EN: 'Dry pastry cabinet option with storage base.' },
+                { TR: 'Sürgü Cam ve Çarpma Kapı Seçenekleri.', EN: 'Sliding glass and hinged door options.' },
+
+            ]
+        }
+    },
+    {
+        id: 68,
+        name:  { TR: 'Yatay Pasta Teşhir Dolabı', EN: 'Horizontal Pastry Showcase' },
+        category:  { TR: 'Unlu Mamüller', EN: 'Bakery Products' },
+        type: { TR: 'Yatay Pasta Teşhir Dolabı', EN: 'Horizontal Pastry Showcase' },
+        image: '/images/products/unluMamuller/pastaDolabi/pastaDolabix.webp',
+        thumbnails:[
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi3.webp',
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi4.webp',
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi5.webp',
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi6.webp',
+
+        ],
+        drawingImage:[
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi.webp',
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi1.webp',
+            '/images/products/unluMamuller/pastaDolabi/pastaDolabi2.webp',
+
+
+        ],
+        specs: {
+            modules: ' 1875 / 2500 / 2812 / 3125',
+            sidePanel: "-",
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Mercury – Yatay Pasta Teşhir Dolabı, Pasta Dolabı, Yatay Pasta Teşhir Dolabı, Yaş pasta, kuru pasta teşhir vitrini.', EN: 'Mercury horizontal pastry display cabinet for fresh and dry pastries.' },
+                { TR: 'Pasta Dolapları Soğutmalı, soğutmasız dolap versiyonları.', EN: 'Pastry cabinets available in refrigerated and non-refrigerated versions.' },
+                { TR: 'İçten veya dıştan soğutma grubu.', EN: 'Internal or external refrigeration unit.' },
+                { TR: 'Sürgülü cam sistemi.', EN: 'Sliding glass system.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Hava sirkülasyonlu soğutma sistemi.', EN: 'Air-circulation cooling system.' },
+                { TR: 'Temperli Kırılmaz Camlar.', EN: 'Tempered shatter-resistant glass.' },
+                { TR: 'Ayarlanabilir Dokunmatik Dijital Termometre.', EN: 'Adjustable touch digital thermometer.' },
+                { TR: '40 Watt Şerit Led ve 40 Watt Led Bant Armatür Aydınlatma.', EN: '40W LED strip and 40W LED band lighting.' },
+                { TR: 'Cam Raf Altı Şerit Led Aydınlatma.', EN: 'LED strip lighting under glass shelves.' },
+                { TR: 'Gün Işığı ve Beyaz 40 Watt Led Aydınlatma Seçenekleri.', EN: 'Daylight and white 40W LED lighting options.' },
+                { TR: '40 kg/m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Pasta Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+                { TR: 'Müşteri isteğine uygun dekor ve standart dışı imalat imkanı.', EN: 'Custom decor and non-standard manufacturing available.' },
+                { TR: 'Ayarlanabilir Rotil Ayak.', EN: 'Adjustable swivel feet.' },
+                { TR: 'Soğutma Grubu ve Kendinden Motorlu Ürün Seçenekleri.', EN: 'Refrigeration unit and self-contained motor options.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Mercury – Yatay Pasta Teşhir Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Mercury horizontal pastry display cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+                { TR: 'Tek Cam ve Isıcam Seçenekleri.', EN: 'Single glass and double-glazed glass options.' },
+                { TR: 'Depolu Cephe Pasta Dolabı Seçeneği.', EN: 'Front pastry cabinet option with storage base.' },
+                { TR: 'Sürgü Cam ve Çarpma Kapı Seçenekleri.', EN: 'Sliding glass and hinged door options.' },
+
+            ]
+        }
+    },
+    {
+        id: 69,
+        name:   { TR: 'Pasta Teşhir Dolabı', EN: 'Pastry Showcase' },
+        category:  { TR: 'Unlu Mamüller', EN: 'Bakery Products' },
+        type:  { TR: 'Pasta Teşhir Dolabı', EN: 'Pastry Showcase' },
+        image: '/images/products/unluMamuller/pastaTeshirDolabi/pastaTeshirDolabi.webp',
+        thumbnails:[
+            '/images/products/unluMamuller/pastaTeshirDolabi/pastaTeshirDolabi1.webp',
+            '/images/products/unluMamuller/pastaTeshirDolabi/pastaTeshirDolabi2.webp',
+            '/images/products/unluMamuller/pastaTeshirDolabi/pastaTeshirDolabi3.webp',
+            '/images/products/unluMamuller/pastaTeshirDolabi/pastaTeshirDolabi4.webp',
+            '/images/products/unluMamuller/pastaTeshirDolabi/pastaTeshirDolabi5.webp',
+            '/images/products/unluMamuller/pastaTeshirDolabi/pastaTeshirDolabi8.webp',
+
+        ],
+        drawingImage:[
+            '/images/products/unluMamuller/pastaTeshirDolabi/pastaTeshirDolabi7.webp',
+            '/images/products/unluMamuller/pastaTeshirDolabi/pastaTeshirDolabi6.webp',
+
+        ],
+        specs: {
+            modules: ' 937 / 1250 / 1875 / 2500 / 2812 / 3125',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Pasta Teşhir Dolabı, Yaş pasta, kuru pasta teşhir vitrini.', EN: 'Pastry display cabinet for fresh and dry pastries.' },
+                { TR: 'Soğutmalı, soğutmasız dolap versiyonları.', EN: 'Refrigerated and non-refrigerated cabinet versions.' },
+                { TR: 'İçten veya dıştan soğutma grubu.', EN: 'Internal or external refrigeration unit.' },
+                { TR: 'Devirme cam özelliğiyle kolay temizlik rahatlığı.', EN: 'Tilt glass feature for easy cleaning.' },
+                { TR: 'Sürgülü cam sistemi.', EN: 'Sliding glass system.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Ayarlanabilir raf kolları.', EN: 'Adjustable shelf brackets.' },
+                { TR: '40 Watt Şerit Led ve 40 Watt Led Bant Armatür Aydınlatma.', EN: '40W LED strip and 40W LED band lighting.' },
+                { TR: 'Cam Raf Altı Şerit Led Aydınlatma.', EN: 'LED strip lighting under glass shelves.' },
+                { TR: 'Gün Işığı ve Beyaz 40 Watt Led Aydınlatma Seçenekleri.', EN: 'Daylight and white 40W LED lighting options.' },
+                { TR: 'Camlı Raf Sistemi.', EN: 'Glass shelf system.' },
+                { TR: 'Temperli Kırılmaz Camlar.', EN: 'Tempered shatter-resistant glass.' },
+                { TR: 'Ayarlanabilir Dokunmatik Dijital Termometre.', EN: 'Adjustable touch digital thermometer.' },
+                { TR: 'Argon Gazlı Terleme Buğu Yapmayan Cam Sistemi.', EN: 'Argon-filled anti-fog, anti-condensation glass system.' },
+                { TR: 'Tavan Soğutucu ve Zemin Soğutucu Sistemi.', EN: 'Ceiling and base cooling system.' },
+                { TR: 'Aksiyel Fanlı Soğutma.', EN: 'Axial fan cooling.' },
+                { TR: 'Hava sirkülasyonlu soğutma sistemi.', EN: 'Air-circulation cooling system.' },
+                { TR: '40 kg/m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Cephe Pasta Teşhir Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Front pastry display cabinet with color options or wood decor finishes.' },
+                { TR: 'Müşteri isteğine uygun dekor ve standart dışı imalat imkanı.', EN: 'Custom decor and non-standard manufacturing available.' },
+                { TR: 'Soğutma Grubu ve Kendinden Motorlu Ürün Seçenekleri.', EN: 'Refrigeration unit and self-contained motor options.' },
+                { TR: 'Ayarlanabilir Rotil Ayak.', EN: 'Adjustable swivel feet.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Pasta Teşhir Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Pastry display cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+                { TR: 'Tek Cam ve Isıcam Seçenekleri.', EN: 'Single glass and double-glazed glass options.' },
+                { TR: 'Depolu Cephe Pasta Dolabı Seçeneği.', EN: 'Front pastry cabinet option with storage base.' },
+                { TR: 'Sürgü Cam ve Çarpma Kapı Seçenekleri.', EN: 'Sliding glass and hinged door options.' },
+
+            ]
+        }
+    },
+    {
+        id: 70,
+        name:   { TR: 'Orta Tip Paslanmaz Davlumbaz', EN: 'Medium Stainless Hood' },
+        category: { TR: 'Endüstriyel Mutfak Ekipmanları', EN: 'Industrial Kitchen Equipment' },
+        type:  { TR: 'Orta Tip Paslanmaz Davlumbaz', EN: 'Medium Stainless Hood' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/ortaTipPaslanmazDavlumbaz/ortaTipPaslanmazDavlumbaz.webp',
+        thumbnails:[
+            '/images/products/endustriyelMutfakEkipmanlari/ortaTipPaslanmazDavlumbaz/ortaTipPaslanmazDavlumbaz.webp',
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Orta Tip Paslanmaz Davlumbaz toplama bölgeleri yeterli hacim ve büyüklüğe sahiptir.', EN: 'Medium-type stainless steel hoods have collection areas with sufficient volume and size.' },
+                { TR: 'Havanın hacmini karşılama genişliğine sahip tasarımda ürünlerdir.', EN: 'They are designed with a width that can handle the required air volume.' },
+                { TR: 'Davlumbaz seçimleri mutfaklar için her zaman çok önemlidir.', EN: 'Choosing the right hood is always critical for kitchens.' },
+                { TR: 'Bu nedenle davlumbaz seçilirken mutlaka havalandırma ve iklimlendirme koşullarına uygun niteliklere sahip olmalıdır.', EN: 'Therefore, the hood must match the ventilation and HVAC conditions.' },
+                { TR: 'Mutfaklarda doğru seçim yapılmış davlumbazlar, havalandırma ve iklimlendirme için önemli olduğundan dolayı doğru davlumbaz ile mutfakları yangın riskine karşı dahi korumak pek tabi mümkündür.', EN: 'With the right hood selection, it is possible to help protect kitchens even against fire risk, since it supports proper ventilation and air conditioning.' },
+                { TR: 'Orta tip davlumbaz sistemlerinde yangın ihtimali en az riske sahiptir.', EN: 'Fire risk is among the lowest with medium-type hood systems.' },
+                { TR: 'Bu nedenle mutfakların can güvenliğini ve mal güvenliğini eğer uygun ise orta tip davlumbazlarla sağlamak mümkündür.', EN: 'If suitable, medium-type hoods can help ensure both life safety and property protection in kitchens.' },
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 71,
+        name:   { TR: 'Kutu Tipi Paslanmaz Davlumbaz', EN: 'Box-Type Stainless Hood' },
+        category: { TR: 'Endüstriyel Mutfak Ekipmanları', EN: 'Industrial Kitchen Equipment' },
+        type:  { TR: 'Kutu Tipi Paslanmaz Davlumbaz', EN: 'Box-Type Stainless Hood' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/kutuTipiPaslanmazDavlumbaz/kutuTipiPaslanmazDavlumbaz.webp',
+        thumbnails:[
+            '/images/products/endustriyelMutfakEkipmanlari/kutuTipiPaslanmazDavlumbaz/kutuTipiPaslanmazDavlumbaz.webp',
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Kutu tipi paslanmaz davlumbazlar tamamı ile Avrupa standartlarında üretilen davlumbazlardır.', EN: 'Box-type stainless steel hoods are manufactured fully to European standards.' },
+                { TR: 'Bu ürünler üretilirken havanın ve sesin gücü özellikle değerlendirilmektedir.', EN: 'Airflow and noise performance are specifically considered during manufacturing.' },
+                { TR: 'Kutu tipi davlumbazlar, güç verileri ile şeffaf olarak müşterilerin endüstriyel mutfaklar için seçmiş olduğu mutfak çeşitlerindendir.', EN: 'Box-type hoods are among the preferred options for industrial kitchens, with transparent performance data.' },
+                { TR: 'Kutu tipi davlumbazlarda harici fanlar yer alır.', EN: 'Box-type hoods include external fans.' },
+                { TR: 'Bu fanlar ses gücünü azaltıcı özelliklere sahip fanlardır.', EN: 'These fans are designed to reduce noise levels.' },
+                { TR: 'Bu nedenle paslanmaz davlumbaz genellikle monte edilirken dış duvara monte edilmektedir.', EN: 'For this reason, they are typically installed on an exterior wall.' },
+                { TR: 'Ses seviyeleri kayda alınacak kadar önemli bir ayrıntıdır.', EN: 'Noise levels are an important detail worth recording.' },
+                { TR: 'Mutfaklarda personelin gürültü kirliliği ile çalışması ne yazık ki mümkün değildir.', EN: 'Unfortunately, staff cannot work efficiently in kitchens with excessive noise.' },
+                { TR: 'Susturucuların ve huzursuzluğun yüksek verimi sayesinde kutu tipli davlumbazlar sessiz çalışan mutfak dokümanlarındandır.', EN: 'Thanks to silencers and high-efficiency noise control, box-type hoods are among the quiet-operating kitchen solutions.' },
+                { TR: 'Kutu tipi davlumbazlarda hava dışarı atılırken bu davlumbazlar dış duvarlara kurulmaktadır.', EN: 'As air is exhausted outdoors, these hoods are installed on exterior walls.' },
+                { TR: 'Enerji kaybının önlendiği kutu tipi davlumbazlarda tavanların eğimi 22 derecelik eğimde olmalıdır.', EN: 'For box-type hoods designed to reduce energy loss, the ceiling slope should be 22 degrees.' },
+                { TR: 'Çelik gövdeli kutu tipi davlumbazların hava ve ısı koşullarına da dayanıklı bir çerçeveye sarılı olduğunu söylemek mümkündür.', EN: 'Steel-bodied box-type hoods can be said to be built with a frame that is durable against airflow and heat conditions.' },
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 72,
+        name:   { TR: 'Duvar Tipi Filtreli Davlumbaz', EN: 'Wall-Type Filtered Hood' },
+        category: { TR: 'Endüstriyel Mutfak Ekipmanları', EN: 'Industrial Kitchen Equipment' },
+        type:  { TR: 'Duvar Tipi Filtreli Davlumbaz', EN: 'Wall-Type Filtered Hood' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/duvarTipiFiltreliDavlumbaz/duvarTipiFiltreliDavlumbaz.webp',
+        thumbnails:[
+            '/images/products/endustriyelMutfakEkipmanlari/duvarTipiFiltreliDavlumbaz/duvarTipiFiltreliDavlumbaz.webp',
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Duvar tipi filtreli davlumbaz özellikleri bakımından farklılık gösterir.', EN: 'Wall-mounted filtered hoods vary in terms of features.' },
+                { TR: 'Filtrenin çeşitli özellikleri fiyat açısından değişkenlik oluşmasını sağlar.', EN: 'Different filter specifications create price variations.' },
+                { TR: 'Paslanmaz çelik malzemeden üretilen davlumbazın içinde bulunan filtreler hem özel pişirme tekniklerinde ortaya çıkan alevlerin kontrolünü sağlar hem de olası bir alev durumunda alevin yayılmasını önler.', EN: 'Filters inside stainless steel hoods help control flames that may occur during special cooking techniques and help prevent flame spread in case of ignition.' },
+                { TR: 'Bu nedenle filtrenin özelliklerinin artması da davlumbazın fiyatının değişmesi anlamına gelir.', EN: 'Therefore, improved filter features also mean changes in the hood price.' },
+                { TR: 'İşletme sahibi kendisine en uygun davlumbazı seçerken, sağlamış olduğu hizmetin niteliklerini doğru analiz etmelidir.', EN: 'When selecting the most suitable hood, the business owner should correctly analyze the nature of the service provided.' },
+                { TR: 'Ayrıca davlumbaz kullanılan ocak ile uyumlu olmalıdır.', EN: 'The hood should also be compatible with the cooking range used.' },
+                { TR: 'Böylelikle kullanılan davlumbaz en yüksek performansını gösterebilir.', EN: 'This way, the hood can deliver maximum performance.' },
+                { TR: 'Filtreleri deforme olduğunda değiştirilebilir ve davlumbazın içinde biriken yağ kolayca temizlenebilir.', EN: 'Filters can be replaced when deformed, and accumulated grease inside the hood can be cleaned easily.' },
+                { TR: 'Dış çevresi paslanmaz çelik olan davlumbazlar filtre değişimi ve iç temizliğin düzenli yapılması ile uzun yıllar dejenerasyona uğramadan gönül rahatlığı ile kullanılabilmektedir.', EN: 'With regular filter replacement and internal cleaning, stainless steel hoods can be used safely for many years without deterioration.' },
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 73,
+        name:   { TR: 'Duvar Tipi Davlumbaz', EN: 'Wall-Type Hood' },
+        category: { TR: 'Endüstriyel Mutfak Ekipmanları', EN: 'Industrial Kitchen Equipment' },
+        type: { TR: 'Duvar Tipi Davlumbaz', EN: 'Wall-Type Hood' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/duvarTipiDavlumbaz/duvarTipiDavlumbaz.webp',
+        thumbnails:[
+            '/images/products/endustriyelMutfakEkipmanlari/duvarTipiDavlumbaz/duvarTipiDavlumbaz.webp',
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Duvar Tipi Davlumbaz; Endüstriyel mutfak ürünlerinden bir diğeri duvar tipi davlumbaz olarak karşımıza çıkar.', EN: 'Wall-Type Hood is another product category used in industrial kitchens.' },
+                { TR: 'Davlumbazlar buharlaşma ile ortaya çıkan yemek kokularının birbirine ve havaya karışmasına engel olarak ortamdan uzaklaştırılmasını sağlar.', EN: 'Hoods help remove cooking odors created by evaporation, preventing them from mixing into the air and spreading.' },
+                { TR: 'Pres baskılı çelik malzemeden üretilen bu davlumbazlar paslanmaz özelliktedir ve dayanıklılıkları artırılmıştır.', EN: 'These hoods are made from press-formed steel, have stainless properties, and are built for increased durability.' },
+                { TR: 'Uzun yıllar kullanım sağlanması için tasarlanan davlumbazlar havadaki yemek kokusunu kolayca ortamdan uzaklaştırabilmektedir.', EN: 'Designed for long-term use, they can easily remove cooking odors from the environment.' },
+                { TR: 'Duvar tipi davlumbaz seçerken dikkat edilecek önemli noktalardan bir tanesi ocak ile uyumlu olmasıdır.', EN: 'One of the most important points when choosing a wall-type hood is compatibility with the cooking range.' },
+                { TR: 'Ocağın boyutuna uygun bir davlumbaz tercih edilmediğinde performans açısından problemler yaşama riski ortaya çıkmış olur.', EN: 'If the hood size does not match the range, performance issues may occur.' },
+                { TR: 'Davlumbaz modellerinin en önemli özelliklerinden biri de ateşe karşı dayanıklı olmalarıdır.', EN: 'One key feature of hood models is their resistance to fire.' },
+                { TR: 'Bir yemeğin alev alması durumunda ya da özel pişirme teknikleri kullanılırken alevin kontrol altında tutulmasına yardımcı olur.', EN: 'They help keep flames under control if food ignites or when special cooking techniques are used.' },
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 74,
+        name:   { TR: 'Dikey Tip Buzdolabı Paslanmaz Çift Kapılı Camlı', EN: 'Vertical Stainless Double Glass Door Fridge' },
+        category: { TR: 'Endüstriyel Mutfak Ekipmanları', EN: 'Industrial Kitchen Equipment' },
+        type: { TR: 'Dikey Tip Buzdolabı Paslanmaz Çift Kapılı Camlı', EN: 'Vertical Stainless Double Glass Door Fridge' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/dikeyTipBuzdolabiPaslanmazCiftKapiliCamli/dikeyTipBuzdolabiPaslanmazCiftKapiliCamli.webp',
+        thumbnails:[
+            '/images/products/endustriyelMutfakEkipmanlari/dikeyTipBuzdolabiPaslanmazCiftKapiliCamli/dikeyTipBuzdolabiPaslanmazCiftKapiliCamli.webp',
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Dikey Tip Buzdolabı Paslanmaz Çift Kapılı Camlı Paslanmaz Çelikten Üretilmektedir.', EN: 'Vertical refrigerator is made of stainless steel with double glass doors.' },
+                { TR: 'Çalışma aralığı 0/+5 ºC (tropikal 43 ºC)', EN: 'Operating range 0/+5 °C (tropical 43 °C).' },
+                { TR: '220-230V -1 +N  50-60 Hz elektrik gücü.', EN: 'Power supply 220–230V, 1+N, 50–60 Hz.' },
+                { TR: '“CFC Free” R-134 A soğutucu gaz.', EN: '“CFC Free” R-134a refrigerant gas.' },
+                { TR: '40 kg/m³ yoğunluk.', EN: '40 kg/m³ density.' },
+                { TR: 'Sıcaklık ve defrost kontrollü dijital gösterge.', EN: 'Digital display with temperature and defrost control.' },
+                { TR: 'Defrost esnasında otomatik su buharlaştırma.', EN: 'Automatic water evaporation during defrost.' },
+                { TR: 'Fanlı soğutma.', EN: 'Fan-assisted cooling.' },
+                { TR: '48 mm kalınlığında “ozon dostu” poliüretan izolasyon.', EN: '48 mm “ozone-friendly” polyurethane insulation.' },
+                { TR: '45 derecede sabit kendiliğinden kapanan kapılar.', EN: 'Self-closing doors with a fixed stop at 45 degrees.' },
+                { TR: 'Alüminyum panelli,bakır borulu evaparatör.', EN: 'Evaporator with aluminum panels and copper tubing.' },
+                { TR: 'Ayarlanabilir, paslanmaz çelik raf yuvaları, plastik raflar..', EN: 'Adjustable stainless steel shelf supports and plastic shelves.' },
+                { TR: 'Paslanmaz çelik gövde.Temizlik ihtiyacı olmayan özel tel kondenser', EN: 'Stainless steel body with a special wire condenser that does not require cleaning.' },
+                { TR: 'Maksimum iç hacim. Defrost sırasında minimum sıcaklık artışı.', EN: 'Maximum internal volume and minimal temperature rise during defrost.' },
+                { TR: 'Özel tasarım hava kanalıyla dolap içi optimum hava dağılımı', EN: 'Optimal internal air distribution via a specially designed air duct.' },
+                { TR: 'Yüksek hijyen standartlarına uygun özel kalıplarda imal edilmiş raf kızakları ve radüslü iç taban', EN: 'Shelf rails and radiused inner base manufactured in special molds to meet high hygiene standards.' },
+                { TR: 'Monoblok tasarım', EN: 'Monoblock design.' },
+                { TR: 'Otomatik fan kesme switchi ve led aydınlatma', EN: 'Automatic fan cut-off switch and LED lighting.' },
+                { TR: 'Üçlü yalıtım bölgesiyle ısı kaybını azaltan değiştirilebilir manyetik conta', EN: 'Replaceable magnetic gasket that reduces heat loss with triple insulation zones.' },
+                { TR: 'Düşük enerji tüketimi için 40-42 Kg/m3 yoğunlukta 60 mm izolasyonlu, çevre dostu HFC-Free poliüretan duvarlar', EN: 'Eco-friendly HFC-free polyurethane walls with 60 mm insulation (40–42 kg/m³ density) for low energy consumption.' },
+                { TR: 'Suya dayanıklı ön tasarım (IP21)', EN: 'Water-resistant front design (IP21).' },
+                { TR: 'Fan soğutmalı tasarım', EN: 'Fan-cooled design.' },
+                { TR: 'Cihazların herhangi bir alana rahatça adapte edilebilmesi için yönü değiştirilebilir kapılar', EN: 'Reversible doors for easy adaptation to any space.' },
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 75,
+        name:   { TR: 'Paslanmaz Dikey Tip Buzdolabı Çift Kapılı', EN: 'Stainless Vertical Type Refrigerator Double Door' },
+        category: { TR: 'Endüstriyel Mutfak Ekipmanları', EN: 'Industrial Kitchen Equipment' },
+        type: { TR: 'Paslanmaz Dikey Tip Buzdolabı Çift Kapılı', EN: 'Stainless Vertical Type Refrigerator Double Door' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/paslanmazDikeyTipBuzdolabiCiftKapili/paslanmazDikeyTipBuzdolabiCiftKapili.webp',
+        thumbnails:[
+            '/images/products/endustriyelMutfakEkipmanlari/paslanmazDikeyTipBuzdolabiCiftKapili/paslanmazDikeyTipBuzdolabiCiftKapili.webp',
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Paslanmaz Dikey Tip Buzdolabı Çift Kapılı Paslanmaz Çelikten Üretilmektedir.', EN: 'Stainless vertical refrigerator with double doors is made of stainless steel.' },
+                { TR: 'Çalışma aralığı 0/+5 ºC (tropikal 43 ºC)', EN: 'Operating range 0/+5 °C (tropical 43 °C).' },
+                { TR: '220-230V -1 +N  50-60 Hz elektrik gücü.', EN: 'Power supply 220–230V, 1+N, 50–60 Hz.' },
+                { TR: '“CFC Free” R-134 A soğutucu gaz.', EN: '“CFC Free” R-134a refrigerant gas.' },
+                { TR: '40 kg/m³ yoğunluk.', EN: '40 kg/m³ density.' },
+                { TR: 'Sıcaklık ve defrost kontrollü dijital gösterge.', EN: 'Digital display with temperature and defrost control.' },
+                { TR: 'Defrost esnasında otomatik su buharlaştırma.', EN: 'Automatic water evaporation during defrost.' },
+                { TR: 'Fanlı soğutma.', EN: 'Fan-assisted cooling.' },
+                { TR: '48 mm kalınlığında “ozon dostu” poliüretan izolasyon.', EN: '48 mm “ozone-friendly” polyurethane insulation.' },
+                { TR: '45 derecede sabit kendiliğinden kapanan kapılar.', EN: 'Self-closing doors with a fixed stop at 45 degrees.' },
+                { TR: 'Alüminyum panelli,bakır borulu evaparatör.', EN: 'Evaporator with aluminum panels and copper tubing.' },
+                { TR: 'Ayarlanabilir, paslanmaz çelik raf yuvaları, plastik raflar..', EN: 'Adjustable stainless steel shelf supports and plastic shelves.' },
+                { TR: 'Paslanmaz çelik gövde.Temizlik ihtiyacı olmayan özel tel kondenser', EN: 'Stainless steel body with a special wire condenser that does not require cleaning.' },
+                { TR: 'Maksimum iç hacim. Defrost sırasında minimum sıcaklık artışı.', EN: 'Maximum internal volume and minimal temperature rise during defrost.' },
+                { TR: 'Özel tasarım hava kanalıyla dolap içi optimum hava dağılımı', EN: 'Optimal internal air distribution via a specially designed air duct.' },
+                { TR: 'Yüksek hijyen standartlarına uygun özel kalıplarda imal edilmiş raf kızakları ve radüslü iç taban', EN: 'Shelf rails and radiused inner base manufactured in special molds to meet high hygiene standards.' },
+                { TR: 'Monoblok tasarım', EN: 'Monoblock design.' },
+                { TR: 'Otomatik fan kesme switchi ve led aydınlatma', EN: 'Automatic fan cut-off switch and LED lighting.' },
+                { TR: 'Üçlü yalıtım bölgesiyle ısı kaybını azaltan değiştirilebilir manyetik conta', EN: 'Replaceable magnetic gasket that reduces heat loss with triple insulation zones.' },
+                { TR: 'Düşük enerji tüketimi için 40-42 Kg/m3 yoğunlukta 60 mm izolasyonlu, çevre dostu HFC-Free poliüretan duvarlar', EN: 'Eco-friendly HFC-free polyurethane walls with 60 mm insulation (40–42 kg/m³ density) for low energy consumption.' },
+                { TR: 'Suya dayanıklı ön tasarım (IP21)', EN: 'Water-resistant front design (IP21).' },
+                { TR: 'Fan soğutmalı tasarım', EN: 'Fan-cooled design.' },
+                { TR: 'Cihazların herhangi bir alana rahatça adapte edilebilmesi için yönü değiştirilebilir kapılar', EN: 'Reversible doors for easy adaptation to any space.' },
+                { TR: 'Paslanmaz Dikey Tip Buzdolabı Çift Kapılı Kullanım alanları ; Kafe, Pastane, Kasap, Mutfak, Otel, Market, Şarküteri gibi bir çok iş kolunda kullanılmaktadır.', EN: 'Usage areas: suitable for many businesses such as cafés, patisseries, butcher shops, kitchens, hotels, markets, and delis.' },
+                { TR: 'Ürün Kalitesi Müşteri isteği doğrultusunda; 316, 304 ve 430 Kalite Sacdan üretimi yapılmaktadır.', EN: 'Material quality can be produced in 316, 304, or 430 grade stainless steel upon customer request.' },
+                { TR: 'Ölçüler değişken olup isteğe göre özel üretim Çalışma Tezgahı yapılmaktadır.', EN: 'Dimensions vary, and custom-made worktables can be produced on request.' },
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 76,
+        name:   { TR: 'Dikey Tip Buzdolabı Camlı', EN: 'Vertical Glass Fridge' },
+        category: { TR: 'Endüstriyel Mutfak Ekipmanları', EN: 'Industrial Kitchen Equipment' },
+        type: { TR: 'Dikey Tip Buzdolabı Camlı', EN: 'Vertical Glass Fridge' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/dikeyTipBuzdolabiCamli/dikeyTipBuzdolabiCamli.webp',
+        thumbnails:[
+            '/images/products/endustriyelMutfakEkipmanlari/dikeyTipBuzdolabiCamli/dikeyTipBuzdolabiCamli.webp',
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Dikey Tip Buzdolabı Camlı Paslanmaz Çelikten Üretilmektedir.', EN: 'Vertical glass-door refrigerator is made of stainless steel.' },
+                { TR: 'Çalışma aralığı 0/+5 ºC (tropikal 43 ºC)', EN: 'Operating range 0/+5 °C (tropical 43 °C).' },
+                { TR: '220-230V -1 +N  50-60 Hz elektrik gücü.', EN: 'Power supply 220–230V, 1+N, 50–60 Hz.' },
+                { TR: '“CFC Free” R-134 A soğutucu gaz.', EN: '“CFC Free” R-134a refrigerant gas.' },
+                { TR: '40 kg/m³ yoğunluk.', EN: '40 kg/m³ density.' },
+                { TR: 'Sıcaklık ve defrost kontrollü dijital gösterge.', EN: 'Digital display with temperature and defrost control.' },
+                { TR: 'Defrost esnasında otomatik su buharlaştırma.', EN: 'Automatic water evaporation during defrost.' },
+                { TR: 'Fanlı soğutma.', EN: 'Fan-assisted cooling.' },
+                { TR: '48 mm kalınlığında “ozon dostu” poliüretan izolasyon.', EN: '48 mm “ozone-friendly” polyurethane insulation.' },
+                { TR: '45 derecede sabit kendiliğinden kapanan kapılar.', EN: 'Self-closing doors with a fixed stop at 45 degrees.' },
+                { TR: 'Alüminyum panelli,bakır borulu evaparatör.', EN: 'Evaporator with aluminum panels and copper tubing.' },
+                { TR: 'Ayarlanabilir, paslanmaz çelik raf yuvaları, plastik raflar..', EN: 'Adjustable stainless steel shelf supports and plastic shelves.' },
+                { TR: 'Paslanmaz çelik gövde. Temizlik ihtiyacı olmayan özel tel kondenser', EN: 'Stainless steel body with a special wire condenser that does not require cleaning.' },
+                { TR: 'Maksimum iç hacim. Defrost sırasında minimum sıcaklık artışı.', EN: 'Maximum internal volume and minimal temperature rise during defrost.' },
+                { TR: 'Özel tasarım hava kanalıyla dolap içi optimum hava dağılımı .', EN: 'Optimal internal air distribution via a specially designed air duct.' },
+                { TR: 'Yüksek hijyen standartlarına uygun özel kalıplarda imal edilmiş raf kızakları ve radüslü iç taban', EN: 'Shelf rails and radiused inner base manufactured in special molds to meet high hygiene standards.' },
+                { TR: 'Monoblok tasarım', EN: 'Monoblock design.' },
+                { TR: 'Otomatik fan kesme switchi ve led aydınlatma', EN: 'Automatic fan cut-off switch and LED lighting.' },
+                { TR: 'Üçlü yalıtım bölgesiyle ısı kaybını azaltan değiştirilebilir manyetik conta', EN: 'Replaceable magnetic gasket that reduces heat loss with triple insulation zones.' },
+                { TR: 'Düşük enerji tüketimi için 40-42 Kg/m3 yoğunlukta 60 mm izolasyonlu, çevre dostu HFC-Free poliüretan duvarlar', EN: 'Eco-friendly HFC-free polyurethane walls with 60 mm insulation (40–42 kg/m³ density) for low energy consumption.' },
+                { TR: 'Suya dayanıklı ön tasarım (IP21)', EN: 'Water-resistant front design (IP21).' },
+                { TR: 'Fan soğutmalı tasarım', EN: 'Fan-cooled design.' },
+                { TR: 'Cihazların herhangi bir alana rahatça adapte edilebilmesi için yönü değiştirilebilir kapılar.', EN: 'Reversible doors for easy adaptation to any space.' },
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 77,
+        name:   { TR: 'Paslanmaz Buzdolabı Dikey Tip', EN: 'Vertical Stainless Fridge' },
+        category: { TR: 'Endüstriyel Mutfak Ekipmanları', EN: 'Industrial Kitchen Equipment' },
+        type: { TR: 'Paslanmaz Buzdolabı Dikey Tip', EN: 'Vertical Stainless Fridge' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/paslanmazBuzdolabiDikeyTip/paslanmazBuzdolabiDikeyTip.webp',
+        thumbnails:[
+            '/images/products/endustriyelMutfakEkipmanlari/paslanmazBuzdolabiDikeyTip/paslanmazBuzdolabiDikeyTip.webp',
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Paslanmaz Buzdolabı Dikey Tip Paslanmaz Çelikten Üretilmektedir.', EN: 'Vertical stainless refrigerator is made of stainless steel.' },
+                { TR: 'Çalışma aralığı 0/+5 ºC (tropikal 43 ºC)', EN: 'Operating range 0/+5 °C (tropical 43 °C).' },
+                { TR: '220-230V -1 +N  50-60 Hz elektrik gücü.', EN: 'Power supply 220–230V, 1+N, 50–60 Hz.' },
+                { TR: '“CFC Free” R-134 A soğutucu gaz.', EN: '“CFC Free” R-134a refrigerant gas.' },
+                { TR: '40 kg/m³ yoğunluk.', EN: '40 kg/m³ density.' },
+                { TR: 'Sıcaklık ve defrost kontrollü dijital gösterge.', EN: 'Digital display with temperature and defrost control.' },
+                { TR: 'Defrost esnasında otomatik su buharlaştırma.', EN: 'Automatic water evaporation during defrost.' },
+                { TR: 'Fanlı soğutma.', EN: 'Fan-assisted cooling.' },
+                { TR: '48 mm kalınlığında “ozon dostu” poliüretan izolasyon.', EN: '48 mm “ozone-friendly” polyurethane insulation.' },
+                { TR: '45 derecede sabit kendiliğinden kapanan kapılar.', EN: 'Self-closing doors with a fixed stop at 45 degrees.' },
+                { TR: 'Alüminyum panelli,bakır borulu evaparatör.', EN: 'Evaporator with aluminum panels and copper tubing.' },
+                { TR: 'Ayarlanabilir, paslanmaz çelik raf yuvaları, plastik raflar..', EN: 'Adjustable stainless steel shelf supports and plastic shelves.' },
+                { TR: 'Paslanmaz çelik gövde.Temizlik ihtiyacı olmayan özel tel kondenser', EN: 'Stainless steel body with a special wire condenser that does not require cleaning.' },
+                { TR: 'Maksimum iç hacim. Defrost sırasında minimum sıcaklık artışı.', EN: 'Maximum internal volume and minimal temperature rise during defrost.' },
+                { TR: 'Özel tasarım hava kanalıyla dolap içi optimum hava dağılımı.', EN: 'Optimal internal air distribution via a specially designed air duct.' },
+                { TR: 'Yüksek hijyen standartlarına uygun özel kalıplarda imal edilmiş raf kızakları ve radüslü iç taban', EN: 'Shelf rails and radiused inner base manufactured in special molds to meet high hygiene standards.' },
+                { TR: 'Monoblok tasarım', EN: 'Monoblock design.' },
+                { TR: 'Otomatik fan kesme switchi ve led aydınlatma', EN: 'Automatic fan cut-off switch and LED lighting.' },
+                { TR: 'Üçlü yalıtım bölgesiyle ısı kaybını azaltan değiştirilebilir manyetik conta', EN: 'Replaceable magnetic gasket that reduces heat loss with triple insulation zones.' },
+                { TR: 'Düşük enerji tüketimi için 40-42 Kg/m3 yoğunlukta 60 mm izolasyonlu, çevre dostu HFC-Free poliüretan duvarlar', EN: 'Eco-friendly HFC-free polyurethane walls with 60 mm insulation (40–42 kg/m³ density) for low energy consumption.' },
+                { TR: 'Suya dayanıklı ön tasarım (IP21)', EN: 'Water-resistant front design (IP21).' },
+                { TR: 'Fan soğutmalı tasarım', EN: 'Fan-cooled design.' },
+                { TR: 'Cihazların herhangi bir alana rahatça adapte edilebilmesi için yönü değiştirilebilir kapılar', EN: 'Reversible doors for easy adaptation to any space.' },
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 78,
+        name:  { TR: 'Tezgah Altı Dolap Camlı', EN: 'Under-Counter Glass Cabinet' },
+        category: { TR: 'Endüstriyel Mutfak Ekipmanları', EN: 'Industrial Kitchen Equipment' },
+        type: { TR: 'Tezgah Altı Dolap Camlı', EN: 'Under-Counter Glass Cabinet' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/tezgahAltiDolapCamli/tezgahAltiDolapCamli.webp',
+        thumbnails:[
+            '/images/products/endustriyelMutfakEkipmanlari/tezgahAltiDolapCamli/tezgahAltiDolapCamli.webp',
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Tezgah Altı Dolap Camlı Paslanmaz Çelikten Üretilmektedir.', EN: 'Under-counter cabinet with glass doors is made of stainless steel.' },
+                { TR: 'Çalışma aralığı 0/+5 ºC (tropikal 43 ºC)', EN: 'Operating range 0/+5 °C (tropical 43 °C).' },
+                { TR: '220-230V -1 +N  50-60 Hz elektrik gücü.', EN: 'Power supply 220–230V, 1+N, 50–60 Hz.' },
+                { TR: '“CFC Free” R-134 A soğutucu gaz.', EN: '“CFC Free” R-134a refrigerant gas.' },
+                { TR: '40 kg/m³ yoğunluk.', EN: '40 kg/m³ density.' },
+                { TR: 'Sıcaklık ve defrost kontrollü dijital gösterge.', EN: 'Digital display with temperature and defrost control.' },
+                { TR: 'Defrost esnasında otomatik su buharlaştırma.', EN: 'Automatic water evaporation during defrost.' },
+                { TR: 'Fanlı soğutma.', EN: 'Fan-assisted cooling.' },
+                { TR: '48 mm kalınlığında “ozon dostu” poliüretan izolasyon.', EN: '48 mm “ozone-friendly” polyurethane insulation.' },
+                { TR: '45 derecede sabit kendiliğinden kapanan kapılar.', EN: 'Self-closing doors with a fixed stop at 45 degrees.' },
+                { TR: 'Alüminyum panelli,bakır borulu evaparatör.', EN: 'Evaporator with aluminum panels and copper tubing.' },
+                { TR: 'Ayarlanabilir, paslanmaz çelik raf yuvaları, plastik raflar..', EN: 'Adjustable stainless steel shelf supports and plastic shelves.' },
+                { TR: 'Paslanmaz çelik gövde.', EN: 'Stainless steel body.' },
+                { TR: 'Üst Tabla Paslanmaz Sacdan Üretilmektedir.', EN: 'Top work surface is produced from stainless sheet metal.' },
+                { TR: 'Evyeler İsteğe göre tek , çift ve üç evyeli olacak şekilde üretilebilmektedir.', EN: 'Sinks can be produced as single, double, or triple upon request.' },
+                { TR: 'Dolaplı Çalışma Tezgahı Sürgülü Ve Kapılı Olarak Üretimi yapılabilmektedir.', EN: 'Worktables with cabinets can be produced with sliding doors or hinged doors.' },
+                { TR: 'Taban Raflı , Taban ve Ara Raflı , Çekmeceli , Polietilen Tezgahlı , Paslanmaz Tezgahlı gibi Çeşitli Modellerde üretimi yapılmaktadır.', EN: 'Available in various models such as base shelf, base + mid shelf, drawer units, polyethylene tops, and stainless worktops.' },
+                { TR: 'Ürün Kalitesi Müşteri isteği doğrultusunda; 316, 304 ve 430 Kalite Sacdan üretimi yapılmaktadır.', EN: 'Material quality can be produced in 316, 304, or 430 grade stainless steel upon customer request.' },
+                { TR: 'Ölçüler değişken olup isteğe göre özel üretim Çalışma Tezgahı yapılmaktadır.', EN: 'Dimensions vary, and custom-made worktables can be produced on request.' },
+                { TR: 'Polietilen Tabla Kalınlığı 40mm dir.', EN: 'Polyethylene top thickness is 40 mm.' },
+                { TR: 'Üst Tabla Alınları 40 mm ve Sırt 60 mm dir.', EN: 'Top front edge is 40 mm and the back upstand is 60 mm.' },
+                { TR: 'Tezgah Ayakları 40×40 Kutu Profilde Üretilmektedir.', EN: 'Table legs are produced from 40×40 box profile.' },
+                { TR: 'Ayarlanabilir Plastik Rotil Ayaklıdır.', EN: 'Includes adjustable plastic swivel feet.' },
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 79,
+        name:  { TR: 'Tezgah Altı Buzdolabı', EN: 'Under-Counter Fridge' },
+        category: { TR: 'Endüstriyel Mutfak Ekipmanları', EN: 'Industrial Kitchen Equipment' },
+        type: { TR: 'Tezgah Altı Buzdolabı', EN: 'Under-Counter Fridge' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/tezgahAltiBuzdolabi/tezgahAltiBuzdolabi.webp',
+        thumbnails:[
+            '/images/products/endustriyelMutfakEkipmanlari/tezgahAltiBuzdolabi/tezgahAltiBuzdolabi.webp',
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Tezgah Altı Buzdolabı Paslanmaz Çelikten Üretilmektedir.', EN: 'Under-counter refrigerator is made of stainless steel.' },
+                { TR: 'Çalışma aralığı 0/+5 ºC (tropikal 43 ºC)', EN: 'Operating range 0/+5 °C (tropical 43 °C).' },
+                { TR: '220-230V -1 +N  50-60 Hz elektrik gücü.', EN: 'Power supply 220–230V, 1+N, 50–60 Hz.' },
+                { TR: '“CFC Free” R-134 A soğutucu gaz.', EN: '“CFC Free” R-134a refrigerant gas.' },
+                { TR: '40 kg/m³ yoğunluk.', EN: '40 kg/m³ density.' },
+                { TR: 'Sıcaklık ve defrost kontrollü dijital gösterge.', EN: 'Digital display with temperature and defrost control.' },
+                { TR: 'Defrost esnasında otomatik su buharlaştırma.', EN: 'Automatic water evaporation during defrost.' },
+                { TR: 'Fanlı soğutma.', EN: 'Fan-assisted cooling.' },
+                { TR: '48 mm kalınlığında “ozon dostu” poliüretan izolasyon.', EN: '48 mm “ozone-friendly” polyurethane insulation.' },
+                { TR: '45 derecede sabit kendiliğinden kapanan kapılar.', EN: 'Self-closing doors with a fixed stop at 45 degrees.' },
+                { TR: 'Alüminyum panelli,bakır borulu evaparatör.', EN: 'Evaporator with aluminum panels and copper tubing.' },
+                { TR: 'Ayarlanabilir, paslanmaz çelik raf yuvaları, plastik raflar..', EN: 'Adjustable stainless steel shelf supports and plastic shelves.' },
+                { TR: 'Paslanmaz çelik gövde.', EN: 'Stainless steel body.' },
+                { TR: 'Üst Tabla Paslanmaz Sacdan Üretilmektedir.', EN: 'Top work surface is produced from stainless sheet metal.' },
+                { TR: 'Evyeler İsteğe göre tek , çift ve üç evyeli olacak şekilde üretilebilmektedir.', EN: 'Sinks can be produced as single, double, or triple upon request.' },
+                { TR: 'Dolaplı Çalışma Tezgahı Sürgülü Ve Kapılı Olarak Üretimi yapılabilmektedir.', EN: 'Worktables with cabinets can be produced with sliding doors or hinged doors.' },
+                { TR: 'Taban Raflı , Taban ve Ara Raflı , Çekmeceli , Polietilen Tezgahlı , Paslanmaz Tezgahlı gibi Çeşitli Modellerde üretimi yapılamaktadır.', EN: 'Available in various models such as base shelf, base + mid shelf, drawer units, polyethylene tops, and stainless worktops.' },
+
+                { TR: 'Ürün Kalitesi Müşteri isteği doğrultusunda; 316, 304 ve 430 Kalite Sacdan üretimi yapılmaktadır.', EN: 'Material quality can be produced in 316, 304, or 430 grade stainless steel upon customer request.' },
+                { TR: 'Ölçüler değişken olup isteğe göre özel üretim Çalışma Tezgahı yapılmaktadır.', EN: 'Dimensions vary, and custom-made worktables can be produced on request.' },
+                { TR: 'Polietilen Tabla Kalınlığı 40mm dir.', EN: 'Polyethylene top thickness is 40 mm.' },
+                { TR: 'Üst Tabla Alınları 40 mm ve Sırt 60 mm dir.', EN: 'Top front edge is 40 mm and the back upstand is 60 mm.' },
+                { TR: 'Tezgah Ayakları 40×40 Kutu Profilde Üretilmektedir.', EN: 'Table legs are produced from 40×40 box profile.' },
+                { TR: 'Ayarlanabilir Plastik Rotil Ayaklıdır.', EN: 'Includes adjustable plastic swivel feet.' },
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 80,
+        name: { TR: 'Çalışma Tezgahı Ara Raflı', EN: 'Workbench with Mid Shelf' },
+        category: { TR: 'Endüstriyel Mutfak Ekipmanları', EN: 'Industrial Kitchen Equipment' },
+        type: { TR: 'Çalışma Tezgahı Ara Raflı', EN: 'Workbench with Mid Shelf' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/calismaTezgahiAraRafli/calismaTezgahiAraRafli.webp',
+        thumbnails:[
+            '/images/products/endustriyelMutfakEkipmanlari/calismaTezgahiAraRafli/calismaTezgahiAraRafli.webp',
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Çalışma Tezgahı Ara Raflı, Taban Raflı, Paslanmaz Çelikten Üretilmektedir.', EN: 'Worktable with mid-shelf and base shelf is made of stainless steel.' },
+                { TR: 'Üst Tabla Paslanmaz Sacdan Üretilmektedir.', EN: 'Top work surface is produced from stainless sheet metal.' },
+                { TR: 'Evyeler İsteğe göre tek , çift ve üç evyeli olacak şekilde üretilebilmektedir.', EN: 'Sinks can be produced as single, double, or triple upon request.' },
+                { TR: 'Dolaplı Çalışma Tezgahı Sürgülü Ve Kapılı Olarak Üretimi yapılabilmektedir.', EN: 'Worktables with cabinets can be produced with sliding doors or hinged doors.' },
+                { TR: 'Polietilen Tabla Kalınlığı 40mm dir.', EN: 'Polyethylene top thickness is 40 mm.' },
+                { TR: 'Üst Tabla Alınları 40 mm ve Sırt 60 mm dir.', EN: 'Top front edge is 40 mm and the back upstand is 60 mm.' },
+                { TR: 'Tezgah Ayakları 40×40 Kutu Profilde Üretilmektedir.', EN: 'Table legs are produced from 40×40 box profile.' },
+                { TR: 'Ayarlanabilir Plastik Rotil Ayaklıdır.', EN: 'Includes adjustable plastic swivel feet.' },
+
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 81,
+        name:{ TR: 'Çalışma Tezgahı Taban Raflı', EN: 'Workbench with Base Shelf' },
+        category: { TR: 'Endüstriyel Mutfak Ekipmanları', EN: 'Industrial Kitchen Equipment' },
+        type: { TR: 'Çalışma Tezgahı Taban Raflı', EN: 'Workbench with Base Shelf' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/calismaTezgahiPolietilenTablaliTabanRafli/calismaTezgahiPolietilenTablaliTabanRafli.webp',
+        thumbnails:[
+            '/images/products/endustriyelMutfakEkipmanlari/calismaTezgahiPolietilenTablaliTabanRafli/calismaTezgahiPolietilenTablaliTabanRafli.webp',
+        ],
+        drawingImage:[
+            '/images/products/endustriyelMutfakEkipmanlari/calismaTezgahiTabanRafli/calismaTezgahiTabanRaflix.webp',
+        ],
+        specs: {
+            modules: '850',
+            sidePanel: "700",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Çalışma Tezgahı Taban Raflı Paslanmaz Çelikten Üretilmektedir.', EN: 'Base-shelf worktable is made of stainless steel.' },
+                { TR: 'Üst Tabla Paslanmaz Sacdan Üretilmektedir.', EN: 'Top work surface is produced from stainless sheet metal.' },
+                { TR: 'Evyeler İsteğe göre tek , çift ve üç evyeli olacak şekilde üretilebilmektedir.', EN: 'Sinks can be produced as single, double, or triple upon request.' },
+                { TR: 'Dolaplı Çalışma Tezgahı Sürgülü Ve Kapılı Olarak Üretimi yapılabilmektedir.', EN: 'Worktables with cabinets can be produced with sliding doors or hinged doors.' },
+                { TR: 'Taban Raflı , Taban ve Ara Raflı , Çekmeceli , Polietilen Tezgahlı , Paslanmaz Tezgahlı gibi Çeşitli Modellerde üretimi yapılamaktadır.', EN: 'Available in various models such as base shelf, base + mid shelf, drawer units, polyethylene tops, and stainless worktops.' },
+                { TR: 'Çalışma Tezgahları Kullanım alanları ; Kafe, Pastane, Kasap, Mutfak, Otel, Market, Şarküteri gibi bir çok iş kolunda kullanılmaktadır.', EN: 'Usage areas: suitable for many businesses such as cafés, patisseries, butcher shops, kitchens, hotels, markets, and delis.' },
+                { TR: 'Ürün Kalitesi Müşteri isteği doğrultusunda; 316, 304 ve 430 Kalite Sacdan üretimi yapılmaktadır.', EN: 'Material quality can be produced in 316, 304, or 430 grade stainless steel upon customer request.' },
+                { TR: 'Ölçüler değişken olup isteğe göre özel üretim Çalışma Tezgahı yapılmaktadır.', EN: 'Dimensions vary, and custom-made worktables can be produced on request.' },
+                { TR: 'Polietilen Tabla Kalınlığı 40mm dir.', EN: 'Polyethylene top thickness is 40 mm.' },
+                { TR: 'Üst Tabla Alınları 40 mm ve Sırt 60 mm dir.', EN: 'Top front edge is 40 mm and the back upstand is 60 mm.' },
+                { TR: 'Tezgah Ayakları 40×40 Kutu Profilde Üretilmektedir.', EN: 'Table legs are produced from 40×40 box profile.' },
+                { TR: 'Ayarlanabilir Plastik Rotil Ayaklıdır.', EN: 'Includes adjustable plastic swivel feet.' },
+
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 82,
+        name: { TR: 'Tek Evyeli Tezgah Paslanmaz', EN: 'Single-Sink Stainless Bench' },
+        category: { TR: 'Endüstriyel Mutfak Ekipmanları', EN: 'Industrial Kitchen Equipment' },
+        type:  { TR: 'Tek Evyeli Tezgah Paslanmaz', EN: 'Single-Sink Stainless Bench' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/tekEvyeliTezgahPaslanmaz/tekEvyeliTezgahPaslanmaz.webp',
+        thumbnails:[
+            '/images/products/endustriyelMutfakEkipmanlari/tekEvyeliTezgahPaslanmaz/tekEvyeliTezgahPaslanmaz.webp',
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Tek Evyeli Tezgah Paslanmaz Çelikten Üretilmektedir.', EN: 'Single-sink worktable is made of stainless steel.' },
+                { TR: 'Üst Tabla Paslanmaz Sacdan Üretilmektedir.', EN: 'Top work surface is produced from stainless sheet metal.' },
+                { TR: 'Evyeler İsteğe göre tek , çift ve üç evyeli olacak şekilde üretilebilmektedir.', EN: 'Sinks can be produced as single, double, or triple upon request.' },
+                { TR: 'Dolaplı Çalışma Tezgahı Sürgülü Ve Kapılı Olarak Üretimi yapılabilmektedir.', EN: 'Worktables with cabinets can be produced with sliding doors or hinged doors.' },
+                { TR: 'Taban Raflı , Taban ve Ara Raflı , Çekmeceli , Polietilen Tezgahlı , Paslanmaz Tezgahlı gibi Çeşitli Modellerde üretimi yapılamaktadır.', EN: 'Available in various models such as base shelf, base + mid shelf, drawer units, polyethylene tops, and stainless worktops.' },
+                { TR: 'Çalışma Tezgahları Kullanım alanları ; Kafe, Pastane, Kasap, Mutfak, Otel, Market, Şarküteri gibi bir çok iş kolunda kullanılmaktadır.', EN: 'Usage areas: suitable for many businesses such as cafés, patisseries, butcher shops, kitchens, hotels, markets, and delis.' },
+                { TR: 'Ürün Kalitesi Müşteri isteği doğrultusunda; 316, 304 ve 430 Kalite Sacdan üretimi yapılmaktadır.', EN: 'Material quality can be produced in 316, 304, or 430 grade stainless steel upon customer request.' },
+                { TR: 'Ölçüler değişken olup isteğe göre özel üretim Çalışma Tezgahı yapılmaktadır.', EN: 'Dimensions vary, and custom-made worktables can be produced on request.' },
+                { TR: 'Ayarlanabilir Plastik Rotil Ayaklıdır.', EN: 'Includes adjustable plastic swivel feet.' },
+                { TR: 'Ürün konstrüksiyonu paslanmaz çelikten mamuldür', EN: 'The product structure is made of stainless steel.' },
+                { TR: 'Ürün demontedir', EN: 'The product is supplied disassembled.' },
+                { TR: 'Ürün sol damlalıklı', EN: 'The product has a left-side drainboard.' },
+                { TR: 'Üst tabla alınları 40 mm ve sırt 60 mm', EN: 'Top front edge is 40 mm and the back upstand is 60 mm.' },
+                { TR: 'Üst tabla pres baskı imal edilip bölgesel indirimli', EN: 'The top is press-formed with locally reinforced bends.' },
+                { TR: 'Üst tablaya 1 adet 400x400x250 mm ölçülü pres baskı monoblok evye gözü dikiş kaynak yöntemiyle kaynaklı', EN: 'One 400×400×250 mm press-formed monoblock sink bowl is seam-welded to the top.' },
+                { TR: 'Tezgah ayakları 40×40 kutu profil', EN: 'Table legs are made from 40×40 box profile.' },
+                { TR: 'Paslanmaz çelik taban raflı', EN: 'Includes a stainless steel base shelf.' },
+                { TR: 'Ayarlanabilir plastik rotil ayaklı', EN: 'Equipped with adjustable plastic swivel feet.' },
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 83,
+        name: { TR: 'Soğuk Oda Rafı', EN: 'Cold Room Shelf' },
+        category: { TR: 'Endüstriyel Mutfak Ekipmanları', EN: 'Industrial Kitchen Equipment' },
+        type:  { TR: 'Soğuk Oda Rafı', EN: 'Cold Room Shelf' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/sogukOdaRafi/sogukOdaRafi.webp',
+        thumbnails:[
+            '/images/products/endustriyelMutfakEkipmanlari/sogukOdaRafi/sogukOdaRafi.webp',
+        ],
+        specs: {
+            modules: '36-86-137-150-160-183-216-244',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Soğuk Oda Rafı', EN: 'Cold Room Shelf' },
+                { TR: 'Tamamı 304 Kalite Cr-Ni paslanmaz çelik transmisyon telden imal edilmiştir.', EN: 'Manufactured entirely from 304 grade Cr-Ni stainless steel transmission wire.' },
+                { TR: 'Parlak yüzeyler için elektropolisaj yapılmıştır.', EN: 'Electropolishing is applied for shiny surfaces.' },
+                { TR: 'Raflar dikmeleri ile demonte şekilde hazırlanmış olup kurulumda raf yükseklikleri 10cm arayla istenilen yükseklikte ayarlanabilir.', EN: 'Shelves are supplied disassembled with uprights; during installation, shelf heights can be adjusted at 10 cm intervals.' },
+                { TR: 'Opsiyonel olarak 360 derece dönebilen, 2’si frenli 2’si frensiz 4 adet teker ilave edilebilmektedir.', EN: 'Optionally, 4 castors can be added (360° swivel; 2 with brakes and 2 without).' },
+                { TR: 'Rafların maksimum yük kapasite 150 Kg (+-%10) taşır isteğe bağlı olarak 200 Kg kapasiteli raflar hazırlanılabilmektedir.', EN: 'Maximum load capacity is 150 kg (+/−10%); 200 kg capacity shelves can be made on request.' },
+                { TR: 'Talebe göre 201 kalite paslanmaz çelik şaseden üretilebilmektedir.', EN: 'Can be produced with a 201 grade stainless steel chassis upon request.' },
+                { TR: 'İsteğe bağlı olarak istenildiği kadar raf eklenilerek ve çıkartılarak hazırlanabilmektedir.', EN: 'Shelves can be configured by adding or removing as many tiers as needed.' },
+                { TR: 'Yüksekliği 36-86-137-150-160-183-216-244cm ölçülerinde hazırlanabilmektedir.', EN: 'Available in heights of 36, 86, 137, 150, 160, 183, 216, and 244 cm.' },
+                { TR: 'Yapısı gereği hava sirkülasyonu sağlanmasına elverişli yapıya sahiptir.', EN: 'Its structure is suitable for efficient air circulation.' },
+                { TR: 'Birden fazla raf birbirine ek parçalar birleştirilebilir.', EN: 'Multiple shelves can be connected using joining parts.' },
+                { TR: 'Yükseklik – Raf Sayısı – Tapon – Teker – Sepet –  V.b aksesuarlar eklenilebilmektedir.', EN: 'Accessories such as height options, shelf count, end caps, castors, baskets, etc. can be added.' },
+
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 84,
+        name: { TR: 'Paslanmaz Tel Raf', EN: 'Stainless Wire Shelf' },
+        category: { TR: 'Endüstriyel Mutfak Ekipmanları', EN: 'Industrial Kitchen Equipment' },
+        type:  { TR: 'Paslanmaz Tel Raf', EN: 'Stainless Wire Shelf' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/sogukOdaRafi/sogukOdaRafi.webp',
+        thumbnails:[
+            '/images/products/endustriyelMutfakEkipmanlari/sogukOdaRafi/sogukOdaRafi.webp',
+        ],
+        specs: {
+            modules: '36-86-137-150-160-183-216-244',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Paslanmaz Tel Raf Tamamı 304 Kalite Cr-Ni paslanmaz çelik transmisyon telden imal edilmiştir.', EN: 'Stainless wire shelf is manufactured entirely from 304 grade Cr-Ni stainless steel transmission wire.' },
+                { TR: 'Parlak yüzeyler için elektropolisaj yapılmıştır.', EN: 'Electropolishing is applied for shiny surfaces.' },
+                { TR: 'Raflar dikmeleri ile demonte şekilde hazırlanmış olup kurulumda raf yükseklikleri 10cm arayla istenilen yükseklikte ayarlanabilir.', EN: 'Shelves are supplied disassembled with uprights; during installation, shelf heights can be adjusted at 10 cm intervals.' },
+                { TR: 'Opsiyonel olarak 360 derece dönebilen, 2’si frenli 2’si frensiz 4 adet teker ilave edilebilmektedir.', EN: 'Optionally, 4 castors can be added (360° swivel; 2 with brakes and 2 without).' },
+                { TR: 'Rafların maksimum yük kapasite 150 Kg (+-%10) taşır isteğe bağlı olarak 200 Kg kapasiteli raflar hazırlanılabilmektedir.', EN: 'Maximum load capacity is 150 kg (+/−10%); 200 kg capacity shelves can be made on request.' },
+                { TR: 'Talebe göre 201 kalite paslanmaz çelik şaseden üretilebilmektedir.', EN: 'Can be produced with a 201 grade stainless steel chassis upon request.' },
+                { TR: 'İsteğe bağlı olarak istenildiği kadar raf eklenilerek ve çıkartılarak hazırlanabilmektedir.', EN: 'Shelves can be configured by adding or removing as many tiers as needed.' },
+                { TR: 'Yüksekliği 36-86-137-150-160-183-216-244cm ölçülerinde hazırlanabilmektedir.', EN: 'Available in heights of 36, 86, 137, 150, 160, 183, 216, and 244 cm.' },
+                { TR: 'Yapısı gereği hava sirkülasyonu sağlanmasına elverişli yapıya sahiptir.', EN: 'Its structure is suitable for efficient air circulation.' },
+                { TR: 'Birden fazla raf birbirine ek parçalar birleştirilebilir.', EN: 'Multiple shelves can be connected using joining parts.' },
+                { TR: 'Yükseklik – Raf Sayısı – Tapon – Teker – Sepet –  V.b aksesuarlar eklenilebilmektedir.', EN: 'Accessories such as height options, shelf count, end caps, castors, baskets, etc. can be added.' },
+
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 85,
+        name: { TR: 'Tel Raf İstif Rafı', EN: 'Stackable Wire Shelf' },
+        category: { TR: 'Endüstriyel Mutfak Ekipmanları', EN: 'Industrial Kitchen Equipment' },
+        type:  { TR: 'Tel Raf İstif Rafı', EN: 'Stackable Wire Shelf' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/sogukOdaRafi/sogukOdaRafi.webp',
+        thumbnails:[
+            '/images/products/endustriyelMutfakEkipmanlari/sogukOdaRafi/sogukOdaRafi.webp',
+        ],
+        specs: {
+            modules: '36-86-137-150-160-183-216-244',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Tamamı 304 Kalite Cr-Ni paslanmaz çelik transmisyon telden imal edilmiştir.', EN: 'Manufactured entirely from 304 grade Cr-Ni stainless steel transmission wire.' },
+                { TR: 'Parlak yüzeyler için elektropolisaj yapılmıştır.', EN: 'Electropolishing is applied for shiny surfaces.' },
+                { TR: 'Raflar dikmeleri ile demonte şekilde hazırlanmış olup kurulumda raf yükseklikleri 10cm arayla istenilen yükseklikte ayarlanabilir.', EN: 'Shelves are supplied disassembled with uprights; during installation, shelf heights can be adjusted at 10 cm intervals.' },
+                { TR: 'Opsiyonel olarak 360 derece dönebilen, 2’si frenli 2’si frensiz 4 adet teker ilave edilebilmektedir.', EN: 'Optionally, 4 castors can be added (360° swivel; 2 with brakes and 2 without).' },
+                { TR: 'Rafların maksimum yük kapasite 150 Kg (+-%10) taşır isteğe bağlı olarak 200 Kg kapasiteli raflar hazırlanılabilmektedir.', EN: 'Maximum load capacity is 150 kg (+/−10%); 200 kg capacity shelves can be made on request.' },
+                { TR: 'Talebe göre 201 kalite paslanmaz çelik şaseden üretilebilmektedir.', EN: 'Can be produced with a 201 grade stainless steel chassis upon request.' },
+                { TR: 'İsteğe bağlı olarak istenildiği kadar raf eklenilerek ve çıkartılarak hazırlanabilmektedir.', EN: 'Shelves can be configured by adding or removing as many tiers as needed.' },
+                { TR: 'Yüksekliği 36-86-137-150-160-183-216-244cm ölçülerinde hazırlanabilmektedir.', EN: 'Available in heights of 36, 86, 137, 150, 160, 183, 216, and 244 cm.' },
+                { TR: 'Yapısı gereği hava sirkülasyonu sağlanmasına elverişli yapıya sahiptir.', EN: 'Its structure is suitable for efficient air circulation.' },
+                { TR: 'Birden fazla raf birbirine ek parçalar birleştirilebilir.', EN: 'Multiple shelves can be connected using joining parts.' },
+                { TR: 'Yükseklik – Raf Sayısı – Tapon – Teker – Sepet –  V.b aksesuarlar eklenilebilmektedir.', EN: 'Accessories such as height options, shelf count, end caps, castors, baskets, etc. can be added.' },
+
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 86,
+        name: { TR: 'Paslanmaz Evyeli Dolaplı Tezgah', EN: 'Stainless Bench with Sink & Cabinet' },
+        category: { TR: 'Endüstriyel Mutfak Ekipmanları', EN: 'Industrial Kitchen Equipment' },
+        type:  { TR: 'Paslanmaz Evyeli Dolaplı Tezgah', EN: 'Stainless Bench with Sink & Cabinet' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/paslanmazEvyeliDolapliTezgah/paslanmazEvyeliDolapliTezgahx.webp',
+        thumbnails:[
+            '/images/products/endustriyelMutfakEkipmanlari/paslanmazEvyeliDolapliTezgah/paslanmazEvyeliDolapliTezgah.webp',
+            '/images/products/endustriyelMutfakEkipmanlari/paslanmazEvyeliDolapliTezgah/paslanmazEvyeliDolapliTezgah1.webp',
+            '/images/products/endustriyelMutfakEkipmanlari/paslanmazEvyeliDolapliTezgah/paslanmazEvyeliDolapliTezgah2.webp',
+
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Paslanmaz Evyeli Dolaplı Tezgah', EN: 'Stainless Cabinet Worktable with Sink' },
+                { TR: 'Evyeli Dolaplı Çalışma Tezgahları Paslanmaz Çelikten Üretilmektedir.', EN: 'Cabinet worktables with sinks are made of stainless steel.' },
+                { TR: 'Üst Tabla Paslanmaz Sacdan Üretilmektedir.', EN: 'Top work surface is produced from stainless sheet metal.' },
+                { TR: 'Evyeler İsteğe göre tek , çift ve üç evyeli olacak şekilde üretilebilmektedir.', EN: 'Sinks can be produced as single, double, or triple upon request.' },
+                { TR: 'Dolaplı Çalışma Tezgahı Sürgülü Ve Kapılı Olarak Üretimi yapılabilmektedir.', EN: 'Cabinet worktables can be produced with sliding doors or hinged doors.' },
+                { TR: 'Taban Raflı , Taban ve Ara Raflı , Çekmeceli , Polietilen Tezgahlı , Paslanmaz Tezgahlı gibi Çeşitli Modellerde üretimi yapılamaktadır.', EN: 'Available in various models such as base shelf, base + mid shelf, drawer units, polyethylene tops, and stainless worktops.' },
+                { TR: 'Çalışma Tezgahları Kullanım alanları ; Kafe, Pastane, Kasap, Mutfak, Otel, Market, Şarküteri gibi bir çok iş kolunda kullanılmaktadır.', EN: 'Usage areas: suitable for many businesses such as cafés, patisseries, butcher shops, kitchens, hotels, markets, and delis.' },
+                { TR: 'Ürün Kalitesi Müşteri isteği doğrultusunda; 316, 304 ve 430 Kalite Sacdan üretimi yapılmaktadır.', EN: 'Material quality can be produced in 316, 304, or 430 grade stainless steel upon customer request.' },
+                { TR: 'Ölçüler değişken olup isteğe göre özel üretim Çalışma Tezgahı yapılmaktadır.', EN: 'Dimensions vary, and custom-made worktables can be produced on request.' },
+                { TR: 'Ayarlanabilir Plastik Rotil Ayaklıdır.', EN: 'Includes adjustable plastic swivel feet.' },
+
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 87,
+        name: { TR: 'Paslanmaz Çalışma Tezgahı', EN: 'Stainless Workbench' },
+        category: { TR: 'Endüstriyel Mutfak Ekipmanları', EN: 'Industrial Kitchen Equipment' },
+        type:  { TR: 'Paslanmaz Çalışma Tezgahı', EN: 'Stainless Workbench' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/paslanmazCalismaTezgahi/paslanmazCalismaTezgahi1.webp',
+        thumbnails:[
+            '/images/products/endustriyelMutfakEkipmanlari/paslanmazCalismaTezgahi/paslanmazCalismaTezgahi.webp',
+
+        ],
+        drawingImage:[
+
+            '/images/products/endustriyelMutfakEkipmanlari/paslanmazCalismaTezgahi/paslanmazCalismaTezgahi2.webp',
+            '/images/products/endustriyelMutfakEkipmanlari/paslanmazCalismaTezgahi/paslanmazCalismaTezgahi3.webp',
+            '/images/products/endustriyelMutfakEkipmanlari/paslanmazCalismaTezgahi/paslanmazCalismaTezgahi4.webp',
+
+
+
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Çalışma Tezgahları Paslanmaz Çelikten Üretilmektedir.', EN: 'Worktables are made of stainless steel.' },
+                { TR: 'Taban Raflı , Taban ve Ara Raflı , Çekmeceli , Polietilen Tezgahlı , Paslanmaz Tezgahlı gibi Çeşitli Modellerde üretimi yapılamaktadır.', EN: 'Available in various models such as base shelf, base + mid shelf, drawer units, polyethylene tops, and stainless worktops.' },
+                { TR: 'Çalışma Tezgahları Kullanım alanları ; Kafe, Pastane, Kasap, Mutfak, Otel, Market, Şarküteri gibi bir çok iş kolunda kullanılmaktadır.', EN: 'Usage areas: suitable for many businesses such as cafés, patisseries, butcher shops, kitchens, hotels, markets, and delis.' },
+                { TR: 'Ürün Kalitesi Müşteri isteği doğrultusunda; 316, 304 ve 430 Kalite Sacdan üretimi yapılmaktadır.', EN: 'Material quality can be produced in 316, 304, or 430 grade stainless steel upon customer request.' },
+                { TR: 'Ölçüler değişken olup isteğe göre özel üretim Çalışma Tezgahı yapılmaktadır.', EN: 'Dimensions vary, and custom-made worktables can be produced on request.' },
+                { TR: 'Ayarlanabilir Plastik Rotil Ayaklıdır.', EN: 'Includes adjustable plastic swivel feet.' },
+
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
 ];
