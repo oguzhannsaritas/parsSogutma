@@ -3971,4 +3971,857 @@ export const products: Product[] = [
             ]
         }
     },
+    {
+        id: 88,
+        name: { TR: 'Sütlük', EN: 'Dairy' },
+        category:  { TR: 'Market Ekipmanları', EN: 'Market Equipment' },
+        type:  { TR: 'Sütlük', EN: 'Dairy' },
+        image: '/images/products/marketEkipmanlari/sutluk/marketEkipmanlararix.webp',
+        thumbnails:[
+            '/images/products/marketEkipmanlari/sutluk/marketEkipmanlarari6.webp',
+            '/images/products/marketEkipmanlari/sutluk/marketEkipmanlarari3.webp',
+            '/images/products/marketEkipmanlari/sutluk/marketEkipmanlarari4.webp',
+
+
+        ],
+        drawingImage:[
+
+            '/images/products/marketEkipmanlari/sutluk/marketEkipmanlarari5.webp',
+            '/images/products/marketEkipmanlari/sutluk/marketEkipmanlarari.webp',
+            '/images/products/marketEkipmanlari/sutluk/marketEkipmanlarari1.webp',
+            '/images/products/marketEkipmanlari/sutluk/marketEkipmanlarari2.webp',
+
+
+
+
+        ],
+        specs: {
+            modules: '937 / 1250 / 1875 / 2500 / 2812 / 3750',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Sütlük Dolabı Dıştan ve İçten motorlu soğutma', EN: 'Dairy cabinet with internal & external motor refrigeration.' },
+                { TR: 'Aksiyel fanlı soğutma', EN: 'Axial fan cooling.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: 'Alçak baza sayesinde geniş teşhir alanı.', EN: 'Large display area thanks to the low base.' },
+                { TR: 'Yüksek soğutma verimi düşük enerji sarfiyatı.', EN: 'High cooling efficiency with low energy consumption.' },
+                { TR: 'Ayarlanabilir raf sistemi.', EN: 'Adjustable shelving system.' },
+                { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design for ease of use.' },
+                { TR: 'Led aydınlatma.', EN: 'LED lighting.' },
+                { TR: 'Manuel gece perdesi.', EN: 'Manual night curtain.' },
+                { TR: '40kg / m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Sütlük Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+
+
+            ],
+            optionalAccessory:[
+                { TR: 'Sütlük Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Dairy cabinet with mirrored or glass side panel.' },
+                { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
+
+            ]
+        }
+    },
+    {
+        id: 89,
+        name:  { TR: 'Zeytin Dolabı', EN: 'Olive Cabinet' },
+        category:  { TR: 'Market Ekipmanları', EN: 'Market Equipment' },
+        type:   { TR: 'Zeytin Dolabı', EN: 'Olive Cabinet' },
+        image: '/images/products/marketEkipmanlari/zeytinDolabi/zeytinDolabix.webp',
+        thumbnails:[
+            '/images/products/marketEkipmanlari/zeytinDolabi/zeytinDolabi.webp',
+            '/images/products/marketEkipmanlari/zeytinDolabi/zeytinDolabi1.webp',
+            '/images/products/marketEkipmanlari/zeytinDolabi/zeytinDolabi2.webp',
+
+
+        ],
+        drawingImage:[
+
+        ],
+        specs: {
+            modules: '937 / 1250 / 1875 / 2500 / 2812 / 3125 / 3750',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Zeytin Dolabı Hava soğutmalı veya kuru soğutmalı dolap versiyonları.', EN: 'Olive display cabinet versions with air-cooled or dry-cooling options.' },
+                { TR: 'Zeytin Dolabı İçten veya dıştan soğutma grubu.', EN: 'Olive display cabinet with internal or external refrigeration unit.' },
+                { TR: 'Soğutmalı veya soğutmasız ürün versiyonları.', EN: 'Refrigerated or non-refrigerated product versions.' },
+                { TR: 'Sürgülü cam veya kapaklı sistem.', EN: 'Sliding glass or covered system.' },
+                { TR: 'Paslanmaz küvet sistemi.', EN: 'Stainless steel tub system.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: '40 kg/m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+                { TR: 'Müşteri isteğine uygun dekor ve standart dışı imalat imkanı.', EN: 'Custom decor and non-standard manufacturing available.' },
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 90,
+        name:  { TR: 'Zeytinlik ve Reçetelik Dolabı', EN: 'Olive & Condiments Cabinet' },
+        category:  { TR: 'Market Ekipmanları', EN: 'Market Equipment' },
+        type:   { TR: 'Zeytinlik ve Reçetelik Dolabı', EN: 'Olive & Condiments Cabinet' },
+        image: '/images/products/marketEkipmanlari/zeytinlikVeRecellikDolabi/zeytinlikVeRecellikDolabi3.webp',
+        thumbnails:[
+            '/images/products/marketEkipmanlari/zeytinlikVeRecellikDolabi/zeytinlikVeRecellikDolabi.webp',
+            '/images/products/marketEkipmanlari/zeytinlikVeRecellikDolabi/zeytinlikVeRecellikDolabi3.webp',
+            '/images/products/marketEkipmanlari/zeytinlikVeRecellikDolabi/zeytinlikVeRecellikDolabi1.webp',
+
+
+        ],
+        drawingImage:[
+            '/images/products/marketEkipmanlari/zeytinlikVeRecellikDolabi/zeytinlikVeRecellikDolabi1.webp',
+            '/images/products/marketEkipmanlari/zeytinlikVeRecellikDolabi/zeytinlikVeRecellikDolabi2.webp',
+
+        ],
+        specs: {
+            modules: '937 / 1250 / 1875 / 2500 / 2812 / 3125 / 3750',
+            sidePanel: 40,
+            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            technicalSpecification:[
+                { TR: 'Zeytinlik Reçellik Dolabı', EN: 'Olive & Jam Display Cabinet' },
+                { TR: 'Hava soğutmalı veya kuru soğutmalı dolap versiyonları.', EN: 'Versions with air-cooled or dry-cooling options.' },
+                { TR: 'İçten veya dıştan soğutma grubu.', EN: 'Internal or external refrigeration unit.' },
+                { TR: 'Soğutmalı veya soğutmasız ürün versiyonları.', EN: 'Refrigerated or non-refrigerated product versions.' },
+                { TR: 'Sürgülü cam veya kapaklı sistem.', EN: 'Sliding glass or covered system.' },
+                { TR: 'Paslanmaz küvet sistemi.', EN: 'Stainless steel tub system.' },
+                { TR: 'Paslanmaz çelik zemin ve tava sacları.', EN: 'Stainless steel base and tray sheets.' },
+                { TR: '40 kg/m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: 'Body design with 40 kg/m³ polyurethane injection.' },
+                { TR: 'Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Color options or wood decor finishes to match your interior.' },
+                { TR: 'Müşteri isteğine uygun dekor ve standart dışı imalat imkanı.', EN: 'Custom decor and non-standard manufacturing available.' },
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 91,
+        name: { TR: 'Endüstriyel Soğutma Sistemleri', EN: 'Industrial Refrigeration Systems' },
+        category:  { TR: 'Soğutma Sistemleri', EN: 'Cooling Systems' },
+        type:  { TR: 'Endüstriyel Soğutma Sistemleri', EN: 'Industrial Refrigeration Systems' },
+        image: '/images/products/sogutmaSistemleri/endustriyelSogutmaSistemleri/endustriyelSogutmaSistemleri.webp',
+        thumbnails:[
+            '/images/products/sogutmaSistemleri/endustriyelSogutmaSistemleri/endustriyelSogutmaSistemleri1.webp',
+            '/images/products/sogutmaSistemleri/endustriyelSogutmaSistemleri/endustriyelSogutmaSistemleri2.webp',
+
+
+        ],
+        drawingImage:[
+            '/images/products/sogutmaSistemleri/endustriyelSogutmaSistemleri/endustriyelSogutmaSistemleri3.webp',
+            '/images/products/sogutmaSistemleri/endustriyelSogutmaSistemleri/endustriyelSogutmaSistemleri4.webp',
+
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Endüstriyel Soğutma Sistemleri Soğuk ve donmuş muhafaza odaları şartlarına uygun olarak üretilir.', EN: 'Industrial refrigeration systems are manufactured to meet the requirements of cold and frozen storage rooms.' },
+                { TR: 'Split Soğutma Sistemleri', EN: 'Split Refrigeration Systems' },
+                { TR: 'Soğuk ve donmuş muhafaza odaları şartlarına uygun olarak üretilir.', EN: 'Manufactured to meet the requirements of cold and frozen storage rooms.' },
+                { TR: 'Merkezi Soğutma Sistemleri', EN: 'Central Refrigeration Systems' },
+                { TR: 'Serin, soğuk ve donmuş muhafaza odaları şartlarına uygun olarak üretilir.', EN: 'Manufactured to meet the requirements of cool, cold, and frozen storage rooms.' },
+                { TR: 'Monoblok Soğutma Sistemleri', EN: 'Monoblock Refrigeration Systems' },
+                { TR: 'Soğuk ve donmuşmuhafaza odaları şartlarına uygun olarak üretilir', EN: 'Manufactured to meet the requirements of cold and frozen storage rooms.' },
+                { TR: 'Bireysel Soğutma Üniteleri', EN: 'Individual Cooling Units' },
+                { TR: 'Yaz aylarında iklimlendirme ve hava döngüsü çalışmaları içim tercih edilen klima sistemlerinden biridir.', EN: 'One of the air-conditioning systems preferred for climate control and air circulation during summer months.' },
+                { TR: 'Soğuk Oda Panelleri', EN: 'Cold Room Panels' },
+                { TR: 'Soğuk Hava Deposunun dış ortam şartlarından izole edilmesini sağlayan yalıtımlı panellerdir.', EN: 'Insulated panels that isolate cold storage rooms from external conditions.' },
+                { TR: 'Soğuk Oda Kapıları', EN: 'Cold Room Doors' },
+                { TR: 'Soğuk hava depolarında fonksiyonel olarak imal edilmiş soğuk depo kapıları büyük önem taşımaktadır.', EN: 'Functionally manufactured cold room doors are essential for cold storage facilities.' },
+                { TR: 'Şoklama Ünitesi', EN: 'Blast Chiller Unit' },
+                { TR: 'Ürünlerin çok hızlı soğumaya ve depolanacağı sıcaklığa getirmek için kullanılan cihazlardır', EN: 'Devices used to cool products very quickly down to their storage temperature.' },
+                { TR: 'Soğuk Odalar', EN: 'Cold Rooms' },
+                { TR: 'Aşıları, ilaçları ve biyolojik ürünleri depolamak için hastalık kontrol ve önleme merkezleri, hayvan hastalıklarını önleme ve kontrol merkezleri ve hastaneler vb. İçin uygundur.', EN: 'Suitable for storing vaccines, medicines, and biological products for disease control and prevention centers, animal health control centers, hospitals, etc.' },
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 92,
+        name: { TR: 'Monoblok Soğutma Sistemleri', EN: 'Monoblock Refrigeration Systems' },
+        category:  { TR: 'Soğutma Sistemleri', EN: 'Cooling Systems' },
+        type:  { TR: 'Monoblok Soğutma Sistemleri', EN: 'Monoblock Refrigeration Systems' },
+        image: '/images/products/sogutmaSistemleri/monoblokSogutmaSistemleri/monoblokSogutmaSistemleri.webp',
+        thumbnails:[
+            '/images/products/sogutmaSistemleri/monoblokSogutmaSistemleri/monoblokSogutmaSistemleri1.webp',
+            '/images/products/sogutmaSistemleri/monoblokSogutmaSistemleri/monoblokSogutmaSistemleri2.webp',
+
+
+
+        ],
+        drawingImage:[
+            '/images/products/sogutmaSistemleri/monoblokSogutmaSistemleri/monoblokSogutmaSistemlerix.webp',
+
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Hermetik kompresörlü ve hava soğutmalı kondenserlidir.', EN: 'Equipped with a hermetic compressor and an air-cooled condenser.' },
+                { TR: 'Elektrik panosu ve tüm kontrol elemanları ile birlikte kompakt olarak sevk edilir.', EN: 'Delivered as a compact unit with the electrical panel and all control components.' },
+                { TR: 'Sıcak gaz defrost sistemi mevcuttur.', EN: 'Hot-gas defrost system is available.' },
+                { TR: 'R404 gaz şarjlı olarak sevk edilir.', EN: 'Supplied pre-charged with R404 refrigerant.' },
+                { TR: 'Elekrostatik boyalı çelik galvaniz kabine sahiptir.', EN: 'Features an electrostatic powder-coated galvanized steel cabinet.' },
+                { TR: 'Dünya standartlarına uygun üretim', EN: 'Manufactured to global standards.' },
+                { TR: 'Yüksek verimli soğutma', EN: 'High-efficiency cooling.' },
+                { TR: 'Muadillerine kıyasla düşük ses seviyeli kompresör', EN: 'Low-noise compressor compared to equivalents.' },
+                { TR: 'Kaliteli ve güvenilir ekipman', EN: 'High-quality and reliable components.' },
+                { TR: 'Farklı montaj şekillerine uyum', EN: 'Compatible with different mounting configurations.' },
+                { TR: 'Kolay bakım olanağı sağlayan dış kabin', EN: 'Outer cabinet designed for easy maintenance.' },
+                { TR: 'Geniş ürün yelpazesi', EN: 'Wide product range.' },
+                { TR: 'HACCP standartlarına uygunluk', EN: 'Compliant with HACCP standards.' },
+                { TR: 'Defrost süre aralıklarını uzatıp, defrost sayısını azaltarak enerji tasarrufu sağlama', EN: 'Saves energy by extending defrost intervals and reducing defrost cycles.' },
+                { TR: 'Defrostsuz uzun soğutma periyotları sayesinde işletme maliyetlerini azaltma', EN: 'Reduces operating costs thanks to long cooling periods without defrost.' },
+                { TR: 'Düşük ilk yatırım ve işletme maliyeti', EN: 'Low initial investment and operating cost.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Faz koruma rölesi (Alçak/Yüksek)', EN: 'Phase protection relay (low/high).' },
+                { TR: 'Termik/Manyetik Şalter', EN: 'Thermal/magnetic circuit breaker.' },
+                { TR: 'Kontaktör(trifaze modellerde)', EN: 'Contactor (for three-phase models).' },
+                { TR: 'Bakır boru alüminyum lamelli kondanser', EN: 'Copper tube condenser with aluminum fins.' },
+                { TR: 'Likit tankı (Sadece CMV/FMV serilerinde)', EN: 'Liquid receiver tank (CMV/FMV series only).' },
+                { TR: 'Kurutucu filtre', EN: 'Filter drier.' },
+                { TR: 'Gözetleme camı', EN: 'Sight glass.' },
+                { TR: 'Defrost selonoid valfi', EN: 'Defrost solenoid valve.' },
+                { TR: 'Servis/Bakım vanası (sıvı hattı üzerinde)', EN: 'Service/maintenance valve (on the liquid line).' },
+                { TR: 'Basınç presostatı(Alçak/Yüksek)', EN: 'Pressure switch (low/high).' },
+                { TR: 'Gaz şarj vanası', EN: 'Refrigerant charging valve.' },
+                { TR: 'Fan hız kontrolü', EN: 'Fan speed control.' },
+
+            ]
+        }
+    },
+    {
+        id: 93,
+        name: { TR: 'Split Soğutma Grubu', EN: 'Split Refrigeration Unit' },
+        category:  { TR: 'Soğutma Sistemleri', EN: 'Cooling Systems' },
+        type: { TR: 'Split Soğutma Grubu', EN: 'Split Refrigeration Unit' },
+        image: '/images/products/sogutmaSistemleri/splitSogutmaGrubu/splitSogutmaGrubu2.webp',
+        thumbnails:[
+            '/images/products/sogutmaSistemleri/splitSogutmaGrubu/splitSogutmaGrubu.webp',
+            '/images/products/sogutmaSistemleri/splitSogutmaGrubu/splitSogutmaGrubu1.webp',
+            '/images/products/sogutmaSistemleri/splitSogutmaGrubu/splitSogutmaGrubu3.webp',
+        ],
+        drawingImage:[
+            '/images/products/sogutmaSistemleri/splitSogutmaGrubu/splitSogutmaGrubux.webp',
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Dünya standartlarına uygun üretim', EN: 'Manufactured to global standards.' },
+                { TR: 'Yüksek verimli soğutma', EN: 'High-efficiency cooling.' },
+                { TR: 'Muadillerine kıyasla düşük ses seviyeli dış kabin', EN: 'Low-noise outer cabinet compared to equivalents.' },
+                { TR: 'Kaliteli ve güvenilir ekipman', EN: 'High-quality and reliable components.' },
+                { TR: 'Kolay kurulum ve montaj sağlayan tasarım', EN: 'Design that enables easy installation and mounting.' },
+                { TR: 'Farklı montaj şekillerine uyum', EN: 'Compatible with different mounting configurations.' },
+                { TR: 'Geniş ürün yelpazesi', EN: 'Wide product range.' },
+                { TR: 'HACCP standartlarına uygunluk', EN: 'Compliant with HACCP standards.' },
+                { TR: 'Depolanan üründeki nem kaybını minimize eden evaporatör dizaynı', EN: 'Evaporator design that minimizes moisture loss in stored products.' },
+                { TR: 'Defrost süre aralıklarını uzatıp, defrost sayısını azaltarak enerji tasarrufu sağlama', EN: 'Saves energy by extending defrost intervals and reducing defrost cycles.' },
+                { TR: 'Defrostsuz uzun soğutma periyotları sayesinde işletme maliyetlerini azaltma', EN: 'Reduces operating costs thanks to long cooling periods without defrost.' },
+                { TR: 'Hermetik ve scroll kompresörlü ve hava soğutmalı kondenserlidir.', EN: 'Equipped with hermetic and scroll compressors and an air-cooled condenser.' },
+                { TR: 'Cihaz uzaktan kumanda paneline sahiptir.', EN: 'The unit includes a remote control panel.' },
+                { TR: 'Dış hava şartlarına dayanıklı kasetlenmiştir.', EN: 'Encased to withstand outdoor weather conditions.' },
+                { TR: 'İç ve dış ünite azot şarjlı teslim edilir.', EN: 'Indoor and outdoor units are delivered nitrogen-charged.' },
+                { TR: 'Elektrik panosu ve tüm otomatik kontrol elemanları ile birlikte montaja hazır olarak sevk edilir.', EN: 'Shipped ready for installation with the electrical panel and all automatic control components.' },
+                { TR: 'Elektrostatik boyalı çelik galvaniz kabine sahiptir.', EN: 'Features an electrostatic powder-coated galvanized steel cabinet.' },
+                { TR: 'Kapasiteye uygun, yüksek verimli evaporatör dizaynı yapılmaktadır.', EN: 'A high-efficiency evaporator is designed according to the required capacity.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Faz koruma rölesi (Alçak/Yüksek)', EN: 'Phase protection relay (low/high).' },
+                { TR: 'Termik/Manyetik şalter', EN: 'Thermal/magnetic circuit breaker.' },
+                { TR: 'Kontaktör(trifaze modellerde)', EN: 'Contactor (for three-phase models).' },
+                { TR: 'Karter ısıtıcısı', EN: 'Crankcase heater.' },
+                { TR: 'Bakır boru alüminyum lamelli kondanser', EN: 'Copper tube condenser with aluminum fins.' },
+                { TR: 'Likit tankı', EN: 'Liquid receiver tank.' },
+                { TR: 'Kurutucu filtre', EN: 'Filter drier.' },
+                { TR: 'Gözetleme camı', EN: 'Sight glass.' },
+                { TR: 'Likit akış kontrol selonoidi', EN: 'Liquid flow control solenoid.' },
+                { TR: 'Servis/Bakım vanası (sıvı hattı üzerinde)', EN: 'Service/maintenance valve (on the liquid line).' },
+                { TR: 'Basınç presostatı (Alçak/Yüksek)', EN: 'Pressure switch (low/high).' },
+                { TR: 'Gaz şarj vanası', EN: 'Refrigerant charging valve.' },
+                { TR: 'Ses İzolasyonu', EN: 'Sound insulation.' },
+                { TR: 'Fan hız kontrolü', EN: 'Fan speed control.' },
+
+
+            ]
+        }
+    },
+    {
+        id: 94,
+        name: { TR: 'Merkezi Soğutma Sistemleri', EN: 'Central Refrigeration Systems' },
+        category:  { TR: 'Soğutma Sistemleri', EN: 'Cooling Systems' },
+        type: { TR: 'Merkezi Soğutma Sistemleri', EN: 'Central Refrigeration Systems' },
+        image: '/images/products/sogutmaSistemleri/merkeziSogutmaSistemleri/merkeziSogutmaSistemleri5.webp',
+        thumbnails:[
+            '/images/products/sogutmaSistemleri/merkeziSogutmaSistemleri/merkeziSogutmaSistemleri.webp',
+            '/images/products/sogutmaSistemleri/merkeziSogutmaSistemleri/merkeziSogutmaSistemleri2.webp',
+            '/images/products/sogutmaSistemleri/merkeziSogutmaSistemleri/merkeziSogutmaSistemleri3.webp',
+            '/images/products/sogutmaSistemleri/merkeziSogutmaSistemleri/merkeziSogutmaSistemleri4.webp',
+            '/images/products/sogutmaSistemleri/merkeziSogutmaSistemleri/merkeziSogutmaSistemleri6.webp',
+
+        ],
+        drawingImage:[
+            '/images/products/sogutmaSistemleri/merkeziSogutmaSistemleri/merkeziSogutmaSistemlerix.webp',
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Yarı Hermetik, scroll veya vidalı kompresörlüdür.', EN: 'Equipped with semi-hermetic, scroll, or screw compressors.' },
+                { TR: 'Hava veya su soğutmalı kondenserli olarak üretilir.', EN: 'Manufactured with air-cooled or water-cooled condensers.' },
+                { TR: 'Elektrik panosu ve tüm otomatik kontrol elemanları ile birlikte montaja hazır olarak sevk edilir.', EN: 'Shipped ready for installation with the electrical panel and all automatic control components.' },
+                { TR: 'İç ve dış ünite azot şarjlı olarak teslim edilir.', EN: 'Indoor and outdoor units are delivered nitrogen-charged.' },
+                { TR: 'Elektrostatik boyalı çelik galvaniz şaseye sahiptir.', EN: 'Features an electrostatic powder-coated galvanized steel chassis.' },
+                { TR: 'Kademeli olarak devreye giren kompresör sistemi vardır.', EN: 'Includes a staged compressor system that activates step-by-step.' },
+                { TR: 'Geniş kapasite seçeneği mevcuttur.', EN: 'Available in a wide range of capacities.' },
+                { TR: 'Kapasiteye uygun kondenser ve evaporatör seçimleri yapılır.', EN: 'Condenser and evaporator selections are made according to the required capacity.' },
+
+            ],
+            optionalAccessory:[
+
+
+            ]
+        }
+    },
+    {
+        id: 95,
+        name: { TR: 'Bireysel Soğutma Grupları', EN: 'Individual Refrigeration Units' },
+        category:  { TR: 'Soğutma Sistemleri', EN: 'Cooling Systems' },
+        type: { TR: 'Bireysel Soğutma Grupları', EN: 'Individual Refrigeration Units' },
+        image: '/images/products/sogutmaSistemleri/bireyselSogutmaGruplari/bireyselSogutmaGruplari.webp',
+        thumbnails:[
+            '/images/products/sogutmaSistemleri/bireyselSogutmaGruplari/bireyselSogutmaGruplari1.webp',
+            '/images/products/sogutmaSistemleri/bireyselSogutmaGruplari/bireyselSogutmaGruplari2.webp',
+            '/images/products/sogutmaSistemleri/bireyselSogutmaGruplari/bireyselSogutmaGruplari3.webp',
+            '/images/products/sogutmaSistemleri/bireyselSogutmaGruplari/bireyselSogutmaGruplari.webp',
+
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Yarı Hermetik, scroll veya vidalı kompresörlüdür.', EN: 'Equipped with semi-hermetic, scroll, or screw compressors.' },
+                { TR: 'Hava veya su soğutmalı kondenserli olarak üretilir.', EN: 'Manufactured with air-cooled or water-cooled condensers.' },
+                { TR: 'Elektrik panosu ve tüm otomatik kontrol elemanları ile birlikte montaja hazır olarak sevk edilir.', EN: 'Shipped ready for installation with the electrical panel and all automatic control components.' },
+                { TR: 'İç ve dış ünite azot şarjlı olarak teslim edilir.', EN: 'Indoor and outdoor units are delivered nitrogen-charged.' },
+                { TR: 'Elektrostatik boyalı çelik galvaniz şaseye sahiptir.', EN: 'Features an electrostatic powder-coated galvanized steel chassis.' },
+                { TR: 'Kademeli olarak devreye giren kompresör sistemi vardır.', EN: 'Includes a staged compressor system that activates step-by-step.' },
+                { TR: 'Geniş kapasite seçeneği mevcuttur.', EN: 'Available in a wide range of capacities.' },
+                { TR: 'Kapasiteye uygun kondenser ve evaporatör seçimleri yapılır.', EN: 'Condenser and evaporator selections are made according to the required capacity.' },
+
+            ],
+            optionalAccessory:[
+
+
+            ]
+        }
+    },
+    {
+        id: 96,
+        name: { TR: 'Soğuk Hava Deposu', EN: 'Cold Storage Room' },
+        category:  { TR: 'Soğuk Hava Depoları', EN: 'Cold Storage' },
+        type: { TR: 'Soğuk Hava Deposu', EN: 'Cold Storage Room' },
+        image: '/images/products/sogukHavaDepolari/sogukHavaDeposu/sogukHavaDeposux.webp',
+        thumbnails:[
+            '/images/products/sogukHavaDepolari/sogukHavaDeposu/sogukHavaDeposu5.webp',
+            '/images/products/sogukHavaDepolari/sogukHavaDeposu/sogukHavaDeposu1.webp',
+            '/images/products/sogukHavaDepolari/sogukHavaDeposu/sogukHavaDeposu2.webp',
+            '/images/products/sogukHavaDepolari/sogukHavaDeposu/sogukHavaDeposu3.webp',
+            '/images/products/sogukHavaDepolari/sogukHavaDeposu/sogukHavaDeposu4.webp',
+            '/images/products/sogukHavaDepolari/sogukHavaDeposu/sogukHavaDeposu.webp',
+
+        ],
+        drawingImage:[
+            '/images/products/sogukHavaDepolari/sogukHavaDeposu/sogukHavaDeposux1.webp',
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Soğuk Hava Depoları Panel Kalınlıkları 60, 80 ,100 ,120, 160 mm kalınlığında panel seçeneği.', EN: 'Cold storage panel thickness options: 60, 80, 100, 120 and 160 mm.' },
+                { TR: 'Soğuk Odalar İstenildiğinde kolaylıkla sökülerek fire vermeden tekrar kurabilme özelliği.', EN: 'Cold rooms can be easily dismantled and reinstalled without waste when needed.' },
+                { TR: 'Soğuk Hava Depoları Minimum ısı geçirgenliği sayesinde maksimum enerji tasarrufu.', EN: 'Maximum energy savings thanks to minimal heat transfer.' },
+                { TR: '42 kg/m3 dansite poliüretan yoğunluğu.', EN: '42 kg/m³ density polyurethane insulation.' },
+                { TR: '0,5 mm PVC kaplı veya boyalı panel yüzeyi.', EN: '0.5 mm PVC-coated or painted panel surface.' },
+                { TR: 'Özel uygulamalar için ral kodlarında renk seçeneği.', EN: 'RAL color options for special applications.' },
+                { TR: 'Kolay ve pratik montaj.', EN: 'Easy and practical installation.' },
+                { TR: 'Her şekilde adapte edilebilen sistem taban panelli veya panelsiz uygulama.', EN: 'Adaptable system with base panels or panel-free installation options.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Panelleri birbirine kilitler ısı geçirgenliğini önler.', EN: 'Locks panels together to prevent heat transfer.' },
+                { TR: 'Konstrüksiyonu sağlamlaştırır.', EN: 'Reinforces the overall structure.' },
+                { TR: 'Panelleri portatif kılar istenildiği taktirde montajında olduğu gibi sökme işleminde de kolaylık sağlar.', EN: 'Makes panels portable and provides easy dismantling as well as installation when needed.' },
+                { TR: '42 kg/m3 poliüretan yoğunluğu.', EN: '42 kg/m³ polyurethane density.' },
+                { TR: 'İstenilen ölçüde kapı imal edilebilme özelliği.', EN: 'Custom door manufacturing in the desired dimensions.' },
+
+
+            ]
+        }
+    },
+    {
+        id: 97,
+        name: { TR: '-18 Derece Soğuk Hava Deposu', EN: '-18°C Cold Storage Room' },
+        category:  { TR: 'Soğuk Hava Depoları', EN: 'Cold Storage' },
+        type: { TR: '-18 Derece Soğuk Hava Deposu', EN: '-18°C Cold Storage Room' },
+        image: '/images/products/sogukHavaDepolari/-18DereceSogukHavaDeposu/-18DereceSogukHavaDeposux.webp',
+        thumbnails:[
+            '/images/products/sogukHavaDepolari/-18DereceSogukHavaDeposu/-18DereceSogukHavaDeposu.webp',
+            '/images/products/sogukHavaDepolari/-18DereceSogukHavaDeposu/-18DereceSogukHavaDeposu1.webp',
+            '/images/products/sogukHavaDepolari/-18DereceSogukHavaDeposu/-18DereceSogukHavaDeposu2.webp',
+            '/images/products/sogukHavaDepolari/-18DereceSogukHavaDeposu/-18DereceSogukHavaDeposu3.webp',
+
+
+        ],
+        drawingImage:[
+            '/images/products/sogukHavaDepolari/sogukHavaDeposu/sogukHavaDeposux1.webp',
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: '-18 Derece Soğuk Hava Deposu Panel Kalınlıkları 100 ,120, 160 mm kalınlığında panel seçeneği.', EN: '-18°C cold storage panel thickness options: 100, 120 and 160 mm.' },
+                { TR: '-18 Derece Soğuk Hava Deposu İstenildiğinde kolaylıkla sökülerek fire vermeden tekrar kurabilme özelliği.', EN: '-18°C cold storage rooms can be easily dismantled and reinstalled without waste when needed.' },
+                { TR: '-18 Derece Soğuk Hava Deposu Minimum ısı geçirgenliği sayesinde maksimum enerji tasarrufu.', EN: 'Maximum energy savings thanks to minimal heat transfer (-18°C cold storage).' },
+                { TR: '42 kg/m3 dansite poliüretan yoğunluğu.', EN: '42 kg/m³ density polyurethane insulation.' },
+                { TR: '0,5 mm PVC kaplı veya boyalı panel yüzeyi.', EN: '0.5 mm PVC-coated or painted panel surface.' },
+                { TR: 'Özel uygulamalar için ral kodlarında renk seçeneği.', EN: 'RAL color options for special applications.' },
+                { TR: 'Kolay ve pratik montaj.', EN: 'Easy and practical installation.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Panelleri birbirine kilitler ısı geçirgenliğini önler.', EN: 'Locks panels together to prevent heat transfer.' },
+                { TR: 'Konstrüksiyonu sağlamlaştırır.', EN: 'Reinforces the overall structure.' },
+                { TR: 'Panelleri portatif kılar istenildiği taktirde montajında olduğu gibi sökme işleminde de kolaylık sağlar.', EN: 'Makes panels portable and provides easy dismantling as well as installation when needed.' },
+                { TR: '42 kg/m3 poliüretan yoğunluğu.', EN: '42 kg/m³ polyurethane density.' },
+                { TR: 'İstenilen ölçüde kapı imal edilebilme özelliği.', EN: 'Custom door manufacturing in the desired dimensions.' },
+
+
+            ]
+        }
+    },
+    {
+        id: 98,
+        name:  { TR: 'PVC Şerit Hava Perdesi', EN: 'PVC Strip Air Curtain' },
+        category:  { TR: 'Soğuk Hava Depoları', EN: 'Cold Storage' },
+        type:  { TR: 'PVC Şerit Hava Perdesi', EN: 'PVC Strip Air Curtain' },
+        image: '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesix5.webp',
+        thumbnails:[
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesi.webp',
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesi1.webp',
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesi2.webp',
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesi3.webp',
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesi4.webp',
+
+
+
+        ],
+        drawingImage:[
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesix1.webp',
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Ürün güneş ışığında sararmaya ve çatlamaya karşı direnç sağlayacak bir ultraviyole engelleyici içermektedir.', EN: 'The product contains a UV blocker to resist yellowing and cracking under sunlight.' },
+                { TR: 'Bileşimine alev geciktirici bir madde eklenerek yanması önlenmiştir.', EN: 'A flame-retardant additive is included to help prevent burning.' },
+                { TR: 'Güneş ışığını engellemez ve sınırsız personel ve araç geçişine uygundur.', EN: 'It does not block daylight and is suitable for unlimited personnel and vehicle passage.' },
+                { TR: 'Bu nedenle içte ve dışta hava koşullarına göre mükemmel özellikler sunduğu için hem bina içinde hem de dışında kullanılabilir.', EN: 'Because it performs well in varying indoor and outdoor conditions, it can be used both inside and outside buildings.' },
+                { TR: 'Sınırsız personel ve araç geçişine uygundur.', EN: 'Suitable for unlimited personnel and vehicle passage.' },
+                { TR: 'Saydamlık:Bütün PVC Şerit ve plaka malzemelerimiz gözle görülür bir saydamlık kalitesine sahiptir.', EN: 'Transparency: All our PVC strip and sheet materials offer clearly visible transparency.' },
+                { TR: 'Bu nedenle güvenlik söz konusu olduğunda görme kaybının hemen hemen hiç olmaması bu PVC’lere ayrı bir üstünlük verir.', EN: 'This gives a major advantage for safety, as visibility loss is almost none.' },
+                { TR: 'Güvenlik: Saydam olmalarının yanı sıra, bütün PVC Şerit ve plaka malzemelerimiz yangına karşı dayanıklı bileşenler içerir ve kenarları yuvarlanmıştır.', EN: 'Safety: In addition to being transparent, our PVC strips and sheets include fire-resistant components and have rounded edges.' },
+                { TR: 'Temizlik: PVC malzemeleri temizlemek için sabunlu suyla yıkayıp durulayınız.', EN: 'Cleaning: Wash PVC materials with soapy water and rinse.' },
+                { TR: 'Sıcak-Soğuk hava kayıplarını azaltır.', EN: 'Reduces hot/cold air loss.' },
+                { TR: 'Enerji tasarrufu ile ekonomik verimi artırır.', EN: 'Improves cost efficiency through energy savings.' },
+                { TR: 'Havayı kirleten koku, gaz, toz vb. hareketlerini azaltır.', EN: 'Reduces the movement of odors, gases, dust, and similar air pollutants.' },
+                { TR: 'Daha güvenli bir iş ortamı için ışık geçirgendir.', EN: 'Light-transmitting for a safer working environment.' },
+                { TR: 'İşletmeyi kuştan,sinekten,böcekten ve tüm uçan haşereden korur.', EN: 'Protects the facility from birds, flies, insects, and all flying pests.' },
+                { TR: 'Makine gürültüsünü keser.', EN: 'Helps reduce machine noise.' },
+                { TR: 'Çalışan konforunu arttırır.', EN: 'Improves employee comfort.' },
+                { TR: 'Kurması kolaydır.', EN: 'Easy to install.' },
+                { TR: 'Sağlam ve dayanaklıdır.', EN: 'Strong and durable.' },
+                { TR: 'Minumum bakım gerektirir.', EN: 'Requires minimal maintenance.' },
+                { TR: 'İşletmede hijyen sağlar.', EN: 'Helps maintain hygiene in the facility.' },
+
+            ],
+            optionalAccessory:[
+
+
+            ]
+        }
+    },
+    {
+        id: 99,
+        name:   { TR: 'PVC Perde', EN: 'PVC Curtain' },
+        category:  { TR: 'Soğuk Hava Depoları', EN: 'Cold Storage' },
+        type:   { TR: 'PVC Perde', EN: 'PVC Curtain' },
+        image: '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesix2.webp',
+        thumbnails:[
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesi.webp',
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesi1.webp',
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesi2.webp',
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesi3.webp',
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesi4.webp',
+
+
+
+        ],
+        drawingImage:[
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesix1.webp',
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Ürün güneş ışığında sararmaya ve çatlamaya karşı direnç sağlayacak bir ultraviyole engelleyici içermektedir.', EN: 'The product contains a UV blocker to resist yellowing and cracking under sunlight.' },
+                { TR: 'Bileşimine alev geciktirici bir madde eklenerek yanması önlenmiştir.', EN: 'A flame-retardant additive is included to help prevent burning.' },
+                { TR: 'Güneş ışığını engellemez ve sınırsız personel ve araç geçişine uygundur.', EN: 'It does not block daylight and is suitable for unlimited personnel and vehicle passage.' },
+                { TR: 'Bu nedenle içte ve dışta hava koşullarına göre mükemmel özellikler sunduğu için hem bina içinde hem de dışında kullanılabilir.', EN: 'Because it performs well in varying indoor and outdoor conditions, it can be used both inside and outside buildings.' },
+                { TR: 'Sınırsız personel ve araç geçişine uygundur.', EN: 'Suitable for unlimited personnel and vehicle passage.' },
+                { TR: 'Saydamlık:Bütün PVC Şerit ve plaka malzemelerimiz gözle görülür bir saydamlık kalitesine sahiptir.', EN: 'Transparency: All our PVC strip and sheet materials offer clearly visible transparency.' },
+                { TR: 'Bu nedenle güvenlik söz konusu olduğunda görme kaybının hemen hemen hiç olmaması bu PVC’lere ayrı bir üstünlük verir.', EN: 'This gives a major advantage for safety, as visibility loss is almost none.' },
+                { TR: 'Güvenlik: Saydam olmalarının yanı sıra, bütün PVC Şerit ve plaka malzemelerimiz yangına karşı dayanıklı bileşenler içerir ve kenarları yuvarlanmıştır.', EN: 'Safety: In addition to being transparent, our PVC strips and sheets include fire-resistant components and have rounded edges.' },
+                { TR: 'Temizlik: PVC malzemeleri temizlemek için sabunlu suyla yıkayıp durulayınız.', EN: 'Cleaning: Wash PVC materials with soapy water and rinse.' },
+                { TR: 'Sıcak-Soğuk hava kayıplarını azaltır.', EN: 'Reduces hot/cold air loss.' },
+                { TR: 'Enerji tasarrufu ile ekonomik verimi artırır.', EN: 'Improves cost efficiency through energy savings.' },
+                { TR: 'Havayı kirleten koku, gaz, toz vb. hareketlerini azaltır.', EN: 'Reduces the movement of odors, gases, dust, and similar air pollutants.' },
+                { TR: 'Daha güvenli bir iş ortamı için ışık geçirgendir.', EN: 'Light-transmitting for a safer working environment.' },
+                { TR: 'İşletmeyi kuştan,sinekten,böcekten ve tüm uçan haşereden korur.', EN: 'Protects the facility from birds, flies, insects, and all flying pests.' },
+                { TR: 'Makine gürültüsünü keser.', EN: 'Helps reduce machine noise.' },
+                { TR: 'Çalışan konforunu arttırır.', EN: 'Improves employee comfort.' },
+                { TR: 'Kurması kolaydır.', EN: 'Easy to install.' },
+                { TR: 'Sağlam ve dayanaklıdır.', EN: 'Strong and durable.' },
+                { TR: 'Minumum bakım gerektirir.', EN: 'Requires minimal maintenance.' },
+                { TR: 'İşletmede hijyen sağlar.', EN: 'Helps maintain hygiene in the facility.' },
+
+            ],
+            optionalAccessory:[
+
+
+            ]
+        }
+    },
+    {
+        id: 99,
+        name:   { TR: 'PVC Perde Sistemleri', EN: 'PVC Curtain Systems' },
+        category:  { TR: 'Soğuk Hava Depoları', EN: 'Cold Storage' },
+        type:  { TR: 'PVC Perde Sistemleri', EN: 'PVC Curtain Systems' },
+        image: '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesix4.webp',
+        thumbnails:[
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesi.webp',
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesi1.webp',
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesi2.webp',
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesi3.webp',
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesi4.webp',
+
+
+
+        ],
+        drawingImage:[
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesix1.webp',
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Ürün güneş ışığında sararmaya ve çatlamaya karşı direnç sağlayacak bir ultraviyole engelleyici içermektedir.', EN: 'The product contains a UV blocker to resist yellowing and cracking under sunlight.' },
+                { TR: 'Bileşimine alev geciktirici bir madde eklenerek yanması önlenmiştir.', EN: 'A flame-retardant additive is included to help prevent burning.' },
+                { TR: 'Güneş ışığını engellemez ve sınırsız personel ve araç geçişine uygundur.', EN: 'It does not block daylight and is suitable for unlimited personnel and vehicle passage.' },
+                { TR: 'Bu nedenle içte ve dışta hava koşullarına göre mükemmel özellikler sunduğu için hem bina içinde hem de dışında kullanılabilir.', EN: 'Because it performs well in varying indoor and outdoor conditions, it can be used both inside and outside buildings.' },
+                { TR: 'Sınırsız personel ve araç geçişine uygundur.', EN: 'Suitable for unlimited personnel and vehicle passage.' },
+                { TR: 'Saydamlık:Bütün PVC Şerit ve plaka malzemelerimiz gözle görülür bir saydamlık kalitesine sahiptir.', EN: 'Transparency: All our PVC strip and sheet materials offer clearly visible transparency.' },
+                { TR: 'Bu nedenle güvenlik söz konusu olduğunda görme kaybının hemen hemen hiç olmaması bu PVC’lere ayrı bir üstünlük verir.', EN: 'This gives a major advantage for safety, as visibility loss is almost none.' },
+                { TR: 'Güvenlik: Saydam olmalarının yanı sıra, bütün PVC Şerit ve plaka malzemelerimiz yangına karşı dayanıklı bileşenler içerir ve kenarları yuvarlanmıştır.', EN: 'Safety: In addition to being transparent, our PVC strips and sheets include fire-resistant components and have rounded edges.' },
+                { TR: 'Temizlik: PVC malzemeleri temizlemek için sabunlu suyla yıkayıp durulayınız.', EN: 'Cleaning: Wash PVC materials with soapy water and rinse.' },
+                { TR: 'Sıcak-Soğuk hava kayıplarını azaltır.', EN: 'Reduces hot/cold air loss.' },
+                { TR: 'Enerji tasarrufu ile ekonomik verimi artırır.', EN: 'Improves cost efficiency through energy savings.' },
+                { TR: 'Havayı kirleten koku, gaz, toz vb. hareketlerini azaltır.', EN: 'Reduces the movement of odors, gases, dust, and similar air pollutants.' },
+                { TR: 'Daha güvenli bir iş ortamı için ışık geçirgendir.', EN: 'Light-transmitting for a safer working environment.' },
+                { TR: 'İşletmeyi kuştan,sinekten,böcekten ve tüm uçan haşereden korur.', EN: 'Protects the facility from birds, flies, insects, and all flying pests.' },
+                { TR: 'Makine gürültüsünü keser.', EN: 'Helps reduce machine noise.' },
+                { TR: 'Çalışan konforunu arttırır.', EN: 'Improves employee comfort.' },
+                { TR: 'Kurması kolaydır.', EN: 'Easy to install.' },
+                { TR: 'Sağlam ve dayanaklıdır.', EN: 'Strong and durable.' },
+                { TR: 'Minumum bakım gerektirir.', EN: 'Requires minimal maintenance.' },
+                { TR: 'İşletmede hijyen sağlar.', EN: 'Helps maintain hygiene in the facility.' },
+
+            ],
+            optionalAccessory:[
+
+
+            ]
+        }
+    },
+    {
+        id: 100,
+        name:   { TR: 'Soğuk Oda Panelleri', EN: 'Cold Room Panels' },
+        category:  { TR: 'Soğuk Hava Depoları', EN: 'Cold Storage' },
+        type:  { TR: 'Soğuk Oda Panelleri', EN: 'Cold Room Panels' },
+        image: '/images/products/sogukHavaDepolari/sogukOdaPanelleri/sogukOdaPanelleri.webp',
+        thumbnails:[
+            '/images/products/sogukHavaDepolari/sogukOdaPanelleri/sogukOdaPanelleri1.webp',
+            '/images/products/sogukHavaDepolari/sogukOdaPanelleri/sogukOdaPanelleri2.webp',
+            '/images/products/sogukHavaDepolari/sogukOdaPanelleri/sogukOdaPanelleri3.webp',
+
+        ],
+        drawingImage:[
+            '/images/products/sogukHavaDepolari/sogukOdaPanelleri/sogukOdaPanellerix.webp',
+            '/images/products/sogukHavaDepolari/sogukOdaPanelleri/sogukOdaPanellerix1.webp',
+
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Soğuk Oda Panelleri, Soğuk Hava Deposunun dış ortam şartlarından izole edilmesini sağlayan yalıtımlı panellerdir.', EN: 'Cold room panels are insulated panels that isolate cold storage from external conditions.' },
+                { TR: 'Soğuk zincirin en önemli halkalarından biri olan Soğuk Oda Panelleri, Pars Soğutma Sistemleri tarafından uluslararası standartlara uygun olarak üretilmektedir.', EN: 'As one of the most important links in the cold chain, cold room panels are manufactured by Pars Cooling Systems in accordance with international standards.' },
+                { TR: 'Soğuk oda panelleri, 0.50 mm kalınlıkta iki sac arasına yüksek basınç poliüretan makinelerde 40-42 kg/m³ yoğunlukta poliüretan enjekte edilerek üretilir.', EN: 'Cold room panels are produced by injecting polyurethane at 40–42 kg/m³ density between two 0.50 mm sheets using high-pressure polyurethane machines.' },
+                { TR: 'Paneller erkek ve dişi formunda birbirine geçme olup özel olarak dizayn edilmiş eksantrik kilit sistemiyle ayriyeten kilitlenir.', EN: 'Panels interlock in male-female form and are additionally locked with a specially designed eccentric locking system.' },
+                { TR: 'Bu kilit sistemi panellerin yapılarının bozulmadan kolayca monte ve demonte edilebilmesini sağlar.', EN: 'This locking system allows panels to be easily assembled and disassembled without damaging their structure.' },
+                { TR: 'Soğuk Oda Panelleri 60mm, 80mm, 100 mm,120 mm,150 mm ve 200 mm kalınlıklarında üretilmektedir.', EN: 'Cold room panels are manufactured in 60, 80, 100, 120, 150 and 200 mm thicknesses.' },
+                { TR: 'Paneller 116 cm eninde ve maksimum 13,50 metreye kadar istenilen her boyda üretilebilmektedir.', EN: 'Panels are 116 cm wide and can be produced in any length up to a maximum of 13.50 meters.' },
+                { TR: 'Duvar ve Tavan Panelleri‘nin yüzey malzemesi standart olarak RAL 9002 boyalı Polyester kaplı Galvaniz Sac olarak üretilmektedir.', EN: 'As standard, wall and ceiling panels are produced with RAL 9002 painted, polyester-coated galvanized sheet surfaces.' },
+                { TR: 'Tercihe göre PVC kaplı Galvaniz Sac, 304 Cr-Ni Paslanmaz Sac olarak ta üretilebilmektedir.', EN: 'Optionally, they can also be produced with PVC-coated galvanized sheet or 304 Cr-Ni stainless steel sheet.' },
+                { TR: 'Yüzey malzemesi olarak Plywood ve Plywood+ 304 Cr-Ni Paslanmaz Sac olarak iki farklı şekilde üretilmektedir.', EN: 'For surface material, two options are available: Plywood, or Plywood + 304 Cr-Ni stainless steel sheet.' },
+                { TR: 'Plywood malzeme 1.Sınıf kalitede 10 mm kalınlıkta üst yüzeyi altıgen dokulu orijinal Huş ağacından mamul kaydırmaz, alt yüzeyi ise 0,50 mm kalınlıkta Polyester kaplı Galvaniz sac olarak üretilmektedir.', EN: 'The plywood is first-class quality, 10 mm thick, with a non-slip top surface made of original hex-textured birch wood, and a bottom surface made of 0.50 mm polyester-coated galvanized sheet.' },
+
+
+            ],
+            optionalAccessory:[
+
+
+            ]
+        }
+    },
+    {
+        id: 101,
+        name:   { TR: 'Soğuk Hava Deposu PVC Perde Sistemleri', EN: 'Cold Storage PVC Curtain Systems'},
+        category:  { TR: 'Soğuk Hava Depoları', EN: 'Cold Storage' },
+        type:  { TR: 'Soğuk Hava Deposu PVC Perde Sistemleri', EN: 'Cold Storage PVC Curtain Systems'},
+        image: '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesix.webp',
+        thumbnails:[
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesi.webp',
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesi1.webp',
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesi2.webp',
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesi3.webp',
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesi4.webp',
+
+
+        ],
+        drawingImage:[
+            '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesix1.webp',
+
+
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Ürün güneş ışığında sararmaya ve çatlamaya karşı direnç sağlayacak bir ultraviyole engelleyici içermektedir.', EN: 'The product contains a UV blocker to resist yellowing and cracking under sunlight.' },
+                { TR: 'Bileşimine alev geciktirici bir madde eklenerek yanması önlenmiştir.', EN: 'A flame-retardant additive is included to help prevent burning.' },
+                { TR: 'Güneş ışığını engellemez ve sınırsız personel ve araç geçişine uygundur.', EN: 'It does not block daylight and is suitable for unlimited personnel and vehicle passage.' },
+                { TR: 'Bu nedenle içte ve dışta hava koşullarına göre mükemmel özellikler sunduğu için hem bina içinde hem de dışında kullanılabilir.', EN: 'Because it performs well in varying indoor and outdoor conditions, it can be used both inside and outside buildings.' },
+                { TR: 'Sınırsız personel ve araç geçişine uygundur.', EN: 'Suitable for unlimited personnel and vehicle passage.' },
+                { TR: 'Saydamlık:Bütün PVC Şerit ve plaka malzemelerimiz gözle görülür bir saydamlık kalitesine sahiptir.', EN: 'Transparency: All our PVC strip and sheet materials offer clearly visible transparency.' },
+                { TR: 'Bu nedenle güvenlik söz konusu olduğunda görme kaybının hemen hemen hiç olmaması bu PVC’lere ayrı bir üstünlük verir.', EN: 'This gives a major advantage for safety, as visibility loss is almost none.' },
+                { TR: 'Güvenlik: Saydam olmalarının yanı sıra, bütün PVC Şerit ve plaka malzemelerimiz yangına karşı dayanıklı bileşenler içerir ve kenarları yuvarlanmıştır.', EN: 'Safety: In addition to being transparent, our PVC strips and sheets include fire-resistant components and have rounded edges.' },
+                { TR: 'Temizlik: PVC malzemeleri temizlemek için sabunlu suyla yıkayıp durulayınız.', EN: 'Cleaning: Wash PVC materials with soapy water and rinse.' },
+                { TR: 'Sıcak-Soğuk hava kayıplarını azaltır.', EN: 'Reduces hot/cold air loss.' },
+                { TR: 'Enerji tasarrufu ile ekonomik verimi artırır.', EN: 'Improves cost efficiency through energy savings.' },
+                { TR: 'Havayı kirleten koku, gaz, toz vb. hareketlerini azaltır.', EN: 'Reduces the movement of odors, gases, dust, and similar air pollutants.' },
+                { TR: 'Daha güvenli bir iş ortamı için ışık geçirgendir.', EN: 'Light-transmitting for a safer working environment.' },
+                { TR: 'İşletmeyi kuştan,sinekten,böcekten ve tüm uçan haşereden korur.', EN: 'Protects the facility from birds, flies, insects, and all flying pests.' },
+                { TR: 'Makine gürültüsünü keser.', EN: 'Helps reduce machine noise.' },
+                { TR: 'Çalışan konforunu arttırır.', EN: 'Improves employee comfort.' },
+                { TR: 'Kurması kolaydır.', EN: 'Easy to install.' },
+                { TR: 'Sağlam ve dayanaklıdır.', EN: 'Strong and durable.' },
+                { TR: 'Minumum bakım gerektirir.', EN: 'Requires minimal maintenance.' },
+                { TR: 'İşletmede hijyen sağlar.', EN: 'Helps maintain hygiene in the facility.' },
+
+            ],
+            optionalAccessory:[
+
+
+            ]
+        }
+    },
+    {
+        id: 102,
+        name:   { TR: 'Soğuk Hava Deposu Aksesuarlari', EN: 'Cold Storage and Accessories'},
+        category:  { TR: 'Soğuk Hava Depoları', EN: 'Cold Storage' },
+        type:  { TR: 'Soğuk Hava Deposu Aksesuarlari', EN: 'Cold Storage and Accessories'},
+        image: '/images/products/sogukHavaDepolari/sogukHavaDeposuAksesuarlari/sogukHavaDeposuAksesuarlari.webp',
+        thumbnails:[
+            '/images/products/sogukHavaDepolari/sogukHavaDeposuAksesuarlari/sogukHavaDeposuAksesuarlari1.webp',
+            '/images/products/sogukHavaDepolari/sogukHavaDeposuAksesuarlari/sogukHavaDeposuAksesuarlari2.webp',
+            '/images/products/sogukHavaDepolari/sogukHavaDeposuAksesuarlari/sogukHavaDeposuAksesuarlari3.webp',
+            '/images/products/sogukHavaDepolari/sogukHavaDeposuAksesuarlari/sogukHavaDeposuAksesuarlari4.webp',
+
+
+        ],
+        drawingImage:[
+            '/images/products/sogukHavaDepolari/sogukHavaDeposuAksesuarlari/sogukHavaDeposuAksesuarlarix.webp',
+
+
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Soğuk Hava Depoları Panel Kalınlıkları 60, 80 ,100 ,120, 160 mm kalınlığında panel seçeneği.', EN: 'Cold storage panel thickness options: 60, 80, 100, 120 and 160 mm.' },
+                { TR: 'Soğuk Odalar İstenildiğinde kolaylıkla sökülerek fire vermeden tekrar kurabilme özelliği.', EN: 'Cold rooms can be easily dismantled and reinstalled without waste when needed.' },
+                { TR: 'Soğuk Hava Depoları Minimum ısı geçirgenliği sayesinde maksimum enerji tasarrufu.', EN: 'Maximum energy savings thanks to minimal heat transfer.' },
+                { TR: '42 kg/m3 dansite poliüretan yoğunluğu.', EN: '42 kg/m³ density polyurethane insulation.' },
+                { TR: '0,5 mm PVC kaplı veya boyalı panel yüzeyi.', EN: '0.5 mm PVC-coated or painted panel surface.' },
+                { TR: 'Özel uygulamalar için ral kodlarında renk seçeneği.', EN: 'RAL color options for special applications.' },
+                { TR: 'Kolay ve pratik montaj.', EN: 'Easy and practical installation.' },
+                { TR: 'Her şekilde adapte edilebilen sistem taban panelli veya panelsiz uygulama.', EN: 'Adaptable system with base panels or panel-free installation options.' },
+                { TR: 'Panel Kilitleri:', EN: 'Panel Locks:' },
+                { TR: 'Panelleri birbirine kilitler ısı geçirgenliğini önler.', EN: 'Locks panels together to prevent heat transfer.' },
+                { TR: 'Konstrüksiyonu sağlamlaştırır.', EN: 'Reinforces the overall structure.' },
+                { TR: 'Panelleri portatif kılar istenildiği taktirde montajında olduğu gibi sökme işleminde de kolaylık sağlar.', EN: 'Makes panels portable and provides easy dismantling as well as installation when needed.' },
+                { TR: 'Soğuk Oda Kapı Seçenekleri:', EN: 'Cold Room Door Options:' },
+                { TR: 'Sürgülü kapı ve menteşeli kapı seçenekleri.', EN: 'Sliding door and hinged door options.' },
+                { TR: '42 kg/m3 poliüretan yoğunluğu.', EN: '42 kg/m³ polyurethane density.' },
+                { TR: 'İstenilen ölçüde kapı imal edilebilme özelliği.', EN: 'Custom door manufacturing in the desired dimensions.' },
+
+            ],
+            optionalAccessory:[
+                { TR: 'Plastik hijyen profilleri.', EN: 'Plastic hygiene profiles.' },
+                { TR: 'Antibakteriyel Plastik Çözümleri.', EN: 'Antibacterial plastic solutions.' },
+
+            ]
+        }
+    },
+    {
+        id: 103,
+        name:   { TR: 'Menteşeli Soğuk Hava Deposu Kapısı', EN: 'Hinged Cold Room Door' },
+        category:  { TR: 'Soğuk Hava Depoları', EN: 'Cold Storage' },
+        type: { TR: 'Menteşeli Soğuk Hava Deposu Kapısı', EN: 'Hinged Cold Room Door' },
+        image: '/images/products/sogukHavaDepolari/menteseliSogukHavaDeposuKapisi/menteseliSogukHavaDeposuKapisi.webp',
+        thumbnails:[
+            '/images/products/sogukHavaDepolari/menteseliSogukHavaDeposuKapisi/menteseliSogukHavaDeposuKapisi1.webp',
+            '/images/products/sogukHavaDepolari/menteseliSogukHavaDeposuKapisi/menteseliSogukHavaDeposuKapisi2.webp',
+            '/images/products/sogukHavaDepolari/menteseliSogukHavaDeposuKapisi/menteseliSogukHavaDeposuKapisi3.webp',
+        ],
+        drawingImage:[
+            '/images/products/sogukHavaDepolari/menteseliSogukHavaDeposuKapisi/menteseliSogukHavaDeposuKapisix.webp',
+
+
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Sürgülü kapı ve menteşeli kapı seçenekleri.', EN: 'Sliding door and hinged door options.' },
+                { TR: '42 kg/m3 poliüretan yoğunluğu.', EN: '42 kg/m³ polyurethane density.' },
+                { TR: 'İstenilen ölçüde kapı imal edilebilme özelliği.', EN: 'Custom door manufacturing in the desired dimensions.' },
+                { TR: 'Tam geçiş ölçülerinde 80X190- 90X190- 100X200', EN: 'Clear opening sizes: 80×190, 90×190, 100×200.' },
+                { TR: 'Kapı izolasyonu 80-100 mm kalınlığında, 42 kg/m³ yoğunluğunda poliüretan köpük dolgulu, CFC içermeyen (PUR)', EN: 'Door insulation: 80–100 mm thick, 42 kg/m³ density polyurethane foam fill, CFC-free (PUR).' },
+                { TR: '0,5 mm kalınlığında galvaniz kaplamalı, üzeri koruyucu film kaplı, RAL9002 elektrostatik fırın boyası (25r) ile boyanmış sac kullanılmaktadır.', EN: '0.5 mm galvanized sheet is used, covered with protective film, painted with RAL9002 electrostatic oven-baked paint (25r).' },
+                { TR: 'Opsiyonel olarak isteğe bağlı olarak CR-NI 304 paslanmaz çelik veya PVC kaplı sac seçilebilir .', EN: 'Optionally, CR-NI 304 stainless steel or PVC-coated sheet can be selected on request.' },
+                { TR: '4 köşeli sabit PVC kutu (özel hijyenik PVC profil)', EN: 'Fixed 4-corner PVC box (special hygienic PVC profile).' },
+                { TR: 'Hareketli kanat çerçevesinde eloksallı alüminyum profiller.', EN: 'Anodized aluminum profiles on the moving leaf frame.' },
+                { TR: 'Yükselen döngü tasarımı (10mm)', EN: 'Rising threshold design (10 mm).' },
+                { TR: 'Hareketli kanadın dört tarafında tek sıra conta.', EN: 'Single gasket line on all four sides of the moving leaf.' },
+                { TR: 'İstek üzerine tüm kapı modellerine gözetleme camı eklenebilir.', EN: 'A viewing window can be added to all door models upon request.' },
+                { TR: 'Kompozit plastik kapı aksesuarları', EN: 'Composite plastic door accessories.' },
+
+
+            ],
+            optionalAccessory:[
+                { TR: 'Plastik hijyen profilleri.', EN: 'Plastic hygiene profiles.' },
+                { TR: 'Antibakteriyel Plastik Çözümleri.', EN: 'Antibacterial plastic solutions.' },
+
+            ]
+        }
+    },
+    {
+        id: 104,
+        name:   { TR: 'Sürgülü Soğuk Hava Deposu Kapısı', EN: 'Sliding Cold Room Door' },
+        category:  { TR: 'Soğuk Hava Depoları', EN: 'Cold Storage' },
+        type: { TR: 'Sürgülü Soğuk Hava Deposu Kapısı', EN: 'Sliding Cold Room Door' },
+        image: '/images/products/sogukHavaDepolari/surguluSogukHavaDeposuKapisi/surguluSogukHavaDeposuKapisi1.webp',
+        thumbnails:[
+            '/images/products/sogukHavaDepolari/surguluSogukHavaDeposuKapisi/surguluSogukHavaDeposuKapisi2.webp',
+            '/images/products/sogukHavaDepolari/surguluSogukHavaDeposuKapisi/surguluSogukHavaDeposuKapisi3.webp',
+            '/images/products/sogukHavaDepolari/surguluSogukHavaDeposuKapisi/surguluSogukHavaDeposuKapisi.webp',
+            '/images/products/sogukHavaDepolari/surguluSogukHavaDeposuKapisi/surguluSogukHavaDeposuKapisi4.webp',
+            '/images/products/sogukHavaDepolari/surguluSogukHavaDeposuKapisi/surguluSogukHavaDeposuKapisi5.webp',
+            '/images/products/sogukHavaDepolari/surguluSogukHavaDeposuKapisi/surguluSogukHavaDeposuKapisi6.webp',
+        ],
+        drawingImage:[
+            '/images/products/sogukHavaDepolari/surguluSogukHavaDeposuKapisi/surguluSogukHavaDeposuKapisix.webp',
+            '/images/products/sogukHavaDepolari/surguluSogukHavaDeposuKapisi/surguluSogukHavaDeposuKapisix1.webp',
+            '/images/products/sogukHavaDepolari/surguluSogukHavaDeposuKapisi/surguluSogukHavaDeposuKapisix2.webp',
+            '/images/products/sogukHavaDepolari/surguluSogukHavaDeposuKapisi/surguluSogukHavaDeposuKapisix3.webp',
+
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Soğuk Hava Depoları Panel Kalınlıkları 60, 80 ,100 ,120, 160 mm kalınlığında panel seçeneği.', EN: 'Cold storage panel thickness options: 60, 80, 100, 120 and 160 mm.' },
+                { TR: 'Soğuk Odalar İstenildiğinde kolaylıkla sökülerek fire vermeden tekrar kurabilme özelliği.', EN: 'Cold rooms can be easily dismantled and reinstalled without waste when needed.' },
+                { TR: 'Soğuk Hava Depoları Minimum ısı geçirgenliği sayesinde maksimum enerji tasarrufu.', EN: 'Maximum energy savings thanks to minimal heat transfer.' },
+                { TR: '42 kg/m3 dansite poliüretan yoğunluğu.', EN: '42 kg/m³ density polyurethane insulation.' },
+                { TR: '0,5 mm PVC kaplı veya boyalı panel yüzeyi.', EN: '0.5 mm PVC-coated or painted panel surface.' },
+                { TR: 'Özel uygulamalar için ral kodlarında renk seçeneği.', EN: 'RAL color options for special applications.' },
+                { TR: 'Kolay ve pratik montaj.', EN: 'Easy and practical installation.' },
+                { TR: 'Her şekilde adapte edilebilen sistem taban panelli veya panelsiz uygulama.', EN: 'Adaptable system with base panels or panel-free installation options.' },
+                { TR: 'Sürgülü Soğuk Hava Deposu Kapısı Panel Kilitleri:', EN: 'Sliding Cold Storage Door Panel Locks:' },
+                { TR: 'Panelleri birbirine kilitler ısı geçirgenliğini önler.', EN: 'Locks panels together to prevent heat transfer.' },
+                { TR: 'Konstrüksiyonu sağlamlaştırır.', EN: 'Reinforces the overall structure.' },
+                { TR: 'Panelleri portatif kılar istenildiği taktirde montajında olduğu gibi sökme işleminde de kolaylık sağlar.', EN: 'Makes panels portable and provides easy dismantling as well as installation when needed.' },
+                { TR: 'Sürgülü kapı ve menteşeli kapı seçenekleri.', EN: 'Sliding door and hinged door options.' },
+                { TR: '42 kg/m3 poliüretan yoğunluğu.', EN: '42 kg/m³ polyurethane density.' },
+                { TR: 'Kapı izolasyonu 80-100-120 mm kalınlığında, 42 kg/m³ yoğunluklu poliüretan köpük dolgulu, CFC’siz (PUR)', EN: 'Door insulation: 80–100–120 mm thick, 42 kg/m³ density polyurethane foam fill, CFC-free (PUR).' },
+                { TR: 'Kullanılan aksesuarların cinsine göre kompozit plastik ve inox olmak üzere iki ana model bulunmaktadır.', EN: 'Depending on the accessories used, there are two main models: composite plastic and stainless steel.' },
+                { TR: 'Yatak rayları, tekerlekler, kulplar ve gerekli tüm aksesuarlar kompozit malzeme ve paslanmaz çelikten imal edilmiştir.', EN: 'Guide rails, wheels, handles, and all required accessories are made of composite material and stainless steel.' },
+                { TR: 'Standart üretim kanadın her iki tarafında RAL9002 elektrostatik fırın boya ile boyanmış 0,5 mm kalınlığında galvaniz sac kullanılmaktadır.', EN: 'Standard production uses 0.5 mm galvanized sheet painted with RAL9002 electrostatic oven-baked paint on both sides of the door leaf.' },
+                { TR: 'Opsiyonel olarak isteğe bağlı olarak CR-NI 304 paslanmaz çelik veya PVC kaplı sac seçilebilir .', EN: 'Optionally, CR-NI 304 stainless steel or PVC-coated sheet can be selected on request.' },
+                { TR: 'Konvansiyonel depo odalarının kapı kanadı bir sıra özel kauçuk conta ile çevrilidir.', EN: 'The door leaf of conventional storage rooms is surrounded by a single row of special rubber gasket.' },
+                { TR: 'Kiler ve soğuk oda kapılarının sabit çerçevesinde gerektiğinde çok kolay değiştirilebilen conta bulunmaktadır.', EN: 'The fixed frame of pantry and cold room doors includes a gasket that can be easily replaced when needed.' },
+                { TR: 'PVC sabit kutu (özel hijyenik PVC profil)', EN: 'Fixed PVC box (special hygienic PVC profile).' },
+                { TR: 'Kapı kanadı eloksallı alüminyum profilden yapılmıştır.', EN: 'The door leaf is made of anodized aluminum profile.' },
+                { TR: 'Hem sağa hem de sola açılabilecek şekilde yapılmıştır.', EN: 'Designed to open both to the right and to the left.' },
+                { TR: '270*290 cm’ye kadar serbest geçiş ile istenilen ölçülerde yapılabilir.', EN: 'Can be manufactured in desired sizes with clear openings up to 270×290 cm.' },
+
+
+
+            ],
+            optionalAccessory:[
+                { TR: 'Plastik hijyen profilleri.', EN: 'Plastic hygiene profiles.' },
+                { TR: 'Antibakteriyel Plastik Çözümleri.', EN: 'Antibacterial plastic solutions.' },
+
+            ]
+        }
+    },
 ];

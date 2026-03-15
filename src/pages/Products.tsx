@@ -250,13 +250,13 @@ export default function Products() {
         'filters.items.bireyselSogutmaGruplari': 'Bireysel Soğutma Grupları',
 
         'filters.items.sogukHavaDeposu': 'Soğuk Hava Deposu',
+        'filters.items.sogukHavaDeposuAksesuarlari': 'Soğuk Hava Deposu Aksesuarlari',
         'filters.items.eksi18SogukHavaDeposu': '-18 Derece Soğuk Hava Deposu',
         'filters.items.pvcSeritHavaPerdesi': 'PVC Şerit Hava Perdesi',
         'filters.items.pvcPerde': 'PVC Perde',
         'filters.items.pvcPerdeSistemleri': 'PVC Perde Sistemleri',
         'filters.items.sogukOdaPanelleri': 'Soğuk Oda Panelleri',
-        'filters.items.sogukHavaDeposuPvcAksesuar':
-            'Soğuk Hava Deposu PVC Perde Sistemleri Soğuk Hava Deposu Aksesuarları',
+        'filters.items.sogukHavaDeposuPvcPerdeSistemleri': 'Soğuk Hava Deposu PVC Perde Sistemleri',
         'filters.items.menteseliSogukHavaDeposuKapisi': 'Menteşeli Soğuk Hava Deposu Kapısı',
         'filters.items.surguluSogukHavaDeposuKapisi': 'Sürgülü Soğuk Hava Deposu Kapısı',
 
@@ -495,12 +495,13 @@ export default function Products() {
                 title: t('menu.coldStorage'),
                 items: [
                     'filters.items.sogukHavaDeposu',
+                    'filters.items.sogukHavaDeposuAksesuarlari',
                     'filters.items.eksi18SogukHavaDeposu',
                     'filters.items.pvcSeritHavaPerdesi',
                     'filters.items.pvcPerde',
                     'filters.items.pvcPerdeSistemleri',
                     'filters.items.sogukOdaPanelleri',
-                    'filters.items.sogukHavaDeposuPvcAksesuar',
+                    'filters.items.sogukHavaDeposuPvcPerdeSistemleri',
                     'filters.items.menteseliSogukHavaDeposuKapisi',
                     'filters.items.surguluSogukHavaDeposuKapisi'
                 ]

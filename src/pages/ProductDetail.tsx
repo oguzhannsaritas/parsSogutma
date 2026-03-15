@@ -332,7 +332,7 @@ export default function ProductDetail() {
                             <img
                                 src={thumbnails[selectedImage]}
                                 alt={product.name[language]}
-                                className="w-full h-full object-inherit"
+                                className="w-full h-full object-contain bg-white"
                                 width={1200}
                                 height={900}
                                 loading="eager"
@@ -378,7 +378,7 @@ export default function ProductDetail() {
                                         <img
                                             src={thumb}
                                             alt={`Thumbnail ${idx + 1}`}
-                                            className="w-full h-full object-cover p-0 rounded-2xl"
+                                            className="w-full h-full object-contain bg-white p-0 rounded-2xl"
                                             width={200}
                                             height={200}
                                             loading="lazy"
