@@ -282,7 +282,7 @@ export default function ProductDetail() {
                         </Link>
                         <ChevronRight size={14} aria-hidden="true" />
                         <Link to="/products" className="hover:text-black dark:hover:text-white transition-colors">
-                            {t('menu.products')}
+                            {t('products.title')}
                         </Link>
                         <ChevronRight size={14} aria-hidden="true" />
                         <span className="font-bold text-black dark:text-white">{product.name[language]}</span>
