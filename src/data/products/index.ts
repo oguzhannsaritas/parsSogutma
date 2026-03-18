@@ -2746,10 +2746,10 @@ export const products: Product[] = [
         type: { TR: 'Isıtmalı Börek Tezgahı', EN: 'Heated Borek Counter' },
         image: '/images/products/unluMamuller/isitmaliBörekTezgahi/isitmaliBörekTezgahi.webp',
         thumbnails:[
-            '/images/products/unluMamuller/isitmaliBörekTezgahi/isitmaliBörekTezgahi1.webp',
-            '/images/products/unluMamuller/isitmaliBörekTezgahi/isitmaliBörekTezgahi4.webp',
-            '/images/products/unluMamuller/isitmaliBörekTezgahi/isitmaliBörekTezgahi2.webp',
-            '/images/products/unluMamuller/isitmaliBörekTezgahi/isitmaliBörekTezgahi3.webp',
+            '/images/products/unluMamuller/isitmaliBorekTezgahi/isitmaliBorekTezgahi1.webp',
+            '/images/products/unluMamuller/isitmaliBorekTezgahi/isitmaliBorekTezgahi4.webp',
+            '/images/products/unluMamuller/isitmaliBorekTezgahi/isitmaliBorekTezgahi2.webp',
+            '/images/products/unluMamuller/isitmaliBorekTezgahi/isitmaliBorekTezgahi3.webp',
 
         ],
 
