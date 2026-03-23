@@ -567,7 +567,7 @@ export default function HeroSection() {
                             }`}
                         >
                             <div
-                                className={`relative w-full flex items-center justify-center lg:scale-[1.5] xl:scale-[1.8]
+                                className={`relative w-full flex items-center justify-center lg:scale-[1.5] 
                                     ${isSocialImage ? 'aspect-[16/9] sm:aspect-square lg:aspect-[4/3]' : 'aspect-square lg:aspect-[4/3]'}
                                 `}
                             >
