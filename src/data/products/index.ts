@@ -2744,7 +2744,7 @@ export const products: Product[] = [
         name:  { TR: 'Isıtmalı Börek Tezgahı', EN: 'Heated Borek Counter' },
         category:  { TR: 'Unlu Mamüller', EN: 'Bakery Products' },
         type: { TR: 'Isıtmalı Börek Tezgahı', EN: 'Heated Borek Counter' },
-        image: '/images/products/unluMamuller/isitmaliBörekTezgahi/isitmaliBörekTezgahi.webp',
+        image: '/images/products/unluMamuller/isitmaliBorekTezgahi/isitmaliBorekTezgahi.webp',
         thumbnails:[
             '/images/products/unluMamuller/isitmaliBorekTezgahi/isitmaliBorekTezgahi1.webp',
             '/images/products/unluMamuller/isitmaliBorekTezgahi/isitmaliBorekTezgahi4.webp',
@@ -4322,10 +4322,10 @@ export const products: Product[] = [
         name: { TR: 'Merkezi Soğutma Sistemleri', EN: 'Central Refrigeration Systems' },
         category:  { TR: 'Soğutma Sistemleri', EN: 'Cooling Systems' },
         type: { TR: 'Merkezi Soğutma Sistemleri', EN: 'Central Refrigeration Systems' },
-        image: '/images/products/sogutmaSistemleri/merkeziSogutmaSistemleri/merkeziSogutmaSistemleri5.webp',
+        image: '/images/products/sogutmaSistemleri/merkeziSogutmaSistemleri/merkeziSogutmaSistemleri2.webp',
         thumbnails:[
             '/images/products/sogutmaSistemleri/merkeziSogutmaSistemleri/merkeziSogutmaSistemleri.webp',
-            '/images/products/sogutmaSistemleri/merkeziSogutmaSistemleri/merkeziSogutmaSistemleri2.webp',
+            '/images/products/sogutmaSistemleri/merkeziSogutmaSistemleri/merkeziSogutmaSistemleri5.webp',
             '/images/products/sogutmaSistemleri/merkeziSogutmaSistemleri/merkeziSogutmaSistemleri3.webp',
             '/images/products/sogutmaSistemleri/merkeziSogutmaSistemleri/merkeziSogutmaSistemleri4.webp',
             '/images/products/sogutmaSistemleri/merkeziSogutmaSistemleri/merkeziSogutmaSistemleri6.webp',
@@ -4877,6 +4877,79 @@ export const products: Product[] = [
             optionalAccessory:[
                 { TR: 'Plastik hijyen profilleri.', EN: 'Plastic hygiene profiles.' },
                 { TR: 'Antibakteriyel Plastik Çözümleri.', EN: 'Antibacterial plastic solutions.' },
+
+            ]
+        }
+    },
+    {
+        id: 107,
+        name: { TR: 'Çalışma Tezgahı Polietilen Tablalı Taban Raflı', EN: 'Workbench (Poly Top) with Base Shelf' },
+        category: { TR: 'Endüstriyel Mutfak Ekipmanları', EN: 'Industrial Kitchen Equipment' },
+        type:  { TR: 'Çalışma Tezgahı Polietilen Tablalı Taban Raflı', EN: 'Workbench (Poly Top) with Base Shelf' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/calismaTezgahiPolietilenTablaliTabanRafli/calismaTezgahiPolietilenTablaliTabanRafli.webp',
+        thumbnails:[
+            '/images/products/endustriyelMutfakEkipmanlari/calismaTezgahiPolietilenTablaliTabanRafli/calismaTezgahiPolietilenTablaliTabanRafli.webp',
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Çalışma Tezgahı Polietilen Tablalı Taban Raflı Çelikten Üretilmektedir.', EN: 'Workbench (Poly Top) with Base Shelf worktable is made of stainless steel.' },
+                { TR: 'Üst Tabla Paslanmaz Sacdan Üretilmektedir.', EN: 'Top work surface is produced from stainless sheet metal.' },
+                { TR: 'Evyeler İsteğe göre tek , çift ve üç evyeli olacak şekilde üretilebilmektedir.', EN: 'Sinks can be produced as single, double, or triple upon request.' },
+                { TR: 'Dolaplı Çalışma Tezgahı Sürgülü Ve Kapılı Olarak Üretimi yapılabilmektedir.', EN: 'Worktables with cabinets can be produced with sliding doors or hinged doors.' },
+                { TR: 'Taban Raflı , Taban ve Ara Raflı , Çekmeceli , Polietilen Tezgahlı , Paslanmaz Tezgahlı gibi Çeşitli Modellerde üretimi yapılamaktadır.', EN: 'Available in various models such as base shelf, base + mid shelf, drawer units, polyethylene tops, and stainless worktops.' },
+                { TR: 'Çalışma Tezgahları Kullanım alanları ; Kafe, Pastane, Kasap, Mutfak, Otel, Market, Şarküteri gibi bir çok iş kolunda kullanılmaktadır.', EN: 'Usage areas: suitable for many businesses such as cafés, patisseries, butcher shops, kitchens, hotels, markets, and delis.' },
+                { TR: 'Ürün Kalitesi Müşteri isteği doğrultusunda; 316, 304 ve 430 Kalite Sacdan üretimi yapılmaktadır.', EN: 'Material quality can be produced in 316, 304, or 430 grade stainless steel upon customer request.' },
+                { TR: 'Ölçüler değişken olup isteğe göre özel üretim Çalışma Tezgahı yapılmaktadır.', EN: 'Dimensions vary, and custom-made worktables can be produced on request.' },
+                { TR: 'Ayarlanabilir Plastik Rotil Ayaklıdır.', EN: 'Includes adjustable plastic swivel feet.' },
+                { TR: 'Ürün konstrüksiyonu paslanmaz çelikten mamuldür', EN: 'The product structure is made of stainless steel.' },
+                { TR: 'Ürün demontedir', EN: 'The product is supplied disassembled.' },
+                { TR: 'Ürün sol damlalıklı', EN: 'The product has a left-side drainboard.' },
+                { TR: 'Üst tabla alınları 40 mm ve sırt 60 mm', EN: 'Top front edge is 40 mm and the back upstand is 60 mm.' },
+                { TR: 'Üst tabla pres baskı imal edilip bölgesel indirimli', EN: 'The top is press-formed with locally reinforced bends.' },
+                { TR: 'Üst tablaya 1 adet 400x400x250 mm ölçülü pres baskı monoblok evye gözü dikiş kaynak yöntemiyle kaynaklı', EN: 'One 400×400×250 mm press-formed monoblock sink bowl is seam-welded to the top.' },
+                { TR: 'Tezgah ayakları 40×40 kutu profil', EN: 'Table legs are made from 40×40 box profile.' },
+                { TR: 'Paslanmaz çelik taban raflı', EN: 'Includes a stainless steel base shelf.' },
+                { TR: 'Ayarlanabilir plastik rotil ayaklı', EN: 'Equipped with adjustable plastic swivel feet.' },
+
+            ],
+            optionalAccessory:[
+
+            ]
+        }
+    },
+    {
+        id: 108,
+        name: { TR: 'Paslanmaz Dolaplı Çalışma Tezgahı', EN: 'Stainless Cabinet Workbench' },
+        category: { TR: 'Endüstriyel Mutfak Ekipmanları', EN: 'Industrial Kitchen Equipment' },
+        type:  { TR: 'Paslanmaz Dolaplı Çalışma Tezgahı', EN: 'Stainless Cabinet Workbench' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/paslanmazDolapliCalismaTezgahi/paslanmazDolapliCalismaTezgahi2.webp',
+        thumbnails:[
+            '/images/products/endustriyelMutfakEkipmanlari/paslanmazDolapliCalismaTezgahi/paslanmazDolapliCalismaTezgahi1.webp',
+
+
+        ],
+        specs: {
+            modules: '-',
+            sidePanel: "-",
+            temp: '-',
+            technicalSpecification:[
+                { TR: 'Paslanmaz  Dolaplı Çalışma Tezgah', EN: 'Stainless Cabinet Workbench' },
+                { TR: 'Paslanmaz  Dolaplı Çalışma Tezgahları Paslanmaz Çelikten Üretilmektedir.', EN: ' Stainless Cabinet worktables with sinks are made of stainless steel.' },
+                { TR: 'Üst Tabla Paslanmaz Sacdan Üretilmektedir.', EN: 'Top work surface is produced from stainless sheet metal.' },
+                { TR: 'Evyeler İsteğe göre tek , çift ve üç evyeli olacak şekilde üretilebilmektedir.', EN: 'Sinks can be produced as single, double, or triple upon request.' },
+                { TR: 'Dolaplı Çalışma Tezgahı Sürgülü Ve Kapılı Olarak Üretimi yapılabilmektedir.', EN: 'Cabinet worktables can be produced with sliding doors or hinged doors.' },
+                { TR: 'Taban Raflı , Taban ve Ara Raflı , Çekmeceli , Polietilen Tezgahlı , Paslanmaz Tezgahlı gibi Çeşitli Modellerde üretimi yapılamaktadır.', EN: 'Available in various models such as base shelf, base + mid shelf, drawer units, polyethylene tops, and stainless worktops.' },
+                { TR: 'Çalışma Tezgahları Kullanım alanları ; Kafe, Pastane, Kasap, Mutfak, Otel, Market, Şarküteri gibi bir çok iş kolunda kullanılmaktadır.', EN: 'Usage areas: suitable for many businesses such as cafés, patisseries, butcher shops, kitchens, hotels, markets, and delis.' },
+                { TR: 'Ürün Kalitesi Müşteri isteği doğrultusunda; 316, 304 ve 430 Kalite Sacdan üretimi yapılmaktadır.', EN: 'Material quality can be produced in 316, 304, or 430 grade stainless steel upon customer request.' },
+                { TR: 'Ölçüler değişken olup isteğe göre özel üretim Çalışma Tezgahı yapılmaktadır.', EN: 'Dimensions vary, and custom-made worktables can be produced on request.' },
+                { TR: 'Ayarlanabilir Plastik Rotil Ayaklıdır.', EN: 'Includes adjustable plastic swivel feet.' },
+
+
+            ],
+            optionalAccessory:[
 
             ]
         }

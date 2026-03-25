@@ -121,6 +121,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         },
         { label: t('menu.references'), path: '/references', hasSubmenu: false },
         { label: t('menu.gallery'), path: '/gallery', hasSubmenu: false },
+        { label: t('menu.catalog'), path: '/e-catalog' ,hasSubmenu: false },
         { label: t('menu.contact'), path: '/contact', hasSubmenu: false }
     ];
 

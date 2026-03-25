@@ -17,6 +17,7 @@ import { LanguageProvider } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
 import WhatsAppButton from "@/src/components/WhatsAppButton.tsx";
 import NotFound from "@/src/pages/NotFound.tsx";
+import ECatalog from "@/src/pages/ECatalog.tsx";
 
 function LoaderController() {
   const location = useLocation();
@@ -56,6 +57,7 @@ export default function App() {
                 <Route path="/references/:id" element={<ReferenceDetail />} />
                 <Route path="/gallery" element={<PhotoGallery />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/e-catalog" element={<ECatalog />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>

@@ -93,6 +93,7 @@ export default function Header() {
         { label: t('menu.products'), path: '/products', isMegaMenu: true },
         { label: t('menu.references'), path: '/references' },
         { label: t('menu.gallery'), path: '/gallery' },
+        { label: t('menu.catalog'), path: '/e-catalog' },
         { label: t('menu.contact'), path: '/contact' },
     ];
 

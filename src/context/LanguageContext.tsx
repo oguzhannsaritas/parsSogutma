@@ -270,7 +270,6 @@ const translations: Translations = {
     'filters.items.duvarTipiDavlumbaz': { TR: 'Duvar Tipi Davlumbaz', EN: 'Wall-Type Hood' },
     'filters.items.dikeyTipBuzdolabiPaslanmazCiftKapiliCamli': { TR: 'Dikey Tip Buzdolabı Paslanmaz Çift Kapılı Camlı', EN: 'Vertical Stainless Double Glass Door Fridge' },
     'filters.items.paslanmazDikeyTipBuzDolabiCiftKapili': { TR: 'Paslanmaz Dikey Tip Buzdolabı Çift Kapılı', EN: 'Stainless Vertical Type Refrigerator Double Door' },
-    'filters.items.dikeyTipBuzBuzdolabiCiftKapili': { TR: 'Dikey Tip Buz Buzdolabı Çift Kapılı', EN: 'Vertical Double-Door Fridge' },
     'filters.items.dikeyTipBuzdolabiCamli': { TR: 'Dikey Tip Buzdolabı Camlı', EN: 'Vertical Glass Fridge' },
     'filters.items.paslanmazBuzdolabiDikeyTip': { TR: 'Paslanmaz Buzdolabı Dikey Tip', EN: 'Vertical Stainless Fridge' },
     'filters.items.tezgahAltiDolapCamli': { TR: 'Tezgah Altı Dolap Camlı', EN: 'Under-Counter Glass Cabinet' },

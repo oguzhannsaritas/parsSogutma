@@ -38,6 +38,17 @@ export default function HeroSection() {
         { id: 6, subtitle: t('hero.slide6.title'), title: t('menu.coolingAisles'), image: '/images/home/sogutmareyon.webp' },
         { id: 7, subtitle: t('hero.slide7.title'), title: t('menu.bakery'), image: '/images/home/unluMamullx.webp' },
     ];
+    const slideProductRoutes: Record<number, string> = {
+        1: '/products?cat=vertical',
+        2: '/products?cat=kitchen',
+        3: '/products?cat=market',
+        4: '/products?cat=coldStorage',
+        5: '/products?cat=coolingSystems',
+        6: '/products?cat=coolingAisles',
+        7: '/products?cat=bakery',
+    };
+
+    const currentProductRoute = slideProductRoutes[textSlide] || '/products';
 
     useEffect(() => {
         if (typeof window === 'undefined') return;
@@ -536,7 +547,7 @@ export default function HeroSection() {
                         )}
 
                         {textSlide !== 0 && (
-                            <Link to="/products">
+                            <Link to={currentProductRoute}>
                                 <motion.button
                                     variants={{
                                         hide: { opacity: 0, y: -20, transition: { duration: 0.3 } },
