@@ -3,33 +3,101 @@ import { useLanguage } from '../context/LanguageContext';
 import { Link } from 'react-router-dom';
 import HTMLFlipBook from 'react-pageflip';
 import {
-    ZoomIn, ZoomOut, Grid, Play, Volume2, VolumeX, Share2, Maximize, Mail, Type,
-    ChevronLeft, ChevronRight, ArrowLeft, ArrowRight
+    ZoomIn,
+    ZoomOut,
+    Grid,
+    Play,
+    Volume2,
+    VolumeX,
+    Share2,
+    Maximize,
+    Mail,
+    Type,
+    ChevronLeft,
+    ChevronRight,
+    ArrowLeft,
+    ArrowRight
 } from 'lucide-react';
+
+const DESKTOP_PAGE_WIDTH = 568;
+const DESKTOP_PAGE_HEIGHT = 711;
+const PAGE_RATIO = DESKTOP_PAGE_HEIGHT / DESKTOP_PAGE_WIDTH;
+
+const FRONT_COVER_IMAGE = '/images/eCatalog/kapak.webp';
+const BACK_COVER_IMAGE = '/images/eCatalog/arkaKapak.webp';
+
+const PAGE_IMAGES = [
+    '/images/eCatalog/onyazi.webp',
+    '/images/eCatalog/sayfa.webp',
+    '/images/eCatalog/list.webp',
+    '/images/eCatalog/servisReyonlari.webp',
+    '/images/eCatalog/servisReyonlariKapak.webp',
+    '/images/eCatalog/servisReyonlariUrunler.webp',
+    '/images/eCatalog/sayfa.webp',
+    '/images/eCatalog/dikeyTipSogutucu.webp',
+    '/images/eCatalog/dikeyTipSogutucuKapak.webp',
+    '/images/eCatalog/dikeyTipSogutucuUrunler.webp',
+    '/images/eCatalog/sayfa.webp',
+    '/images/eCatalog/duvarTipiSogutmali.webp',
+    '/images/eCatalog/duvarTipiSogutmaliKapak.webp',
+    '/images/eCatalog/duvarTipiSogutmaliUrunler.webp',
+    '/images/eCatalog/sayfa.webp',
+    '/images/eCatalog/market.webp',
+    '/images/eCatalog/marketKapak.webp',
+    '/images/eCatalog/marketUrunler.webp',
+    '/images/eCatalog/sayfa.webp',
+    '/images/eCatalog/end.webp',
+    '/images/eCatalog/endKapak.webp',
+    '/images/eCatalog/endUrun.webp',
+    '/images/eCatalog/sayfa.webp',
+    '/images/eCatalog/hava.webp',
+    '/images/eCatalog/havaKapak.webp',
+    '/images/eCatalog/havaUrun.webp'
+];
+
+const SHOW_PAGE_NUMBERS = false;
 
 const PageCover = React.forwardRef((props: any, ref: any) => {
     return (
         <div
-            className={`w-full h-full bg-[#111827] shadow-sm shadow-gray-900 dark:shadow-white dark:shadow-sm  dark:bg-gray-600 flex flex-col items-center justify-center relative overflow-hidden ${
-                props.isMobile ? 'rounded-2xl' : (props.isLeft ? 'rounded-r-2xl' : 'rounded-r-2xl')
+            className={`w-full h-full bg-[#111827] shadow-sm shadow-gray-900 dark:shadow-white dark:shadow-sm dark:bg-gray-600 flex flex-col items-center justify-center relative overflow-hidden ${
+                props.isMobile ? 'rounded-2xl' : (props.isLeft ? 'rounded-l-2xl' : 'rounded-r-2xl')
             }`}
             ref={ref}
             data-density="hard"
         >
-            <div className="w-full h-full flex flex-col items-center justify-center text-white border border-white/10 m-2 p-4 md:p-8">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 md:mb-4 text-center tracking-widest">{props.title}</h1>
-                <span className="text-xs sm:text-sm md:text-base text-center text-gray-400">{props.desc}</span>
-            </div>
+            {props.image ? (
+                <img
+                    src={props.image}
+                    alt={props.alt || props.title || 'Kapak'}
+                    className="absolute inset-0 w-full h-full object-contain select-none pointer-events-none"
+                    draggable={false}
+                    loading={props.priority ? 'eager' : 'lazy'}
+                    decoding="async"
+                    fetchPriority={props.priority ? 'high' : 'auto'}
+                />
+            ) : (
+                <div className="w-full h-full flex flex-col items-center justify-center text-white border border-white/10 m-2 p-4 md:p-8">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 md:mb-4 text-center tracking-widest">
+                        {props.title}
+                    </h1>
+                    <span className="text-xs sm:text-sm md:text-base text-center text-gray-400">
+                        {props.desc}
+                    </span>
+                </div>
+            )}
         </div>
     );
 });
 
-const BookPage = React.forwardRef((props: any, ref: any) => {
+PageCover.displayName = 'PageCover';
+
+const BookImagePage = React.forwardRef((props: any, ref: any) => {
     const isLeft = props.index % 2 !== 0;
 
     return (
         <div
-            className={`w-full h-full bg-[#fdfbf7]  shadow-md shadow-gray-500 flex flex-col relative overflow-hidden ${
+            className={`w-full h-full bg-[#fdfbf7] shadow-md shadow-gray-500 flex flex-col relative mt-[-5px] overflow-hidden ${
                 props.isMobile
                     ? 'rounded-2xl border border-black/10'
                     : (isLeft
@@ -37,20 +105,25 @@ const BookPage = React.forwardRef((props: any, ref: any) => {
                         : 'shadow-[inset_40px_0_50px_rgba(0,0,0,0.08)] border-l rounded-r-2xl border-black/5')
             }`}
             ref={ref}
-            data-density="hard"
         >
-            {/* İçerik Alanı - Burayı siz dolduracaksınız */}
-            <div className="w-full h-full p-2 md:p-1  flex flex-col">
-                <div className="flex-1  border-black/10 rounded-xl flex flex-col items-center justify-center text-gray-500 p-4 text-center">
-                    <span className="text-xl md:text-2xl font-bold mb-2 text-gray-800">{props.title}</span>
-                    <span className="text-sm">{props.desc}</span>
-                    <span className="text-xs mt-4 opacity-50">İçerik Alanı (Boş Şablon)</span>
-                </div>
-            </div>
+            <img
+                src={props.image}
+                alt={props.alt || `Katalog sayfa ${props.index}`}
+                className="absolute inset-0 w-full h-full object-contain select-none pointer-events-none"
+                draggable={false}
+                loading={props.priority ? 'eager' : 'lazy'}
+                decoding="async"
+                fetchPriority={props.priority ? 'high' : 'auto'}
+            />
 
-            {/* Sayfa Numarası */}
-            {props.number && (
-                <div className={`absolute bottom-6 text-gray-500 font-mono text-sm ${props.isMobile ? 'left-1/2 -translate-x-1/2' : (isLeft ? 'left-8' : 'right-8')}`}>
+            {SHOW_PAGE_NUMBERS && props.number && (
+                <div
+                    className={`absolute bottom-6 z-10 text-white/90 font-mono text-sm bg-black/30 backdrop-blur-sm px-2 py-1 rounded ${
+                        props.isMobile
+                            ? 'left-1/2 -translate-x-1/2'
+                            : (isLeft ? 'left-8' : 'right-8')
+                    }`}
+                >
                     {props.number}
                 </div>
             )}
@@ -58,19 +131,248 @@ const BookPage = React.forwardRef((props: any, ref: any) => {
     );
 });
 
+BookImagePage.displayName = 'BookImagePage';
+
 export default function ECatalog() {
     const { t } = useLanguage();
+
     const bookRef = useRef<any>(null);
+    const bookViewportRef = useRef<HTMLDivElement | null>(null);
+    const bookStageRef = useRef<HTMLDivElement | null>(null);
+    const audioRef = useRef<HTMLAudioElement | null>(null);
+
+    const lastSoundTimeRef = useRef(0);
+    const wheelLockRef = useRef(false);
+
+    const zoomDragRef = useRef({
+        dragging: false,
+        startX: 0,
+        startY: 0,
+        originX: 0,
+        originY: 0
+    });
+
     const [page, setPage] = useState(0);
     const [totalPage, setTotalPage] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
-    const [bookDim, setBookDim] = useState({ width: 450, height: 630 });
     const [isSoundEnabled, setIsSoundEnabled] = useState(true);
     const [isZoomed, setIsZoomed] = useState(false);
-    const audioRef = useRef<HTMLAudioElement | null>(null);
-    const lastSoundTimeRef = useRef(0);
-    const wheelLockRef = useRef(false);
-    const bookViewportRef = useRef<HTMLDivElement | null>(null);
+    const [isDraggingZoom, setIsDraggingZoom] = useState(false);
+    const [closedSide, setClosedSide] = useState<'front' | 'back' | 'none'>('none');
+
+    const [bookDim, setBookDim] = useState({
+        width: DESKTOP_PAGE_WIDTH,
+        height: DESKTOP_PAGE_HEIGHT
+    });
+
+    const [zoomOffset, setZoomOffset] = useState({
+        x: 0,
+        y: 0
+    });
+
+    const getZoomScale = () => {
+        return isMobile ? 1.5 : 1.8;
+    };
+
+    const getStageSize = () => {
+        if (!bookStageRef.current) {
+            return {
+                width: isMobile ? bookDim.width : bookDim.width * 2,
+                height: bookDim.height
+            };
+        }
+
+        const flipRoot =
+            (bookStageRef.current.querySelector('.stf__parent') as HTMLElement | null) ||
+            (bookStageRef.current.querySelector('.stf__block') as HTMLElement | null) ||
+            (bookStageRef.current.querySelector('.flip-book') as HTMLElement | null);
+
+        const width = flipRoot?.offsetWidth ?? (isMobile ? bookDim.width : bookDim.width * 2);
+        const height = flipRoot?.offsetHeight ?? bookDim.height;
+
+        return { width, height };
+    };
+
+    const clampZoomOffset = (x: number, y: number) => {
+        if (!bookViewportRef.current) {
+            return { x, y };
+        }
+
+        const viewportRect = bookViewportRef.current.getBoundingClientRect();
+        const { width: stageWidth, height: stageHeight } = getStageSize();
+        const zoomScale = getZoomScale();
+
+        const scaledWidth = stageWidth * zoomScale;
+        const scaledHeight = stageHeight * zoomScale;
+
+        const maxX = Math.max(0, (scaledWidth - viewportRect.width) / 2);
+        const maxY = Math.max(0, (scaledHeight - viewportRect.height) / 2);
+
+        return {
+            x: Math.max(-maxX, Math.min(maxX, x)),
+            y: Math.max(-maxY, Math.min(maxY, y))
+        };
+    };
+
+    const startZoomDrag = (clientX: number, clientY: number) => {
+        if (!isZoomed) return;
+
+        zoomDragRef.current = {
+            dragging: true,
+            startX: clientX,
+            startY: clientY,
+            originX: zoomOffset.x,
+            originY: zoomOffset.y
+        };
+
+        setIsDraggingZoom(true);
+    };
+
+    const handleZoomMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!isZoomed) return;
+
+        e.preventDefault();
+        startZoomDrag(e.clientX, e.clientY);
+    };
+
+    const handleZoomTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+        if (!isZoomed) return;
+        if (e.touches.length !== 1) return;
+
+        const touch = e.touches[0];
+        startZoomDrag(touch.clientX, touch.clientY);
+    };
+
+    const detectClosedSide = () => {
+        if (isMobile) {
+            setClosedSide('none');
+            return;
+        }
+
+        const stageEl = bookStageRef.current;
+        if (!stageEl) {
+            setClosedSide('none');
+            return;
+        }
+
+        const block =
+            (stageEl.querySelector('.stf__block') as HTMLElement | null) ||
+            (stageEl.querySelector('.stf__parent') as HTMLElement | null);
+
+        if (!block) {
+            setClosedSide('none');
+            return;
+        }
+
+        const items = Array.from(stageEl.querySelectorAll('.stf__item')) as HTMLElement[];
+
+        const visibleItems = items.filter((item) => {
+            const style = window.getComputedStyle(item);
+            const rect = item.getBoundingClientRect();
+
+            return (
+                style.display !== 'none' &&
+                style.visibility !== 'hidden' &&
+                rect.width > 20 &&
+                rect.height > 20
+            );
+        });
+
+        if (visibleItems.length !== 1) {
+            setClosedSide('none');
+            return;
+        }
+
+        const blockRect = block.getBoundingClientRect();
+        const pageRect = visibleItems[0].getBoundingClientRect();
+
+        const leftGap = Math.abs(pageRect.left - blockRect.left);
+        const rightGap = Math.abs(blockRect.right - pageRect.right);
+        const tolerance = 12;
+
+        if (leftGap <= tolerance && rightGap > tolerance) {
+            setClosedSide('back');
+            return;
+        }
+
+        if (rightGap <= tolerance && leftGap > tolerance) {
+            setClosedSide('front');
+            return;
+        }
+
+        setClosedSide('none');
+    };
+
+    const scheduleClosedSideDetection = () => {
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                detectClosedSide();
+            });
+        });
+    };
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            if (!zoomDragRef.current.dragging || !isZoomed) return;
+
+            e.preventDefault();
+
+            const dx = e.clientX - zoomDragRef.current.startX;
+            const dy = e.clientY - zoomDragRef.current.startY;
+
+            const next = clampZoomOffset(
+                zoomDragRef.current.originX + dx,
+                zoomDragRef.current.originY + dy
+            );
+
+            setZoomOffset(next);
+        };
+
+        const handleTouchMove = (e: TouchEvent) => {
+            if (!zoomDragRef.current.dragging || !isZoomed) return;
+            if (e.touches.length !== 1) return;
+
+            e.preventDefault();
+
+            const touch = e.touches[0];
+            const dx = touch.clientX - zoomDragRef.current.startX;
+            const dy = touch.clientY - zoomDragRef.current.startY;
+
+            const next = clampZoomOffset(
+                zoomDragRef.current.originX + dx,
+                zoomDragRef.current.originY + dy
+            );
+
+            setZoomOffset(next);
+        };
+
+        const stopDragging = () => {
+            if (!zoomDragRef.current.dragging) return;
+
+            zoomDragRef.current.dragging = false;
+            setIsDraggingZoom(false);
+        };
+
+        window.addEventListener('mousemove', handleMouseMove, { passive: false });
+        window.addEventListener('mouseup', stopDragging);
+        window.addEventListener('touchmove', handleTouchMove, { passive: false });
+        window.addEventListener('touchend', stopDragging);
+        window.addEventListener('touchcancel', stopDragging);
+
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('mouseup', stopDragging);
+            window.removeEventListener('touchmove', handleTouchMove);
+            window.removeEventListener('touchend', stopDragging);
+            window.removeEventListener('touchcancel', stopDragging);
+        };
+    }, [isZoomed, isMobile, bookDim.width, bookDim.height, zoomOffset.x, zoomOffset.y]);
+
+    useEffect(() => {
+        if (!isZoomed) return;
+
+        setZoomOffset(prev => clampZoomOffset(prev.x, prev.y));
+    }, [isZoomed, page, isMobile, bookDim.width, bookDim.height]);
 
     useEffect(() => {
         const audio = new Audio('/sound/pageSound/pageSound.mp3');
@@ -81,52 +383,65 @@ export default function ECatalog() {
             const width = window.innerWidth;
             const height = window.innerHeight;
 
-            // Tailwind px-4 (16px*2=32px) on mobile, md:px-16 (64px*2=128px) on tablet/desktop
             const paddingX = width >= 768 ? 128 : 32;
             const availableWidth = width - paddingX;
-            const availableHeight = height - 180; // Header ve alt kontroller için boşluk
+            const availableHeight = height - 180;
 
             const isPortrait = height > width;
 
             if (width < 768 || (width < 1024 && isPortrait)) {
-                // Mobil veya Tablet Dikey: Tek sayfa (Portrait mode)
                 setIsMobile(true);
+
                 let w = availableWidth;
-                let h = w * 1.4; // 1:1.4 oran (450x630)
+                let h = w * PAGE_RATIO;
 
                 if (h > availableHeight) {
                     h = availableHeight;
-                    w = h / 1.4;
+                    w = h / PAGE_RATIO;
                 }
-                setBookDim({ width: Math.floor(w), height: Math.floor(h) });
+
+                setBookDim({
+                    width: Math.floor(w),
+                    height: Math.floor(h)
+                });
             } else if (width < 1024) {
-                // Tablet Yatay: Çift sayfa (Landscape mode)
                 setIsMobile(false);
+
                 let w = availableWidth / 2;
-                let h = w * 1.4;
+                let h = w * PAGE_RATIO;
 
                 if (h > availableHeight) {
                     h = availableHeight;
-                    w = h / 1.4;
+                    w = h / PAGE_RATIO;
                 }
-                setBookDim({ width: Math.floor(w), height: Math.floor(h) });
-            } else {
-                // Masaüstü: Çift sayfa, max 450x630
-                setIsMobile(false);
-                let w = 450;
-                let h = 630;
 
-                // Ekrana sığmıyorsa küçült
+                setBookDim({
+                    width: Math.floor(w),
+                    height: Math.floor(h)
+                });
+            } else {
+                setIsMobile(false);
+
+                let w = DESKTOP_PAGE_WIDTH;
+                let h = DESKTOP_PAGE_HEIGHT;
+
                 if (w * 2 > availableWidth) {
                     w = availableWidth / 2;
-                    h = w * 1.4;
+                    h = w * PAGE_RATIO;
                 }
+
                 if (h > availableHeight) {
                     h = availableHeight;
-                    w = h / 1.4;
+                    w = h / PAGE_RATIO;
                 }
-                setBookDim({ width: Math.floor(w), height: Math.floor(h) });
+
+                setBookDim({
+                    width: Math.floor(w),
+                    height: Math.floor(h)
+                });
             }
+
+            setZoomOffset({ x: 0, y: 0 });
         };
 
         checkMobile();
@@ -137,10 +452,15 @@ export default function ECatalog() {
         };
     }, []);
 
+    useEffect(() => {
+        scheduleClosedSideDetection();
+    }, [isMobile, bookDim.width, bookDim.height]);
+
     const playPageSound = () => {
         if (!isSoundEnabled || !audioRef.current) return;
 
         const now = Date.now();
+
         if (now - lastSoundTimeRef.current < 120) return;
 
         lastSoundTimeRef.current = now;
@@ -160,215 +480,251 @@ export default function ECatalog() {
 
     const onPage = (e: any) => {
         setPage(e.data);
+        scheduleClosedSideDetection();
     };
 
     const onInit = (e: any) => {
         setTotalPage(e.object.getPageCount());
+        scheduleClosedSideDetection();
     };
 
     const onFlipState = (e: any) => {
         if (e?.data === 'flipping') {
+            setClosedSide('none');
             playPageSound();
+            return;
         }
+
+        scheduleClosedSideDetection();
     };
 
     useEffect(() => {
-        // Tarayıcı seviyesinde trackpad "Geri/İleri" kaydırma hareketini tamamen engellemek için
-        // html ve body elementlerine overscroll-behavior uyguluyoruz.
-        document.documentElement.style.overscrollBehavior = 'none';
-        document.body.style.overscrollBehavior = 'none';
+        const viewportEl = bookViewportRef.current;
+        if (!viewportEl) return;
 
         const handleWheel = (e: WheelEvent) => {
-            // Trackpad'de en ufak bir yatay hareket algılandığında tarayıcı navigasyonunu kesinlikle durdur
-            if (Math.abs(e.deltaX) > 0) {
-                e.preventDefault();
-            }
-
-            const absX = Math.abs(e.deltaX);
-            const absY = Math.abs(e.deltaY);
-            const isHorizontal = absX > absY;
-
             if (isZoomed) return;
             if (wheelLockRef.current) return;
 
-            // Sadece yatay kaydırmalarda (Trackpad sağ/sol) sayfayı çevir
-            if (isHorizontal && absX > 30) {
-                wheelLockRef.current = true;
-                if (e.deltaX > 0) {
-                    playPageSound();
-                    bookRef.current?.pageFlip()?.flipNext();
-                } else {
-                    playPageSound();
-                    bookRef.current?.pageFlip()?.flipPrev();
-                }
+            const absX = Math.abs(e.deltaX);
+            const absY = Math.abs(e.deltaY);
+            const isStrongHorizontalIntent = absX > 30 && absX > absY * 1.2;
 
-                window.setTimeout(() => {
-                    wheelLockRef.current = false;
-                }, 450);
+            if (!isStrongHorizontalIntent) return;
+
+            e.preventDefault();
+
+            wheelLockRef.current = true;
+
+            if (e.deltaX > 0) {
+                playPageSound();
+                bookRef.current?.pageFlip()?.flipNext();
+            } else {
+                playPageSound();
+                bookRef.current?.pageFlip()?.flipPrev();
             }
+
+            window.setTimeout(() => {
+                wheelLockRef.current = false;
+            }, 450);
         };
 
-        // Sayfa genelinde dinle ki trackpad nerede olursa olsun çalışsın ve navigasyonu engellesin
-        window.addEventListener('wheel', handleWheel, { passive: false });
+        viewportEl.addEventListener('wheel', handleWheel, { passive: false });
 
         return () => {
-            window.removeEventListener('wheel', handleWheel);
-            // Sayfadan çıkıldığında eski haline getir
-            document.documentElement.style.overscrollBehavior = '';
-            document.body.style.overscrollBehavior = '';
+            viewportEl.removeEventListener('wheel', handleWheel);
         };
-    }, [isZoomed, isSoundEnabled]);
+    }, [isZoomed, isSoundEnabled, page]);
+
     const toggleZoom = () => {
-        setIsZoomed(!isZoomed);
+        if (isZoomed) {
+            setIsZoomed(false);
+            setIsDraggingZoom(false);
+            zoomDragRef.current.dragging = false;
+            setZoomOffset({ x: 0, y: 0 });
+            return;
+        }
+
+        setIsZoomed(true);
+        setZoomOffset({ x: 0, y: 0 });
     };
 
-    // Kitap kapalıyken kapağı ortalamak ve zoom durumunu yönetmek için
-    const getContainerStyle = () => {
-        let baseTransform = '';
+    const getStageStyle = () => {
+        const halfPageShift = Math.round(bookDim.width / 2);
+
+        let shiftX = 0;
 
         if (!isMobile) {
-            if (page === 0) baseTransform = 'translateX(-25%)';
+            if (closedSide === 'front') {
+                shiftX = -halfPageShift;
+            } else if (closedSide === 'back') {
+                shiftX = halfPageShift;
+            }
         }
+
+        const baseTransform = `translate3d(${shiftX}px, 0, 0)`;
 
         if (isZoomed) {
             return {
-                transform: `${baseTransform} scale(${isMobile ? 1.5 : 1.8})`,
-                transition: 'transform 0.5s ease-in-out',
-                zIndex: 50,
-                cursor: 'zoom-out'
+                transform: `${baseTransform} translate3d(${zoomOffset.x}px, ${zoomOffset.y}px, 0) scale(${getZoomScale()})`,
+                transition: isDraggingZoom ? 'none' : 'transform 0.35s ease',
+                zIndex: 20,
+                cursor: isDraggingZoom ? 'grabbing' : 'grab',
+                transformOrigin: 'center center',
+                willChange: 'transform',
+                userSelect: 'none' as const
             };
         }
 
         return {
             transform: baseTransform,
             transition: 'transform 0.5s ease-in-out',
-            zIndex: 10
+            zIndex: 10,
+            cursor: 'default',
+            transformOrigin: 'center center',
+            willChange: 'transform'
         };
     };
 
     return (
-        <div className="bg-white dark:bg-[#111827] min-h-screen flex flex-col relative pt-20" style={{ overscrollBehaviorX: 'none' }}>
-            {/* Ahşap Arka Plan Dokusu */}
+        <div className="bg-white dark:bg-[#111827] min-h-screen flex flex-col relative pt-20">
             <div
                 className="absolute inset-0 opacity-60 dark:opacity-30 pointer-events-none mix-blend-multiply z-0"
-                style={{
-                }}
+                style={{}}
             ></div>
 
-            {/* Üst Bilgi Çubuğu */}
             <div className="bg-[#111827] dark:bg-white text-white dark:text-black py-4 md:py-16 mb-12 transition-colors duration-300">
                 <div className="container mx-auto px-4 md:px-12 text-center">
-                    <h1 className="text-lg md:text-4xl font-bold mb-4">{t('menu.catalog')}</h1>
+                    <h1 className="text-lg md:text-4xl font-bold mb-4">
+                        {t('menu.catalog')}
+                    </h1>
 
                     <div className="text-xs md:text-sm text-gray-400 dark:text-gray-600 flex items-center justify-center gap-2 uppercase tracking-wider">
-                        <Link to="/" className="hover:text-white dark:hover:text-black transition-colors">
+                        <Link
+                            to="/"
+                            className="hover:text-white dark:hover:text-black transition-colors"
+                        >
                             {t('menu.home')}
                         </Link>
                         <span>/</span>
-                        <span className="text-white dark:text-black">{t('menu.catalog')}</span>
+                        <span className="text-white dark:text-black">
+                            {t('menu.catalog')}
+                        </span>
                     </div>
                 </div>
             </div>
 
-            {/* Katalog Görüntüleyici */}
-            <div className={`flex-1 relative flex items-center justify-center py-8 md:py-12 z-10 w-full max-w-[1600px] mx-auto px-4 md:px-16 ${isZoomed ? 'overflow-auto' : 'overflow-visible'}`}>
-                {/* Masaüstü Sağ Üst Kontroller (Ses ve Zoom) */}
-                <div className="hidden md:flex absolute right-4 top-4 z-50 gap-2">
+            <div
+                className={`flex-1 relative flex items-center justify-center py-12 md:py-12 z-10 w-full max-w-[1600px] mx-auto px-4 md:px-16 isolate ${
+                    isZoomed ? 'overflow-hidden' : 'overflow-visible'
+                }`}
+            >
+                <div className="hidden md:flex fixed right-6 top-24 z-[200] gap-2 pointer-events-auto">
                     <button
                         onClick={toggleZoom}
                         className="p-3 bg-black/40 hover:bg-black/60 text-white rounded-full backdrop-blur-md transition-all shadow-lg"
-                        title={isZoomed ? "Uzaklaştır" : "Yakınlaştır"}
+                        title={isZoomed ? 'Uzaklaştır' : 'Yakınlaştır'}
                     >
                         {isZoomed ? <ZoomOut size={24} /> : <ZoomIn size={24} />}
                     </button>
+
                     <button
                         onClick={() => setIsSoundEnabled(!isSoundEnabled)}
                         className="p-3 bg-black/40 hover:bg-black/60 text-white rounded-full backdrop-blur-md transition-all shadow-lg"
-                        title={isSoundEnabled ? "Sesi Kapat" : "Sesi Aç"}
+                        title={isSoundEnabled ? 'Sesi Kapat' : 'Sesi Aç'}
                     >
                         {isSoundEnabled ? <Volume2 size={24} /> : <VolumeX size={24} />}
                     </button>
                 </div>
 
-                {/* Sol Ok */}
                 {!isZoomed && (
                     <button
                         onClick={prevButtonClick}
-                        className="absolute left-2 md:left-8 z-30 p-2 md:p-4 text-black  dark:text-white cursor-pointer transition-colors"
+                        className="absolute left-2 md:left-8 z-30 p-2 md:p-4 text-black dark:text-white cursor-pointer transition-colors"
                         aria-label="Önceki Sayfa"
                     >
                         <ChevronLeft size={48} strokeWidth={1} />
                     </button>
                 )}
 
-                {/* FlipBook Konteyneri */}
                 <div
                     ref={bookViewportRef}
-                    className="relative flex items-center justify-center w-full max-w-[950px] [overscroll-behavior-x:contain] [overscroll-behavior-y:none]"
+                    className={`relative flex items-center justify-center w-full max-w-[1200px] [overscroll-behavior-x:contain] ${
+                        isZoomed ? 'overflow-hidden' : 'overflow-x-hidden overflow-y-visible'
+                    }`}
                     style={{
-                        ...getContainerStyle(),
                         overscrollBehaviorX: 'contain',
-                        overscrollBehaviorY: 'none',
+                        overscrollBehaviorY: 'auto'
                     }}
-                    onClick={isZoomed ? toggleZoom : undefined}
                 >
-                    {/* @ts-ignore */}
-                    <HTMLFlipBook
-                        width={bookDim.width}
-                        height={bookDim.height}
-                        size="fixed"
-                        autoSize={false}
-                        maxShadowOpacity={0.5}
-                        showCover={true}
-                        mobileScrollSupport={true}
-                        usePortrait={isMobile}
-                        onFlip={onPage}
-                        onChangeState={onFlipState}
-                        onInit={onInit}
-                        ref={bookRef}
-                        className="flip-book"
-                        style={{ margin: '0 auto' }}
+                    <div
+                        ref={bookStageRef}
+                        style={{
+                            ...getStageStyle(),
+                            touchAction: isZoomed ? 'none' : 'pan-y'
+                        }}
+                        onMouseDown={handleZoomMouseDown}
+                        onTouchStart={handleZoomTouchStart}
                     >
-                        {/* Index 0: Ön Kapak (Sağ) */}
-                        <PageCover title="KAPAK" desc="Ön Kapak (Sağda görünür)" isLeft={false} isMobile={isMobile} />
+                        {/* @ts-ignore */}
+                        <HTMLFlipBook
+                            width={bookDim.width}
+                            height={bookDim.height}
+                            size="fixed"
+                            autoSize={false}
+                            drawShadow={true}
+                            maxShadowOpacity={0.5}
+                            showCover={true}
+                            mobileScrollSupport={true}
+                            usePortrait={isMobile}
+                            onFlip={onPage}
+                            onChangeState={onFlipState}
+                            onInit={onInit}
+                            ref={bookRef}
+                            className="flip-book"
+                            style={{
+                                margin: '0 auto',
+                                pointerEvents: isZoomed ? 'none' : 'auto'
+                            }}
+                        >
+                            <PageCover
+                                image={FRONT_COVER_IMAGE}
+                                alt="Ön kapak"
+                                title="KAPAK"
+                                desc="Ön Kapak"
+                                isLeft={false}
+                                isMobile={isMobile}
+                                priority={true}
+                            />
 
-                        {/* Index 1: Kapak İçi (Sol) */}
-                        <BookPage index={1} title="Kapak İçi" desc="Ön kapağın arka yüzü (Sol)" isMobile={isMobile} />
+                            {PAGE_IMAGES.map((image, index) => (
+                                <BookImagePage
+                                    key={`${image}-${index}`}
+                                    index={index + 1}
+                                    image={image}
+                                    alt={`Katalog sayfa ${index + 1}`}
+                                    number={`${index + 1}`}
+                                    isMobile={isMobile}
+                                    priority={index < 2}
+                                />
+                            ))}
 
-                        {/* Index 2: Sayfa 1 (Sağ) */}
-                        <BookPage index={2} number="1" title="1. Sayfa" desc="İlk yaprağın ön yüzü (Sağ)" isMobile={isMobile} />
-
-                        {/* Index 3: Sayfa 2 (Sol) */}
-                        <BookPage index={3} number="2" title="2. Sayfa" desc="İlk yaprağın arka yüzü (Sol)" isMobile={isMobile} />
-
-                        {/* Index 4: Sayfa 3 (Sağ) */}
-                        <BookPage index={4} number="3" title="3. Sayfa" desc="İkinci yaprağın ön yüzü (Sağ)" isMobile={isMobile} />
-
-                        {/* Index 5: Sayfa 4 (Sol) */}
-                        <BookPage index={5} number="4" title="4. Sayfa" desc="İkinci yaprağın arka yüzü (Sol)" isMobile={isMobile} />
-
-                        {/* Index 6: Sayfa 5 (Sağ) */}
-                        <BookPage index={6} number="5" title="5. Sayfa" desc="Üçüncü yaprağın ön yüzü (Sağ)" isMobile={isMobile} />
-
-                        {/* Index 7: Sayfa 6 (Sol) */}
-                        <BookPage index={7} number="6" title="6. Sayfa" desc="Üçüncü yaprağın arka yüzü (Sol)" isMobile={isMobile} />
-
-                        {/* Index 8: Sayfa 7 (Sağ) */}
-                        <BookPage index={8} number="7" title="7. Sayfa" desc="Dördüncü yaprağın ön yüzü (Sağ)" isMobile={isMobile} />
-
-                        {/* Index 9: Arka Kapak İçi (Sol) */}
-                        <BookPage index={9} title="Arka Kapak İçi" desc="Arka kapağın iç yüzü (Sol)" isMobile={isMobile} />
-
-                        {/* Index 10: Arka Kapak (Sağ) */}
-                        <PageCover title="ARKA KAPAK" desc="Arka Kapak Dış Yüzü (Sağ)" isLeft={true} isMobile={isMobile} />
-                    </HTMLFlipBook>
+                            <PageCover
+                                image={BACK_COVER_IMAGE}
+                                alt="Arka kapak"
+                                title="ARKA KAPAK"
+                                desc="Arka Kapak"
+                                isLeft={true}
+                                isMobile={isMobile}
+                            />
+                        </HTMLFlipBook>
+                    </div>
                 </div>
 
-                {/* Sağ Ok */}
                 {!isZoomed && (
                     <button
                         onClick={nextButtonClick}
-                        className="absolute right-2 md:right-8 z-30 p-2 md:p-4 text-black  dark:text-white cursor-pointer transition-colors"
+                        className="absolute right-2 md:right-8 z-30 p-2 md:p-4 text-black dark:text-white cursor-pointer transition-colors"
                         aria-label="Sonraki Sayfa"
                     >
                         <ChevronRight size={48} strokeWidth={1} />
@@ -376,21 +732,54 @@ export default function ECatalog() {
                 )}
             </div>
 
-            {/* Alt Kontrol Çubuğu (Sadece Mobil/Tablet) */}
             <div className="bg-black text-white p-2 md:p-3 flex md:hidden items-center justify-between z-40 relative">
                 <div className="flex items-center gap-2 md:gap-4">
-                    <button onClick={toggleZoom} className="p-2 hover:text-[#009FE3] transition-colors" title="Yakınlaştır">
-                        {isZoomed ? <ZoomOut size={20} strokeWidth={1.5} /> : <ZoomIn size={20} strokeWidth={1.5} />}
+                    <button
+                        onClick={toggleZoom}
+                        className="p-2 hover:text-[#009FE3] transition-colors"
+                        title="Yakınlaştır"
+                    >
+                        {isZoomed ? (
+                            <ZoomOut size={20} strokeWidth={1.5} />
+                        ) : (
+                            <ZoomIn size={20} strokeWidth={1.5} />
+                        )}
                     </button>
-                    <button className="p-2 hover:text-[#009FE3] transition-colors hidden sm:block" title="Izgara Görünümü"><Grid size={20} strokeWidth={1.5} /></button>
-                    <button className="p-2 hover:text-[#009FE3] transition-colors hidden sm:block" title="Otomatik Oynat"><Play size={20} strokeWidth={1.5} /></button>
-                    <button onClick={() => setIsSoundEnabled(!isSoundEnabled)} className="p-2 hover:text-[#009FE3] transition-colors" title="Ses">
-                        {isSoundEnabled ? <Volume2 size={20} strokeWidth={1.5} /> : <VolumeX size={20} strokeWidth={1.5} />}
+
+                    <button
+                        className="p-2 hover:text-[#009FE3] transition-colors hidden sm:block"
+                        title="Izgara Görünümü"
+                    >
+                        <Grid size={20} strokeWidth={1.5} />
+                    </button>
+
+                    <button
+                        className="p-2 hover:text-[#009FE3] transition-colors hidden sm:block"
+                        title="Otomatik Oynat"
+                    >
+                        <Play size={20} strokeWidth={1.5} />
+                    </button>
+
+                    <button
+                        onClick={() => setIsSoundEnabled(!isSoundEnabled)}
+                        className="p-2 hover:text-[#009FE3] transition-colors"
+                        title="Ses"
+                    >
+                        {isSoundEnabled ? (
+                            <Volume2 size={20} strokeWidth={1.5} />
+                        ) : (
+                            <VolumeX size={20} strokeWidth={1.5} />
+                        )}
                     </button>
                 </div>
 
                 <div className="flex items-center gap-2 md:gap-4">
-                    <button onClick={prevButtonClick} className="p-2 hover:text-[#009FE3] transition-colors"><ArrowLeft size={20} strokeWidth={1.5} /></button>
+                    <button
+                        onClick={prevButtonClick}
+                        className="p-2 hover:text-[#009FE3] transition-colors"
+                    >
+                        <ArrowLeft size={20} strokeWidth={1.5} />
+                    </button>
 
                     <div className="flex items-center bg-white/10 rounded px-2 py-1">
                         <input
@@ -403,14 +792,42 @@ export default function ECatalog() {
                         <span className="text-gray-400 text-sm font-mono">{totalPage}</span>
                     </div>
 
-                    <button onClick={nextButtonClick} className="p-2 hover:text-[#009FE3] transition-colors"><ArrowRight size={20} strokeWidth={1.5} /></button>
+                    <button
+                        onClick={nextButtonClick}
+                        className="p-2 hover:text-[#009FE3] transition-colors"
+                    >
+                        <ArrowRight size={20} strokeWidth={1.5} />
+                    </button>
                 </div>
 
                 <div className="flex items-center gap-2 md:gap-4">
-                    <button className="p-2 hover:text-[#009FE3] transition-colors" title="Paylaş"><Share2 size={20} strokeWidth={1.5} /></button>
-                    <button className="p-2 hover:text-[#009FE3] transition-colors hidden sm:block" title="Tam Ekran"><Maximize size={20} strokeWidth={1.5} /></button>
-                    <button className="p-2 hover:text-[#009FE3] transition-colors hidden sm:block" title="E-Posta"><Mail size={20} strokeWidth={1.5} /></button>
-                    <button className="p-2 hover:text-[#009FE3] transition-colors hidden sm:block" title="Metin"><Type size={20} strokeWidth={1.5} /></button>
+                    <button
+                        className="p-2 hover:text-[#009FE3] transition-colors"
+                        title="Paylaş"
+                    >
+                        <Share2 size={20} strokeWidth={1.5} />
+                    </button>
+
+                    <button
+                        className="p-2 hover:text-[#009FE3] transition-colors hidden sm:block"
+                        title="Tam Ekran"
+                    >
+                        <Maximize size={20} strokeWidth={1.5} />
+                    </button>
+
+                    <button
+                        className="p-2 hover:text-[#009FE3] transition-colors hidden sm:block"
+                        title="E-Posta"
+                    >
+                        <Mail size={20} strokeWidth={1.5} />
+                    </button>
+
+                    <button
+                        className="p-2 hover:text-[#009FE3] transition-colors hidden sm:block"
+                        title="Metin"
+                    >
+                        <Type size={20} strokeWidth={1.5} />
+                    </button>
                 </div>
             </div>
         </div>
