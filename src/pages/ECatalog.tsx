@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Link } from 'react-router-dom';
 import HTMLFlipBook from 'react-pageflip';
@@ -16,7 +16,8 @@ import {
     ChevronLeft,
     ChevronRight,
     ArrowLeft,
-    ArrowRight
+    ArrowRight,
+    Download
 } from 'lucide-react';
 
 const DESKTOP_PAGE_WIDTH = 568;
@@ -24,41 +25,50 @@ const DESKTOP_PAGE_HEIGHT = 711;
 const PAGE_RATIO = DESKTOP_PAGE_HEIGHT / DESKTOP_PAGE_WIDTH;
 
 const FRONT_COVER_IMAGE = '/images/eCatalog/kapak.webp';
-const BACK_COVER_IMAGE = '/images/eCatalog/arkaKapak.webp';
+const BACK_COVER_IMAGE = '/images/eCatalog/arka.webp';
+const PDF_FILE_PATH = '/eCatalogParsSogutma.pdf';
 
 const PAGE_IMAGES = [
     '/images/eCatalog/onyazi.webp',
     '/images/eCatalog/sayfa.webp',
-    '/images/eCatalog/list.webp',
-    '/images/eCatalog/servisReyonlari.webp',
-    '/images/eCatalog/servisReyonlariKapak.webp',
-    '/images/eCatalog/servisReyonlariUrunler.webp',
+    '/images/eCatalog/menu.webp',
+    '/images/eCatalog/servisReyon.webp',
+    '/images/eCatalog/servisReyonKapak.webp',
+    '/images/eCatalog/servisReyonUrun.webp',
     '/images/eCatalog/sayfa.webp',
-    '/images/eCatalog/dikeyTipSogutucu.webp',
-    '/images/eCatalog/dikeyTipSogutucuKapak.webp',
-    '/images/eCatalog/dikeyTipSogutucuUrunler.webp',
+    '/images/eCatalog/dikeyTipSogutuculuReyonlar.webp',
+    '/images/eCatalog/dikeyTipSogutuculuReyonlarKapak.webp',
+    '/images/eCatalog/dikeyTipSogutuculuReyonlarMenu.webp',
     '/images/eCatalog/sayfa.webp',
-    '/images/eCatalog/duvarTipiSogutmali.webp',
-    '/images/eCatalog/duvarTipiSogutmaliKapak.webp',
-    '/images/eCatalog/duvarTipiSogutmaliUrunler.webp',
+    '/images/eCatalog/pastaDolablari.webp',
+    '/images/eCatalog/pastaDolablariKapak.webp',
+    '/images/eCatalog/pastaDolablariUrun.webp',
     '/images/eCatalog/sayfa.webp',
-    '/images/eCatalog/market.webp',
-    '/images/eCatalog/marketKapak.webp',
-    '/images/eCatalog/marketUrunler.webp',
+    '/images/eCatalog/marketEkipmanlari.webp',
+    '/images/eCatalog/marketEkipmanlariKapak.webp',
+    '/images/eCatalog/marketEkipmanlariUrunler.webp',
     '/images/eCatalog/sayfa.webp',
-    '/images/eCatalog/end.webp',
-    '/images/eCatalog/endKapak.webp',
-    '/images/eCatalog/endUrun.webp',
-    '/images/eCatalog/endUrun2.webp',
-    '/images/eCatalog/endUrun3.webp',
+    '/images/eCatalog/kafeRestoranDolaplari.webp',
+    '/images/eCatalog/kafeRestoranDolaplariKapak.webp',
+    '/images/eCatalog/kafeRestoranDolaplariUrun.webp',
     '/images/eCatalog/sayfa.webp',
-    '/images/eCatalog/dryAged.webp',
-    '/images/eCatalog/dryAgedKapak.webp',
-    '/images/eCatalog/dryAgedUrun.webp',
+    '/images/eCatalog/endustriyelMutfakEkipmanlari.webp',
+    '/images/eCatalog/endustriyelMutfakEkipmanlariKapak.webp',
+    '/images/eCatalog/endustriyelMutfakEkipmanlariUrunler.webp',
+    '/images/eCatalog/endustriyelMutfakEkipmanlariUrunler2.webp',
+    '/images/eCatalog/endustriyelMutfakEkipmanlariUrunler3.webp',
     '/images/eCatalog/sayfa.webp',
-    '/images/eCatalog/hava.webp',
-    '/images/eCatalog/havaKapak.webp',
-    '/images/eCatalog/havaUrun.webp'
+    '/images/eCatalog/sogukHavaDepolari.webp',
+    '/images/eCatalog/sogukHavaDepolariKapak.webp',
+    '/images/eCatalog/sogukHavaDepolariUrunler.webp',
+    '/images/eCatalog/sayfa.webp',
+    '/images/eCatalog/sogutmaGruplari.webp',
+    '/images/eCatalog/sogutmaGruplariKapak.webp',
+    '/images/eCatalog/sogutmaGruplariUrunler.webp',
+    '/images/eCatalog/sayfa.webp',
+    '/images/eCatalog/ozelTasarimDryAged.webp',
+    '/images/eCatalog/ozelTasarimDryAgedKapak.webp',
+    '/images/eCatalog/ozelTasarimDryAgedUrunler.webp',
 ];
 
 const SHOW_PAGE_NUMBERS = false;
@@ -149,6 +159,7 @@ export default function ECatalog() {
 
     const lastSoundTimeRef = useRef(0);
     const wheelLockRef = useRef(false);
+    const audioUnlockedRef = useRef(false);
 
     const zoomDragRef = useRef({
         dragging: false,
@@ -317,6 +328,32 @@ export default function ECatalog() {
         });
     };
 
+    const tryUnlockAudio = useCallback(async () => {
+        const audio = audioRef.current;
+
+        if (!audio || audioUnlockedRef.current) return;
+
+        const prevMuted = audio.muted;
+        const prevVolume = audio.volume;
+
+        try {
+            audio.muted = true;
+            audio.volume = 0;
+            audio.currentTime = 0;
+
+            await audio.play();
+            audio.pause();
+            audio.currentTime = 0;
+
+            audioUnlockedRef.current = true;
+        } catch (err) {
+            console.log('Audio unlock failed:', err);
+        } finally {
+            audio.muted = prevMuted;
+            audio.volume = prevVolume;
+        }
+    }, []);
+
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
             if (!zoomDragRef.current.dragging || !isZoomed) return;
@@ -455,6 +492,8 @@ export default function ECatalog() {
 
         return () => {
             window.removeEventListener('resize', checkMobile);
+            audio.pause();
+            audioRef.current = null;
         };
     }, []);
 
@@ -462,7 +501,25 @@ export default function ECatalog() {
         scheduleClosedSideDetection();
     }, [isMobile, bookDim.width, bookDim.height]);
 
-    const playPageSound = () => {
+    useEffect(() => {
+        const unlockHandler = () => {
+            void tryUnlockAudio();
+        };
+
+        window.addEventListener('pointerdown', unlockHandler, { passive: true });
+        window.addEventListener('touchstart', unlockHandler, { passive: true });
+        window.addEventListener('click', unlockHandler, { passive: true });
+        window.addEventListener('keydown', unlockHandler);
+
+        return () => {
+            window.removeEventListener('pointerdown', unlockHandler);
+            window.removeEventListener('touchstart', unlockHandler);
+            window.removeEventListener('click', unlockHandler);
+            window.removeEventListener('keydown', unlockHandler);
+        };
+    }, [tryUnlockAudio]);
+
+    const playPageSound = async () => {
         if (!isSoundEnabled || !audioRef.current) return;
 
         const now = Date.now();
@@ -470,17 +527,25 @@ export default function ECatalog() {
         if (now - lastSoundTimeRef.current < 120) return;
 
         lastSoundTimeRef.current = now;
-        audioRef.current.currentTime = 0;
-        audioRef.current.play().catch(err => console.log('Audio play failed:', err));
+
+        try {
+            audioRef.current.currentTime = 0;
+            await audioRef.current.play();
+            audioUnlockedRef.current = true;
+        } catch (err) {
+            console.log('Audio play failed:', err);
+        }
     };
 
     const nextButtonClick = () => {
-        playPageSound();
+        void tryUnlockAudio();
+        void playPageSound();
         bookRef.current?.pageFlip()?.flipNext();
     };
 
     const prevButtonClick = () => {
-        playPageSound();
+        void tryUnlockAudio();
+        void playPageSound();
         bookRef.current?.pageFlip()?.flipPrev();
     };
 
@@ -497,7 +562,7 @@ export default function ECatalog() {
     const onFlipState = (e: any) => {
         if (e?.data === 'flipping') {
             setClosedSide('none');
-            playPageSound();
+            void playPageSound();
             return;
         }
 
@@ -523,10 +588,10 @@ export default function ECatalog() {
             wheelLockRef.current = true;
 
             if (e.deltaX > 0) {
-                playPageSound();
+                void playPageSound();
                 bookRef.current?.pageFlip()?.flipNext();
             } else {
-                playPageSound();
+                void playPageSound();
                 bookRef.current?.pageFlip()?.flipPrev();
             }
 
@@ -625,7 +690,7 @@ export default function ECatalog() {
                     isZoomed ? 'overflow-hidden' : 'overflow-visible'
                 }`}
             >
-                <div className="hidden md:flex fixed right-6 top-24 z-[200] gap-2 pointer-events-auto">
+                <div className="hidden md:flex absolute right-4 top-4 md:right-6 md:top-6 z-40 gap-2 pointer-events-auto">
                     <button
                         onClick={toggleZoom}
                         className="p-3 bg-black/40 hover:bg-black/60 text-white rounded-full backdrop-blur-md transition-all shadow-lg"
@@ -641,6 +706,16 @@ export default function ECatalog() {
                     >
                         {isSoundEnabled ? <Volume2 size={24} /> : <VolumeX size={24} />}
                     </button>
+
+                    <a
+                        href={PDF_FILE_PATH}
+                        download="Pars-Sogutma-E-Katalog.pdf"
+                        className="p-3 bg-black/40 hover:bg-black/60 text-white rounded-full backdrop-blur-md transition-all shadow-lg inline-flex items-center justify-center"
+                        title="PDF İndir"
+                        aria-label="PDF İndir"
+                    >
+                        <Download size={24} />
+                    </a>
                 </div>
 
                 {!isZoomed && (
@@ -807,6 +882,16 @@ export default function ECatalog() {
                 </div>
 
                 <div className="flex items-center gap-2 md:gap-4">
+                    <a
+                        href={PDF_FILE_PATH}
+                        download="Pars-Sogutma-E-Katalog.pdf"
+                        className="p-2 hover:text-[#009FE3] transition-colors inline-flex items-center justify-center"
+                        title="PDF İndir"
+                        aria-label="PDF İndir"
+                    >
+                        <Download size={20} strokeWidth={1.5} />
+                    </a>
+
                     <button
                         className="p-2 hover:text-[#009FE3] transition-colors"
                         title="Paylaş"
