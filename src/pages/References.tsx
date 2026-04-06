@@ -5,21 +5,13 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
 
 const clients = [
-    { name: "BİM", image: "/images/refences/bim.webp" },
     { name: "A-101", image: "/images/refences/a101.jpg" },
-    { name: "ŞOK", image: "/images/refences/kayaCiftligi.webp" },
-    { name: "Sarıyer", image: "/images/refences/metro.jpg" },
-    { name: "Çağrı", image: "/images/refences/peynircibaba.webp" },
-    { name: "Bizim", image: "/images/refences/sa.webp" },
-    { name: "CarrefourSA", image: "/images/refences/sok.webp" },
-    { name: "TR TARIM KREDİ KOOPERATIF", image: "/images/refences/koperatif.webp" },
-    { name: "KIPA", image: "/images/refences/kipa.webp" },
-    { name: "PINAR", image: "/images/refences/pinar.webp" },
-    { name: "ERPILIC", image: "/images/refences/erpilic.webp" },
-
-
-
-
+    { name: "KAYA CITFLIGI", image: "/images/refences/kayaCiftligi.webp" },
+    { name: "HAKMAR", image: "/images/refences/hakmar.webp" },
+    { name: "HAKMAR EXPRESS", image: "/images/refences/hakmarExpress.webp" },
+    { name: "MIGROS", image: "/images/refences/migros.webp" },
+    { name: "TATBAK", image: "/images/refences/tatbak.webp" },
+    { name: "IBS SOGUTMA", image: "/images/refences/ibs.webp" },
 ];
 
 export const projects = [

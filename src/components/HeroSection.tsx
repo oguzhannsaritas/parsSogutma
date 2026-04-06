@@ -259,7 +259,6 @@ export default function HeroSection() {
             resetSwipeState();
             markSwipeJustHappened();
 
-            // Sağa swipe: önceki slayta git ama gölge soldan sağa aksın
             changeSlide('prev', 'next');
             return;
         }
@@ -268,7 +267,6 @@ export default function HeroSection() {
             resetSwipeState();
             markSwipeJustHappened();
 
-            // Sola swipe: sonraki slayta git ama gölge sağdan sola aksın
             changeSlide('next', 'prev');
         }
     };

@@ -164,7 +164,6 @@ export default function Header() {
 
                             <div className="flex flex-col items-center justify-center">
                                 <div className="flex flex-col items-center justify-center">
-                                    {/* Mobilde logo her zaman görünsün */}
                                     <img
                                         src="/images/home/parsLogo.webp"
                                         alt="PARS SOĞUTMA"
@@ -173,7 +172,6 @@ export default function Header() {
                                         }`}
                                     />
 
-                                    {/* Tablet + masaüstünde mevcut scroll davranışı aynen devam etsin */}
                                     <div className="hidden md:flex items-center justify-center">
                                         <AnimatePresence>
                                             {isScrolled && (
