@@ -4,6 +4,12 @@ import { useLanguage } from '../context/LanguageContext';
 export default function Contact() {
     const { t } = useLanguage();
 
+    // Google Business kaydı: Pars Soğutma Ekipmanları Ltd. Şti.
+    // Aydınlar, Mermerciler Cd. No:22, 34920 Çekmeköy/İstanbul — 41.0166396, 29.2367502
+    // cid, https://maps.app.goo.gl/tBSWNcpDXQ4tKgMV7 adresindeki yerin kimliğidir (0xcd8ea58029f9d9f).
+    const MAP_CID = '925747387146673567';
+    const MAP_EMBED_URL = `https://maps.google.com/maps?cid=${MAP_CID}&hl=tr&z=17&output=embed`;
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
@@ -38,7 +44,7 @@ export default function Contact() {
                 {(
                     <iframe
                         title="Pars Soğutma Konum Haritası"
-                        src="https://maps.google.com/maps?q=41.016620,29.236732&hl=tr&z=17&output=embed"
+                        src={MAP_EMBED_URL}
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}
