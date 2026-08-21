@@ -38,7 +38,7 @@ export default function Contact() {
                 {(
                     <iframe
                         title="Pars Soğutma Konum Haritası"
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d895.3683344167697!2d29.269102942284555!3d40.989186053399436!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cacf694dfd5897%3A0xcd8ea58029f9d9f!2sPars%20So%C4%9Futma%20Ekipmanlar%C4%B1%20Ltd.%20%C5%9Eti.!5e0!3m2!1str!2str!4v1743767405972!5m2!1str!2str"
+                        src="https://maps.google.com/maps?q=41.016620,29.236732&hl=tr&z=17&output=embed"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}
@@ -63,7 +63,7 @@ export default function Contact() {
                   {t('contact.headquarters')}
                 </span>
                                 <span className="flex-1 text-[10px] md:text-sm text-gray-600 dark:text-gray-300">
-                  : Mimar Sinan, Cuma Cd. No: 7 İç Kapı No: 2, 34920 Sultanbeyli/İstanbul
+                  : AYDINLAR MAH. MERMERCİLER CAD. NO:22 ÇEKMEKÖY / İSTANBUL
                 </span>
                             </div>
 

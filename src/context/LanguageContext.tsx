@@ -311,7 +311,7 @@ const translations: Translations = {
     //FOOTER
 
     'pars.footer':{TR : '© 2025 — Tüm Hakları Pars Soğutma\'ya Aittir.', EN:'© 2025 — All Rights Reserved by Pars Cooling'},
-    'pars.footer.adress':{TR:'Mimar Sinan, Cuma Cd. No: 7 İç Kapı No: 2, 34920 Sultanbeyli/İstanbul', EN:'Mimar Sinan, Cuma Cd. No: 7 Inner Door No: 2, 34920 Sultanbeyli/Istanbul'},
+    'pars.footer.adress':{TR:'AYDINLAR MAH. MERMERCİLER CAD. NO:22 ÇEKMEKÖY / İSTANBUL', EN:'AYDINLAR MAH. MERMERCILER CAD. NO:22 CEKMEKOY / ISTANBUL'},
     'pars.footer.contact':{TR:' İletişim Bilgilerimiz',EN:' Contact Information'},
     'pars.footer.verticalTypeRefrigeratedCounters': {TR: 'Dikey Tip Soğutuculu Reyonlar', EN : 'Vertical Type Refrigerated Counters'},
     'pars.footer.wallMountedRefrigeratedCounters':{TR:'Duvar Tipi Soğutuculu Reyonlar',EN :'Wall Mounted Refrigerated Counters'},
