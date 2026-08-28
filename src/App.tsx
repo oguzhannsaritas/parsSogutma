@@ -1,42 +1,29 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useState, useLayoutEffect } from 'react';
-import { AnimatePresence } from 'motion/react';
+import { lazy, Suspense, useEffect } from 'react';
 import Header from './components/Header';
 import FooterSection from './components/FooterSection';
 import Home from './pages/Home';
-import Products from './pages/Products';
-import ProductDetail from './pages/ProductDetail';
-import References from './pages/References';
-import ReferenceDetail from './pages/ReferenceDetail';
-import Contact from './pages/Contact';
-import About from './pages/About';
-import PhotoGallery from './pages/PhotoGallery';
 import PageLoader from './components/PageLoader';
 import { LanguageProvider } from './context/LanguageContext';
 
 import { ThemeProvider } from './context/ThemeContext';
 import WhatsAppButton from "@/src/components/WhatsAppButton.tsx";
-import NotFound from "@/src/pages/NotFound.tsx";
-import ECatalog from "@/src/pages/ECatalog.tsx";
+import SeoManager from './seo/SeoManager';
 
-function LoaderController() {
-  const location = useLocation();
-  const [loading, setLoading] = useState(true);
+const Products = lazy(() => import('./pages/Products'));
+const ProductDetail = lazy(() => import('./pages/ProductDetail'));
+const References = lazy(() => import('./pages/References'));
+const ReferenceDetail = lazy(() => import('./pages/ReferenceDetail'));
+const Contact = lazy(() => import('./pages/Contact'));
+const About = lazy(() => import('./pages/About'));
+const PhotoGallery = lazy(() => import('./pages/PhotoGallery'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+const ECatalog = lazy(() => import('./pages/ECatalog'));
 
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-    setLoading(true);
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, [location.pathname]);
-
-  return (
-    <AnimatePresence>
-      {loading && <PageLoader />}
-    </AnimatePresence>
-  );
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => window.scrollTo(0, 0), [pathname]);
+  return null;
 }
 
 export default function App() {
@@ -44,22 +31,28 @@ export default function App() {
     <LanguageProvider>
       <ThemeProvider>
         <Router>
-          <LoaderController />
+          <SeoManager />
+          <ScrollToTop />
           <div className="min-h-screen bg-white dark:bg-[#111827] font-sans transition-colors duration-300">
             <Header />
             <main>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/products/:id" element={<ProductDetail />} />
-                <Route path="/references" element={<References />} />
-                <Route path="/references/:id" element={<ReferenceDetail />} />
-                <Route path="/gallery" element={<PhotoGallery />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/e-catalog" element={<ECatalog />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
+              <Suspense fallback={<PageLoader />}>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/products" element={<Products />} />
+                  <Route path="/products/:id" element={<ProductDetail />} />
+                  <Route path="/urun/:slug" element={<ProductDetail />} />
+                  <Route path="/blog/:legacySlug" element={<ProductDetail />} />
+                  <Route path="/references" element={<References />} />
+                  <Route path="/references/:id" element={<ReferenceDetail />} />
+                  <Route path="/referans/:slug" element={<ReferenceDetail />} />
+                  <Route path="/gallery" element={<PhotoGallery />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/e-catalog" element={<ECatalog />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </Suspense>
             </main>
             <FooterSection />
               <WhatsAppButton />

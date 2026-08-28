@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://parssogutma.vercel.app/sitemap.xml
+Sitemap: https://parsogutma.com/sitemap.xml

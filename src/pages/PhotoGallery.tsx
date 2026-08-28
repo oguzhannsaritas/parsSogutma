@@ -4,6 +4,12 @@ import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { galleryImages } from '../data/gallery/galleryImages';
+import { products } from '../data/products';
+import { getProductImages } from '../seo/config';
+
+const galleryProductByImage = new Map(
+    products.flatMap((product) => getProductImages(product).map((image) => [image, product] as const)),
+);
 
 function setUnsplashWidth(url: string, width: number) {
     try {
@@ -23,7 +29,7 @@ function buildUnsplashSrcSet(url: string, widths: number[]) {
 }
 
 export default function PhotoGallery() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
 
     const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
     const [currentPage, setCurrentPage] = useState(1);
@@ -222,7 +228,7 @@ export default function PhotoGallery() {
                                     src={item.thumb}
                                     srcSet={item.srcSet}
                                     sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 260px"
-                                    alt={`Gallery Image ${globalIndex + 1}`}
+                                    alt={`${galleryProductByImage.get(item.url)?.name[language] ?? t('menu.gallery')} ${language === 'TR' ? 'uygulama görseli' : 'project image'} ${globalIndex + 1}`}
                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                                     width={600}
                                     height={600}
@@ -379,7 +385,7 @@ export default function PhotoGallery() {
                                 exit={{ opacity: 0, scale: 0.96 }}
                                 transition={{ duration: 0.22 }}
                                 src={items[selectedImageIndex].full}
-                                alt={`Gallery Preview ${selectedImageIndex + 1}`}
+                                alt={`${galleryProductByImage.get(items[selectedImageIndex].url)?.name[language] ?? t('menu.gallery')} ${language === 'TR' ? 'uygulama görseli' : 'project image'} ${selectedImageIndex + 1}`}
                                 className="max-w-full max-h-full object-contain rounded-sm shadow-2xl select-none"
                                 loading="eager"
                                 decoding="async"

@@ -74,7 +74,7 @@ export const products: Product[] = [
         name: { TR: 'Kasap Dolabı', EN: 'Butcher Cabinet' },
         category: { TR: 'Servis Reyonları', EN: 'Service Aisles' },
         type: { TR: 'Kasap Dolabı', EN: 'Butcher Cabinet' },
-        image: 'images/products/servisReyonlari/kasapDolabi/kasapdolabix.webp',
+        image: '/images/products/servisReyonlari/kasapDolabi/kasapdolabix.webp',
         thumbnails:[
             '/images/products/servisReyonlari/kasapDolabi/kasapDolabi1.webp',
             '/images/products/servisReyonlari/kasapDolabi/kasapDolabi2.webp',
@@ -2572,7 +2572,7 @@ export const products: Product[] = [
         }
     },
     {
-        id: 56,
+        id: 110,
         name:  { TR: 'Yatay Pasta Dolabı', EN: 'Horizontal Pastry Cabinet' },
         category:  { TR: 'Unlu Mamüller', EN: 'Bakery Products' },
         type: { TR: 'Yatay Pasta Dolabı', EN: 'Horizontal Pastry Cabinet' },

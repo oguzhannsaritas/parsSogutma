@@ -68,7 +68,7 @@ export default function SustainabilitySection() {
                         <img
                             src={"/images/home/sustanion.webp"}
                             sizes="(max-width: 1024px) 100vw, 50vw"
-                            alt="Wind Turbine in Nature"
+                            alt="Pars Soğutma enerji verimli ve çevreci soğutma teknolojileri"
                             className="object-cover w-full h-full"
                             loading="lazy"
                             decoding="async"

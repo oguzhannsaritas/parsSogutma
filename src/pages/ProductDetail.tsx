@@ -4,6 +4,7 @@ import { ChevronRight, ChevronLeft, LayoutGrid, Maximize2, X } from 'lucide-reac
 import { useLanguage } from '../context/LanguageContext';
 import { motion, AnimatePresence } from 'motion/react';
 import { products } from '../data/products';
+import { findProductByIdentifier, getProductImages, getProductPath } from '../seo/config';
 
 type TabKey = 'about' | 'drawings' | 'catalog' | 'options';
 
@@ -131,10 +132,12 @@ function HorizontalScroller({
 }
 
 export default function ProductDetail() {
-    const { id } = useParams();
+    const { id, slug, legacySlug } = useParams();
     const navigate = useNavigate();
     const { t, language } = useLanguage();
-    const product = products.find((p) => p.id === Number(id));
+    const identifier = slug ?? legacySlug ?? id;
+    const foundProduct = findProductByIdentifier(products, identifier);
+    const product = foundProduct ?? products[0];
     const [activeTab, setActiveTab] = useState<TabKey>('about');
     const [selectedImage, setSelectedImage] = useState(0);
     const [isExtraInfoOpen, setIsExtraInfoOpen] = useState(true);
@@ -147,7 +150,12 @@ export default function ProductDetail() {
         setSelectedImage(0);
         setSelectedDrawingImage(0);
         setLightbox(null);
-    }, [id]);
+    }, [identifier]);
+
+    useEffect(() => {
+        if (!foundProduct) return;
+        if (legacySlug || slug) navigate(getProductPath(foundProduct), { replace: true });
+    }, [foundProduct, legacySlug, navigate, slug]);
 
     useEffect(() => {
         if (!lightbox) return;
@@ -158,23 +166,9 @@ export default function ProductDetail() {
         };
     }, [lightbox]);
 
-    if (!product) {
-        return (
-            <div className="min-h-screen pt-32 text-center">
-                <h1 className="text-2xl font-bold dark:text-white">{t('product.notFoundButton')}</h1>
-                <button
-                    aria-label="Back to Product"
-                    onClick={() => navigate('/products')}
-                    className="mt-4 text-[#009FE3] hover:underline"
-                    type="button"
-                >
-                    {t('product.notFound')}
-                </button>
-            </div>
-        );
-    }
-
-    const thumbnails = product.thumbnails || [product.image, product.image];
+    const productImages = getProductImages(product);
+    const drawingImageSet = new Set(product.drawingImage ?? []);
+    const thumbnails = productImages.filter((image) => !drawingImageSet.has(image));
 
     const drawingImages = Array.isArray((product as any).drawingImage) ? (product as any).drawingImage : [];
 
@@ -246,7 +240,11 @@ export default function ProductDetail() {
                 // ignore
             }
         };
-    }, [id, thumbnails]);
+    }, [identifier, thumbnails]);
+
+    const productIndex = products.indexOf(product);
+    const previousProduct = products[Math.max(0, productIndex - 1)];
+    const nextProduct = products[Math.min(products.length - 1, productIndex + 1)];
 
     useEffect(() => {
         if (!lightbox) return;
@@ -272,6 +270,22 @@ export default function ProductDetail() {
         return () => window.removeEventListener('keydown', onKeyDown);
     }, [lightbox]);
 
+    if (!foundProduct) {
+        return (
+            <div className="min-h-screen pt-32 text-center">
+                <h1 className="text-2xl font-bold dark:text-white">{t('product.notFoundButton')}</h1>
+                <button
+                    aria-label="Back to Product"
+                    onClick={() => navigate('/products')}
+                    className="mt-4 text-[#009FE3] hover:underline"
+                    type="button"
+                >
+                    {t('product.notFound')}
+                </button>
+            </div>
+        );
+    }
+
     return (
         <div className="bg-white dark:bg-[#111827] min-h-screen pt-24 pb-16 transition-colors duration-300">
             <div className="container mx-auto px-4 md:px-12">
@@ -292,7 +306,7 @@ export default function ProductDetail() {
                         <button
                             type="button"
                             className="hover:text-black dark:hover:text-white transition-colors"
-                            onClick={() => navigate(`/products/${Number(id) > 1 ? Number(id) - 1 : 1}`)}
+                            onClick={() => navigate(getProductPath(previousProduct))}
                             aria-label="Önceki ürün"
                             title="Önceki ürün"
                         >
@@ -311,9 +325,7 @@ export default function ProductDetail() {
                         <button
                             type="button"
                             className="hover:text-black dark:hover:text-white transition-colors"
-                            onClick={() =>
-                                navigate(`/products/${Number(id) < products.length ? Number(id) + 1 : products.length}`)
-                            }
+                            onClick={() => navigate(getProductPath(nextProduct))}
                             aria-label="Sonraki ürün"
                             title="Sonraki ürün"
                         >
@@ -331,7 +343,7 @@ export default function ProductDetail() {
                         <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-gray-200/70 dark:border-neutral-700/70 bg-gradient-to-br from-gray-50 to-white dark:from-neutral-900 dark:to-neutral-800 shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
                             <img
                                 src={thumbnails[selectedImage]}
-                                alt={product.name[language]}
+                                alt={`${product.name[language]} - ${product.category[language]} | Pars Soğutma`}
                                 className="w-full h-full object-contain bg-white"
                                 width={1200}
                                 height={900}
@@ -377,7 +389,7 @@ export default function ProductDetail() {
                                     >
                                         <img
                                             src={thumb}
-                                            alt={`Thumbnail ${idx + 1}`}
+                                            alt={`${product.name[language]} ürün görseli ${idx + 1}`}
                                             className="w-full h-full object-contain bg-white p-0 rounded-2xl"
                                             width={200}
                                             height={200}

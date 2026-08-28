@@ -3,29 +3,22 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
-import { projects } from './References';
+import { findReference, getReferencePath } from '../data/references';
 
 export default function ReferenceDetail() {
     const { t } = useLanguage();
-    const { id } = useParams();
+    const { id, slug } = useParams();
     const navigate = useNavigate();
-    const project = useMemo(() => projects.find((p) => p.id === id), [id]);
+    const project = useMemo(() => findReference(slug ?? id), [id, slug]);
     const [isOpen, setIsOpen] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
     const isMobile = typeof window !== 'undefined' ? window.matchMedia('(max-width: 767px)').matches : false;
 
-    if (!project) {
-        return (
-            <div className="min-h-screen pt-32 text-center bg-white dark:bg-neutral-900 text-black dark:text-white">
-                <h1 className="text-2xl font-bold">{t('references.notFound')}</h1>
-                <button onClick={() => navigate('/references')} className="mt-4 text-blue-600 hover:underline">
-                    {t('references.back')}
-                </button>
-            </div>
-        );
-    }
+    useEffect(() => {
+        if (id && project) navigate(getReferencePath(project), { replace: true });
+    }, [id, navigate, project]);
 
-    const total = project.images.length;
+    const total = project?.images.length ?? 0;
     const openAt = (index: number) => {
         setActiveIndex(index);
         setIsOpen(true);
@@ -61,6 +54,17 @@ export default function ReferenceDetail() {
         };
     }, [isOpen]);
 
+    if (!project) {
+        return (
+            <div className="min-h-screen pt-32 text-center bg-white dark:bg-neutral-900 text-black dark:text-white">
+                <h1 className="text-2xl font-bold">{t('references.notFound')}</h1>
+                <button onClick={() => navigate('/references')} className="mt-4 text-blue-600 hover:underline">
+                    {t('references.back')}
+                </button>
+            </div>
+        );
+    }
+
     return (
         <div className="bg-white dark:bg-[#111827] h-auto md:min-h-screen pt-24 pb-16 transition-colors duration-300">
             <div className="bg-[#111827] dark:bg-white text-white dark:text-black py-4 md:py-16 mb-12">
@@ -94,12 +98,18 @@ export default function ReferenceDetail() {
                             className="aspect-[4/3] overflow-hidden group rounded-lg relative focus:outline-none"
                             aria-label={`Open image ${index + 1} of ${total}`}
                         >
-                            <img
-                                src={image}
-                                alt={`${project.title} - ${index + 1}`}
-                                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                                loading="lazy"
-                            />
+                            {image.endsWith('.mp4') ? (
+                                <video className="w-full h-full object-cover" muted playsInline preload="metadata">
+                                    <source src={image} type="video/mp4" />
+                                </video>
+                            ) : (
+                                <img
+                                    src={image}
+                                    alt={`${project.title} soğutma projesi görseli ${index + 1}`}
+                                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                    loading="lazy"
+                                />
+                            )}
                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-300" />
                         </button>
                     ))}
@@ -162,31 +172,42 @@ export default function ReferenceDetail() {
 
                             <div className="w-full h-full md:h-auto px-4 md:px-14 flex items-center justify-center touch-pan-y">
                                 <AnimatePresence mode="wait">
-                                    <motion.img
-                                        key={project.images[activeIndex]}
-                                        src={project.images[activeIndex]}
-                                        alt={`${project.title} - ${activeIndex + 1}`}
-                                        className="max-h-[85vh] md:max-h-[80vh] w-auto max-w-full object-contain rounded-lg shadow-2xl select-none"
-                                        draggable={false}
-                                        initial={{ opacity: 0, scale: 0.985 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        exit={{ opacity: 0, scale: 0.99 }}
-                                        transition={{ duration: 0.18, ease: 'easeOut' }}
-                                        drag={isMobile ? 'x' : false}
-                                        dragConstraints={{ left: 0, right: 0 }}
-                                        dragElastic={0.15}
-                                        onDragEnd={(_, info) => {
-                                            if (total <= 1) return;
-                                            const offsetX = info.offset.x;
-                                            const velocityX = info.velocity.x;
-                                            const shouldGoNext =
-                                                offsetX < -SWIPE_DISTANCE || velocityX < -SWIPE_VELOCITY;
-                                            const shouldGoPrev =
-                                                offsetX > SWIPE_DISTANCE || velocityX > SWIPE_VELOCITY;
-                                            if (shouldGoNext) next();
-                                            else if (shouldGoPrev) prev();
-                                        }}
-                                    />
+                                    {project.images[activeIndex].endsWith('.mp4') ? (
+                                        <motion.video
+                                            key={project.images[activeIndex]}
+                                            src={project.images[activeIndex]}
+                                            className="max-h-[85vh] md:max-h-[80vh] w-auto max-w-full rounded-lg shadow-2xl"
+                                            controls
+                                            playsInline
+                                            initial={{ opacity: 0, scale: 0.985 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            exit={{ opacity: 0, scale: 0.99 }}
+                                        />
+                                    ) : (
+                                        <motion.img
+                                            key={project.images[activeIndex]}
+                                            src={project.images[activeIndex]}
+                                            alt={`${project.title} soğutma projesi görseli ${activeIndex + 1}`}
+                                            className="max-h-[85vh] md:max-h-[80vh] w-auto max-w-full object-contain rounded-lg shadow-2xl select-none"
+                                            draggable={false}
+                                            initial={{ opacity: 0, scale: 0.985 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            exit={{ opacity: 0, scale: 0.99 }}
+                                            transition={{ duration: 0.18, ease: 'easeOut' }}
+                                            drag={isMobile ? 'x' : false}
+                                            dragConstraints={{ left: 0, right: 0 }}
+                                            dragElastic={0.15}
+                                            onDragEnd={(_, info) => {
+                                                if (total <= 1) return;
+                                                const offsetX = info.offset.x;
+                                                const velocityX = info.velocity.x;
+                                                const shouldGoNext = offsetX < -SWIPE_DISTANCE || velocityX < -SWIPE_VELOCITY;
+                                                const shouldGoPrev = offsetX > SWIPE_DISTANCE || velocityX > SWIPE_VELOCITY;
+                                                if (shouldGoNext) next();
+                                                else if (shouldGoPrev) prev();
+                                            }}
+                                        />
+                                    )}
                                 </AnimatePresence>
                             </div>
 
@@ -208,7 +229,11 @@ export default function ReferenceDetail() {
                                                 }`}
                                                 aria-label={`Go to image ${idx + 1}`}
                                             >
-                                                <img src={img} alt={`thumb-${idx + 1}`} className="w-full h-full object-cover" />
+                                                {img.endsWith('.mp4') ? (
+                                                    <video className="w-full h-full object-cover" muted preload="metadata"><source src={img} type="video/mp4" /></video>
+                                                ) : (
+                                                    <img src={img} alt={`${project.title} küçük proje görseli ${idx + 1}`} className="w-full h-full object-cover" />
+                                                )}
                                             </button>
                                         );
                                     })}

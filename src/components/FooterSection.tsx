@@ -89,7 +89,7 @@ export default function FooterSection() {
                                 />
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <div className="flex     ">
-                                        <img width={70} src="/assets/icons/youtube.svg" alt="Youtube icons" aria-hidden={true} className="cursor-pointer"/>
+                                        <img width={70} src="/assets/icons/youtube.svg" alt="" aria-hidden={true} className="cursor-pointer"/>
                                     </div>
                                 </div>
                             </button>
@@ -133,7 +133,7 @@ export default function FooterSection() {
                                 </h3>
                                 <ul className="space-y-4 text-gray-300 text-xs lg:text-sm font-medium">
                                     <li><Link to="/" className="hover:text-white transition-colors">{t('pars.footer.home')}</Link></li>
-                                    <li><Link to="/corporate" className="hover:text-white transition-colors">{t('pars.footer.about')}</Link></li>
+                                    <li><Link to="/about" className="hover:text-white transition-colors">{t('pars.footer.about')}</Link></li>
                                     <li><Link to="/products" className="hover:text-white transition-colors">{t('pars.footer.products')}</Link></li>
                                     <li><Link to="/contact" className="hover:text-white transition-colors">{t('pars.footer.telephone')}</Link></li>
                                 </ul>
@@ -152,7 +152,7 @@ export default function FooterSection() {
                                         <div>
                                             <ul className="space-y-3 text-gray-300 text-sm font-medium">
                                                 <li><Link to="/" className="block py-1 hover:text-white transition-colors">{t('pars.footer.home')}</Link></li>
-                                                <li><Link to="/corporate" className="block py-1 hover:text-white transition-colors">{t('pars.footer.about')}</Link></li>
+                                                <li><Link to="/about" className="block py-1 hover:text-white transition-colors">{t('pars.footer.about')}</Link></li>
                                                 <li><Link to="/products" className="block py-1 hover:text-white transition-colors">{t('pars.footer.products')}</Link></li>
                                                 <li><Link to="/contact" className="block py-1 hover:text-white transition-colors">{t('pars.footer.telephone')}</Link></li>
                                             </ul>

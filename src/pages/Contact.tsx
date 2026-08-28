@@ -59,9 +59,9 @@ export default function Contact() {
             <div className="container mx-auto px-4 md:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-16">
                     <div>
-                        <h2 className="text-lg md:text-xl font-bold mb-8 text-black dark:text-white uppercase">
+                        <h1 className="text-lg md:text-xl font-bold mb-8 text-black dark:text-white uppercase">
                             {t('contact.title')}
-                        </h2>
+                        </h1>
 
                         <div className="space-y-4 md:space-y-8">
                             <div className="flex items-start border-b border-gray-100 dark:border-neutral-800 pb-6">

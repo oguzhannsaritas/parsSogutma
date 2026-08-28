@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Home, ArrowLeft } from 'lucide-react';
@@ -6,32 +6,6 @@ import { useLanguage } from '../context/LanguageContext';
 
 export default function NotFound() {
     const { t } = useLanguage();
-
-    useEffect(() => {
-        document.title = t('notfound.meta.title');
-
-        let metaDescription = document.querySelector('meta[name="description"]');
-        if (!metaDescription) {
-            metaDescription = document.createElement('meta');
-            metaDescription.setAttribute('name', 'description');
-            document.head.appendChild(metaDescription);
-        }
-        metaDescription.setAttribute('content', t('notfound.meta.desc'));
-
-        let metaRobots = document.querySelector('meta[name="robots"]');
-        if (!metaRobots) {
-            metaRobots = document.createElement('meta');
-            metaRobots.setAttribute('name', 'robots');
-            document.head.appendChild(metaRobots);
-        }
-        metaRobots.setAttribute('content', 'noindex, follow');
-
-        return () => {
-            document.title = "Pars Soğutma Sistemleri";
-            metaDescription?.setAttribute('content', 'Pars Soğutma Sistemleri - Endüstriyel Soğutma Çözümleri');
-            metaRobots?.remove();
-        };
-    }, [t]);
 
     return (
         <main className="min-h-[calc(100vh-80px)] bg-[#f8f9fa] dark:bg-[#111827] flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 mb-20  transition-colors duration-300">

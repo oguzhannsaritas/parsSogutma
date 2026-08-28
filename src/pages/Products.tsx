@@ -14,6 +14,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence, useDragControls } from 'motion/react';
 import { products } from '../data/products';
 import { Product } from "@/src/data/products/types.ts";
+import { getProductPath } from '../seo/config';
 
 function ProductCard({
                          product,
@@ -73,7 +74,7 @@ function ProductCard({
 
     return (
         <Link
-            to={`/products/${product.id}`}
+            to={getProductPath(product)}
             onClick={handleClick}
             className="group cursor-pointer border border-gray-300 dark:border-neutral-800 hover:border-gray-500 dark:hover:border-neutral-600 hover:shadow-lg transition-all duration-300 bg-white dark:bg-[#1a2232] p-2 sm:p-3 lg:p-4 flex flex-col rounded-xl"
             onMouseLeave={() => setCurrentImage(0)}

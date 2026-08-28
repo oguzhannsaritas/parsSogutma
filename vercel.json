@@ -1,7 +1,12 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/index.html" }
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/online-katalog", "destination": "/e-catalog", "permanent": true },
+    { "source": "/hakkimizda", "destination": "/about", "permanent": true },
+    { "source": "/iletisim", "destination": "/contact", "permanent": true },
+    { "source": "/referanslar", "destination": "/references", "permanent": true },
+    { "source": "/foto-galeri", "destination": "/gallery", "permanent": true }
   ]
 }

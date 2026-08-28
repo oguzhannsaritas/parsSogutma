@@ -10,7 +10,7 @@ export default function About() {
         <div className="absolute inset-0 bg-black/10 z-10" />
         <img 
           src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000" 
-          alt="About Us Banner" 
+          alt={t('about.title') + ' - Pars Soğutma üretim ve proje yaklaşımı'}
           className="w-full h-full object-cover"
           width={1600}
           height={900}
@@ -42,7 +42,7 @@ export default function About() {
               <div className="rounded-lg overflow-hidden shadow-xl mt-8">
                   <img
                       src="/images/about/abouts.webp"
-                      alt="Pars Factory"
+                      alt="Pars Soğutma endüstriyel soğutma üretim tesisi"
                       className="w-full h-auto object-cover"
                       width={250}
                       height={450}
@@ -66,7 +66,7 @@ export default function About() {
               <div className="rounded-lg overflow-hidden shadow-xl mt-8">
                   <img
                       src="/images/about/meeting.webp"
-                      alt="Pars Factory"
+                      alt="Pars Soğutma proje planlama ve müşteri toplantısı"
                       className="w-full h-auto object-cover"
                       width={250}
                       height={450}
