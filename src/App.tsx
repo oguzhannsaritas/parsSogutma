@@ -26,11 +26,25 @@ function ScrollToTop() {
   return null;
 }
 
+function AppReady() {
+  useEffect(() => {
+    const appWindow = window as typeof window & { __parsAppFallbackTimer?: number };
+    if (appWindow.__parsAppFallbackTimer) {
+      window.clearTimeout(appWindow.__parsAppFallbackTimer);
+      delete appWindow.__parsAppFallbackTimer;
+    }
+    document.documentElement.classList.remove('js-loading');
+  }, []);
+
+  return null;
+}
+
 export default function App() {
   return (
     <LanguageProvider>
       <ThemeProvider>
         <Router>
+          <AppReady />
           <SeoManager />
           <ScrollToTop />
           <div className="min-h-screen bg-white dark:bg-[#111827] font-sans transition-colors duration-300">

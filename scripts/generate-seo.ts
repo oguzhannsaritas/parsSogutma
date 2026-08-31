@@ -13,7 +13,7 @@ import {
     getProductSlug,
     getProductSeo,
     organizationJsonLd,
-    productJsonLd,
+    productPageJsonLd,
     SITE_NAME,
     SITE_URL,
     slugify,
@@ -58,7 +58,7 @@ function seoBlock(snapshot: Snapshot): string {
     const canonical = `${SITE_URL}${snapshot.canonicalRoute ?? snapshot.route}`;
     const image = absoluteUrl(snapshot.image);
     const robots = snapshot.robots ?? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
-    const scripts = (snapshot.jsonLd ?? []).map((data) => `    <script type="application/ld+json">${safeJson(data)}</script>`).join('\n');
+    const scripts = (snapshot.jsonLd ?? []).map((data, index) => `    <script type="application/ld+json" data-seo-jsonld="static-${index}">${safeJson(data)}</script>`).join('\n');
 
     return `<!-- SEO:START -->
     <title>${escapeHtml(snapshot.title)}</title>
@@ -87,7 +87,7 @@ function snapshotHtml(snapshot: Snapshot): string {
         .replace(/<!-- SEO:START -->[\s\S]*?<!-- SEO:END -->/, seoBlock(snapshot))
         .replace(
             '<div id="root"></div>',
-            `<div id="root"><div data-seo-snapshot style="max-width:1200px;margin:0 auto;padding:32px 20px;font-family:Arial,sans-serif">${snapshot.body}</div></div>`,
+            `<div id="root"><div data-app-loader role="status" aria-live="polite"><span>Pars Soğutma yükleniyor</span></div><div data-seo-snapshot style="max-width:1200px;margin:0 auto;padding:32px 20px;font-family:Arial,sans-serif">${snapshot.body}</div></div>`,
         );
 }
 
@@ -179,7 +179,7 @@ for (const product of products) {
     const seo = getProductSeo(product, 'TR');
     const data = [
         organizationJsonLd(),
-        productJsonLd(product, 'TR'),
+        productPageJsonLd(product, 'TR'),
         breadcrumbJsonLd([
             { name: 'Ana Sayfa', path: '/' },
             { name: 'Ürünler', path: '/products' },

@@ -212,25 +212,40 @@ export function organizationJsonLd() {
     };
 }
 
-export function productJsonLd(product: Product, language: SeoLanguage) {
+export function productPageJsonLd(product: Product, language: SeoLanguage) {
     const path = getProductPath(product);
     const images = getProductImages(product).map(absoluteUrl);
+    const pageUrl = `${SITE_URL}${path}`;
+    const imageObjects = images.map((contentUrl, index) => ({
+        '@type': 'ImageObject',
+        '@id': `${pageUrl}#image-${index + 1}`,
+        contentUrl,
+        url: contentUrl,
+        name: `${product.name[language]} ${language === 'TR' ? 'ürün görseli' : 'product image'} ${index + 1}`,
+        caption: `${product.name[language]} - ${product.category[language]}`,
+        representativeOfPage: index === 0,
+    }));
+
     return {
         '@context': 'https://schema.org',
-        '@type': 'Product',
-        '@id': `${SITE_URL}${path}#product`,
+        '@type': 'ItemPage',
+        '@id': `${pageUrl}#webpage`,
         name: product.name[language],
         description: getProductDescription(product, language),
-        url: `${SITE_URL}${path}`,
-        image: images,
-        category: product.category[language],
-        brand: { '@type': 'Brand', name: SITE_NAME },
-        manufacturer: { '@id': `${SITE_URL}/#organization` },
-        additionalProperty: [
-            { '@type': 'PropertyValue', name: language === 'TR' ? 'Modüller' : 'Modules', value: product.specs.modules },
-            { '@type': 'PropertyValue', name: language === 'TR' ? 'Çalışma sıcaklığı' : 'Operating temperature', value: product.specs.temp },
-            { '@type': 'PropertyValue', name: language === 'TR' ? 'Yan kapak' : 'Side panel', value: String(product.specs.sidePanel) },
-        ],
+        url: pageUrl,
+        inLanguage: language === 'TR' ? 'tr-TR' : 'en',
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        publisher: { '@id': `${SITE_URL}/#organization` },
+        primaryImageOfPage: images[0],
+        image: imageObjects,
+        mainEntity: {
+            '@type': 'Thing',
+            '@id': `${pageUrl}#catalog-item`,
+            name: product.name[language],
+            description: getProductDescription(product, language),
+            image: images,
+            identifier: String(product.id),
+        },
     };
 }
 

@@ -9,11 +9,18 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+function getStoredTheme(): Theme {
+  if (typeof window === 'undefined') return 'light';
+
+  try {
+    return window.localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
+  } catch {
+    return 'light';
+  }
+}
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() => {
-    const savedTheme = localStorage.getItem('theme');
-    return (savedTheme as Theme) || 'light';
-  });
+  const [theme, setTheme] = useState<Theme>(getStoredTheme);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -22,7 +29,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     } else {
       root.classList.remove('dark');
     }
-    localStorage.setItem('theme', theme);
+    try {
+      window.localStorage.setItem('theme', theme);
+    } catch {
+      // Storage can be unavailable in private browsing or strict privacy modes.
+    }
   }, [theme]);
 
   const toggleTheme = () => {

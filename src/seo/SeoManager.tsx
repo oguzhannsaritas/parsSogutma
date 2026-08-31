@@ -14,7 +14,7 @@ import {
     SITE_NAME,
     SITE_URL,
     staticPageSeo,
-    productJsonLd,
+    productPageJsonLd,
 } from './config';
 
 type SeoState = {
@@ -66,7 +66,7 @@ export default function SeoManager() {
                 robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
                 jsonLd: [
                     organizationJsonLd(),
-                    productJsonLd(product, language),
+                    productPageJsonLd(product, language),
                     breadcrumbJsonLd([
                         { name: language === 'TR' ? 'Ana Sayfa' : 'Home', path: '/' },
                         { name: language === 'TR' ? 'Ürünler' : 'Products', path: '/products' },

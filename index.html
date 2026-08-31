@@ -4,6 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="nlT86f0reS14-W559ZbNS-VgHGbMG6ehmZD7dZUdeIY" />
+    <style>
+      [data-app-loader] { display: none; }
+      html.js-loading [data-seo-snapshot] { display: none; }
+      html.js-loading [data-app-loader] {
+        min-height: 100vh;
+        min-height: 100svh;
+        display: grid;
+        place-items: center;
+        background: #fff;
+        color: #111827;
+        font: 600 16px/1.5 Inter, ui-sans-serif, system-ui, sans-serif;
+      }
+      [data-app-loader] span {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+      }
+      [data-app-loader] span::before {
+        width: 22px;
+        height: 22px;
+        content: "";
+        border: 3px solid #d1d5db;
+        border-top-color: #111827;
+        border-radius: 999px;
+        animation: pars-spin .8s linear infinite;
+      }
+      @keyframes pars-spin { to { transform: rotate(360deg); } }
+      @media (prefers-reduced-motion: reduce) {
+        [data-app-loader] span::before { animation: none; }
+      }
+    </style>
+    <script>
+      document.documentElement.classList.add('js-loading');
+      window.__parsAppFallbackTimer = window.setTimeout(function () {
+        document.documentElement.classList.remove('js-loading');
+      }, 8000);
+    </script>
     <!-- SEO:START -->
     <title>Endüstriyel Soğutma Sistemleri | Pars Soğutma</title>
     <meta name="description" content="Market, kasap, pastane ve profesyonel mutfaklar için soğutmalı reyon, soğuk hava deposu ve endüstriyel soğutma çözümleri." />
@@ -22,7 +59,7 @@
     <meta name="twitter:title" content="Endüstriyel Soğutma Sistemleri | Pars Soğutma" />
     <meta name="twitter:description" content="Market, kasap, pastane ve profesyonel mutfaklar için endüstriyel soğutma çözümleri." />
     <meta name="twitter:image" content="https://parsogutma.com/images/home/sogutmareyon.webp" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":["Organization","LocalBusiness"],"@id":"https://parsogutma.com/#organization","name":"Pars Soğutma","url":"https://parsogutma.com/","logo":"https://parsogutma.com/images/home/parsLogo.webp","email":"info@parsogutma.com","telephone":["+90 543 170 72 77","+90 537 645 82 91"],"address":{"@type":"PostalAddress","streetAddress":"Aydınlar Mah. Mermerciler Cad. No:22","addressLocality":"Çekmeköy","addressRegion":"İstanbul","addressCountry":"TR"}}</script>
+    <script type="application/ld+json" data-seo-jsonld="static-0">{"@context":"https://schema.org","@type":["Organization","LocalBusiness"],"@id":"https://parsogutma.com/#organization","name":"Pars Soğutma","url":"https://parsogutma.com/","logo":"https://parsogutma.com/images/home/parsLogo.webp","email":"info@parsogutma.com","telephone":["+90 543 170 72 77","+90 537 645 82 91"],"address":{"@type":"PostalAddress","streetAddress":"Aydınlar Mah. Mermerciler Cad. No:22","addressLocality":"Çekmeköy","addressRegion":"İstanbul","addressCountry":"TR"}}</script>
     <!-- SEO:END -->
     <link rel="icon" href="/logo.jpg" sizes="any" />
     <link rel="manifest" href="/site.webmanifest" />
