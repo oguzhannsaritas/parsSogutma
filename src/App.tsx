@@ -8,6 +8,7 @@ import { LanguageProvider } from './context/LanguageContext';
 
 import { ThemeProvider } from './context/ThemeContext';
 import WhatsAppButton from "@/src/components/WhatsAppButton.tsx";
+import PhoneButton from "@/src/components/PhoneButton.tsx";
 import SeoManager from './seo/SeoManager';
 
 const Products = lazy(() => import('./pages/Products'));
@@ -22,7 +23,9 @@ const ECatalog = lazy(() => import('./pages/ECatalog'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
-  useEffect(() => window.scrollTo(0, 0), [pathname]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return null;
 }
 
@@ -69,7 +72,8 @@ export default function App() {
               </Suspense>
             </main>
             <FooterSection />
-              <WhatsAppButton />
+            <PhoneButton />
+            <WhatsAppButton />
           </div>
         </Router>
       </ThemeProvider>
