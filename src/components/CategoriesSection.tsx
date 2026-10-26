@@ -10,15 +10,15 @@ export default function CategoriesSection() {
     const itemsPerPage = 8;
 
     const categories = [
-        { title: t('menu.serviceAisles'), image: "/images/home/servisx.webp" },
-        { title: t('menu.verticalCooling'), image: "/images/home/dikeyTip.webp" },
-        { title: t('menu.wallCooling'), image: "/images/home/duvarTipix.webp" },
-        { title: t('menu.bakery'), image: "/images/home/unluMamullx.webp" },
-        { title: t('menu.industrialKitchen'), image: "/images/home/endustriyel-mutfak-home.webp" },
-        { title: t('menu.marketEquip'), image: "/images/home/marketx.webp" },
-        { title: t('menu.coolingSystems'),  image: "/images/home/sogutma.webp" },
-        { title: t('menu.coolingAisles'),  image: "/images/home/sogutmaliReyon.webp"  },
-        { title: t('menu.coldStorage'),  image:'/images/home/sogukHava2.webp' },
+        { id: 'service', title: t('menu.serviceAisles'), image: "/images/home/servisx.webp" },
+        { id: 'vertical', title: t('menu.verticalCooling'), image: "/images/home/dikeyTip.webp" },
+        { id: 'wall', title: t('menu.wallCooling'), image: "/images/home/duvarTipix.webp" },
+        { id: 'bakery', title: t('menu.bakery'), image: "/images/home/unluMamullx.webp" },
+        { id: 'kitchen', title: t('menu.industrialKitchen'), image: "/images/home/endustriyel-mutfak-home.webp" },
+        { id: 'market', title: t('menu.marketEquip'), image: "/images/home/marketx.webp" },
+        { id: 'coolingSystems', title: t('menu.coolingSystems'),  image: "/images/home/sogutma.webp" },
+        { id: 'coolingAisles', title: t('menu.coolingAisles'),  image: "/images/home/sogutmaliReyon.webp"  },
+        { id: 'coldStorage', title: t('menu.coldStorage'),  image:'/images/home/sogukHava2.webp' },
     ];
 
     const totalPages = Math.ceil(categories.length / itemsPerPage);
@@ -49,8 +49,8 @@ export default function CategoriesSection() {
                         transition={{ duration: 0.3 }}
                         className="grid  grid-cols-2 lg:grid-cols-4  gap-4 md:gap-8"
                     >
-                        {currentCategories.map((cat, index) => (
-                            <Link to="/products" key={index} className="flex flex-col items-center group cursor-pointer">
+                        {currentCategories.map((cat) => (
+                            <Link to={`/products?cat=${cat.id}`} key={cat.id} className="flex flex-col items-center group cursor-pointer">
                                 <div className="w-full bg-gray-100 aspect-[4/3] overflow-hidden mb-2 md:mb-4 border rounded-lg border-gray-200 dark:border-neutral-700">
                                     <img
                                         src={cat.image}
