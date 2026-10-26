@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Phone, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useLocation } from 'react-router-dom';
+import { trackContactClick } from '../lib/googleAds';
 
 type Pos = { x: number; y: number };
 
@@ -152,7 +153,9 @@ export default function PhoneButton() {
                                     event.preventDefault();
                                     event.stopPropagation();
                                     dragHappenedRef.current = false;
+                                    return;
                                 }
+                                trackContactClick(event, 'phone');
                             }}
                         >
                             <Phone size={32} strokeWidth={2.2} aria-hidden="true" />

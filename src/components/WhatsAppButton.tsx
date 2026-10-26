@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLocation } from 'react-router-dom';
+import { trackContactClick } from '../lib/googleAds';
 
 type Pos = { x: number; y: number };
 
@@ -151,7 +152,9 @@ export default function WhatsAppButton() {
                                     e.preventDefault();
                                     e.stopPropagation();
                                     dragHappenedRef.current = false;
+                                    return;
                                 }
+                                trackContactClick(e, 'whatsapp');
                             }}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
