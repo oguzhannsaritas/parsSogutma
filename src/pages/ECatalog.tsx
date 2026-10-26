@@ -26,7 +26,7 @@ const PAGE_RATIO = DESKTOP_PAGE_HEIGHT / DESKTOP_PAGE_WIDTH;
 
 const FRONT_COVER_IMAGE = '/images/eCatalog/kapak.webp';
 const BACK_COVER_IMAGE = '/images/eCatalog/arka.webp';
-const PDF_FILE_PATH = '/eCatalogParsSogutma.pdf';
+const PDF_FILE_PATH = '/eCatalogParsSogutma.pdf?v=20261026-address';
 
 const PAGE_IMAGES = [
     '/images/eCatalog/onyazi.webp',
