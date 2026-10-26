@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, Instagram, Youtube } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
+import { trackContactClick } from '../lib/googleAds';
 
 export default function HeroSection() {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -454,7 +455,10 @@ export default function HeroSection() {
                                         rel="noopener noreferrer"
                                         className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-500 text-white flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
                                         aria-label="WhatsApp"
-                                        onClick={(e) => e.stopPropagation()}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            trackContactClick(e, 'whatsapp');
+                                        }}
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
