@@ -12,7 +12,7 @@ export const projects: ReferenceProject[] = [
     {
         id: 'kayaCiftligi', title: 'KAYA ÇİFTLİĞİ', location: 'İSTANBUL / KAĞITHANE',
         coverImage: '/images/refences/kayaCiftligi/kayaCiftligi4.webp',
-        images: ['/images/refences/kayaCiftligi/kayaCiftligi1.webp', '/images/refences/kayaCiftligi/kayaCiftligi2.webp', '/images/refences/kayaCiftligi/kayaCiftligi3.webp', '/images/refences/kayaCiftligi/kayaCiftligi4.webp', '/images/refences/kayaCiftligi/kayaCiftligi5.webp', '/images/refences/kayaCiftligi/kayaCiftligi6.webp', '/images/refences/kayaCiftligi/kayaCiftligi7.webp'],
+        images: ['/images/refences/kayaCiftligi/kayaCiftligi1.webp', '/images/refences/kayaCiftligi/kayaCiftligi2.webp', '/images/refences/kayaCiftligi/kayaCiftligi3.webp', '/images/refences/kayaCiftligi/kayaCiftligi4.webp', '/images/refences/kayaCiftligi/kayaCiftligi5-guncel.webp', '/images/refences/kayaCiftligi/kayaCiftligi6.webp', '/images/refences/kayaCiftligi/kayaCiftligi7.webp'],
     },
     {
         id: 'tatlibak', title: 'TATLIBAK', location: 'İSTANBUL / SULTANBEYLİ',
