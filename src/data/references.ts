@@ -15,6 +15,11 @@ export const projects: ReferenceProject[] = [
         images: ['/images/refences/kayaCiftligi/kayaCiftligi1.webp', '/images/refences/kayaCiftligi/kayaCiftligi2.webp', '/images/refences/kayaCiftligi/kayaCiftligi3.webp', '/images/refences/kayaCiftligi/kayaCiftligi4.webp', '/images/refences/kayaCiftligi/kayaCiftligi5.webp', '/images/refences/kayaCiftligi/kayaCiftligi6.webp', '/images/refences/kayaCiftligi/kayaCiftligi7.webp'],
     },
     {
+        id: 'tatlibak', title: 'TATLIBAK', location: 'İSTANBUL / SULTANBEYLİ',
+        coverImage: '/images/refences/tatlibak/tatlibak5.webp',
+        images: ['/images/refences/tatlibak/tatlibak5.webp', '/images/refences/tatlibak/tatlibak4.webp', '/images/refences/tatlibak/tatlibak2.webp', '/images/refences/tatlibak/tatlibak1.webp', '/images/refences/tatlibak/tatlibak3.webp'],
+    },
+    {
         id: 'byKasap', title: 'BY KASAP', location: 'İSTANBUL / ÜMRANİYE',
         coverImage: '/images/refences/byKasap/byKasap1.webp',
         images: ['/images/refences/byKasap/byKasap1.webp', '/images/refences/byKasap/byKasap2.webp', '/images/refences/byKasap/byKasap12.mp4'],
