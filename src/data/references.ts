@@ -10,6 +10,11 @@ export interface ReferenceProject {
 
 export const projects: ReferenceProject[] = [
     {
+        id: 'kayaCiftligi', title: 'KAYA ÇİFTLİĞİ', location: 'İSTANBUL / KAĞITHANE',
+        coverImage: '/images/refences/kayaCiftligi/kayaCiftligi4.webp',
+        images: ['/images/refences/kayaCiftligi/kayaCiftligi1.webp', '/images/refences/kayaCiftligi/kayaCiftligi2.webp', '/images/refences/kayaCiftligi/kayaCiftligi3.webp', '/images/refences/kayaCiftligi/kayaCiftligi4.webp', '/images/refences/kayaCiftligi/kayaCiftligi5.webp', '/images/refences/kayaCiftligi/kayaCiftligi6.webp', '/images/refences/kayaCiftligi/kayaCiftligi7.webp'],
+    },
+    {
         id: 'byKasap', title: 'BY KASAP', location: 'İSTANBUL / ÜMRANİYE',
         coverImage: '/images/refences/byKasap/byKasap1.webp',
         images: ['/images/refences/byKasap/byKasap1.webp', '/images/refences/byKasap/byKasap2.webp', '/images/refences/byKasap/byKasap12.mp4'],
