@@ -14,6 +14,7 @@ const clients = [
     { name: "TATBAK", image: "/images/refences/tatbak.webp" },
     { name: "IBS SOGUTMA", image: "/images/refences/ibs.webp" },
     { name: "TATLIBAK", image: "/images/refences/tatlibak-logo.webp" },
+    { name: "MACROCENTER", image: "/images/refences/macrocenter-logo.png", imageClassName: "scale-[1.15]" },
 ];
 
 export default function References() {
@@ -56,7 +57,7 @@ export default function References() {
 
             <div className="container mx-auto px-4 md:px-12">
 
-                <div className="grid grid-cols-5 md:grid-cols-4 lg:grid-cols-8 gap-2 lg:gap-3 mb-12 md:mb-24">
+                <div className="grid grid-cols-5 lg:grid-cols-9 gap-2 lg:gap-3 mb-12 md:mb-24">
                     {clients.map((client, index) => (
                         <div
                             key={index}
@@ -65,7 +66,7 @@ export default function References() {
                             <img
                                 src={client.image}
                                 alt={client.name}
-                                className="w-full h-full object-contain"
+                                className={`w-full h-full object-contain ${client.imageClassName ?? ""}`}
                                 referrerPolicy="no-referrer"
                                 width={300}
                                 height={200}
