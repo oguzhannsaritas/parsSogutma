@@ -13,6 +13,7 @@ const clients = [
     { name: "MIGROS", image: "/images/refences/migros.webp" },
     { name: "TATBAK", image: "/images/refences/tatbak.webp" },
     { name: "IBS SOGUTMA", image: "/images/refences/ibs.webp" },
+    { name: "TATLIBAK", image: "/images/refences/tatlibak-logo.webp" },
 ];
 
 export default function References() {
@@ -55,7 +56,7 @@ export default function References() {
 
             <div className="container mx-auto px-4 md:px-12">
 
-                <div className="grid grid-cols-5 md:grid-cols-2 lg:grid-cols-7 gap-2 md:gap-5 mb-12 md:mb-24">
+                <div className="grid grid-cols-5 md:grid-cols-4 lg:grid-cols-8 gap-2 lg:gap-3 mb-12 md:mb-24">
                     {clients.map((client, index) => (
                         <div
                             key={index}
