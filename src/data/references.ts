@@ -16,7 +16,7 @@ export const projects: ReferenceProject[] = [
     },
     {
         id: 'tatlibak', title: 'TATLIBAK', location: 'İSTANBUL / SULTANBEYLİ',
-        coverImage: '/images/refences/tatlibak/tatlibak5.webp',
+        coverImage: '/images/refences/tatlibak/tatlibak4.webp',
         images: ['/images/refences/tatlibak/tatlibak5.webp', '/images/refences/tatlibak/tatlibak4.webp', '/images/refences/tatlibak/tatlibak2.webp', '/images/refences/tatlibak/tatlibak1.webp', '/images/refences/tatlibak/tatlibak3.webp'],
     },
     {
