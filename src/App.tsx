@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { lazy, Suspense, useEffect } from 'react';
 import Header from './components/Header';
 import FooterSection from './components/FooterSection';
-import Home from './pages/Home';
 import PageLoader from './components/PageLoader';
 import { LanguageProvider } from './context/LanguageContext';
 
@@ -11,6 +10,7 @@ import WhatsAppButton from "@/src/components/WhatsAppButton.tsx";
 import PhoneButton from "@/src/components/PhoneButton.tsx";
 import SeoManager from './seo/SeoManager';
 
+const Home = lazy(() => import('./pages/Home'));
 const Products = lazy(() => import('./pages/Products'));
 const ProductDetail = lazy(() => import('./pages/ProductDetail'));
 const References = lazy(() => import('./pages/References'));
@@ -52,7 +52,7 @@ export default function App() {
           <ScrollToTop />
           <div className="min-h-screen bg-white dark:bg-[#111827] font-sans transition-colors duration-300">
             <Header />
-            <main>
+            <main className="min-h-screen">
               <Suspense fallback={<PageLoader />}>
                 <Routes>
                   <Route path="/" element={<Home />} />

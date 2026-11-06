@@ -1,10 +1,11 @@
-import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ChevronRight, ChevronLeft, LayoutGrid, Maximize2, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { motion, AnimatePresence } from 'motion/react';
 import { products } from '../data/products';
 import { findProductByIdentifier, getProductImages, getProductPath } from '../seo/config';
+import { getProductThumbnailUrl } from '../lib/productImages';
 
 type TabKey = 'about' | 'drawings' | 'catalog' | 'options';
 
@@ -166,9 +167,10 @@ export default function ProductDetail() {
         };
     }, [lightbox]);
 
-    const productImages = getProductImages(product);
-    const drawingImageSet = new Set(product.drawingImage ?? []);
-    const thumbnails = productImages.filter((image) => !drawingImageSet.has(image));
+    const thumbnails = useMemo(() => {
+        const drawingImageSet = new Set(product.drawingImage ?? []);
+        return getProductImages(product).filter((image) => !drawingImageSet.has(image));
+    }, [product]);
 
     const drawingImages = Array.isArray((product as any).drawingImage) ? (product as any).drawingImage : [];
 
@@ -388,7 +390,7 @@ export default function ProductDetail() {
                                         title={`Görsel ${idx + 1}`}
                                     >
                                         <img
-                                            src={thumb}
+                                            src={getProductThumbnailUrl(thumb)}
                                             alt={`${product.name[language]} ürün görseli ${idx + 1}`}
                                             className="w-full h-full object-contain bg-white p-0 rounded-2xl"
                                             width={200}
@@ -535,7 +537,7 @@ export default function ProductDetail() {
                                                                     title={`Teknik çizim ${idx + 1}`}
                                                                 >
                                                                     <img
-                                                                        src={img}
+                                                                        src={getProductThumbnailUrl(img)}
                                                                         alt={`Teknik çizim thumb ${idx + 1}`}
                                                                         className="w-full h-full object-cover p-0 rounded-2xl"
                                                                         width={200}
