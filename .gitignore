@@ -1,6 +1,7 @@
 node_modules/
 build/
 dist/
+public/images/product-thumbnails/
 coverage/
 .DS_Store
 *.log

@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import sharp from 'sharp';
 import { products } from '../src/data/products/index';
 import type { Product } from '../src/data/products/types';
 import { getReferencePath, projects, type ReferenceProject } from '../src/data/references';
@@ -31,6 +32,7 @@ type Snapshot = {
     title: string;
     description: string;
     image: string;
+    preloadImage?: string;
     type?: 'website' | 'product';
     robots?: string;
     jsonLd?: unknown[];
@@ -66,6 +68,7 @@ function seoBlock(snapshot: Snapshot): string {
     <meta name="robots" content="${escapeHtml(robots)}" />
     <meta name="googlebot" content="${escapeHtml(robots)}" />
     <link rel="canonical" href="${escapeHtml(canonical)}" />
+${snapshot.preloadImage ? `    <link rel="preload" as="image" href="${escapeHtml(snapshot.preloadImage)}" fetchpriority="high" data-lcp-preload="product-detail-main" />` : ''}
     <meta property="og:title" content="${escapeHtml(snapshot.title)}" />
     <meta property="og:description" content="${escapeHtml(snapshot.description)}" />
     <meta property="og:type" content="${snapshot.type ?? 'website'}" />
@@ -98,15 +101,31 @@ async function writeSnapshot(snapshot: Snapshot) {
     await writeFile(destination, snapshotHtml(snapshot));
 }
 
-function productBody(product: Product): string {
+const dimensionsCache = new Map<string, Promise<string>>();
+
+function imageDimensions(image: string): Promise<string> {
+    let dimensions = dimensionsCache.get(image);
+    if (!dimensions) {
+        dimensions = sharp(path.join(root, 'public', image)).metadata()
+            .then(({ width, height }) => width && height ? ` width="${width}" height="${height}"` : '')
+            .catch((error: Error) => {
+                console.warn(`Could not read image dimensions for ${image}: ${error.message}`);
+                return '';
+            });
+        dimensionsCache.set(image, dimensions);
+    }
+    return dimensions;
+}
+
+async function productBody(product: Product): Promise<string> {
     const productPath = getProductPath(product);
     const images = getProductImages(product);
     const technical = product.specs.technicalSpecification
         .slice(0, 12)
         .map((item) => `<li>${escapeHtml(item.TR)}</li>`)
         .join('');
-    const figures = images
-        .map((image, index) => `<figure style="margin:24px 0"><img src="${escapeHtml(image)}" alt="${escapeHtml(`${product.name.TR} ürün görseli ${index + 1} - Pars Soğutma`)}" loading="${index === 0 ? 'eager' : 'lazy'}" style="max-width:720px;width:100%;height:auto" /><figcaption>${escapeHtml(`${product.name.TR} - ${product.category.TR} - görsel ${index + 1}`)}</figcaption></figure>`)
+    const figures = (await Promise.all(images
+        .map(async (image, index) => `<figure style="margin:24px 0"><img src="${escapeHtml(image)}" alt="${escapeHtml(`${product.name.TR} ürün görseli ${index + 1} - Pars Soğutma`)}"${await imageDimensions(image)} loading="${index === 0 ? 'eager' : 'lazy'}" style="max-width:720px;width:100%;height:auto" /><figcaption>${escapeHtml(`${product.name.TR} - ${product.category.TR} - görsel ${index + 1}`)}</figcaption></figure>`)))
         .join('');
 
     return `<nav aria-label="İçerik yolu"><a href="/">Ana Sayfa</a> / <a href="/products">Ürünler</a> / ${escapeHtml(product.name.TR)}</nav>
@@ -191,9 +210,10 @@ for (const product of products) {
         title: seo.title,
         description: seo.description,
         image: seo.image ?? DEFAULT_SOCIAL_IMAGE,
+        preloadImage: getProductImages(product).find((image) => !(product.drawingImage ?? []).includes(image)),
         type: 'product' as const,
         jsonLd: data,
-        body: productBody(product),
+        body: await productBody(product),
     };
     await writeSnapshot(snapshot);
 
