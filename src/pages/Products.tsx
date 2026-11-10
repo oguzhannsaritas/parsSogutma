@@ -718,6 +718,7 @@ export default function Products() {
             </div>
 
             <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+                <CategoryLinks language={language} className="mb-8" />
                 <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6 lg:mb-8 pb-4 border-b border-gray-200 dark:border-neutral-700 gap-4">                    <div className="text-xs md:text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
                         <Link to="/" >{t('products.breadcrumb.home')}</Link>
                         <ChevronRight size={14} />
@@ -1178,7 +1179,6 @@ export default function Products() {
                         )}
                     </div>
                 </div>
-                <CategoryLinks language={language} className="mt-10 border-t border-gray-200 pt-6 dark:border-neutral-700" />
             </div>
         </div>
     );
