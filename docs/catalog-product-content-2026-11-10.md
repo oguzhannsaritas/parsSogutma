@@ -53,3 +53,13 @@ Uzun ürün metinleri mevcut ürün bilgileri alanındaki ortak bileşenlerle g�
 - Uzun ürün metinlerinin ana başlangıç dosyasında bulunmadığı kontrol edildi.
 
 Canlı dizine ekleme veya sıralama artışı bu teknik kontrollerden çıkarılamaz. Üretim teyidi ve Search Console performans değerlendirmesi ayrı işlerdir.
+
+## Canlı yayın kontrolü
+
+PR #18 yayımlandı. 108 esas ürünün tamamı canlı HTTP kontrolünde 200 yanıtı, doğru canonical/başlık/açıklama, tek H1 ve tek giriş, seçim notları, soru-cevaplar, yapılandırılmış açıklama ve dizine açık olma kontrollerinden geçti.
+
+Sekiz yeni grubun 2, 4, 38, 7, 28, 97, 82 ve 94 numaralı örnek ürünlerinde canlı ekran içeriği kontrol edildi. Ürün 2'de İngilizce başlık, açıklama, rehber ve sabit canonical doğrulandı. Ürün 2 ve 97'de Türkçe soru-cevap açılması çalıştı. Ürün 2'de 390, ürün 97'de 320 CSS piksel genişliğinde yatay taşma görülmedi; geçici ekran genişliği ayarı kaldırıldı. Ürün 94 kontrolündeki tarayıcı hata günlüğü boştu.
+
+Aşağıdaki ekran görüntüsü canlı Split Soğutma Grubu sayfasındaki yeni giriş ve seçim notlarını gösterir. Son belgeleme commit'i yalnızca bu rapor ve görüntüyü ekler; yayınlanan uygulama kodunu değiştirmez.
+
+![Split Soğutma Grubu: yeni ürün açıklaması ve seçim notları](proof/catalog-product-content-2026-11-10.jpg)
