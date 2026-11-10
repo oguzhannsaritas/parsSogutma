@@ -81,12 +81,12 @@ export function CategoryLinks({ language, className = '' }: { language: CatalogL
 export function CatalogProductCard({ product, language }: { product: Product; language: CatalogLanguage }) {
     const name = getProductDisplayName(product, language);
     return (
-        <Link to={getProductPath(product)} className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-colors hover:border-[#009FE3] dark:border-neutral-700 dark:bg-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#009FE3]">
-            <div className="aspect-[4/3] bg-white p-4">
-                <img src={getProductThumbnailUrl(getProductMainImage(product))} alt={name} width={320} height={240} loading="lazy" decoding="async" className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.03]" />
+        <Link to={getProductPath(product)} className="group flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-colors hover:border-[#009FE3] dark:border-neutral-700 dark:bg-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#009FE3]">
+            <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-white">
+                <img src={getProductThumbnailUrl(getProductMainImage(product))} alt={name} width={320} height={240} loading="lazy" decoding="async" className="absolute inset-0 block h-full w-full max-w-full object-contain object-center p-3 transition-transform duration-300 group-hover:scale-[1.03] sm:p-4" />
             </div>
-            <div className="flex flex-1 flex-col gap-3 p-5">
-                <h3 className="text-sm sm:text-base font-semibold leading-snug text-gray-900 dark:text-white">{name}</h3>
+            <div className="flex min-w-0 flex-1 flex-col gap-3 p-4 sm:p-5">
+                <h3 className="min-h-11 break-words text-sm sm:text-base font-semibold leading-snug text-gray-900 dark:text-white">{name}</h3>
                 <span className="mt-auto inline-flex items-center gap-2 text-xs font-medium text-[#0083bb] dark:text-[#72D5E3]">{copy[language].details}<ArrowRight size={15} aria-hidden="true" /></span>
             </div>
         </Link>
@@ -121,7 +121,7 @@ export function CategoryContent({ category, products, language }: { category: Pr
                     </div>
                 </header>
                 <section id="modeller" aria-labelledby="category-models-title" className="scroll-mt-28 py-10 md:py-14">
-                    <div className="mb-6 flex items-end justify-between gap-4"><h2 id="category-models-title" className="text-xl font-bold md:text-2xl">{labels.models}</h2><span className="shrink-0 text-xs text-gray-500 dark:text-gray-400">{models.length} {labels.modelCount}</span></div>
+                    <div className="mb-6 flex flex-wrap items-end justify-between gap-3"><h2 id="category-models-title" className="text-xl font-bold md:text-2xl">{labels.models}</h2><span className="shrink-0 text-xs text-gray-500 dark:text-gray-400">{models.length} {labels.modelCount}</span></div>
                     <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 xl:grid-cols-4">
                         {models.map(product => <CatalogProductCard key={product.id} product={product} language={language} />)}
                     </div>
