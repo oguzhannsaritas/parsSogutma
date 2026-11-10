@@ -11,6 +11,7 @@
     "images:generate": "node --import tsx scripts/generate-product-thumbnails.ts",
     "seo:generate": "node --import tsx scripts/generate-seo.ts",
     "seo:check": "node --import tsx scripts/check-seo.ts",
+    "analytics:check": "node --import tsx scripts/check-analytics.ts",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"
