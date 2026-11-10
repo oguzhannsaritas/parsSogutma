@@ -10,10 +10,10 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <HomeIntroduction language={language} />
       <SustainabilitySection />
       <StatsSection />
       <CategoriesSection />
-      <HomeIntroduction language={language} />
     </>
   );
 }

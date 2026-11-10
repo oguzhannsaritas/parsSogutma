@@ -450,6 +450,7 @@ export default function ProductDetail() {
                         <div className="mb-12 min-h-[300px]">
                             {activeTab === 'about' && (
                                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
+                                    <ProductIntroduction product={product} language={language} />
                                     <div className="border border-gray-200 dark:border-neutral-700 rounded-2xl overflow-hidden bg-white dark:bg-transparent">
                                         <div className="bg-gray-50 dark:text-black px-6 py-3 border-b border-gray-200 dark:border-neutral-700 text-xs md:text-sm font-bold text-gray-700 ">
                                             {t('product.table.modules')}
@@ -490,8 +491,7 @@ export default function ProductDetail() {
                                             </div>
                                         </div>
                                     </div>
-                                    <ProductIntroduction product={product} language={language} />
-                                    <div className="mt-4"><ContactActions subject={displayName} language={language} /></div>
+                                    <div className="mt-5"><ContactActions subject={displayName} language={language} /></div>
                                 </motion.div>
                             )}
 
