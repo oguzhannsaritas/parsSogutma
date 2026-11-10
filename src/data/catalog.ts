@@ -396,8 +396,3 @@ export function getFeaturedProduct(category: ProductCategory, products: Product[
         ?? getCategoryProducts(category, products)[0];
 }
 
-export function getProductIntroduction(product: Product, language: CatalogLanguage): string {
-    const firstSpecification = product.specs.technicalSpecification[0]?.[language]?.trim().replace(/\s+/g, ' ');
-    const opening = firstSpecification ? `${firstSpecification.replace(/[.;\s]+$/, '')}.` : `${getProductDisplayName(product, language)}.`;
-    return `${opening} ${getProductCategory(product).copy[language].productUse}`;
-}
