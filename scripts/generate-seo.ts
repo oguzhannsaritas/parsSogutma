@@ -7,8 +7,9 @@ import { MemoryRouter } from 'react-router-dom';
 import { products } from '../src/data/products/index';
 import type { Product } from '../src/data/products/types';
 import { CategoryContent, CategoryLinks, ContactActions, HomeIntroduction, ProductIntroduction, RelatedProducts } from '../src/components/CatalogContent';
-import { getCanonicalProductId, getCategoryPath, getProductCategory, getProductDisplayName, isCanonicalProduct, productCategories } from '../src/data/catalog';
+import { getCanonicalProductId, getCategoryPath, getCategoryProducts, getProductCategory, getProductDisplayName, isCanonicalProduct, productCategories } from '../src/data/catalog';
 import { getReferencePath, projects, type ReferenceProject } from '../src/data/references';
+import { getProductThumbnailUrl } from '../src/lib/productImages';
 import {
     absoluteUrl,
     breadcrumbJsonLd,
@@ -191,7 +192,7 @@ for (const route of staticRoutes) {
     const body = route === '/products'
         ? productsBody
         : route === '/'
-            ? `<main>${renderContent(createElement(HomeIntroduction, { language: 'TR' }))}${renderContent(createElement(CategoryLinks, { language: 'TR' }))}</main>`
+            ? `<main>${renderContent(createElement(HomeIntroduction, { language: 'TR' }))}</main>`
         : route === '/references'
             ? referencesBody
         : `<main><h1>${escapeHtml(seo.title.split('|')[0].trim())}</h1><p>${escapeHtml(seo.description)}</p><nav><a href="/products">Ürünler</a> · <a href="/about">Hakkımızda</a> · <a href="/references">Referanslar</a> · <a href="/contact">İletişim</a></nav></main>`;
@@ -259,7 +260,7 @@ for (const category of productCategories) {
         title: seo.title,
         description: seo.description,
         image: seo.image ?? DEFAULT_SOCIAL_IMAGE,
-        preloadImage: seo.image,
+        preloadImage: getProductThumbnailUrl(getProductMainImage(getCategoryProducts(category, products)[0])),
         jsonLd: [organizationJsonLd(), categoryPageJsonLd(category, products, 'TR'), breadcrumbJsonLd([
             { name: 'Ana Sayfa', path: '/' },
             { name: 'Ürünler', path: '/products' },
