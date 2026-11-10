@@ -1,3 +1,4 @@
+import { projects, getReferencePath } from '../data/references';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight, MessageCircle, Phone } from 'lucide-react';
 import type { Product } from '../data/products/types';
@@ -135,6 +136,7 @@ export function CategoryContent({ category, products, language }: { category: Pr
                         <ul className="space-y-4 text-sm leading-6 text-gray-600 dark:text-gray-300">{text.criteria.map((criterion, index) => <li key={criterion} className="flex gap-3"><span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#009FE3]/10 text-xs font-semibold text-[#0083bb] dark:text-[#72D5E3]">{index + 1}</span><span>{criterion}</span></li>)}</ul>
                     </aside>
                 </section>
+                <CategoryReferences category={category} language={language} />
                 <section aria-labelledby="category-questions-title" className="max-w-4xl py-8">
                     <h2 id="category-questions-title" className="mb-5 text-xl font-bold">{labels.questions}</h2>
                     <div className="divide-y divide-gray-200 border-y border-gray-200 dark:divide-neutral-700 dark:border-neutral-700">
@@ -182,6 +184,20 @@ export function HomeIntroduction({ language }: { language: CatalogLanguage }) {
                 <p className="mx-auto mt-4 max-w-4xl text-sm leading-7 text-gray-600 dark:text-gray-300 md:text-base">{language === 'TR' ? 'Market, kasap, pastane, kafe ve restoran projeleri için teşhir dolapları, soğuk hava depoları ve profesyonel mutfak ekipmanları. Ürün gruplarını inceleyin; model, ölçü ve teknik özellikleri karşılaştırarak işletmeniz için uygun seçeneklere ulaşın.' : 'Display cabinets, cold rooms and professional kitchen equipment for supermarkets, butchers, bakeries, cafes and restaurants. Explore product groups and compare models, dimensions and specifications for your business.'}</p>
                 <Link to="/products" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#0083bb] dark:text-[#72D5E3]">{language === 'TR' ? 'Tüm ürünleri inceleyin' : 'Explore all products'}<ArrowRight size={16} aria-hidden="true" /></Link>
             </div>
+        </section>
+    );
+}
+
+export function CategoryReferences({ category, language }: { category: ProductCategory; language: CatalogLanguage }) {
+    const relevantProjects = projects.filter(project => project.categoryIds.includes(category.id));
+    if (!relevantProjects.length) return null;
+    return (
+        <section aria-labelledby="category-references-title" className="border-t border-gray-200 py-8 dark:border-neutral-700">
+            <h2 id="category-references-title" className="mb-3 text-xl font-bold">{language === 'TR' ? 'Bu ürün grubuyla ilgili uygulamalar' : 'Installations for this product group'}</h2>
+            <p className="mb-5 max-w-3xl text-sm leading-7 text-gray-600 dark:text-gray-300">{language === 'TR' ? 'İlgili referans projelerinde teşhir düzenini ve mağaza içindeki yerleşimi inceleyin.' : 'Explore related reference projects to see display arrangements and shop layouts.'}</p>
+            <ul className="grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+                {relevantProjects.map(project => <li key={project.id}><Link to={getReferencePath(project)} className="inline-flex items-center gap-2 text-sm font-semibold text-[#0083bb] hover:underline dark:text-[#72D5E3]">{project.title}<ArrowRight size={15} aria-hidden="true" /></Link><p className="mt-1 text-xs text-gray-500 dark:text-gray-400">{project.location}</p></li>)}
+            </ul>
         </section>
     );
 }

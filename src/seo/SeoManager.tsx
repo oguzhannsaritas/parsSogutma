@@ -1,3 +1,4 @@
+import { getReferenceSeo, referencePageJsonLd } from './references';
 import { useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
@@ -108,28 +109,14 @@ export default function SeoManager() {
         const project = referenceMatch ? findReference(referenceMatch[1]) : undefined;
         if (project) {
             const canonicalPath = getReferencePath(project);
-            const description = language === 'TR'
-                ? `${project.title} için ${project.location} konumunda gerçekleştirilen Pars Soğutma endüstriyel soğutma ve teşhir dolabı projesinin uygulama görsellerini inceleyin.`
-                : `View the Pars Cooling industrial refrigeration and display cabinet project completed for ${project.title} in ${project.location}.`;
             return {
-                title: `${project.title} Soğutma Projesi | ${language === 'TR' ? 'Pars Soğutma' : 'Pars Cooling'}`,
-                description,
-                image: project.coverImage,
+                ...getReferenceSeo(project, language),
                 canonicalPath,
                 type: 'website',
                 robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
                 jsonLd: [
                     organizationJsonLd(),
-                    {
-                        '@context': 'https://schema.org',
-                        '@type': 'CreativeWork',
-                        name: `${project.title} Soğutma Projesi`,
-                        description,
-                        url: `${SITE_URL}${canonicalPath}`,
-                        contentLocation: project.location,
-                        image: project.images.filter((image) => !image.endsWith('.mp4')).map(absoluteUrl),
-                        creator: { '@id': `${SITE_URL}/#organization` },
-                    },
+                    referencePageJsonLd(project, language),
                     breadcrumbJsonLd([
                         { name: language === 'TR' ? 'Ana Sayfa' : 'Home', path: '/' },
                         { name: language === 'TR' ? 'Referanslar' : 'References', path: '/references' },

@@ -1,12 +1,13 @@
+import { ReferenceContent } from '../components/ReferenceContent';
 import React, { useEffect, useMemo, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
 import { findReference, getReferencePath } from '../data/references';
 
 export default function ReferenceDetail() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
     const { id, slug } = useParams();
     const navigate = useNavigate();
     const project = useMemo(() => findReference(slug ?? id), [id, slug]);
@@ -71,19 +72,9 @@ export default function ReferenceDetail() {
                 <div className="container mx-auto px-4 md:px-12 text-center">
                     <h1 className="text-lg md:text-4xl font-bold mb-4">{project.title}</h1>
                     <div className="text-xs md:text-sm text-gray-400 flex items-center justify-center gap-2 uppercase tracking-wider">
-                        <span
-                            className="cursor-pointer hover:text-white dark:hover:text-black"
-                            onClick={() => navigate('/')}
-                        >
-                            {t('menu.home')}
-                        </span>
+                        <Link to="/" className="hover:text-white dark:hover:text-black">{t('menu.home')}</Link>
                         <span>/</span>
-                        <span
-                            className="cursor-pointer hover:text-white dark:hover:text-black"
-                            onClick={() => navigate('/references')}
-                        >
-                            {project.title}
-                        </span>
+                        <Link to="/references" className="hover:text-white dark:hover:text-black">{t('menu.references')}</Link>
                     </div>
                 </div>
             </div>
@@ -96,7 +87,7 @@ export default function ReferenceDetail() {
                             type="button"
                             onClick={() => openAt(index)}
                             className="aspect-[4/3] overflow-hidden group rounded-lg relative focus:outline-none"
-                            aria-label={`Open image ${index + 1} of ${total}`}
+                            aria-label={language === 'TR' ? `${index + 1}. görseli aç (${total} görsel)` : `Open image ${index + 1} of ${total}`}
                         >
                             {image.endsWith('.mp4') ? (
                                 <video className="w-full h-full object-cover" muted playsInline preload="metadata">
@@ -105,7 +96,7 @@ export default function ReferenceDetail() {
                             ) : (
                                 <img
                                     src={image}
-                                    alt={`${project.title} soğutma projesi görseli ${index + 1}`}
+                                    alt={`${project.title} – ${project.location} – ${project.copy[language].subject}, ${index + 1}`}
                                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                                     loading="lazy"
                                 />
@@ -114,6 +105,7 @@ export default function ReferenceDetail() {
                         </button>
                     ))}
                 </div>
+                <ReferenceContent project={project} language={language} />
             </div>
             <AnimatePresence>
                 {isOpen && (
