@@ -13,6 +13,7 @@ function clamp(n: number, min: number, max: number) {
 
 export default function WhatsAppButton() {
     const [isVisible, setIsVisible] = useState(true);
+    const [isCompact, setIsCompact] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches);
     const location = useLocation();
 
     const FAB_SIZE = useMemo(() => ({ w: 76, h: 76 }), []);
@@ -48,6 +49,13 @@ export default function WhatsAppButton() {
     useEffect(() => {
         setIsVisible(true);
     }, [location.key]);
+
+    useEffect(() => {
+        const media = window.matchMedia('(max-width: 767px)');
+        const update = () => setIsCompact(media.matches);
+        media.addEventListener('change', update);
+        return () => media.removeEventListener('change', update);
+    }, []);
 
     useEffect(() => {
         if (typeof window === 'undefined') return;
@@ -92,14 +100,17 @@ export default function WhatsAppButton() {
             {isVisible && (
                 <motion.div
                     className="fixed z-[100]"
-                    style={{
+                    style={isCompact ? {
+                        right: 16,
+                        bottom: 'calc(env(safe-area-inset-bottom, 0px) + 20px)',
+                    } : {
                         left: 0,
                         top: 0,
                         x: pos.x,
                         y: pos.y,
                         touchAction: 'none',
                     }}
-                    drag
+                    drag={!isCompact}
                     dragMomentum={false}
                     dragElastic={0.12}
                     dragConstraints={{
