@@ -3,13 +3,16 @@ import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { products } from '../data/products';
 import { findReference, getReferencePath } from '../data/references';
+import { findCategory, getCategoryPath, getProductCategory, getProductDisplayName } from '../data/catalog';
 import {
     absoluteUrl,
     breadcrumbJsonLd,
+    categoryPageJsonLd,
     DEFAULT_SOCIAL_IMAGE,
     findProductByIdentifier,
     getProductPath,
     getProductSeo,
+    getCategorySeo,
     organizationJsonLd,
     SITE_NAME,
     SITE_URL,
@@ -58,6 +61,7 @@ export default function SeoManager() {
         if (product) {
             const pageSeo = getProductSeo(product, language);
             const canonicalPath = getProductPath(product);
+            const category = getProductCategory(product);
             return {
                 ...pageSeo,
                 image: pageSeo.image ?? DEFAULT_SOCIAL_IMAGE,
@@ -70,7 +74,31 @@ export default function SeoManager() {
                     breadcrumbJsonLd([
                         { name: language === 'TR' ? 'Ana Sayfa' : 'Home', path: '/' },
                         { name: language === 'TR' ? 'Ürünler' : 'Products', path: '/products' },
-                        { name: product.name[language], path: canonicalPath },
+                        { name: category.copy[language].name, path: getCategoryPath(category) },
+                        { name: getProductDisplayName(product, language), path: canonicalPath },
+                    ]),
+                ],
+            };
+        }
+
+        const categoryMatch = pathname.match(/^\/urunler\/([^/]+)$/);
+        const category = categoryMatch ? findCategory(categoryMatch[1]) : undefined;
+        if (category) {
+            const pageSeo = getCategorySeo(category, products, language);
+            const canonicalPath = getCategoryPath(category);
+            return {
+                ...pageSeo,
+                image: pageSeo.image ?? DEFAULT_SOCIAL_IMAGE,
+                canonicalPath,
+                type: 'website',
+                robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+                jsonLd: [
+                    organizationJsonLd(),
+                    categoryPageJsonLd(category, products, language),
+                    breadcrumbJsonLd([
+                        { name: language === 'TR' ? 'Ana Sayfa' : 'Home', path: '/' },
+                        { name: language === 'TR' ? 'Ürünler' : 'Products', path: '/products' },
+                        { name: category.copy[language].name, path: canonicalPath },
                     ]),
                 ],
             };

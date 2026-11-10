@@ -15,6 +15,18 @@ import { motion, AnimatePresence, useDragControls } from 'motion/react';
 import { products } from '../data/products';
 import { Product } from "@/src/data/products/types.ts";
 import { getProductPath } from '../seo/config';
+import { getProductDisplayName } from '../data/catalog';
+import { CategoryLinks } from '../components/CatalogContent';
+
+function uniqueProducts(items: Product[]): Product[] {
+    const paths = new Set<string>();
+    return items.filter(product => {
+        const path = getProductPath(product);
+        if (paths.has(path)) return false;
+        paths.add(path);
+        return true;
+    });
+}
 
 function ProductCard({
                          product,
@@ -88,7 +100,7 @@ function ProductCard({
             >
                 <img
                     src={images[currentImage]}
-                    alt={product.name[language]}
+                    alt={getProductDisplayName(product, language)}
                     className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500"
                     loading={loading}
                     decoding="async"
@@ -114,7 +126,7 @@ function ProductCard({
 
             <div className="space-y-1 flex-grow flex flex-col justify-end">
                 <h3 className="font-bold text-xs sm:text-sm md:text-base lg:text-lg text-gray-900 dark:text-white transition-colors leading-tight line-clamp-2">
-                    {product.name[language]}
+                    {getProductDisplayName(product, language)}
                 </h3>
 
                 <p className="text-xs sm:text-sm md:text-sm text-gray-700 dark:text-gray-300 leading-tight truncate">
@@ -611,6 +623,7 @@ export default function Products() {
             result = result.filter(
                 (product: Product) =>
                     normalize(product.name[language]).includes(q) ||
+                    normalize(getProductDisplayName(product, language)).includes(q) ||
                     normalize(product.category[language]).includes(q) ||
                     normalize(product.type[language]).includes(q)
             );
@@ -628,7 +641,7 @@ export default function Products() {
             );
         }
 
-        return result;
+        return uniqueProducts(result);
     }, [appliedFilters, searchQuery, urlFilter, urlCat, language]);
 
     const previewFilteredCount = useMemo(() => {
@@ -642,6 +655,7 @@ export default function Products() {
             result = result.filter(
                 (product: Product) =>
                     normalize(product.name[language]).includes(q) ||
+                    normalize(getProductDisplayName(product, language)).includes(q) ||
                     normalize(product.category[language]).includes(q) ||
                     normalize(product.type[language]).includes(q)
             );
@@ -659,7 +673,7 @@ export default function Products() {
             );
         }
 
-        return result.length;
+        return uniqueProducts(result).length;
     }, [draftFilters, searchQuery, urlFilter, urlCat, language]);
 
     const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
@@ -704,6 +718,7 @@ export default function Products() {
             </div>
 
             <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+                <CategoryLinks language={language} className="mb-8" />
                 <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6 lg:mb-8 pb-4 border-b border-gray-200 dark:border-neutral-700 gap-4">                    <div className="text-xs md:text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
                         <Link to="/" >{t('products.breadcrumb.home')}</Link>
                         <ChevronRight size={14} />

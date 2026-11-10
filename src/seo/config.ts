@@ -1,4 +1,5 @@
 import type { Product } from '../data/products/types';
+import { getCanonicalProductId, getCategoryPath, getCategoryProducts, getFeaturedProduct, getProductDisplayName, type ProductCategory } from '../data/catalog';
 
 export const SITE_URL = 'https://parsogutma.com';
 export const SITE_NAME = 'Pars Soğutma';
@@ -125,23 +126,26 @@ export function getProductSlug(product: Product): string {
 }
 
 export function getProductPath(product: Product): string {
-    return `/products/${product.id}`;
+    return `/products/${getCanonicalProductId(product.id)}`;
 }
 
 export function findProductByIdentifier(products: Product[], identifier?: string): Product | undefined {
     if (!identifier) return undefined;
+    const resolve = (product?: Product) => product
+        ? products.find(item => item.id === getCanonicalProductId(product.id)) ?? product
+        : undefined;
     const exact = products.find((product) => getProductSlug(product) === identifier);
-    if (exact) return exact;
+    if (exact) return resolve(exact);
 
     const legacySlug = products.find((product) => slugify(product.name.TR) === identifier);
-    if (legacySlug) return legacySlug;
+    if (legacySlug) return resolve(legacySlug);
 
     if (/^\d+$/.test(identifier)) {
-        return products.find((product) => product.id === Number(identifier));
+        return resolve(products.find((product) => product.id === Number(identifier)));
     }
 
     const idMatch = identifier.match(/-(\d+)$/);
-    return idMatch ? products.find((product) => product.id === Number(idMatch[1])) : undefined;
+    return idMatch ? resolve(products.find((product) => product.id === Number(idMatch[1]))) : undefined;
 }
 
 export function getProductImages(product: Product): string[] {
@@ -154,12 +158,57 @@ export function getProductImages(product: Product): string[] {
     );
 }
 
+export function getProductMainImage(product: Product): string {
+    return getProductImages(product).find(image => !(product.drawingImage ?? []).map(normalizeAssetPath).includes(image))
+        ?? getProductImages(product)[0];
+}
+
+const productDescriptions: Record<number, Record<SeoLanguage, string>> = {
+    54: {
+        TR: 'Pasta ve çikolata sunumuna yönelik teşhir dolabı. Ölçüleri, çalışma sıcaklıklarını ve teknik özellikleri inceleyin; işletmeniz için teklif alın.',
+        EN: 'A display cabinet for pastry and chocolate presentation. Explore dimensions, operating temperatures and technical specifications and request a quote.',
+    },
+    55: {
+        TR: 'Ekler ve pasta sunumu için teşhir dolabı. Modül ölçülerini, sıcaklık bilgilerini ve uygulama görsellerini inceleyin; projeniz için teklif alın.',
+        EN: 'A display cabinet for eclairs and pastries. Review module sizes, temperature information and application images and request a project quote.',
+    },
+    66: {
+        TR: 'Kuru pasta sunumu için teşhir dolabı. Katalog ölçülerini ve teknik özelliklerini inceleyin; pastanenize uygun seçenekler için teklif alın.',
+        EN: 'A cabinet for dry pastry presentation. Explore catalogue dimensions and technical details and request a quote for your bakery layout.',
+    },
+    67: {
+        TR: 'Cephe pasta teşhir dolabı: pastane vitrininiz için modül ölçülerini, çalışma sıcaklıklarını ve ürün görsellerini inceleyerek teklif alın.',
+        EN: 'Facade pastry display cabinet: review module dimensions, operating temperatures and product images for your bakery and request a quote.',
+    },
+    68: {
+        TR: 'Yatay pasta teşhir dolabı: modül ölçüleri, cam ve raf özellikleri ile uygulama görsellerini karşılaştırın. Kafe ve pastane projeniz için teklif alın.',
+        EN: 'Horizontal pastry display cabinet: compare module dimensions, glass and shelf specifications and application images. Request a cafe or bakery quote.',
+    },
+    69: {
+        TR: 'Pastane ve kafeler için pasta teşhir dolabı. Modül ölçülerini, cam ve raf detaylarını inceleyin; projenize uygun seçenekler için teklif alın.',
+        EN: 'Pastry display cabinet for bakeries and cafes. Explore module dimensions, glass and shelf details and request a quote for your project.',
+    },
+    92: {
+        TR: 'Soğuk odalar için split, merkezi, monoblok ve bireysel soğutma sistemi seçeneklerini inceleyin. Projenizin çalışma koşulları için bilgi ve teklif alın.',
+        EN: 'Explore split, central, monoblock and individual refrigeration options for cold rooms. Discuss the operating requirements of your project and request a quote.',
+    },
+};
+
 export function getProductDescription(product: Product, language: SeoLanguage): string {
-    const name = product.name[language];
+    const custom = productDescriptions[getCanonicalProductId(product.id)]?.[language];
+    if (custom) return truncateDescription(custom);
+    const name = getProductDisplayName(product, language);
+    const dimensions = product.specs.modules.trim();
+    const numericModules = /^\d+(?:\s*\/\s*\d+)*$/.test(dimensions)
+        ? dimensions.split('/').map(Number)
+        : [];
+    const dimensionText = numericModules.length
+        ? `${Math.min(...numericModules)}${numericModules.length > 1 ? `–${Math.max(...numericModules)}` : ''} mm`
+        : '';
     if (language === 'EN') {
-        return truncateDescription(`${name} by Pars Cooling: view technical specifications, module sizes, operating temperatures and product application images.`);
+        return truncateDescription(`${name}${dimensionText ? `: ${dimensionText} module options` : ' by Pars Cooling'}. View technical specifications and product images and request a project quote.`);
     }
-    return truncateDescription(`Pars Soğutma ${name}: teknik özellikleri, modül ölçülerini, çalışma sıcaklıklarını ve ürün uygulama görsellerini inceleyin.`);
+    return truncateDescription(`${name}${dimensionText ? `: ${dimensionText} modül seçenekleri` : ''}. Teknik özellikleri ve uygulama görsellerini inceleyin; projeniz için teklif alın.`);
 }
 
 function truncateDescription(value: string, maxLength = 160): string {
@@ -172,9 +221,41 @@ function truncateDescription(value: string, maxLength = 160): string {
 export function getProductSeo(product: Product, language: SeoLanguage): PageSeo {
     const suffix = language === 'TR' ? 'Pars Soğutma' : 'Pars Cooling';
     return {
-        title: `${product.name[language]} | ${suffix}`,
+        title: `${getProductDisplayName(product, language)} | ${suffix}`,
         description: getProductDescription(product, language),
-        image: getProductImages(product)[0],
+        image: getProductMainImage(product),
+    };
+}
+
+export function getCategorySeo(category: ProductCategory, products: Product[], language: SeoLanguage): PageSeo {
+    return {
+        title: `${category.copy[language].name} | ${language === 'TR' ? SITE_NAME : 'Pars Cooling'}`,
+        description: category.copy[language].description,
+        image: getProductMainImage(getFeaturedProduct(category, products)),
+    };
+}
+
+export function categoryPageJsonLd(category: ProductCategory, products: Product[], language: SeoLanguage) {
+    const pageUrl = `${SITE_URL}${getCategoryPath(category)}`;
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        '@id': `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: category.copy[language].name,
+        description: category.copy[language].description,
+        inLanguage: language === 'TR' ? 'tr-TR' : 'en',
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        publisher: { '@id': `${SITE_URL}/#organization` },
+        mainEntity: {
+            '@type': 'ItemList',
+            itemListElement: getCategoryProducts(category, products).map((product, index) => ({
+                '@type': 'ListItem',
+                position: index + 1,
+                url: `${SITE_URL}${getProductPath(product)}`,
+                name: getProductDisplayName(product, language),
+            })),
+        },
     };
 }
 
@@ -221,27 +302,29 @@ export function productPageJsonLd(product: Product, language: SeoLanguage) {
         '@id': `${pageUrl}#image-${index + 1}`,
         contentUrl,
         url: contentUrl,
-        name: `${product.name[language]} ${language === 'TR' ? 'ürün görseli' : 'product image'} ${index + 1}`,
-        caption: `${product.name[language]} - ${product.category[language]}`,
-        representativeOfPage: index === 0,
+        name: `${getProductDisplayName(product, language)} ${language === 'TR' ? 'ürün görseli' : 'product image'} ${index + 1}`,
+        caption: `${getProductDisplayName(product, language)} - ${product.category[language]}`,
+        representativeOfPage: contentUrl === absoluteUrl(getProductMainImage(product)),
     }));
 
     return {
         '@context': 'https://schema.org',
         '@type': 'ItemPage',
         '@id': `${pageUrl}#webpage`,
-        name: product.name[language],
+        name: getProductDisplayName(product, language),
         description: getProductDescription(product, language),
         url: pageUrl,
         inLanguage: language === 'TR' ? 'tr-TR' : 'en',
         isPartOf: { '@id': `${SITE_URL}/#website` },
         publisher: { '@id': `${SITE_URL}/#organization` },
-        primaryImageOfPage: images[0],
+        primaryImageOfPage: absoluteUrl(getProductMainImage(product)),
         image: imageObjects,
         mainEntity: {
+            // This is a quote-based catalogue: no public offers or reviews exist.
+            // Keep a descriptive entity rather than incomplete product rich-result markup.
             '@type': 'Thing',
             '@id': `${pageUrl}#catalog-item`,
-            name: product.name[language],
+            name: getProductDisplayName(product, language),
             description: getProductDescription(product, language),
             image: images,
             identifier: String(product.id),

@@ -7,9 +7,10 @@
     "predev": "npm run images:generate",
     "dev": "vite --port=3000 --host=0.0.0.0",
     "prebuild": "npm run images:generate",
-    "build": "vite build && node --import tsx scripts/generate-seo.ts && node scripts/update-catalog-pdf.mjs",
+    "build": "vite build && node --import tsx scripts/generate-seo.ts && node --import tsx scripts/check-seo.ts && node scripts/update-catalog-pdf.mjs",
     "images:generate": "node --import tsx scripts/generate-product-thumbnails.ts",
     "seo:generate": "node --import tsx scripts/generate-seo.ts",
+    "seo:check": "node --import tsx scripts/check-seo.ts",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"
