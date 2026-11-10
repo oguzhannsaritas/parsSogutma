@@ -8,7 +8,8 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { MemoryRouter } from 'react-router-dom';
 import { products } from '../src/data/products/index';
 import type { Product } from '../src/data/products/types';
-import { CategoryContent, CategoryLinks, ContactActions, HomeIntroduction, ProductBuyerGuide, ProductIntroduction, RelatedProducts } from '../src/components/CatalogContent';
+import { CategoryContent, CategoryLinks, ContactActions, HomeIntroduction, RelatedProducts } from '../src/components/CatalogContent';
+import { ProductBuyerGuide, ProductIntroduction } from '../src/components/ProductEditorialContent';
 import { getCanonicalProductId, getCategoryPath, getProductCategory, getProductDisplayName, isCanonicalProduct, productCategories } from '../src/data/catalog';
 import { getReferencePath, projects, type ReferenceProject } from '../src/data/references';
 import {
