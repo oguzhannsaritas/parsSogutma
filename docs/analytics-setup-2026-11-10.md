@@ -1,6 +1,6 @@
 # Organik ziyaret ve iletişim ölçümü — 10 Kasım 2026
 
-Durum: hazırlık; canlı GA4 ölçümü henüz etkin değil. Google Ads etiketi ve mevcut dönüşüm kimlikleri korunur.
+Durum: web akışı oluşturuldu; yayın ve canlı veri doğrulaması hazırlanıyor. Google Ads etiketi ve mevcut dönüşüm kimlikleri korunur.
 
 ## Hazırlanan uygulama
 
@@ -23,9 +23,15 @@ Hazırlanan bilgiler:
 - Raporlama ülkesi/saat dilimi: Türkiye, GMT+03:00
 - Para birimi: Türk lirası
 - Sektör: Ticari ve Endüstriyel Hizmetler
-- İşletme boyutu: zorunlu, henüz bilinmiyor ve seçilmedi
+- İşletme boyutu: Küçük — 1–10 çalışan (kullanıcı teyidi)
 
-Hesap/mülk oluşturma ve şart kabulü henüz tamamlanmadı. Çalışan sayısı aralığı kullanıcıdan alınmalı. Hizmet/veri işleme şartlarının kabulü gerekiyorsa işlem anında açık onay alınmalı veya kullanıcı tamamlamalı.
+Kullanıcı çalışan sayısını 1–10 olarak teyit etti. Yeniden bağlanıldığında hesap/mülk/işletme adımları tarayıcıda tamamlanmış ve veri toplama aşaması açılmıştı; bu adımlar veya şart kabulü tekrar edilmedi.
+
+Web akışı: Pars Soğutma Web — `https://parsogutma.com`
+
+Akış kimliği: `16312156142` — Ölçüm kimliği: `G-RP0R34V4ME`
+
+Geliştirilmiş ölçümde sayfa yüklemeleri ve tarayıcı geçmişi değişiklikleri doğrulandı. Kaydırma ve dosya indirme açık; otomatik giden tıklama, site araması, form ve video ölçümü kapalı. Özel WhatsApp/telefon olayları ayrı kalır.
 
 ## Etkinleştirme ve doğrulama
 
