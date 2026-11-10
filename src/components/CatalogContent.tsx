@@ -7,12 +7,11 @@ import {
     getFeaturedProduct,
     getProductCategory,
     getProductDisplayName,
-    getProductIntroduction,
     productCategories,
     type CatalogLanguage,
     type ProductCategory,
 } from '../data/catalog';
-import { getProductMainImage, getProductPath } from '../seo/config';
+import { getProductDescription, getProductMainImage, getProductPath } from '../seo/config';
 import { getProductThumbnailUrl } from '../lib/productImages';
 import { trackContactClick } from '../lib/googleAds';
 
@@ -157,7 +156,7 @@ export function ProductIntroduction({ product, language }: { product: Product; l
     const category = getProductCategory(product);
     return (
         <div data-product-introduction={product.id} className="mb-6 space-y-3">
-            <p className="text-sm leading-7 text-gray-600 dark:text-gray-300">{getProductIntroduction(product, language)}</p>
+            <p className="text-sm leading-7 text-gray-600 dark:text-gray-300">{getProductDescription(product, language)} {category.copy[language].productUse}</p>
             <Link to={getCategoryPath(category)} className="inline-flex items-center gap-2 text-sm font-medium text-[#0083bb] dark:text-[#72D5E3]">{category.copy[language].name}<ArrowRight size={15} aria-hidden="true" /></Link>
         </div>
     );
