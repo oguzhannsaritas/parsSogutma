@@ -1,4 +1,5 @@
 import type { MouseEvent } from 'react';
+import { trackAnalyticsContact } from './analytics';
 
 type ContactMethod = 'whatsapp' | 'phone';
 
@@ -18,8 +19,10 @@ type GoogleAdsWindow = Window & {
 };
 
 export function trackContactClick(event: MouseEvent<HTMLAnchorElement>, method: ContactMethod) {
+    if (event.defaultPrevented) return;
+    trackAnalyticsContact(method);
     const gtag = (window as GoogleAdsWindow).gtag;
-    if (event.defaultPrevented || typeof gtag !== 'function') return;
+    if (typeof gtag !== 'function') return;
 
     const link = event.currentTarget;
     const opensAnotherContext = (link.target && link.target !== '_self') ||
