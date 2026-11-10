@@ -7,7 +7,7 @@ import { products } from '../data/products';
 import { findProductByIdentifier, getProductImages, getProductPath } from '../seo/config';
 import { getProductThumbnailUrl } from '../lib/productImages';
 import { getCategoryPath, getProductCategory, getProductDisplayName, isCanonicalProduct } from '../data/catalog';
-import { ContactActions, ProductIntroduction, RelatedProducts } from '../components/CatalogContent';
+import { ContactActions, ProductBuyerGuide, ProductIntroduction, RelatedProducts } from '../components/CatalogContent';
 
 type TabKey = 'about' | 'drawings' | 'catalog' | 'options';
 
@@ -492,6 +492,7 @@ export default function ProductDetail() {
                                         </div>
                                     </div>
                                     <div className="mt-5"><ContactActions subject={displayName} language={language} /></div>
+                                    <ProductBuyerGuide product={product} language={language} />
                                 </motion.div>
                             )}
 

@@ -8,7 +8,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { MemoryRouter } from 'react-router-dom';
 import { products } from '../src/data/products/index';
 import type { Product } from '../src/data/products/types';
-import { CategoryContent, CategoryLinks, ContactActions, HomeIntroduction, ProductIntroduction, RelatedProducts } from '../src/components/CatalogContent';
+import { CategoryContent, CategoryLinks, ContactActions, HomeIntroduction, ProductBuyerGuide, ProductIntroduction, RelatedProducts } from '../src/components/CatalogContent';
 import { getCanonicalProductId, getCategoryPath, getProductCategory, getProductDisplayName, isCanonicalProduct, productCategories } from '../src/data/catalog';
 import { getReferencePath, projects, type ReferenceProject } from '../src/data/references';
 import {
@@ -16,7 +16,6 @@ import {
     breadcrumbJsonLd,
     categoryPageJsonLd,
     DEFAULT_SOCIAL_IMAGE,
-    getProductDescription,
     getProductImages,
     getProductMainImage,
     getProductPath,
@@ -152,7 +151,6 @@ async function productBody(product: Product): Promise<string> {
     return `<nav aria-label="İçerik yolu"><a href="/">Ana Sayfa</a> / <a href="/products">Ürünler</a> / <a href="${getCategoryPath(category)}">${escapeHtml(category.copy.TR.name)}</a> / ${escapeHtml(name)}</nav>
         <main>
             <h1>${escapeHtml(name)}</h1>
-            <p>${escapeHtml(getProductDescription(product, 'TR'))}</p>
             ${renderContent(createElement(ProductIntroduction, { product, language: 'TR' }))}
             <dl>
                 <dt>Kategori</dt><dd>${escapeHtml(product.category.TR)}</dd>
@@ -162,6 +160,7 @@ async function productBody(product: Product): Promise<string> {
             ${renderContent(createElement(ContactActions, { subject: name, language: 'TR' }))}
             <h2>${escapeHtml(name)} teknik özellikleri</h2>
             <ul>${technical}</ul>
+            ${renderContent(createElement(ProductBuyerGuide, { product, language: 'TR' }))}
             <h2>${escapeHtml(name)} görselleri</h2>
             ${figures}
             <p><a href="${productPath}">${escapeHtml(name)} ürün sayfası</a></p>

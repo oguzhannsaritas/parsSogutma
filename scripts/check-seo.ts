@@ -1,9 +1,14 @@
 import assert from 'node:assert/strict';
 import { access, readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { MemoryRouter } from 'react-router-dom';
+import { ProductBuyerGuide, ProductIntroduction } from '../src/components/CatalogContent';
 import { products } from '../src/data/products';
+import { getProductContent, productContent } from '../src/data/productContent';
 import { getCategoryPath, getCategoryProducts, getProductCategory, isCanonicalProduct, productCategories } from '../src/data/catalog';
-import { getProductMainImage, getProductPath, getProductSlug, getProductTemperature, findProductByIdentifier, SITE_URL } from '../src/seo/config';
+import { getProductDescription, getProductMainImage, getProductPath, getProductSlug, getProductTemperature, findProductByIdentifier, SITE_URL } from '../src/seo/config';
 import { projects, getReferencePath } from '../src/data/references';
 import { getReferenceSeo } from '../src/seo/references';
 import vercel from '../vercel.json';
@@ -66,6 +71,40 @@ for (const category of productCategories) {
 }
 assert.equal(membership.size, canonicalProducts.length, 'Every canonical product needs a primary group');
 
+// Authored buying advice must appear in the first HTML, and the shared client
+// components must render the selected language without repeating the lead text.
+const pastryCategory = productCategories.find(item => item.id === 'pasta')!;
+const pastryProducts = getCategoryProducts(pastryCategory, products);
+assert.deepEqual(Object.keys(productContent).map(Number).sort((a, b) => a - b), pastryProducts.map(item => item.id).sort((a, b) => a - b), 'Authored pastry content must cover the whole group');
+const escapedText = (value: string) => renderToStaticMarkup(createElement('p', null, value)).slice(3, -4);
+for (const language of ['TR', 'EN'] as const) {
+    assert.equal(new Set(pastryProducts.map(item => getProductDescription(item, language))).size, pastryProducts.length, `Repeated ${language} pastry metadata`);
+    assert.equal(new Set(pastryProducts.map(item => getProductContent(item.id, language)?.introduction)).size, pastryProducts.length, `Repeated ${language} pastry introduction`);
+    for (const product of pastryProducts) {
+        const text = getProductContent(product.id, language);
+        assert(text?.introduction && text.selection.length && text.questions.length, `Missing ${language} product guidance: ${product.id}`);
+        assert(text.description.length <= 160, `Authored description should not need truncation: ${product.id} ${language}`);
+        const rendered = renderToStaticMarkup(createElement(MemoryRouter, null,
+            createElement(ProductIntroduction, { product, language }),
+            createElement(ProductBuyerGuide, { product, language })));
+        const html = language === 'TR' ? await readPage(getProductPath(product)) : rendered;
+        for (const output of [rendered, html]) {
+            assert.equal(output.split(escapedText(text.introduction)).length - 1, 1, `Product lead repeated or missing: ${product.id} ${language}`);
+            assert(output.includes(`href="${getCategoryPath(pastryCategory)}"`), `Product group unreachable: ${product.id}`);
+            for (const item of text.selection) assert(output.includes(escapedText(item)), `Selection advice absent: ${product.id} ${language}`);
+            for (const item of text.questions) {
+                assert(output.includes(escapedText(item.question)) && output.includes(escapedText(item.answer)), `Question or answer absent: ${product.id} ${language}`);
+            }
+            assert.equal((output.match(/<details(?:\s|>)/g) ?? []).length, text.questions.length, `Questions must have accessible disclosure controls: ${product.id}`);
+        }
+        if (language === 'TR') {
+            assert(html.includes(`name="description" content="${escapedText(text.description)}"`), `First HTML metadata is stale: ${product.id}`);
+            const page = jsonLd(html).find(item => item['@type'] === 'ItemPage');
+            assert.equal(page.description, text.description, `Structured description differs from metadata: ${product.id}`);
+        }
+    }
+}
+
 // The project narrative must survive without JavaScript, agree with its metadata,
 // and remain reachable from the associated product group in both directions.
 for (const project of projects) {
@@ -116,7 +155,11 @@ for (const product of products) {
     await access(path.join(dist, getProductMainImage(product)));
     const html = await readPage(getProductPath(canonicalProduct));
     assert(html.includes(`href="${getCategoryPath(getProductCategory(canonicalProduct))}"`), `Missing parent group link on ${product.id}`);
+    const intro = html.match(/data-product-introduction="\d+"[^>]*><p[^>]*>(.*?)<\/p>/)?.[1];
+    assert(intro, `Initial product introduction missing: ${product.id}`);
+    const paragraphs = [...html.matchAll(/<p(?:\s[^>]*)?>(.*?)<\/p>/g)].map(match => match[1]);
+    assert.equal(paragraphs.filter(text => text === intro || intro.startsWith(`${text} `)).length, 1, `Duplicate product lead in first HTML: ${product.id}`);
 }
 assert(vercel.redirects.some(item => item.source === '/products/42' && item.destination === '/products/12' && item.permanent), 'Duplicate route requires a permanent redirect');
 assert.equal((await readFile(path.join(dist, 'google69e736d7d2eb3d7e.html'), 'utf8')).trim(), 'google-site-verification: google69e736d7d2eb3d7e.html');
-console.log(`SEO checks passed: ${urls.length} canonical pages, ${productCategories.length} populated groups, ${projects.length} project narratives and reciprocal links, model identity and temperature guards, all catalogue aliases and assets.`);
+console.log(`SEO checks passed: ${urls.length} canonical pages, ${productCategories.length} populated groups, ${pastryProducts.length} bilingual product guides, ${projects.length} project narratives and reciprocal links, unique product leads, model identity and temperature guards, all catalogue aliases and assets.`);

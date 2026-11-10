@@ -1,5 +1,6 @@
 import { slugify } from '../lib/slugify';
 import type { Product } from '../data/products/types';
+import { getProductContent } from '../data/productContent';
 import { getCanonicalProductId, getCategoryPath, getCategoryProducts, getFeaturedProduct, getProductDisplayName, type ProductCategory } from '../data/catalog';
 
 export const SITE_URL = 'https://parsogutma.com';
@@ -155,30 +156,6 @@ export function getProductMainImage(product: Product): string {
 }
 
 const productDescriptions: Record<number, Record<SeoLanguage, string>> = {
-    54: {
-        TR: 'Pasta ve çikolata sunumuna yönelik teşhir dolabı. Ölçüleri, çalışma sıcaklıklarını ve teknik özellikleri inceleyin; işletmeniz için teklif alın.',
-        EN: 'A display cabinet for pastry and chocolate presentation. Explore dimensions, operating temperatures and technical specifications and request a quote.',
-    },
-    55: {
-        TR: 'Ekler ve pasta sunumu için teşhir dolabı. Modül ölçülerini, sıcaklık bilgilerini ve uygulama görsellerini inceleyin; projeniz için teklif alın.',
-        EN: 'A display cabinet for eclairs and pastries. Review module sizes, temperature information and application images and request a project quote.',
-    },
-    66: {
-        TR: 'Kuru pasta sunumu için teşhir dolabı. Katalog ölçülerini ve teknik özelliklerini inceleyin; pastanenize uygun seçenekler için teklif alın.',
-        EN: 'A cabinet for dry pastry presentation. Explore catalogue dimensions and technical details and request a quote for your bakery layout.',
-    },
-    67: {
-        TR: 'Cephe pasta teşhir dolabı: pastane vitrininiz için modül ölçülerini, çalışma sıcaklıklarını ve ürün görsellerini inceleyerek teklif alın.',
-        EN: 'Facade pastry display cabinet: review module dimensions, operating temperatures and product images for your bakery and request a quote.',
-    },
-    68: {
-        TR: 'Yatay pasta teşhir dolabı: modül ölçüleri, cam ve raf özellikleri ile uygulama görsellerini karşılaştırın. Kafe ve pastane projeniz için teklif alın.',
-        EN: 'Horizontal pastry display cabinet: compare module dimensions, glass and shelf specifications and application images. Request a cafe or bakery quote.',
-    },
-    69: {
-        TR: 'Pastane ve kafeler için pasta teşhir dolabı. Modül ölçülerini, cam ve raf detaylarını inceleyin; projenize uygun seçenekler için teklif alın.',
-        EN: 'Pastry display cabinet for bakeries and cafes. Explore module dimensions, glass and shelf details and request a quote for your project.',
-    },
     92: {
         TR: 'Soğuk odalar için split, merkezi, monoblok ve bireysel soğutma sistemi seçeneklerini inceleyin. Projenizin çalışma koşulları için bilgi ve teklif alın.',
         EN: 'Explore split, central, monoblock and individual refrigeration options for cold rooms. Discuss the operating requirements of your project and request a quote.',
@@ -186,7 +163,8 @@ const productDescriptions: Record<number, Record<SeoLanguage, string>> = {
 };
 
 export function getProductDescription(product: Product, language: SeoLanguage): string {
-    const custom = productDescriptions[getCanonicalProductId(product.id)]?.[language];
+    const id = getCanonicalProductId(product.id);
+    const custom = getProductContent(id, language)?.description ?? productDescriptions[id]?.[language];
     if (custom) return truncateDescription(custom);
     const name = getProductDisplayName(product, language);
     const dimensions = product.specs.modules.trim();
