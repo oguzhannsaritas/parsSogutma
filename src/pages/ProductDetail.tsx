@@ -1,13 +1,17 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
 import { ChevronRight, ChevronLeft, LayoutGrid, Maximize2, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { motion, AnimatePresence } from 'motion/react';
 import { products } from '../data/products';
 import { findProductByIdentifier, getProductImages, getProductPath } from '../seo/config';
 import { getProductThumbnailUrl } from '../lib/productImages';
+import { getCategoryPath, getProductCategory, getProductDisplayName, isCanonicalProduct } from '../data/catalog';
+import { ContactActions, ProductIntroduction, RelatedProducts } from '../components/CatalogContent';
 
 type TabKey = 'about' | 'drawings' | 'catalog' | 'options';
+
+const canonicalProducts = products.filter(isCanonicalProduct);
 
 type LightboxKind = 'main' | 'drawing';
 type LightboxState = { kind: LightboxKind; index: number };
@@ -135,10 +139,13 @@ function HorizontalScroller({
 export default function ProductDetail() {
     const { id, slug, legacySlug } = useParams();
     const navigate = useNavigate();
+    const location = useLocation();
     const { t, language } = useLanguage();
     const identifier = slug ?? legacySlug ?? id;
     const foundProduct = findProductByIdentifier(products, identifier);
     const product = foundProduct ?? products[0];
+    const category = getProductCategory(product);
+    const displayName = getProductDisplayName(product, language);
     const [activeTab, setActiveTab] = useState<TabKey>('about');
     const [selectedImage, setSelectedImage] = useState(0);
     const [isExtraInfoOpen, setIsExtraInfoOpen] = useState(true);
@@ -155,8 +162,9 @@ export default function ProductDetail() {
 
     useEffect(() => {
         if (!foundProduct) return;
-        if (legacySlug || slug) navigate(getProductPath(foundProduct), { replace: true });
-    }, [foundProduct, legacySlug, navigate, slug]);
+        const canonicalPath = getProductPath(foundProduct);
+        if (location.pathname !== canonicalPath) navigate(`${canonicalPath}${location.search}`, { replace: true });
+    }, [foundProduct, location.pathname, location.search, navigate]);
 
     useEffect(() => {
         if (!lightbox) return;
@@ -244,9 +252,9 @@ export default function ProductDetail() {
         };
     }, [identifier, thumbnails]);
 
-    const productIndex = products.indexOf(product);
-    const previousProduct = products[Math.max(0, productIndex - 1)];
-    const nextProduct = products[Math.min(products.length - 1, productIndex + 1)];
+    const productIndex = canonicalProducts.indexOf(product);
+    const previousProduct = canonicalProducts[Math.max(0, productIndex - 1)];
+    const nextProduct = canonicalProducts[Math.min(canonicalProducts.length - 1, productIndex + 1)];
 
     useEffect(() => {
         if (!lightbox) return;
@@ -301,7 +309,9 @@ export default function ProductDetail() {
                             {t('products.title')}
                         </Link>
                         <ChevronRight size={14} aria-hidden="true" />
-                        <span className="font-bold text-black dark:text-white">{product.name[language]}</span>
+                        <Link to={getCategoryPath(category)} className="hover:text-black dark:hover:text-white transition-colors">{category.copy[language].name}</Link>
+                        <ChevronRight size={14} aria-hidden="true" />
+                        <span className="font-bold text-black dark:text-white">{displayName}</span>
                     </div>
 
                     <div className="flex items-center gap-4 mt-4 md:mt-0">
@@ -337,7 +347,7 @@ export default function ProductDetail() {
                 </div>
 
                 <h1 className="text-lg md:text-4xl font-bold mb-2 md:mb-12 text-gray-900 dark:text-white">
-                    {product.name[language]}
+                    {displayName}
                 </h1>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16">
@@ -345,7 +355,7 @@ export default function ProductDetail() {
                         <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-gray-200/70 dark:border-neutral-700/70 bg-gradient-to-br from-gray-50 to-white dark:from-neutral-900 dark:to-neutral-800 shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
                             <img
                                 src={thumbnails[selectedImage]}
-                                alt={`${product.name[language]} - ${product.category[language]} | Pars Soğutma`}
+                                alt={`${displayName} - ${category.copy[language].name} | Pars Soğutma`}
                                 className="w-full h-full object-contain bg-white"
                                 width={1200}
                                 height={900}
@@ -440,6 +450,7 @@ export default function ProductDetail() {
                         <div className="mb-12 min-h-[300px]">
                             {activeTab === 'about' && (
                                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
+                                    <ProductIntroduction product={product} language={language} />
                                     <div className="border border-gray-200 dark:border-neutral-700 rounded-2xl overflow-hidden bg-white dark:bg-transparent">
                                         <div className="bg-gray-50 dark:text-black px-6 py-3 border-b border-gray-200 dark:border-neutral-700 text-xs md:text-sm font-bold text-gray-700 ">
                                             {t('product.table.modules')}
@@ -480,6 +491,7 @@ export default function ProductDetail() {
                                             </div>
                                         </div>
                                     </div>
+                                    <div className="mt-5"><ContactActions subject={displayName} language={language} /></div>
                                 </motion.div>
                             )}
 
@@ -745,6 +757,8 @@ export default function ProductDetail() {
                     </div>
                 </div>
             </div>
+
+            <div className="container mx-auto px-4 md:px-12 pb-12"><RelatedProducts product={product} products={products} language={language} /></div>
 
             <AnimatePresence>
                 {lightbox && (

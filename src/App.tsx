@@ -13,6 +13,7 @@ import SeoManager from './seo/SeoManager';
 const Home = lazy(() => import('./pages/Home'));
 const Products = lazy(() => import('./pages/Products'));
 const ProductDetail = lazy(() => import('./pages/ProductDetail'));
+const ProductCategory = lazy(() => import('./pages/ProductCategory'));
 const References = lazy(() => import('./pages/References'));
 const ReferenceDetail = lazy(() => import('./pages/ReferenceDetail'));
 const Contact = lazy(() => import('./pages/Contact'));
@@ -59,6 +60,7 @@ export default function App() {
                   <Route path="/about" element={<About />} />
                   <Route path="/products" element={<Products />} />
                   <Route path="/products/:id" element={<ProductDetail />} />
+                  <Route path="/urunler/:categorySlug" element={<ProductCategory />} />
                   <Route path="/urun/:slug" element={<ProductDetail />} />
                   <Route path="/blog/:legacySlug" element={<ProductDetail />} />
                   <Route path="/references" element={<References />} />

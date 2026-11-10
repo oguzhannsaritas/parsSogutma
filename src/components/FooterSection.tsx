@@ -9,10 +9,11 @@ import {
     LucideMessageCircleMore
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { getCategoryPath, productCategories } from '../data/catalog';
 type OpenId = 'kurumsal' | 'urunler' | 'iletisim' | null;
 
 export default function FooterSection() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
     const [open, setOpen] = React.useState<OpenId>(null);
     const YT_VIDEO_ID = 'oZmSKiyZ7zM';
     const YT_EMBED_URL = `https://www.youtube-nocookie.com/embed/${YT_VIDEO_ID}?rel=0&modestbranding=1`;
@@ -168,14 +169,7 @@ export default function FooterSection() {
                                     {t('pars.footer.products')}
                                 </h3>
                                 <ul className="space-y-4 text-gray-300 text-xs lg:text-sm font-medium">
-                                    <li><Link to="/products?cat=vertical" className="hover:text-white transition-colors">{t('pars.footer.verticalTypeRefrigeratedCounters')}</Link></li>
-                                    <li><Link to="/products?cat=wall" className="hover:text-white transition-colors">{t('pars.footer.wallMountedRefrigeratedCounters')}</Link></li>
-                                    <li><Link to="/products?cat=service" className="hover:text-white transition-colors">{t('pars.footer.serviceCounters')}</Link></li>
-                                    <li><Link to="/products?cat=bakery" className="hover:text-white transition-colors">{t('pars.footer.bakeryProducts')}</Link></li>
-                                    <li><Link to="/products?cat=kitchen" className="hover:text-white transition-colors">{t('pars.footer.industrialKitchenEquipment')}</Link></li>
-                                    <li><Link to="/products?cat=market" className="hover:text-white transition-colors">{t('pars.footer.marketEquipment')}</Link></li>
-                                    <li><Link to="/products?cat=coldStorage" className="hover:text-white transition-colors">{t('pars.footer.coldStorage')}</Link></li>
-                                    <li><Link to="/products?cat=coolingSystems'" className="hover:text-white transition-colors">{t('pars.footer.coolingSystems')}</Link></li>
+                                    {productCategories.map(category => <li key={category.id}><Link to={getCategoryPath(category)} className="hover:text-white transition-colors">{category.copy[language].name}</Link></li>)}
 
 
                                 </ul>
@@ -195,14 +189,7 @@ export default function FooterSection() {
                                     <div className="overflow-hidden">
                                         <div>
                                             <ul className="space-y-3 text-gray-300 text-sm font-medium">
-                                                <li><Link to="/products?cat=vertical" className="block py-1 hover:text-white transition-colors">{t('pars.footer.verticalTypeRefrigeratedCounters')}</Link></li>
-                                                <li><Link to="/products?cat=wall" className="block py-1 hover:text-white transition-colors">{t('pars.footer.wallMountedRefrigeratedCounters')}</Link></li>
-                                                <li><Link to="/products?cat=service" className="block py-1 hover:text-white transition-colors">{t('pars.footer.serviceCounters')}</Link></li>
-                                                <li><Link to="/products?cat=bakery" className="block py-1 hover:text-white transition-colors">{t('pars.footer.bakeryProducts')}</Link></li>
-                                                <li><Link to="/products?cat=kitchen" className="block py-1 hover:text-white transition-colors">{t('pars.footer.industrialKitchenEquipment')}</Link></li>
-                                                <li><Link to="/products?cat=market" className="block py-1 hover:text-white transition-colors">{t('pars.footer.marketEquipment')}</Link></li>
-                                                <li><Link to="/products?cat=coldStorage" className="block py-1 hover:text-white transition-colors">{t('pars.footer.coldStorage')}</Link></li>
-                                                <li><Link to="/products?cat=coolingSystems" className="block py-1 hover:text-white transition-colors">{t('pars.footer.coolingSystems')}</Link></li>
+                                    {productCategories.map(category => <li key={category.id}><Link to={getCategoryPath(category)} className="block py-1 hover:text-white transition-colors">{category.copy[language].name}</Link></li>)}
 
                                             </ul>
                                         </div>

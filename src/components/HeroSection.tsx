@@ -391,7 +391,7 @@ export default function HeroSection() {
                         style={{ pointerEvents: showText ? 'auto' : 'none' }}
                     >
                         {slides[textSlide].subtitle && (
-                            <motion.h2
+                            <motion.p
                                 variants={{
                                     hide: { opacity: 0, y: -20, transition: { duration: 0.3 } },
                                     show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
@@ -399,12 +399,12 @@ export default function HeroSection() {
                                 className="text-[9px] sm:text-[10px] md:text-sm lg:text-base font-medium justify-center items-center text-center text-gray-800 dark:text-gray-200 uppercase"
                             >
                                 {slides[textSlide].subtitle}
-                            </motion.h2>
+                            </motion.p>
                         )}
 
                         {slides[textSlide].isSocial ? (
                             <>
-                                <motion.h1
+                                <motion.p
                                     variants={{
                                         hide: { opacity: 0, y: -20, transition: { duration: 0.3 } },
                                         show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
@@ -412,7 +412,7 @@ export default function HeroSection() {
                                     className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-center tracking-tight leading-tight text-black dark:text-white"
                                 >
                                     {slides[textSlide].title}
-                                </motion.h1>
+                                </motion.p>
 
                                 <motion.p
                                     variants={{
@@ -425,7 +425,7 @@ export default function HeroSection() {
                                 </motion.p>
                             </>
                         ) : (
-                            <motion.h1
+                            <motion.p
                                 variants={{
                                     hide: { opacity: 0, y: -20, transition: { duration: 0.3 } },
                                     show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
@@ -433,7 +433,7 @@ export default function HeroSection() {
                                 className="text-base sm:text-2xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-center tracking-tight leading-tight text-black dark:text-white"
                             >
                                 {slides[textSlide].title}
-                            </motion.h1>
+                            </motion.p>
                         )}
 
                         {slides[textSlide].isSocial && (
