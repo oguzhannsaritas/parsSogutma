@@ -24,6 +24,7 @@ export interface Product {
         modules: string;
         sidePanel: number | string;
         temp: string;
+        temperatureNote?: TranslatedString;
         optionalAccessory: TranslatedString[];
         technicalSpecification: TranslatedString[];
     };

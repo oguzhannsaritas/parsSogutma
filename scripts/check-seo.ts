@@ -3,7 +3,9 @@ import { access, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { products } from '../src/data/products';
 import { getCategoryPath, getCategoryProducts, getProductCategory, isCanonicalProduct, productCategories } from '../src/data/catalog';
-import { getProductMainImage, getProductPath, getProductSlug, findProductByIdentifier, SITE_URL } from '../src/seo/config';
+import { getProductMainImage, getProductPath, getProductSlug, getProductTemperature, findProductByIdentifier, SITE_URL } from '../src/seo/config';
+import { projects, getReferencePath } from '../src/data/references';
+import { getReferenceSeo } from '../src/seo/references';
 import vercel from '../vercel.json';
 
 const dist = path.join(process.cwd(), 'dist');
@@ -64,6 +66,46 @@ for (const category of productCategories) {
 }
 assert.equal(membership.size, canonicalProducts.length, 'Every canonical product needs a primary group');
 
+// The project narrative must survive without JavaScript, agree with its metadata,
+// and remain reachable from the associated product group in both directions.
+for (const project of projects) {
+    const route = getReferencePath(project);
+    const html = await readPage(route);
+    assert.equal(canonical(await readPage(`/references/${project.id}`)), `${SITE_URL}${route}`, `Legacy reference changed: ${project.id}`);
+    const data = jsonLd(html).find(item => item['@type'] === 'CreativeWork');
+    assert.equal(data.description, getReferenceSeo(project, 'TR').description);
+    assert.equal(data.contentLocation.name, project.location);
+    assert.equal(data.about.length, project.categoryIds.length);
+    for (const language of ['TR', 'EN'] as const) {
+        const text = project.copy[language];
+        assert(text.description && text.subject && text.paragraphs.length >= 2, `Incomplete ${language} reference: ${project.id}`);
+        assert.equal(new Set(projects.map(item => item.copy[language].description)).size, projects.length, `Reference descriptions must be distinct in ${language}`);
+    }
+    for (const paragraph of project.copy.TR.paragraphs) assert(html.includes(paragraph), `Project content absent from first HTML: ${project.id}`);
+    assert(project.categoryIds.length > 0, `Missing reference category: ${project.id}`);
+    for (const categoryId of project.categoryIds) {
+        const category = productCategories.find(item => item.id === categoryId);
+        assert(category, `Unknown reference category: ${categoryId}`);
+        assert(html.includes(`href="${getCategoryPath(category)}"`), `Missing project-to-group link: ${project.id}`);
+        assert((await readPage(getCategoryPath(category))).includes(`href="${route}"`), `Missing group-to-project link: ${project.id}`);
+    }
+}
+
+for (const id of [58, 59, 60, 61, 63, 65, 66, 67]) {
+    const product = products.find(item => item.id === id)!;
+    assert.equal(product.specs.temp, '-', `Unconfirmed refrigeration range on neutral/heated cabinet ${id}`);
+    const html = await readPage(getProductPath(product));
+    assert(!html.includes('M2 (-1 / +7 C°)'), `Copied refrigeration range still visible on ${id}`);
+    assert(html.includes(getProductTemperature(product, 'TR')), `Missing version-specific temperature guidance on ${id}`);
+}
+for (const id of [19, 30]) {
+    const product = products.find(item => item.id === id)!;
+    assert.equal(findProductByIdentifier(products, String(id))?.id, id, 'Unconfirmed model identities must remain separate');
+    assert(!/Full Moon|New Moon/i.test(JSON.stringify(product.specs)), `Unconfirmed Moon identity still in cabinet ${id}`);
+}
+const newMoon = products.find(item => item.id === 18)!;
+assert(getProductMainImage(newMoon).includes('newMoon'), 'New Moon must use its own product photo');
+
 for (const product of products) {
     const canonicalProduct = findProductByIdentifier(products, String(product.id))!;
     const expected = `${SITE_URL}${getProductPath(canonicalProduct)}`;
@@ -77,4 +119,4 @@ for (const product of products) {
 }
 assert(vercel.redirects.some(item => item.source === '/products/42' && item.destination === '/products/12' && item.permanent), 'Duplicate route requires a permanent redirect');
 assert.equal((await readFile(path.join(dist, 'google69e736d7d2eb3d7e.html'), 'utf8')).trim(), 'google-site-verification: google69e736d7d2eb3d7e.html');
-console.log(`SEO checks passed: ${urls.length} canonical pages, ${productCategories.length} populated groups, all catalogue aliases, assets and internal links.`);
+console.log(`SEO checks passed: ${urls.length} canonical pages, ${productCategories.length} populated groups, ${projects.length} project narratives and reciprocal links, model identity and temperature guards, all catalogue aliases and assets.`);

@@ -1,3 +1,5 @@
+import { ReferenceContent } from '../src/components/ReferenceContent';
+import { getReferenceSeo, referencePageJsonLd } from '../src/seo/references';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
@@ -20,6 +22,7 @@ import {
     getProductPath,
     getProductSlug,
     getProductSeo,
+    getProductTemperature,
     getCategorySeo,
     organizationJsonLd,
     productPageJsonLd,
@@ -154,7 +157,7 @@ async function productBody(product: Product): Promise<string> {
             <dl>
                 <dt>Kategori</dt><dd>${escapeHtml(product.category.TR)}</dd>
                 <dt>Modül ölçüleri</dt><dd>${escapeHtml(product.specs.modules)}</dd>
-                <dt>Çalışma sıcaklıkları</dt><dd>${escapeHtml(product.specs.temp)}</dd>
+                <dt>Çalışma sıcaklıkları</dt><dd>${escapeHtml(getProductTemperature(product, 'TR'))}</dd>
             </dl>
             ${renderContent(createElement(ContactActions, { subject: name, language: 'TR' }))}
             <h2>${escapeHtml(name)} teknik özellikleri</h2>
@@ -166,15 +169,11 @@ async function productBody(product: Product): Promise<string> {
         </main>`;
 }
 
-function referenceDescription(project: ReferenceProject): string {
-    return `${project.title} için ${project.location} konumunda gerçekleştirilen Pars Soğutma endüstriyel soğutma ve teşhir dolabı projesinin uygulama görsellerini inceleyin.`;
-}
-
 function referenceBody(project: ReferenceProject): string {
     const media = project.images.map((image, index) => image.endsWith('.mp4')
         ? `<video controls preload="metadata" style="max-width:720px;width:100%"><source src="${escapeHtml(image)}" type="video/mp4" /></video>`
         : `<figure><img src="${escapeHtml(image)}" alt="${escapeHtml(`${project.title} soğutma projesi görseli ${index + 1}`)}" loading="${index === 0 ? 'eager' : 'lazy'}" style="max-width:720px;width:100%;height:auto" /><figcaption>${escapeHtml(`${project.title} - ${project.location} - proje görseli ${index + 1}`)}</figcaption></figure>`).join('');
-    return `<nav><a href="/">Ana Sayfa</a> / <a href="/references">Referanslar</a> / ${escapeHtml(project.title)}</nav><main><h1>${escapeHtml(project.title)} Soğutma Projesi</h1><p>${escapeHtml(referenceDescription(project))}</p>${media}</main>`;
+    return `<nav><a href="/">Ana Sayfa</a> / <a href="/references">Referanslar</a> / ${escapeHtml(project.title)}</nav><main><h1>${escapeHtml(project.title)} Soğutma Projesi</h1><p>${escapeHtml(project.copy.TR.description)}</p>${media}${renderContent(createElement(ReferenceContent, { project, language: 'TR' }))}</main>`;
 }
 
 const productsBody = `<main><h1>Endüstriyel Soğutma Ürünleri</h1><p>${escapeHtml(staticPageSeo['/products'].TR.description)}</p>${renderContent(createElement(CategoryLinks, { language: 'TR' }))}<ul>${canonicalProducts
@@ -271,21 +270,10 @@ for (const category of productCategories) {
 
 for (const project of projects) {
     const route = getReferencePath(project);
-    const title = `${project.title} Soğutma Projesi | Pars Soğutma`;
-    const description = referenceDescription(project);
-    const images = project.images.filter((image) => !image.endsWith('.mp4')).map(absoluteUrl);
+    const { title, description } = getReferenceSeo(project, 'TR');
     const data = [
         organizationJsonLd(),
-        {
-            '@context': 'https://schema.org',
-            '@type': 'CreativeWork',
-            name: `${project.title} Soğutma Projesi`,
-            description,
-            url: `${SITE_URL}${route}`,
-            contentLocation: project.location,
-            image: images,
-            creator: { '@id': `${SITE_URL}/#organization` },
-        },
+        referencePageJsonLd(project, 'TR'),
         breadcrumbJsonLd([
             { name: 'Ana Sayfa', path: '/' },
             { name: 'Referanslar', path: '/references' },

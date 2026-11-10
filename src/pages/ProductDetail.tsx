@@ -486,7 +486,7 @@ export default function ProductDetail() {
                                                     {t('product.table.temp')}
                                                 </div>
                                                 <div className="p-4 text-xs md:text-sm font-medium text-black dark:text-white">
-                                                    {specs.temp}
+                                                    {product.specs.temperatureNote?.[language] ?? specs.temp}
                                                 </div>
                                             </div>
                                         </div>

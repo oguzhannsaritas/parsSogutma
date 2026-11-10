@@ -1,3 +1,4 @@
+import { slugify } from '../lib/slugify';
 import type { Product } from '../data/products/types';
 import { getCanonicalProductId, getCategoryPath, getCategoryProducts, getFeaturedProduct, getProductDisplayName, type ProductCategory } from '../data/catalog';
 
@@ -96,21 +97,7 @@ export const staticPageSeo: Record<string, Record<SeoLanguage, PageSeo>> = {
     },
 };
 
-export function slugify(value: string): string {
-    return value
-        .trim()
-        .toLocaleLowerCase('tr-TR')
-        .replace(/ğ/g, 'g')
-        .replace(/ü/g, 'u')
-        .replace(/ş/g, 's')
-        .replace(/ı/g, 'i')
-        .replace(/ö/g, 'o')
-        .replace(/ç/g, 'c')
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/^-+|-+$/g, '');
-}
+export { slugify };
 
 export function normalizeAssetPath(path: string): string {
     return path.startsWith('/') ? path : `/${path}`;
@@ -119,6 +106,10 @@ export function normalizeAssetPath(path: string): string {
 export function absoluteUrl(path: string): string {
     if (/^https?:\/\//i.test(path)) return path;
     return `${SITE_URL}${normalizeAssetPath(path)}`;
+}
+
+export function getProductTemperature(product: Product, language: SeoLanguage): string {
+    return product.specs.temperatureNote?.[language] ?? product.specs.temp;
 }
 
 export function getProductSlug(product: Product): string {

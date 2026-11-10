@@ -847,7 +847,7 @@ export const products: Product[] = [
         name: { TR: 'NEW MOON - Düz Camlı Reyon Dolabı', EN: 'NEW MOON - Flat Glass Display Cabinet' },
         category: { TR: 'Servis Reyonları', EN: 'Service Aisles' },
         type: { TR: 'NEW MOON - Düz Camlı Reyon Dolabı', EN: 'NEW MOON - Flat Glass Display Cabinet' },
-        image: '/images/products/servisReyonlari/fullMoonDikCamliReyonDolabi/fullMoonDikCamliReyonDolabix.webp',
+        image: '/images/products/servisReyonlari/newMoonDüzCamliReyondolabi/newMoonDuzCamliReyondolabi.webp',
         thumbnails:[
             '/images/products/servisReyonlari/newMoonDüzCamliReyondolabi/newMoonDuzCamliReyondolabi.webp',
             '/images/products/servisReyonlari/newMoonDüzCamliReyondolabi/newMoonDuzCamliReyondolabi1.webp',
@@ -915,7 +915,7 @@ export const products: Product[] = [
             sidePanel: 40,
             temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
             optionalAccessory:[
-                { TR: 'Full Moon – Dik Camlı Reyon Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Full Moon – Upright Glass Display Cabinet Side Panel with Mirror or Glass.' },
+                { TR: 'Düz Camlı Reyon Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Flat Glass Display Cabinet Side Panel with Mirror or Glass.' },
                 { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
                 { TR: 'Amotrisörlü Cam ve Devirme Cam Seçenekleri.', EN: 'Shock Absorber Glass and Tilt Glass Options.' },
                 { TR: 'Depolu Reyon Dolabı Seçeneği.', EN: 'Display Cabinet with Storage Option.' },
@@ -933,7 +933,7 @@ export const products: Product[] = [
                 { TR: 'Gün Işığı ve Beyaz Led aydınlatma.', EN: 'Daylight and White LED lighting.' },
                 { TR: 'Aydınlatma; 40 Watt Şerit Led Armatür ve 40 Watt Bant Armatür Kullanılmaktadır.', EN: 'Lighting; 40 Watt Strip LED Fixture and 40 Watt Band Fixture are Used.' },
                 { TR: '40kg / m3 poliüretan enjeksiyonlu gövde tasarımı.', EN: '40kg / m3 polyurethane injected body design.' },
-                { TR: 'Full Moon – Dik Camlı Reyon Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Full Moon – Upright Glass Display Cabinet Color options suitable for decoration or wood furniture decor applications.' },
+                { TR: 'Düz Camlı Reyon Dolabı Dekorasyona uygun renk seçenekleri veya ağaç mobilya dekor uygulamaları.', EN: 'Flat Glass Display Cabinet Color options suitable for decoration or wood furniture decor applications.' },
                 { TR: 'Kolon tipi açık ayak veya kapalı dekor uygulamaları.', EN: 'Column type open leg or closed decor applications.' },
             ]
         }
@@ -1392,19 +1392,19 @@ export const products: Product[] = [
             sidePanel: 40,
             temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
             optionalAccessory:[
-                { TR: 'New Moon – Düz Camlı Reyon Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'New Moon – Flat Glass Display Cabinet Side Panel with Mirror or Glass.' },
+                { TR: 'Düz Camlı Reyon Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Flat Glass Display Cabinet Side Panel with Mirror or Glass.' },
                 { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
                 { TR: 'Amortisörlü Cam ve Devirme Cam Seçenekleri.', EN: 'Shock Absorber Glass and Tilt Glass Options.' },
                 { TR: 'Depolu Reyon Dolabı Seçeneği.', EN: 'Display Cabinet with Storage Option.' },
                 { TR: 'Pleksi Sürgü Cam Seçenekleri.', EN: 'Plexi Sliding Glass Options.' },
             ],
             technicalSpecification:[
-                { TR: 'New Moon – Düz Camlı Reyon Dolabı İçten ve dıştan motorlu soğutma grubu', EN: 'New Moon – Flat Glass Display Cabinet Internal and external motor cooling unit' },
+                { TR: 'Düz Camlı Reyon Dolabı İçten ve dıştan motorlu soğutma grubu', EN: 'Flat Glass Display Cabinet Internal and external motor cooling unit' },
                 { TR: 'Aksiyel fanlı soğutma', EN: 'Axial fan cooling' },
-                { TR: 'New Moon – Reyon Dolabı Isıtma tava ve hazır yemek versiyonu.', EN: 'New Moon – Display Cabinet Heating pan and ready meal version.' },
+                { TR: 'Reyon Dolabı Isıtma tava ve hazır yemek versiyonu.', EN: 'Display Cabinet Heating pan and ready meal version.' },
                 { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design providing ease of use.' },
                 { TR: 'Önden yukarı doğru açılan amortisörlü ve Devirme camlar.', EN: 'Front-upward opening shock absorber and Tilt glasses.' },
-                { TR: 'New Moon – Düz Camlı Reyon Dolabı Camları Temperli Kırılmaz Camdır.', EN: 'New Moon – Flat Glass Display Cabinet Glasses are Tempered Unbreakable Glass.' },
+                { TR: 'Düz Camlı Reyon Dolabı Camları Temperli Kırılmaz Camdır.', EN: 'Flat Glass Display Cabinet Glasses are Tempered Unbreakable Glass.' },
                 { TR: 'Camlar Cnc Cam Kesim Olarak Üretilmektedir.', EN: 'Glasses are Produced as CNC Glass Cutting.' },
                 { TR: 'Paslanmaz çelik zemin, tezgah ve tava sacları.', EN: 'Stainless steel floor, counter and pan sheets.' },
                 { TR: 'Gün Işığı ve Beyaz Led aydınlatma.', EN: 'Daylight and White LED lighting.' },
@@ -2703,12 +2703,10 @@ export const products: Product[] = [
         specs: {
             modules: ' 937 / 1250 / 1875 / 2500 / 2812',
             sidePanel: 40,
-            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            temp: '-',
+            temperatureNote: { TR: 'Çalışma sıcaklığı, seçilen nötr veya ısıtmalı versiyona göre teklif aşamasında netleştirilir.', EN: 'Operating temperature is confirmed at quotation stage for the selected neutral or heated version.' },
             technicalSpecification:[
                 { TR: 'Pastane Tezgahı', EN: 'Pastry Counter' },
-                { TR: 'Ekmek Tezgahı', EN: 'Bread Counter' },
-                { TR: 'Fırın Tezgahı', EN: 'Bakery Counter' },
-                { TR: 'Kuru Pasta Tezgahı', EN: 'Dry Pastry Counter' },
                 { TR: 'Nötr, Isıtmalı dolap versiyonları.', EN: 'Neutral and heated cabinet versions.' },
                 { TR: 'Dik cam, Yatık cam ve Bombe cam çeşitliliğiyle farklı konsept uygulaması.', EN: 'Different concept applications with vertical, slanted, and curved glass options.' },
                 { TR: 'Çalışma Tezgahında Sürgülü sistem ve çekmece sistemi.', EN: 'Sliding system and drawer system on the work counter.' },
@@ -2756,12 +2754,10 @@ export const products: Product[] = [
         specs: {
             modules: ' 937 / 1250 / 1875 / 2500 / 2812',
             sidePanel: 40,
-            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            temp: '-',
+            temperatureNote: { TR: 'Isıtmalı versiyonun çalışma sıcaklığı ve kontrol aralığı teklif aşamasında netleştirilir.', EN: 'The operating temperature and control range of the heated version are confirmed at quotation stage.' },
             technicalSpecification:[
-                { TR: 'Pastane Tezgahı', EN: 'Pastry Counter' },
-                { TR: 'Ekmek Tezgahı', EN: 'Bread Counter' },
-                { TR: 'Fırın Tezgahı', EN: 'Bakery Counter' },
-                { TR: 'Kuru Pasta Tezgahı', EN: 'Dry Pastry Counter' },
+                { TR: 'Isıtmalı Börek Tezgahı', EN: 'Heated Borek Counter' },
                 { TR: 'Nötr, Isıtmalı dolap versiyonları.', EN: 'Neutral and heated cabinet versions.' },
                 { TR: 'Dik cam, Yatık cam ve Bombe cam çeşitliliğiyle farklı konsept uygulaması.', EN: 'Different concept applications with vertical, slanted, and curved glass options.' },
                 { TR: 'Çalışma Tezgahında Sürgülü sistem ve çekmece sistemi.', EN: 'Sliding system and drawer system on the work counter.' },
@@ -2813,12 +2809,10 @@ export const products: Product[] = [
         specs: {
             modules: ' 937 / 1250 / 1875 / 2500 / 2812',
             sidePanel: 40,
-            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            temp: '-',
+            temperatureNote: { TR: 'Çalışma sıcaklığı, seçilen nötr veya ısıtmalı versiyona göre teklif aşamasında netleştirilir.', EN: 'Operating temperature is confirmed at quotation stage for the selected neutral or heated version.' },
             technicalSpecification:[
-                { TR: 'Pastane Tezgahı', EN: 'Pastry Counter' },
-                { TR: 'Ekmek Tezgahı', EN: 'Bread Counter' },
-                { TR: 'Fırın Tezgahı', EN: 'Bakery Counter' },
-                { TR: 'Kuru Pasta Tezgahı', EN: 'Dry Pastry Counter' },
+                { TR: 'Fırın Dolabı', EN: 'Oven Cabinet' },
                 { TR: 'Nötr, Isıtmalı dolap versiyonları.', EN: 'Neutral and heated cabinet versions.' },
                 { TR: 'Dik cam, Yatık cam ve Bombe cam çeşitliliğiyle farklı konsept uygulaması.', EN: 'Different concept applications with vertical, slanted, and curved glass options.' },
                 { TR: 'Çalışma Tezgahında Sürgülü sistem ve çekmece sistemi.', EN: 'Sliding system and drawer system on the work counter.' },
@@ -2869,12 +2863,10 @@ export const products: Product[] = [
         specs: {
             modules: ' 937 / 1250 / 1875 / 2500 / 2812',
             sidePanel: 40,
-            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            temp: '-',
+            temperatureNote: { TR: 'Isıtmalı versiyonun çalışma sıcaklığı ve kontrol aralığı teklif aşamasında netleştirilir.', EN: 'The operating temperature and control range of the heated version are confirmed at quotation stage.' },
             technicalSpecification:[
-                { TR: 'Pastane Tezgahı', EN: 'Pastry Counter' },
-                { TR: 'Ekmek Tezgahı', EN: 'Bread Counter' },
-                { TR: 'Fırın Tezgahı', EN: 'Bakery Counter' },
-                { TR: 'Kuru Pasta Tezgahı', EN: 'Dry Pastry Counter' },
+                { TR: 'Isıtmalı Poğaça Tezgahı', EN: 'Heated Pogaca Counter' },
                 { TR: 'Nötr, Isıtmalı dolap versiyonları.', EN: 'Neutral and heated cabinet versions.' },
                 { TR: 'Dik cam, Yatık cam ve Bombe cam çeşitliliğiyle farklı konsept uygulaması.', EN: 'Different concept applications with vertical, slanted, and curved glass options.' },
                 { TR: 'Çalışma Tezgahında Sürgülü sistem ve çekmece sistemi.', EN: 'Sliding system and drawer system on the work counter.' },
@@ -2968,7 +2960,8 @@ export const products: Product[] = [
         specs: {
             modules: ' 937 / 1250 / 1875 / 2500 / 2812',
             sidePanel: 40,
-            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            temp: '-',
+            temperatureNote: { TR: 'Çalışma sıcaklığı, seçilen nötr veya ısıtmalı versiyona göre teklif aşamasında netleştirilir.', EN: 'Operating temperature is confirmed at quotation stage for the selected neutral or heated version.' },
             technicalSpecification:[
                 { TR: 'Kuruyemiş Dolabı, Isıtıcılı Kuruyemiş Dolabı.', EN: 'Nuts display cabinet, heated nuts cabinet.' },
                 { TR: 'Nötr, Isıtmalı dolap versiyonları.', EN: 'Neutral and heated cabinet versions.' },
@@ -3059,7 +3052,8 @@ export const products: Product[] = [
         specs: {
             modules: ' 937 / 1250 / 1875 / 2500 / 2812',
             sidePanel: 40,
-            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            temp: '-',
+            temperatureNote: { TR: 'Çalışma sıcaklığı, seçilen nötr veya ısıtmalı versiyona göre teklif aşamasında netleştirilir.', EN: 'Operating temperature is confirmed at quotation stage for the selected neutral or heated version.' },
             technicalSpecification:[
                 { TR: 'Baklava Tezgahı, Isıtıcılı Baklava Tezgahı.', EN: 'Baklava counter, heated baklava display counter.' },
                 { TR: 'Nötr, Isıtmalı dolap versiyonları.', EN: 'Neutral and heated cabinet versions.' },
@@ -3106,7 +3100,8 @@ export const products: Product[] = [
         specs: {
             modules: ' 937 / 1250 / 1875 / 2500 / 2812',
             sidePanel: 40,
-            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            temp: '-',
+            temperatureNote: { TR: 'Çalışma sıcaklığı, seçilen nötr veya ısıtmalı versiyona göre teklif aşamasında netleştirilir.', EN: 'Operating temperature is confirmed at quotation stage for the selected neutral or heated version.' },
             technicalSpecification:[
                 { TR: 'Kuru Pasta Tezgahı', EN: 'Dry Pastry Counter' },
                 { TR: 'Nötr, Isıtmalı dolap versiyonları.', EN: 'Neutral and heated cabinet versions.' },
@@ -3159,9 +3154,10 @@ export const products: Product[] = [
         specs: {
             modules: ' 937 / 1250 / 1875 / 2500 / 2812',
             sidePanel: 40,
-            temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
+            temp: '-',
+            temperatureNote: { TR: 'Çalışma sıcaklığı, seçilen nötr veya ısıtmalı versiyona göre teklif aşamasında netleştirilir.', EN: 'Operating temperature is confirmed at quotation stage for the selected neutral or heated version.' },
             technicalSpecification:[
-                { TR: 'Kuru Pasta Tezgahı', EN: 'Dry Pastry Counter' },
+                { TR: 'Cephe Pasta Teşhir Dolabı', EN: 'Front Pastry Showcase' },
                 { TR: 'Nötr, Isıtmalı dolap versiyonları.', EN: 'Neutral and heated cabinet versions.' },
                 { TR: 'Dik cam, Yatık cam ve Bombe cam çeşitliliğiyle farklı konsept uygulaması.', EN: 'Different concept applications with vertical, slanted, and curved glass options.' },
                 { TR: 'Çalışma Tezgahında Sürgülü sistem ve çekmece sistemi.', EN: 'Sliding system and drawer system on the work counter.' },
@@ -3182,7 +3178,7 @@ export const products: Product[] = [
 
             ],
             optionalAccessory:[
-                { TR: 'Kuru Pasta Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Dry pastry cabinet with mirrored or glass side panel.' },
+                { TR: 'Yan kapak aynalı veya camlı dolap yanı.', EN: 'Mirrored or glass side panel.' },
                 { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
                 { TR: 'Tek Cam ve Isıcam Seçenekleri.', EN: 'Single glass and double-glazed glass options.' },
                 { TR: 'Depolu Kuru Pasta Dolabı Seçeneği.', EN: 'Dry pastry cabinet option with storage base.' },
