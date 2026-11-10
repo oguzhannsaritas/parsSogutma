@@ -4,9 +4,9 @@ import path from 'node:path';
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { MemoryRouter } from 'react-router-dom';
-import { ProductBuyerGuide, ProductIntroduction } from '../src/components/CatalogContent';
+import { ProductBuyerGuide, ProductIntroduction } from '../src/components/ProductEditorialContent';
 import { products } from '../src/data/products';
-import { getProductContent, productContent } from '../src/data/productContent';
+import { getProductContent, productContent, productContentGroups } from '../src/data/productContent';
 import { getCategoryPath, getCategoryProducts, getProductCategory, isCanonicalProduct, productCategories } from '../src/data/catalog';
 import { getProductDescription, getProductMainImage, getProductPath, getProductSlug, getProductTemperature, findProductByIdentifier, SITE_URL } from '../src/seo/config';
 import { projects, getReferencePath } from '../src/data/references';
@@ -73,24 +73,27 @@ assert.equal(membership.size, canonicalProducts.length, 'Every canonical product
 
 // Authored buying advice must appear in the first HTML, and the shared client
 // components must render the selected language without repeating the lead text.
-const pastryCategory = productCategories.find(item => item.id === 'pasta')!;
-const pastryProducts = getCategoryProducts(pastryCategory, products);
-assert.deepEqual(Object.keys(productContent).map(Number).sort((a, b) => a - b), pastryProducts.map(item => item.id).sort((a, b) => a - b), 'Authored pastry content must cover the whole group');
+assert.deepEqual(Object.keys(productContent).map(Number).sort((a, b) => a - b), canonicalProducts.map(item => item.id).sort((a, b) => a - b), 'Authored content must cover every canonical product without duplicate aliases');
+for (const category of productCategories) {
+    assert.deepEqual(Object.keys(productContentGroups[category.id]).map(Number).sort((a, b) => a - b), getCategoryProducts(category, products).map(item => item.id).sort((a, b) => a - b), `Editorial group membership differs: ${category.id}`);
+}
 const escapedText = (value: string) => renderToStaticMarkup(createElement('p', null, value)).slice(3, -4);
 for (const language of ['TR', 'EN'] as const) {
-    assert.equal(new Set(pastryProducts.map(item => getProductDescription(item, language))).size, pastryProducts.length, `Repeated ${language} pastry metadata`);
-    assert.equal(new Set(pastryProducts.map(item => getProductContent(item.id, language)?.introduction)).size, pastryProducts.length, `Repeated ${language} pastry introduction`);
-    for (const product of pastryProducts) {
+    assert.equal(new Set(canonicalProducts.map(item => getProductDescription(item, language))).size, canonicalProducts.length, `Repeated ${language} product metadata`);
+    assert.equal(new Set(canonicalProducts.map(item => getProductContent(item.id, language)?.introduction)).size, canonicalProducts.length, `Repeated ${language} product introduction`);
+    for (const product of canonicalProducts) {
         const text = getProductContent(product.id, language);
+        const category = getProductCategory(product);
         assert(text?.introduction && text.selection.length && text.questions.length, `Missing ${language} product guidance: ${product.id}`);
         assert(text.description.length <= 160, `Authored description should not need truncation: ${product.id} ${language}`);
+        assert.equal(getProductDescription(product, language), text.description, `Generated metadata is stale: ${product.id} ${language}`);
         const rendered = renderToStaticMarkup(createElement(MemoryRouter, null,
             createElement(ProductIntroduction, { product, language }),
             createElement(ProductBuyerGuide, { product, language })));
         const html = language === 'TR' ? await readPage(getProductPath(product)) : rendered;
         for (const output of [rendered, html]) {
             assert.equal(output.split(escapedText(text.introduction)).length - 1, 1, `Product lead repeated or missing: ${product.id} ${language}`);
-            assert(output.includes(`href="${getCategoryPath(pastryCategory)}"`), `Product group unreachable: ${product.id}`);
+            assert(output.includes(`href="${getCategoryPath(category)}"`), `Product group unreachable: ${product.id}`);
             for (const item of text.selection) assert(output.includes(escapedText(item)), `Selection advice absent: ${product.id} ${language}`);
             for (const item of text.questions) {
                 assert(output.includes(escapedText(item.question)) && output.includes(escapedText(item.answer)), `Question or answer absent: ${product.id} ${language}`);
@@ -103,6 +106,15 @@ for (const language of ['TR', 'EN'] as const) {
             assert.equal(page.description, text.description, `Structured description differs from metadata: ${product.id}`);
         }
     }
+}
+
+// Long model guidance is only needed on the lazy product screen. Descriptions
+// remain available to shared SEO code without pulling all guides into the entry.
+const mainScript = home.match(/<script[^>]*type="module"[^>]*src="([^"]+)"/)?.[1];
+assert(mainScript, 'Missing browser entry script');
+const mainCode = await readFile(path.join(dist, mainScript), 'utf8');
+for (const id of [1, 14, 97]) {
+    assert(!mainCode.includes(getProductContent(id, 'TR')!.introduction), `Product guidance eagerly bundled into the main entry: ${id}`);
 }
 
 // The project narrative must survive without JavaScript, agree with its metadata,
@@ -162,4 +174,4 @@ for (const product of products) {
 }
 assert(vercel.redirects.some(item => item.source === '/products/42' && item.destination === '/products/12' && item.permanent), 'Duplicate route requires a permanent redirect');
 assert.equal((await readFile(path.join(dist, 'google69e736d7d2eb3d7e.html'), 'utf8')).trim(), 'google-site-verification: google69e736d7d2eb3d7e.html');
-console.log(`SEO checks passed: ${urls.length} canonical pages, ${productCategories.length} populated groups, ${pastryProducts.length} bilingual product guides, ${projects.length} project narratives and reciprocal links, unique product leads, model identity and temperature guards, all catalogue aliases and assets.`);
+console.log(`SEO checks passed: ${urls.length} canonical pages, ${productCategories.length} populated groups, ${canonicalProducts.length} bilingual product guides, ${projects.length} project narratives and reciprocal links, unique product leads, lazy guide loading, model identity and temperature guards, all catalogue aliases and assets.`);

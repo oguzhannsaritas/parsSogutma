@@ -1,0 +1,43 @@
+import { productCopy, type ProductContentMap } from '../productContentTypes';
+export const mezeProductContent: ProductContentMap = {
+    4: {
+        TR: productCopy('Kebap ve meze dolabı: raflı cam vitrinde menü sunumunu planlayın. Servis kapları, hazırlık akışı ve ürün bölümleri için teklif alın.',
+            'Kebap - Meze Dolabı, restoranın ürün seçimini camlı ve raflı bir vitrinde sunmak için değerlendirilebilir. Hazırlıkta kullanılacak ürünlerle servise sunulan mezelerin yerleşimini ayrı tarif ederek kap ölçülerini ve çalışma akışını planlayın.',
+            ['Servis kaplarının ölçülerini ve çeşit sayısını paylaşın.', 'Hazırlık ve servis ürünlerinin yerlerini ayrı gösterin.', 'Her ürün grubunun çalışma ihtiyacını seçilen versiyonla karşılaştırın.'],
+            [['Kebap hazırlığı ve meze sunumu birlikte nasıl planlanır?', 'Kullanım alanlarını ayrı belirleyin; servis kapları, erişim yönü ve çalışma koşulları birlikte değerlendirilir.'], ['Raflara hangi kaplar sığar?', 'Kapların yükseklik ve derinliklerini paylaşarak raf aralığını ve servis erişimini kontrol edin.']]),
+        EN: productCopy('Kebab and meze cabinet with glass shelf presentation. Plan menu sections, serving containers and the preparation-to-service workflow.',
+            'The Kebab and Meze Cabinet can present a restaurant selection in a glass shelf showcase. Describe preparation ingredients and ready-to-serve meze separately when planning container dimensions and staff workflow.',
+            ['Share serving-container sizes and variety count.', 'Mark preparation and serving products separately.', 'Compare each product group with the selected version operating requirements.'],
+            [['How should preparation and meze serving be planned together?', 'Define separate uses so containers, access direction and product operating requirements can be assessed together.'], ['Which containers fit on the shelves?', 'Share container heights and depths to check shelf spacing and serving access.']]),
+    },
+    12: {
+        TR: productCopy('Dikey tip meze dolabı: mezeleri raflar boyunca düzenleyin. Kap yüksekliği, görünürlük ve restoran servis alanı için model seçimini değerlendirin.',
+            'Meze Dolabı Dikey Tip, meze çeşitlerini üst üste raflarda sergileyen bir sunum seçeneğidir. Kap sayısını belirlerken müşterinin üst ve alt rafları görmesini ve personelin dolu kapları çıkarabilmesini birlikte değerlendirin.',
+            ['Meze kaplarının ölçülerini ve dolu ağırlıklarını bildirin.', 'Üst ve alt raflardaki ürün dağılımını planlayın.', 'Servis tarafındaki erişim ve kapı boşluğunu kontrol edin.'],
+            [['Dikey meze vitrini nasıl ölçülür?', 'Alan eni, derinliği ve yüksekliğine ek olarak kapların ölçülerini paylaşın.'], ['Kap sayısını sadece raf sayısından hesaplayabilir miyim?', 'Hayır; kullanılabilir raf alanı, kap ölçüsü ve servis boşluğu birlikte değerlendirilir.']]),
+        EN: productCopy('Vertical meze cabinet for arranging selections across shelves. Assess container heights, visibility and access within your restaurant service area.',
+            'The Vertical Meze Cabinet offers a stacked shelf arrangement for meze selections. When planning container quantities, consider customer views of upper and lower levels and staff access for removing filled dishes.',
+            ['Provide container dimensions and filled weights.', 'Plan product distribution between upper and lower shelves.', 'Check service-side access and opening clearance.'],
+            [['Which measurements are needed for a vertical meze display?', 'Share available width, depth and height, plus the dimensions of your serving containers.'], ['Can container quantity be calculated from shelf count alone?', 'No; usable shelf area, container size and serving clearance need to be assessed together.']]),
+    },
+    25: {
+        TR: productCopy('Meze teşhir dolabı: geniş raflı vitrinde çeşitleri gruplandırın. Menü dağılımı, servis kapları ve satış hattı yerleşimi için bilgi alın.',
+            'Meze Teşhir Dolabı, farklı meze çeşitlerini geniş bir raflı cephe boyunca gruplandırmak isteyen işletmeler için değerlendirilir. Kapların sıralanması, çeşit etiketlerinin görülebilmesi ve servis personelinin erişimi yerleşim kararında birlikte ele alınmalıdır.',
+            ['Meze çeşitlerini ve kullanılacak kapları listeleyin.', 'Çeşit etiketleri için görüş alanı bırakın.', 'Tepsi yenileme ve paketleme noktalarını belirleyin.'],
+            [['Çok sayıda meze çeşidi nasıl düzenlenir?', 'Çeşitleri servis sırasına göre gruplandırıp kap ölçüleriyle bir raf yerleşimi hazırlayın.'], ['Paket servis alanı vitrinle birlikte planlanmalı mı?', 'Evet; kaplara erişim, porsiyon hazırlama ve paketleme arasındaki çalışma yolunu belirleyin.']]),
+        EN: productCopy('Meze display cabinet with a broad shelf frontage. Organise menu varieties, serving containers and the layout of your service line.',
+            'The Meze Display Cabinet can be assessed for grouping selections across a broad shelf frontage. Consider container rows, label visibility and staff reach together when planning the display.',
+            ['List meze varieties and serving containers.', 'Leave clear views of product labels.', 'Identify replenishment and takeaway packing positions.'],
+            [['How can many meze varieties be organised?', 'Group varieties by serving sequence and prepare a shelf layout using container dimensions.'], ['Should takeaway packing be planned with the display?', 'Yes; identify the working route between reaching containers, preparing portions and packing orders.']]),
+    },
+    26: {
+        TR: productCopy('Kebap teşhir dolabı: raflı cam vitrinde restoran sunumu. Kullanım amacını, servis kaplarını ve çalışma alanını belirleyerek teklif alın.',
+            'Kebap Teşhir Dolabı, restoranın satış veya servis alanında raflı cam vitrin kullanmak istediği uygulamalar için değerlendirilebilir. Sunulacak ürünün hazırlık malzemesi mi yoksa servis ürünü mü olduğunu belirtmek, versiyon seçimi için başlangıçtır.',
+            ['Sergilenecek ürünleri kullanım amacıyla birlikte belirtin.', 'Tepsi ve servis tabaklarının yüksekliklerini paylaşın.', 'Hazırlık tezgâhına olan çalışma yolunu planlayın.'],
+            [['Bu dolap pişirme ekipmanı mı?', 'Bu sayfa teşhir dolabını tanıtır; pişirme ekipmanı ve kapsamı ayrı değerlendirilir.'], ['Teklif için menü bilgisi gerekli mi?', 'Ürün türü ve servis biçimi, çalışma koşulları ile iç yerleşimin değerlendirilmesine yardımcı olur.']]),
+        EN: productCopy('Kebab display cabinet with a glass shelf showcase. Define the intended use, serving containers and restaurant working space before requesting a quote.',
+            'The Kebab Display Cabinet can be considered for a restaurant sales or serving area using a glass shelf display. State whether the display is for preparation ingredients or serving products as a starting point for version selection.',
+            ['Identify products and their intended use.', 'Share tray and serving-plate heights.', 'Plan the working route to preparation counters.'],
+            [['Is this cabinet cooking equipment?', 'This page presents a display cabinet; cooking equipment and its scope are assessed separately.'], ['Is menu information needed for a quotation?', 'Product types and serving methods help assess operating requirements and the internal layout.']]),
+    },
+};

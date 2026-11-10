@@ -7,7 +7,8 @@ import { products } from '../data/products';
 import { findProductByIdentifier, getProductImages, getProductPath } from '../seo/config';
 import { getProductThumbnailUrl } from '../lib/productImages';
 import { getCategoryPath, getProductCategory, getProductDisplayName, isCanonicalProduct } from '../data/catalog';
-import { ContactActions, ProductBuyerGuide, ProductIntroduction, RelatedProducts } from '../components/CatalogContent';
+import { ContactActions, RelatedProducts } from '../components/CatalogContent';
+import { ProductBuyerGuide, ProductIntroduction } from '../components/ProductEditorialContent';
 
 type TabKey = 'about' | 'drawings' | 'catalog' | 'options';
 

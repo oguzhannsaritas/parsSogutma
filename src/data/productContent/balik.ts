@@ -1,0 +1,43 @@
+import { productCopy, type ProductContentMap } from '../productContentTypes';
+export const fishProductContent: ProductContentMap = {
+    7: {
+        TR: productCopy('Cam siperlikli balık mostra dolabı: deniz ürünleri için açık teşhir alanı. Siperlik, servis erişimi ve temizlik yerleşimini değerlendirin.',
+            'Cam Siperlikli Balık Mostra Dolabı, deniz ürünlerini siperlik arkasında yatay düzende sunmak isteyen işletmeler için bir seçenektir. Müşteri cephesiyle personelin servis tarafını ayırarak ürün dizilimini ve tezgâha erişimi planlayın.',
+            ['Balık çeşitlerini ve sunum düzenini tarif edin.', 'Siperlik önündeki müşteri geçişini ölçün.', 'Temizlik erişimi ve tesisat ihtiyacını teklif kapsamında görüşün.'],
+            [['Cam siperlik dolabı tamamen kapatır mı?', 'Siperlik ile tam kapak farklı uygulamalardır; açıklıkların konumunu seçilen çizimde kontrol edin.'], ['Buzlu sunum ihtiyacımı belirtmeli miyim?', 'Evet; sunum yöntemini paylaşarak zemin, tahliye ve donanım uygunluğunu ayrıca değerlendirin.']]),
+        EN: productCopy('Glass-guard fish display cabinet for a horizontal seafood presentation. Assess the guard, staff access and cleaning arrangements.',
+            'The Glass-Guard Fish Display Cabinet is an option for horizontal seafood presentation behind a glass guard. Plan product positions and counter access with separate customer-facing and staff-serving sides.',
+            ['Describe fish varieties and the presentation method.', 'Measure customer passage in front of the guard.', 'Discuss cleaning access and installation requirements in the quote.'],
+            [['Does a glass guard fully enclose the cabinet?', 'A guard and a full cover are different arrangements; check opening positions on the selected drawing.'], ['Should I specify presentation on ice?', 'Yes; share the method so base, drainage and equipment suitability can be assessed separately.']]),
+    },
+    9: {
+        TR: productCopy('Soğutmalı balık dolabı: camlı vitrinde deniz ürünü sunumu. Teşhir zemini, servis akışı ve seçilen soğutma düzeni için bilgi alın.',
+            'Soğutmalı Balık Dolabı, balık çeşitlerini camlı bir tezgâhta sunmak için değerlendirilebilir. Teşhir yöntemini, ürün yenileme sıklığını ve servis yönünü tarif ederek seçilecek soğutma versiyonunun uygulama kapsamını netleştirin.',
+            ['Sunulacak deniz ürünlerini ve teşhir yöntemini paylaşın.', 'Personelin ürün yenileme yolunu belirleyin.', 'Soğutma ve tahliye bağlantılarını yerleşim planında görüşün.'],
+            [['Çalışma koşulları ürün seçimini etkiler mi?', 'Ürün türü, sunum biçimi ve ortam koşulları seçilen soğutma uygulaması için birlikte değerlendirilir.'], ['Tesisat için ne hazırlamalıyım?', 'Mevcut elektrik ve varsa su/tahliye noktalarını gösterin; bağlantılar teklif kapsamında netleştirilir.']]),
+        EN: productCopy('Refrigerated fish cabinet for seafood behind glass. Discuss the display base, serving workflow and the selected refrigeration arrangement.',
+            'The Refrigerated Fish Cabinet can be assessed for presenting fish selections in a glass counter. Describe the presentation method, replenishment routine and service direction to clarify the scope of the chosen refrigeration version.',
+            ['Share seafood types and presentation methods.', 'Identify the staff replenishment route.', 'Discuss refrigeration and drainage connections on the layout.'],
+            [['Do operating conditions affect cabinet selection?', 'Product type, presentation method and ambient conditions are assessed together for the selected refrigeration application.'], ['What installation information is needed?', 'Show electricity and any water or drainage points so required connections can be confirmed in the quotation.']]),
+    },
+    11: {
+        TR: productCopy('Kapaklı balık mostra dolabı: yatay deniz ürünü vitrini. Kapak açılımını, tezgâh erişimini ve ürün yerleşimini planlayarak teklif alın.',
+            'Kapaklı Balık Mostra Dolabı, kapaklı bir yatay teşhir düzeni isteyen balık satış noktaları için değerlendirilir. Ürünlerin yerleşeceği taban alanını ve servis sırasında kapağın ihtiyaç duyduğu açılma boşluğunu birlikte ele alın.',
+            ['Teşhir alanına yerleşecek ürünleri belirleyin.', 'Kapak açılımı için üst ve çevre boşluğunu kontrol edin.', 'Zemin erişimini ve temizlik düzenini seçilen model için görüşün.'],
+            [['Kapak açıkken ne kadar boşluk gerekir?', 'Gerekli boşluk kapak mekanizmasına ve model ölçüsüne bağlıdır; çizim üzerinden teyit edilmelidir.'], ['Kapak tipi kullanım sırasında fark yaratır mı?', 'Açılma yönü ve erişim biçimi servis düzenini etkiler; personelin çalışma tarafını talebinizde gösterin.']]),
+        EN: productCopy('Covered fish display cabinet for a horizontal seafood counter. Plan lid clearance, serving access and product arrangement.',
+            'The Covered Fish Display Cabinet can be considered by fish retailers seeking a covered horizontal presentation. Assess the usable base area together with the opening clearance needed during service.',
+            ['Identify products occupying the display base.', 'Check overhead and surrounding lid clearance.', 'Discuss base access and cleaning arrangements for the model.'],
+            [['How much room does the open lid need?', 'Clearance depends on the lid mechanism and model dimensions and must be confirmed against its drawing.'], ['Does lid type affect service layout?', 'Opening direction and access affect serving routines; show the staff working side in the quotation request.']]),
+    },
+    24: {
+        TR: productCopy('Balık teşhir dolabı: balıkçı ve marketler için yatay vitrin seçeneği. Ürün dağılımı, müşteri görünürlüğü ve kurulum alanını değerlendirin.',
+            'Balık Teşhir Dolabı, balıkçı veya market içinde deniz ürünlerine ayrılan sunum noktasını planlamak için değerlendirilebilir. Müşterinin seçim yaptığı yönü ve personelin tezgâha yaklaşımını belirleyerek teşhir alanını satış akışına yerleştirin.',
+            ['Satış noktasının en ve derinliğini ölçün.', 'Deniz ürünlerini teşhir alanına göre gruplandırın.', 'Kurulum yeri ile gerekli bağlantıların kapsamını teyit edin.'],
+            [['Balık dolabı mağazada nereye konumlandırılmalı?', 'Müşteri görüşünü, personel erişimini ve tesisat noktalarını aynı plan üzerinde değerlendirin.'], ['Fotoğraftaki hareketli görünüm taşıma için yeterli bilgi mi?', 'Hayır; hareket ve sabitleme donanımı ile taşıma sınırları seçilen modele göre ayrıca doğrulanmalıdır.']]),
+        EN: productCopy('Fish display cabinet for fish shops and market seafood sections. Assess product grouping, customer visibility and the installation area.',
+            'The Fish Display Cabinet can be considered for a seafood presentation point in a fish shop or market. Define customer viewing direction and staff approach so the display fits the sales workflow.',
+            ['Measure the sales point width and depth.', 'Group seafood selections across the display area.', 'Confirm installation location and required connections.'],
+            [['Where should the fish display sit in the shop?', 'Assess customer views, staff access and connection points together on one layout.'], ['Does a mobile appearance establish how it can be moved?', 'No; movement fittings, stabilisation and transport limits must be confirmed for the selected model.']]),
+    },
+};

@@ -1,6 +1,6 @@
 import { slugify } from '../lib/slugify';
 import type { Product } from '../data/products/types';
-import { getProductContent } from '../data/productContent';
+import { productMetadata } from '../data/productMetadata';
 import { getCanonicalProductId, getCategoryPath, getCategoryProducts, getFeaturedProduct, getProductDisplayName, type ProductCategory } from '../data/catalog';
 
 export const SITE_URL = 'https://parsogutma.com';
@@ -155,16 +155,9 @@ export function getProductMainImage(product: Product): string {
         ?? getProductImages(product)[0];
 }
 
-const productDescriptions: Record<number, Record<SeoLanguage, string>> = {
-    92: {
-        TR: 'Soğuk odalar için split, merkezi, monoblok ve bireysel soğutma sistemi seçeneklerini inceleyin. Projenizin çalışma koşulları için bilgi ve teklif alın.',
-        EN: 'Explore split, central, monoblock and individual refrigeration options for cold rooms. Discuss the operating requirements of your project and request a quote.',
-    },
-};
-
 export function getProductDescription(product: Product, language: SeoLanguage): string {
     const id = getCanonicalProductId(product.id);
-    const custom = getProductContent(id, language)?.description ?? productDescriptions[id]?.[language];
+    const custom = productMetadata[id]?.[language];
     if (custom) return truncateDescription(custom);
     const name = getProductDisplayName(product, language);
     const dimensions = product.specs.modules.trim();
