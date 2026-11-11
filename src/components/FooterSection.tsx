@@ -117,7 +117,7 @@ export default function FooterSection() {
                                     alt="PARS SOĞUTMA"
                                     className="h-12 object-contain invert hue-rotate-180 transition-all duration-300"
                                     width={250}
-                                    height={450}
+                                    height={45}
                                     loading="lazy"
                                     decoding="async"
                                 />

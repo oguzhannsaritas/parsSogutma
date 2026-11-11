@@ -1,3 +1,4 @@
+import { getResponsiveImageProps, HOME_IMAGE_SIZES } from '../lib/responsiveImages';
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowLeftRight, Fan, RefreshCw, Layers, Leaf, Lightbulb } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
@@ -66,15 +67,12 @@ export default function SustainabilitySection() {
 
                     <div className="relative md:h-full w-full overflow-hidden rounded-lg shadow-lg">
                         <img
-                            src={"/images/home/sustanion.webp"}
-                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            {...getResponsiveImageProps("/images/home/sustanion.webp", HOME_IMAGE_SIZES)}
                             alt="Pars Soğutma enerji verimli ve çevreci soğutma teknolojileri"
                             className="object-cover w-full h-full"
                             loading="lazy"
                             decoding="async"
                             fetchPriority="low"
-                            width={1000}
-                            height={700}
                         />
                     </div>
                 </div>

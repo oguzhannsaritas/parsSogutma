@@ -1,5 +1,5 @@
 import { slugify } from '../lib/slugify';
-import type { Product } from '../data/products/types';
+import type { ProductSummary } from '../data/products/types';
 import { productMetadata } from '../data/productMetadata';
 import { getCanonicalProductId, getCategoryPath, getCategoryProducts, getFeaturedProduct, getProductDisplayName, type ProductCategory } from '../data/catalog';
 
@@ -109,21 +109,21 @@ export function absoluteUrl(path: string): string {
     return `${SITE_URL}${normalizeAssetPath(path)}`;
 }
 
-export function getProductTemperature(product: Product, language: SeoLanguage): string {
+export function getProductTemperature(product: ProductSummary, language: SeoLanguage): string {
     return product.specs.temperatureNote?.[language] ?? product.specs.temp;
 }
 
-export function getProductSlug(product: Product): string {
+export function getProductSlug(product: ProductSummary): string {
     return `${slugify(product.name.TR)}-${product.id}`;
 }
 
-export function getProductPath(product: Product): string {
+export function getProductPath(product: ProductSummary): string {
     return `/products/${getCanonicalProductId(product.id)}`;
 }
 
-export function findProductByIdentifier(products: Product[], identifier?: string): Product | undefined {
+export function findProductByIdentifier<T extends ProductSummary>(products: T[], identifier?: string): T | undefined {
     if (!identifier) return undefined;
-    const resolve = (product?: Product) => product
+    const resolve = (product?: T) => product
         ? products.find(item => item.id === getCanonicalProductId(product.id)) ?? product
         : undefined;
     const exact = products.find((product) => getProductSlug(product) === identifier);
@@ -140,7 +140,7 @@ export function findProductByIdentifier(products: Product[], identifier?: string
     return idMatch ? resolve(products.find((product) => product.id === Number(idMatch[1]))) : undefined;
 }
 
-export function getProductImages(product: Product): string[] {
+export function getProductImages(product: ProductSummary): string[] {
     return Array.from(
         new Set(
             [product.image, ...(product.thumbnails ?? []), ...(product.drawingImage ?? [])]
@@ -150,12 +150,12 @@ export function getProductImages(product: Product): string[] {
     );
 }
 
-export function getProductMainImage(product: Product): string {
+export function getProductMainImage(product: ProductSummary): string {
     return getProductImages(product).find(image => !(product.drawingImage ?? []).map(normalizeAssetPath).includes(image))
         ?? getProductImages(product)[0];
 }
 
-export function getProductDescription(product: Product, language: SeoLanguage): string {
+export function getProductDescription(product: ProductSummary, language: SeoLanguage): string {
     const id = getCanonicalProductId(product.id);
     const custom = productMetadata[id]?.[language];
     if (custom) return truncateDescription(custom);
@@ -180,7 +180,7 @@ function truncateDescription(value: string, maxLength = 160): string {
     return `${shortened.slice(0, lastSpace > 120 ? lastSpace : maxLength - 1)}…`;
 }
 
-export function getProductSeo(product: Product, language: SeoLanguage): PageSeo {
+export function getProductSeo(product: ProductSummary, language: SeoLanguage): PageSeo {
     const suffix = language === 'TR' ? 'Pars Soğutma' : 'Pars Cooling';
     return {
         title: `${getProductDisplayName(product, language)} | ${suffix}`,
@@ -189,7 +189,7 @@ export function getProductSeo(product: Product, language: SeoLanguage): PageSeo 
     };
 }
 
-export function getCategorySeo(category: ProductCategory, products: Product[], language: SeoLanguage): PageSeo {
+export function getCategorySeo(category: ProductCategory, products: ProductSummary[], language: SeoLanguage): PageSeo {
     return {
         title: `${category.copy[language].name} | ${language === 'TR' ? SITE_NAME : 'Pars Cooling'}`,
         description: category.copy[language].description,
@@ -197,7 +197,7 @@ export function getCategorySeo(category: ProductCategory, products: Product[], l
     };
 }
 
-export function categoryPageJsonLd(category: ProductCategory, products: Product[], language: SeoLanguage) {
+export function categoryPageJsonLd(category: ProductCategory, products: ProductSummary[], language: SeoLanguage) {
     const pageUrl = `${SITE_URL}${getCategoryPath(category)}`;
     return {
         '@context': 'https://schema.org',
@@ -255,7 +255,7 @@ export function organizationJsonLd() {
     };
 }
 
-export function productPageJsonLd(product: Product, language: SeoLanguage) {
+export function productPageJsonLd(product: ProductSummary, language: SeoLanguage) {
     const path = getProductPath(product);
     const images = getProductImages(product).map(absoluteUrl);
     const pageUrl = `${SITE_URL}${path}`;

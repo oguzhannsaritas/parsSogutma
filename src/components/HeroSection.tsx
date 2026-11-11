@@ -1,3 +1,4 @@
+import { getResponsiveImageProps, HOME_IMAGE_SIZES } from '../lib/responsiveImages';
 import React, { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, Instagram, Youtube } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -58,7 +59,11 @@ export default function HeroSection() {
         const preload = (url: string) => {
             const img = new Image();
             img.decoding = 'async';
-            img.src = url;
+            const responsive = getResponsiveImageProps(url, HOME_IMAGE_SIZES);
+            img.fetchPriority = 'low';
+            if (responsive.srcSet) img.srcset = responsive.srcSet;
+            if (responsive.sizes) img.sizes = responsive.sizes;
+            img.src = responsive.src;
         };
 
         const nextIndex = (currentSlide + 1) % slides.length;
@@ -591,7 +596,7 @@ export default function HeroSection() {
                                 <motion.img
                                     animate={slides[currentSlide].isSocial ? { y: [0, -15, 0] } : { y: 0 }}
                                     transition={slides[currentSlide].isSocial ? { duration: 4, repeat: Infinity, ease: 'easeInOut' } : {}}
-                                    src={slides[currentSlide].image}
+                                    {...(slides[currentSlide].isSocial ? { src: slides[currentSlide].image, width: 600, height: 107 } : getResponsiveImageProps(slides[currentSlide].image, HOME_IMAGE_SIZES))}
                                     alt={slides[currentSlide].title}
                                     className={`object-contain w-full h-full drop-shadow-2xl select-none relative z-10 ${
                                         slides[currentSlide].isSocial

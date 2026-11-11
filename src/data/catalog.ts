@@ -1,4 +1,4 @@
-import type { Product, TranslatedString } from './products/types';
+import type { ProductSummary, TranslatedString } from './products/types';
 
 export type CatalogLanguage = keyof TranslatedString;
 export type CategoryId = 'pasta' | 'kasap' | 'meze' | 'sutluk' | 'balik' | 'reyon' | 'mutfak' | 'sogutma' | 'soguk-oda';
@@ -346,7 +346,7 @@ export function getCanonicalProductId(id: number): number {
     return productCanonicalIds[id] ?? id;
 }
 
-export function isCanonicalProduct(product: Product): boolean {
+export function isCanonicalProduct(product: ProductSummary): boolean {
     return getCanonicalProductId(product.id) === product.id;
 }
 
@@ -360,7 +360,7 @@ const displayNames: Record<number, TranslatedString> = {
     92: { TR: 'Soğuk Oda Soğutma Sistemleri', EN: 'Cold Room Refrigeration Systems' },
 };
 
-export function getProductDisplayName(product: Product, language: CatalogLanguage): string {
+export function getProductDisplayName(product: ProductSummary, language: CatalogLanguage): string {
     return displayNames[getCanonicalProductId(product.id)]?.[language] ?? product.name[language];
 }
 
@@ -372,7 +372,7 @@ export function findCategory(slug?: string): ProductCategory | undefined {
     return productCategories.find(category => category.slug === slug);
 }
 
-export function getProductCategory(product: Product): ProductCategory {
+export function getProductCategory(product: ProductSummary): ProductCategory {
     const name = product.name.TR.toLocaleLowerCase('tr-TR');
     let id: CategoryId;
     if (product.category.TR === 'Soğuk Hava Depoları') id = 'soguk-oda';
@@ -387,11 +387,11 @@ export function getProductCategory(product: Product): ProductCategory {
     return productCategories.find(category => category.id === id)!;
 }
 
-export function getCategoryProducts(category: ProductCategory, products: Product[]): Product[] {
+export function getCategoryProducts<T extends ProductSummary>(category: ProductCategory, products: T[]): T[] {
     return products.filter(product => isCanonicalProduct(product) && getProductCategory(product).id === category.id);
 }
 
-export function getFeaturedProduct(category: ProductCategory, products: Product[]): Product {
+export function getFeaturedProduct<T extends ProductSummary>(category: ProductCategory, products: T[]): T {
     return getCategoryProducts(category, products).find(product => product.id === category.featuredProductId)
         ?? getCategoryProducts(category, products)[0];
 }

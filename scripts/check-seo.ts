@@ -88,8 +88,8 @@ for (const language of ['TR', 'EN'] as const) {
         assert(text.description.length <= 160, `Authored description should not need truncation: ${product.id} ${language}`);
         assert.equal(getProductDescription(product, language), text.description, `Generated metadata is stale: ${product.id} ${language}`);
         const rendered = renderToStaticMarkup(createElement(MemoryRouter, null,
-            createElement(ProductIntroduction, { product, language }),
-            createElement(ProductBuyerGuide, { product, language })));
+            createElement(ProductIntroduction, { product, language, content: text }),
+            createElement(ProductBuyerGuide, { product, language, content: text })));
         const html = language === 'TR' ? await readPage(getProductPath(product)) : rendered;
         for (const output of [rendered, html]) {
             assert.equal(output.split(escapedText(text.introduction)).length - 1, 1, `Product lead repeated or missing: ${product.id} ${language}`);

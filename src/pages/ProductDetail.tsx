@@ -1,14 +1,17 @@
+import { getResponsiveImageProps, PRODUCT_IMAGE_SIZES } from '../lib/responsiveImages';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
 import { ChevronRight, ChevronLeft, LayoutGrid, Maximize2, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { motion, AnimatePresence } from 'motion/react';
-import { products } from '../data/products';
+import { products } from '../data/productSummaries';
 import { findProductByIdentifier, getProductImages, getProductPath } from '../seo/config';
 import { getProductThumbnailUrl } from '../lib/productImages';
 import { getCategoryPath, getProductCategory, getProductDisplayName, isCanonicalProduct } from '../data/catalog';
 import { ContactActions, RelatedProducts } from '../components/CatalogContent';
 import { ProductBuyerGuide, ProductIntroduction } from '../components/ProductEditorialContent';
+import { loadProductPageData, type ProductPageData } from '../lib/productData';
+import PageLoader from '../components/PageLoader';
 
 type TabKey = 'about' | 'drawings' | 'catalog' | 'options';
 
@@ -139,12 +142,58 @@ function HorizontalScroller({
 
 export default function ProductDetail() {
     const { id, slug, legacySlug } = useParams();
+    const { t, language } = useLanguage();
+    const navigate = useNavigate();
+    const foundProduct = findProductByIdentifier(products, slug ?? legacySlug ?? id);
+    const modelId = foundProduct?.id;
+    const [result, setResult] = useState<{ id: number; data?: ProductPageData; failed?: boolean }>();
+    const [attempt, setAttempt] = useState(0);
+    useEffect(() => {
+        if (!modelId) return;
+        let cancelled = false;
+        loadProductPageData(modelId).then(data => {
+            if (!cancelled) setResult({ id: modelId, data });
+        }).catch(() => {
+            if (!cancelled) setResult({ id: modelId, failed: true });
+        });
+        return () => { cancelled = true; };
+    }, [modelId, attempt]);
+    if (!foundProduct) {
+        return (
+            <div className="min-h-screen pt-32 text-center">
+                <h1 className="text-2xl font-bold dark:text-white">{t('product.notFoundButton')}</h1>
+                <button
+                    aria-label="Back to Product"
+                    onClick={() => navigate('/products')}
+                    className="mt-4 text-[#009FE3] hover:underline"
+                    type="button"
+                >
+                    {t('product.notFound')}
+                </button>
+            </div>
+        );
+    }
+
+    if (result?.id === modelId && result.failed) return (
+        <div className="min-h-screen pt-32 text-center dark:text-white" role="alert">
+            <h1 className="text-2xl font-bold">{language === 'TR' ? 'Ürün bilgileri yüklenemedi' : 'Unable to load product information'}</h1>
+            <button className="mt-4 text-[#0083bb] hover:underline" type="button" onClick={() => { setResult(undefined); setAttempt(value => value + 1); }}>
+                {language === 'TR' ? 'Tekrar deneyin' : 'Try again'}
+            </button>
+        </div>
+    );
+    if (result?.id !== modelId || !result.data) return <PageLoader />;
+    return <ProductDetailView key={modelId} page={result.data} />;
+}
+
+function ProductDetailView({ page }: { page: ProductPageData }) {
+    const { id, slug, legacySlug } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
     const { t, language } = useLanguage();
     const identifier = slug ?? legacySlug ?? id;
     const foundProduct = findProductByIdentifier(products, identifier);
-    const product = foundProduct ?? products[0];
+    const product = page.product;
     const category = getProductCategory(product);
     const displayName = getProductDisplayName(product, language);
     const [activeTab, setActiveTab] = useState<TabKey>('about');
@@ -229,8 +278,9 @@ export default function ProductDetail() {
     useIsomorphicLayoutEffect(() => {
         if (typeof document === 'undefined') return;
 
-        const href = thumbnails[0];
-        if (!href) return;
+        if (!thumbnails[0]) return;
+        const responsive = getResponsiveImageProps(thumbnails[0], PRODUCT_IMAGE_SIZES);
+        const href = responsive.src;
 
         const selector = `link[data-lcp-preload="product-detail-main"][href="${href}"]`;
         const existing = document.head.querySelector(selector);
@@ -240,6 +290,8 @@ export default function ProductDetail() {
         link.setAttribute('rel', 'preload');
         link.setAttribute('as', 'image');
         link.setAttribute('href', href);
+        if (responsive.srcSet) link.setAttribute('imagesrcset', responsive.srcSet);
+        if (responsive.sizes) link.setAttribute('imagesizes', responsive.sizes);
         link.setAttribute('fetchpriority', 'high');
         link.setAttribute('data-lcp-preload', 'product-detail-main');
         document.head.appendChild(link);
@@ -253,7 +305,7 @@ export default function ProductDetail() {
         };
     }, [identifier, thumbnails]);
 
-    const productIndex = canonicalProducts.indexOf(product);
+    const productIndex = canonicalProducts.findIndex(item => item.id === product.id);
     const previousProduct = canonicalProducts[Math.max(0, productIndex - 1)];
     const nextProduct = canonicalProducts[Math.min(canonicalProducts.length - 1, productIndex + 1)];
 
@@ -281,21 +333,6 @@ export default function ProductDetail() {
         return () => window.removeEventListener('keydown', onKeyDown);
     }, [lightbox]);
 
-    if (!foundProduct) {
-        return (
-            <div className="min-h-screen pt-32 text-center">
-                <h1 className="text-2xl font-bold dark:text-white">{t('product.notFoundButton')}</h1>
-                <button
-                    aria-label="Back to Product"
-                    onClick={() => navigate('/products')}
-                    className="mt-4 text-[#009FE3] hover:underline"
-                    type="button"
-                >
-                    {t('product.notFound')}
-                </button>
-            </div>
-        );
-    }
 
     return (
         <div className="bg-white dark:bg-[#111827] min-h-screen pt-24 pb-16 transition-colors duration-300">
@@ -355,11 +392,9 @@ export default function ProductDetail() {
                     <div className="space-y-6">
                         <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-gray-200/70 dark:border-neutral-700/70 bg-gradient-to-br from-gray-50 to-white dark:from-neutral-900 dark:to-neutral-800 shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
                             <img
-                                src={thumbnails[selectedImage]}
+                                width={1200} height={900} {...getResponsiveImageProps(thumbnails[selectedImage], PRODUCT_IMAGE_SIZES)}
                                 alt={`${displayName} - ${category.copy[language].name} | Pars Soğutma`}
                                 className="w-full h-full object-contain bg-white"
-                                width={1200}
-                                height={900}
                                 loading="eager"
                                 decoding="async"
                                 fetchPriority="high"
@@ -451,7 +486,7 @@ export default function ProductDetail() {
                         <div className="mb-12 min-h-[300px]">
                             {activeTab === 'about' && (
                                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
-                                    <ProductIntroduction product={product} language={language} />
+                                    <ProductIntroduction product={product} language={language} content={page.content[language]} />
                                     <div className="border border-gray-200 dark:border-neutral-700 rounded-2xl overflow-hidden bg-white dark:bg-transparent">
                                         <div className="bg-gray-50 dark:text-black px-6 py-3 border-b border-gray-200 dark:border-neutral-700 text-xs md:text-sm font-bold text-gray-700 ">
                                             {t('product.table.modules')}
@@ -493,7 +528,7 @@ export default function ProductDetail() {
                                         </div>
                                     </div>
                                     <div className="mt-5"><ContactActions subject={displayName} language={language} /></div>
-                                    <ProductBuyerGuide product={product} language={language} />
+                                    <ProductBuyerGuide product={product} language={language} content={page.content[language]} />
                                 </motion.div>
                             )}
 

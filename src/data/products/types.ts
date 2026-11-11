@@ -29,3 +29,8 @@ export interface Product {
         technicalSpecification: TranslatedString[];
     };
 }
+
+/** Fields needed by listings, navigation and SEO; model details load on demand. */
+export type ProductSummary = Omit<Product, 'specs'> & {
+    specs: Pick<Product['specs'], 'modules' | 'sidePanel' | 'temp' | 'temperatureNote'>;
+};
