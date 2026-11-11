@@ -4,62 +4,539 @@
     "phase": "before",
     "run": 1,
     "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com/37mfz2bt5y?form_factor=mobile",
-    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n67\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n67\nFCP\n+10\nLCP\n+4\nTBT\n+21\nCLS\n+25\nSI\n+7\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n5,9 sn.\nTotal Blocking Time\n370 ms.\nCumulative Layout Shift\n0.008\nSpeed Index\n4,5 sn.\nCaptured at 11 Kas 2026 11:03 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n"
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n67\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n67\nFCP\n+10\nLCP\n+4\nTBT\n+21\nCLS\n+25\nSI\n+7\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n5,9 sn.\nTotal Blocking Time\n370 ms.\nCumulative Layout Shift\n0.008\nSpeed Index\n4,5 sn.\nCaptured at 11 Kas 2026 11:03 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "1acbad495fec6dfa4d0ed86d6ae6962c53a18754",
+    "metrics": {
+      "score": 67,
+      "fcp": 0.9,
+      "lcp": 5.9,
+      "tbt": 370.0,
+      "cls": 0.008,
+      "si": 4.5,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 11:03 GMT+3"
   },
   {
     "page": "group",
     "phase": "before",
     "run": 1,
     "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com-urunler-pasta-cikolata-dolaplari/bzyijbuco7?form_factor=mobile",
-    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n73\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n73\nFCP\n+10\nLCP\n+6\nTBT\n+22\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n5,3 sn.\nTotal Blocking Time\n340 ms.\nCumulative Layout Shift\n0\nSpeed Index\n2,4 sn.\nCaptured at 11 Kas 2026 11:04 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n"
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n73\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n73\nFCP\n+10\nLCP\n+6\nTBT\n+22\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n5,3 sn.\nTotal Blocking Time\n340 ms.\nCumulative Layout Shift\n0\nSpeed Index\n2,4 sn.\nCaptured at 11 Kas 2026 11:04 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "1acbad495fec6dfa4d0ed86d6ae6962c53a18754",
+    "metrics": {
+      "score": 73,
+      "fcp": 0.9,
+      "lcp": 5.3,
+      "tbt": 340.0,
+      "cls": 0.0,
+      "si": 2.4,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 11:04 GMT+3"
   },
   {
     "page": "product",
     "phase": "before",
     "run": 1,
     "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com-products-14/77cdtukyma?form_factor=mobile",
-    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n77\nPerformans\n96\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n77\nFCP\n+10\nLCP\n+3\nTBT\n+30\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n6,2 sn.\nTotal Blocking Time\n90 ms.\nCumulative Layout Shift\n0\nSpeed Index\n2,5 sn.\nCaptured at 11 Kas 2026 11:05 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n"
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n77\nPerformans\n96\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n77\nFCP\n+10\nLCP\n+3\nTBT\n+30\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n6,2 sn.\nTotal Blocking Time\n90 ms.\nCumulative Layout Shift\n0\nSpeed Index\n2,5 sn.\nCaptured at 11 Kas 2026 11:05 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "1acbad495fec6dfa4d0ed86d6ae6962c53a18754",
+    "metrics": {
+      "score": 77,
+      "fcp": 0.9,
+      "lcp": 6.2,
+      "tbt": 90.0,
+      "cls": 0.0,
+      "si": 2.5,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 11:05 GMT+3"
   },
   {
     "page": "home",
     "phase": "before",
     "run": 2,
     "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com/pinjy7z5zf?form_factor=mobile",
-    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n77\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n77\nFCP\n+10\nLCP\n+4\nTBT\n+29\nCLS\n+25\nSI\n+9\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n5,9 sn.\nTotal Blocking Time\n100 ms.\nCumulative Layout Shift\n0\nSpeed Index\n3,2 sn.\nCaptured at 11 Kas 2026 11:06 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n"
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n77\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n77\nFCP\n+10\nLCP\n+4\nTBT\n+29\nCLS\n+25\nSI\n+9\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n5,9 sn.\nTotal Blocking Time\n100 ms.\nCumulative Layout Shift\n0\nSpeed Index\n3,2 sn.\nCaptured at 11 Kas 2026 11:06 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "1acbad495fec6dfa4d0ed86d6ae6962c53a18754",
+    "metrics": {
+      "score": 77,
+      "fcp": 0.9,
+      "lcp": 5.9,
+      "tbt": 100.0,
+      "cls": 0.0,
+      "si": 3.2,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 11:06 GMT+3"
   },
   {
     "page": "group",
     "phase": "before",
     "run": 2,
     "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com-urunler-pasta-cikolata-dolaplari/x67ri93qiw?form_factor=mobile",
-    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n78\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n78\nFCP\n+10\nLCP\n+3\nTBT\n+30\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n6,2 sn.\nTotal Blocking Time\n60 ms.\nCumulative Layout Shift\n0\nSpeed Index\n2,4 sn.\nCaptured at 11 Kas 2026 11:06 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n"
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n78\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n78\nFCP\n+10\nLCP\n+3\nTBT\n+30\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n6,2 sn.\nTotal Blocking Time\n60 ms.\nCumulative Layout Shift\n0\nSpeed Index\n2,4 sn.\nCaptured at 11 Kas 2026 11:06 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "1acbad495fec6dfa4d0ed86d6ae6962c53a18754",
+    "metrics": {
+      "score": 78,
+      "fcp": 0.9,
+      "lcp": 6.2,
+      "tbt": 60.0,
+      "cls": 0.0,
+      "si": 2.4,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 11:06 GMT+3"
   },
   {
     "page": "product",
     "phase": "before",
     "run": 2,
     "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com-products-14/jzwe7ypgp3?form_factor=mobile",
-    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n77\nPerformans\n96\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n77\nFCP\n+10\nLCP\n+2\nTBT\n+30\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n6,5 sn.\nTotal Blocking Time\n90 ms.\nCumulative Layout Shift\n0\nSpeed Index\n2,5 sn.\nCaptured at 11 Kas 2026 11:06 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n"
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n77\nPerformans\n96\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n77\nFCP\n+10\nLCP\n+2\nTBT\n+30\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n6,5 sn.\nTotal Blocking Time\n90 ms.\nCumulative Layout Shift\n0\nSpeed Index\n2,5 sn.\nCaptured at 11 Kas 2026 11:06 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "1acbad495fec6dfa4d0ed86d6ae6962c53a18754",
+    "metrics": {
+      "score": 77,
+      "fcp": 0.9,
+      "lcp": 6.5,
+      "tbt": 90.0,
+      "cls": 0.0,
+      "si": 2.5,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 11:06 GMT+3"
   },
   {
     "page": "home",
     "phase": "before",
     "run": 3,
     "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com/urmqit3rtq?form_factor=mobile",
-    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n72\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n72\nFCP\n+10\nLCP\n+3\nTBT\n+24\nCLS\n+25\nSI\n+9\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n6,1 sn.\nTotal Blocking Time\n270 ms.\nCumulative Layout Shift\n0\nSpeed Index\n3,0 sn.\nCaptured at 11 Kas 2026 11:11 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n"
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n72\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n72\nFCP\n+10\nLCP\n+3\nTBT\n+24\nCLS\n+25\nSI\n+9\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n6,1 sn.\nTotal Blocking Time\n270 ms.\nCumulative Layout Shift\n0\nSpeed Index\n3,0 sn.\nCaptured at 11 Kas 2026 11:11 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "1acbad495fec6dfa4d0ed86d6ae6962c53a18754",
+    "metrics": {
+      "score": 72,
+      "fcp": 0.9,
+      "lcp": 6.1,
+      "tbt": 270.0,
+      "cls": 0.0,
+      "si": 3.0,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 11:11 GMT+3"
   },
   {
     "page": "group",
     "phase": "before",
     "run": 3,
     "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com-urunler-pasta-cikolata-dolaplari/bbcsvw87nj?form_factor=mobile",
-    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n73\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n73\nFCP\n+10\nLCP\n+3\nTBT\n+25\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n6,0 sn.\nTotal Blocking Time\n260 ms.\nCumulative Layout Shift\n0\nSpeed Index\n2,4 sn.\nCaptured at 11 Kas 2026 11:11 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n"
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n73\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n73\nFCP\n+10\nLCP\n+3\nTBT\n+25\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n6,0 sn.\nTotal Blocking Time\n260 ms.\nCumulative Layout Shift\n0\nSpeed Index\n2,4 sn.\nCaptured at 11 Kas 2026 11:11 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "1acbad495fec6dfa4d0ed86d6ae6962c53a18754",
+    "metrics": {
+      "score": 73,
+      "fcp": 0.9,
+      "lcp": 6.0,
+      "tbt": 260.0,
+      "cls": 0.0,
+      "si": 2.4,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 11:11 GMT+3"
   },
   {
     "page": "product",
     "phase": "before",
     "run": 3,
     "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com-products-14/yf6pk2nhi4?form_factor=mobile",
-    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n76\nPerformans\n96\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n76\nFCP\n+10\nLCP\n+3\nTBT\n+29\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n6,2 sn.\nTotal Blocking Time\n130 ms.\nCumulative Layout Shift\n0\nSpeed Index\n2,3 sn.\nCaptured at 11 Kas 2026 11:11 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n"
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n76\nPerformans\n96\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n76\nFCP\n+10\nLCP\n+3\nTBT\n+29\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n6,2 sn.\nTotal Blocking Time\n130 ms.\nCumulative Layout Shift\n0\nSpeed Index\n2,3 sn.\nCaptured at 11 Kas 2026 11:11 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "1acbad495fec6dfa4d0ed86d6ae6962c53a18754",
+    "metrics": {
+      "score": 76,
+      "fcp": 0.9,
+      "lcp": 6.2,
+      "tbt": 130.0,
+      "cls": 0.0,
+      "si": 2.3,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 11:11 GMT+3"
+  },
+  {
+    "page": "home",
+    "phase": "intermediate_ssr",
+    "run": 1,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com/pspk3wcly4?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n91\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n91\nFCP\n+10\nLCP\n+19\nTBT\n+28\nCLS\n+25\nSI\n+9\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n3,2 sn.\nTotal Blocking Time\n150 ms.\nCumulative Layout Shift\n0.011\nSpeed Index\n3,0 sn.\nCaptured at 11 Kas 2026 11:41 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "788fec9c6e09b3084584abcdab2593925f57304d",
+    "metrics": {
+      "score": 91,
+      "fcp": 0.9,
+      "lcp": 3.2,
+      "tbt": 150.0,
+      "cls": 0.011,
+      "si": 3.0,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 11:41 GMT+3"
+  },
+  {
+    "page": "group",
+    "phase": "intermediate_ssr",
+    "run": 1,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com-urunler-pasta-cikolata-dolaplari/ttl33h23jj?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n91\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n91\nFCP\n+10\nLCP\n+17\nTBT\n+29\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n3,3 sn.\nTotal Blocking Time\n120 ms.\nCumulative Layout Shift\n0.016\nSpeed Index\n1,3 sn.\nCaptured at 11 Kas 2026 11:41 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "788fec9c6e09b3084584abcdab2593925f57304d",
+    "metrics": {
+      "score": 91,
+      "fcp": 0.9,
+      "lcp": 3.3,
+      "tbt": 120.0,
+      "cls": 0.016,
+      "si": 1.3,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 11:41 GMT+3"
+  },
+  {
+    "page": "product",
+    "phase": "intermediate_ssr",
+    "run": 1,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com-products-14/lmkc0yf8np?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n84\nPerformans\n96\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n84\nFCP\n+10\nLCP\n+9\nTBT\n+30\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n4,5 sn.\nTotal Blocking Time\n30 ms.\nCumulative Layout Shift\n0\nSpeed Index\n1,7 sn.\nCaptured at 11 Kas 2026 11:41 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "788fec9c6e09b3084584abcdab2593925f57304d",
+    "metrics": {
+      "score": 84,
+      "fcp": 0.9,
+      "lcp": 4.5,
+      "tbt": 30.0,
+      "cls": 0.0,
+      "si": 1.7,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 11:41 GMT+3"
+  },
+  {
+    "page": "home",
+    "phase": "intermediate_image_fit",
+    "run": 1,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com/62xxwtcz9q?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n92\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n92\nFCP\n+10\nLCP\n+19\nTBT\n+30\nCLS\n+25\nSI\n+9\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n3,1 sn.\nTotal Blocking Time\n70 ms.\nCumulative Layout Shift\n0.011\nSpeed Index\n3,4 sn.\nCaptured at 11 Kas 2026 11:59 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "c4e89b838499d3b8f2c6af4706d071248c4025e0",
+    "metrics": {
+      "score": 92,
+      "fcp": 0.9,
+      "lcp": 3.1,
+      "tbt": 70.0,
+      "cls": 0.011,
+      "si": 3.4,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 11:59 GMT+3"
+  },
+  {
+    "page": "group",
+    "phase": "intermediate_image_fit",
+    "run": 1,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com-urunler-pasta-cikolata-dolaplari/5yj5ky3hdl?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n77\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n77\nFCP\n+10\nLCP\n+4\nTBT\n+28\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n5,7 sn.\nTotal Blocking Time\n150 ms.\nCumulative Layout Shift\n0.015\nSpeed Index\n2,5 sn.\nCaptured at 11 Kas 2026 11:59 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "c4e89b838499d3b8f2c6af4706d071248c4025e0",
+    "metrics": {
+      "score": 77,
+      "fcp": 0.9,
+      "lcp": 5.7,
+      "tbt": 150.0,
+      "cls": 0.015,
+      "si": 2.5,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 11:59 GMT+3"
+  },
+  {
+    "page": "product",
+    "phase": "intermediate_image_fit",
+    "run": 1,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com-products-14/lckoosk392?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n73\nPerformans\n96\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n73\nFCP\n+9\nLCP\n+4\nTBT\n+28\nCLS\n+25\nSI\n+7\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n1,8 sn.\nLargest Contentful Paint\n5,7 sn.\nTotal Blocking Time\n140 ms.\nCumulative Layout Shift\n0\nSpeed Index\n4,7 sn.\nCaptured at 11 Kas 2026 11:59 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "c4e89b838499d3b8f2c6af4706d071248c4025e0",
+    "metrics": {
+      "score": 73,
+      "fcp": 1.8,
+      "lcp": 5.7,
+      "tbt": 140.0,
+      "cls": 0.0,
+      "si": 4.7,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 11:59 GMT+3"
+  },
+  {
+    "page": "home",
+    "phase": "intermediate_image_fit",
+    "run": 2,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com/g9ne7tvr3u?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n76\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n76\nFCP\n+10\nLCP\n+3\nTBT\n+28\nCLS\n+25\nSI\n+9\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n6,0 sn.\nTotal Blocking Time\n160 ms.\nCumulative Layout Shift\n0.011\nSpeed Index\n3,0 sn.\nCaptured at 11 Kas 2026 12:04 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "c4e89b838499d3b8f2c6af4706d071248c4025e0",
+    "metrics": {
+      "score": 76,
+      "fcp": 0.9,
+      "lcp": 6.0,
+      "tbt": 160.0,
+      "cls": 0.011,
+      "si": 3.0,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 12:04 GMT+3"
+  },
+  {
+    "page": "group",
+    "phase": "intermediate_image_fit",
+    "run": 2,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com-urunler-pasta-cikolata-dolaplari/67fct7qu1h?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n94\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n94\nFCP\n+10\nLCP\n+23\nTBT\n+26\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n2,4 sn.\nTotal Blocking Time\n230 ms.\nCumulative Layout Shift\n0.016\nSpeed Index\n1,1 sn.\nCaptured at 11 Kas 2026 12:04 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "c4e89b838499d3b8f2c6af4706d071248c4025e0",
+    "metrics": {
+      "score": 94,
+      "fcp": 0.9,
+      "lcp": 2.4,
+      "tbt": 230.0,
+      "cls": 0.016,
+      "si": 1.1,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 12:04 GMT+3"
+  },
+  {
+    "page": "product",
+    "phase": "intermediate_image_fit",
+    "run": 2,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com-products-14/gm3imib2e9?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n97\nPerformans\n96\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n97\nFCP\n+10\nLCP\n+24\nTBT\n+28\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n2,0 sn.\nTotal Blocking Time\n160 ms.\nCumulative Layout Shift\n0\nSpeed Index\n1,1 sn.\nCaptured at 11 Kas 2026 12:04 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "c4e89b838499d3b8f2c6af4706d071248c4025e0",
+    "metrics": {
+      "score": 97,
+      "fcp": 0.9,
+      "lcp": 2.0,
+      "tbt": 160.0,
+      "cls": 0.0,
+      "si": 1.1,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 12:04 GMT+3"
+  },
+  {
+    "page": "home",
+    "phase": "intermediate_image_fit",
+    "run": 3,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com/3th3b80x9r?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n97\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n97\nFCP\n+10\nLCP\n+24\nTBT\n+28\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n2,0 sn.\nTotal Blocking Time\n180 ms.\nCumulative Layout Shift\n0.011\nSpeed Index\n1,8 sn.\nCaptured at 11 Kas 2026 12:08 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "c4e89b838499d3b8f2c6af4706d071248c4025e0",
+    "metrics": {
+      "score": 97,
+      "fcp": 0.9,
+      "lcp": 2.0,
+      "tbt": 180.0,
+      "cls": 0.011,
+      "si": 1.8,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 12:08 GMT+3"
+  },
+  {
+    "page": "group",
+    "phase": "intermediate_image_fit",
+    "run": 3,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com-urunler-pasta-cikolata-dolaplari/z91siqib2n?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n67\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n67\nFCP\n+9\nLCP\n+4\nTBT\n+22\nCLS\n+25\nSI\n+8\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n1,8 sn.\nLargest Contentful Paint\n5,9 sn.\nTotal Blocking Time\n350 ms.\nCumulative Layout Shift\n0\nSpeed Index\n4,1 sn.\nCaptured at 11 Kas 2026 12:08 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "c4e89b838499d3b8f2c6af4706d071248c4025e0",
+    "metrics": {
+      "score": 67,
+      "fcp": 1.8,
+      "lcp": 5.9,
+      "tbt": 350.0,
+      "cls": 0.0,
+      "si": 4.1,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 12:08 GMT+3"
+  },
+  {
+    "page": "product",
+    "phase": "intermediate_image_fit",
+    "run": 3,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com-products-14/1kqssz7iak?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n94\nPerformans\n96\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n94\nFCP\n+10\nLCP\n+24\nTBT\n+26\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n2,3 sn.\nTotal Blocking Time\n230 ms.\nCumulative Layout Shift\n0\nSpeed Index\n1,2 sn.\nCaptured at 11 Kas 2026 12:08 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "c4e89b838499d3b8f2c6af4706d071248c4025e0",
+    "metrics": {
+      "score": 94,
+      "fcp": 0.9,
+      "lcp": 2.3,
+      "tbt": 230.0,
+      "cls": 0.0,
+      "si": 1.2,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 12:08 GMT+3"
+  },
+  {
+    "page": "home",
+    "phase": "after",
+    "run": 1,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com/eq3myt8noi?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n97\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n97\nFCP\n+10\nLCP\n+25\nTBT\n+28\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n1,8 sn.\nTotal Blocking Time\n170 ms.\nCumulative Layout Shift\n0.011\nSpeed Index\n1,4 sn.\nCaptured at 11 Kas 2026 12:29 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "fdec78ffea38357564c21a4fff7262e4abfab119",
+    "metrics": {
+      "score": 97,
+      "fcp": 0.9,
+      "lcp": 1.8,
+      "tbt": 170.0,
+      "cls": 0.011,
+      "si": 1.4,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 12:29 GMT+3"
+  },
+  {
+    "page": "group",
+    "phase": "after",
+    "run": 1,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com-urunler-pasta-cikolata-dolaplari/r7si55zgtm?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n95\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n95\nFCP\n+10\nLCP\n+20\nTBT\n+30\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n3,0 sn.\nTotal Blocking Time\n50 ms.\nCumulative Layout Shift\n0.015\nSpeed Index\n1,3 sn.\nCaptured at 11 Kas 2026 12:29 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "fdec78ffea38357564c21a4fff7262e4abfab119",
+    "metrics": {
+      "score": 95,
+      "fcp": 0.9,
+      "lcp": 3.0,
+      "tbt": 50.0,
+      "cls": 0.015,
+      "si": 1.3,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 12:29 GMT+3"
+  },
+  {
+    "page": "product",
+    "phase": "after",
+    "run": 1,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com-products-14/tt70z5auer?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n74\nPerformans\n96\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n74\nFCP\n+9\nLCP\n+4\nTBT\n+29\nCLS\n+25\nSI\n+7\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n1,8 sn.\nLargest Contentful Paint\n5,7 sn.\nTotal Blocking Time\n120 ms.\nCumulative Layout Shift\n0\nSpeed Index\n4,7 sn.\nCaptured at 11 Kas 2026 12:29 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "fdec78ffea38357564c21a4fff7262e4abfab119",
+    "metrics": {
+      "score": 74,
+      "fcp": 1.8,
+      "lcp": 5.7,
+      "tbt": 120.0,
+      "cls": 0.0,
+      "si": 4.7,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 12:29 GMT+3"
+  },
+  {
+    "page": "home",
+    "phase": "after",
+    "run": 2,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com/zer1j18pod?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n93\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n93\nFCP\n+10\nLCP\n+19\nTBT\n+30\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n3,1 sn.\nTotal Blocking Time\n80 ms.\nCumulative Layout Shift\n0.011\nSpeed Index\n1,7 sn.\nCaptured at 11 Kas 2026 12:31 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "fdec78ffea38357564c21a4fff7262e4abfab119",
+    "metrics": {
+      "score": 93,
+      "fcp": 0.9,
+      "lcp": 3.1,
+      "tbt": 80.0,
+      "cls": 0.011,
+      "si": 1.7,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 12:31 GMT+3"
+  },
+  {
+    "page": "group",
+    "phase": "after",
+    "run": 2,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com-urunler-pasta-cikolata-dolaplari/b9twu47any?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n88\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n88\nFCP\n+10\nLCP\n+13\nTBT\n+30\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n3,9 sn.\nTotal Blocking Time\n70 ms.\nCumulative Layout Shift\n0.015\nSpeed Index\n1,1 sn.\nCaptured at 11 Kas 2026 12:31 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "fdec78ffea38357564c21a4fff7262e4abfab119",
+    "metrics": {
+      "score": 88,
+      "fcp": 0.9,
+      "lcp": 3.9,
+      "tbt": 70.0,
+      "cls": 0.015,
+      "si": 1.1,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 12:31 GMT+3"
+  },
+  {
+    "page": "product",
+    "phase": "after",
+    "run": 2,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com-products-14/h1hafpwdj8?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n92\nPerformans\n96\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n92\nFCP\n+10\nLCP\n+21\nTBT\n+26\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n2,7 sn.\nTotal Blocking Time\n210 ms.\nCumulative Layout Shift\n0.001\nSpeed Index\n1,3 sn.\nCaptured at 11 Kas 2026 12:31 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "fdec78ffea38357564c21a4fff7262e4abfab119",
+    "metrics": {
+      "score": 92,
+      "fcp": 0.9,
+      "lcp": 2.7,
+      "tbt": 210.0,
+      "cls": 0.001,
+      "si": 1.3,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 12:31 GMT+3"
+  },
+  {
+    "page": "home",
+    "phase": "after",
+    "run": 3,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com/q5uuril9yu?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n73\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n73\nFCP\n+10\nLCP\n+4\nTBT\n+24\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n5,8 sn.\nTotal Blocking Time\n270 ms.\nCumulative Layout Shift\n0.011\nSpeed Index\n2,9 sn.\nCaptured at 11 Kas 2026 12:33 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "fdec78ffea38357564c21a4fff7262e4abfab119",
+    "metrics": {
+      "score": 73,
+      "fcp": 0.9,
+      "lcp": 5.8,
+      "tbt": 270.0,
+      "cls": 0.011,
+      "si": 2.9,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 12:33 GMT+3"
+  },
+  {
+    "page": "group",
+    "phase": "after",
+    "run": 3,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com-urunler-pasta-cikolata-dolaplari/enoq5zval0?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n96\nPerformans\n95\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n96\nFCP\n+10\nLCP\n+21\nTBT\n+29\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n2,7 sn.\nTotal Blocking Time\n100 ms.\nCumulative Layout Shift\n0.015\nSpeed Index\n1,1 sn.\nCaptured at 11 Kas 2026 12:33 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "fdec78ffea38357564c21a4fff7262e4abfab119",
+    "metrics": {
+      "score": 96,
+      "fcp": 0.9,
+      "lcp": 2.7,
+      "tbt": 100.0,
+      "cls": 0.015,
+      "si": 1.1,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 12:33 GMT+3"
+  },
+  {
+    "page": "product",
+    "phase": "after",
+    "run": 3,
+    "url": "https://pagespeed.web.dev/analysis/https-parsogutma-com-products-14/pnlhb0826w?form_factor=mobile",
+    "text": "Gerçek kullanıcılarınızın nelerle karşılaştığını görün\nBu URL\nKaynak\nÖnemli Web Verileri Değerlendirmesi:\nBaşarısız Oldu\nGörünümü genişlet\nLargest Contentful Paint (LCP)\n2 sn.\nInteraction to Next Paint (INP)\n140 ms.\nCumulative Layout Shift (CLS)\n1\nDİKKATE DEĞER DİĞER METRİKLER\nFirst Contentful Paint (FCP)\n1,4 sn.\nTime to First Byte (TTFB)\n0,7 sn.\nSon 28 günlük dönem\n(\ngeçmiş\n)\nFarklı mobil cihazlar\nBirçok örnek (\nChrome Kullanıcı Deneyimi Raporu\n)\nTam ziyaret süreleri\nFarklı ağ bağlantıları\nTüm Chrome sürümleri\nPerformans sorunlarını teşhis edin\n98\nPerformans\n96\nErişilebilirlik\n100\nEn İyi Uygulamalar\n100\nSEO\n2/2\nAjan Tabanlı Tarama\n98\nFCP\n+10\nLCP\n+25\nTBT\n+28\nCLS\n+25\nSI\n+10\nPerformans\nDeğerler tahminidir ve değişiklik gösterebilir. Performance skorunun hesaplanması , doğrudan bu metriklerle yapılır.Hesap makinesini göster.\n0–49\n50–89\n90–100\nMETRİKLER\nGörünümü genişlet\nFirst Contentful Paint\n0,9 sn.\nLargest Contentful Paint\n1,8 sn.\nTotal Blocking Time\n140 ms.\nCumulative Layout Shift\n0.001\nSpeed Index\n1,2 sn.\nCaptured at 11 Kas 2026 12:33 GMT+3\nEmülasyonlu Moto G Power with Lighthouse 13.6.0\nTek sayfalık oturum\nİlk sayfa yükleme\nYavaş 4G kısıtlaması\nUsing HeadlessChromium 157.0.8103.38 with lr\nAğaç grafiği göster\nŞunlarla alakalı denetimleri göster:\nAll\nFCP\nLCP\nTBT\nCLS\n",
+    "sourceCommit": "fdec78ffea38357564c21a4fff7262e4abfab119",
+    "metrics": {
+      "score": 98,
+      "fcp": 0.9,
+      "lcp": 1.8,
+      "tbt": 140.0,
+      "cls": 0.001,
+      "si": 1.2,
+      "seo": 100
+    },
+    "capturedAt": "11 Kas 2026 12:33 GMT+3"
   }
 ]
