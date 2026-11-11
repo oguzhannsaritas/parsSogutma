@@ -1,3 +1,4 @@
+import { useInitialPage } from '../context/InitialPageContext';
 import { getResponsiveImageProps, CARD_IMAGE_SIZES } from '../lib/responsiveImages';
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import {
@@ -143,10 +144,11 @@ function ProductCard({
 export default function Products() {
     const { t, language } = useLanguage();
     const [searchParams] = useSearchParams();
+    const { initialRender } = useInitialPage();
     const dragControls = useDragControls();
-    const searchQuery = (searchParams.get('search') || '').trim();
-    const urlFilter = (searchParams.get('filter') || '').trim();
-    const urlCat = (searchParams.get('cat') || '').trim();
+    const searchQuery = (initialRender ? '' : searchParams.get('search') || '').trim();
+    const urlFilter = (initialRender ? '' : searchParams.get('filter') || '').trim();
+    const urlCat = (initialRender ? '' : searchParams.get('cat') || '').trim();
 
     const normalize = (s: string) =>
         String(s ?? '')

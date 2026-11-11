@@ -20,9 +20,16 @@ function getStoredTheme(): Theme {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(getStoredTheme);
+  // The first client render must match the generated HTML before restoring a preference.
+  const [theme, setTheme] = useState<Theme>('light');
+  const [restored, setRestored] = useState(false);
+  useEffect(() => {
+    setTheme(getStoredTheme());
+    setRestored(true);
+  }, []);
 
   useEffect(() => {
+    if (!restored) return;
     const root = window.document.documentElement;
     if (theme === 'dark') {
       root.classList.add('dark');
@@ -34,7 +41,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     } catch {
       // Storage can be unavailable in private browsing or strict privacy modes.
     }
-  }, [theme]);
+  }, [theme, restored]);
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
