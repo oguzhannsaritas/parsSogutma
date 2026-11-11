@@ -35,4 +35,26 @@ Yerel üretim çıktısı: ana JavaScript 886,13 → 654,76 kB (gzip 204,95 → 
 - `npm run analytics:check`: mevcut GA4/Ads dönüşümleri, tıklama/navigasyon davranışı, yinelenmeyen kurulum ve kişisel mesaj/sorgu verisinin gönderilmemesi.
 - `npm run lint`: TypeScript denetimi.
 
-Canlı yayın sonrası aynı üç sayfanın yeni ölçümleri ve görünüm kontrolü bu belgeye eklenecek. Üretimden teyit bekleyen teknik ölçü/model farkları bu performans çalışmasıyla doğrulanmış sayılmıyor; önceki içerik inceleme belgelerinde açık kalıyor.
+## Canlı yayın ve yeni ölçüm
+
+PR: [#19](https://github.com/oguzhannsaritas/parsSogutma/pull/19), uygulama commit'i `7edc12af693b1d2a67fe7429cf5ec03ed1a1ce8a`, main birleşimi `eab153994b49699db11541094c73fc4a97de74f9`. Vercel ön izleme ve üretim durumları başarılı. Canlı HTML'de `/assets/index-CTNGXW9a.js` ve yeni veri/görsel ön yüklemeleri doğrulandı.
+
+Aynı üç URL, aynı mobil cihaz/ağ profiliyle tekrar ölçüldü. Aşağıdakiler tek koşudur; puanların tekrar koşularında değişebileceği dikkate alınmalıdır.
+
+| Sayfa | Performans önce → sonra | LCP önce → sonra | TBT önce → sonra | Speed Index önce → sonra | Yeni CLS | SEO | Rapor |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| Ana sayfa | 72 → 76 | 6,3 → 5,7 sn | 260 → 150 ms | 3,0 → 3,8 sn | 0,008 | 100 | [10:01, İstanbul](https://pagespeed.web.dev/analysis/https-parsogutma-com/tqqtpmvmo5?form_factor=mobile) |
+| Pasta ve çikolata grubu | 70 → 76 | 6,4 → 6,1 sn | 160 → 180 ms | 5,1 → 2,2 sn | 0 | 100 | [10:02, İstanbul](https://pagespeed.web.dev/analysis/https-parsogutma-com-urunler-pasta-cikolata-dolaplari/gxn1e6ekzz?form_factor=mobile) |
+| Ürün 14 | 74 → 74 | 6,9 → 6,3 sn | 90 → 220 ms | 3,9 → 2,4 sn | 0 | 100 | [10:02, İstanbul](https://pagespeed.web.dev/analysis/https-parsogutma-com-products-14/78tl2n0vnc?form_factor=mobile) |
+
+Yeni FCP her üçünde 0,9 sn; en iyi uygulamalar puanı her üçünde 100. Görsel tasarrufu uyarısı ana sayfada yaklaşık 337 → 35 KiB, grupta 277 → 8 KiB azaldı. Ürün detayında 147 → 106 KiB: kapak dışındaki galeri küçük görselleri ve logo gibi kalan kaynaklar ayrıca değerlendirilebilir.
+
+**Değerlendirme:** Aktarım yükü azaldı, grup ve ürün sayfasının Speed Index değeri iyileşti; fakat her metrik iyileşmedi. Ana sayfa Speed Index'i ve ürün/grup TBT'si bu koşuda yükseldi. LCP 5,7–6,3 sn ile hâlâ yüksek; bu sürüm hız sorununun tümünü çözmüş sayılmıyor. Google'ın reklam/ölçüm betikleri ve istemci tarafında ilk görüntüyü oluşturma yükü kalan başlıklardır. Ölçüm/Ads işlevlerini kaldırarak puan artırılmadı. Bu sonuçlar Google sıralamasında ölçülmüş yükseliş veya saha verisinde anında düzelme değildir.
+
+Canlı HTTP kontrolü: ana sayfa, grup ve ürün 14 200, tek H1 ve doğru canonical; 14/15/97 model JSON'ları doğru kimlik ve iki dil ile 200; 42 → 12 yönlendirmesi korundu; yerel video kapağı ve 640 px ana sayfa görseli 200. Tarayıcıda 14 → 15 → 14 geçişi, iki dilin özgün giriş/seçim/soru cevapları ve orijinal fotoğrafla yakınlaştırma doğrulandı; konsolda hata görülmedi. Gerçek arama/WhatsApp bağlantılarına tıklanmadı.
+
+Üretimden teyit bekleyen teknik ölçü/model farkları bu performans çalışmasıyla doğrulanmış sayılmıyor; önceki içerik inceleme belgelerinde açık kalıyor.
+
+Mobil ürün kontrolünden kesit (yakınlaştırma penceresi kapalı; gerçek tarayıcı görüntüsünün ilk görünüm bölgesi):
+
+![Ürün 14 mobil görünüm kontrolü](qa/mobile-performance-product-14-2026-11-11.jpg)
