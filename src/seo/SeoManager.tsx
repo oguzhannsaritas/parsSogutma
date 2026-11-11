@@ -2,7 +2,7 @@ import { getReferenceSeo, referencePageJsonLd } from './references';
 import { useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-import { products } from '../data/products';
+import { products } from '../data/productSummaries';
 import { findReference, getReferencePath } from '../data/references';
 import { findCategory, getCategoryPath, getProductCategory, getProductDisplayName } from '../data/catalog';
 import {

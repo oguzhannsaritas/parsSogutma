@@ -4,7 +4,7 @@ import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { galleryImages } from '../data/gallery/galleryImages';
-import { products } from '../data/products';
+import { products } from '../data/productSummaries';
 import { getProductImages } from '../seo/config';
 
 const galleryProductByImage = new Map(

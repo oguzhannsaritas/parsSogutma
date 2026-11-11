@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { CategoryContent } from '../components/CatalogContent';
 import { useLanguage } from '../context/LanguageContext';
 import { findCategory } from '../data/catalog';
-import { products } from '../data/products';
+import { products } from '../data/productSummaries';
 import NotFound from './NotFound';
 
 export default function ProductCategoryPage() {

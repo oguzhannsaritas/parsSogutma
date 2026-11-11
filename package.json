@@ -7,15 +7,16 @@
     "predev": "npm run content:generate && npm run images:generate",
     "dev": "vite --port=3000 --host=0.0.0.0",
     "prebuild": "npm run content:generate && npm run images:generate",
-    "build": "vite build && node --import tsx scripts/generate-seo.ts && node --import tsx scripts/check-seo.ts && node scripts/update-catalog-pdf.mjs",
-    "images:generate": "node --import tsx scripts/generate-product-thumbnails.ts",
-    "content:generate": "node --import tsx scripts/generate-product-metadata.ts",
+    "build": "vite build && node --import tsx scripts/generate-seo.ts && node --import tsx scripts/check-seo.ts && node --import tsx scripts/check-performance.ts && node scripts/update-catalog-pdf.mjs",
+    "images:generate": "node --import tsx scripts/generate-product-thumbnails.ts && node --import tsx scripts/generate-responsive-images.ts",
+    "content:generate": "node --import tsx scripts/generate-product-metadata.ts && node --import tsx scripts/generate-product-data.ts",
     "seo:generate": "node --import tsx scripts/generate-seo.ts",
     "seo:check": "node --import tsx scripts/check-seo.ts",
     "analytics:check": "node --import tsx scripts/check-analytics.ts",
     "preview": "vite preview",
     "clean": "rm -rf dist",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "performance:check": "node --import tsx scripts/check-performance.ts"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",

@@ -1,3 +1,4 @@
+import { getResponsiveImageProps, CARD_IMAGE_SIZES } from '../lib/responsiveImages';
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import {
     Grid,
@@ -12,13 +13,13 @@ import {
 import { useLanguage } from '../context/LanguageContext';
 import { Link, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence, useDragControls } from 'motion/react';
-import { products } from '../data/products';
-import { Product } from "@/src/data/products/types.ts";
+import { products } from '../data/productSummaries';
+import { ProductSummary } from "@/src/data/products/types.ts";
 import { getProductPath } from '../seo/config';
 import { getProductDisplayName } from '../data/catalog';
 import { CategoryLinks } from '../components/CatalogContent';
 
-function uniqueProducts(items: Product[]): Product[] {
+function uniqueProducts(items: ProductSummary[]): ProductSummary[] {
     const paths = new Set<string>();
     return items.filter(product => {
         const path = getProductPath(product);
@@ -33,7 +34,7 @@ function ProductCard({
                          priority = 'auto',
                          loading = 'lazy',
                      }: {
-    product: Product;
+    product: ProductSummary;
     key?: React.Key;
     priority?: 'high' | 'low' | 'auto';
     loading?: 'eager' | 'lazy';
@@ -99,14 +100,12 @@ function ProductCard({
                 onTouchEnd={handleTouchEnd}
             >
                 <img
-                    src={images[currentImage]}
+                    width={800} height={800} {...getResponsiveImageProps(images[currentImage], CARD_IMAGE_SIZES, 320)}
                     alt={getProductDisplayName(product, language)}
                     className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500"
                     loading={loading}
                     decoding="async"
                     fetchPriority={priority}
-                    width={800}
-                    height={800}
                     draggable={false}
                 />
 
@@ -621,7 +620,7 @@ export default function Products() {
         if (effectiveSearchQuery) {
             const q = normalize(effectiveSearchQuery);
             result = result.filter(
-                (product: Product) =>
+                (product: ProductSummary) =>
                     normalize(product.name[language]).includes(q) ||
                     normalize(getProductDisplayName(product, language)).includes(q) ||
                     normalize(product.category[language]).includes(q) ||
@@ -630,7 +629,7 @@ export default function Products() {
         }
 
         if (appliedFilters.length > 0) {
-            result = result.filter((product: Product) =>
+            result = result.filter((product: ProductSummary) =>
                 appliedFilters.some((k) => {
                     const trValue = getTrValue(k);
                     return (
@@ -653,7 +652,7 @@ export default function Products() {
         if (effectiveSearchQuery) {
             const q = normalize(effectiveSearchQuery);
             result = result.filter(
-                (product: Product) =>
+                (product: ProductSummary) =>
                     normalize(product.name[language]).includes(q) ||
                     normalize(getProductDisplayName(product, language)).includes(q) ||
                     normalize(product.category[language]).includes(q) ||
@@ -662,7 +661,7 @@ export default function Products() {
         }
 
         if (draftFilters.length > 0) {
-            result = result.filter((product: Product) =>
+            result = result.filter((product: ProductSummary) =>
                 draftFilters.some((k) => {
                     const trValue = getTrValue(k);
                     return (
@@ -1073,7 +1072,7 @@ export default function Products() {
                                         : 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-3'
                             }`}
                         >
-                            {paginatedProducts.map((product: Product, idx: number) => {
+                            {paginatedProducts.map((product: ProductSummary, idx: number) => {
                                 const priorityCount = viewMode === 'list' ? 1 : 2;
                                 const isPotentialLcp = currentPage === 1 && idx < priorityCount;
 

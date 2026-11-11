@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import type { Product } from '../data/products/types';
-import { getProductContent } from '../data/productContent';
+import type { ProductEditorialContent } from '../data/productContentTypes';
 import { getCategoryPath, getProductCategory, type CatalogLanguage } from '../data/catalog';
 import { getProductDescription } from '../seo/config';
 
@@ -10,9 +10,8 @@ const copy = {
     EN: { selection: 'When choosing a model', questions: 'Frequently asked questions' },
 };
 
-export function ProductIntroduction({ product, language }: { product: Product; language: CatalogLanguage }) {
+export function ProductIntroduction({ product, language, content }: { product: Product; language: CatalogLanguage; content?: ProductEditorialContent }) {
     const category = getProductCategory(product);
-    const content = getProductContent(product.id, language);
     return (
         <div data-product-introduction={product.id} className="mb-6 space-y-3">
             <p className="text-sm leading-7 text-gray-600 dark:text-gray-300">{content?.introduction ?? `${getProductDescription(product, language)} ${category.copy[language].productUse}`}</p>
@@ -21,8 +20,7 @@ export function ProductIntroduction({ product, language }: { product: Product; l
     );
 }
 
-export function ProductBuyerGuide({ product, language }: { product: Product; language: CatalogLanguage }) {
-    const content = getProductContent(product.id, language);
+export function ProductBuyerGuide({ product, language, content }: { product: Product; language: CatalogLanguage; content?: ProductEditorialContent }) {
     if (!content) return null;
     const selectionId = `product-selection-${product.id}`;
     const questionsId = `product-questions-${product.id}`;

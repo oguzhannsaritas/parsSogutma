@@ -1,7 +1,8 @@
+import { getResponsiveImageProps, CARD_IMAGE_SIZES, CATEGORY_IMAGE_SIZES } from '../lib/responsiveImages';
 import { projects, getReferencePath } from '../data/references';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight, MessageCircle, Phone } from 'lucide-react';
-import type { Product } from '../data/products/types';
+import type { ProductSummary } from '../data/products/types';
 import {
     getCategoryPath,
     getCategoryProducts,
@@ -13,7 +14,6 @@ import {
     type ProductCategory,
 } from '../data/catalog';
 import { getProductMainImage, getProductPath } from '../seo/config';
-import { getProductThumbnailUrl } from '../lib/productImages';
 import { trackContactClick } from '../lib/googleAds';
 
 const copy = {
@@ -79,12 +79,12 @@ export function CategoryLinks({ language, className = '' }: { language: CatalogL
     );
 }
 
-export function CatalogProductCard({ product, language }: { product: Product; language: CatalogLanguage }) {
+export function CatalogProductCard({ product, language }: { product: ProductSummary; language: CatalogLanguage }) {
     const name = getProductDisplayName(product, language);
     return (
         <Link to={getProductPath(product)} className="group flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-colors hover:border-[#009FE3] dark:border-neutral-700 dark:bg-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#009FE3]">
             <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-white">
-                <img src={getProductThumbnailUrl(getProductMainImage(product))} alt={name} width={320} height={240} loading="lazy" decoding="async" className="absolute inset-0 block h-full w-full max-w-full object-contain object-center p-3 transition-transform duration-300 group-hover:scale-[1.03] sm:p-4" />
+                <img {...getResponsiveImageProps(getProductMainImage(product), CARD_IMAGE_SIZES, 320)} alt={name} loading="lazy" decoding="async" className="absolute inset-0 block h-full w-full max-w-full object-contain object-center p-3 transition-transform duration-300 group-hover:scale-[1.03] sm:p-4" />
             </div>
             <div className="flex min-w-0 flex-1 flex-col gap-3 p-4 sm:p-5">
                 <h3 className="min-h-11 break-words text-sm sm:text-base font-semibold leading-snug text-gray-900 dark:text-white">{name}</h3>
@@ -94,7 +94,7 @@ export function CatalogProductCard({ product, language }: { product: Product; la
     );
 }
 
-export function CategoryContent({ category, products, language }: { category: ProductCategory; products: Product[]; language: CatalogLanguage }) {
+export function CategoryContent({ category, products, language }: { category: ProductCategory; products: ProductSummary[]; language: CatalogLanguage }) {
     const text = category.copy[language];
     const labels = copy[language];
     const models = getCategoryProducts(category, products);
@@ -117,7 +117,7 @@ export function CategoryContent({ category, products, language }: { category: Pr
                         <a href="#modeller" className="mt-5 inline-flex items-center gap-2 text-sm font-medium hover:text-[#0083bb]">{labels.models}<ArrowRight size={16} aria-hidden="true" /></a>
                     </div>
                     <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl border border-gray-100 bg-white p-5 shadow-sm dark:border-neutral-700 sm:p-8">
-                        <img src={getProductMainImage(featured)} alt={getProductDisplayName(featured, language)} width={960} height={720} fetchPriority="high" decoding="async" className="h-full w-full object-contain" />
+                        <img {...getResponsiveImageProps(getProductMainImage(featured), CATEGORY_IMAGE_SIZES)} alt={getProductDisplayName(featured, language)} fetchPriority="high" decoding="async" className="h-full w-full object-contain" />
                         <span className="absolute bottom-4 right-4 rounded-full border border-gray-200 bg-white/95 px-3 py-1.5 text-xs text-gray-600">{models.length} {labels.modelCount}</span>
                     </div>
                 </header>
@@ -154,7 +154,7 @@ export function CategoryContent({ category, products, language }: { category: Pr
     );
 }
 
-export function RelatedProducts({ product, products, language }: { product: Product; products: Product[]; language: CatalogLanguage }) {
+export function RelatedProducts({ product, products, language }: { product: ProductSummary; products: ProductSummary[]; language: CatalogLanguage }) {
     const category = getProductCategory(product);
     const related = getCategoryProducts(category, products).filter(item => item.id !== product.id).slice(0, 4);
     if (!related.length) return null;
