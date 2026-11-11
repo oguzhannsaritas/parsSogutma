@@ -1,5 +1,5 @@
 import { pathToFileURL } from 'node:url';
-import { getResponsiveImageProps, PRODUCT_IMAGE_SIZES, CATEGORY_IMAGE_SIZES } from '../src/lib/responsiveImages';
+import { getResponsiveImageProps, getContainedImageProps, PRODUCT_IMAGE_SIZES, CATEGORY_IMAGE_SIZES } from '../src/lib/responsiveImages';
 import type { ProductPageData } from '../src/lib/productData';
 import { getReferenceSeo, referencePageJsonLd } from '../src/seo/references';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
@@ -92,7 +92,9 @@ function seoBlock(snapshot: Snapshot): string {
     const image = absoluteUrl(snapshot.image);
     const robots = snapshot.robots ?? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
     const scripts = (snapshot.jsonLd ?? []).map((data, index) => `    <script type="application/ld+json" data-seo-jsonld="static-${index}">${safeJson(data)}</script>`).join('\n');
-    const responsive = snapshot.preloadImage ? getResponsiveImageProps(snapshot.preloadImage, snapshot.type === 'product' ? PRODUCT_IMAGE_SIZES : CATEGORY_IMAGE_SIZES) : undefined;
+    const responsive = snapshot.preloadImage ? (snapshot.type === 'product'
+        ? getContainedImageProps(snapshot.preloadImage, PRODUCT_IMAGE_SIZES)
+        : getResponsiveImageProps(snapshot.preloadImage, CATEGORY_IMAGE_SIZES)) : undefined;
 
     return `<!-- SEO:START -->
     <title>${escapeHtml(snapshot.title)}</title>
