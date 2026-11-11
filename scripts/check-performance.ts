@@ -8,7 +8,7 @@ import { productContent } from '../src/data/productContent';
 import { isCanonicalProduct } from '../src/data/catalog';
 import { findProductByIdentifier, getProductSeo, productPageJsonLd, getProductMainImage } from '../src/seo/config';
 import { getProductDataUrl, loadProductPageData } from '../src/lib/productData';
-import { getResponsiveImageProps, PRODUCT_IMAGE_SIZES, CATEGORY_IMAGE_SIZES } from '../src/lib/responsiveImages';
+import { getResponsiveImageProps, getContainedImageProps, PRODUCT_IMAGE_SIZES, CATEGORY_IMAGE_SIZES } from '../src/lib/responsiveImages';
 import { responsiveImageManifest } from '../src/data/responsiveImageManifest';
 
 for (const product of products) {
@@ -30,11 +30,20 @@ for (const product of products.filter(isCanonicalProduct)) {
     assert(state, `Initial product state missing: ${product.id}`);
     assert.deepEqual(JSON.parse(state), json, `Initial HTML and navigation data differ: ${product.id}`);
     assert(!html.includes('as="fetch"'), 'Product HTML requires an unnecessary initial model fetch');
-    const responsive = getResponsiveImageProps(getProductMainImage(product), PRODUCT_IMAGE_SIZES);
+    const responsive = getContainedImageProps(getProductMainImage(product), PRODUCT_IMAGE_SIZES);
     assert(html.includes(`as="image" href="${responsive.src}"`));
-    assert(html.includes(`imagesizes="${PRODUCT_IMAGE_SIZES}"`));
+    assert(html.includes(`imagesizes="${responsive.sizes}"`));
     assert(/rel="modulepreload"[^>]+ProductDetail/.test(html));
 }
+const tallImage = getProductMainImage(products.find(product => product.id === 14)!);
+const fitted = getContainedImageProps(tallImage, PRODUCT_IMAGE_SIZES);
+assert.deepEqual([...fitted.sizes!.matchAll(/\(min-width: [^)]+\)/g)].map(match => match[0]), [...PRODUCT_IMAGE_SIZES.matchAll(/\(min-width: [^)]+\)/g)].map(match => match[0]), 'Image fitting changed responsive breakpoints');
+const mobile = fitted.sizes!.match(/calc\(([\d.]+)vw - ([\d.]+)px\)/)!;
+const paintedWidthAt412 = Number(mobile[1]) * 4.12 - Number(mobile[2]);
+const original = responsiveImageManifest[tallImage];
+assert(Math.abs(paintedWidthAt412 - 380 * original.width / original.height * 3 / 4) < 0.1, 'Portrait source size does not match its visible width');
+const wideImage = getProductMainImage(products.find(product => product.id === 69)!);
+assert.deepEqual(getContainedImageProps(wideImage, PRODUCT_IMAGE_SIZES), getResponsiveImageProps(wideImage, PRODUCT_IMAGE_SIZES), 'Landscape sizing changed');
 const group = await readFile('dist/urunler/pasta-cikolata-dolaplari.html', 'utf8');
 assert(group.includes(`imagesizes="${CATEGORY_IMAGE_SIZES}"`));
 assert(/rel="modulepreload"[^>]+ProductCategory/.test(group));

@@ -17,3 +17,17 @@ export function getResponsiveImageProps(source: string, sizes: string, preferred
         sizes, width: image.width, height: image.height,
     };
 }
+
+/** object-contain can make a tall photo narrower than its 4:3 image element.
+ * Describe the painted width, preserving media breakpoints and pixel density. */
+export function getContainedImageProps(source: string, sizes: string, frameRatio = 4 / 3) {
+    const image = responsiveImageManifest[source];
+    const scale = image ? Math.min(1, image.width / image.height / frameRatio) : 1;
+    if (scale >= 1) return getResponsiveImageProps(source, sizes);
+    const paintedSizes = sizes.split(',').map(part => {
+        const [, condition = '', length] = part.trim().match(/^(\([^)]*\)\s*)?(.*)$/)!;
+        return condition + length.replace(/(\d+(?:\.\d+)?)(px|vw)/g,
+            (_, number, unit) => `${Number((Number(number) * scale).toFixed(2))}${unit}`);
+    }).join(', ');
+    return getResponsiveImageProps(source, paintedSizes);
+}

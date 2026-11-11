@@ -1,5 +1,5 @@
 import { useInitialPage } from '../context/InitialPageContext';
-import { getResponsiveImageProps, PRODUCT_IMAGE_SIZES } from '../lib/responsiveImages';
+import { getContainedImageProps, PRODUCT_IMAGE_SIZES } from '../lib/responsiveImages';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
 import { ChevronRight, ChevronLeft, LayoutGrid, Maximize2, X } from 'lucide-react';
@@ -282,7 +282,7 @@ function ProductDetailView({ page }: { page: ProductPageData }) {
         if (typeof document === 'undefined') return;
 
         if (!thumbnails[0]) return;
-        const responsive = getResponsiveImageProps(thumbnails[0], PRODUCT_IMAGE_SIZES);
+        const responsive = getContainedImageProps(thumbnails[0], PRODUCT_IMAGE_SIZES);
         const href = responsive.src;
 
         const selector = `link[data-lcp-preload="product-detail-main"][href="${href}"]`;
@@ -395,7 +395,7 @@ function ProductDetailView({ page }: { page: ProductPageData }) {
                     <div className="space-y-6">
                         <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-gray-200/70 dark:border-neutral-700/70 bg-gradient-to-br from-gray-50 to-white dark:from-neutral-900 dark:to-neutral-800 shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
                             <img
-                                width={1200} height={900} {...getResponsiveImageProps(thumbnails[selectedImage], PRODUCT_IMAGE_SIZES)}
+                                width={1200} height={900} {...getContainedImageProps(thumbnails[selectedImage], PRODUCT_IMAGE_SIZES)}
                                 alt={`${displayName} - ${category.copy[language].name} | Pars Soğutma`}
                                 className="w-full h-full object-contain bg-white"
                                 loading="eager"

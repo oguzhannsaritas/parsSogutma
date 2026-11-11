@@ -11,6 +11,7 @@ Bu sürümde mevcut React sayfalarının **gerçek görünümü derleme sırası
 - Floating iletişim araçları uygulama hazır olduğunda yükleniyor. Sabit içerikteki telefon/WhatsApp bağlantıları için **bağımsız ve küçük bir erken takip girişi** var. Mevcut GA4/Ads kimlikleri korunuyor; aynı GA4 örneği tekrar yapılandırılmıyor. Native ve React tıklamaları aynı olay üzerinden ayıklanarak tek dönüşüm sayılıyor. İptal edilmiş/sürüklenmiş tıklamalar ve özel mesaj/sorgu verileri gönderilmiyor.
 - Kayıtlı gece modu ilk HTML ile uyumlu biçimde geri yükleniyor. Arama/filtre sorguları ilk uyumlu render'dan sonra uygulanıyor. İlk yüklemede ziyaretçi sayfayı okumaya başlamışsa konumu başa sıfırlanmıyor. Başka sayfaya geçişte üst konuma dönüş korunuyor.
 - Statik 404 dosyasının farklı bir URL'de sunulduğu durumda uygulama yanlış sayfayı hydrate etmeye çalışmıyor. Bilinen sayfalarda gerçek HTML ile uyumlu açılış devam ediyor.
+- Ürün fotoğraflarında `object-contain` nedeniyle görüntünün kapladığı gerçek genişlik, 4:3 çerçevenin genişliğinden küçük olabiliyor. Duyarlı görsel seçimi ve ön yükleme bu gerçek genişliğe uyarlandı; medya eşikleri, piksel yoğunluğu, çerçeve düzeni ve yakınlaştırma kaynakları korundu.
 - Sayfa adresleri, canonical ve sitemap'ler, 108 iki dilli ürün rehberi, 11 referans ve üretim teyidi bekleyen teknik değerler değiştirilmedi.
 
 ## Doğrulama
