@@ -12,42 +12,10 @@
       gtag('js', new Date());
       gtag('config', 'AW-300255429');
     </script>
-    <style>
-      [data-app-loader] { display: none; }
-      html.js-loading [data-seo-snapshot] { display: none; }
-      html.js-loading [data-app-loader] {
-        min-height: 100vh;
-        min-height: 100svh;
-        display: grid;
-        place-items: center;
-        background: #fff;
-        color: #111827;
-        font: 600 16px/1.5 Inter, ui-sans-serif, system-ui, sans-serif;
-      }
-      [data-app-loader] span {
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
-      }
-      [data-app-loader] span::before {
-        width: 22px;
-        height: 22px;
-        content: "";
-        border: 3px solid #d1d5db;
-        border-top-color: #111827;
-        border-radius: 999px;
-        animation: pars-spin .8s linear infinite;
-      }
-      @keyframes pars-spin { to { transform: rotate(360deg); } }
-      @media (prefers-reduced-motion: reduce) {
-        [data-app-loader] span::before { animation: none; }
-      }
-    </style>
     <script>
-      document.documentElement.classList.add('js-loading');
-      window.__parsAppFallbackTimer = window.setTimeout(function () {
-        document.documentElement.classList.remove('js-loading');
-      }, 8000);
+      try {
+        document.documentElement.classList.toggle('dark', localStorage.getItem('theme') === 'dark');
+      } catch (_) {}
     </script>
     <!-- SEO:START -->
     <title>Endüstriyel Soğutma Sistemleri | Pars Soğutma</title>

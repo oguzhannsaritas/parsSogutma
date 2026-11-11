@@ -1,3 +1,4 @@
+import { useInitialPage } from '../context/InitialPageContext';
 import { getResponsiveImageProps, PRODUCT_IMAGE_SIZES } from '../lib/responsiveImages';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
@@ -146,7 +147,9 @@ export default function ProductDetail() {
     const navigate = useNavigate();
     const foundProduct = findProductByIdentifier(products, slug ?? legacySlug ?? id);
     const modelId = foundProduct?.id;
-    const [result, setResult] = useState<{ id: number; data?: ProductPageData; failed?: boolean }>();
+    const initialPage = useInitialPage();
+    const [result, setResult] = useState<{ id: number; data?: ProductPageData; failed?: boolean }>(() =>
+        initialPage.product?.product.id === modelId ? { id: modelId, data: initialPage.product } : undefined);
     const [attempt, setAttempt] = useState(0);
     useEffect(() => {
         if (!modelId) return;
@@ -646,7 +649,7 @@ function ProductDetailView({ page }: { page: ProductPageData }) {
                                 />
                             </button>
 
-                            <AnimatePresence>
+                            <AnimatePresence initial={false}>
                                 {isExtraInfoOpen && (
                                     <motion.div
                                         initial={{ height: 0, opacity: 0 }}

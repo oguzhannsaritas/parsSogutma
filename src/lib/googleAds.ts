@@ -2,6 +2,11 @@ import type { MouseEvent } from 'react';
 import { trackAnalyticsContact } from './analytics';
 
 type ContactMethod = 'whatsapp' | 'phone';
+type ContactClick = Pick<MouseEvent<HTMLAnchorElement>, 'defaultPrevented' | 'preventDefault' | 'ctrlKey' | 'metaKey' | 'shiftKey' | 'altKey' | 'button'> & {
+    currentTarget: Pick<HTMLAnchorElement, 'href' | 'target'>;
+    nativeEvent?: object;
+};
+const trackedClicks = new WeakSet<object>();
 
 const conversionTargets: Record<ContactMethod, string> = {
     whatsapp: 'AW-300255429/339KCNudgeIYEMWRlo8B',
@@ -18,8 +23,11 @@ type GoogleAdsWindow = Window & {
     gtag?: (command: 'event', name: 'conversion', parameters: ConversionParameters) => void;
 };
 
-export function trackContactClick(event: MouseEvent<HTMLAnchorElement>, method: ContactMethod) {
+export function trackContactClick(event: ContactClick, method: ContactMethod) {
     if (event.defaultPrevented) return;
+    const nativeClick = event.nativeEvent ?? event;
+    if (trackedClicks.has(nativeClick)) return;
+    trackedClicks.add(nativeClick);
     trackAnalyticsContact(method);
     const gtag = (window as GoogleAdsWindow).gtag;
     if (typeof gtag !== 'function') return;

@@ -1,56 +1,51 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense, useEffect, useRef } from 'react';
 import Header from './components/Header';
 import FooterSection from './components/FooterSection';
 import PageLoader from './components/PageLoader';
 import { LanguageProvider } from './context/LanguageContext';
 
 import { ThemeProvider } from './context/ThemeContext';
-import WhatsAppButton from "@/src/components/WhatsAppButton.tsx";
-import PhoneButton from "@/src/components/PhoneButton.tsx";
+import { AnimatePresence } from 'motion/react';
+import { InitialPageProvider, useInitialPage } from './context/InitialPageContext';
+import type { ProductPageData } from './lib/productData';
+import { lazyPages, type InitialRoutePage } from './lib/pageModules';
 import SeoManager from './seo/SeoManager';
-
-const Home = lazy(() => import('./pages/Home'));
-const Products = lazy(() => import('./pages/Products'));
-const ProductDetail = lazy(() => import('./pages/ProductDetail'));
-const ProductCategory = lazy(() => import('./pages/ProductCategory'));
-const References = lazy(() => import('./pages/References'));
-const ReferenceDetail = lazy(() => import('./pages/ReferenceDetail'));
-const Contact = lazy(() => import('./pages/Contact'));
-const About = lazy(() => import('./pages/About'));
-const PhotoGallery = lazy(() => import('./pages/PhotoGallery'));
-const NotFound = lazy(() => import('./pages/NotFound'));
-const ECatalog = lazy(() => import('./pages/ECatalog'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
+  const previousPath = useRef(pathname);
   useEffect(() => {
+    if (previousPath.current === pathname) return;
+    previousPath.current = pathname;
     window.scrollTo(0, 0);
   }, [pathname]);
   return null;
 }
 
-function AppReady() {
-  useEffect(() => {
-    const appWindow = window as typeof window & { __parsAppFallbackTimer?: number };
-    if (appWindow.__parsAppFallbackTimer) {
-      window.clearTimeout(appWindow.__parsAppFallbackTimer);
-      delete appWindow.__parsAppFallbackTimer;
-    }
-    document.documentElement.classList.remove('js-loading');
-  }, []);
+const ContactWidgets = lazy(() => import('./components/ContactWidgets'));
 
-  return null;
+function DeferredContactWidgets() {
+  const { initialRender } = useInitialPage();
+  return initialRender ? null : <Suspense fallback={null}><ContactWidgets /></Suspense>;
 }
 
-export default function App() {
+export default function App({ initialProduct, initialPage }: AppProps) {
+  return <Router><AppContent initialProduct={initialProduct} initialPage={initialPage} /></Router>;
+}
+
+type AppProps = { initialProduct?: ProductPageData; initialPage?: InitialRoutePage };
+
+export function AppContent({ initialProduct, initialPage }: AppProps) {
+  const pages = initialPage ? { ...lazyPages, [initialPage.name]: initialPage.component } : lazyPages;
+  const { Home, Products, ProductDetail, ProductCategory, References, ReferenceDetail, Contact, About, PhotoGallery, NotFound, ECatalog } = pages;
   return (
     <LanguageProvider>
       <ThemeProvider>
-        <Router>
-          <AppReady />
+        <InitialPageProvider product={initialProduct}>
           <SeoManager />
           <ScrollToTop />
+          <AnimatePresence initial={false}>
           <div className="min-h-screen bg-white dark:bg-[#111827] font-sans transition-colors duration-300">
             <Header />
             <main className="min-h-screen">
@@ -74,10 +69,10 @@ export default function App() {
               </Suspense>
             </main>
             <FooterSection />
-            <PhoneButton />
-            <WhatsAppButton />
+            <DeferredContactWidgets />
           </div>
-        </Router>
+          </AnimatePresence>
+        </InitialPageProvider>
       </ThemeProvider>
     </LanguageProvider>
   );

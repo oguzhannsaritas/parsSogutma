@@ -44,7 +44,9 @@ for (const url of urls) {
         await access(path.join(dist, match[1]));
     }
     for (const match of html.matchAll(/<a[^>]+href="(\/[^"?#]*)/g)) {
-        if (match[1]) await readPage(match[1]);
+        if (!match[1]) continue;
+        if (path.extname(match[1]) && !match[1].endsWith('.html')) await access(path.join(dist, match[1]));
+        else await readPage(match[1]);
     }
 }
 
@@ -91,7 +93,7 @@ for (const language of ['TR', 'EN'] as const) {
             createElement(ProductIntroduction, { product, language, content: text }),
             createElement(ProductBuyerGuide, { product, language, content: text })));
         const html = language === 'TR' ? await readPage(getProductPath(product)) : rendered;
-        for (const output of [rendered, html]) {
+        for (const output of [rendered, html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, '')]) {
             assert.equal(output.split(escapedText(text.introduction)).length - 1, 1, `Product lead repeated or missing: ${product.id} ${language}`);
             assert(output.includes(`href="${getCategoryPath(category)}"`), `Product group unreachable: ${product.id}`);
             for (const item of text.selection) assert(output.includes(escapedText(item)), `Selection advice absent: ${product.id} ${language}`);
@@ -110,7 +112,8 @@ for (const language of ['TR', 'EN'] as const) {
 
 // Long model guidance is only needed on the lazy product screen. Descriptions
 // remain available to shared SEO code without pulling all guides into the entry.
-const mainScript = home.match(/<script[^>]*type="module"[^>]*src="([^"]+)"/)?.[1];
+const manifest = JSON.parse(await readFile(path.join(dist, '.vite/manifest.json'), 'utf8'));
+const mainScript = `/${manifest['index.html'].file}`;
 assert(mainScript, 'Missing browser entry script');
 const mainCode = await readFile(path.join(dist, mainScript), 'utf8');
 for (const id of [1, 14, 97]) {

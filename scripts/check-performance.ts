@@ -26,7 +26,10 @@ for (const product of products.filter(isCanonicalProduct)) {
     const json = JSON.parse(await readFile(path.join('dist', getProductDataUrl(product.id)), 'utf8'));
     assert.deepEqual(json, { version: 1, product, content: productContent[product.id] });
     const html = await readFile(`dist/products/${product.id}.html`, 'utf8');
-    assert(html.includes(`as="fetch" href="${getProductDataUrl(product.id)}" crossorigin="anonymous"`));
+    const state = html.match(/<script type="application\/json" id="pars-page-data">([\s\S]*?)<\/script>/)?.[1];
+    assert(state, `Initial product state missing: ${product.id}`);
+    assert.deepEqual(JSON.parse(state), json, `Initial HTML and navigation data differ: ${product.id}`);
+    assert(!html.includes('as="fetch"'), 'Product HTML requires an unnecessary initial model fetch');
     const responsive = getResponsiveImageProps(getProductMainImage(product), PRODUCT_IMAGE_SIZES);
     assert(html.includes(`as="image" href="${responsive.src}"`));
     assert(html.includes(`imagesizes="${PRODUCT_IMAGE_SIZES}"`));
@@ -46,7 +49,8 @@ for (const [source, image] of Object.entries(responsiveImageManifest)) {
     }
 }
 const home = await readFile('dist/index.html', 'utf8');
-const entry = home.match(/<script[^>]*type="module"[^>]*src="([^"]+)"/)![1];
+const manifest = JSON.parse(await readFile('dist/.vite/manifest.json', 'utf8'));
+const entry = `/${manifest['index.html'].file}`;
 const entrySize = (await stat(path.join('dist', entry))).size;
 assert(entrySize < 800_000, `Catalog payload regression: entry ${entrySize} bytes`);
 const detailFile = (await readdir('dist/assets')).find(file => /^ProductDetail-.*\.js$/.test(file))!;

@@ -1,20 +1,12 @@
-import { getProductContent } from '../src/data/productContent';
+import { pathToFileURL } from 'node:url';
 import { getResponsiveImageProps, PRODUCT_IMAGE_SIZES, CATEGORY_IMAGE_SIZES } from '../src/lib/responsiveImages';
-import { getProductDataUrl } from '../src/lib/productData';
-import { ReferenceContent } from '../src/components/ReferenceContent';
+import type { ProductPageData } from '../src/lib/productData';
 import { getReferenceSeo, referencePageJsonLd } from '../src/seo/references';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import sharp from 'sharp';
-import { createElement, type ReactElement } from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
-import { MemoryRouter } from 'react-router-dom';
 import { products } from '../src/data/products/index';
-import type { Product } from '../src/data/products/types';
-import { CategoryContent, CategoryLinks, ContactActions, HomeIntroduction, RelatedProducts } from '../src/components/CatalogContent';
-import { ProductBuyerGuide, ProductIntroduction } from '../src/components/ProductEditorialContent';
 import { getCanonicalProductId, getCategoryPath, getProductCategory, getProductDisplayName, isCanonicalProduct, productCategories } from '../src/data/catalog';
-import { getReferencePath, projects, type ReferenceProject } from '../src/data/references';
+import { getReferencePath, projects } from '../src/data/references';
 import {
     absoluteUrl,
     breadcrumbJsonLd,
@@ -43,6 +35,9 @@ if (!baseHtml.includes('<!-- APP:START -->') || !baseHtml.includes('<!-- APP:END
 }
 const today = new Date().toISOString().slice(0, 10);
 const canonicalProducts = products.filter(isCanonicalProduct);
+const { renderPage } = await import(pathToFileURL(path.join(root, '.ssr-build/entry-server.js')).href) as {
+    renderPage(route: string): Promise<{ markup: string; productId?: number; initialProduct?: ProductPageData }>;
+};
 type ManifestChunk = { file: string; imports?: string[]; isEntry?: boolean };
 const buildManifest: Record<string, ManifestChunk> = JSON.parse(await readFile(path.join(distDir, '.vite/manifest.json'), 'utf8'));
 
@@ -63,10 +58,6 @@ function routeModulePreloads(route: string): string {
     return [...files].map(file => `    <link rel="modulepreload" crossorigin href="/${escapeHtml(file)}" />`).join('\n');
 }
 
-function renderContent(element: ReactElement): string {
-    return renderToStaticMarkup(createElement(MemoryRouter, null, element));
-}
-
 type Snapshot = {
     route: string;
     canonicalRoute?: string;
@@ -74,11 +65,9 @@ type Snapshot = {
     description: string;
     image: string;
     preloadImage?: string;
-    preloadDataId?: number;
     type?: 'website' | 'product';
     robots?: string;
     jsonLd?: unknown[];
-    body: string;
 };
 
 function escapeHtml(value: unknown): string {
@@ -112,8 +101,8 @@ function seoBlock(snapshot: Snapshot): string {
     <meta name="googlebot" content="${escapeHtml(robots)}" />
     <link rel="canonical" href="${escapeHtml(canonical)}" />
 ${responsive ? `    <link rel="preload" as="image" href="${escapeHtml(responsive.src)}"${responsive.srcSet ? ` imagesrcset="${escapeHtml(responsive.srcSet)}" imagesizes="${escapeHtml(responsive.sizes)}"` : ''} fetchpriority="high" data-lcp-preload="product-detail-main" />` : ''}
-${snapshot.preloadDataId ? `    <link rel="preload" as="fetch" href="${getProductDataUrl(snapshot.preloadDataId)}" crossorigin="anonymous" />` : ''}
 ${routeModulePreloads(snapshot.route)}
+    <script type="module" crossorigin data-contact-boot src="/${escapeHtml(buildManifest['src/contact-boot.ts'].file)}"></script>
     <meta property="og:title" content="${escapeHtml(snapshot.title)}" />
     <meta property="og:description" content="${escapeHtml(snapshot.description)}" />
     <meta property="og:type" content="${snapshot.type ?? 'website'}" />
@@ -130,12 +119,12 @@ ${scripts}
     <!-- SEO:END -->`;
 }
 
-function snapshotHtml(snapshot: Snapshot): string {
+function snapshotHtml(snapshot: Snapshot, page: { markup: string; productId?: number; initialProduct?: ProductPageData }): string {
     return baseHtml
         .replace(/<!-- SEO:START -->[\s\S]*?<!-- SEO:END -->/, seoBlock(snapshot))
         .replace(
             /<!-- APP:START -->[\s\S]*?<!-- APP:END -->/,
-            `<!-- APP:START --><div id="root"><div data-app-loader role="status" aria-live="polite"><span>Pars Soğutma yükleniyor</span></div><div data-seo-snapshot style="max-width:1200px;margin:0 auto;padding:32px 20px;font-family:Arial,sans-serif">${snapshot.body}</div></div><!-- APP:END -->`,
+            `<!-- APP:START --><div id="root" data-rendered="true" data-route="${escapeHtml(snapshot.route)}"${page.productId ? ` data-product-id="${page.productId}"` : ''}>${page.markup}</div>${page.initialProduct ? `<script type="application/json" id="pars-page-data">${safeJson(page.initialProduct)}</script>` : ''}<!-- APP:END -->`,
         );
 }
 
@@ -143,94 +132,19 @@ async function writeSnapshot(snapshot: Snapshot) {
     const relative = snapshot.route === '/' ? 'index.html' : `${snapshot.route.replace(/^\//, '')}.html`;
     const destination = path.join(distDir, relative);
     await mkdir(path.dirname(destination), { recursive: true });
-    await writeFile(destination, snapshotHtml(snapshot));
+    const page = await renderPage(snapshot.route);
+    await writeFile(destination, snapshotHtml(snapshot, page));
 }
-
-const dimensionsCache = new Map<string, Promise<string>>();
-
-function imageDimensions(image: string): Promise<string> {
-    let dimensions = dimensionsCache.get(image);
-    if (!dimensions) {
-        dimensions = sharp(path.join(root, 'public', image)).metadata()
-            .then(({ width, height }) => width && height ? ` width="${width}" height="${height}"` : '')
-            .catch((error: Error) => {
-                console.warn(`Could not read image dimensions for ${image}: ${error.message}`);
-                return '';
-            });
-        dimensionsCache.set(image, dimensions);
-    }
-    return dimensions;
-}
-
-async function productBody(product: Product): Promise<string> {
-    const productPath = getProductPath(product);
-    const name = getProductDisplayName(product, 'TR');
-    const category = getProductCategory(product);
-    const images = getProductImages(product);
-    const technical = product.specs.technicalSpecification
-        .slice(0, 12)
-        .map((item) => `<li>${escapeHtml(item.TR)}</li>`)
-        .join('');
-    const figures = (await Promise.all(images
-        .map(async (image, index) => {
-            const responsive = getResponsiveImageProps(image, PRODUCT_IMAGE_SIZES);
-            return `<figure style="margin:24px 0"><img src="${escapeHtml(responsive.src)}"${responsive.srcSet ? ` srcset="${escapeHtml(responsive.srcSet)}" sizes="${escapeHtml(responsive.sizes)}"` : ''} alt="${escapeHtml(`${name} ürün görseli ${index + 1} - Pars Soğutma`)}"${await imageDimensions(image)} loading="${index === 0 ? 'eager' : 'lazy'}" style="max-width:720px;width:100%;height:auto" /><figcaption>${escapeHtml(`${name} - ${product.category.TR} - görsel ${index + 1}`)}</figcaption></figure>`;
-        })))
-        .join('');
-
-    return `<nav aria-label="İçerik yolu"><a href="/">Ana Sayfa</a> / <a href="/products">Ürünler</a> / <a href="${getCategoryPath(category)}">${escapeHtml(category.copy.TR.name)}</a> / ${escapeHtml(name)}</nav>
-        <main>
-            <h1>${escapeHtml(name)}</h1>
-            ${renderContent(createElement(ProductIntroduction, { product, language: 'TR', content: getProductContent(product.id, 'TR') }))}
-            <dl>
-                <dt>Kategori</dt><dd>${escapeHtml(product.category.TR)}</dd>
-                <dt>Modül ölçüleri</dt><dd>${escapeHtml(product.specs.modules)}</dd>
-                <dt>Çalışma sıcaklıkları</dt><dd>${escapeHtml(getProductTemperature(product, 'TR'))}</dd>
-            </dl>
-            ${renderContent(createElement(ContactActions, { subject: name, language: 'TR' }))}
-            <h2>${escapeHtml(name)} teknik özellikleri</h2>
-            <ul>${technical}</ul>
-            ${renderContent(createElement(ProductBuyerGuide, { product, language: 'TR', content: getProductContent(product.id, 'TR') }))}
-            <h2>${escapeHtml(name)} görselleri</h2>
-            ${figures}
-            <p><a href="${productPath}">${escapeHtml(name)} ürün sayfası</a></p>
-            ${renderContent(createElement(RelatedProducts, { product, products, language: 'TR' }))}
-        </main>`;
-}
-
-function referenceBody(project: ReferenceProject): string {
-    const media = project.images.map((image, index) => image.endsWith('.mp4')
-        ? `<video controls preload="metadata" style="max-width:720px;width:100%"><source src="${escapeHtml(image)}" type="video/mp4" /></video>`
-        : `<figure><img src="${escapeHtml(image)}" alt="${escapeHtml(`${project.title} soğutma projesi görseli ${index + 1}`)}" loading="${index === 0 ? 'eager' : 'lazy'}" style="max-width:720px;width:100%;height:auto" /><figcaption>${escapeHtml(`${project.title} - ${project.location} - proje görseli ${index + 1}`)}</figcaption></figure>`).join('');
-    return `<nav><a href="/">Ana Sayfa</a> / <a href="/references">Referanslar</a> / ${escapeHtml(project.title)}</nav><main><h1>${escapeHtml(project.title)} Soğutma Projesi</h1><p>${escapeHtml(project.copy.TR.description)}</p>${media}${renderContent(createElement(ReferenceContent, { project, language: 'TR' }))}</main>`;
-}
-
-const productsBody = `<main><h1>Endüstriyel Soğutma Ürünleri</h1><p>${escapeHtml(staticPageSeo['/products'].TR.description)}</p>${renderContent(createElement(CategoryLinks, { language: 'TR' }))}<ul>${canonicalProducts
-    .map((product) => `<li><a href="${getProductPath(product)}"><img src="${escapeHtml(getProductMainImage(product))}" alt="${escapeHtml(`${getProductDisplayName(product, 'TR')} - Pars Soğutma`)}" loading="lazy" width="240" /> <span>${escapeHtml(getProductDisplayName(product, 'TR'))}</span></a></li>`)
-    .join('')}</ul></main>`;
-
-const referencesBody = `<main><h1>Referans Projeler</h1><p>${escapeHtml(staticPageSeo['/references'].TR.description)}</p><ul>${projects
-    .map((project) => `<li><a href="${getReferencePath(project)}"><img src="${escapeHtml(project.coverImage)}" alt="${escapeHtml(`${project.title} soğutma projesi`)}" loading="lazy" width="320" /> <span>${escapeHtml(project.title)} - ${escapeHtml(project.location)}</span></a></li>`)
-    .join('')}</ul></main>`;
 
 const staticRoutes = Object.keys(staticPageSeo);
 for (const route of staticRoutes) {
     const seo = staticPageSeo[route].TR;
-    const body = route === '/products'
-        ? productsBody
-        : route === '/'
-            ? `<main>${renderContent(createElement(HomeIntroduction, { language: 'TR' }))}${renderContent(createElement(CategoryLinks, { language: 'TR' }))}</main>`
-        : route === '/references'
-            ? referencesBody
-        : `<main><h1>${escapeHtml(seo.title.split('|')[0].trim())}</h1><p>${escapeHtml(seo.description)}</p><nav><a href="/products">Ürünler</a> · <a href="/about">Hakkımızda</a> · <a href="/references">Referanslar</a> · <a href="/contact">İletişim</a></nav></main>`;
-
     await writeSnapshot({
         route,
         title: seo.title,
         description: seo.description,
         image: seo.image ?? DEFAULT_SOCIAL_IMAGE,
         jsonLd: [organizationJsonLd()],
-        body,
     });
 }
 
@@ -240,7 +154,6 @@ await writeSnapshot({
     description: 'Aradığınız sayfa bulunamadı. Pars Soğutma ürünlerini incelemek için ürünler sayfasına dönebilirsiniz.',
     image: DEFAULT_SOCIAL_IMAGE,
     robots: 'noindex, follow',
-    body: '<main><h1>Sayfa Bulunamadı</h1><p>Aradığınız içerik bulunamadı.</p><p><a href="/">Ana Sayfa</a> · <a href="/products">Ürünler</a></p></main>',
 });
 
 const generatedLegacyProductRoutes = new Set<string>();
@@ -265,10 +178,8 @@ for (const sourceProduct of products) {
         description: seo.description,
         image: seo.image ?? DEFAULT_SOCIAL_IMAGE,
         preloadImage: getProductMainImage(product),
-        preloadDataId: product.id,
         type: 'product' as const,
         jsonLd: data,
-        body: await productBody(product),
     };
     await writeSnapshot({ ...snapshot, route: `/products/${sourceProduct.id}`, canonicalRoute: route });
 
@@ -294,7 +205,6 @@ for (const category of productCategories) {
             { name: 'Ürünler', path: '/products' },
             { name: category.copy.TR.name, path: route },
         ])],
-        body: renderContent(createElement(CategoryContent, { category, products, language: 'TR' })),
     });
 }
 
@@ -310,7 +220,7 @@ for (const project of projects) {
             { name: project.title, path: route },
         ]),
     ];
-    const snapshot = { route, title, description, image: project.coverImage, jsonLd: data, body: referenceBody(project) };
+    const snapshot = { route, title, description, image: project.coverImage, jsonLd: data };
     await writeSnapshot(snapshot);
     await writeSnapshot({ ...snapshot, route: `/references/${project.id}`, canonicalRoute: route });
 }
