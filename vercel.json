@@ -14,11 +14,1620 @@
     }
   ],
   "redirects": [
-    { "source": "/products/42", "destination": "/products/12", "permanent": true },
-    { "source": "/online-katalog", "destination": "/e-catalog", "permanent": true },
-    { "source": "/hakkimizda", "destination": "/about", "permanent": true },
-    { "source": "/iletisim", "destination": "/contact", "permanent": true },
-    { "source": "/referanslar", "destination": "/references", "permanent": true },
-    { "source": "/foto-galeri", "destination": "/gallery", "permanent": true }
+    {
+      "source": "/products/42",
+      "destination": "/products/12",
+      "permanent": true
+    },
+    {
+      "source": "/online-katalog",
+      "destination": "/e-catalog",
+      "permanent": true
+    },
+    {
+      "source": "/hakkimizda",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/iletisim",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/referanslar",
+      "destination": "/references",
+      "permanent": true
+    },
+    {
+      "source": "/foto-galeri",
+      "destination": "/gallery",
+      "permanent": true
+    },
+    {
+      "source": "/blog/reyon-dolabi",
+      "destination": "/products/1",
+      "permanent": true
+    },
+    {
+      "source": "/urun/reyon-dolabi-1",
+      "destination": "/products/1",
+      "permanent": true
+    },
+    {
+      "source": "/urun/reyon-dolabi",
+      "destination": "/products/1",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kasap-dolabi",
+      "destination": "/products/2",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kasap-dolabi-2",
+      "destination": "/products/2",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kasap-dolabi",
+      "destination": "/products/2",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kasap-teshir-dolabi",
+      "destination": "/products/3",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kasap-teshir-dolabi-3",
+      "destination": "/products/3",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kasap-teshir-dolabi",
+      "destination": "/products/3",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kebap-meze-dolabi",
+      "destination": "/products/4",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kebap-meze-dolabi-4",
+      "destination": "/products/4",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kebap-meze-dolabi",
+      "destination": "/products/4",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kasap-dolabi-dik-camli",
+      "destination": "/products/5",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kasap-dolabi-dik-camli-5",
+      "destination": "/products/5",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kasap-dolabi-dik-camli",
+      "destination": "/products/5",
+      "permanent": true
+    },
+    {
+      "source": "/blog/reyon-dolabi-dik-camli",
+      "destination": "/products/6",
+      "permanent": true
+    },
+    {
+      "source": "/urun/reyon-dolabi-dik-camli-6",
+      "destination": "/products/6",
+      "permanent": true
+    },
+    {
+      "source": "/urun/reyon-dolabi-dik-camli",
+      "destination": "/products/6",
+      "permanent": true
+    },
+    {
+      "source": "/blog/balik-mostra-dolabi",
+      "destination": "/products/7",
+      "permanent": true
+    },
+    {
+      "source": "/urun/balik-mostra-dolabi-7",
+      "destination": "/products/7",
+      "permanent": true
+    },
+    {
+      "source": "/urun/balik-mostra-dolabi",
+      "destination": "/products/7",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kasap-reyon-dolabi-duz-camli",
+      "destination": "/products/8",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kasap-reyon-dolabi-duz-camli-8",
+      "destination": "/products/8",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kasap-reyon-dolabi-duz-camli",
+      "destination": "/products/8",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sogutmali-balik-dolabi",
+      "destination": "/products/9",
+      "permanent": true
+    },
+    {
+      "source": "/urun/sogutmali-balik-dolabi-9",
+      "destination": "/products/9",
+      "permanent": true
+    },
+    {
+      "source": "/urun/sogutmali-balik-dolabi",
+      "destination": "/products/9",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kasap-reyon-dolabi-bombe-camli",
+      "destination": "/products/10",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kasap-reyon-dolabi-bombe-camli-10",
+      "destination": "/products/10",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kasap-reyon-dolabi-bombe-camli",
+      "destination": "/products/10",
+      "permanent": true
+    },
+    {
+      "source": "/urun/balik-mostra-dolabi-11",
+      "destination": "/products/11",
+      "permanent": true
+    },
+    {
+      "source": "/blog/meze-dolabi-dikey-tip",
+      "destination": "/products/12",
+      "permanent": true
+    },
+    {
+      "source": "/urun/meze-dolabi-dikey-tip-12",
+      "destination": "/products/12",
+      "permanent": true
+    },
+    {
+      "source": "/urun/meze-dolabi-dikey-tip",
+      "destination": "/products/12",
+      "permanent": true
+    },
+    {
+      "source": "/blog/soguk-teshir-dolabi",
+      "destination": "/products/13",
+      "permanent": true
+    },
+    {
+      "source": "/urun/soguk-teshir-dolabi-13",
+      "destination": "/products/13",
+      "permanent": true
+    },
+    {
+      "source": "/urun/soguk-teshir-dolabi",
+      "destination": "/products/13",
+      "permanent": true
+    },
+    {
+      "source": "/blog/yatay-ekler-pasta-dolabi",
+      "destination": "/products/14",
+      "permanent": true
+    },
+    {
+      "source": "/urun/yatay-ekler-pasta-dolabi-14",
+      "destination": "/products/14",
+      "permanent": true
+    },
+    {
+      "source": "/urun/yatay-ekler-pasta-dolabi",
+      "destination": "/products/14",
+      "permanent": true
+    },
+    {
+      "source": "/blog/venus-pasta-teshir-dolabi",
+      "destination": "/products/15",
+      "permanent": true
+    },
+    {
+      "source": "/urun/venus-pasta-teshir-dolabi-15",
+      "destination": "/products/15",
+      "permanent": true
+    },
+    {
+      "source": "/urun/venus-pasta-teshir-dolabi",
+      "destination": "/products/15",
+      "permanent": true
+    },
+    {
+      "source": "/blog/moon-bombe-camli-reyon-dolabi",
+      "destination": "/products/16",
+      "permanent": true
+    },
+    {
+      "source": "/urun/moon-bombe-camli-reyon-dolabi-16",
+      "destination": "/products/16",
+      "permanent": true
+    },
+    {
+      "source": "/urun/moon-bombe-camli-reyon-dolabi",
+      "destination": "/products/16",
+      "permanent": true
+    },
+    {
+      "source": "/blog/full-moon-dik-camli-reyon-dolabi",
+      "destination": "/products/17",
+      "permanent": true
+    },
+    {
+      "source": "/urun/full-moon-dik-camli-reyon-dolabi-17",
+      "destination": "/products/17",
+      "permanent": true
+    },
+    {
+      "source": "/urun/full-moon-dik-camli-reyon-dolabi",
+      "destination": "/products/17",
+      "permanent": true
+    },
+    {
+      "source": "/blog/new-moon-duz-camli-reyon-dolabi",
+      "destination": "/products/18",
+      "permanent": true
+    },
+    {
+      "source": "/urun/new-moon-duz-camli-reyon-dolabi-18",
+      "destination": "/products/18",
+      "permanent": true
+    },
+    {
+      "source": "/urun/new-moon-duz-camli-reyon-dolabi",
+      "destination": "/products/18",
+      "permanent": true
+    },
+    {
+      "source": "/blog/duz-camli-reyon-dolabi",
+      "destination": "/products/19",
+      "permanent": true
+    },
+    {
+      "source": "/urun/duz-camli-reyon-dolabi-19",
+      "destination": "/products/19",
+      "permanent": true
+    },
+    {
+      "source": "/urun/duz-camli-reyon-dolabi",
+      "destination": "/products/19",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kuru-sogutmali-reyon-dolabi",
+      "destination": "/products/20",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kuru-sogutmali-reyon-dolabi-20",
+      "destination": "/products/20",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kuru-sogutmali-reyon-dolabi",
+      "destination": "/products/20",
+      "permanent": true
+    },
+    {
+      "source": "/blog/reyon-teshir-dolabi",
+      "destination": "/products/21",
+      "permanent": true
+    },
+    {
+      "source": "/urun/reyon-teshir-dolabi-21",
+      "destination": "/products/21",
+      "permanent": true
+    },
+    {
+      "source": "/urun/reyon-teshir-dolabi",
+      "destination": "/products/21",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kafe-restoran-teshir-dolabi",
+      "destination": "/products/22",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kafe-restoran-teshir-dolabi-22",
+      "destination": "/products/22",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kafe-restoran-teshir-dolabi",
+      "destination": "/products/22",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kasap-reyon-dolabi",
+      "destination": "/products/23",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kasap-reyon-dolabi-23",
+      "destination": "/products/23",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kasap-reyon-dolabi",
+      "destination": "/products/23",
+      "permanent": true
+    },
+    {
+      "source": "/blog/balik-teshir-dolabi",
+      "destination": "/products/24",
+      "permanent": true
+    },
+    {
+      "source": "/urun/balik-teshir-dolabi-24",
+      "destination": "/products/24",
+      "permanent": true
+    },
+    {
+      "source": "/urun/balik-teshir-dolabi",
+      "destination": "/products/24",
+      "permanent": true
+    },
+    {
+      "source": "/blog/meze-teshir-dolabi",
+      "destination": "/products/25",
+      "permanent": true
+    },
+    {
+      "source": "/urun/meze-teshir-dolabi-25",
+      "destination": "/products/25",
+      "permanent": true
+    },
+    {
+      "source": "/urun/meze-teshir-dolabi",
+      "destination": "/products/25",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kebap-teshir-dolabi",
+      "destination": "/products/26",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kebap-teshir-dolabi-26",
+      "destination": "/products/26",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kebap-teshir-dolabi",
+      "destination": "/products/26",
+      "permanent": true
+    },
+    {
+      "source": "/blog/promosyon-dolabi",
+      "destination": "/products/27",
+      "permanent": true
+    },
+    {
+      "source": "/urun/promosyon-dolabi-27",
+      "destination": "/products/27",
+      "permanent": true
+    },
+    {
+      "source": "/urun/promosyon-dolabi",
+      "destination": "/products/27",
+      "permanent": true
+    },
+    {
+      "source": "/blog/statik-sogutmali-reyon-dolabi",
+      "destination": "/products/28",
+      "permanent": true
+    },
+    {
+      "source": "/urun/statik-sogutmali-reyon-dolabi-28",
+      "destination": "/products/28",
+      "permanent": true
+    },
+    {
+      "source": "/urun/statik-sogutmali-reyon-dolabi",
+      "destination": "/products/28",
+      "permanent": true
+    },
+    {
+      "source": "/blog/dik-camli-reyon-dolabi",
+      "destination": "/products/29",
+      "permanent": true
+    },
+    {
+      "source": "/urun/dik-camli-reyon-dolabi-29",
+      "destination": "/products/29",
+      "permanent": true
+    },
+    {
+      "source": "/urun/dik-camli-reyon-dolabi",
+      "destination": "/products/29",
+      "permanent": true
+    },
+    {
+      "source": "/urun/duz-camli-reyon-dolabi-30",
+      "destination": "/products/30",
+      "permanent": true
+    },
+    {
+      "source": "/blog/yarim-camli-reyon-dolabi",
+      "destination": "/products/31",
+      "permanent": true
+    },
+    {
+      "source": "/urun/yarim-camli-reyon-dolabi-31",
+      "destination": "/products/31",
+      "permanent": true
+    },
+    {
+      "source": "/urun/yarim-camli-reyon-dolabi",
+      "destination": "/products/31",
+      "permanent": true
+    },
+    {
+      "source": "/blog/bombe-camli-reyon-dolabi",
+      "destination": "/products/32",
+      "permanent": true
+    },
+    {
+      "source": "/urun/bombe-camli-reyon-dolabi-32",
+      "destination": "/products/32",
+      "permanent": true
+    },
+    {
+      "source": "/urun/bombe-camli-reyon-dolabi",
+      "destination": "/products/32",
+      "permanent": true
+    },
+    {
+      "source": "/blog/uflemeli-reyon-dolabi",
+      "destination": "/products/33",
+      "permanent": true
+    },
+    {
+      "source": "/urun/uflemeli-reyon-dolabi-33",
+      "destination": "/products/33",
+      "permanent": true
+    },
+    {
+      "source": "/urun/uflemeli-reyon-dolabi",
+      "destination": "/products/33",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kuzu-et-aski-dolabi",
+      "destination": "/products/34",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kuzu-et-aski-dolabi-34",
+      "destination": "/products/34",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kuzu-et-aski-dolabi",
+      "destination": "/products/34",
+      "permanent": true
+    },
+    {
+      "source": "/blog/dikey-pasta-dolabi",
+      "destination": "/products/35",
+      "permanent": true
+    },
+    {
+      "source": "/urun/dikey-pasta-dolabi-35",
+      "destination": "/products/35",
+      "permanent": true
+    },
+    {
+      "source": "/urun/dikey-pasta-dolabi",
+      "destination": "/products/35",
+      "permanent": true
+    },
+    {
+      "source": "/blog/manav-sutluk-dolabi",
+      "destination": "/products/36",
+      "permanent": true
+    },
+    {
+      "source": "/urun/manav-sutluk-dolabi-36",
+      "destination": "/products/36",
+      "permanent": true
+    },
+    {
+      "source": "/urun/manav-sutluk-dolabi",
+      "destination": "/products/36",
+      "permanent": true
+    },
+    {
+      "source": "/blog/yarim-boy-sutluk-dolabi",
+      "destination": "/products/37",
+      "permanent": true
+    },
+    {
+      "source": "/urun/yarim-boy-sutluk-dolabi-37",
+      "destination": "/products/37",
+      "permanent": true
+    },
+    {
+      "source": "/urun/yarim-boy-sutluk-dolabi",
+      "destination": "/products/37",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cam-kapakli-sutluk-dolabi",
+      "destination": "/products/38",
+      "permanent": true
+    },
+    {
+      "source": "/urun/cam-kapakli-sutluk-dolabi-38",
+      "destination": "/products/38",
+      "permanent": true
+    },
+    {
+      "source": "/urun/cam-kapakli-sutluk-dolabi",
+      "destination": "/products/38",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sutluk-dolabi",
+      "destination": "/products/39",
+      "permanent": true
+    },
+    {
+      "source": "/urun/sutluk-dolabi-39",
+      "destination": "/products/39",
+      "permanent": true
+    },
+    {
+      "source": "/urun/sutluk-dolabi",
+      "destination": "/products/39",
+      "permanent": true
+    },
+    {
+      "source": "/blog/et-aski-dolabi",
+      "destination": "/products/40",
+      "permanent": true
+    },
+    {
+      "source": "/urun/et-aski-dolabi-40",
+      "destination": "/products/40",
+      "permanent": true
+    },
+    {
+      "source": "/urun/et-aski-dolabi",
+      "destination": "/products/40",
+      "permanent": true
+    },
+    {
+      "source": "/blog/dry-aged-dolabi",
+      "destination": "/products/41",
+      "permanent": true
+    },
+    {
+      "source": "/urun/dry-aged-dolabi-41",
+      "destination": "/products/41",
+      "permanent": true
+    },
+    {
+      "source": "/urun/dry-aged-dolabi",
+      "destination": "/products/41",
+      "permanent": true
+    },
+    {
+      "source": "/urun/meze-dolabi-dikey-tip-42",
+      "destination": "/products/12",
+      "permanent": true
+    },
+    {
+      "source": "/urun/dry-aged-dolabi-43",
+      "destination": "/products/43",
+      "permanent": true
+    },
+    {
+      "source": "/blog/dikey-tip-alttan-motorlu-sutluk",
+      "destination": "/products/44",
+      "permanent": true
+    },
+    {
+      "source": "/urun/dikey-tip-alttan-motorlu-sutluk-44",
+      "destination": "/products/44",
+      "permanent": true
+    },
+    {
+      "source": "/urun/dikey-tip-alttan-motorlu-sutluk",
+      "destination": "/products/44",
+      "permanent": true
+    },
+    {
+      "source": "/blog/dikey-sise-sogutucu-ahsap-kaplamali",
+      "destination": "/products/45",
+      "permanent": true
+    },
+    {
+      "source": "/urun/dikey-sise-sogutucu-ahsap-kaplamali-45",
+      "destination": "/products/45",
+      "permanent": true
+    },
+    {
+      "source": "/urun/dikey-sise-sogutucu-ahsap-kaplamali",
+      "destination": "/products/45",
+      "permanent": true
+    },
+    {
+      "source": "/blog/petrol-dolabi-sise-sogutucu",
+      "destination": "/products/46",
+      "permanent": true
+    },
+    {
+      "source": "/urun/petrol-dolabi-sise-sogutucu-46",
+      "destination": "/products/46",
+      "permanent": true
+    },
+    {
+      "source": "/urun/petrol-dolabi-sise-sogutucu",
+      "destination": "/products/46",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mesrubat-ve-kola-dolabi",
+      "destination": "/products/47",
+      "permanent": true
+    },
+    {
+      "source": "/urun/mesrubat-ve-kola-dolabi-47",
+      "destination": "/products/47",
+      "permanent": true
+    },
+    {
+      "source": "/urun/mesrubat-ve-kola-dolabi",
+      "destination": "/products/47",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sise-sogutucu-dolabi",
+      "destination": "/products/48",
+      "permanent": true
+    },
+    {
+      "source": "/urun/sise-sogutucu-dolabi-48",
+      "destination": "/products/48",
+      "permanent": true
+    },
+    {
+      "source": "/urun/sise-sogutucu-dolabi",
+      "destination": "/products/48",
+      "permanent": true
+    },
+    {
+      "source": "/blog/market-dolabi",
+      "destination": "/products/49",
+      "permanent": true
+    },
+    {
+      "source": "/urun/market-dolabi-49",
+      "destination": "/products/49",
+      "permanent": true
+    },
+    {
+      "source": "/urun/market-dolabi",
+      "destination": "/products/49",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sarkuteri-dolabi",
+      "destination": "/products/50",
+      "permanent": true
+    },
+    {
+      "source": "/urun/sarkuteri-dolabi-50",
+      "destination": "/products/50",
+      "permanent": true
+    },
+    {
+      "source": "/urun/sarkuteri-dolabi",
+      "destination": "/products/50",
+      "permanent": true
+    },
+    {
+      "source": "/blog/duvar-tipi-peynir-reyonlari",
+      "destination": "/products/51",
+      "permanent": true
+    },
+    {
+      "source": "/urun/duvar-tipi-peynir-reyonlari-51",
+      "destination": "/products/51",
+      "permanent": true
+    },
+    {
+      "source": "/urun/duvar-tipi-peynir-reyonlari",
+      "destination": "/products/51",
+      "permanent": true
+    },
+    {
+      "source": "/blog/duvar-tipi-sutluk-reyonlari",
+      "destination": "/products/52",
+      "permanent": true
+    },
+    {
+      "source": "/urun/duvar-tipi-sutluk-reyonlari-52",
+      "destination": "/products/52",
+      "permanent": true
+    },
+    {
+      "source": "/urun/duvar-tipi-sutluk-reyonlari",
+      "destination": "/products/52",
+      "permanent": true
+    },
+    {
+      "source": "/urun/promosyon-dolabi-53",
+      "destination": "/products/53",
+      "permanent": true
+    },
+    {
+      "source": "/blog/pasta-cikolata-dolabi",
+      "destination": "/products/54",
+      "permanent": true
+    },
+    {
+      "source": "/urun/pasta-cikolata-dolabi-54",
+      "destination": "/products/54",
+      "permanent": true
+    },
+    {
+      "source": "/urun/pasta-cikolata-dolabi",
+      "destination": "/products/54",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ekler-pasta-dolabi",
+      "destination": "/products/55",
+      "permanent": true
+    },
+    {
+      "source": "/urun/ekler-pasta-dolabi-55",
+      "destination": "/products/55",
+      "permanent": true
+    },
+    {
+      "source": "/urun/ekler-pasta-dolabi",
+      "destination": "/products/55",
+      "permanent": true
+    },
+    {
+      "source": "/blog/pasta-dolabi",
+      "destination": "/products/56",
+      "permanent": true
+    },
+    {
+      "source": "/urun/pasta-dolabi-56",
+      "destination": "/products/56",
+      "permanent": true
+    },
+    {
+      "source": "/urun/pasta-dolabi",
+      "destination": "/products/56",
+      "permanent": true
+    },
+    {
+      "source": "/blog/yatay-pasta-dolabi",
+      "destination": "/products/110",
+      "permanent": true
+    },
+    {
+      "source": "/urun/yatay-pasta-dolabi-110",
+      "destination": "/products/110",
+      "permanent": true
+    },
+    {
+      "source": "/urun/yatay-pasta-dolabi",
+      "destination": "/products/110",
+      "permanent": true
+    },
+    {
+      "source": "/blog/yatay-tip-pasta-dolabi",
+      "destination": "/products/57",
+      "permanent": true
+    },
+    {
+      "source": "/urun/yatay-tip-pasta-dolabi-57",
+      "destination": "/products/57",
+      "permanent": true
+    },
+    {
+      "source": "/urun/yatay-tip-pasta-dolabi",
+      "destination": "/products/57",
+      "permanent": true
+    },
+    {
+      "source": "/blog/pastane-tezgahi",
+      "destination": "/products/58",
+      "permanent": true
+    },
+    {
+      "source": "/urun/pastane-tezgahi-58",
+      "destination": "/products/58",
+      "permanent": true
+    },
+    {
+      "source": "/urun/pastane-tezgahi",
+      "destination": "/products/58",
+      "permanent": true
+    },
+    {
+      "source": "/blog/isitmali-borek-tezgahi",
+      "destination": "/products/59",
+      "permanent": true
+    },
+    {
+      "source": "/urun/isitmali-borek-tezgahi-59",
+      "destination": "/products/59",
+      "permanent": true
+    },
+    {
+      "source": "/urun/isitmali-borek-tezgahi",
+      "destination": "/products/59",
+      "permanent": true
+    },
+    {
+      "source": "/blog/firin-dolabi",
+      "destination": "/products/60",
+      "permanent": true
+    },
+    {
+      "source": "/urun/firin-dolabi-60",
+      "destination": "/products/60",
+      "permanent": true
+    },
+    {
+      "source": "/urun/firin-dolabi",
+      "destination": "/products/60",
+      "permanent": true
+    },
+    {
+      "source": "/blog/isitmali-pogaca-tezgahi",
+      "destination": "/products/61",
+      "permanent": true
+    },
+    {
+      "source": "/urun/isitmali-pogaca-tezgahi-61",
+      "destination": "/products/61",
+      "permanent": true
+    },
+    {
+      "source": "/urun/isitmali-pogaca-tezgahi",
+      "destination": "/products/61",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kumpir-waffle-dolabi",
+      "destination": "/products/62",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kumpir-waffle-dolabi-62",
+      "destination": "/products/62",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kumpir-waffle-dolabi",
+      "destination": "/products/62",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kuruyemis-dolabi",
+      "destination": "/products/63",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kuruyemis-dolabi-63",
+      "destination": "/products/63",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kuruyemis-dolabi",
+      "destination": "/products/63",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cikolata-dolabi",
+      "destination": "/products/64",
+      "permanent": true
+    },
+    {
+      "source": "/urun/cikolata-dolabi-64",
+      "destination": "/products/64",
+      "permanent": true
+    },
+    {
+      "source": "/urun/cikolata-dolabi",
+      "destination": "/products/64",
+      "permanent": true
+    },
+    {
+      "source": "/blog/baklava-tezgahi",
+      "destination": "/products/65",
+      "permanent": true
+    },
+    {
+      "source": "/urun/baklava-tezgahi-65",
+      "destination": "/products/65",
+      "permanent": true
+    },
+    {
+      "source": "/urun/baklava-tezgahi",
+      "destination": "/products/65",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kuru-pasta-dolabi",
+      "destination": "/products/66",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kuru-pasta-dolabi-66",
+      "destination": "/products/66",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kuru-pasta-dolabi",
+      "destination": "/products/66",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cephe-pasta-teshir-dolabi",
+      "destination": "/products/67",
+      "permanent": true
+    },
+    {
+      "source": "/urun/cephe-pasta-teshir-dolabi-67",
+      "destination": "/products/67",
+      "permanent": true
+    },
+    {
+      "source": "/urun/cephe-pasta-teshir-dolabi",
+      "destination": "/products/67",
+      "permanent": true
+    },
+    {
+      "source": "/blog/yatay-pasta-teshir-dolabi",
+      "destination": "/products/68",
+      "permanent": true
+    },
+    {
+      "source": "/urun/yatay-pasta-teshir-dolabi-68",
+      "destination": "/products/68",
+      "permanent": true
+    },
+    {
+      "source": "/urun/yatay-pasta-teshir-dolabi",
+      "destination": "/products/68",
+      "permanent": true
+    },
+    {
+      "source": "/blog/pasta-teshir-dolabi",
+      "destination": "/products/69",
+      "permanent": true
+    },
+    {
+      "source": "/urun/pasta-teshir-dolabi-69",
+      "destination": "/products/69",
+      "permanent": true
+    },
+    {
+      "source": "/urun/pasta-teshir-dolabi",
+      "destination": "/products/69",
+      "permanent": true
+    },
+    {
+      "source": "/blog/orta-tip-paslanmaz-davlumbaz",
+      "destination": "/products/70",
+      "permanent": true
+    },
+    {
+      "source": "/urun/orta-tip-paslanmaz-davlumbaz-70",
+      "destination": "/products/70",
+      "permanent": true
+    },
+    {
+      "source": "/urun/orta-tip-paslanmaz-davlumbaz",
+      "destination": "/products/70",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kutu-tipi-paslanmaz-davlumbaz",
+      "destination": "/products/71",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kutu-tipi-paslanmaz-davlumbaz-71",
+      "destination": "/products/71",
+      "permanent": true
+    },
+    {
+      "source": "/urun/kutu-tipi-paslanmaz-davlumbaz",
+      "destination": "/products/71",
+      "permanent": true
+    },
+    {
+      "source": "/blog/duvar-tipi-filtreli-davlumbaz",
+      "destination": "/products/72",
+      "permanent": true
+    },
+    {
+      "source": "/urun/duvar-tipi-filtreli-davlumbaz-72",
+      "destination": "/products/72",
+      "permanent": true
+    },
+    {
+      "source": "/urun/duvar-tipi-filtreli-davlumbaz",
+      "destination": "/products/72",
+      "permanent": true
+    },
+    {
+      "source": "/blog/duvar-tipi-davlumbaz",
+      "destination": "/products/73",
+      "permanent": true
+    },
+    {
+      "source": "/urun/duvar-tipi-davlumbaz-73",
+      "destination": "/products/73",
+      "permanent": true
+    },
+    {
+      "source": "/urun/duvar-tipi-davlumbaz",
+      "destination": "/products/73",
+      "permanent": true
+    },
+    {
+      "source": "/blog/dikey-tip-buzdolabi-paslanmaz-cift-kapili-camli",
+      "destination": "/products/74",
+      "permanent": true
+    },
+    {
+      "source": "/urun/dikey-tip-buzdolabi-paslanmaz-cift-kapili-camli-74",
+      "destination": "/products/74",
+      "permanent": true
+    },
+    {
+      "source": "/urun/dikey-tip-buzdolabi-paslanmaz-cift-kapili-camli",
+      "destination": "/products/74",
+      "permanent": true
+    },
+    {
+      "source": "/blog/paslanmaz-dikey-tip-buzdolabi-cift-kapili",
+      "destination": "/products/75",
+      "permanent": true
+    },
+    {
+      "source": "/urun/paslanmaz-dikey-tip-buzdolabi-cift-kapili-75",
+      "destination": "/products/75",
+      "permanent": true
+    },
+    {
+      "source": "/urun/paslanmaz-dikey-tip-buzdolabi-cift-kapili",
+      "destination": "/products/75",
+      "permanent": true
+    },
+    {
+      "source": "/blog/dikey-tip-buzdolabi-camli",
+      "destination": "/products/76",
+      "permanent": true
+    },
+    {
+      "source": "/urun/dikey-tip-buzdolabi-camli-76",
+      "destination": "/products/76",
+      "permanent": true
+    },
+    {
+      "source": "/urun/dikey-tip-buzdolabi-camli",
+      "destination": "/products/76",
+      "permanent": true
+    },
+    {
+      "source": "/blog/paslanmaz-buzdolabi-dikey-tip",
+      "destination": "/products/77",
+      "permanent": true
+    },
+    {
+      "source": "/urun/paslanmaz-buzdolabi-dikey-tip-77",
+      "destination": "/products/77",
+      "permanent": true
+    },
+    {
+      "source": "/urun/paslanmaz-buzdolabi-dikey-tip",
+      "destination": "/products/77",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tezgah-alti-dolap-camli",
+      "destination": "/products/78",
+      "permanent": true
+    },
+    {
+      "source": "/urun/tezgah-alti-dolap-camli-78",
+      "destination": "/products/78",
+      "permanent": true
+    },
+    {
+      "source": "/urun/tezgah-alti-dolap-camli",
+      "destination": "/products/78",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tezgah-alti-buzdolabi",
+      "destination": "/products/79",
+      "permanent": true
+    },
+    {
+      "source": "/urun/tezgah-alti-buzdolabi-79",
+      "destination": "/products/79",
+      "permanent": true
+    },
+    {
+      "source": "/urun/tezgah-alti-buzdolabi",
+      "destination": "/products/79",
+      "permanent": true
+    },
+    {
+      "source": "/blog/calisma-tezgahi-ara-rafli",
+      "destination": "/products/80",
+      "permanent": true
+    },
+    {
+      "source": "/urun/calisma-tezgahi-ara-rafli-80",
+      "destination": "/products/80",
+      "permanent": true
+    },
+    {
+      "source": "/urun/calisma-tezgahi-ara-rafli",
+      "destination": "/products/80",
+      "permanent": true
+    },
+    {
+      "source": "/blog/calisma-tezgahi-taban-rafli",
+      "destination": "/products/81",
+      "permanent": true
+    },
+    {
+      "source": "/urun/calisma-tezgahi-taban-rafli-81",
+      "destination": "/products/81",
+      "permanent": true
+    },
+    {
+      "source": "/urun/calisma-tezgahi-taban-rafli",
+      "destination": "/products/81",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tek-evyeli-tezgah-paslanmaz",
+      "destination": "/products/82",
+      "permanent": true
+    },
+    {
+      "source": "/urun/tek-evyeli-tezgah-paslanmaz-82",
+      "destination": "/products/82",
+      "permanent": true
+    },
+    {
+      "source": "/urun/tek-evyeli-tezgah-paslanmaz",
+      "destination": "/products/82",
+      "permanent": true
+    },
+    {
+      "source": "/blog/soguk-oda-rafi",
+      "destination": "/products/83",
+      "permanent": true
+    },
+    {
+      "source": "/urun/soguk-oda-rafi-83",
+      "destination": "/products/83",
+      "permanent": true
+    },
+    {
+      "source": "/urun/soguk-oda-rafi",
+      "destination": "/products/83",
+      "permanent": true
+    },
+    {
+      "source": "/blog/paslanmaz-tel-raf",
+      "destination": "/products/84",
+      "permanent": true
+    },
+    {
+      "source": "/urun/paslanmaz-tel-raf-84",
+      "destination": "/products/84",
+      "permanent": true
+    },
+    {
+      "source": "/urun/paslanmaz-tel-raf",
+      "destination": "/products/84",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tel-raf-istif-rafi",
+      "destination": "/products/85",
+      "permanent": true
+    },
+    {
+      "source": "/urun/tel-raf-istif-rafi-85",
+      "destination": "/products/85",
+      "permanent": true
+    },
+    {
+      "source": "/urun/tel-raf-istif-rafi",
+      "destination": "/products/85",
+      "permanent": true
+    },
+    {
+      "source": "/blog/paslanmaz-evyeli-dolapli-tezgah",
+      "destination": "/products/86",
+      "permanent": true
+    },
+    {
+      "source": "/urun/paslanmaz-evyeli-dolapli-tezgah-86",
+      "destination": "/products/86",
+      "permanent": true
+    },
+    {
+      "source": "/urun/paslanmaz-evyeli-dolapli-tezgah",
+      "destination": "/products/86",
+      "permanent": true
+    },
+    {
+      "source": "/blog/paslanmaz-calisma-tezgahi",
+      "destination": "/products/87",
+      "permanent": true
+    },
+    {
+      "source": "/urun/paslanmaz-calisma-tezgahi-87",
+      "destination": "/products/87",
+      "permanent": true
+    },
+    {
+      "source": "/urun/paslanmaz-calisma-tezgahi",
+      "destination": "/products/87",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sutluk",
+      "destination": "/products/88",
+      "permanent": true
+    },
+    {
+      "source": "/urun/sutluk-88",
+      "destination": "/products/88",
+      "permanent": true
+    },
+    {
+      "source": "/urun/sutluk",
+      "destination": "/products/88",
+      "permanent": true
+    },
+    {
+      "source": "/blog/zeytin-dolabi",
+      "destination": "/products/89",
+      "permanent": true
+    },
+    {
+      "source": "/urun/zeytin-dolabi-89",
+      "destination": "/products/89",
+      "permanent": true
+    },
+    {
+      "source": "/urun/zeytin-dolabi",
+      "destination": "/products/89",
+      "permanent": true
+    },
+    {
+      "source": "/blog/manav-tezgahi",
+      "destination": "/products/90",
+      "permanent": true
+    },
+    {
+      "source": "/urun/manav-tezgahi-90",
+      "destination": "/products/90",
+      "permanent": true
+    },
+    {
+      "source": "/urun/manav-tezgahi",
+      "destination": "/products/90",
+      "permanent": true
+    },
+    {
+      "source": "/blog/zeytinlik-ve-recetelik-dolabi",
+      "destination": "/products/91",
+      "permanent": true
+    },
+    {
+      "source": "/urun/zeytinlik-ve-recetelik-dolabi-91",
+      "destination": "/products/91",
+      "permanent": true
+    },
+    {
+      "source": "/urun/zeytinlik-ve-recetelik-dolabi",
+      "destination": "/products/91",
+      "permanent": true
+    },
+    {
+      "source": "/blog/endustriyel-sogutma-sistemleri",
+      "destination": "/products/92",
+      "permanent": true
+    },
+    {
+      "source": "/urun/endustriyel-sogutma-sistemleri-92",
+      "destination": "/products/92",
+      "permanent": true
+    },
+    {
+      "source": "/urun/endustriyel-sogutma-sistemleri",
+      "destination": "/products/92",
+      "permanent": true
+    },
+    {
+      "source": "/blog/monoblok-sogutma-sistemleri",
+      "destination": "/products/93",
+      "permanent": true
+    },
+    {
+      "source": "/urun/monoblok-sogutma-sistemleri-93",
+      "destination": "/products/93",
+      "permanent": true
+    },
+    {
+      "source": "/urun/monoblok-sogutma-sistemleri",
+      "destination": "/products/93",
+      "permanent": true
+    },
+    {
+      "source": "/blog/split-sogutma-grubu",
+      "destination": "/products/94",
+      "permanent": true
+    },
+    {
+      "source": "/urun/split-sogutma-grubu-94",
+      "destination": "/products/94",
+      "permanent": true
+    },
+    {
+      "source": "/urun/split-sogutma-grubu",
+      "destination": "/products/94",
+      "permanent": true
+    },
+    {
+      "source": "/blog/merkezi-sogutma-sistemleri",
+      "destination": "/products/95",
+      "permanent": true
+    },
+    {
+      "source": "/urun/merkezi-sogutma-sistemleri-95",
+      "destination": "/products/95",
+      "permanent": true
+    },
+    {
+      "source": "/urun/merkezi-sogutma-sistemleri",
+      "destination": "/products/95",
+      "permanent": true
+    },
+    {
+      "source": "/blog/bireysel-sogutma-gruplari",
+      "destination": "/products/96",
+      "permanent": true
+    },
+    {
+      "source": "/urun/bireysel-sogutma-gruplari-96",
+      "destination": "/products/96",
+      "permanent": true
+    },
+    {
+      "source": "/urun/bireysel-sogutma-gruplari",
+      "destination": "/products/96",
+      "permanent": true
+    },
+    {
+      "source": "/blog/soguk-hava-deposu",
+      "destination": "/products/97",
+      "permanent": true
+    },
+    {
+      "source": "/urun/soguk-hava-deposu-97",
+      "destination": "/products/97",
+      "permanent": true
+    },
+    {
+      "source": "/urun/soguk-hava-deposu",
+      "destination": "/products/97",
+      "permanent": true
+    },
+    {
+      "source": "/blog/18-derece-soguk-hava-deposu",
+      "destination": "/products/98",
+      "permanent": true
+    },
+    {
+      "source": "/urun/18-derece-soguk-hava-deposu-98",
+      "destination": "/products/98",
+      "permanent": true
+    },
+    {
+      "source": "/urun/18-derece-soguk-hava-deposu",
+      "destination": "/products/98",
+      "permanent": true
+    },
+    {
+      "source": "/blog/pvc-serit-hava-perdesi",
+      "destination": "/products/99",
+      "permanent": true
+    },
+    {
+      "source": "/urun/pvc-serit-hava-perdesi-99",
+      "destination": "/products/99",
+      "permanent": true
+    },
+    {
+      "source": "/urun/pvc-serit-hava-perdesi",
+      "destination": "/products/99",
+      "permanent": true
+    },
+    {
+      "source": "/blog/pvc-perde",
+      "destination": "/products/100",
+      "permanent": true
+    },
+    {
+      "source": "/urun/pvc-perde-100",
+      "destination": "/products/100",
+      "permanent": true
+    },
+    {
+      "source": "/urun/pvc-perde",
+      "destination": "/products/100",
+      "permanent": true
+    },
+    {
+      "source": "/blog/pvc-perde-sistemleri",
+      "destination": "/products/101",
+      "permanent": true
+    },
+    {
+      "source": "/urun/pvc-perde-sistemleri-101",
+      "destination": "/products/101",
+      "permanent": true
+    },
+    {
+      "source": "/urun/pvc-perde-sistemleri",
+      "destination": "/products/101",
+      "permanent": true
+    },
+    {
+      "source": "/blog/soguk-oda-panelleri",
+      "destination": "/products/102",
+      "permanent": true
+    },
+    {
+      "source": "/urun/soguk-oda-panelleri-102",
+      "destination": "/products/102",
+      "permanent": true
+    },
+    {
+      "source": "/urun/soguk-oda-panelleri",
+      "destination": "/products/102",
+      "permanent": true
+    },
+    {
+      "source": "/blog/soguk-hava-deposu-pvc-perde-sistemleri",
+      "destination": "/products/103",
+      "permanent": true
+    },
+    {
+      "source": "/urun/soguk-hava-deposu-pvc-perde-sistemleri-103",
+      "destination": "/products/103",
+      "permanent": true
+    },
+    {
+      "source": "/urun/soguk-hava-deposu-pvc-perde-sistemleri",
+      "destination": "/products/103",
+      "permanent": true
+    },
+    {
+      "source": "/blog/soguk-hava-deposu-aksesuarlari",
+      "destination": "/products/104",
+      "permanent": true
+    },
+    {
+      "source": "/urun/soguk-hava-deposu-aksesuarlari-104",
+      "destination": "/products/104",
+      "permanent": true
+    },
+    {
+      "source": "/urun/soguk-hava-deposu-aksesuarlari",
+      "destination": "/products/104",
+      "permanent": true
+    },
+    {
+      "source": "/blog/menteseli-soguk-hava-deposu-kapisi",
+      "destination": "/products/105",
+      "permanent": true
+    },
+    {
+      "source": "/urun/menteseli-soguk-hava-deposu-kapisi-105",
+      "destination": "/products/105",
+      "permanent": true
+    },
+    {
+      "source": "/urun/menteseli-soguk-hava-deposu-kapisi",
+      "destination": "/products/105",
+      "permanent": true
+    },
+    {
+      "source": "/blog/surgulu-soguk-hava-deposu-kapisi",
+      "destination": "/products/106",
+      "permanent": true
+    },
+    {
+      "source": "/urun/surgulu-soguk-hava-deposu-kapisi-106",
+      "destination": "/products/106",
+      "permanent": true
+    },
+    {
+      "source": "/urun/surgulu-soguk-hava-deposu-kapisi",
+      "destination": "/products/106",
+      "permanent": true
+    },
+    {
+      "source": "/blog/calisma-tezgahi-polietilen-tablali-taban-rafli",
+      "destination": "/products/107",
+      "permanent": true
+    },
+    {
+      "source": "/urun/calisma-tezgahi-polietilen-tablali-taban-rafli-107",
+      "destination": "/products/107",
+      "permanent": true
+    },
+    {
+      "source": "/urun/calisma-tezgahi-polietilen-tablali-taban-rafli",
+      "destination": "/products/107",
+      "permanent": true
+    },
+    {
+      "source": "/blog/paslanmaz-dolapli-calisma-tezgahi",
+      "destination": "/products/108",
+      "permanent": true
+    },
+    {
+      "source": "/urun/paslanmaz-dolapli-calisma-tezgahi-108",
+      "destination": "/products/108",
+      "permanent": true
+    },
+    {
+      "source": "/urun/paslanmaz-dolapli-calisma-tezgahi",
+      "destination": "/products/108",
+      "permanent": true
+    }
   ]
 }
