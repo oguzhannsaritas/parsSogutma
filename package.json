@@ -12,6 +12,7 @@
     "content:generate": "node --import tsx scripts/generate-product-metadata.ts && node --import tsx scripts/generate-product-data.ts",
     "seo:generate": "node --import tsx scripts/generate-seo.ts",
     "seo:check": "node --import tsx scripts/check-seo.ts",
+    "redirects:generate": "node --import tsx scripts/generate-legacy-redirects.ts",
     "analytics:check": "node --import tsx scripts/check-analytics.ts && node --import tsx scripts/check-contact-boot.ts",
     "preview": "vite preview",
     "clean": "rm -rf dist",

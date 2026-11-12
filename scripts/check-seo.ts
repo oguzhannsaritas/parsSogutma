@@ -12,6 +12,7 @@ import { getProductDescription, getProductMainImage, getProductPath, getProductS
 import { projects, getReferencePath } from '../src/data/references';
 import { getReferenceSeo } from '../src/seo/references';
 import vercel from '../vercel.json';
+import { getLegacyProductRedirects } from './legacy-product-redirects';
 
 const dist = path.join(process.cwd(), 'dist');
 const canonicalProducts = products.filter(isCanonicalProduct);
@@ -176,5 +177,26 @@ for (const product of products) {
     assert.equal(paragraphs.filter(text => text === intro || intro.startsWith(`${text} `)).length, 1, `Duplicate product lead in first HTML: ${product.id}`);
 }
 assert(vercel.redirects.some(item => item.source === '/products/42' && item.destination === '/products/12' && item.permanent), 'Duplicate route requires a permanent redirect');
+const redirectSources = new Set<string>();
+for (const redirect of vercel.redirects) {
+    assert(!redirectSources.has(redirect.source), `Duplicate redirect source: ${redirect.source}`);
+    redirectSources.add(redirect.source);
+    assert(redirect.source !== redirect.destination, `Redirect loop: ${redirect.source}`);
+    assert(!vercel.redirects.some(item => item.source === redirect.destination), `Redirect chain: ${redirect.source}`);
+}
+const legacyRedirects = getLegacyProductRedirects();
+assert.equal(vercel.redirects.filter(item => /^\/(urun|blog)\//.test(item.source)).length, legacyRedirects.length, 'Legacy redirects are stale; run npm run redirects:generate');
+for (const redirect of legacyRedirects) {
+    assert(vercel.redirects.some(item => item.source === redirect.source && item.destination === redirect.destination && item.permanent), `Missing permanent redirect: ${redirect.source}`);
+    // Compare against the independently generated legacy HTML, so changing a
+    // shared slug's destination cannot silently send visitors to another model.
+    const destination = `${SITE_URL}${redirect.destination}`;
+    assert.equal(canonical(await readPage(redirect.source)), destination, `Legacy redirect changes the existing product mapping: ${redirect.source}`);
+    assert.equal(canonical(await readPage(redirect.destination)), destination, `Redirect target must be a canonical page: ${redirect.source}`);
+    assert(urls.includes(destination), `Redirect target is not in a sitemap: ${redirect.source}`);
+}
+for (const id of [19, 30]) assert(!redirectSources.has(`/products/${id}`), `Unconfirmed models must remain separate: ${id}`);
+assert(!vercel.redirects.some(item => item.source.startsWith('/etiket/')), 'Archive redirects require a verified replacement, not a blanket rule');
+console.log(`Legacy redirects checked: ${legacyRedirects.length} existing aliases point directly to canonical, indexable products.`);
 assert.equal((await readFile(path.join(dist, 'google69e736d7d2eb3d7e.html'), 'utf8')).trim(), 'google-site-verification: google69e736d7d2eb3d7e.html');
 console.log(`SEO checks passed: ${urls.length} canonical pages, ${productCategories.length} populated groups, ${canonicalProducts.length} bilingual product guides, ${projects.length} project narratives and reciprocal links, unique product leads, lazy guide loading, model identity and temperature guards, all catalogue aliases and assets.`);
