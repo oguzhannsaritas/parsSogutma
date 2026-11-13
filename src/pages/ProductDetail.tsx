@@ -11,6 +11,7 @@ import { getProductThumbnailUrl } from '../lib/productImages';
 import { getCategoryPath, getProductCategory, getProductDisplayName, isCanonicalProduct } from '../data/catalog';
 import { ContactActions, RelatedProducts } from '../components/CatalogContent';
 import { ProductBuyerGuide, ProductIntroduction } from '../components/ProductEditorialContent';
+import { ProductSpecificationDetails } from '../components/ProductSpecificationDetails';
 import { loadProductPageData, type ProductPageData } from '../lib/productData';
 import PageLoader from '../components/PageLoader';
 
@@ -202,8 +203,6 @@ function ProductDetailView({ page }: { page: ProductPageData }) {
     const [activeTab, setActiveTab] = useState<TabKey>('about');
     const [selectedImage, setSelectedImage] = useState(0);
     const [isExtraInfoOpen, setIsExtraInfoOpen] = useState(true);
-    const [isSpecificationOpen, setIsSpecificationOpen] = useState(false);
-    const [isAccessoriesOpen, setIsAccessoriesOpen] = useState(false);
     const [selectedDrawingImage, setSelectedDrawingImage] = useState(0);
     const [lightbox, setLightbox] = useState<LightboxState | null>(null);
 
@@ -676,119 +675,20 @@ function ProductDetailView({ page }: { page: ProductPageData }) {
                                                 </span>
                                             </div>
 
-                                            <div>
-                                                <div
-                                                    onClick={() => setIsSpecificationOpen((prev) => !prev)}
-                                                    className="flex justify-between border-b border-gray-100 dark:border-neutral-800 pb-2 border-dotted cursor-pointer"
-                                                    role="button"
-                                                    tabIndex={0}
-                                                    onKeyDown={(e) => {
-                                                        if (e.key === 'Enter' || e.key === ' ') {
-                                                            e.preventDefault();
-                                                            setIsSpecificationOpen((prev) => !prev);
-                                                        }
-                                                    }}
-                                                >
-                                                    <span className="font-bold text-xs md:text-sm text-black dark:text-white">
-                                                        {t('product.table.specification')}
-                                                    </span>
-
-                                                    <span className="flex items-center gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-400">
-                                                        <ChevronRight
-                                                            size={16}
-                                                            className={`transition-transform duration-200 ${
-                                                                isSpecificationOpen ? 'rotate-90' : 'rotate-0'
-                                                            }`}
-                                                            aria-hidden="true"
-                                                        />
-                                                    </span>
-                                                </div>
-
-                                                <AnimatePresence initial={false}>
-                                                    {isSpecificationOpen && (
-                                                        <motion.div
-                                                            initial={{ height: 0, opacity: 0 }}
-                                                            animate={{ height: 'auto', opacity: 1 }}
-                                                            exit={{ height: 0, opacity: 0 }}
-                                                            transition={{ duration: 0.25 }}
-                                                            className="overflow-hidden"
-                                                        >
-                                                            <div className="pt-3 pb-2 text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                                                                {Array.isArray(specs.technicalSpecification) &&
-                                                                specs.technicalSpecification.length > 0 ? (
-                                                                    <ul className="list-none pl-0 space-y-1">
-                                                                        {specs.technicalSpecification.map((item: any, index: number) => (
-                                                                            <li key={index} className="flex items-start gap-2">
-                                                                                <span className="text-[#009FE3] leading-5">•</span>
-                                                                                <span>{item[language]}</span>
-                                                                            </li>
-                                                                        ))}
-                                                                    </ul>
-                                                                ) : (
-                                                                    <span>{t('product.technical')}</span>
-                                                                )}
-                                                            </div>
-                                                        </motion.div>
-                                                    )}
-                                                </AnimatePresence>
-                                            </div>
-
-                                            <div>
-                                                <div
-                                                    onClick={() => setIsAccessoriesOpen((prev) => !prev)}
-                                                    className="flex justify-between border-b border-gray-100 dark:border-neutral-800 pb-2 border-dotted cursor-pointer"
-                                                    role="button"
-                                                    tabIndex={0}
-                                                    onKeyDown={(e) => {
-                                                        if (e.key === 'Enter' || e.key === ' ') {
-                                                            e.preventDefault();
-                                                            setIsAccessoriesOpen((prev) => !prev);
-                                                        }
-                                                    }}
-                                                >
-                                                    <span className="font-bold text-xs md:text-sm text-black dark:text-white">
-                                                        {t('product.table.optionalAccessories')}
-                                                    </span>
-
-                                                    <span className="flex items-center gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-400">
-                                                        <ChevronRight
-                                                            size={16}
-                                                            className={`transition-transform duration-200 ${
-                                                                isAccessoriesOpen ? 'rotate-90' : 'rotate-0'
-                                                            }`}
-                                                            aria-hidden="true"
-                                                        />
-                                                    </span>
-                                                </div>
-
-                                                <AnimatePresence initial={false}>
-                                                    {isAccessoriesOpen && (
-                                                        <motion.div
-                                                            initial={{ height: 0, opacity: 0 }}
-                                                            animate={{ height: 'auto', opacity: 1 }}
-                                                            exit={{ height: 0, opacity: 0 }}
-                                                            transition={{ duration: 0.25 }}
-                                                            className="overflow-hidden"
-                                                        >
-                                                            <div className="pt-3 pb-2 text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                                                                {Array.isArray(specs.optionalAccessory) &&
-                                                                specs.optionalAccessory.length > 0 ? (
-                                                                    <ul className="list-none pl-0 space-y-1">
-                                                                        {specs.optionalAccessory.map((item: any, index: number) => (
-                                                                            <li key={index} className="flex items-start gap-2">
-                                                                                <span className="text-[#009FE3] leading-5">•</span>
-                                                                                <span>{item[language]}</span>
-                                                                            </li>
-                                                                        ))}
-                                                                    </ul>
-                                                                ) : (
-                                                                    <span>{t('product.optional')}</span>
-                                                                )}
-                                                            </div>
-                                                        </motion.div>
-                                                    )}
-                                                </AnimatePresence>
-                                            </div>
+                                            <ProductSpecificationDetails
+                                                kind="technical"
+                                                title={t('product.table.specification')}
+                                                items={specs.technicalSpecification}
+                                                language={language}
+                                                fallback={t('product.technical')}
+                                            />
+                                            <ProductSpecificationDetails
+                                                kind="accessories"
+                                                title={t('product.table.optionalAccessories')}
+                                                items={specs.optionalAccessory}
+                                                language={language}
+                                                fallback={t('product.optional')}
+                                            />
                                         </div>
                                     </motion.div>
                                 )}

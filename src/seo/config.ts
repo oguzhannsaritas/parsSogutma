@@ -1,6 +1,7 @@
 import { slugify } from '../lib/slugify';
 import type { ProductSummary } from '../data/products/types';
 import { productMetadata } from '../data/productMetadata';
+import { getCategoryDisplayProducts } from '../data/catalogModelGroups';
 import { getCanonicalProductId, getCategoryPath, getCategoryProducts, getFeaturedProduct, getProductDisplayName, type ProductCategory } from '../data/catalog';
 
 export const SITE_URL = 'https://parsogutma.com';
@@ -211,7 +212,7 @@ export function categoryPageJsonLd(category: ProductCategory, products: ProductS
         publisher: { '@id': `${SITE_URL}/#organization` },
         mainEntity: {
             '@type': 'ItemList',
-            itemListElement: getCategoryProducts(category, products).map((product, index) => ({
+            itemListElement: getCategoryDisplayProducts(category.id, getCategoryProducts(category, products)).map((product, index) => ({
                 '@type': 'ListItem',
                 position: index + 1,
                 url: `${SITE_URL}${getProductPath(product)}`,

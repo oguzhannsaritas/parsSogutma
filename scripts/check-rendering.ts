@@ -2,6 +2,8 @@ import { spawnSync } from 'node:child_process';
 const cases = [
     { route: '/' },
     { route: '/urunler/pasta-cikolata-dolaplari' },
+    { route: '/urunler/sutluk-market-dolaplari', mobile: true },
+    { route: '/urunler/kasap-dolaplari' },
     { route: '/products/14' },
     { route: '/products/14', mobile: true, dark: true },
     { route: '/products?search=pasta' },
