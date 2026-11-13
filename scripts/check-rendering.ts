@@ -1,9 +1,8 @@
 import { spawnSync } from 'node:child_process';
-const cases = [
+import { getCategoryPath, productCategories } from '../src/data/catalog';
+const cases: Array<{ route: string; mobile?: boolean; dark?: boolean }> = [
     { route: '/' },
-    { route: '/urunler/pasta-cikolata-dolaplari' },
-    { route: '/urunler/sutluk-market-dolaplari', mobile: true },
-    { route: '/urunler/kasap-dolaplari' },
+    ...productCategories.map(category => ({ route: getCategoryPath(category), mobile: ['sutluk', 'mutfak'].includes(category.id) })),
     { route: '/products/14' },
     { route: '/products/14', mobile: true, dark: true },
     { route: '/products?search=pasta' },
