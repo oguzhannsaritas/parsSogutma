@@ -13,6 +13,9 @@ import { projects, getReferencePath } from '../src/data/references';
 import { getReferenceSeo } from '../src/seo/references';
 import vercel from '../vercel.json';
 import { getLegacyProductRedirects } from './legacy-product-redirects';
+import { catalogModelGroups, getCategoryModelGroups } from '../src/data/catalogModelGroups';
+import { CategoryContent } from '../src/components/CatalogContent';
+import { JSDOM } from 'jsdom';
 
 const dist = path.join(process.cwd(), 'dist');
 const canonicalProducts = products.filter(isCanonicalProduct);
@@ -63,6 +66,18 @@ for (const category of productCategories) {
     assert(home.includes(`href="${categoryPath}"`) && listing.includes(`href="${categoryPath}"`), `Group must be linked from home and catalogue: ${category.id}`);
     const pageData = jsonLd(html).find(item => item['@type'] === 'CollectionPage');
     assert.equal(pageData.mainEntity.itemListElement.length, models.length, `Visible models and structured list differ: ${category.id}`);
+    const categoryDom = JSDOM.fragment(html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] ?? html);
+    const visibleModelUrls = [...categoryDom.querySelectorAll<HTMLAnchorElement>('#modeller a[href^="/products/"]')].map(link => `${SITE_URL}${link.getAttribute('href')}`);
+    assert.equal(new Set(visibleModelUrls).size, models.length, `A model was omitted or duplicated in subgroup cards: ${category.id}`);
+    assert.deepEqual(visibleModelUrls, pageData.mainEntity.itemListElement.map((item: { url: string }) => item.url), `Structured order differs from visible cards: ${category.id}`);
+    const declaredIds = (catalogModelGroups[category.id] ?? []).flatMap(group => group.productIds);
+    assert.equal(new Set(declaredIds).size, declaredIds.length, `Overlapping subgroup definitions: ${category.id}`);
+    for (const id of declaredIds) assert(models.some(product => product.id === id), `Subgroup assigned a model from another category: ${category.id}/${id}`);
+    for (const group of getCategoryModelGroups(category.id, models)) {
+        const section = categoryDom.querySelector(`[data-category-model-group="${group.id}"]`);
+        assert(section && categoryDom.querySelector(`a[href="#modeller-${group.id}"]`), `Missing subgroup content or jump link: ${category.id}/${group.id}`);
+        assert.equal(section.querySelectorAll('a[href^="/products/"]').length, group.products.length);
+    }
     for (const product of models) {
         assert(!membership.has(product.id), `Cabinet ${product.id} appears in more than one primary group`);
         membership.add(product.id);
@@ -70,6 +85,10 @@ for (const category of productCategories) {
     }
     for (const language of ['TR', 'EN'] as const) {
         assert(category.copy[language].name && category.copy[language].intro && category.copy[language].questions.length, `Missing ${language} content in ${category.id}`);
+        if (language === 'EN' && catalogModelGroups[category.id]) {
+            const translated = JSDOM.fragment(renderToStaticMarkup(createElement(MemoryRouter, null, createElement(CategoryContent, { category, products, language }))));
+            for (const group of getCategoryModelGroups(category.id, models)) assert.equal(translated.querySelector(`#model-group-${group.id}`)?.textContent, group.name.EN, `Subgroup translation missing: ${category.id}/${group.id}`);
+        }
     }
 }
 assert.equal(membership.size, canonicalProducts.length, 'Every canonical product needs a primary group');
@@ -101,7 +120,9 @@ for (const language of ['TR', 'EN'] as const) {
             for (const item of text.questions) {
                 assert(output.includes(escapedText(item.question)) && output.includes(escapedText(item.answer)), `Question or answer absent: ${product.id} ${language}`);
             }
-            assert.equal((output.match(/<details(?:\s|>)/g) ?? []).length, text.questions.length, `Questions must have accessible disclosure controls: ${product.id}`);
+            const questionsMarkup = output.match(new RegExp(`<section aria-labelledby="product-questions-${product.id}">([\\s\\S]*?)<\\/section>`))?.[1];
+            assert(questionsMarkup, `Questions section missing: ${product.id}`);
+            assert.equal((questionsMarkup.match(/<details(?:\s|>)/g) ?? []).length, text.questions.length, `Questions must have accessible disclosure controls: ${product.id}`);
         }
         if (language === 'TR') {
             assert(html.includes(`name="description" content="${escapedText(text.description)}"`), `First HTML metadata is stale: ${product.id}`);

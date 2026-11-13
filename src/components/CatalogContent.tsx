@@ -3,6 +3,7 @@ import { projects, getReferencePath } from '../data/references';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight, MessageCircle, Phone } from 'lucide-react';
 import type { ProductSummary } from '../data/products/types';
+import { categoryModelGroupLabel, getCategoryModelGroups } from '../data/catalogModelGroups';
 import {
     getCategoryPath,
     getCategoryProducts,
@@ -79,15 +80,16 @@ export function CategoryLinks({ language, className = '' }: { language: CatalogL
     );
 }
 
-export function CatalogProductCard({ product, language }: { product: ProductSummary; language: CatalogLanguage }) {
+export function CatalogProductCard({ product, language, headingLevel = 3 }: { product: ProductSummary; language: CatalogLanguage; headingLevel?: 3 | 4 }) {
     const name = getProductDisplayName(product, language);
+    const Heading = headingLevel === 4 ? 'h4' : 'h3';
     return (
         <Link to={getProductPath(product)} className="group flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-colors hover:border-[#009FE3] dark:border-neutral-700 dark:bg-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#009FE3]">
             <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-white">
                 <img {...getResponsiveImageProps(getProductMainImage(product), CARD_IMAGE_SIZES, 320)} alt={name} loading="lazy" decoding="async" className="absolute inset-0 block h-full w-full max-w-full object-contain object-center p-3 transition-transform duration-300 group-hover:scale-[1.03] sm:p-4" />
             </div>
             <div className="flex min-w-0 flex-1 flex-col gap-3 p-4 sm:p-5">
-                <h3 className="min-h-11 break-words text-sm sm:text-base font-semibold leading-snug text-gray-900 dark:text-white">{name}</h3>
+                <Heading className="min-h-11 break-words text-sm sm:text-base font-semibold leading-snug text-gray-900 dark:text-white">{name}</Heading>
                 <span className="mt-auto inline-flex items-center gap-2 text-xs font-medium text-[#0083bb] dark:text-[#72D5E3]">{copy[language].details}<ArrowRight size={15} aria-hidden="true" /></span>
             </div>
         </Link>
@@ -98,6 +100,7 @@ export function CategoryContent({ category, products, language }: { category: Pr
     const text = category.copy[language];
     const labels = copy[language];
     const models = getCategoryProducts(category, products);
+    const modelGroups = getCategoryModelGroups(category.id, models);
     const featured = getFeaturedProduct(category, products);
     const related = productCategories.filter(item => category.related.includes(item.id));
     return (
@@ -123,9 +126,27 @@ export function CategoryContent({ category, products, language }: { category: Pr
                 </header>
                 <section id="modeller" aria-labelledby="category-models-title" className="scroll-mt-28 py-10 md:py-14">
                     <div className="mb-6 flex flex-wrap items-end justify-between gap-3"><h2 id="category-models-title" className="text-xl font-bold md:text-2xl">{labels.models}</h2><span className="shrink-0 text-xs text-gray-500 dark:text-gray-400">{models.length} {labels.modelCount}</span></div>
-                    <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 xl:grid-cols-4">
-                        {models.map(product => <CatalogProductCard key={product.id} product={product} language={language} />)}
-                    </div>
+                    {modelGroups.length ? (
+                        <>
+                            <nav aria-label={categoryModelGroupLabel[language]} className="mb-8 flex flex-wrap gap-2">
+                                {modelGroups.map(group => <a key={group.id} href={`#modeller-${group.id}`} className="rounded-full border border-gray-200 px-3 py-2 text-xs font-medium hover:border-[#009FE3] hover:text-[#0083bb] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#009FE3] dark:border-neutral-700">{group.name[language]}</a>)}
+                            </nav>
+                            <div className="space-y-10">
+                                {modelGroups.map(group => (
+                                    <section key={group.id} id={`modeller-${group.id}`} data-category-model-group={group.id} aria-labelledby={`model-group-${group.id}`} className="scroll-mt-28">
+                                        <div className="mb-4 flex items-baseline justify-between gap-3"><h3 id={`model-group-${group.id}`} className="text-base font-semibold md:text-lg">{group.name[language]}</h3><span className="shrink-0 text-xs text-gray-500 dark:text-gray-400">{group.products.length} {labels.modelCount}</span></div>
+                                        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 xl:grid-cols-4">
+                                            {group.products.map(product => <CatalogProductCard key={product.id} product={product} language={language} headingLevel={4} />)}
+                                        </div>
+                                    </section>
+                                ))}
+                            </div>
+                        </>
+                    ) : (
+                        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 xl:grid-cols-4">
+                            {models.map(product => <CatalogProductCard key={product.id} product={product} language={language} />)}
+                        </div>
+                    )}
                 </section>
                 <section className="grid gap-8 border-t border-gray-200 py-10 dark:border-neutral-700 lg:grid-cols-[1.35fr_1fr] lg:gap-14">
                     <div className="space-y-7">

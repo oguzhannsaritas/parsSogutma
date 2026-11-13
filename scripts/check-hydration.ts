@@ -55,6 +55,7 @@ const { seedProductPageData } = await import('../src/lib/productData');
 const container = win.document.getElementById('root')!;
 const firstHeading = container.querySelector('h1');
 const initialProduct = container.dataset.productId ? seedProductPageData(JSON.parse(win.document.getElementById('pars-page-data')!.textContent!), Number(container.dataset.productId)) : undefined;
+const initialDisclosures = [...container.querySelectorAll<HTMLDetailsElement>('details[data-product-disclosure]')];
 const errors: unknown[] = [];
 const originalError = console.error;
 console.error = (...args) => { errors.push(args); };
@@ -67,6 +68,15 @@ async function settle() {
     throw new Error(`Hydration did not complete: ${route}`);
 }
 try {
+    // Native controls and their full lists must work before React is attached.
+    for (const details of initialDisclosures) {
+        const summary = details.querySelector('summary')!;
+        assert(!details.open);
+        summary.click();
+        assert(details.open, 'Technical disclosure cannot open without JavaScript');
+        summary.click();
+        assert(!details.open, 'Technical disclosure cannot close without JavaScript');
+    }
     await act(async () => {
         root = hydrateRoot(container, createElement(StrictMode, null, createElement(App, { initialProduct, initialPage: { name: pageName, component: pageModule.default } })), {
             onRecoverableError: error => { errors.push(error); },
@@ -75,6 +85,7 @@ try {
     await settle();
     assert.equal(errors.length, 0, `Hydration warnings on ${route}: ${errors.map(String).join('\n')}`);
     assert.strictEqual(container.querySelector('h1'), firstHeading, 'The visible page was discarded and rebuilt during hydration');
+    for (const details of initialDisclosures) assert.strictEqual(container.querySelector(`[data-product-disclosure="${details.dataset.productDisclosure}"]`), details, 'Technical disclosure was replaced during hydration');
     assert.equal(verticalPosition, 350, 'Hydration moved a visitor who had already started reading the static page');
     if (process.env.TEST_DARK === '1') {
         assert(win.document.documentElement.classList.contains('dark'), 'Stored theme was lost');
@@ -83,10 +94,15 @@ try {
     if (pathname === '/products/14') {
         assert.equal(modelRequests, 0, 'Initial product hydration fetched its own model again');
         assert(container.querySelector('[data-product-buyer-guide="14"]'));
+        const technical = container.querySelector<HTMLDetailsElement>('[data-product-disclosure="technical"]')!;
+        await act(async () => { technical.querySelector('summary')!.click(); });
+        assert(technical.open, 'Technical disclosure stopped working after hydration');
         const language = container.querySelector<HTMLButtonElement>('button[aria-label="Toggle language"]')!;
         await act(async () => { language.click(); });
         assert.equal(container.querySelector('h1')?.textContent, 'Horizontal Eclair Pastry Cabinet');
         assert(container.querySelector('[data-product-introduction="14"]')?.textContent?.includes('side by side'));
+        assert(container.querySelector('[data-product-disclosure="technical"]')?.textContent?.includes(initialProduct!.product.specs.technicalSpecification![0].EN), 'Technical translation stayed in the previous language');
+        assert(technical.open, 'Changing language unexpectedly collapsed the native disclosure');
         await act(async () => { container.querySelector<HTMLButtonElement>('button[aria-label="Sonraki ürün"]')!.click(); });
         for (let attempt = 0; attempt < 100 && !container.querySelector('[data-product-buyer-guide="15"]'); attempt++) {
             await act(async () => { await new Promise(resolve => setTimeout(resolve, 20)); });
@@ -94,6 +110,16 @@ try {
         assert.equal(win.location.pathname, '/products/15');
         assert.equal(container.querySelector('h1')?.textContent, 'VENUS - Pastry Showcase Cabinet');
         assert(!container.querySelector('[data-product-buyer-guide="14"]'), 'Previous model content survived navigation');
+        assert(!container.querySelector<HTMLDetailsElement>('[data-product-disclosure="technical"]')!.open, 'Disclosure state leaked into the next model');
+    }
+    if (pathname.startsWith('/urunler/') && container.querySelector('[data-category-model-group]')) {
+        const groups = [...container.querySelectorAll<HTMLElement>('[data-category-model-group]')];
+        const modelLinks = [...container.querySelectorAll<HTMLAnchorElement>('#modeller a[href^="/products/"]')].map(link => link.getAttribute('href'));
+        assert.equal(new Set(modelLinks).size, modelLinks.length, 'A model appeared in multiple subgroups');
+        for (const group of groups) assert(container.querySelector(`a[href="#${group.id}"]`), 'Subgroup has no jump link');
+        await act(async () => { container.querySelector<HTMLButtonElement>('button[aria-label="Toggle language"]')!.click(); });
+        assert.equal(container.querySelector('nav[aria-label="Models by application"]')?.querySelectorAll('a').length, groups.length, 'Subgroup navigation did not translate');
+        assert.deepEqual([...container.querySelectorAll<HTMLAnchorElement>('#modeller a[href^="/products/"]')].map(link => link.getAttribute('href')), modelLinks, 'Language switch changed model membership or ordering');
     }
     if (pathname === '/products' && route.includes('search=pasta')) {
         assert(container.querySelector('main a[href="/products/14"]'), 'Search query was not applied after hydration');
