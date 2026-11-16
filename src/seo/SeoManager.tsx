@@ -1,4 +1,6 @@
 import { getReferenceSeo, referencePageJsonLd } from './references';
+import { findBlogArticle, getBlogArticlePath } from '../data/blog';
+import { blogArticleJsonLd, blogIndexJsonLd, getBlogArticleSeo } from './blog';
 import { useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
@@ -26,7 +28,7 @@ type SeoState = {
     description: string;
     canonicalPath: string;
     image: string;
-    type: 'website' | 'product';
+    type: 'website' | 'product' | 'article';
     robots: string;
     jsonLd: unknown[];
 };
@@ -56,6 +58,41 @@ export default function SeoManager() {
 
     const seo = useMemo<SeoState>(() => {
         const pathname = location.pathname !== '/' ? location.pathname.replace(/\/+$/, '') : '/';
+        const article = findBlogArticle(pathname);
+        if (article) {
+            const canonicalPath = getBlogArticlePath(article);
+            return {
+                ...getBlogArticleSeo(article, language),
+                canonicalPath,
+                type: 'article',
+                robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+                jsonLd: [
+                    organizationJsonLd(),
+                    blogArticleJsonLd(article, language),
+                    breadcrumbJsonLd([
+                        { name: language === 'TR' ? 'Ana Sayfa' : 'Home', path: '/' },
+                        { name: 'Blog', path: '/blog' },
+                        { name: article.title[language], path: canonicalPath },
+                    ]),
+                ],
+            };
+        }
+        if (pathname === '/blog') {
+            return {
+                ...staticPageSeo['/blog'][language],
+                image: DEFAULT_SOCIAL_IMAGE,
+                canonicalPath: '/blog',
+                type: 'website',
+                robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+                jsonLd: [
+                    organizationJsonLd(), blogIndexJsonLd(language),
+                    breadcrumbJsonLd([
+                        { name: language === 'TR' ? 'Ana Sayfa' : 'Home', path: '/' },
+                        { name: 'Blog', path: '/blog' },
+                    ]),
+                ],
+            };
+        }
         const productMatch = pathname.match(/^\/(?:urun|products|blog)\/([^/]+)$/);
         const product = productMatch ? findProductByIdentifier(products, decodeURIComponent(productMatch[1])) : undefined;
 

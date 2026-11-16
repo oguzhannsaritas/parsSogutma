@@ -7,6 +7,8 @@ import path from 'node:path';
 import { products } from '../src/data/products/index';
 import { getCanonicalProductId, getCategoryPath, getProductCategory, getProductDisplayName, isCanonicalProduct, productCategories } from '../src/data/catalog';
 import { getReferencePath, projects } from '../src/data/references';
+import { blogArticles, findBlogArticle, getBlogArticlePath } from '../src/data/blog';
+import { blogArticleJsonLd, blogIndexJsonLd, getBlogArticleSeo } from '../src/seo/blog';
 import {
     absoluteUrl,
     breadcrumbJsonLd,
@@ -42,8 +44,8 @@ type ManifestChunk = { file: string; imports?: string[]; isEntry?: boolean };
 const buildManifest: Record<string, ManifestChunk> = JSON.parse(await readFile(path.join(distDir, '.vite/manifest.json'), 'utf8'));
 
 function routeModulePreloads(route: string): string {
-    const staticPages: Record<string, string> = { '/': 'Home', '/products': 'Products', '/references': 'References', '/about': 'About', '/contact': 'Contact', '/gallery': 'PhotoGallery', '/e-catalog': 'ECatalog', '/404': 'NotFound' };
-    const page = staticPages[route] ?? (/^\/urunler\//.test(route) ? 'ProductCategory' : /^\/(products|urun|blog)\//.test(route) ? 'ProductDetail' : 'ReferenceDetail');
+    const staticPages: Record<string, string> = { '/': 'Home', '/products': 'Products', '/references': 'References', '/about': 'About', '/contact': 'Contact', '/gallery': 'PhotoGallery', '/e-catalog': 'ECatalog', '/blog': 'Blog', '/404': 'NotFound' };
+    const page = staticPages[route] ?? (findBlogArticle(route) ? 'BlogArticle' : /^\/urunler\//.test(route) ? 'ProductCategory' : /^\/(products|urun|blog)\//.test(route) ? 'ProductDetail' : 'ReferenceDetail');
     const visited = new Set<string>();
     const files = new Set<string>();
     const visit = (key: string) => {
@@ -65,7 +67,7 @@ type Snapshot = {
     description: string;
     image: string;
     preloadImage?: string;
-    type?: 'website' | 'product';
+    type?: 'website' | 'product' | 'article';
     robots?: string;
     jsonLd?: unknown[];
 };
@@ -146,7 +148,25 @@ for (const route of staticRoutes) {
         title: seo.title,
         description: seo.description,
         image: seo.image ?? DEFAULT_SOCIAL_IMAGE,
-        jsonLd: [organizationJsonLd()],
+        jsonLd: route === '/blog'
+            ? [organizationJsonLd(), blogIndexJsonLd('TR'), breadcrumbJsonLd([{ name: 'Ana Sayfa', path: '/' }, { name: 'Blog', path: '/blog' }])]
+            : [organizationJsonLd()],
+    });
+}
+
+for (const article of blogArticles) {
+    const route = getBlogArticlePath(article);
+    const seo = getBlogArticleSeo(article, 'TR');
+    await writeSnapshot({
+        route, ...seo, type: 'article',
+        jsonLd: [
+            organizationJsonLd(), blogArticleJsonLd(article, 'TR'),
+            breadcrumbJsonLd([
+                { name: 'Ana Sayfa', path: '/' },
+                { name: 'Blog', path: '/blog' },
+                { name: article.title.TR, path: route },
+            ]),
+        ],
     });
 }
 
@@ -227,7 +247,7 @@ for (const project of projects) {
     await writeSnapshot({ ...snapshot, route: `/references/${project.id}`, canonicalRoute: route });
 }
 
-const pagesXml = staticRoutes
+const pagesXml = [...staticRoutes, ...blogArticles.map(getBlogArticlePath)]
     .map((route) => `  <url><loc>${escapeXml(`${SITE_URL}${route}`)}</loc><lastmod>${today}</lastmod><changefreq>${route === '/' || route === '/products' ? 'weekly' : 'monthly'}</changefreq></url>`)
     .join('\n');
 

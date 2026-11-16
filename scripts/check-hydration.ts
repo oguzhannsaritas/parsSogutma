@@ -125,6 +125,22 @@ try {
         assert(container.querySelector('main a[href="/products/14"]'), 'Search query was not applied after hydration');
         assert(!container.querySelector('main a[href="/products/1"]'), 'Unfiltered cards remained after search');
     }
+    if (pathname === '/blog' || container.querySelector('[data-blog-article]')) {
+        const canonicalBefore = win.document.querySelector('link[rel="canonical"]')?.getAttribute('href');
+        await act(async () => { container.querySelector<HTMLButtonElement>('button[aria-label="Toggle language"]')!.click(); });
+        assert.equal(win.document.documentElement.lang, 'en', 'Blog language metadata did not update');
+        assert.equal(win.document.querySelector('link[rel="canonical"]')?.getAttribute('href'), canonicalBefore, 'Language switch changed the blog address');
+        if (pathname === '/blog') {
+            assert.equal(container.querySelector('h1')?.textContent, 'Pars Cooling Blog');
+            assert(container.querySelector('main a[href="/blog/ozel-olcu-sogutma-dolabi-teklif-rehberi"]'));
+        } else {
+            assert.equal(container.querySelector('h1')?.textContent, 'How to request a quote for a custom refrigeration cabinet');
+            const answer = [...container.querySelectorAll<HTMLDetailsElement>('details')].find(details => details.querySelector('summary')?.textContent === 'Does Pars Cooling manufacture to custom dimensions?')!;
+            await act(async () => { answer.querySelector('summary')!.click(); });
+            assert(answer.open, 'Blog answer cannot be opened after hydration');
+            assert(answer.textContent?.includes('customer-provided dimensions'), 'Blog answer stayed in the previous language');
+        }
+    }
     assert.equal(errors.length, 0, `Interaction errors on ${route}: ${errors.map(String).join('\n')}`);
     console.log(`Hydration passed: ${route}, initial DOM retained, theme/query/model interactions preserved.`);
 } finally {
