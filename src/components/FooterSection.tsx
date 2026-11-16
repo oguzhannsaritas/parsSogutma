@@ -288,8 +288,9 @@ export default function FooterSection() {
                         </div>
                     </div>
 
-                    <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-center items-center text-xs text-gray-400">
+                    <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-center items-center gap-3 md:gap-6 text-xs text-gray-400">
                         <p>{t('pars.footer')}</p>
+                        <Link to="/blog" className="font-medium underline-offset-4 hover:text-white hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Blog</Link>
                     </div>
                 </div>
 

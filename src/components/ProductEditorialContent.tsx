@@ -4,6 +4,7 @@ import type { Product } from '../data/products/types';
 import type { ProductEditorialContent } from '../data/productContentTypes';
 import { getCategoryPath, getProductCategory, type CatalogLanguage } from '../data/catalog';
 import { getProductDescription } from '../seo/config';
+import RelatedBlogGuides from './RelatedBlogGuides';
 
 const copy = {
     TR: { selection: 'Seçim yaparken', questions: 'Sık sorulan sorular' },
@@ -41,6 +42,7 @@ export function ProductBuyerGuide({ product, language, content }: { product: Pro
                     </details>)}
                 </div>
             </section>
+            <RelatedBlogGuides categoryId={getProductCategory(product).id} language={language} />
         </div>
     );
 }

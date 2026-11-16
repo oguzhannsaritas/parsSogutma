@@ -16,6 +16,7 @@ import {
 } from '../data/catalog';
 import { getProductMainImage, getProductPath } from '../seo/config';
 import { trackContactClick } from '../lib/googleAds';
+import RelatedBlogGuides from './RelatedBlogGuides';
 
 const copy = {
     TR: {
@@ -164,6 +165,7 @@ export function CategoryContent({ category, products, language }: { category: Pr
                         {text.questions.map(item => <details key={item.question} className="group py-5"><summary className="cursor-pointer text-sm font-semibold leading-6 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#009FE3]">{item.question}</summary><p className="mt-3 pr-4 text-sm leading-7 text-gray-600 dark:text-gray-300">{item.answer}</p></details>)}
                     </div>
                 </section>
+                <RelatedBlogGuides categoryId={category.id} language={language} />
                 <section className="mt-8 rounded-3xl border border-gray-200 bg-gray-50 p-6 dark:border-neutral-700 dark:bg-neutral-900 md:p-8">
                     <h2 className="text-xl font-bold">{labels.quoteTitle}</h2><p className="mb-5 mt-3 max-w-3xl text-sm leading-7 text-gray-600 dark:text-gray-300">{labels.quoteText}</p>
                     <ContactActions subject={text.name} language={language} />

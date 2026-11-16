@@ -49,20 +49,44 @@ for (const route of blogPaths) {
     }
 }
 
-// The user specifically requested that the blog have no entry from the main site.
+// Keep the top navigation unchanged while making the blog accessible in the
+// footer and linking each guide from relevant, already indexed content.
 let checked = 0;
+let guidePages = 0;
+const incomingGuides = new Set<string>();
 for (const url of urls) {
     const route = new URL(url).pathname;
-    if (route === '/blog' || route.startsWith('/blog/')) continue;
-    const doc = new JSDOM(await readPage(route)).window.document;
-    for (const anchor of doc.querySelectorAll<HTMLAnchorElement>('a[href]')) {
-        const target = new URL(anchor.getAttribute('href')!, SITE_URL);
-        if (target.origin !== SITE_URL) continue;
-        assert(target.pathname !== '/blog' && !target.pathname.startsWith('/blog/'), 'Unrequested blog entry on ' + route);
+    const dom = new JSDOM(await readPage(route));
+    const doc = dom.window.document;
+    assert.equal(doc.querySelectorAll('footer a[href="/blog"]').length, 1, 'Footer blog link is missing or duplicated on ' + route);
+    for (const anchor of doc.querySelectorAll<HTMLAnchorElement>('header a[href]')) {
+        const href = anchor.getAttribute('href')!;
+        const target = new URL(href, url);
+        const linkIsBlog = target.pathname === '/blog' || target.pathname.startsWith('/blog/');
+        const currentPageLink = target.pathname === route;
+        assert.notEqual(anchor.textContent?.trim(), 'Blog', 'Blog was added to the top menu on ' + route);
+        assert(!linkIsBlog || currentPageLink, 'Blog was added to the top menu on ' + route);
     }
+    if (route !== '/blog' && !route.startsWith('/blog/')) {
+        const guides = doc.querySelector('[data-related-blog-guides]');
+        if (guides) {
+            const categoryId = guides.getAttribute('data-related-blog-guides');
+            for (const anchor of guides.querySelectorAll<HTMLAnchorElement>('a[href]')) {
+                const target = new URL(anchor.getAttribute('href')!, SITE_URL);
+                const article = blogArticles.find(item => getBlogArticlePath(item) === target.pathname);
+                assert(article, 'Related guide does not exist on ' + route);
+                assert(article.relatedCategoryIds.some(id => id === categoryId), 'Guide is unrelated to the product group on ' + route);
+                assert(urls.includes(target.href), 'Related guide is not indexable: ' + target.href);
+                incomingGuides.add(target.pathname);
+            }
+            guidePages++;
+        }
+    }
+    dom.window.close();
     checked++;
 }
+assert.deepEqual([...incomingGuides].sort(), blogArticles.map(getBlogArticlePath).sort(), 'Every published guide needs a relevant incoming link');
 for (const redirect of vercel.redirects.filter(item => item.source.startsWith('/blog/'))) {
     assert.equal(getPageName(redirect.source), 'ProductDetail', 'Existing product alias changed: ' + redirect.source);
 }
-console.log('Blog checks passed: ' + blogPaths.length + ' complete indexable pages; no blog entry on ' + checked + ' existing pages; legacy product addresses preserved.');
+console.log('Blog checks passed: ' + blogPaths.length + ' complete indexable pages; footer entry on ' + checked + ' pages, relevant guide links on ' + guidePages + ' pages; top menu and legacy product addresses preserved.');

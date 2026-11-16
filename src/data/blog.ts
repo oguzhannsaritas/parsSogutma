@@ -112,6 +112,19 @@ export function findBlogArticle(pathname: string): BlogArticleSummary | undefine
     return blogArticles.find(article => getBlogArticlePath(article) === normalized);
 }
 
+export function getCategoryBlogArticles(categoryId: CategoryId): BlogArticleSummary[] {
+    // These guides cover display cabinets; cold rooms and refrigeration units
+    // should receive their own guides when those are available.
+    if (categoryId === 'soguk-oda' || categoryId === 'sogutma') return [];
+    const selectionGuides: Partial<Record<CategoryId, string>> = {
+        pasta: 'pasta-teshir-dolabi-secim-rehberi',
+        kasap: 'kasap-teshir-dolabi-yerlesim-model-secimi',
+        sutluk: 'acik-sutluk-cam-kapakli-sutluk-secimi',
+    };
+    const slugs = [selectionGuides[categoryId], 'ozel-olcu-sogutma-dolabi-teklif-rehberi'];
+    return slugs.flatMap(slug => blogArticles.filter(article => article.slug === slug));
+}
+
 export function formatBlogDate(value: string, language: CatalogLanguage): string {
     return new Intl.DateTimeFormat(language === 'TR' ? 'tr-TR' : 'en-GB', {
         day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
