@@ -1,4 +1,5 @@
 import { lazy, type ComponentType } from 'react';
+import { findBlogArticle } from '../data/blog';
 
 export const pageLoaders = {
     Home: () => import('../pages/Home'),
@@ -12,6 +13,8 @@ export const pageLoaders = {
     PhotoGallery: () => import('../pages/PhotoGallery'),
     NotFound: () => import('../pages/NotFound'),
     ECatalog: () => import('../pages/ECatalog'),
+    Blog: () => import('../pages/Blog'),
+    BlogArticle: () => import('../pages/BlogArticle'),
 };
 export type PageName = keyof typeof pageLoaders;
 export type InitialRoutePage = { name: PageName; component: ComponentType };
@@ -27,11 +30,14 @@ export const lazyPages: Record<PageName, ComponentType> = {
     PhotoGallery: lazy(pageLoaders.PhotoGallery),
     NotFound: lazy(pageLoaders.NotFound),
     ECatalog: lazy(pageLoaders.ECatalog),
+    Blog: lazy(pageLoaders.Blog),
+    BlogArticle: lazy(pageLoaders.BlogArticle),
 };
 
 export function getPageName(pathname: string): PageName {
-    const routes: Record<string, PageName> = { '/': 'Home', '/products': 'Products', '/references': 'References', '/contact': 'Contact', '/about': 'About', '/gallery': 'PhotoGallery', '/e-catalog': 'ECatalog' };
+    const routes: Record<string, PageName> = { '/': 'Home', '/products': 'Products', '/references': 'References', '/contact': 'Contact', '/about': 'About', '/gallery': 'PhotoGallery', '/e-catalog': 'ECatalog', '/blog': 'Blog' };
     if (routes[pathname]) return routes[pathname];
+    if (findBlogArticle(pathname)) return 'BlogArticle';
     if (/^\/(products|urun|blog)\/[^/]+$/.test(pathname)) return 'ProductDetail';
     if (/^\/urunler\/[^/]+$/.test(pathname)) return 'ProductCategory';
     if (/^\/(references|referans)\/[^/]+$/.test(pathname)) return 'ReferenceDetail';

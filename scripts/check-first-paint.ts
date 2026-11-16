@@ -5,9 +5,10 @@ import { products } from '../src/data/products';
 import { getCategoryPath, isCanonicalProduct, productCategories } from '../src/data/catalog';
 import { getProductPath, staticPageSeo } from '../src/seo/config';
 import { getReferencePath, projects } from '../src/data/references';
+import { blogArticles, getBlogArticlePath } from '../src/data/blog';
 
 const routes = [...Object.keys(staticPageSeo), ...products.filter(isCanonicalProduct).map(getProductPath),
-    ...productCategories.map(getCategoryPath), ...projects.map(getReferencePath)];
+    ...productCategories.map(getCategoryPath), ...projects.map(getReferencePath), ...blogArticles.map(getBlogArticlePath)];
 for (const route of routes) {
     const html = await readFile(`dist/${route === '/' ? 'index' : route.slice(1)}.html`, 'utf8');
     assert(html.includes('data-rendered="true"'), `Missing complete initial page: ${route}`);

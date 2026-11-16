@@ -85,6 +85,16 @@ export const staticPageSeo: Record<string, Record<SeoLanguage, PageSeo>> = {
             image: '/images/about/meeting.webp',
         },
     },
+    '/blog': {
+        TR: {
+            title: 'Soğutma Dolabı Seçimi ve Özel Üretim Rehberleri | Pars Soğutma Blog',
+            description: 'Sütlük, pasta ve kasap dolabı seçimi, yerleşim ve özel ölçü üretim için teklif rehberleri. Pars Soğutma blog yazılarını inceleyin.',
+        },
+        EN: {
+            title: 'Refrigeration Selection and Custom Manufacturing Guides | Pars Cooling Blog',
+            description: 'Explore dairy, pastry and butcher display cabinet selection, layout considerations and custom manufacturing quote guides from Pars Cooling.',
+        },
+    },
     '/e-catalog': {
         TR: {
             title: 'Endüstriyel Soğutma E-Katalog | Pars Soğutma',
