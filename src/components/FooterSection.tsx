@@ -85,12 +85,14 @@ export default function FooterSection() {
                                     alt=""
                                     aria-hidden="true"
                                     className="w-full h-full object-cover opacity-90"
+                                    width={480}
+                                    height={360}
                                     loading="lazy"
                                     decoding="async"
                                 />
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <div className="flex     ">
-                                        <img width={70} src="/assets/icons/youtube.svg" alt="" aria-hidden={true} className="cursor-pointer"/>
+                                        <img width={70} height={49} src="/assets/icons/youtube.svg" alt="" aria-hidden={true} className="cursor-pointer" />
                                     </div>
                                 </div>
                             </button>

@@ -45,6 +45,11 @@
       "permanent": true
     },
     {
+      "source": "/etiket/2-5-metre-meze-vitrini",
+      "destination": "/urunler/kebap-meze-dolaplari",
+      "permanent": true
+    },
+    {
       "source": "/blog/reyon-dolabi",
       "destination": "/products/1",
       "permanent": true

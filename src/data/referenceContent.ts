@@ -10,46 +10,53 @@ export type ReferenceCopy = {
 // photos. Category links describe the application, not an unverified installed model.
 export const referenceContent: Record<string, {
     categoryIds: CategoryId[];
+    exampleProductId?: number;
     copy: Record<CatalogLanguage, ReferenceCopy>;
 }> = {
     kayaCiftligi: {
         categoryIds: ['sutluk'],
+        exampleProductId: 39,
         copy: {
             TR: {
                 description: 'Kaya Çiftliği İstanbul Kağıthane mağazasında süt ürünleri ve peynirlerin sergilendiği açık sütlük reyonunu ve Pars Soğutma uygulama fotoğraflarını inceleyin.',
-                subject: 'Sütlük ve market reyonu',
+                subject: 'Açık sütlük reyonu',
                 paragraphs: [
                     'Kaya Çiftliği’nin İstanbul Kağıthane mağazasında süt ürünleri ve peynirler, mağaza duvarı boyunca uzanan çok katlı açık sütlük reyonunda sergileniyor. Paketli ürünler üst raflarda, farklı peynir çeşitleri ise alt teşhir alanında yer alıyor.',
                     'Ahşap görünümlü üst bölüm, koyu renkli alt gövde ve raf önlerindeki etiket alanları mağazanın reyon düzenini tamamlıyor. Galeride dolapların ürünlerle birlikte kullanımını ve satış alanındaki yerleşimini farklı açılardan inceleyebilirsiniz.',
+                    'Açık cephe, müşterilerin raflardaki paketli ürünlere doğrudan erişmesini sağlıyor. Duvar boyunca uzanan yerleşim, farklı ürün gruplarını tek bir alışveriş hattında topluyor. Benzer bir market uygulamasında raf derinliğini ambalaj ölçülerine, koridor genişliğini müşteri geçişine göre planlayın.',
                 ],
             },
             EN: {
                 description: 'Explore the open dairy display at Kaya Çiftliği in Kağıthane, Istanbul, with Pars Cooling installation photos showing cheese and packaged dairy products.',
-                subject: 'Dairy and supermarket display',
+                subject: 'Open dairy display',
                 paragraphs: [
                     'At Kaya Çiftliği in Kağıthane, Istanbul, a multi-level open dairy display runs along the shop wall. Packaged dairy products occupy the upper shelves, while a range of cheeses is presented in the lower display area.',
                     'A wood-effect upper surround, dark lower cabinet and shelf-edge labels form part of the shop layout. The gallery shows the stocked cabinets and their position within the sales area from different angles.',
+                    'The open front gives customers direct access to packaged products. The wall-side layout brings several product groups into one shopping aisle. For a similar installation, use package dimensions to plan shelf depth and allow enough aisle space for customers.',
                 ],
             },
         },
     },
     tatlibak: {
         categoryIds: ['pasta'],
+        exampleProductId: 65,
         copy: {
             TR: {
                 description: 'Tatlıbak İstanbul Sultanbeyli şubesindeki baklava ve tatlı teşhir reyonunu, camlı vitrin düzenini ve Pars Soğutma uygulama görsellerini inceleyin.',
-                subject: 'Baklava ve tatlı teşhir reyonu',
+                subject: 'Camlı baklava ve tatlı teşhir tezgâhı',
                 paragraphs: [
                     'Tatlıbak’ın İstanbul Sultanbeyli şubesinde baklava ve şerbetli tatlılar, camlı teşhir reyonunda tepsiler halinde sunuluyor. Tezgâhın iç aydınlatması ve farklı seviyelerdeki sergileme alanları fotoğraflarda görülebiliyor.',
                     'Ahşap görünümlü ön kaplama, açık renkli tezgâh yüzeyi ve kırmızı Tatlıbak tabelası aynı satış alanında bir araya geliyor. Galeri, tatlı vitrininin hem ürün yerleşimini hem de mağaza dekorasyonu içindeki görünümünü gösteriyor.',
+                    'Yan yana dizilen tepsiler, müşterinin baklava çeşitlerini tezgâhın önünden karşılaştırmasını sağlıyor. Paketli tatlılar da ön kenardaki ayrı sırada sergileniyor. Benzer bir baklava tezgâhı seçerken tepsi ölçülerini, ürün etiketlerinin görüş açısını ve personelin servis alanını birlikte değerlendirin.',
                 ],
             },
             EN: {
                 description: 'View the baklava and dessert display at Tatlıbak in Sultanbeyli, Istanbul, including its glass-fronted counter and Pars Cooling installation photos.',
-                subject: 'Baklava and dessert display',
+                subject: 'Glass-fronted baklava and dessert counter',
                 paragraphs: [
                     'At the Tatlıbak branch in Sultanbeyli, Istanbul, baklava and syrup desserts are presented in trays inside a glass-fronted counter. The photos show the illuminated interior and the different display levels.',
                     'Wood-effect front panels, a light counter surface and the red Tatlıbak sign appear together in the sales area. The gallery documents the arrangement of desserts and the counter within the shop interior.',
+                    'Side-by-side trays let customers compare the baklava from the front of the counter. Packaged sweets have a separate row along the front edge. For a similar counter, consider tray sizes, the visibility of product labels and the area staff need for service.',
                 ],
             },
         },

@@ -1,4 +1,4 @@
-import { getResponsiveImageProps, HOME_IMAGE_SIZES } from '../lib/responsiveImages';
+import { getResponsiveImageProps, HOME_HERO_LOGO, HOME_IMAGE_SIZES } from '../lib/responsiveImages';
 import React, { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, Instagram, Youtube } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -15,11 +15,26 @@ export default function HeroSection() {
     const [wipeDirection, setWipeDirection] = useState<'next' | 'prev'>('next');
     const { t } = useLanguage();
     const isFirstRenderRef = useRef(true);
+    const heroRef = useRef<HTMLElement>(null);
     const [lcpLoaded, setLcpLoaded] = useState(false);
     const isLcpImage = currentSlide === 0;
 
     useEffect(() => {
         isFirstRenderRef.current = false;
+    }, []);
+
+    useEffect(() => {
+        const hero = heroRef.current;
+        if (!hero) return;
+        let width = hero.clientWidth;
+        const resetReservedHeight = () => {
+            const nextWidth = hero.clientWidth;
+            if (width === nextWidth) return;
+            width = nextWidth;
+            hero.style.removeProperty('--hero-mobile-height');
+        };
+        window.addEventListener('resize', resetReservedHeight);
+        return () => window.removeEventListener('resize', resetReservedHeight);
     }, []);
 
     const [swipeEnabled, setSwipeEnabled] = useState(false);
@@ -29,7 +44,7 @@ export default function HeroSection() {
             id: 0,
             title: 'Pars Soğutma Sistemleri',
             description: t('hero.socialMediaInfo'),
-            image: '/images/home/parsLogo.webp',
+            image: HOME_HERO_LOGO,
             isSocial: true
         },
         { id: 1, subtitle: t('hero.slide1.title'), title: t('menu.refrigerators'), image: '/images/home/buzdolabi2.webp' },
@@ -87,32 +102,6 @@ export default function HeroSection() {
             return () => window.clearTimeout(timer);
         }
     }, [currentSlide, lcpLoaded]);
-
-    useEffect(() => {
-        if (typeof document === 'undefined') return;
-
-        const lcpUrl = '/images/home/parsLogo.webp';
-
-        const existing = document.querySelector(`link[data-lcp-preload="hero"][href="${lcpUrl}"]`);
-        if (existing) return;
-
-        const link = document.createElement('link');
-        link.setAttribute('rel', 'preload');
-        link.setAttribute('as', 'image');
-        link.setAttribute('href', lcpUrl);
-        link.setAttribute('fetchpriority', 'high');
-        link.setAttribute('data-lcp-preload', 'hero');
-
-        document.head.appendChild(link);
-
-        return () => {
-            try {
-                document.head.removeChild(link);
-            } catch {
-                // ignore
-            }
-        };
-    }, []);
 
     useEffect(() => {
         if (typeof window === 'undefined') return;
@@ -185,6 +174,12 @@ export default function HeroSection() {
         visualDirection?: 'next' | 'prev'
     ) => {
         if (isAnimating) return;
+
+        const hero = heroRef.current;
+        // The stacked welcome slide is taller than the later two-column slides.
+        if (hero && !window.matchMedia('(min-width: 64rem)').matches) {
+            hero.style.setProperty('--hero-mobile-height', `${hero.getBoundingClientRect().height}px`);
+        }
 
         const resolvedVisualDirection = visualDirection ?? direction;
 
@@ -314,7 +309,8 @@ export default function HeroSection() {
 
     return (
         <section
-            className="relative w-full lg:min-h-[calc(100vh-80px)] bg-[#f8f9fa] py-8 md:py-12 dark:bg-[#111827] flex items-center overflow-hidden touch-pan-y"
+            ref={heroRef}
+            className="relative w-full min-h-[var(--hero-mobile-height,0px)] lg:min-h-[calc(100vh-80px)] bg-[#f8f9fa] py-8 md:py-12 dark:bg-[#111827] flex items-center overflow-hidden touch-pan-y"
             onPointerDown={onPointerDown}
             onPointerMove={onPointerMove}
             onPointerUp={onPointerUp}

@@ -75,8 +75,8 @@ export const productMetadata: Partial<Record<number, TranslatedString>> = {
         "EN": "NEW MOON flat-glass counter with an angled glass appearance. Assess tray positions, customer passage and the project application."
     },
     "19": {
-        "TR": "Düz camlı reyon dolabı: camlı tezgâhta ürün ve servis yerleşimi. İç alanı, tepsi erişimini ve dekor uygulamasını karşılaştırarak teklif alın.",
-        "EN": "Flat-glass display counter for product and serving arrangements. Compare usable area, tray access and decorative finishes before requesting a quote."
+        "TR": "Düz camlı reyon dolabında ahşap görünümlü ön panel, 937–3.750 mm aralığındaki katalog modülleri ve cam açılımı seçeneklerini inceleyin.",
+        "EN": "Explore a flat-glass display counter with a wood-effect front, catalogue modules from 937 to 3,750 mm and glass opening options."
     },
     "20": {
         "TR": "Kuru soğutmalı reyon dolabı: camlı servis vitrini seçeneği. Ürün ihtiyacını, soğutma düzenini ve tepsi yerleşimini teklif kapsamında değerlendirin.",
@@ -119,8 +119,8 @@ export const productMetadata: Partial<Record<number, TranslatedString>> = {
         "EN": "Upright-glass counter for side-by-side products behind a low glass front. Plan serving height, plate layout and adjacent counters."
     },
     "30": {
-        "TR": "Düz camlı reyon dolabı: satış hattı ve dekor uyumu için camlı teşhir. Yerleşim ölçülerini, servis yönünü ve donanım kapsamını görüşün.",
-        "EN": "Flat-glass counter for a coordinated sales line and interior finish. Discuss installation dimensions, serving direction and equipment scope."
+        "TR": "Düz camlı reyon dolabının koyu gövdeli uygulamasını galeride görün. Modül uzunluğu, cam açılımı ve motor yerleşimini projenize göre seçin.",
+        "EN": "See the dark-front flat-glass counter installation in the gallery. Compare module length, glass opening and refrigeration layout for your project."
     },
     "31": {
         "TR": "Yarım camlı reyon dolabı: alçak cepheli ürün sunumu. Tepsi yüksekliğini, müşteri görüşünü ve personel erişimini birlikte değerlendirin.",

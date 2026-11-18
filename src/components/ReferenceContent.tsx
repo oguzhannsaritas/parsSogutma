@@ -1,12 +1,15 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { getCategoryPath, productCategories, type CatalogLanguage } from '../data/catalog';
+import { getCategoryPath, getProductDisplayName, productCategories, type CatalogLanguage } from '../data/catalog';
+import { products } from '../data/productSummaries';
 import type { ReferenceProject } from '../data/references';
+import { getProductPath } from '../seo/config';
 import { ContactActions } from './CatalogContent';
 
 export function ReferenceContent({ project, language }: { project: ReferenceProject; language: CatalogLanguage }) {
     const copy = project.copy[language];
     const categories = productCategories.filter(category => project.categoryIds.includes(category.id));
+    const exampleProduct = products.find(product => product.id === project.exampleProductId);
     return (
         <section aria-labelledby="reference-details-title" data-reference-content={project.id} className="mt-12 border-t border-gray-200 pt-10 text-gray-900 dark:border-neutral-700 dark:text-white md:mt-16">
             <div className="max-w-4xl">
@@ -20,6 +23,12 @@ export function ReferenceContent({ project, language }: { project: ReferenceProj
                     <div className="flex flex-wrap gap-x-6 gap-y-3">
                         {categories.map(category => <Link key={category.id} to={getCategoryPath(category)} className="inline-flex items-center gap-2 text-sm font-medium text-[#0083bb] hover:underline dark:text-[#72D5E3]">{category.copy[language].name}<ArrowRight size={15} aria-hidden="true" /></Link>)}
                     </div>
+                    {exampleProduct && (
+                        <Link to={getProductPath(exampleProduct)} className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[#0083bb] hover:underline dark:text-[#72D5E3]">
+                            {language === 'TR' ? 'Benzer model olarak' : 'Comparable model'} {getProductDisplayName(exampleProduct, language)}
+                            <ArrowRight size={15} aria-hidden="true" />
+                        </Link>
+                    )}
                 </nav>
                 <div className="mt-9 border-t border-gray-200 pt-7 dark:border-neutral-700">
                     <h3 className="mb-3 text-lg font-semibold">{language === 'TR' ? 'İşletmeniz için benzer bir uygulama planlayalım' : 'Discuss a similar installation for your business'}</h3>

@@ -4,6 +4,7 @@ export const PRODUCT_IMAGE_SIZES = '(min-width: 1536px) 688px, (min-width: 1280p
 export const CATEGORY_IMAGE_SIZES = '(min-width: 1536px) 580px, (min-width: 1280px) 461px, (min-width: 1024px) 342px, (min-width: 768px) 608px, (min-width: 640px) 544px, calc(100vw - 72px)';
 export const CARD_IMAGE_SIZES = '(min-width: 1536px) 313px, (min-width: 1280px) 249px, (min-width: 1024px) 264px, (min-width: 768px) 179px, (min-width: 640px) 266px, calc(50vw - 46px)';
 export const HOME_IMAGE_SIZES = '(min-width: 1536px) 960px, (min-width: 1280px) 768px, (min-width: 1024px) 640px, (min-width: 768px) 672px, (min-width: 640px) 608px, calc(100vw - 32px)';
+export const HOME_HERO_LOGO = '/images/home/parsLogo.webp';
 
 export function getResponsiveImageProps(source: string, sizes: string, preferredWidth = 960): {
     src: string; srcSet?: string; sizes?: string; width?: number; height?: number;

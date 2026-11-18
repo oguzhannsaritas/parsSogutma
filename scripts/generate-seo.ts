@@ -1,5 +1,5 @@
 import { pathToFileURL } from 'node:url';
-import { getResponsiveImageProps, getContainedImageProps, PRODUCT_IMAGE_SIZES, CATEGORY_IMAGE_SIZES } from '../src/lib/responsiveImages';
+import { getResponsiveImageProps, getContainedImageProps, PRODUCT_IMAGE_SIZES, CATEGORY_IMAGE_SIZES, HOME_HERO_LOGO } from '../src/lib/responsiveImages';
 import type { ProductPageData } from '../src/lib/productData';
 import { getReferenceSeo, referencePageJsonLd } from '../src/seo/references';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
@@ -104,6 +104,7 @@ function seoBlock(snapshot: Snapshot): string {
     <meta name="robots" content="${escapeHtml(robots)}" />
     <meta name="googlebot" content="${escapeHtml(robots)}" />
     <link rel="canonical" href="${escapeHtml(canonical)}" />
+${snapshot.route === '/' ? `    <link rel="preload" as="image" href="${escapeHtml(HOME_HERO_LOGO)}" fetchpriority="high" data-lcp-preload="hero" />` : ''}
 ${responsive ? `    <link rel="preload" as="image" href="${escapeHtml(responsive.src)}"${responsive.srcSet ? ` imagesrcset="${escapeHtml(responsive.srcSet)}" imagesizes="${escapeHtml(responsive.sizes)}"` : ''} fetchpriority="high" data-lcp-preload="product-detail-main" />` : ''}
 ${routeModulePreloads(snapshot.route)}
     <script type="module" crossorigin data-contact-boot src="/${escapeHtml(buildManifest['src/contact-boot.ts'].file)}"></script>
