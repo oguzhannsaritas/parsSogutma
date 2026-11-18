@@ -151,7 +151,16 @@ export function CategoryContent({ category, products, language }: { category: Pr
                 </section>
                 <section className="grid gap-8 border-t border-gray-200 py-10 dark:border-neutral-700 lg:grid-cols-[1.35fr_1fr] lg:gap-14">
                     <div className="space-y-7">
-                        {text.sections.map(section => <div key={section.heading}><h2 className="mb-3 text-lg font-bold md:text-xl">{section.heading}</h2><p className="text-sm leading-7 text-gray-600 dark:text-gray-300">{section.body}</p></div>)}
+                        {text.sections.map(section => {
+                            const product = models.find(model => model.id === section.productId);
+                            return (
+                                <div key={section.heading}>
+                                    <h2 className="mb-3 text-lg font-bold md:text-xl">{section.heading}</h2>
+                                    <p className="text-sm leading-7 text-gray-600 dark:text-gray-300">{section.body}</p>
+                                    {product && <Link to={getProductPath(product)} className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#0083bb] underline underline-offset-4 dark:text-[#72D5E3]">{getProductDisplayName(product, language)}<ArrowRight size={15} aria-hidden="true" /></Link>}
+                                </div>
+                            );
+                        })}
                     </div>
                     <aside className="self-start rounded-2xl bg-gray-50 p-6 dark:bg-neutral-900">
                         <h2 className="mb-4 text-lg font-bold">{labels.selection}</h2>
@@ -167,7 +176,8 @@ export function CategoryContent({ category, products, language }: { category: Pr
                 </section>
                 <RelatedBlogGuides categoryId={category.id} language={language} />
                 <section className="mt-8 rounded-3xl border border-gray-200 bg-gray-50 p-6 dark:border-neutral-700 dark:bg-neutral-900 md:p-8">
-                    <h2 className="text-xl font-bold">{labels.quoteTitle}</h2><p className="mb-5 mt-3 max-w-3xl text-sm leading-7 text-gray-600 dark:text-gray-300">{labels.quoteText}</p>
+                    <h2 className="text-xl font-bold">{text.quote?.title ?? labels.quoteTitle}</h2>
+                    <p className="mb-5 mt-3 max-w-3xl text-sm leading-7 text-gray-600 dark:text-gray-300">{text.quote?.body ?? labels.quoteText}</p>
                     <ContactActions subject={text.name} language={language} />
                     <Link to="/references" className="mt-5 inline-flex items-center gap-2 text-sm font-medium hover:text-[#0083bb]">{language === 'TR' ? 'Uygulama ve referans projelerini inceleyin' : 'Explore installations and reference projects'}<ArrowRight size={15} aria-hidden="true" /></Link>
                 </section>
