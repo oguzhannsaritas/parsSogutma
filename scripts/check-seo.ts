@@ -67,6 +67,24 @@ for (const category of productCategories) {
     const pageData = jsonLd(html).find(item => item['@type'] === 'CollectionPage');
     assert.equal(pageData.mainEntity.itemListElement.length, models.length, `Visible models and structured list differ: ${category.id}`);
     const categoryDom = JSDOM.fragment(html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] ?? html);
+    assert(categoryDom.querySelector('#model-secimi + #modeller'), `Model selection must precede the catalogue: ${category.id}`);
+    const selectionLinks = [...categoryDom.querySelectorAll<HTMLAnchorElement>('[data-model-selection-options] a[href]')];
+    assert(selectionLinks.length >= 2, `Missing choices in the first HTML: ${category.id}`);
+    for (const link of selectionLinks) {
+        const href = link.getAttribute('href')!;
+        const { pathname, hash } = new URL(href, `${SITE_URL}${categoryPath}`);
+        const destination = pathname === categoryPath ? categoryDom : JSDOM.fragment(await readPage(pathname));
+        assert(hash && destination.getElementById(hash.slice(1)), `Broken model selection link: ${category.id}/${href}`);
+    }
+    if (category.id === 'reyon') {
+        const comparison = categoryDom.querySelector('#camli-servis-reyonlari');
+        assert.deepEqual([...comparison!.querySelectorAll('a')].map(link => link.getAttribute('href')), ['/products/17', '/products/18']);
+        assert.equal(comparison!.querySelectorAll('[data-catalog-module-lengths]').length, 2);
+    }
+    if (category.id === 'pasta') {
+        const venusLengths = categoryDom.querySelector('#model-15 [data-catalog-module-lengths]')?.textContent;
+        assert(venusLengths?.includes('2812') && !venusLengths.includes('31255'), 'Show only confirmed VENUS module lengths');
+    }
     const visibleModelUrls = [...categoryDom.querySelectorAll<HTMLAnchorElement>('#modeller a[href^="/products/"]')].map(link => `${SITE_URL}${link.getAttribute('href')}`);
     assert.equal(new Set(visibleModelUrls).size, models.length, `A model was omitted or duplicated in subgroup cards: ${category.id}`);
     assert.deepEqual(visibleModelUrls, pageData.mainEntity.itemListElement.map((item: { url: string }) => item.url), `Structured order differs from visible cards: ${category.id}`);
@@ -87,6 +105,9 @@ for (const category of productCategories) {
         assert(category.copy[language].name && category.copy[language].intro && category.copy[language].questions.length, `Missing ${language} content in ${category.id}`);
         if (language === 'EN' && catalogModelGroups[category.id]) {
             const translated = JSDOM.fragment(renderToStaticMarkup(createElement(MemoryRouter, null, createElement(CategoryContent, { category, products, language }))));
+            assert.equal(translated.querySelector('#model-selection-title')?.textContent, 'Find the right model for my business');
+            const englishLinks = [...translated.querySelectorAll('[data-model-selection-options] a[href]')];
+            assert.deepEqual(englishLinks.map(link => link.getAttribute('href')), selectionLinks.map(link => link.getAttribute('href')));
             for (const group of getCategoryModelGroups(category.id, models)) assert.equal(translated.querySelector(`#model-group-${group.id}`)?.textContent, group.name.EN, `Subgroup translation missing: ${category.id}/${group.id}`);
         }
     }
