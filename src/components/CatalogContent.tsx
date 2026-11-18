@@ -17,6 +17,7 @@ import {
 import { getProductMainImage, getProductPath } from '../seo/config';
 import { trackContactClick } from '../lib/googleAds';
 import RelatedBlogGuides from './RelatedBlogGuides';
+import CategoryModelSelection, { CatalogModelFacts, modelSelectionId, modelSelectionLabel } from './CategoryModelSelection';
 
 const copy = {
     TR: {
@@ -77,16 +78,17 @@ export function CategoryLinks({ language, className = '' }: { language: CatalogL
     );
 }
 
-export function CatalogProductCard({ product, language, headingLevel = 3 }: { product: ProductSummary; language: CatalogLanguage; headingLevel?: 3 | 4 }) {
+export function CatalogProductCard({ product, language, headingLevel = 3, showSelectionDetails = false }: { product: ProductSummary; language: CatalogLanguage; headingLevel?: 3 | 4; showSelectionDetails?: boolean }) {
     const name = getProductDisplayName(product, language);
     const Heading = headingLevel === 4 ? 'h4' : 'h3';
     return (
-        <Link to={getProductPath(product)} className="group flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-colors hover:border-[#009FE3] dark:border-neutral-700 dark:bg-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#009FE3]">
+        <Link to={getProductPath(product)} id={showSelectionDetails ? `model-${product.id}` : undefined} className="group flex h-full min-w-0 scroll-mt-28 flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-colors hover:border-[#009FE3] target:border-[#009FE3] target:ring-2 target:ring-[#009FE3] dark:border-neutral-700 dark:bg-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#009FE3]">
             <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-white">
                 <img {...getResponsiveImageProps(getProductMainImage(product), CARD_IMAGE_SIZES, 320)} alt={name} loading="lazy" decoding="async" className="absolute inset-0 block h-full w-full max-w-full object-contain object-center p-3 transition-transform duration-300 group-hover:scale-[1.03] sm:p-4" />
             </div>
             <div className="flex min-w-0 flex-1 flex-col gap-3 p-4 sm:p-5">
                 <Heading className="min-h-11 break-words text-sm sm:text-base font-semibold leading-snug text-gray-900 dark:text-white">{name}</Heading>
+                {showSelectionDetails && <CatalogModelFacts product={product} language={language} />}
                 <span className="mt-auto inline-flex items-center gap-2 text-xs font-medium text-[#0083bb] dark:text-[#72D5E3]">{copy[language].details}<ArrowRight size={15} aria-hidden="true" /></span>
             </div>
         </Link>
@@ -114,13 +116,17 @@ export function CategoryContent({ category, products, language }: { category: Pr
                         <h1 className="text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">{text.name}</h1>
                         <p className="mt-5 max-w-2xl text-sm leading-7 text-gray-600 dark:text-gray-300 sm:text-base">{text.intro}</p>
                         <div className="mt-6"><ContactActions subject={text.name} language={language} /></div>
-                        <a href="#modeller" className="mt-5 inline-flex items-center gap-2 text-sm font-medium hover:text-[#0083bb]">{labels.models}<ArrowRight size={16} aria-hidden="true" /></a>
+                        <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+                            <a href={`#${modelSelectionId}`} className="inline-flex items-center gap-2 text-sm font-semibold text-[#0083bb] hover:underline dark:text-[#72D5E3]">{modelSelectionLabel[language]}<ArrowRight size={16} aria-hidden="true" /></a>
+                            <a href="#modeller" className="inline-flex items-center gap-2 text-sm font-medium hover:text-[#0083bb]">{labels.models}<ArrowRight size={16} aria-hidden="true" /></a>
+                        </div>
                     </div>
                     <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl border border-gray-100 bg-white p-5 shadow-sm dark:border-neutral-700 sm:p-8">
                         <img {...getResponsiveImageProps(getProductMainImage(featured), CATEGORY_IMAGE_SIZES)} alt={getProductDisplayName(featured, language)} fetchPriority="high" decoding="async" className="h-full w-full object-contain" />
                         <span className="absolute bottom-4 right-4 rounded-full border border-gray-200 bg-white/95 px-3 py-1.5 text-xs text-gray-600">{models.length} {labels.modelCount}</span>
                     </div>
                 </header>
+                <CategoryModelSelection categoryId={category.id} models={models} language={language} />
                 <section id="modeller" aria-labelledby="category-models-title" className="scroll-mt-28 py-10 md:py-14">
                     <div className="mb-6 flex flex-wrap items-end justify-between gap-3"><h2 id="category-models-title" className="text-xl font-bold md:text-2xl">{labels.models}</h2><span className="shrink-0 text-xs text-gray-500 dark:text-gray-400">{models.length} {labels.modelCount}</span></div>
                     {modelGroups.length ? (
@@ -133,7 +139,7 @@ export function CategoryContent({ category, products, language }: { category: Pr
                                     <section key={group.id} id={`modeller-${group.id}`} data-category-model-group={group.id} aria-labelledby={`model-group-${group.id}`} className="scroll-mt-28">
                                         <div className="mb-4 flex items-baseline justify-between gap-3"><h3 id={`model-group-${group.id}`} className="text-base font-semibold md:text-lg">{group.name[language]}</h3><span className="shrink-0 text-xs text-gray-500 dark:text-gray-400">{group.products.length} {labels.modelCount}</span></div>
                                         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 xl:grid-cols-4">
-                                            {group.products.map(product => <CatalogProductCard key={product.id} product={product} language={language} headingLevel={4} />)}
+                                            {group.products.map(product => <CatalogProductCard key={product.id} product={product} language={language} headingLevel={4} showSelectionDetails />)}
                                         </div>
                                     </section>
                                 ))}
@@ -141,7 +147,7 @@ export function CategoryContent({ category, products, language }: { category: Pr
                         </>
                     ) : (
                         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 xl:grid-cols-4">
-                            {models.map(product => <CatalogProductCard key={product.id} product={product} language={language} />)}
+                            {models.map(product => <CatalogProductCard key={product.id} product={product} language={language} showSelectionDetails />)}
                         </div>
                     )}
                 </section>
@@ -176,7 +182,7 @@ export function CategoryContent({ category, products, language }: { category: Pr
                     </div>
                 </section>
                 <RelatedBlogGuides categoryId={category.id} language={language} />
-                <section className="mt-8 rounded-3xl border border-gray-200 bg-gray-50 p-6 dark:border-neutral-700 dark:bg-neutral-900 md:p-8">
+                <section id="teklif" className="mt-8 scroll-mt-28 rounded-3xl border border-gray-200 bg-gray-50 p-6 dark:border-neutral-700 dark:bg-neutral-900 md:p-8">
                     <h2 className="text-xl font-bold">{text.quote.title}</h2>
                     <p className="mb-5 mt-3 max-w-3xl text-sm leading-7 text-gray-600 dark:text-gray-300">{text.quote.body}</p>
                     <ContactActions subject={text.name} language={language} />
