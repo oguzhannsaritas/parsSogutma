@@ -247,8 +247,11 @@ for (const project of projects) {
     await writeSnapshot({ ...snapshot, route: `/references/${project.id}`, canonicalRoute: route });
 }
 
-const pagesXml = [...staticRoutes, ...blogArticles.map(getBlogArticlePath)]
-    .map((route) => `  <url><loc>${escapeXml(`${SITE_URL}${route}`)}</loc><lastmod>${today}</lastmod><changefreq>${route === '/' || route === '/products' ? 'weekly' : 'monthly'}</changefreq></url>`)
+const pagesXml = [
+    ...staticRoutes.map(route => ({ route, lastmod: today })),
+    ...blogArticles.map(article => ({ route: getBlogArticlePath(article), lastmod: article.updatedOn })),
+]
+    .map(({ route, lastmod }) => `  <url><loc>${escapeXml(`${SITE_URL}${route}`)}</loc><lastmod>${lastmod}</lastmod><changefreq>${route === '/' || route === '/products' ? 'weekly' : 'monthly'}</changefreq></url>`)
     .join('\n');
 
 const productsXml = canonicalProducts

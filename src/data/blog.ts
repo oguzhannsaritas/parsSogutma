@@ -45,19 +45,19 @@ export const blogArticles: BlogArticleSummary[] = [
             EN: 'Open dairy cabinet or glass-door dairy cabinet?',
         },
         description: {
-            TR: 'Açık ve cam kapaklı sütlük dolaplarını müşteri erişimi, kapı açıklığı, ürün yerleşimi ve işletmenizin kullanım koşulları üzerinden karşılaştırın.',
-            EN: 'Compare open and glass-door dairy cabinets by customer access, door clearance, product arrangement and the conditions in your store.',
+            TR: 'Açık ve cam kapaklı sütlük dolaplarını raf düzeni, kapı tipi, koridor ölçüsü ve fiyatı etkileyen seçenekler üzerinden karşılaştırın.',
+            EN: 'Compare open and glass-door dairy cabinets by shelf layout, door type, aisle clearance and the options that affect the quote.',
         },
         introduction: {
-            TR: 'Açık ve cam kapaklı sütlük arasında seçim yaparken ürünlerin görünürlüğünü, müşterinin dolaba erişimini ve işletmedeki yerleşimi birlikte değerlendirin. Bir modelin fotoğrafını beğenmek başlangıç olabilir; uygunluğu belirleyen, o dolabın sizin ürün ve çalışma düzeninizle eşleşmesidir.',
-            EN: 'When choosing between an open and a glass-door dairy cabinet, consider visibility, customer access and store layout together. A product photo can help you shortlist a model, but suitability depends on how the cabinet fits your products and working arrangements.',
+            TR: 'Marketiniz için sütlük dolabı seçerken önce müşterinin ürünü nasıl alacağını ve personelin rafları nasıl dolduracağını belirleyin. Açık sütlük doğrudan erişim sağlar. Cam kapaklı sütlükte ise kapak tipi ve koridorda kalan net alan seçimi etkiler. İki model de ticari soğutma dolabı olarak değerlendirilir. Uygun olanı bulmak için raf ölçülerini, ürünlerinizi ve mağaza yerleşimini birlikte karşılaştırın.',
+            EN: 'Start by deciding how shoppers will reach the products and how staff will restock the shelves. An open dairy cabinet offers direct access. With a glass-door cabinet, door type and usable aisle space matter as well. For either commercial refrigeration cabinet, compare shelf dimensions, the products you plan to display and your store layout.',
         },
         topic: { TR: 'Sütlük seçimi', EN: 'Dairy cabinet selection' },
         image: '/images/products/dikeyTipSogutuculuReyonlar/camKapakliSutlukDolabi/camKapakliSutlukDolabi10.webp',
         imageAlt: { TR: 'Pars Soğutma cam kapaklı sütlük dolabı', EN: 'Pars Cooling glass-door dairy cabinet' },
         relatedCategoryIds: ['sutluk', 'reyon', 'sogutma'],
         publishedOn: '2026-11-16',
-        updatedOn: '2026-11-16',
+        updatedOn: '2026-11-18',
     },
     {
         slug: 'pasta-teshir-dolabi-secim-rehberi',
@@ -101,6 +101,48 @@ export const blogArticles: BlogArticleSummary[] = [
         publishedOn: '2026-11-16',
         updatedOn: '2026-11-16',
     },
+    {
+        slug: 'soguk-oda-pvc-serit-perde-secimi',
+        title: {
+            TR: 'Soğuk oda PVC şerit perdesi nasıl seçilir?',
+            EN: 'How to choose a PVC strip curtain for a cold room',
+        },
+        description: {
+            TR: 'Soğuk oda perdesi seçerken net kapı ölçüsünü, geçiş biçimini ve montaj yerini kontrol edin. PVC şerit perde fiyatını etkileyen seçenekleri öğrenin.',
+            EN: 'Check doorway dimensions, traffic and mounting space when choosing a cold-room PVC strip curtain. See what goes into a quote.',
+        },
+        introduction: {
+            TR: 'Soğuk oda PVC şerit perdesi seçerken kapının net en ve yüksekliğini, geçişi kimin kullanacağını ve perdenin bağlanacağı yüzeyi belirleyin. Personelin yürüyerek kullandığı bir kapıyla palet taşınan bir kapı için farklı ihtiyaçlar olabilir. Bu rehber, soğuk hava deposu perdesi için hangi ölçüleri hazırlayacağınızı ve teklifte hangi parçaları kontrol edeceğinizi gösterir.',
+            EN: 'To choose a PVC strip curtain for a cold room, start with the clear doorway width and height, how the opening is used and where the curtain will mount. A staff doorway and an opening used for pallets can have different requirements. This guide covers the measurements to take and the items to check in your quote.',
+        },
+        topic: { TR: 'Soğuk oda ekipmanları', EN: 'Cold-room equipment' },
+        image: '/images/products/sogukHavaDepolari/pvcSeritHavaPerdesi/pvcSeritHavaPerdesix.webp',
+        imageAlt: { TR: 'Pars Soğutma soğuk hava deposu PVC şerit perdesi', EN: 'Pars Cooling PVC strip curtain for a cold storage room' },
+        relatedCategoryIds: ['soguk-oda'],
+        publishedOn: '2026-11-18',
+        updatedOn: '2026-11-18',
+    },
+    {
+        slug: 'et-aski-dolabi-dry-aged-dolabi-farki',
+        title: {
+            TR: 'Et askı dolabı ile dry aged dolabı arasındaki fark nedir?',
+            EN: 'What is the difference between a meat hanging cabinet and a dry-aging cabinet?',
+        },
+        description: {
+            TR: 'Et askı dolabı ve dry aged dolabını kullanım amacı, askı düzeni ve çalışma özellikleriyle karşılaştırın. Özel ölçü teklifi için gereken bilgileri hazırlayın.',
+            EN: 'Compare meat hanging and dry-aging cabinets by intended use, hanging layout and operating features. Prepare the details for a custom quote.',
+        },
+        introduction: {
+            TR: 'Et askı dolabı, eti askıda sergilemek için değerlendirilir. Dry aged dolabı ise kuru et dinlendirme süreci için tasarlanır. İki endüstriyel soğutma dolabında da cam ve askı bulunabilir. Seçimi, işletmenizin teşhir ihtiyacına ve modelin doğrulanmış çalışma özelliklerine göre yapın.',
+            EN: 'A meat hanging cabinet is used to display meat on hooks or rails. A dry-aging cabinet is designed for controlled dry aging. Both types of commercial refrigeration cabinet can have glass doors and hanging rails. Base your choice on the job you need it to do and the specifications of the exact model.',
+        },
+        topic: { TR: 'Et teşhir ve dinlendirme', EN: 'Meat display and aging' },
+        image: '/images/products/dikeyTipSogutuculuReyonlar/kuzuEtAskiDolabi/kuzuEtAskiDolabix.webp',
+        imageAlt: { TR: 'Pars Soğutma camlı kuzu et askı dolabı', EN: 'Pars Cooling glass-fronted lamb hanging cabinet' },
+        relatedCategoryIds: ['kasap'],
+        publishedOn: '2026-11-18',
+        updatedOn: '2026-11-18',
+    },
 ];
 
 export function getBlogArticlePath(article: BlogArticleSummary): string {
@@ -113,15 +155,16 @@ export function findBlogArticle(pathname: string): BlogArticleSummary | undefine
 }
 
 export function getCategoryBlogArticles(categoryId: CategoryId): BlogArticleSummary[] {
-    // These guides cover display cabinets; cold rooms and refrigeration units
-    // should receive their own guides when those are available.
-    if (categoryId === 'soguk-oda' || categoryId === 'sogutma') return [];
-    const selectionGuides: Partial<Record<CategoryId, string>> = {
-        pasta: 'pasta-teshir-dolabi-secim-rehberi',
-        kasap: 'kasap-teshir-dolabi-yerlesim-model-secimi',
-        sutluk: 'acik-sutluk-cam-kapakli-sutluk-secimi',
+    const selectionGuides: Partial<Record<CategoryId, string[]>> = {
+        pasta: ['pasta-teshir-dolabi-secim-rehberi'],
+        kasap: ['kasap-teshir-dolabi-yerlesim-model-secimi', 'et-aski-dolabi-dry-aged-dolabi-farki'],
+        sutluk: ['acik-sutluk-cam-kapakli-sutluk-secimi'],
+        'soguk-oda': ['soguk-oda-pvc-serit-perde-secimi'],
     };
-    const slugs = [selectionGuides[categoryId], 'ozel-olcu-sogutma-dolabi-teklif-rehberi'];
+    const slugs = [...(selectionGuides[categoryId] ?? [])];
+    if (categoryId !== 'soguk-oda' && categoryId !== 'sogutma') {
+        slugs.push('ozel-olcu-sogutma-dolabi-teklif-rehberi');
+    }
     return slugs.flatMap(slug => blogArticles.filter(article => article.slug === slug));
 }
 
