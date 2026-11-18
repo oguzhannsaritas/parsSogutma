@@ -7,10 +7,15 @@ export type CategoryCopy = {
     name: string;
     description: string;
     intro: string;
-    sections: Array<{ heading: string; body: string; productId?: number }>;
+    sections: Array<{
+        heading: string;
+        body: string;
+        productId?: number;
+        productLinkText?: string;
+    }>;
     criteria: string[];
     questions: Array<{ question: string; answer: string }>;
-    quote?: { title: string; body: string };
+    quote: { title: string; body: string };
     productUse: string;
 };
 
@@ -29,31 +34,55 @@ export const productCategories: ProductCategory[] = [
             TR: {
                 name: 'Pasta ve Çikolata Dolapları',
                 description: 'Pastane ve kafeler için pasta, çikolata ve ekler teşhir dolapları. Yatay, dikey ve cephe modellerini, ölçüleri ve pastane tezgâhlarını karşılaştırın.',
-                intro: 'Pasta ve çikolata dolabı seçimi, sergilenecek ürünün muhafaza ihtiyacı ile vitrinin servis düzenini birlikte değerlendirmeyi gerektirir. Pars Soğutma kataloğunda yatay, dikey ve cephe tipi pasta dolapları; ekler ve çikolata sunumuna yönelik modeller ile pastane tezgâhları yer alır.',
+                intro: 'Pasta teşhir dolabı seçerken önce sergileyeceğiniz ürünü belirleyin. Yaş pasta ve ekler için soğutmalı vitrinleri, kuru pasta için kuru teşhir modellerini inceleyin. Çikolata dolabını çikolatanın muhafaza koşullarına göre seçin. Pastane ve kafenizdeki servis düzenine uygun yatay, dikey ve cephe tipi modelleri karşılaştırabilirsiniz.',
                 sections: [
-                    { heading: 'Ürüne göre teşhir modeli seçimi', body: 'Yaş pasta, çikolata, ekler ve kuru pasta aynı teşhir koşullarına ihtiyaç duymayabilir. Önce ürün grubunu belirleyin; ardından seçtiğiniz modelin teknik sayfasındaki çalışma sıcaklığını, raf düzenini ve cam yapısını inceleyin. Bu grupta baklava, kuruyemiş ve sıcak servis tezgâhları da bulunur; soğutmalı, kuru ve ısıtmalı seçeneklerin kullanım amaçları farklıdır.' },
-                    { heading: 'Vitrin ölçüsü ve servis akışı', body: 'Dolabın yerleşeceği alanın uzunluğu kadar geçiş alanı, ürün yükleme yönü ve servis erişimi de önemlidir. Yatay bir vitrin ile dikey ya da cephe tipi bir modelin sergileme düzenini karşılaştırın. Ürün sayfalarındaki modül bilgileri, çizimler ve uygulama fotoğrafları üzerinden işletmenize uygun seçeneği değerlendirebilirsiniz.' },
+                    {
+                        heading: 'Yatay ekler vitrini ve tezgâhtan servis',
+                        body: 'Ekler ve porsiyon tatlıları yatay vitrinde tepsilerle yan yana sunabilirsiniz. Tepsileri çıkaracağınız taraftaki servis boşluğunu ve müşterinin ürünleri göreceği açıyı kontrol edin. Katalogdaki baklava, kuruyemiş ve ısıtmalı servis tezgâhlarını da sunacağınız ürünlere göre değerlendirin.',
+                        productId: 14,
+                    },
+                    {
+                        heading: 'Dikey pasta dolabında raf düzeni',
+                        body: 'Dikey pasta dolabı, pastaları farklı raf seviyelerinde sergilemek için bir seçenektir. Raf derinliğini pasta tabanının çapıyla, raf aralığını en yüksek pastayla karşılaştırın. Dolabın yerleşiminde cam kapının açılımını ve personelin pastayı çıkaracağı alanı da ölçün.',
+                        productId: 35,
+                    },
                 ],
                 criteria: ['Sergilenecek ürün türünü ve günlük teşhir miktarını belirleyin.', 'Yerleşim ölçüsünü, raf ihtiyacını ve servis yönünü birlikte planlayın.', 'Çalışma sıcaklığı ile motor ve aksesuar seçeneklerini seçilen model üzerinden teyit edin.'],
                 questions: [
                     { question: 'Pasta ve çikolata için aynı dolap seçilebilir mi?', answer: 'Seçim, ürünün muhafaza gereksinimine ve dolabın teknik özelliklerine bağlıdır. Pasta–çikolata modellerini inceleyin; sergileyeceğiniz ürünleri belirterek uygun çalışma koşulları için bilgi alın.' },
                     { question: 'Pasta dolabı için nasıl teklif alabilirim?', answer: 'Beğendiğiniz modeli, kullanılabilir alan ölçülerini ve sergileyeceğiniz ürünleri paylaşın. Raf, cam ve soğutma seçenekleriyle birlikte projenize uygun teklif hazırlanabilir.' },
                 ],
+                quote: {
+                    title: 'Pasta teşhir dolabı ölçüleri ve fiyat teklifi',
+                    body: 'Vitrin için ayrılan alanın genişliğini, derinliğini ve yüksekliğini ölçün. Pasta çapı ve yüksekliği ya da ekler tepsilerinin ölçüsüyle birlikte servis yönünü paylaşın. Raf sayısı, cam tipi ve soğutma düzeni teklifi etkiler. Özel ölçüde imalat için mevcut tezgâhların yerini gösteren bir kroki de gönderin.',
+                },
                 productUse: 'Pastane ve kafe vitrini planlarken ürün türü, raf ihtiyacı ve servis erişimi birlikte değerlendirilmelidir.',
             },
             EN: {
                 name: 'Pastry and Chocolate Display Cabinets',
                 description: 'Compare horizontal, vertical and facade pastry displays, chocolate and eclair cabinets, technical dimensions and bakery counters from Pars Cooling.',
-                intro: 'Choosing a pastry or chocolate display starts with the storage needs of your products and the way your team serves customers. The Pars Cooling range includes horizontal, vertical and facade pastry cabinets, eclair and chocolate displays, and bakery counters.',
+                intro: 'Start by deciding what you want to put in your pastry display cabinet. Compare refrigerated models for fresh cakes and eclairs and ambient displays for dry pastries. Choose a chocolate cabinet based on the products’ storage requirements. Explore horizontal, vertical and facade models for your bakery or cafe layout.',
                 sections: [
-                    { heading: 'Match the display to your products', body: 'Cakes, chocolate, eclairs and dry pastries may require different display conditions. Identify the product group before comparing operating temperatures, shelf arrangements and glass designs on each model page. Baklava, nut and heated service counters are also listed here; refrigerated, ambient and heated models serve different purposes.' },
-                    { heading: 'Plan the counter and service area', body: 'Consider access for loading and serving as well as the available counter length. Compare the presentation of horizontal, vertical and facade models. Module information, drawings and installation photos help you assess a cabinet within your bakery or cafe layout.' },
+                    {
+                        heading: 'Horizontal eclair displays for counter service',
+                        body: 'A horizontal display can hold trays of eclairs and individual desserts side by side. Check clearance on the side staff use to remove trays and consider what customers can see from the front. Compare baklava displays, nut counters and heated cabinets for the products you serve.',
+                        productId: 14,
+                    },
+                    {
+                        heading: 'Shelf layout in a vertical cake cabinet',
+                        body: 'A vertical cabinet can display cakes across several shelves. Compare shelf depth with the diameter of the cake base and shelf spacing with the tallest cake. Allow space for the door to open and for staff to lift cakes out.',
+                        productId: 35,
+                    },
                 ],
                 criteria: ['Identify the product type and the quantity you intend to display.', 'Plan the available space, shelves and service access together.', 'Confirm temperatures, refrigeration arrangements and accessories for the selected model.'],
                 questions: [
                     { question: 'Can one cabinet display both pastry and chocolate?', answer: 'This depends on the products and the technical specification of the cabinet. Review the pastry–chocolate models and tell us what you plan to display so that the operating requirements can be discussed.' },
                     { question: 'How do I request a pastry cabinet quote?', answer: 'Share the model, available dimensions and products to be displayed. The quote can then reflect the shelves, glass and refrigeration options required for your project.' },
                 ],
+                quote: {
+                    title: 'Pastry display cabinet dimensions and quotes',
+                    body: 'Measure the available width, depth and height. Share the diameter and height of your cakes or the dimensions of your eclair trays, along with which side staff will serve from. Shelf count, glass type and refrigeration arrangement affect the quote. Include a sketch showing existing counters for a made-to-measure cabinet.',
+                },
                 productUse: 'When planning a bakery or cafe display, consider the product type, shelf requirements and service access together.',
             },
         },
@@ -64,31 +93,55 @@ export const productCategories: ProductCategory[] = [
             TR: {
                 name: 'Kasap ve Et Teşhir Dolapları',
                 description: 'Kasap reyonu, et teşhir, et askı ve dry aged dolaplarını inceleyin. Dik, düz ve bombe camlı modelleri teknik özellikleriyle karşılaştırın.',
-                intro: 'Kasap dolabı seçerken etin sunum biçimi, teşhir alanı ve çalışma düzeni birlikte ele alınır. Bu grupta dik, düz ve bombe camlı kasap reyonlarının yanında et askı ve dry aged dolapları bulunur. Her modelin amacı ve teknik gereksinimi kendi ürün sayfasında değerlendirilmelidir.',
+                intro: 'Kasap dolabı seçimini etin nasıl sergileneceğine göre yapın. Personelin tezgâhtan servis yaptığı işletmeler için dik, düz ve bombe camlı kasap reyonları bulunur. Parça eti askıda sunmak için et askı dolabını, yaşlandırma uygulamaları için dry aged dolabını inceleyin.',
                 sections: [
-                    { heading: 'Reyon, et askı ve dry aged seçenekleri', body: 'Tezgâh üzerinden servis edilen bir reyon ile askıda sunum yapılan bir dolap farklı bir yerleşim gerektirir. Dry aged modellerini de kendi teknik özellikleri üzerinden inceleyin. Ürünün kullanım amacını netleştirmek, cam biçimi veya dış görünüşten önce doğru model grubuna ulaşmanızı sağlar.' },
-                    { heading: 'Çalışma alanına uygun yerleşim', body: 'Modül uzunluğu, personelin servis erişimi ve dolabın önündeki müşteri alanı beraber planlanmalıdır. Seçilen ürünün sıcaklık bilgisini, motor seçeneklerini ve temizlik erişimini teknik sayfasından kontrol edin. Uygulama görselleri, reyonun işletme içindeki konumunu değerlendirmenize yardımcı olur.' },
+                    {
+                        heading: 'Tezgâhtan servis için kasap reyon dolabı',
+                        body: 'Dik, düz ve bombe camı karşılaştırırken müşterinin tepsileri göreceği açıya ve personelin servis erişimine bakın. Örneğin bombe camlı reyonda, kavisli camın önündeki geçiş alanını ve tepsilerin raflardan çıkarılması için gereken boşluğu modelin çizimiyle birlikte değerlendirin.',
+                        productId: 10,
+                    },
+                    {
+                        heading: 'Askıda et teşhiri ve dry aged dolabı seçimi',
+                        body: 'Et askı dolabı için parçaların boyunu ve genişliğini belirleyip askı aralığını, kullanılabilir iç yüksekliği ve kapının açılacağı boşluğu kontrol edin. Dry aged dolabı seçerken, yaşlandırma amacı ve çalışma koşullarını seçtiğiniz modelin teknik bilgileri üzerinden değerlendirin.',
+                        productId: 40,
+                    },
                 ],
                 criteria: ['Tezgâh teşhiri, askıda sunum veya dry aged kullanımını belirleyin.', 'Reyon uzunluğunu ve personel servis alanını ölçün.', 'Modelin çalışma koşullarını ve soğutma grubu seçeneklerini karşılaştırın.'],
                 questions: [
                     { question: 'Dik, düz ve bombe camlı reyon arasında nasıl seçim yapılır?', answer: 'Cam biçimi; görüş açısı, servis erişimi ve mağaza yerleşimiyle birlikte değerlendirilir. Seçenekleri model fotoğrafları ve teknik çizimler üzerinden karşılaştırabilirsiniz.' },
                     { question: 'Et askı dolabı ile dry aged dolabı aynı amaçla mı kullanılır?', answer: 'Kullanım amaçları ve ihtiyaç duyulan çalışma koşulları farklı olabilir. Sergileyeceğiniz ürünü ve uygulamanızı belirterek modelin uygunluğunu teknik özellikleriyle birlikte teyit edin.' },
                 ],
+                quote: {
+                    title: 'Kasap dolabı ölçüleri ve fiyat teklifi',
+                    body: 'Dolap için ayrılan alanın genişliğini, derinliğini ve yüksekliğini, müşteri geçişini ve arka servis boşluğunu paylaşın. Reyon için tepsi ölçülerini, askılı teşhir için et parçalarının boyunu ve genişliğini belirtin. Modül ölçüsü, cam tipi, askı donanımı ve soğutma grubu teklif kapsamını etkiler.',
+                },
                 productUse: 'Kasap yerleşiminde ürünün sunum biçimi, çalışma koşulları ve personelin servis alanı birlikte planlanmalıdır.',
             },
             EN: {
                 name: 'Butcher and Meat Display Cabinets',
                 description: 'Explore butcher counters, meat displays, hanging meat and dry aged cabinets. Compare upright, flat and curved glass models and technical specifications.',
-                intro: 'A butcher cabinet should suit the way meat is presented and served. This group includes upright, flat and curved glass counters alongside hanging meat and dry aged cabinets. Assess the intended use and specification of each model on its own product page.',
+                intro: 'Choose a butcher cabinet based on how you want to present and serve meat. Compare upright, flat and curved glass counters for staff service. Explore hanging meat cabinets for cuts displayed on hooks and dedicated dry ageing cabinets.',
                 sections: [
-                    { heading: 'Counters, hanging displays and dry aged models', body: 'A service counter and a hanging meat display call for different layouts. Dry aged models should also be assessed against their individual specification. Clarify the intended application before selecting a cabinet by its glass shape or appearance.' },
-                    { heading: 'Fit the cabinet to the working area', body: 'Plan module length, staff access and customer circulation together. Review the temperature information, refrigeration options and cleaning access of the selected product. Installation images help you assess where the counter will sit within the shop.' },
+                    {
+                        heading: 'Butcher counters for staff service',
+                        body: 'When comparing upright, flat and curved glass, check how well customers can see the trays and how staff reach them. For a curved glass counter, use the model drawing to assess the customer aisle and the space staff need to remove trays from the shelves.',
+                        productId: 10,
+                    },
+                    {
+                        heading: 'Hanging meat displays and dry ageing cabinets',
+                        body: 'Measure the length and width of the cuts and check hook spacing, usable internal height and door clearance in the hanging meat cabinet. For dry ageing, consult the selected model’s technical information for the intended application and operating conditions.',
+                        productId: 40,
+                    },
                 ],
                 criteria: ['Define the counter display, hanging display or dry aged application.', 'Measure the counter space and staff service area.', 'Compare operating requirements and refrigeration arrangements.'],
                 questions: [
                     { question: 'How should I choose the glass shape?', answer: 'Consider viewing angles, service access and your shop layout. Model photos and technical drawings allow you to compare upright, flat and curved glass counters.' },
                     { question: 'Are hanging meat and dry aged cabinets interchangeable?', answer: 'Their intended applications and operating requirements may differ. Describe your products and intended use, then confirm suitability against the specification of the selected model.' },
                 ],
+                quote: {
+                    title: 'Butcher cabinet dimensions and quotes',
+                    body: 'Share the width, depth and height available for the cabinet, plus the customer aisle and service clearance behind it. Include tray dimensions for a counter or the dimensions of the cuts for a hanging display. Module size, glass type, hanging equipment and refrigeration arrangement affect the quote.',
+                },
                 productUse: 'For a butcher layout, plan the presentation method, operating requirements and staff service area together.',
             },
         },
@@ -185,31 +238,55 @@ export const productCategories: ProductCategory[] = [
             TR: {
                 name: 'Balık Teşhir ve Mostra Dolapları',
                 description: 'Balık satış ve deniz ürünü teşhir alanları için mostra ve soğutmalı balık dolapları. Modelleri, cam yapısını ve katalog ölçülerini karşılaştırın.',
-                intro: 'Balık teşhir dolabı, deniz ürünlerinin sunulduğu alan ile personelin servis düzenine uygun seçilmelidir. Pars Soğutma kataloğunda balık mostra ve soğutmalı balık dolapları yer alır. Cam siperlikli veya kapaklı tasarımları, teknik bilgiler ve uygulama görselleri üzerinden karşılaştırabilirsiniz.',
+                intro: 'Balık teşhir dolabı seçerken sergileyeceğiniz deniz ürünlerinin kapladığı alanı ve personelin tezgâha nereden ulaşacağını belirleyin. Cam siperlikli ve kapaklı balık mostra modellerini teşhir yüzeyi ve servis erişimi açısından karşılaştırın. Kapaklı model için açılım payını da ölçün. Soğutmalı balık dolaplarının teknik bilgilerini ürün sayfalarında inceleyin.',
                 sections: [
-                    { heading: 'Sunum biçimi ve tezgâh erişimi', body: 'Balık satış alanında sergilenecek ürün miktarı, müşterinin görüşü ve personelin tezgâha erişimi beraber değerlendirilir. Modelin cam veya kapak yapısını fotoğraflardan inceleyin. Teşhir yüzeyinin düzeni ile temizlik ve servis ihtiyacını yerleşim planına dahil edin.' },
-                    { heading: 'Modele uygun teknik değerlendirme', body: 'Çalışma sıcaklığı ve soğutma grubu seçenekleri için ilgili ürünün teknik sayfasına başvurun. Katalogdaki modül ölçüleri, işletmenizdeki kullanılabilir alanla karşılaştırılmalıdır. Ürün türünü ve planlanan uygulamayı paylaşarak uygun model ve seçenekler için bilgi alabilirsiniz.' },
+                    {
+                        heading: 'Cam siperlikli balık mostrasında servis erişimi',
+                        body: 'Cam siperlikli mostranın müşteriye bakan cephesini ve personelin servis tarafını yerleşim planında gösterin. Teşhir yüzeyine kaç sıra ürün yerleştireceğinizi ve çalışanların en uzak sıraya nasıl ulaşacağını belirleyin. Buzlu sunum düşünüyorsanız zemin ve tahliye seçeneklerini model üzerinden görüşün.',
+                        productId: 7,
+                    },
+                    {
+                        heading: 'Kapaklı balık mostrasında açılım ve temizlik',
+                        body: 'Kapaklı modelde, kapağın açılması için gereken üst ve çevre boşluğunu seçtiğiniz modelin ölçüleriyle karşılaştırın. Personelin hem servis sırasında hem de temizlik için teşhir yüzeyine nasıl erişeceğini planlayın. Çalışma sıcaklığını ve soğutma grubunu ürünün teknik sayfasından kontrol edin.',
+                        productId: 11,
+                    },
                 ],
                 criteria: ['Deniz ürünü çeşitlerini ve teşhir miktarını belirleyin.', 'Cam, kapak ve tezgâha erişim düzenini karşılaştırın.', 'Ölçüleri ve çalışma koşullarını seçilen model üzerinden değerlendirin.'],
                 questions: [
                     { question: 'Mostra dolabı seçerken hangi bilgiler önemlidir?', answer: 'Teşhir miktarı, alan ölçüsü, servis erişimi ve ürünün muhafaza koşulları önemlidir. Görünüşle birlikte modelin teknik bilgilerini de inceleyin.' },
-                    { question: 'Cam siperlikli ve kapaklı modelleri nerede görebilirim?', answer: 'Aşağıdaki ürün sayfalarında farklı tasarımların görselleri, modül bilgileri ve teknik özellikleri bulunur. Beğendiğiniz modeli belirterek uygulamanız için teklif isteyebilirsiniz.' },
+                    { question: 'Cam siperlikli ve kapaklı modelleri nerede görebilirim?', answer: 'Bu sayfadaki model bağlantılarından cam ve kapak seçeneklerinin görsellerini, ölçülerini ve teknik bilgilerini inceleyebilirsiniz.' },
                 ],
+                quote: {
+                    title: 'Balık teşhir dolabı ölçüleri ve fiyat teklifi',
+                    body: 'Tezgâhın yerleşeceği alanın uzunluğunu ve derinliğini, sergileyeceğiniz ürünleri ve teşhir miktarını paylaşın. Cam siperlik veya kapak tercihini, servis yönünü ve varsa buzlu sunum ihtiyacını belirtin. Modül ölçüsü, soğutma grubu ve seçilen donanım teklif kapsamını etkiler.',
+                },
                 productUse: 'Balık satış alanında teşhir miktarı, ürünün muhafaza ihtiyacı ve tezgâha servis erişimi birlikte ele alınmalıdır.',
             },
             EN: {
                 name: 'Fish Display Cabinets and Counters',
                 description: 'Compare fish display counters and refrigerated seafood cabinets, glass designs, catalogue dimensions and technical specifications from Pars Cooling.',
-                intro: 'A fish display should suit the seafood presentation and the way staff work behind the counter. The Pars Cooling catalogue includes fish display counters and refrigerated cabinets. Compare glass guard and lidded designs using the product photos and technical information.',
+                intro: 'When choosing a fish display cabinet, work out how much space the seafood needs and where staff will reach it from. Compare display surfaces and service access for glass guard and lidded counters. Measure the clearance for a lidded model and check the operating conditions on the product page.',
                 sections: [
-                    { heading: 'Presentation and counter access', body: 'Consider display quantity, customer visibility and staff access together. Review the glass or lid arrangement in the product images. Include the display surface, cleaning access and service requirements in your layout.' },
-                    { heading: 'Assess the individual model', body: 'Refer to each product page for temperature information and refrigeration options. Compare catalogue module dimensions with the available space. Share the seafood range and intended application when discussing a suitable model and options.' },
+                    {
+                        heading: 'Service access with a glass guard',
+                        body: 'Show the customer-facing side and the staff service side on your layout. Work out how many rows of seafood you need and how staff will reach the furthest row. If you plan to display seafood on ice, ask about the display surface and drainage for the selected model.',
+                        productId: 7,
+                    },
+                    {
+                        heading: 'Lid clearance and cleaning access',
+                        body: 'Use the model dimensions to check clearance above and around the lid. Plan how staff will reach the display surface for service and cleaning. Review operating temperatures and refrigeration options on the model page.',
+                        productId: 11,
+                    },
                 ],
                 criteria: ['Define the seafood range and display quantity.', 'Compare glass, lid and service access arrangements.', 'Review sizes and operating requirements for the selected model.'],
                 questions: [
                     { question: 'What information is important when choosing a fish display?', answer: 'Consider quantity, available dimensions, staff access and product storage requirements. Review technical information as well as the appearance of the cabinet.' },
-                    { question: 'Where can I compare glass guard and lidded designs?', answer: 'The product pages below show images, module information and technical specifications. Identify a preferred model when requesting a quote for your application.' },
+                    { question: 'Where can I compare glass guard and lidded designs?', answer: 'Follow the model links on this page to compare glass and lid options, dimensions and technical specifications.' },
                 ],
+                quote: {
+                    title: 'Fish display cabinet dimensions and quotes',
+                    body: 'Share the available counter length and depth, the seafood you plan to display and the quantity. Specify whether you prefer a glass guard or lid, which side staff will serve from and whether you plan to use ice. Module size, refrigeration arrangement and selected equipment affect the quote.',
+                },
                 productUse: 'For a fish sales area, consider display quantity, storage requirements and access for serving together.',
             },
         },
@@ -271,31 +348,57 @@ export const productCategories: ProductCategory[] = [
             TR: {
                 name: 'Soğuk Hava Depoları ve Ekipmanları',
                 description: 'Soğuk hava deposu, -18 derece depo, panel, kapı ve PVC şerit perde seçeneklerini inceleyin. Projenizin ölçüleri ve kullanım amacı için bilgi alın.',
-                intro: 'Soğuk hava deposu planlamasında depolanacak ürün, hedef çalışma koşulları, oda ölçüleri ve kullanım sıklığı birlikte değerlendirilir. Bu grupta soğuk hava depoları ve -18 derece depo modellerinin yanında panel, kapı, PVC şerit perde ve depo aksesuarları yer alır.',
+                intro: 'Soğuk hava deposu planlamasına depolanacak ürün, hedef sıcaklık ve oda ölçüleriyle başlayın. Soğuk oda paneli, soğuk oda kapısı ve soğutma grubu bu bilgilere göre seçilir. Katalogda -18 derece depo modelleri, PVC şerit perdeler ve depo aksesuarları da bulunur.',
                 sections: [
-                    { heading: 'Depoyu bileşenleriyle birlikte değerlendirin', body: 'Bir depo projesi; oda yerleşimi, yalıtım, kapı ve soğutma sistemiyle birlikte ele alınmalıdır. Menteşeli veya sürgülü kapı seçimini geçiş ve yükleme düzenine göre karşılaştırın. Panel ve PVC perde ürünlerinin teknik bilgilerini kendi sayfalarından inceleyebilirsiniz.' },
-                    { heading: 'Teklif için proje bilgileri', body: 'İç ölçüler, depolanacak ürün, günlük kullanım ve giriş–çıkış düzeni ihtiyacın tanımlanmasına yardımcı olur. Seçilecek soğutma grubunu da oda ve kullanım koşullarıyla birlikte değerlendirin. İlgili soğutma sistemleri grubundan monoblok, split ve merkezi seçeneklere ulaşabilirsiniz.' },
+                    {
+                        heading: 'Soğuk oda paneli ve yalıtım seçimi',
+                        body: 'Duvar ve tavan paneli seçimini, odanın iç ölçüleriyle birlikte hedef çalışma sıcaklığı ve ortam koşullarına göre değerlendirin. Panel kalınlığı ve birleşimler için kapı ile tesisat açıklıklarını krokide işaretleyin. Soğutma grubunu da oda ve yalıtım bilgileriyle birlikte ele alın.',
+                        productId: 102,
+                        productLinkText: 'Soğuk oda paneli seçeneklerini inceleyin',
+                    },
+                    {
+                        heading: 'Soğuk oda kapısı ve yükleme geçişi',
+                        body: 'Menteşeli kapı için kanadın açılacağı alanı, sürgülü kapı için yan duvardaki boşluğu ölçün. Kasa veya taşıma arabası kullanılacaksa net geçiş genişliğini ve yüksekliğini taşıma ekipmanının ölçüleriyle karşılaştırın. Sık geçiş olan girişler için PVC şerit perde seçeneklerini de inceleyin.',
+                        productId: 106,
+                        productLinkText: 'Sürgülü soğuk oda kapısı',
+                    },
                 ],
                 criteria: ['Oda iç ölçülerini, ürün grubunu ve kullanım amacını belirleyin.', 'Kapı, yükleme geçişi ve personel hareketini planlayın.', 'Panel, perde ve soğutma sistemi seçeneklerini birlikte değerlendirin.'],
                 questions: [
                     { question: 'Soğuk hava deposu teklifi için hangi ölçüler gerekir?', answer: 'Odanın iç uzunluk, genişlik ve yükseklik bilgilerini; depolanacak ürünü ve kullanım şeklini paylaşın. Kapı ve soğutma sistemi ihtiyacı bu bilgilerle birlikte değerlendirilebilir.' },
-                    { question: 'Panel, kapı ve PVC perde ürünleri de var mı?', answer: 'Katalogda soğuk oda panelleri, menteşeli ve sürgülü kapılar, PVC şerit perde modelleri ve depo aksesuarları bulunur. Her ürünün detayına aşağıdaki listeden ulaşabilirsiniz.' },
+                    { question: 'Panel, kapı ve PVC perde ürünleri de var mı?', answer: 'Katalogda soğuk oda panelleri, menteşeli ve sürgülü kapılar, PVC şerit perde modelleri ve depo aksesuarları bulunur. Modeller bölümünden her ürünün teknik sayfasını açabilirsiniz.' },
                 ],
+                quote: {
+                    title: 'Soğuk hava deposu için proje ve fiyat teklifi',
+                    body: 'Odanın iç uzunluğunu, genişliğini ve yüksekliğini veya yeni depoya ayrılan alanın ölçülerini paylaşın. Depolanacak ürünü, hedef oda sıcaklığını ve günlük yükleme düzenini belirtin. Soğuk hava deposu fiyatı panel, kapı, soğutma grubu ve montaj kapsamına göre belirlenir. Teklifte hangi kalemlere ihtiyaç duyduğunuzu yazın.',
+                },
                 productUse: 'Soğuk oda projesinde oda ölçüleri, depolanacak ürün, kapı geçişi ve çalışma koşulları birlikte planlanmalıdır.',
             },
             EN: {
                 name: 'Cold Rooms and Cold Storage Equipment',
                 description: 'Explore cold rooms, -18 degree storage models, insulated panels, doors, PVC strip curtains and accessories. Discuss your project dimensions and use.',
-                intro: 'Cold room planning starts with the stored products, required operating conditions, internal dimensions and usage pattern. This group includes cold rooms and -18 degree storage models together with panels, doors, PVC strip curtains and storage accessories.',
+                intro: 'Start your cold room plan with the products to be stored, the target temperature and the room dimensions. Use that information to choose cold room panels, doors and refrigeration equipment. The catalogue also includes -18 °C storage models, PVC strip curtains and storage accessories.',
                 sections: [
-                    { heading: 'Assess the room and its components together', body: 'Consider the room layout, insulation, doors and refrigeration as one project. Compare hinged and sliding doors against the loading and access arrangement. Panel and PVC curtain details can be reviewed on their individual product pages.' },
-                    { heading: 'Information for a project quote', body: 'Internal dimensions, the stored products, daily use and loading pattern help define the requirement. Assess the refrigeration unit against the room and operating conditions. The refrigeration systems group lists monoblock, split and central options.' },
+                    {
+                        heading: 'Cold room panels and insulation',
+                        body: 'Assess wall and ceiling panels against internal dimensions, target temperature and ambient conditions. Mark door and service openings on the plan when discussing panel thickness and joints. Consider the room and its insulation when selecting the refrigeration unit.',
+                        productId: 102,
+                    },
+                    {
+                        heading: 'Cold room doors and loading access',
+                        body: 'Measure swing clearance for a hinged door and wall space at the side for a sliding door. If staff use crates or trolleys, compare them with the clear opening width and height. Consider PVC strip curtains for frequently used doorways.',
+                        productId: 106,
+                    },
                 ],
                 criteria: ['Define internal dimensions, the product group and intended use.', 'Plan doors, loading access and staff movement.', 'Assess panels, curtains and refrigeration together.'],
                 questions: [
                     { question: 'Which dimensions are needed for a cold room quote?', answer: 'Share internal length, width and height, the products to be stored and the usage pattern. Doors and refrigeration requirements can then be discussed together.' },
-                    { question: 'Are panels, doors and PVC curtains available?', answer: 'The catalogue includes cold room panels, hinged and sliding doors, PVC strip curtains and accessories. Open the individual product pages below for details.' },
+                    { question: 'Are panels, doors and PVC curtains available?', answer: 'The catalogue includes cold room panels, hinged and sliding doors, PVC strip curtains and accessories. Open the model pages for individual specifications.' },
                 ],
+                quote: {
+                    title: 'Cold room project details and quotes',
+                    body: 'Share the internal length, width and height or the available space for a new cold room. Specify the products you will store, the target temperature and your daily loading pattern. Panel, door, refrigeration and installation requirements affect the price. Tell us which items you need the quote to cover.',
+                },
                 productUse: 'For a cold room project, plan internal dimensions, stored products, door access and operating conditions together.',
             },
         },
@@ -306,31 +409,55 @@ export const productCategories: ProductCategory[] = [
             TR: {
                 name: 'Endüstriyel Mutfak Ekipmanları',
                 description: 'Profesyonel mutfaklar için paslanmaz buzdolabı, tezgâh altı dolap, çalışma tezgâhı, evye, raf ve davlumbaz modellerini inceleyin.',
-                intro: 'Endüstriyel mutfak ekipmanları, hazırlık, muhafaza ve servis işlerini destekleyen bir yerleşim içinde değerlendirilir. Bu grupta paslanmaz buzdolapları, tezgâh altı dolaplar, çalışma tezgâhları, evyeli üniteler, raflar ve davlumbazlar bulunur.',
+                intro: 'Paslanmaz çalışma tezgâhı, restoran ve otel mutfaklarında yemek hazırlığı için bir çalışma yüzeyi sağlar. Tezgâh altı buzdolabı, sık kullanılan malzemeleri hazırlık alanına yakın tutmak için bir seçenektir. Dikey paslanmaz buzdolaplarını, evyeli tezgâhları, rafları ve davlumbazları mutfağınızın iş akışına göre karşılaştırın.',
                 sections: [
-                    { heading: 'Hazırlık ve muhafaza alanını birlikte planlayın', body: 'Çalışma tezgâhının konumu ile malzemeye erişim birbirini etkiler. Dikey bir buzdolabı, tezgâh altı dolap veya evyeli tezgâh seçerken günlük iş akışını ve personel geçişini değerlendirin. Soğutmalı modellerin sıcaklık bilgileri kendi ürün sayfalarında incelenmelidir.' },
-                    { heading: 'Ekipmanı kullanım amacıyla eşleştirin', body: 'Raf ve tezgâh ölçülerini mevcut alanla karşılaştırın. Camlı veya kapalı dolap, ara raflı veya taban raflı tezgâh gibi seçenekleri ihtiyaca göre değerlendirin. Davlumbaz seçimi, mutfak yerleşimi ve havalandırma projesiyle birlikte ele alınmalıdır.' },
+                    {
+                        heading: 'Hazırlık için paslanmaz çalışma tezgâhı',
+                        body: 'Üst yüzeyde yapılacak hazırlığı ve kullanılacak ekipmanın ölçülerini belirleyin. Kap ve gereçlere hızlı erişim için açık raflı, kapalı saklama için dolaplı seçenekleri karşılaştırın. Evyeli tezgâh düşünüyorsanız su ve gider noktalarını, davlumbaz için havalandırma projesini yerleşim planına dahil edin.',
+                        productId: 87,
+                    },
+                    {
+                        heading: 'Tezgâh altı buzdolabı ve dikey buzdolabı seçimi',
+                        body: 'Sık kullanılan malzemeler için tezgâh altı dolabın iç ölçülerini kontrol edin. Dikey buzdolabında raf ihtiyacını ve cihaz için ayrılan alanı birlikte değerlendirin. Kapak açıkken personel geçişini ölçün. Çalışma sıcaklığını ve motor bölümünün servis boşluğunu modelin teknik sayfasından kontrol edin.',
+                        productId: 79,
+                    },
                 ],
                 criteria: ['Hazırlık, depolama ve servis adımlarını yerleşimde tanımlayın.', 'Dolap ve tezgâh ölçülerini personel geçişiyle birlikte kontrol edin.', 'Soğutmalı ürünleri, rafları ve havalandırma ekipmanlarını kullanım amacına göre seçin.'],
                 questions: [
                     { question: 'Tezgâh altı ve dikey buzdolabı arasında nasıl seçim yapılır?', answer: 'Kullanılabilir alanı, muhafaza miktarını ve çalışma tezgâhına yakınlık ihtiyacını karşılaştırın. Seçilecek ürünün ölçülerini ve teknik özelliklerini inceleyerek uygun yerleşimi değerlendirebilirsiniz.' },
-                    { question: 'Paslanmaz tezgâh, evye ve raf modellerini görebilir miyim?', answer: 'Aşağıdaki listede farklı tezgâh, evye ve raf seçenekleri yer alır. Her modelin ölçü ve teknik bilgilerini açarak mutfak projeniz için karşılaştırabilirsiniz.' },
+                    { question: 'Paslanmaz tezgâh, evye ve raf modellerini görebilir miyim?', answer: 'Modeller bölümündeki tezgâh, evye ve raf sayfalarından ölçüleri ve teknik bilgileri karşılaştırabilirsiniz.' },
                 ],
+                quote: {
+                    title: 'Endüstriyel mutfak ekipmanları için ölçü ve fiyat teklifi',
+                    body: 'Ekipman için ayrılan genişlik, derinlik ve yükseklik ile personel geçişini ölçün. Tezgâhın kullanım amacını, raf veya dolap ihtiyacını ve evye varsa su ile gider noktalarını paylaşın. Özel ölçüde imalat için bir kroki gönderin. Soğutmalı ekipman gerekiyorsa saklanacak ürünleri de belirtin.',
+                },
                 productUse: 'Profesyonel mutfakta ekipman ölçüleri, hazırlık akışı ve personel geçişi birlikte değerlendirilmelidir.',
             },
             EN: {
                 name: 'Commercial Kitchen Equipment',
                 description: 'Explore stainless steel refrigerators, undercounter cabinets, work tables, sinks, shelves and extractor hoods for professional kitchen layouts.',
-                intro: 'Commercial kitchen equipment should support preparation, storage and service within a practical layout. This group includes stainless steel refrigerators, undercounter cabinets, work tables, sink units, shelving and extractor hoods.',
+                intro: 'A stainless steel work table provides a preparation surface in restaurant and hotel kitchens. An undercounter refrigerator can keep frequently used ingredients close to the preparation area. Compare upright stainless steel refrigerators, sink units, shelves and extractor hoods based on your kitchen workflow.',
                 sections: [
-                    { heading: 'Plan preparation and storage together', body: 'Work table placement and ingredient access affect each other. Compare upright refrigerators, undercounter cabinets and sink tables against the daily workflow and staff circulation. Review operating temperatures on the individual refrigerated model pages.' },
-                    { heading: 'Match equipment to its intended use', body: 'Compare shelf and table dimensions with the available space. Assess glass door or solid door cabinets and different table shelf arrangements against your requirements. Extractor hoods should be considered together with the kitchen layout and ventilation design.' },
+                    {
+                        heading: 'Stainless steel work tables for preparation',
+                        body: 'Define the preparation tasks and measure the equipment that will sit on the work surface. Compare open shelves for quick access to containers and utensils with cabinets for enclosed storage. Mark water and drain points for sinks and include your ventilation plan when choosing an extractor hood.',
+                        productId: 87,
+                    },
+                    {
+                        heading: 'Undercounter and upright refrigerators',
+                        body: 'Check the internal dimensions of an undercounter refrigerator for frequently used ingredients. For an upright cabinet, consider shelf requirements alongside the available space. Measure the aisle with doors open. Check operating temperatures and service clearance for the refrigeration unit on the model page.',
+                        productId: 79,
+                    },
                 ],
                 criteria: ['Define preparation, storage and service areas.', 'Check equipment sizes alongside staff circulation.', 'Select refrigeration, shelving and ventilation equipment for the intended use.'],
                 questions: [
                     { question: 'Should I choose an undercounter or upright refrigerator?', answer: 'Compare available space, storage quantity and access from the work area. Review the model dimensions and technical information when assessing the layout.' },
-                    { question: 'Can I compare work tables, sinks and shelving?', answer: 'The list below includes different table, sink and shelf arrangements. Open each model to review dimensions and technical details for your kitchen project.' },
+                    { question: 'Can I compare work tables, sinks and shelving?', answer: 'Open the work table, sink and shelving pages in the models section to review dimensions and specifications.' },
                 ],
+                quote: {
+                    title: 'Commercial kitchen equipment dimensions and quotes',
+                    body: 'Measure the available width, depth and height and the staff aisle. Describe how you will use the work table, your shelf or cabinet needs and water and drain points for a sink. Include a sketch for made-to-measure equipment. List the products you need to store if you are also choosing a refrigerator.',
+                },
                 productUse: 'For a professional kitchen, assess equipment sizes, preparation workflow and staff circulation together.',
             },
         },
@@ -341,31 +468,55 @@ export const productCategories: ProductCategory[] = [
             TR: {
                 name: 'Soğutma Grupları ve Sistemleri',
                 description: 'Monoblok, split, merkezi ve bireysel soğutma gruplarını inceleyin. Soğuk oda ve muhafaza projeniz için sistem seçeneklerini karşılaştırın.',
-                intro: 'Soğutma sistemi seçimi, muhafaza edilecek ürün ve tesisin çalışma koşullarıyla birlikte yapılır. Pars Soğutma kataloğunda monoblok, split, merkezi ve bireysel soğutma grupları yer alır. Uygun seçenek, oda ve proje bilgileri üzerinden değerlendirilmelidir.',
+                intro: 'Endüstriyel soğutma sistemleri, soğutulacak oda ve reyonların sayısı, depolanacak ürün ve kurulum alanına göre seçilir. Tek bir soğuk oda için monoblok, split veya bireysel soğutma grubunu, birden fazla oda ya da reyon için merkezi soğutma seçeneklerini proje koşullarına göre karşılaştırın.',
                 sections: [
-                    { heading: 'Sistem türlerini proje ihtiyacıyla karşılaştırın', body: 'Monoblok, split ve merkezi sistemler farklı kurulum düzenleri sunar. Yalnızca ekipman adı üzerinden seçim yapmak yerine hizmet verecek alanı, hedef çalışma koşullarını ve kurulum yerini tanımlayın. Teknik sayfalardaki bilgiler, seçenekleri karşılaştırmak için başlangıç noktasıdır.' },
-                    { heading: 'Oda, ekipman ve kullanım koşulları', body: 'Soğutma ihtiyacını değerlendirirken oda ölçüleri, yalıtım, kapı kullanımı ve ürün giriş–çıkışı birlikte ele alınır. Soğuk hava deposu grubundaki panel, kapı ve diğer bileşenleri de projeye dahil edin. Bu bilgileri paylaşarak uygulamanıza uygun sistem için teknik görüş ve teklif alabilirsiniz.' },
+                    {
+                        heading: 'Monoblok ve split soğutma grubu yerleşimi',
+                        body: 'Monoblok cihaz için montaj panelini, cihaz açıklığını ve bakım alanını projede gösterin. Split soğutma grubunda iç ve dış ünitenin yerlerini ayrı ayrı planlayın. İki ünite arasındaki hat güzergâhını ve varsa kot farkını teklife esas yerleşim çiziminde belirtin.',
+                        productId: 94,
+                    },
+                    {
+                        heading: 'Merkezi ve bireysel soğutma seçenekleri',
+                        body: 'Birden fazla oda veya reyon ortak bir merkezi soğutma projesinde ele alınacaksa her bölümün kullanımını ve hedef sıcaklığını ayrı yazın. Tek bir soğutma noktası için bireysel grubu değerlendirirken oda ölçülerini, yalıtımı, kapı kullanımını ve saklanacak ürün miktarını birlikte ele alın.',
+                        productId: 95,
+                    },
                 ],
                 criteria: ['Hizmet verecek alanı ve muhafaza edilecek ürünü tanımlayın.', 'Oda ölçüleri, yalıtım ve günlük kullanım bilgilerini hazırlayın.', 'Sistem yerleşimini ve teknik seçenekleri proje üzerinden değerlendirin.'],
                 questions: [
                     { question: 'Monoblok, split veya merkezi sistemden hangisi uygundur?', answer: 'Uygunluk; oda ve tesis özellikleri, kullanım düzeni ve hedef çalışma koşullarıyla birlikte değerlendirilir. Proje bilgilerinizi paylaşarak seçenekleri teknik olarak karşılaştırabilirsiniz.' },
                     { question: 'Soğutma grubu için teklif isterken neleri belirtmeliyim?', answer: 'Oda ölçülerini, depolanacak ürünleri, hedef çalışma koşullarını, yalıtım bilgilerini ve kullanım düzenini paylaşın. Kurulum alanı da teklif değerlendirmesine dahil edilmelidir.' },
                 ],
+                quote: {
+                    title: 'Soğutma grubu için proje bilgileri ve fiyat teklifi',
+                    body: 'Her soğutma alanının ölçülerini, hedef sıcaklığını, yalıtım bilgilerini ve günlük ürün giriş miktarını paylaşın. Oda kapısının kullanımını ve cihazın kurulabileceği yerleri krokide gösterin. Seçilen cihaz, kontrol donanımı, bağlantılar ve montaj kapsamı teklifi etkiler. Mevcut cihaz değişecekse etiketinin fotoğrafını da ekleyin.',
+                },
                 productUse: 'Soğutma sistemi seçiminde hizmet verecek alan, muhafaza edilecek ürün ve projenin çalışma koşulları birlikte değerlendirilmelidir.',
             },
             EN: {
                 name: 'Refrigeration Units and Systems',
                 description: 'Compare monoblock, split, central and individual refrigeration units for cold rooms and storage projects. Discuss the requirements of your installation.',
-                intro: 'A refrigeration system should be selected against the products being stored and the operating conditions of the facility. The Pars Cooling catalogue includes monoblock, split, central and individual units. Assess suitable options using the room and project information.',
+                intro: 'Industrial refrigeration systems are selected based on the rooms and counters to be cooled, the products being stored and the installation space. Compare monoblock, split and individual units for a single room. Consider a central system for multiple rooms or refrigerated counters, using the requirements of each area.',
                 sections: [
-                    { heading: 'Compare system types for the project', body: 'Monoblock, split and central systems offer different installation arrangements. Define the area being served, the required operating conditions and the installation space before selecting equipment. Technical product pages provide a starting point for comparison.' },
-                    { heading: 'Consider the room and its use', body: 'Room dimensions, insulation, door use and product movements should be considered together. Include panels, doors and other components from the cold room group in the project assessment. Sharing this information helps define a suitable system and quotation.' },
+                    {
+                        heading: 'Monoblock and split refrigeration layouts',
+                        body: 'Show the mounting panel, equipment opening and service clearance for a monoblock unit on the plan. For a split system, mark the indoor and outdoor unit positions and show the route and height difference between them when requesting a quote.',
+                        productId: 94,
+                    },
+                    {
+                        heading: 'Central and individual refrigeration options',
+                        body: 'If several cold rooms or display counters are part of one central refrigeration project, list the use and target temperature of each area separately. For a single cooling point, consider room size, insulation, door use and the volume of products to be stored when comparing individual units.',
+                        productId: 95,
+                    },
                 ],
                 criteria: ['Define the area being served and the products being stored.', 'Prepare room dimensions, insulation details and usage information.', 'Assess installation arrangements and technical options against the project.'],
                 questions: [
                     { question: 'Which type of refrigeration system is suitable?', answer: 'Suitability depends on the room and facility, usage pattern and required operating conditions. Share project information to compare monoblock, split and central options.' },
                     { question: 'What information is needed for a refrigeration quote?', answer: 'Share room dimensions, stored products, operating requirements, insulation details and usage pattern. The installation space should also be included in the assessment.' },
                 ],
+                quote: {
+                    title: 'Refrigeration system project details and quotes',
+                    body: 'Share the dimensions, target temperature, insulation and daily incoming product quantity for each area. Mark door use and possible unit locations on the plan. The selected equipment, controls, connections and installation scope affect the quote. Include a photo of the equipment label if you are replacing an existing unit.',
+                },
                 productUse: 'When selecting refrigeration, assess the area being served, stored products and project operating requirements together.',
             },
         },
