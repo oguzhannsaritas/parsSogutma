@@ -7,9 +7,10 @@ export type CategoryCopy = {
     name: string;
     description: string;
     intro: string;
-    sections: Array<{ heading: string; body: string }>;
+    sections: Array<{ heading: string; body: string; productId?: number }>;
     criteria: string[];
     questions: Array<{ question: string; answer: string }>;
+    quote?: { title: string; body: string };
     productUse: string;
 };
 
@@ -98,7 +99,7 @@ export const productCategories: ProductCategory[] = [
             TR: {
                 name: 'Kebap ve Meze Dolapları',
                 description: 'Restoran ve şarküteriler için kebap, meze ve dikey meze teşhir dolapları. Model, modül ölçüsü ve teknik özellikleri inceleyerek teklif alın.',
-                intro: 'Kebap ve meze dolapları, ürünlerin görünür biçimde sunulduğu servis alanının bir parçasıdır. Restoran, kebapçı ve şarküteri projelerinde tezgâh tipi veya dikey bir model seçerken teşhir miktarı, kullanılan kaplar ve personelin erişimi birlikte değerlendirilir.',
+                intro: 'Kebap teşhir dolabı, kebapçı ve restoranların servis alanında ürünleri müşteriye göstermek için kullanılır. Meze teşhir dolabı, restoran ve şarküterilerde farklı meze çeşitlerini kendi kaplarında bir arada sunar. Tezgâh üzerinden servis için yatay vitrinleri, ürünleri farklı raf seviyelerinde göstermek için dikey meze dolaplarını karşılaştırın.',
                 sections: [
                     { heading: 'Teşhir alanını servis düzenine göre kurun', body: 'Meze çeşitlerini, kap veya tava ölçülerini ve servis sırasında ihtiyaç duyulan erişimi belirleyin. Bir yatay reyon ile dikey meze dolabı farklı bir sergileme düzeni sunar. Seçilen modelin ürün fotoğraflarını, cam sistemini ve teknik çizimlerini yerleşim planınızla birlikte inceleyin.' },
                     { heading: 'Ölçü ve çalışma koşullarını karşılaştırın', body: 'Katalogdaki modül seçenekleri, mevcut alan için uygun boyu değerlendirmenizi sağlar. Çalışma sıcaklığı ve soğutma sistemi modele göre kontrol edilmelidir. Teklif isterken sergileyeceğiniz ürünleri ve tezgâh yerleşimini paylaşmanız, ihtiyacın daha doğru tanımlanmasına yardımcı olur.' },
@@ -108,12 +109,16 @@ export const productCategories: ProductCategory[] = [
                     { question: 'Yatay reyon mu, dikey meze dolabı mı seçmeliyim?', answer: 'Karar, teşhir miktarına ve servis şekline bağlıdır. Kullanılabilir alanı ve personelin ürünlere erişimini karşılaştırarak uygun model grubunu belirleyebilirsiniz.' },
                     { question: 'Teklif için hangi bilgileri paylaşmalıyım?', answer: 'Modeli, alan ölçülerini, sergilenecek ürünleri ve kap düzenini paylaşın. Cam, motor ve diğer seçenekler bu bilgiler üzerinden değerlendirilebilir.' },
                 ],
+                quote: {
+                    title: 'Kebap ve meze dolabı için ölçü ve fiyat teklifi',
+                    body: 'Dolap için ayırdığınız alanın uzunluğunu, derinliğini ve yüksekliğini ölçün. Aynı anda sergilenecek çeşit sayısını ve kullanacağınız kap veya tavaların ölçülerini paylaşın. Yatay ya da dikey yerleşim, kap düzeni, cam tipi ve servis yönü teklif kapsamını etkiler. Özel ölçüde imalat için alanın krokisini veya fotoğrafını da gönderin.',
+                },
                 productUse: 'Meze veya kebap servisinde teşhir miktarı, kap düzeni ve personelin ürüne erişimi birlikte değerlendirilmelidir.',
             },
             EN: {
                 name: 'Kebab and Mezze Display Cabinets',
                 description: 'Compare kebab, mezze and vertical mezze display cabinets for restaurants and delicatessens. Review module sizes and specifications and request a quote.',
-                intro: 'Kebab and mezze cabinets form part of a visible, organised service area. For restaurant and delicatessen projects, compare counter and vertical models against the display quantity, containers and access required by staff.',
+                intro: 'Kebab display cabinets present products to customers in a restaurant service area. Mezze display cabinets hold a selection of dishes in individual containers for restaurants and delis. Compare horizontal displays for counter service and vertical mezze cabinets for presenting dishes across several shelves.',
                 sections: [
                     { heading: 'Arrange the display around service', body: 'Identify the mezze selection, container or tray sizes and the access needed during service. Horizontal counters and vertical mezze cabinets offer different presentation arrangements. Compare the glass system, drawings and photos with your planned layout.' },
                     { heading: 'Compare sizes and operating requirements', body: 'Module options help you assess cabinet length for the available space. Check operating temperatures and refrigeration arrangements for the selected model. Sharing your products and counter layout when requesting a quote helps define the project requirements.' },
@@ -123,6 +128,10 @@ export const productCategories: ProductCategory[] = [
                     { question: 'Should I choose a counter or vertical mezze cabinet?', answer: 'This depends on the display quantity and service arrangement. Compare the available space and staff access to select a suitable model group.' },
                     { question: 'What information is needed for a quote?', answer: 'Share the model, available dimensions, products and container arrangement. Glass, refrigeration and other options can then be discussed for your project.' },
                 ],
+                quote: {
+                    title: 'Dimensions and quotes for kebab and mezze cabinets',
+                    body: 'Measure the available length, depth and height. Share how many dishes you want to display at once and the dimensions of your containers or trays. Cabinet orientation, container layout, glass design and service access affect the quote. Include a sketch or photo of the space for a made-to-measure cabinet.',
+                },
                 productUse: 'For mezze or kebab service, consider display quantity, container arrangement and staff access together.',
             },
         },
@@ -133,9 +142,9 @@ export const productCategories: ProductCategory[] = [
             TR: {
                 name: 'Sütlük ve Market Dolapları',
                 description: 'Açık, cam kapaklı ve yarım boy sütlük; şişe soğutucu, peynir reyonu ve market dolaplarını ölçüleri ve teknik özellikleriyle inceleyin.',
-                intro: 'Sütlük ve market dolapları seçilirken ürün çeşitliliği, raf kullanımı ve müşterinin ürüne erişimi birlikte planlanır. Bu grupta açık veya cam kapaklı sütlükler, yarım boy modeller, şişe soğutucular, peynir ve şarküteri reyonları ile market teşhir ekipmanları bulunur.',
+                intro: 'Market ve şarküteriler için sütlük dolabı seçerken raf düzenini ve müşterinin ürüne erişimini birlikte planlayın. Açık sütlük ürünlere doğrudan erişim sağlar. Cam kapaklı sütlük dolabında sürgülü veya çarpma kapak seçimini koridor genişliğine göre değerlendirin. Yarım boy sütlükleri, şişe soğutucuları ve peynir reyonlarını da mağaza yerleşiminize göre karşılaştırabilirsiniz.',
                 sections: [
-                    { heading: 'Raf ve erişim düzenini ürün grubuna göre belirleyin', body: 'Süt ürünleri, şişeli içecekler ve şarküteri ürünleri farklı bir raf düzeni gerektirebilir. Açık veya kapaklı bir modelin erişimini, ürün yerleştirme biçimini ve mağaza içindeki konumunu değerlendirin. Zeytin ve manav teşhir ekipmanlarını da kendi kullanım amaçlarına göre karşılaştırın.' },
+                    { heading: 'Raf ve erişim düzenini ürün grubuna göre belirleyin', body: 'Süt, yoğurt ve şişeli içeceklerin ambalaj ölçülerine göre raf derinliğini ve raflar arasındaki mesafeyi planlayın. Çarpma kapak için dolap önünde açılım payı bırakın. Mağazada görüş alanını korumak istediğiniz noktalarda yarım boy sütlüğü değerlendirin. Zeytin ve manav teşhir ekipmanlarını da kullanım alanınıza göre karşılaştırın.' },
                     { heading: 'Mağaza alanı ve teknik seçenekler', body: 'Dolabın uzunluğu kadar yüksekliği, geçiş alanına etkisi ve ürün yükleme erişimi de önemlidir. İlgili ürünün modül ve çalışma sıcaklığı bilgilerini inceleyin. Soğutma grubu, kapak veya dekor seçeneklerini model bazında değerlendirerek yerleşiminize uygun teklif alabilirsiniz.' },
                 ],
                 criteria: ['Sergilenecek ürün grubunu ve raf yerleşimini belirleyin.', 'Açık veya kapaklı kullanım ile müşteri geçiş alanını birlikte değerlendirin.', 'Modelin modül ölçülerini ve soğutma bilgilerini karşılaştırın.'],
@@ -143,14 +152,18 @@ export const productCategories: ProductCategory[] = [
                     { question: 'Sütlük modellerinde açık ve cam kapaklı seçenekler var mı?', answer: 'Katalogda açık, cam kapaklı ve yarım boy sütlük modelleri bulunur. Ürünlere erişimi ve mağaza yerleşimini dikkate alarak bu seçenekleri karşılaştırabilirsiniz.' },
                     { question: 'Market yerleşimi için nasıl model seçebilirim?', answer: 'Ürün gruplarınızı, raf ihtiyacınızı ve kullanılabilir alan ölçülerini paylaşın. Sütlük, şişe soğutucu ve şarküteri reyonları aynı yerleşim içinde değerlendirilebilir.' },
                 ],
+                quote: {
+                    title: 'Sütlük dolabı ölçüleri ve fiyat teklifi',
+                    body: 'Dolabın yerleşeceği alanın genişliğini, derinliğini ve yüksekliğini ölçün. Koridor genişliğini ve teşhir edeceğiniz ürünleri de paylaşın. Modül uzunluğu, kapak tipi ve raf sayısı teklif kapsamını etkiler. Özel ölçü sütlük dolabı talebinde yerleşim krokisini veya alanın fotoğrafını da gönderin.',
+                },
                 productUse: 'Market yerleşiminde sergilenecek ürün, raf kullanımı ve müşterinin ürüne erişimi birlikte planlanmalıdır.',
             },
             EN: {
                 name: 'Dairy and Supermarket Display Cabinets',
                 description: 'Explore open, glass door and low dairy cabinets, bottle coolers, cheese displays and supermarket equipment with sizes and technical information.',
-                intro: 'Dairy and supermarket displays should suit the product range, shelf arrangement and customer access. This group includes open and glass door dairy cabinets, low models, bottle coolers, cheese and deli displays, and supermarket display equipment.',
+                intro: 'When choosing a dairy display cabinet for a supermarket or deli, plan the shelves and how customers will reach the products. An open dairy cabinet gives customers direct access. For a glass-door model, consider sliding or hinged doors based on aisle clearance. Compare low-height cabinets, bottle coolers and cheese displays within the same store layout.',
                 sections: [
-                    { heading: 'Plan shelves and access for the product group', body: 'Dairy products, bottled drinks and delicatessen products can call for different arrangements. Consider access, loading and the location of an open or door-equipped model. Olive and produce display equipment should also be compared against their own intended applications.' },
+                    { heading: 'Plan shelves and access for the product group', body: 'Use the dimensions of milk cartons, yoghurt pots and bottles to plan shelf depth and spacing. Allow space in front for hinged doors to open. Consider a low-height dairy cabinet where clear sightlines matter. Compare olive and produce displays for their intended use as well.' },
                     { heading: 'Fit the equipment to your store', body: 'Consider cabinet height and circulation space as well as length. Review the module and temperature information on each product page. Refrigeration, door and decorative options can then be discussed for the chosen model and store layout.' },
                 ],
                 criteria: ['Define the product range and shelf arrangement.', 'Compare open and door-equipped access within the available circulation space.', 'Review model sizes and refrigeration information.'],
@@ -158,6 +171,10 @@ export const productCategories: ProductCategory[] = [
                     { question: 'Are open and glass door dairy models available?', answer: 'The catalogue includes open, glass door and low dairy cabinets. Compare these options against customer access and the proposed store layout.' },
                     { question: 'How can I select equipment for a supermarket layout?', answer: 'Share your product groups, shelf requirements and available dimensions. Dairy cabinets, bottle coolers and deli displays can be assessed together within the layout.' },
                 ],
+                quote: {
+                    title: 'Dairy cabinet dimensions and quotes',
+                    body: 'Measure the width, depth and height available for the cabinet. Share the aisle width and the products you plan to display. Module length, door type and shelf count affect the quote. Include a layout sketch or a photo of the space if you need a made-to-measure cabinet.',
+                },
                 productUse: 'For a supermarket layout, consider the product range, shelves and customer access together.',
             },
         },
@@ -203,9 +220,13 @@ export const productCategories: ProductCategory[] = [
             TR: {
                 name: 'Reyon ve Teşhir Dolapları',
                 description: 'Dik, düz ve bombe camlı reyon dolapları; statik, üflemeli ve servis tipi teşhir modelleri. Ölçüleri, çizimleri ve seçenekleri inceleyin.',
-                intro: 'Reyon ve teşhir dolapları, şarküteri, restoran ve marketlerde ürün sunumunun yerleşimle birlikte planlandığı ekipmanlardır. Bu grupta farklı cam biçimleri, servis düzenleri ve soğutma seçenekleri sunan modeller bulunur. Kasap, meze ve balık için ayrılmış ürün gruplarını da kullanım amacınıza göre inceleyebilirsiniz.',
+                intro: 'Soğutmalı reyon dolabı, şarküteri, restoran ve marketlerde peynir, zeytin ve benzeri ürünlerin teşhiri ve tezgâhtan servisi için kullanılır. Şarküteri reyon dolabı seçerken dik, düz, yarım veya bombe camlı modelleri müşterinin görüş açısına ve personelin erişimine göre karşılaştırın.',
                 sections: [
-                    { heading: 'Cam ve soğutma seçeneklerini karşılaştırın', body: 'Dik, düz, yarım veya bombe cam biçimi; ürünün görünürlüğü ve servis erişimiyle birlikte değerlendirilir. Statik ve üflemeli soğutma gibi model adları, teknik sayfalardaki özelliklerle birlikte okunmalıdır. Her seçeneğin uygunluğu, sergilenecek ürüne ve çalışma koşullarına göre belirlenir.' },
+                    {
+                        heading: 'Cam ve soğutma seçeneklerini karşılaştırın',
+                        body: 'Personelin peyniri tartıp paketlediği bir şarküteride, teşhir yüzeyini, camın görüş açısını ve tezgâh arkasındaki çalışma boşluğunu birlikte değerlendirin. Aşağıdaki dik camlı modeli bu ölçütlerle inceleyebilirsiniz. Statik ve üflemeli soğutma seçeneklerinde seçtiğiniz modelin çalışma koşullarını sergileyeceğiniz ürünlerle karşılaştırın.',
+                        productId: 17,
+                    },
                     { heading: 'Modüler reyon yerleşimi', body: 'Katalogdaki uzunluk seçenekleri üzerinden kullanılabilir alanı planlayın. İç veya dış motor seçenekleri, cam erişimi ve dekor uygulamaları için seçilen modelin açıklamalarını inceleyin. Proje ölçülerini ve ürün grubunu paylaşmanız, teklifin ihtiyacınıza göre hazırlanmasına yardımcı olur.' },
                 ],
                 criteria: ['Ürün grubunu ve servis biçimini belirleyin.', 'Cam biçimini, görüş açısını ve temizliğe erişimi değerlendirin.', 'Modül ölçülerini ve modelin soğutma seçeneklerini karşılaştırın.'],
@@ -213,14 +234,22 @@ export const productCategories: ProductCategory[] = [
                     { question: 'Reyon dolabı hangi işletmeler için seçilebilir?', answer: 'Modelin kullanım amacına bağlı olarak şarküteri, market, kafe ve restoran projelerinde değerlendirilebilir. Uygunluk, sergilenecek ürün ve teknik özellikler üzerinden belirlenmelidir.' },
                     { question: 'Statik veya üflemeli model seçimini nasıl yapmalıyım?', answer: 'Önce ürün grubunu ve kullanım koşullarını tanımlayın. İlgili modellerin teknik bilgilerini karşılaştırarak uygulamanız için uygun seçeneği görüşebilirsiniz.' },
                 ],
+                quote: {
+                    title: 'Soğutmalı reyon dolabı için ölçü ve fiyat teklifi',
+                    body: 'Tezgâh için ayırdığınız uzunluğu, derinliği ve arka taraftaki servis boşluğunu ölçün. Sergileyeceğiniz ürünleri ve personelin hangi taraftan servis yapacağını paylaşın. Cam tipi, modül uzunluğu ve soğutma grubu teklif kapsamını etkiler. Özel üretim için kasa ve terazinin yerini de gösteren bir kroki gönderin.',
+                },
                 productUse: 'Reyon seçiminde sergilenecek ürün, cam biçimi ve servis düzeni birlikte değerlendirilmelidir.',
             },
             EN: {
                 name: 'Refrigerated Display and Service Counters',
                 description: 'Compare upright, flat and curved glass counters, static and ventilated displays, module dimensions, drawings and service cabinet options.',
-                intro: 'Display and service counters are planned around both product presentation and the layout of a delicatessen, restaurant or supermarket. This group includes different glass designs, service arrangements and refrigeration options. Dedicated butcher, mezze and fish groups can also be explored for specific applications.',
+                intro: 'Refrigerated display counters are used in delis, restaurants and supermarkets to present and serve cheese, olives and similar products. When choosing a deli display counter, compare upright, flat, half-height and curved glass according to what customers can see and how staff reach the products.',
                 sections: [
-                    { heading: 'Compare glass and refrigeration options', body: 'Upright, flat, half-height or curved glass should be assessed alongside visibility and service access. Read model descriptions such as static or ventilated cooling together with the technical specifications. Suitability depends on the products and operating conditions.' },
+                    {
+                        heading: 'Compare glass and refrigeration options',
+                        body: 'At a deli counter where staff weigh and package cheese, consider the display surface, customer sightlines and the working space behind the counter. Use the upright glass model below as an example. For static and fan-assisted cooling options, compare the operating conditions of the selected model with your products’ requirements.',
+                        productId: 17,
+                    },
                     { heading: 'Plan a modular counter layout', body: 'Use the catalogue length options to assess available space. Review the selected model for refrigeration arrangements, glass access and decorative options. Share the project dimensions and product group to help define the quotation.' },
                 ],
                 criteria: ['Define the product group and service arrangement.', 'Assess glass design, viewing angles and cleaning access.', 'Compare module dimensions and refrigeration options.'],
@@ -228,6 +257,10 @@ export const productCategories: ProductCategory[] = [
                     { question: 'Which businesses can use these display counters?', answer: 'Depending on the model, they can be assessed for delicatessen, supermarket, cafe and restaurant projects. Confirm suitability against the products and technical specifications.' },
                     { question: 'How should I compare static and ventilated models?', answer: 'First define the product group and operating conditions. Review the technical information for the relevant models when discussing a suitable option for the application.' },
                 ],
+                quote: {
+                    title: 'Refrigerated counter dimensions and quotes',
+                    body: 'Measure the available counter length and depth and the working space behind it. Share the products you plan to display and which side staff will serve from. Glass type, module length and refrigeration arrangement affect the quote. Include a sketch with the till and scales marked if you need a custom counter.',
+                },
                 productUse: 'When choosing a service counter, consider the product group, glass design and service arrangement together.',
             },
         },
