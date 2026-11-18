@@ -24,8 +24,6 @@ const copy = {
         quote: 'WhatsApp ile teklif alın', phone: 'Bizi arayın',
         models: 'Modelleri karşılaştırın', modelCount: 'model', details: 'Ürünü inceleyin',
         selection: 'Seçim yaparken', questions: 'Sık sorulan sorular', related: 'İlgili ürün grupları',
-        quoteTitle: 'Projeniz için birlikte değerlendirelim',
-        quoteText: 'Kullanılabilir alan ölçülerinizi, ürün grubunu ve beğendiğiniz modeli paylaşın. İşletmenize uygun seçenekler için bilgi ve teklif alın.',
         relatedModels: 'Aynı gruptaki diğer modeller', allModels: 'Bu gruptaki tüm modeller',
     },
     EN: {
@@ -33,8 +31,6 @@ const copy = {
         quote: 'Request a quote on WhatsApp', phone: 'Call us',
         models: 'Compare models', modelCount: 'models', details: 'View product',
         selection: 'When choosing a model', questions: 'Frequently asked questions', related: 'Related product groups',
-        quoteTitle: 'Let us discuss your project',
-        quoteText: 'Share the available dimensions, product group and preferred model. Discuss suitable options and request a quote for your business.',
         relatedModels: 'Other models in this group', allModels: 'View every model in this group',
     },
 };
@@ -157,7 +153,12 @@ export function CategoryContent({ category, products, language }: { category: Pr
                                 <div key={section.heading}>
                                     <h2 className="mb-3 text-lg font-bold md:text-xl">{section.heading}</h2>
                                     <p className="text-sm leading-7 text-gray-600 dark:text-gray-300">{section.body}</p>
-                                    {product && <Link to={getProductPath(product)} className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#0083bb] underline underline-offset-4 dark:text-[#72D5E3]">{getProductDisplayName(product, language)}<ArrowRight size={15} aria-hidden="true" /></Link>}
+                                    {product && (
+                                        <Link to={getProductPath(product)} className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#0083bb] underline underline-offset-4 dark:text-[#72D5E3]">
+                                            {section.productLinkText ?? getProductDisplayName(product, language)}
+                                            <ArrowRight size={15} aria-hidden="true" />
+                                        </Link>
+                                    )}
                                 </div>
                             );
                         })}
@@ -176,8 +177,8 @@ export function CategoryContent({ category, products, language }: { category: Pr
                 </section>
                 <RelatedBlogGuides categoryId={category.id} language={language} />
                 <section className="mt-8 rounded-3xl border border-gray-200 bg-gray-50 p-6 dark:border-neutral-700 dark:bg-neutral-900 md:p-8">
-                    <h2 className="text-xl font-bold">{text.quote?.title ?? labels.quoteTitle}</h2>
-                    <p className="mb-5 mt-3 max-w-3xl text-sm leading-7 text-gray-600 dark:text-gray-300">{text.quote?.body ?? labels.quoteText}</p>
+                    <h2 className="text-xl font-bold">{text.quote.title}</h2>
+                    <p className="mb-5 mt-3 max-w-3xl text-sm leading-7 text-gray-600 dark:text-gray-300">{text.quote.body}</p>
                     <ContactActions subject={text.name} language={language} />
                     <Link to="/references" className="mt-5 inline-flex items-center gap-2 text-sm font-medium hover:text-[#0083bb]">{language === 'TR' ? 'Uygulama ve referans projelerini inceleyin' : 'Explore installations and reference projects'}<ArrowRight size={15} aria-hidden="true" /></Link>
                 </section>
