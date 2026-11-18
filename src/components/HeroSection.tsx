@@ -15,11 +15,26 @@ export default function HeroSection() {
     const [wipeDirection, setWipeDirection] = useState<'next' | 'prev'>('next');
     const { t } = useLanguage();
     const isFirstRenderRef = useRef(true);
+    const heroRef = useRef<HTMLElement>(null);
     const [lcpLoaded, setLcpLoaded] = useState(false);
     const isLcpImage = currentSlide === 0;
 
     useEffect(() => {
         isFirstRenderRef.current = false;
+    }, []);
+
+    useEffect(() => {
+        const hero = heroRef.current;
+        if (!hero) return;
+        let width = hero.clientWidth;
+        const resetReservedHeight = () => {
+            const nextWidth = hero.clientWidth;
+            if (width === nextWidth) return;
+            width = nextWidth;
+            hero.style.removeProperty('--hero-mobile-height');
+        };
+        window.addEventListener('resize', resetReservedHeight);
+        return () => window.removeEventListener('resize', resetReservedHeight);
     }, []);
 
     const [swipeEnabled, setSwipeEnabled] = useState(false);
@@ -160,6 +175,12 @@ export default function HeroSection() {
     ) => {
         if (isAnimating) return;
 
+        const hero = heroRef.current;
+        // The stacked welcome slide is taller than the later two-column slides.
+        if (hero && !window.matchMedia('(min-width: 64rem)').matches) {
+            hero.style.setProperty('--hero-mobile-height', `${hero.getBoundingClientRect().height}px`);
+        }
+
         const resolvedVisualDirection = visualDirection ?? direction;
 
         setIsAnimating(true);
@@ -288,7 +309,8 @@ export default function HeroSection() {
 
     return (
         <section
-            className="relative w-full lg:min-h-[calc(100vh-80px)] bg-[#f8f9fa] py-8 md:py-12 dark:bg-[#111827] flex items-center overflow-hidden touch-pan-y"
+            ref={heroRef}
+            className="relative w-full min-h-[var(--hero-mobile-height,0px)] lg:min-h-[calc(100vh-80px)] bg-[#f8f9fa] py-8 md:py-12 dark:bg-[#111827] flex items-center overflow-hidden touch-pan-y"
             onPointerDown={onPointerDown}
             onPointerMove={onPointerMove}
             onPointerUp={onPointerUp}
