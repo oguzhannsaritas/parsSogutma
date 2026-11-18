@@ -9,6 +9,7 @@ export interface ReferenceProject {
     coverImage: string;
     images: string[];
     categoryIds: CategoryId[];
+    exampleProductId?: number;
     copy: Record<CatalogLanguage, ReferenceCopy>;
 }
 

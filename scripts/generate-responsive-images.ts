@@ -10,6 +10,7 @@ const sources = [...new Set([
     ...['buzdolabi2', 'masa', 'marketx', 'sogukHava2', 'sogutma', 'sogutmareyon', 'unluMamullx', 'sustanion'].map(name => `/images/home/${name}.webp`),
 ])].sort();
 const manifest: Record<string, { width: number; height: number; widths: number[] }> = {};
+const generatorMtime = (await stat(new URL(import.meta.url))).mtimeMs;
 let next = 0;
 let generated = 0;
 async function worker() {
@@ -17,6 +18,8 @@ async function worker() {
         const source = sources[next++];
         const file = path.join('public', source);
         const info = await stat(file);
+        const modifiedAt = Math.max(info.mtimeMs, generatorMtime);
+        const quality = source === '/images/home/sustanion.webp' ? 72 : 82;
         const metadata = await sharp(file).metadata();
         if (!metadata.width || !metadata.height) throw new Error(`Missing image dimensions: ${source}`);
         const maximum = Math.min(metadata.width, 1920);
@@ -28,9 +31,9 @@ async function worker() {
                 if (error.code !== 'ENOENT') throw error;
                 return undefined;
             });
-            if (previous && previous.mtimeMs >= info.mtimeMs) continue;
+            if (previous && previous.mtimeMs >= modifiedAt) continue;
             await mkdir(path.dirname(target), { recursive: true });
-            await sharp(file).resize({ width, withoutEnlargement: true }).webp({ quality: 82 }).toFile(target);
+            await sharp(file).resize({ width, withoutEnlargement: true }).webp({ quality }).toFile(target);
             generated++;
         }
     }

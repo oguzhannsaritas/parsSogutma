@@ -217,7 +217,15 @@ for (const redirect of legacyRedirects) {
     assert(urls.includes(destination), `Redirect target is not in a sitemap: ${redirect.source}`);
 }
 for (const id of [19, 30]) assert(!redirectSources.has(`/products/${id}`), `Unconfirmed models must remain separate: ${id}`);
-assert(!vercel.redirects.some(item => item.source.startsWith('/etiket/')), 'Archive redirects require a verified replacement, not a blanket rule');
+const oldMezeTag = {
+    source: '/etiket/2-5-metre-meze-vitrini',
+    destination: '/urunler/kebap-meze-dolaplari',
+    permanent: true,
+};
+assert.deepEqual(vercel.redirects.filter(item => item.source.startsWith('/etiket/')), [oldMezeTag], 'Archive redirects must match verified replacements');
+const mezeCategoryUrl = SITE_URL + oldMezeTag.destination;
+assert(urls.includes(mezeCategoryUrl), 'The old meze tag must lead to a listed category');
+assert.equal(canonical(await readPage(oldMezeTag.destination)), mezeCategoryUrl);
 console.log(`Legacy redirects checked: ${legacyRedirects.length} existing aliases point directly to canonical, indexable products.`);
 assert.equal((await readFile(path.join(dist, 'google69e736d7d2eb3d7e.html'), 'utf8')).trim(), 'google-site-verification: google69e736d7d2eb3d7e.html');
 console.log(`SEO checks passed: ${urls.length} canonical pages, ${productCategories.length} populated groups, ${canonicalProducts.length} bilingual product guides, ${projects.length} project narratives and reciprocal links, unique product leads, lazy guide loading, model identity and temperature guards, all catalogue aliases and assets.`);

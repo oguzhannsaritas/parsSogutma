@@ -102,7 +102,7 @@ export default function Header() {
         { title: 'Yatay Reyonlar', path: '/products?cat=service', image: '/images/home/yatayReyonx.webp' },
         { title: 'Dikey Dondurucular', path: '/products?cat=vertical', image: '/images/home/buzdolabi.webp' },
         { title: 'Yatay Dondurucular', path: '/products?cat=service', image: '/images/home/sogutmareyon.webp' },
-        { title: 'Soğuk Hava Depoları', path: '/products?cat=coldStorage', image: '/images/home/sogukHava2.webp' },
+        { title: 'Soğuk Hava Depoları', path: '/urunler/soguk-hava-depolari', image: '/images/home/sogukHava2.webp' },
         { title: 'Alçak Dikey Reyonlar', path: '/products?cat=vertical', image: '/images/home/yarimx.webp' },
         { title: 'Servis Reyonları', path: '/products?cat=service', image: '/images/home/servisx.webp' },
         {
@@ -118,8 +118,8 @@ export default function Header() {
                 />
             )
         },
-        { title: 'Pasta Reyonları', path: '/products?cat=bakery', image: '/images/home/unluMamullx.webp' },
-        { title: 'Soğutma Sistemleri', path: '/products?cat=coolingSystems', image: '/images/home/sogutma.webp' },
+        { title: 'Pasta Reyonları', path: '/urunler/pasta-cikolata-dolaplari', image: '/images/home/unluMamullx.webp' },
+        { title: 'Soğutma Sistemleri', path: '/urunler/sogutma-gruplari-sistemleri', image: '/images/home/sogutma.webp' },
     ];
 
     const toggleLanguage = () => {
@@ -167,7 +167,9 @@ export default function Header() {
                                     <img
                                         src="/images/home/parsLogo.webp"
                                         alt="PARS SOĞUTMA"
-                                        className={`h-10 object-contain md:hidden transition-all duration-300 ${
+                                        width={600}
+                                        height={107}
+                                        className={`h-10 w-auto object-contain md:hidden transition-all duration-300 ${
                                             (isScrolled || theme === 'dark') ? 'invert hue-rotate-180' : ''
                                         }`}
                                     />

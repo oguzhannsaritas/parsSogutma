@@ -1,4 +1,4 @@
-import { getResponsiveImageProps, HOME_IMAGE_SIZES } from '../lib/responsiveImages';
+import { getResponsiveImageProps, HOME_HERO_LOGO, HOME_IMAGE_SIZES } from '../lib/responsiveImages';
 import React, { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, Instagram, Youtube } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -29,7 +29,7 @@ export default function HeroSection() {
             id: 0,
             title: 'Pars Soğutma Sistemleri',
             description: t('hero.socialMediaInfo'),
-            image: '/images/home/parsLogo.webp',
+            image: HOME_HERO_LOGO,
             isSocial: true
         },
         { id: 1, subtitle: t('hero.slide1.title'), title: t('menu.refrigerators'), image: '/images/home/buzdolabi2.webp' },
@@ -87,32 +87,6 @@ export default function HeroSection() {
             return () => window.clearTimeout(timer);
         }
     }, [currentSlide, lcpLoaded]);
-
-    useEffect(() => {
-        if (typeof document === 'undefined') return;
-
-        const lcpUrl = '/images/home/parsLogo.webp';
-
-        const existing = document.querySelector(`link[data-lcp-preload="hero"][href="${lcpUrl}"]`);
-        if (existing) return;
-
-        const link = document.createElement('link');
-        link.setAttribute('rel', 'preload');
-        link.setAttribute('as', 'image');
-        link.setAttribute('href', lcpUrl);
-        link.setAttribute('fetchpriority', 'high');
-        link.setAttribute('data-lcp-preload', 'hero');
-
-        document.head.appendChild(link);
-
-        return () => {
-            try {
-                document.head.removeChild(link);
-            } catch {
-                // ignore
-            }
-        };
-    }, []);
 
     useEffect(() => {
         if (typeof window === 'undefined') return;
