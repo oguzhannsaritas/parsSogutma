@@ -143,6 +143,114 @@ export const blogArticles: BlogArticleSummary[] = [
         publishedOn: '2026-11-18',
         updatedOn: '2026-11-18',
     },
+    {
+        slug: 'meze-dolabi-secim-rehberi',
+        title: { TR: 'Meze dolabı nasıl seçilir? Kebap ve meze teşhir rehberi', EN: 'How to choose a kebab or mezze display cabinet' },
+        description: {
+            TR: 'Yatay ve dikey meze dolabı modellerini servis düzeni, kap ölçüleri ve teşhir alanına göre karşılaştırın. Özel ölçü meze dolabı teklifi için hazırlanın.',
+            EN: 'Compare counter-height and upright mezze display cabinets by service workflow, dish sizes and display space. Prepare a custom quote request.',
+        },
+        introduction: {
+            TR: 'Meze dolabı seçimine menünüzde aynı anda sergileyeceğiniz çeşitleri ve kap ölçülerini belirleyerek başlayın. Yatay kebap ve meze teşhir dolabı bir servis hattına yerleşir. Dikey meze dolabı ürünleri farklı yüksekliklerde gösterir. Endüstriyel soğutma sistemleri arasından işletmenize uygun modeli seçmek için personelin her kaba nereden ulaşacağını da planlayın.',
+            EN: 'Start with the dishes you want to display at the same time and the dimensions of their containers. A counter-height kebab or mezze cabinet can sit in a service line. An upright mezze display uses shelves at different heights. When choosing commercial refrigeration equipment, plan how your staff will reach each dish.',
+        },
+        topic: { TR: 'Kebap ve meze teşhir', EN: 'Kebab and mezze displays' },
+        image: '/images/products/servisReyonlari/kebapMezeDolabi/kabapMezeDolabix.webp',
+        imageAlt: { TR: 'Pars Soğutma kebap ve meze teşhir dolabı', EN: 'Pars Cooling kebab and mezze display cabinet' },
+        relatedCategoryIds: ['meze'],
+        publishedOn: '2026-11-18',
+        updatedOn: '2026-11-18',
+    },
+    {
+        slug: 'balik-teshir-dolabi-secim-rehberi',
+        title: { TR: 'Balık teşhir dolabı ve balık mostrası nasıl seçilir?', EN: 'How to choose a fish display cabinet or counter' },
+        description: {
+            TR: 'Cam siperlikli ve kapaklı balık mostra dolaplarını teşhir alanı, servis erişimi ve temizlik düzeniyle karşılaştırın. Balık dolabı teklifine hazırlanırken ölçüleri belirleyin.',
+            EN: 'Compare glass-guard and lidded fish display counters by display area, service access and cleaning. Prepare measurements for a fish cabinet quote.',
+        },
+        introduction: {
+            TR: 'Balık teşhir dolabı seçerken ürünlerin kapladığı taban alanını ve personelin tezgâha nereden ulaşacağını belirleyin. Cam siperlikli, kapaklı ve diğer soğutmalı balık dolabı modelleri farklı servis düzenlerine uyabilir. Endüstriyel soğutma sistemleri ve ilgili dolap modelleri değerlendirilirken modelin çalışma koşullarını, temizliğini ve su tahliyesi varsa bağlantı yerini birlikte kontrol edin.',
+            EN: 'For a fish display cabinet, start with the usable display area and the side staff will serve from. Glass-guard, lidded and other refrigerated fish counters suit different layouts. When reviewing commercial refrigeration systems and display models, check operating conditions, cleaning access and any applicable drain connection.',
+        },
+        topic: { TR: 'Balık teşhir', EN: 'Fish displays' },
+        image: '/images/products/servisReyonlari/balikMostraDolabi/balikMostraDolabix2.webp',
+        imageAlt: { TR: 'Pars Soğutma cam siperlikli balık mostra dolabı', EN: 'Pars Cooling fish display counter with a glass guard' },
+        relatedCategoryIds: ['balik'],
+        publishedOn: '2026-11-18',
+        updatedOn: '2026-11-18',
+    },
+    {
+        slug: 'sarkuteri-reyon-dolabi-secim-rehberi',
+        title: { TR: 'Şarküteri reyon dolabı nasıl seçilir?', EN: 'How to choose a refrigerated deli display counter' },
+        description: {
+            TR: 'Şarküteri reyon dolabı, peynir vitrini ve soğutmalı servis tezgâhı için ürün dizilimini, personel erişimini ve reyon ölçülerini planlayın.',
+            EN: 'Plan product layout, staff access and dimensions for a refrigerated deli counter, cheese display or service cabinet.',
+        },
+        introduction: {
+            TR: 'Şarküteri reyon dolabı seçerken önce müşterinin ürünü kendisinin mi alacağını, yoksa personelin tartıp paketleyerek mi servis edeceğini belirleyin. Peynir, zeytin ve paketli ürünlerin ayrı sunum alanları olabilir. Endüstriyel soğutma sistemleri ve reyon modellerini değerlendirirken kasa, terazi ve hazırlık alanını dolapla aynı krokide gösterin.',
+            EN: 'Start by deciding whether customers will collect products themselves or staff will weigh and package them at the counter. Cheese, olives and packaged products can have different display needs. When assessing commercial refrigeration and deli counters, put the register, scales and prep space on the same sketch.',
+        },
+        topic: { TR: 'Reyon ve şarküteri', EN: 'Deli counter planning' },
+        image: '/images/products/servisReyonlari/fullMoonDikCamliReyonDolabi/fullMoonDikCamliReyonDolabix.webp',
+        imageAlt: { TR: 'Pars Soğutma dik camlı soğutmalı reyon dolabı', EN: 'Pars Cooling refrigerated counter with upright glass' },
+        relatedCategoryIds: ['reyon'],
+        publishedOn: '2026-11-18',
+        updatedOn: '2026-11-18',
+    },
+    {
+        slug: 'soguk-oda-fiyati-nasil-hesaplanir',
+        title: { TR: 'Soğuk oda fiyatı nasıl hesaplanır? Soğuk hava deposu maliyeti', EN: 'How is the cost of a cold storage room calculated?' },
+        description: {
+            TR: 'Soğuk hava deposu fiyatını etkileyen iç ölçüleri, paneli, kapıyı, soğutma grubunu ve montaj kapsamını inceleyin. Projeniz için teklif bilgilerini hazırlayın.',
+            EN: 'See how internal dimensions, panels, doors, refrigeration and installation affect a cold-room quote. Prepare the inputs for your project.',
+        },
+        introduction: {
+            TR: 'Soğuk oda fiyatı hazırlanırken alanın iç ölçüleri, depolanacak ürün, kapı geçişi ve hedef çalışma koşulları birlikte değerlendirilir. Soğuk hava deposu maliyetinde panel, kapı ve endüstriyel soğutma sistemleri ayrı kalemler olabilir. Aynı büyüklükte iki oda için farklı teklifler geliyorsa, önce hangi ekipman ve işlerin dahil olduğuna bakın.',
+            EN: 'Cold-room pricing takes into account internal dimensions, stored products, doorway use and operating requirements. Panels, doors and industrial refrigeration systems can be separate line items. When comparing quotes for rooms of the same size, start with what equipment and work are included.',
+        },
+        topic: { TR: 'Soğuk hava deposu', EN: 'Cold storage planning' },
+        image: '/images/products/sogukHavaDepolari/sogukHavaDeposu/sogukHavaDeposux.webp',
+        imageAlt: { TR: 'Pars Soğutma panel ve kapılı soğuk hava deposu', EN: 'Pars Cooling cold room with insulated panels and a door' },
+        relatedCategoryIds: ['soguk-oda'],
+        publishedOn: '2026-11-18',
+        updatedOn: '2026-11-18',
+    },
+    {
+        slug: 'paslanmaz-calisma-tezgahi-secim-rehberi',
+        title: { TR: 'Paslanmaz çalışma tezgâhı nasıl seçilir?', EN: 'How to choose a stainless steel worktable for a commercial kitchen' },
+        description: {
+            TR: 'Ara raflı, dolaplı ve evyeli paslanmaz mutfak tezgâhlarını ölçü, hazırlık ve yıkama akışıyla karşılaştırın. Özel ölçü teklifine hazırlanın.',
+            EN: 'Compare shelved, enclosed and sink-equipped stainless steel worktables by dimensions and kitchen workflow. Prepare a custom quote request.',
+        },
+        introduction: {
+            TR: 'Paslanmaz çalışma tezgâhı seçerken en sık yapılacak işi belirleyin. Hazırlık için kesintisiz bir üst yüzey, yıkama için evyeli tezgâh, alt bölümde ekipman saklamak için raflı veya dolaplı tezgâh değerlendirilebilir. Endüstriyel mutfakta tezgâhı, soğutma sistemleri ve personelin kullandığı geçiş alanıyla birlikte planlayın.',
+            EN: 'Choose a stainless steel worktable around the task you do most. Prep may need a clear work surface. Washing calls for a sink, and equipment storage may call for shelving or a cabinet below. In a commercial kitchen, plan the worktable alongside refrigeration equipment and staff routes.',
+        },
+        topic: { TR: 'Endüstriyel mutfak', EN: 'Commercial kitchen planning' },
+        image: '/images/products/endustriyelMutfakEkipmanlari/paslanmazCalismaTezgahi/paslanmazCalismaTezgahi1.webp',
+        imageAlt: { TR: 'Pars Soğutma paslanmaz çalışma tezgâhı', EN: 'Pars Cooling stainless steel worktable' },
+        relatedCategoryIds: ['mutfak'],
+        publishedOn: '2026-11-18',
+        updatedOn: '2026-11-18',
+    },
+    {
+        slug: 'soguk-oda-sogutma-grubu-secim-rehberi',
+        title: { TR: 'Soğuk oda soğutma grubu nasıl seçilir?', EN: 'How to choose a refrigeration unit for a cold room' },
+        description: {
+            TR: 'Monoblok, split ve merkezi soğutma sistemlerini kullanım, yerleşim ve kapasite bilgileriyle karşılaştırın. Soğuk oda soğutma grubu teklifi için hazırlanın.',
+            EN: 'Compare monoblock, split and central refrigeration systems by use, installation layout and capacity requirements. Prepare a cold-room refrigeration quote.',
+        },
+        introduction: {
+            TR: 'Soğuk oda soğutma grubu, oda hacmiyle birlikte depolanan ürüne, kapı kullanımına, yalıtıma ve cihazın yerleşimine göre seçilir. Monoblok, split ve merkezi soğutma sistemleri farklı proje düzenlerine uyar. Endüstriyel soğutma teklifi isterken odanın ölçüsünün yanında nasıl kullanılacağını da paylaşın.',
+            EN: 'Choose a cold-room refrigeration unit using room volume, stored products, doorway use, insulation and equipment location. Monoblock, split and central refrigeration systems suit different project layouts. Include both dimensions and operating details when requesting an industrial refrigeration quote.',
+        },
+        topic: { TR: 'Soğutma grupları ve sistemleri', EN: 'Refrigeration units and systems' },
+        image: '/images/products/sogutmaSistemleri/splitSogutmaGrubu/splitSogutmaGrubu2.webp',
+        imageAlt: { TR: 'Pars Soğutma split soğutma grubu', EN: 'Pars Cooling split refrigeration unit' },
+        relatedCategoryIds: ['sogutma'],
+        publishedOn: '2026-11-18',
+        updatedOn: '2026-11-18',
+    },
 ];
 
 export function getBlogArticlePath(article: BlogArticleSummary): string {
@@ -159,7 +267,12 @@ export function getCategoryBlogArticles(categoryId: CategoryId): BlogArticleSumm
         pasta: ['pasta-teshir-dolabi-secim-rehberi'],
         kasap: ['kasap-teshir-dolabi-yerlesim-model-secimi', 'et-aski-dolabi-dry-aged-dolabi-farki'],
         sutluk: ['acik-sutluk-cam-kapakli-sutluk-secimi'],
-        'soguk-oda': ['soguk-oda-pvc-serit-perde-secimi'],
+        meze: ['meze-dolabi-secim-rehberi'],
+        balik: ['balik-teshir-dolabi-secim-rehberi'],
+        reyon: ['sarkuteri-reyon-dolabi-secim-rehberi'],
+        'soguk-oda': ['soguk-oda-fiyati-nasil-hesaplanir', 'soguk-oda-pvc-serit-perde-secimi'],
+        mutfak: ['paslanmaz-calisma-tezgahi-secim-rehberi'],
+        sogutma: ['soguk-oda-sogutma-grubu-secim-rehberi'],
     };
     const slugs = [...(selectionGuides[categoryId] ?? [])];
     if (categoryId !== 'soguk-oda' && categoryId !== 'sogutma') {
