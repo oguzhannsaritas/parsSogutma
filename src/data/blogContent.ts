@@ -1,4 +1,5 @@
 import type { CatalogLanguage } from './catalog';
+import { catalogueGuideContent } from './catalogueGuideContent';
 
 export type BlogSection = {
     heading: string;
@@ -13,6 +14,7 @@ export type BlogArticleContent = {
 };
 
 export const blogContent: Record<string, Record<CatalogLanguage, BlogArticleContent>> = {
+    ...catalogueGuideContent,
     'ozel-olcu-sogutma-dolabi-teklif-rehberi': {
         TR: {
             sections: [
