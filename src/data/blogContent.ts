@@ -5,6 +5,7 @@ export type BlogSection = {
     paragraphs: string[];
     items?: string[];
     table?: { headers: string[]; rows: string[][] };
+    links?: Array<{ label: string; to: string }>;
 };
 export type BlogArticleContent = {
     sections: BlogSection[];
@@ -146,7 +147,7 @@ export const blogContent: Record<string, Record<CatalogLanguage, BlogArticleCont
                     ],
                 },
                 {
-                    heading: 'İki yaklaşımı hangi başlıklarda karşılaştırmalı?',
+                    heading: 'Açık ve cam kapaklı sütlük dolabı karşılaştırması',
                     paragraphs: ['Aşağıdaki tablo, model seçimi sırasında sorulacak soruları düzenler. Çalışma sıcaklığı, tüketim ve diğer teknik değerler için seçilen ürünün doğrulanmış verilerini kullanın.'],
                     table: {
                         headers: ['Konu', 'Açık sütlük', 'Cam kapaklı sütlük'],
@@ -157,6 +158,22 @@ export const blogContent: Record<string, Record<CatalogLanguage, BlogArticleCont
                             ['Teknik karşılaştırma', 'İlgili modelin verileri', 'İlgili modelin verileri ve karşılaştırma koşulları'],
                         ],
                     },
+                    links: [
+                        { label: 'Açık sütlük dolabı', to: '/products/39' },
+                        { label: 'Cam kapaklı sütlük dolabı', to: '/products/38' },
+                        { label: 'Yarım boy sütlük dolabı', to: '/products/37' },
+                    ],
+                },
+                {
+                    heading: 'İstanbul’dan iki sütlük reyonu örneği',
+                    paragraphs: [
+                        'Kaya Çiftliği’nin Kağıthane mağazasında açık sütlük reyonu duvar boyunca uzanıyor. Paketli ürünler üst raflarda, peynir çeşitleri ise alt teşhir alanında yer alıyor. Bu fotoğraflarda ürün gruplarının aynı reyonda nasıl ayrıldığını görebilirsiniz.',
+                        'Yağız Çiftliğim’in Beylikdüzü mağazasında cam kapaklı sütlükler, peynir ve zeytin teşhir alanlarıyla aynı satış alanını paylaşıyor. Üstten çekilen fotoğrafta karşılıklı reyonların arasında kalan müşteri geçişini inceleyebilirsiniz.',
+                    ],
+                    links: [
+                        { label: 'Kaya Çiftliği açık sütlük uygulaması', to: '/referans/kaya-ciftligi' },
+                        { label: 'Yağız Çiftliğim şarküteri ve sütlük uygulaması', to: '/referans/yagiz-ciftligim' },
+                    ],
                 },
                 {
                     heading: 'Çalışma koşullarını modele göre kontrol edin',
@@ -166,15 +183,20 @@ export const blogContent: Record<string, Record<CatalogLanguage, BlogArticleCont
                     ],
                 },
                 {
-                    heading: 'Teklif öncesinde hazırlayacağınız bilgiler',
-                    paragraphs: ['Sütlük modellerini karşılaştırırken tek bir dış ölçüye odaklanmayın. Aşağıdaki bilgiler, hangi düzenin işletmenize uyacağını değerlendirmeyi kolaylaştırır.'],
+                    heading: 'Sütlük dolabı ölçüleri ve fiyat teklifi',
+                    paragraphs: [
+                        'Sütlük dolabı ölçülerini çıkarırken dolaba ayırdığınız uzunluğu, derinliği ve varsa yükseklik sınırını yazın. Koridorda kalmasını istediğiniz net geçişi de ayrıca ölçün. Bu ölçüler, seçtiğiniz modelin mağazada nasıl kullanılacağını değerlendirmeye yardımcı olur.',
+                        'Sütlük dolabı fiyatı ölçü, kapak tipi, raf düzeni ve projede istenen seçeneklere göre değişebilir. Özel ölçü sütlük dolabı için alan ölçülerinizi ve tercih ettiğiniz modeli paylaşın. Pars Soğutma, üretim talebini bu bilgiler üzerinden değerlendirip teklif hazırlar.',
+                    ],
                     items: ['Ambalaj türleri, ölçüleri ve teşhir miktarı.', 'Kullanılabilir uzunluk, derinlik ve yükseklik.', 'Müşteri geçişi ile ürün yükleme alanı.', 'Açık, çarpma kapaklı veya sürgü kapaklı model tercihi.', 'Alan fotoğrafları, mevcut ekipmanlar ve uygulama adresi.'],
+                    links: [{ label: 'Özel ölçü soğutma dolabı teklif rehberi', to: '/blog/ozel-olcu-sogutma-dolabi-teklif-rehberi' }],
                 },
             ],
             questions: [
                 { question: 'Her market için aynı sütlük tipi uygun mu?', answer: 'Hayır. Ürün çeşitleri, teşhir miktarı, müşteri erişimi, yerleşim ve modelin teknik özellikleri birlikte değerlendirilmelidir.' },
                 { question: 'Cam kapaklı sütlük için kapı açılma payı gerekir mi?', answer: 'Kapı tipine göre değerlendirilir. Çarpma ve sürgü kapakların kullanım alanları farklıdır; seçilen modelin çizim ve ölçülerini kontrol edin.' },
                 { question: 'Aynı boydaki iki sütlük aynı kapasitede mi?', answer: 'Dış uzunluğun aynı olması yeterli değildir. Raf derinliği, kat sayısı, kullanılabilir iç alan ve ambalaj dizilimi de karşılaştırılmalıdır.' },
+                { question: 'Sütlük dolabı imalatı için hangi bilgileri göndermeliyim?', answer: 'Alan ölçülerini birimleriyle, koridor boşluğunu, teşhir edeceğiniz ürünleri ve beğendiğiniz modelin bağlantısını paylaşın. Kapak ve raf tercihinizi de yazın.' },
             ],
         },
         EN: {
@@ -188,14 +210,39 @@ export const blogContent: Record<string, Record<CatalogLanguage, BlogArticleCont
                         headers: ['Topic', 'Open cabinet', 'Glass-door cabinet'],
                         rows: [['Product access', 'Access without a door', 'Access through the door system'], ['Layout', 'Front passage and restocking space', 'Front passage, door design and clearance'], ['Product arrangement', 'Packages, shelves and air passages', 'Packages, shelves, air passages and door closure'], ['Technical comparison', 'The selected model’s data', 'Model data under comparable conditions']],
                     },
+                    links: [
+                        { label: 'Open dairy cabinet', to: '/products/39' },
+                        { label: 'Glass-door dairy cabinet', to: '/products/38' },
+                        { label: 'Low-height dairy cabinet', to: '/products/37' },
+                    ],
+                },
+                {
+                    heading: 'Two dairy display projects in Istanbul',
+                    paragraphs: [
+                        'At the Kaya Çiftliği store in Kağıthane, an open dairy display runs along the wall. The photos show packaged products on the upper shelves and cheese varieties in the lower display area.',
+                        'At Yağız Çiftliğim in Beylikdüzü, glass-door dairy cabinets share the sales area with cheese and olive displays. An overhead photo shows the customer aisle between the facing displays.',
+                    ],
+                    links: [
+                        { label: 'Kaya Çiftliği open dairy display', to: '/referans/kaya-ciftligi' },
+                        { label: 'Yağız Çiftliğim deli and dairy displays', to: '/referans/yagiz-ciftligim' },
+                    ],
                 },
                 { heading: 'Check the actual operating conditions', paragraphs: ['Compare product storage requirements with the model’s operating range. Do not assume every model has the same temperature range. Explain the surrounding environment, nearby heat sources and air movement when requesting a quote.', 'A fixed energy-saving percentage cannot be established from the presence of doors alone. Request comparable measured data and assess it against your working arrangements.'] },
-                { heading: 'Prepare the information for a quote', paragraphs: ['Compare the complete display arrangement, not just external length.'], items: ['Package types, dimensions and intended display quantity.', 'Available length, depth and height.', 'Customer access and restocking space.', 'Open, hinged-door or sliding-door preference.', 'Site photos, nearby equipment and project address.'] },
+                {
+                    heading: 'Dairy cabinet measurements and quotes',
+                    paragraphs: [
+                        'Measure the length and depth available for the cabinet, note any height restriction and record the clear aisle you want to leave in front. These dimensions help assess how the cabinet will work in your store.',
+                        'Dairy cabinet prices can vary with dimensions, door type, shelving and project options. For a custom cabinet, share your measurements and preferred model. Pars Cooling uses these details to assess the manufacturing request and prepare a quote.',
+                    ],
+                    items: ['Package types, dimensions and intended display quantity.', 'Available length, depth and height.', 'Customer access and restocking space.', 'Open, hinged-door or sliding-door preference.', 'Site photos, nearby equipment and project address.'],
+                    links: [{ label: 'How to request a quote for a custom refrigeration cabinet', to: '/blog/ozel-olcu-sogutma-dolabi-teklif-rehberi' }],
+                },
             ],
             questions: [
                 { question: 'Does the same dairy cabinet suit every store?', answer: 'No. Products, display quantity, access, layout and model-specific technical data need to be considered together.' },
                 { question: 'Do glass-door cabinets require door clearance?', answer: 'This depends on the door design. Review the selected model’s drawings and dimensions for hinged or sliding doors.' },
                 { question: 'Do two cabinets of the same length have the same capacity?', answer: 'Not necessarily. Compare shelf depth, number of levels, usable internal space and package arrangement.' },
+                { question: 'What details do I send for a custom dairy cabinet?', answer: 'Send your dimensions and units, clear aisle space, the products to be displayed and a link to your preferred model. Include door and shelf preferences.' },
             ],
         },
     },
@@ -318,6 +365,249 @@ export const blogContent: Record<string, Record<CatalogLanguage, BlogArticleCont
                 { question: 'Are similarly named butcher cabinets the same product?', answer: 'Not always. Use product codes and links and compare glass, construction and technical details for each model.' },
                 { question: 'Is choosing a glass design enough?', answer: 'No. Dimensions, presentation, staff access, layout and technical suitability also need to be assessed.' },
                 { question: 'What should I send for a custom dimension request?', answer: 'Share clear measurements with units, the product list, a preferred model link, a sketch and site photos.' },
+            ],
+        },
+    },
+    'soguk-oda-pvc-serit-perde-secimi': {
+        TR: {
+            sections: [
+                {
+                    heading: 'PVC şerit perde ile motorlu hava perdesi arasındaki fark',
+                    paragraphs: [
+                        'Soğuk oda perdesi, kapı açıklığına asılan ve geçiş sırasında ayrılan esnek PVC şeritlerden oluşur. Şeritler, geçiş bittikten sonra açıklığı yeniden örter. Soğuk hava deposu kapısıyla birlikte kullanılan bu ekipman, kapı açıkken iki alan arasındaki hava geçişini sınırlamaya yardımcı olur.',
+                        'Motorlu hava perdesi hava akımı üreten bir cihazdır. Katalogda “PVC şerit hava perdesi” olarak gördüğünüz ürün ise fiziksel şeritler kullanır. Endüstriyel soğutma ekipmanları için teklif isterken hangisini aradığınızı belirterek başlayın.',
+                    ],
+                    links: [
+                        { label: 'PVC şerit hava perdesi', to: '/products/99' },
+                        { label: 'Soğuk hava deposu PVC perde sistemleri', to: '/products/103' },
+                    ],
+                },
+                {
+                    heading: 'Soğuk oda perdesi ölçüsü nasıl alınır?',
+                    paragraphs: [
+                        'Kapı açıkken kullanılabilen net açıklığın enini ve yüksekliğini ölçün. Kasanın dış ölçüsünü de alıyorsanız iki ölçüyü ayrı yazın ve birimini belirtin. Perdenin bağlanabileceği üst yüzeyi ve ray, tutamak veya kapı kanadının hareket ettiği alanı fotoğrafta işaretleyin.',
+                        'Palet, el arabası veya kasa geçiyorsa kullanılan ekipmanın yükle birlikte ölçüsünü ve geçiş yönünü de gönderin. Net açıklık, hazırlanacak şerit boyu ya da montaj profili boyuyla aynı olmak zorunda değildir. Bunlar seçilen sistem ve bağlantı yeri belirlendiğinde netleşir.',
+                    ],
+                    items: [
+                        'Kapının net geçiş eni ve yüksekliği.',
+                        'Kapı tipi, açılma yönü ve bağlantı yüzeyinin fotoğrafı.',
+                        'Geçiş yapan personel veya ekipman ve günlük kullanım sıklığı.',
+                        'Soğuk odanın kullanım amacı, çalışma koşulları ve varsa mevcut perde.',
+                    ],
+                },
+                {
+                    heading: 'PVC şerit perdeyi geçiş biçimine göre karşılaştırın',
+                    paragraphs: [
+                        'Aynı ölçüde iki kapı farklı işlerde kullanılabilir. Yaya geçişi olan küçük bir soğuk odada personelin yük taşırken şeritlerden nasıl geçeceğini düşünün. Palet girişinde ise yükün yüksekliği, hareket alanı ve geçişin tekrarlanma sıklığı daha belirleyici olabilir.',
+                    ],
+                    table: {
+                        headers: ['Kapı kullanımı', 'Teklif için paylaşın'],
+                        rows: [
+                            ['Personel geçişi', 'Kapının boş ölçüsü, geçiş sıklığı ve taşınan kasa boyutu.'],
+                            ['El arabası veya palet', 'Yükle birlikte en yüksek ve en geniş ölçü ile yaklaşma yönü.'],
+                            ['Mevcut PVC perde değişimi', 'Profil ve askı fotoğrafı, değişecek şeritlerin ölçüsü ve adedi.'],
+                        ],
+                    },
+                },
+                {
+                    heading: 'Soğuk hava deposu kapısı ve montaj yeri',
+                    paragraphs: [
+                        'Mevcut bir soğuk hava deposuna PVC şerit perde eklerken kapının nasıl açıldığını ve profilin nereye bağlanabileceğini birlikte kontrol edin. Sürgülü kapıda kanadın hareket ettiği duvar alanını, menteşeli kapıda ise kanadın açıldığı alanı gösterin. Her iki durumda da kapı kapanırken perdenin bağlantı noktasının engel oluşturmaması gerekir.',
+                        'Sadece birkaç şeridi değiştirecekseniz eldeki profilin yeni şeritlerle uyumunu doğrulatın. Komple değişim teklifinde şeritler, askı profili ve varsa yapılacak montaj işinin ayrı belirtilmesini isteyin.',
+                    ],
+                },
+                {
+                    heading: 'Soğuk oda PVC şerit perde fiyatını neler etkiler?',
+                    paragraphs: [
+                        'Soğuk oda perdesi fiyatı net açıklığa, seçilen şerit düzenine, bağlantı profiline ve talebin kapsamına göre değişebilir. Şerit değişimi ile açıklığa uygun yeni bir sistem, farklı parçalar içerebilir.',
+                        'Özel ölçü PVC şerit perde teklifi için kapı ölçülerinizi, montaj yerinin fotoğrafını ve kullanım biçimini Pars Soğutma’ya iletin. Mevcut sistemde hangi parçaları kullanmayı düşündüğünüzü de yazın. Teklifi, seçilen şerit ve profil kapsamı üzerinden karşılaştırabilirsiniz.',
+                    ],
+                },
+            ],
+            questions: [
+                { question: 'Soğuk hava deposu PVC perdesi kapının yerine geçer mi?', answer: 'PVC şerit perde kapı açıkken geçişi kolaylaştıran bir tamamlayıcıdır. Soğuk hava deposunun kapısı ve soğutma sistemi ayrı ekipmanlardır.' },
+                { question: 'Özel ölçü soğuk oda perdesi için hangi ölçüler gerekir?', answer: 'Net açıklığın eni ve yüksekliği, profilin bağlanacağı yer ve gerekiyorsa yükle birlikte geçiş ölçüsü gerekir. Fotoğrafta kapının açılma yönünü de gösterin.' },
+                { question: 'PVC hava perdesi fiyatı için fotoğraf yeterli mi?', answer: 'Fotoğraf bağlantı yerini anlatır. Net ölçüleri, kullanım biçimini ve sadece şerit mi yoksa profil de mi istediğinizi ekleyin.' },
+            ],
+        },
+        EN: {
+            sections: [
+                {
+                    heading: 'PVC strip curtains and powered air curtains',
+                    paragraphs: [
+                        'A cold-room strip curtain consists of flexible PVC strips hung across a doorway. The strips part as people or loads pass through and then cover the opening again. Used with the cold-room door, the curtain helps limit air exchange while the door is open.',
+                        'A powered air curtain uses fans to produce an airflow. A PVC strip curtain provides a physical barrier instead. Specify which type you need when requesting a quote for commercial refrigeration equipment.',
+                    ],
+                    links: [
+                        { label: 'PVC strip curtain', to: '/products/99' },
+                        { label: 'Cold storage PVC curtain systems', to: '/products/103' },
+                    ],
+                },
+                {
+                    heading: 'How to measure a cold-room doorway for a curtain',
+                    paragraphs: [
+                        'Measure the clear width and height with the door open. If you also measure the outside of the frame, label the two sets of measurements separately and include the units. Mark the proposed fixing surface and the movement of the track, handle or door leaf in a photo.',
+                        'For pallet or trolley traffic, include the size of a loaded unit and the direction of travel. The clear opening alone does not establish the final strip length or rail size. These depend on the system and mounting position.',
+                    ],
+                    items: ['Clear opening width and height.', 'Door type, opening direction and a photo of the fixing location.', 'Traffic type and frequency.', 'Room use, operating conditions and any existing curtain.'],
+                },
+                {
+                    heading: 'Match the PVC strip curtain to the traffic',
+                    paragraphs: ['Two doorways of the same size can serve different purposes. Consider staff carrying boxes in a small cold room. At a pallet entrance, check loaded height, manoeuvring space and frequency of use.'],
+                    table: {
+                        headers: ['Doorway use', 'Information to include in the quote request'],
+                        rows: [
+                            ['Staff entrance', 'Clear dimensions, frequency of use and box sizes.'],
+                            ['Trolley or pallet traffic', 'Maximum loaded width and height and direction of approach.'],
+                            ['Existing curtain replacement', 'Photos of the rail and hangers, plus strip dimensions and quantities.'],
+                        ],
+                    },
+                },
+                {
+                    heading: 'Check the cold-room door and mounting position',
+                    paragraphs: [
+                        'For an existing cold room, check how the door opens and where the curtain can mount. Show the wall space needed by a sliding door or the swing area of a hinged door. The mounting hardware should clear the door as it closes.',
+                        'If you only need replacement strips, confirm compatibility with the existing rail. For a complete replacement, ask the quotation to list strips, the hanging rail and any installation work separately.',
+                    ],
+                },
+                {
+                    heading: 'Cold-room PVC strip curtain pricing and quotes',
+                    paragraphs: [
+                        'A quote can depend on opening dimensions, strip arrangement, mounting hardware and the work requested. A simple strip replacement can have a different scope from a complete new curtain.',
+                        'For a custom quote, send Pars Cooling the doorway measurements, a photo of the mounting position and a description of the traffic. Mention any parts you hope to reuse so that the proposed scope is clear.',
+                    ],
+                },
+            ],
+            questions: [
+                { question: 'Can a PVC strip curtain replace a cold-room door?', answer: 'It is an accessory for use while the cold-room door is open. The door and refrigeration system remain separate parts of the cold room.' },
+                { question: 'What measurements do I need for a custom cold-room curtain?', answer: 'Include the clear width and height, the fixing location and, if relevant, the dimensions of loaded equipment. Show the door opening direction in a photo or sketch.' },
+                { question: 'Is a photo enough to price a PVC strip curtain?', answer: 'A photo shows the mounting area. Add dimensions, traffic details and whether you need strips, a rail or both.' },
+            ],
+        },
+    },
+    'et-aski-dolabi-dry-aged-dolabi-farki': {
+        TR: {
+            sections: [
+                {
+                    heading: 'Et askı dolabı ne için kullanılır?',
+                    paragraphs: [
+                        'Et askı dolabı, kasap ve restoranlarda etin askıda sunulacağı bir teşhir düzeni sağlar. Kuzu et askı dolabı seçerken asılacak parçaların boyunu, askılar arasındaki kullanılabilir alanı ve personelin yükleme yönünü düşünün. Vitrinin dış yüksekliği, içeride askının altında kalan net yüksekliği tek başına göstermez.',
+                        'Sergilemek istediğiniz et parçalarını ve aynı anda vitrinde bulunmasını istediğiniz adedi tarif edin. Ürünü asmak için gereken alanla dolabı temizlemek için gereken erişimi de aynı yerleşim üzerinde değerlendirin.',
+                    ],
+                    links: [
+                        { label: 'Et askı dolabı', to: '/products/40' },
+                        { label: 'Kuzu et askı dolabı', to: '/products/34' },
+                    ],
+                },
+                {
+                    heading: 'Dry aged dolabı ve kuru et dinlendirme',
+                    paragraphs: [
+                        'Dry aged dolabı, etin kontrollü ortamda kuru dinlendirilmesi için değerlendirilir. Bu seçimde sıcaklık, nem ve hava dolaşımıyla ilgili özellikleri model bazında inceleyin. Bir et teşhir dolabında askı veya dijital ekran bulunması, o dolabın kuru dinlendirmeye uygunluğunu göstermez.',
+                        'Hazır dinlendirilmiş eti mağazada sergilemekle dinlendirme sürecini işletmenizde yürütmek farklı ihtiyaçlardır. Teklif alırken hangisini planladığınızı açıkça belirtin. Dinlendirme istiyorsanız modelin bu kullanım için tasarlandığını ve sağladığı kontrolleri teknik doküman üzerinden doğrulayın.',
+                    ],
+                    links: [
+                        { label: 'Dry aged dolabı modellerinden birini inceleyin', to: '/products/41' },
+                        { label: 'Diğer dry aged dolabı modeli', to: '/products/43' },
+                    ],
+                },
+                {
+                    heading: 'Et askı dolabı ve dry aged dolabı karşılaştırması',
+                    paragraphs: ['Karşılaştırmaya dolabın işletmenizde yapacağı işle başlayın. Aşağıdaki sorular, görünüşü benzer iki modelden hangi bilgileri isteyeceğinizi gösterir.'],
+                    table: {
+                        headers: ['Karar noktası', 'Et askı dolabı', 'Dry aged dolabı'],
+                        rows: [
+                            ['Öncelikli kullanım', 'Eti askıda teşhir etmek.', 'Kontrollü kuru et dinlendirme.'],
+                            ['Yerleşim', 'Askı yüksekliği, parça boyu ve yükleme yönü.', 'Seçilen modelin askı veya raf düzeni ve erişim alanı.'],
+                            ['Teklifte kontrol', 'Uygun çalışma koşulları ve doğrulanmış askı kapasitesi.', 'Dinlendirme işlevi ve modelin sağladığı kontrol özellikleri.'],
+                        ],
+                    },
+                },
+                {
+                    heading: 'Et askı dolabı ölçüleri nasıl hazırlanır?',
+                    paragraphs: [
+                        'Dolaba ayırdığınız net en, derinlik ve yükseklik sınırını yazın. Müşteri tarafıyla ürün yükleme tarafını krokide ayırın. Mevcut kasap teşhir tezgâhını, kapıları ve geçişi işaretleyin. Teslimatta kullanılacak kapı veya koridorun ölçülerini de gerekiyorsa ekleyin.',
+                        'Üretim talebi için asılacak ürünün yaklaşık boyu ve ağırlığı önemlidir. Modelin kullanılabilir askı yüksekliğini ve askı yükünü teklif aşamasında doğrulatın. Yan yana asılacak parçaların adedini bildirerek ihtiyaç duyduğunuz iç yerleşimi daha net tarif edebilirsiniz.',
+                    ],
+                    items: ['Dolap için ayrılan net alan ve ölçü birimi.', 'Asılacak parçaların yaklaşık boyu, ağırlığı ve adedi.', 'Kapının açılacağı yön ve personel erişimi.', 'Teşhir veya kuru et dinlendirme ihtiyacı ve tercih edilen model.'],
+                },
+                {
+                    heading: 'Özel ölçü et askı dolabı imalatı ve fiyat teklifi',
+                    paragraphs: [
+                        'Et askı dolabı fiyatı ölçü, askı düzeni, cam veya kapı seçimi ve modelin soğutma özelliklerine göre değişebilir. Dry aged dolabı fiyatı araştırırken dinlendirme için hangi kontrollerin ve donanımın teklife dahil olduğunu da kontrol edin.',
+                        'Özel ölçü et askı dolabı için ölçülerinizi, sergileyeceğiniz ürünleri ve model bağlantısını Pars Soğutma’ya gönderin. Üretim talebini ilettiğiniz ölçü ve kullanım bilgileriyle değerlendirip buna göre teklif hazırlıyoruz.',
+                    ],
+                    links: [
+                        { label: 'Özel ölçü dolap teklif rehberi', to: '/blog/ozel-olcu-sogutma-dolabi-teklif-rehberi' },
+                        { label: 'Kasap teşhir dolabı model ve yerleşim rehberi', to: '/blog/kasap-teshir-dolabi-yerlesim-model-secimi' },
+                    ],
+                },
+            ],
+            questions: [
+                { question: 'Et askı dolabında dry aged yapılabilir mi?', answer: 'Seçilen dolabın kuru dinlendirme amacıyla tasarlanmış ve gereken çalışma kontrollerine sahip olması gerekir. Modelin kullanım amacını ve teknik özelliklerini yazılı olarak doğrulayın.' },
+                { question: 'Kuzu et askı dolabına kaç parça sığar?', answer: 'Adet, parçaların ölçülerine ve doğrulanmış askı yüküne bağlıdır. Ölçüleri ve istediğiniz adedi paylaşarak uygun askı yerleşimini değerlendirebilirsiniz.' },
+                { question: 'Et askı dolabı fiyat teklifi için alan ölçüsü yeterli mi?', answer: 'Alan ölçüsüne ek olarak asılacak etlerin boyunu ve adedini, kapı açılımını, kullanım amacını ve beğendiğiniz modeli paylaşın.' },
+            ],
+        },
+        EN: {
+            sections: [
+                {
+                    heading: 'What is a meat hanging cabinet used for?',
+                    paragraphs: [
+                        'A meat hanging cabinet provides hanging display space for butcher shops and restaurants. For a lamb hanging cabinet, check cut length, usable space between hooks and the direction from which staff load it. The external cabinet height alone does not tell you how much clearance remains below the rail.',
+                        'Describe the cuts and how many you plan to display at once. Include the space staff will need to load products and clean the cabinet in the same layout.',
+                    ],
+                    links: [
+                        { label: 'Meat hanging cabinet', to: '/products/40' },
+                        { label: 'Lamb hanging cabinet', to: '/products/34' },
+                    ],
+                },
+                {
+                    heading: 'Dry-aging cabinets and controlled aging',
+                    paragraphs: [
+                        'A dry-aging cabinet is intended for aging meat in controlled conditions. Review the specific model’s temperature, humidity and airflow features. A display cabinet can have a hanging rail or a digital display without being designed for dry aging.',
+                        'Displaying meat that has already been aged is a different task from aging it on site. Specify the intended use in your enquiry. For on-site aging, check what the model is designed to do and which controls it provides.',
+                    ],
+                    links: [
+                        { label: 'View a dry-aging cabinet model', to: '/products/41' },
+                        { label: 'See another dry-aging cabinet model', to: '/products/43' },
+                    ],
+                },
+                {
+                    heading: 'Compare meat hanging and dry-aging cabinets',
+                    paragraphs: ['Start with what you need the cabinet to do. Use these points to compare models that may look similar in photos.'],
+                    table: {
+                        headers: ['Decision point', 'Meat hanging cabinet', 'Dry-aging cabinet'],
+                        rows: [
+                            ['Primary use', 'Displaying meat on hooks or rails.', 'Controlled dry aging.'],
+                            ['Layout', 'Hanging clearance, cut length and loading access.', 'Model-specific rail or shelf layout and access.'],
+                            ['Check in the quote', 'Operating conditions and verified hanging load.', 'Aging function and which controls the model provides.'],
+                        ],
+                    },
+                },
+                {
+                    heading: 'How to prepare measurements for a hanging cabinet',
+                    paragraphs: [
+                        'Measure the available width and depth and note any height restriction. Mark the customer side and the loading side on your sketch, along with existing counters, doors and walkways. Include delivery access dimensions where relevant.',
+                        'Share the approximate size and weight of the cuts you plan to hang. Confirm usable hanging clearance and load capacity on the model’s quotation. The number of cuts you want to hang side by side helps define the internal layout.',
+                    ],
+                    items: ['Available cabinet space and units.', 'Approximate cut size, weight and quantity.', 'Door travel and staff access.', 'Intended display or aging use and preferred model.'],
+                },
+                {
+                    heading: 'Custom meat hanging cabinet manufacturing and quotes',
+                    paragraphs: [
+                        'The price can vary with dimensions, hanging arrangement, glass or door options and refrigeration features. When comparing dry-aging quotations, check which aging controls and equipment are included.',
+                        'For a custom meat hanging cabinet, send Pars Cooling your dimensions, the products you will display and a model link. We use the dimensions and intended use to assess the manufacturing request and prepare a quote.',
+                    ],
+                    links: [
+                        { label: 'Custom refrigeration cabinet quotation guide', to: '/blog/ozel-olcu-sogutma-dolabi-teklif-rehberi' },
+                        { label: 'Butcher display cabinet selection and layout', to: '/blog/kasap-teshir-dolabi-yerlesim-model-secimi' },
+                    ],
+                },
+            ],
+            questions: [
+                { question: 'Can a meat hanging cabinet be used for dry aging?', answer: 'The selected cabinet needs to be designed for dry aging and provide the required controls. Confirm its intended use and specifications in writing.' },
+                { question: 'How many cuts fit in a lamb hanging cabinet?', answer: 'The number depends on cut dimensions and the verified hanging load. Share your measurements and quantity so that a suitable layout can be assessed.' },
+                { question: 'Is cabinet space enough to request a quote?', answer: 'Include approximate cut dimensions and quantities, door clearance, intended use and a preferred model as well as your site measurements.' },
             ],
         },
     },

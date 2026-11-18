@@ -71,6 +71,15 @@ export default function BlogArticle() {
                                             </table>
                                         </div>
                                     )}
+                                    {section.links && (
+                                        <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm leading-6">
+                                            {section.links.map(link => (
+                                                <li key={link.to}>
+                                                    <Link to={link.to} className="font-semibold text-[#0079ad] underline decoration-current/40 underline-offset-4 hover:decoration-current dark:text-sky-400">{link.label}</Link>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
                                 </section>
                             ))}
                             <section id="sorular" className="scroll-mt-28">

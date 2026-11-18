@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { JSDOM } from 'jsdom';
+import { findBlogArticle } from '../src/data/blog';
+import { blogContent } from '../src/data/blogContent';
 
 // A DOM correctness test, not a browser performance measurement. No remote
 // resources or tracking scripts are executed in this environment.
@@ -134,11 +136,15 @@ try {
             assert.equal(container.querySelector('h1')?.textContent, 'Pars Cooling Blog');
             assert(container.querySelector('main a[href="/blog/ozel-olcu-sogutma-dolabi-teklif-rehberi"]'));
         } else {
-            assert.equal(container.querySelector('h1')?.textContent, 'How to request a quote for a custom refrigeration cabinet');
-            const answer = [...container.querySelectorAll<HTMLDetailsElement>('details')].find(details => details.querySelector('summary')?.textContent === 'Does Pars Cooling manufacture to custom dimensions?')!;
+            const article = findBlogArticle(pathname);
+            assert(article, 'Article missing from the catalogue: ' + pathname);
+            assert.equal(container.querySelector('h1')?.textContent, article.title.EN);
+            const [{ question, answer: expectedAnswer }] = blogContent[article.slug].EN.questions;
+            const answer = [...container.querySelectorAll<HTMLDetailsElement>('details')].find(details => details.querySelector('summary')?.textContent === question);
+            assert(answer, 'Blog question stayed in the previous language');
             await act(async () => { answer.querySelector('summary')!.click(); });
             assert(answer.open, 'Blog answer cannot be opened after hydration');
-            assert(answer.textContent?.includes('customer-provided dimensions'), 'Blog answer stayed in the previous language');
+            assert(answer.textContent?.includes(expectedAnswer), 'Blog answer stayed in the previous language');
         }
     }
     assert.equal(errors.length, 0, `Interaction errors on ${route}: ${errors.map(String).join('\n')}`);
