@@ -53,6 +53,7 @@ export const responsiveImageManifest: Record<string, { width: number; height: nu
 "/images/products/servisReyonlari/balıkTeshirDolabi/balıkTeshirDolabix.webp": {"width":1536,"height":1024,"widths":[160,320,480,640,960,1280,1536]},
 "/images/products/servisReyonlari/bombeCamliReyonDolabi/bombeCamliReyonDolabix.webp": {"width":1024,"height":1024,"widths":[160,320,480,640,960,1024]},
 "/images/products/servisReyonlari/dikCamliReyonDolabi/dikCamliReyonDolabix.webp": {"width":1536,"height":1024,"widths":[160,320,480,640,960,1280,1536]},
+"/images/products/servisReyonlari/düzCamliReyonDolabi/duzCamliReyonDolabi14.webp": {"width":1024,"height":766,"widths":[160,320,480,640,960,1024]},
 "/images/products/servisReyonlari/düzCamliReyonDolabi/duzCamliReyonDolabix.webp": {"width":1536,"height":1024,"widths":[160,320,480,640,960,1280,1536]},
 "/images/products/servisReyonlari/fullMoonDikCamliReyonDolabi/fullMoonDikCamliReyonDolabix.webp": {"width":1536,"height":1024,"widths":[160,320,480,640,960,1280,1536]},
 "/images/products/servisReyonlari/kafeRestoranTeshirDolabi/kafeRestoranTeshirDolabix.webp": {"width":1536,"height":1024,"widths":[160,320,480,640,960,1280,1536]},

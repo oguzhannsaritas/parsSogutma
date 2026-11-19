@@ -1376,13 +1376,12 @@ export const products: Product[] = [
     },
     {
         id: 30,
+        // The original catalogue name supplies the legacy URL slug.
         name: { TR: 'Düz Camlı Reyon Dolabı', EN: 'Flat Glass Display Cabinet' },
+        seoTitle: { TR: 'Reyon Dolabı – Koyu Gövdeli Servis Modeli', EN: 'Display Cabinet – Dark-Front Service Counter' },
         category: { TR: 'Servis Reyonları', EN: 'Service Aisles' },
-        type: { TR: 'Düz Camlı Reyon Dolabı', EN: 'Flat Glass Display Cabinet' },
-        image: '/images/products/servisReyonlari/düzCamliReyonDolabi/duzCamliReyonDolabix.webp',
-        thumbnails:[
-            '/images/products/servisReyonlari/düzCamliReyonDolabi/duzCamliReyonDolabi14.webp',
-        ],
+        type: { TR: 'Reyon Dolabı', EN: 'Display Cabinet' },
+        image: '/images/products/servisReyonlari/düzCamliReyonDolabi/duzCamliReyonDolabi14.webp',
         drawingImage:[
             '/images/products/servisReyonlari/düzCamliReyonDolabi/duzCamliReyonDolabi8.webp',
             '/images/products/servisReyonlari/düzCamliReyonDolabi/duzCamliReyonDolabi13.webp',
@@ -1392,19 +1391,19 @@ export const products: Product[] = [
             sidePanel: 40,
             temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
             optionalAccessory:[
-                { TR: 'Düz Camlı Reyon Dolabı Yan Kapak Aynalı veya Camlı dolap yanı.', EN: 'Flat Glass Display Cabinet Side Panel with Mirror or Glass.' },
+                { TR: 'Aynalı veya camlı yan kapak seçeneği.', EN: 'Mirror or glass side panel option.' },
                 { TR: 'Raf altı led aydınlatma.', EN: 'Under-shelf LED lighting.' },
                 { TR: 'Amortisörlü Cam ve Devirme Cam Seçenekleri.', EN: 'Shock Absorber Glass and Tilt Glass Options.' },
                 { TR: 'Depolu Reyon Dolabı Seçeneği.', EN: 'Display Cabinet with Storage Option.' },
                 { TR: 'Pleksi Sürgü Cam Seçenekleri.', EN: 'Plexi Sliding Glass Options.' },
             ],
             technicalSpecification:[
-                { TR: 'Düz Camlı Reyon Dolabı İçten ve dıştan motorlu soğutma grubu', EN: 'Flat Glass Display Cabinet Internal and external motor cooling unit' },
+                { TR: 'İçten ve dıştan motorlu soğutma seçenekleri.', EN: 'Integrated and remote refrigeration options.' },
                 { TR: 'Aksiyel fanlı soğutma', EN: 'Axial fan cooling' },
                 { TR: 'Reyon Dolabı Isıtma tava ve hazır yemek versiyonu.', EN: 'Display Cabinet Heating pan and ready meal version.' },
                 { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design providing ease of use.' },
                 { TR: 'Önden yukarı doğru açılan amortisörlü ve Devirme camlar.', EN: 'Front-upward opening shock absorber and Tilt glasses.' },
-                { TR: 'Düz Camlı Reyon Dolabı Camları Temperli Kırılmaz Camdır.', EN: 'Flat Glass Display Cabinet Glasses are Tempered Unbreakable Glass.' },
+                { TR: 'Temperli cam paneller.', EN: 'Tempered glass panels.' },
                 { TR: 'Camlar Cnc Cam Kesim Olarak Üretilmektedir.', EN: 'Glasses are Produced as CNC Glass Cutting.' },
                 { TR: 'Paslanmaz çelik zemin, tezgah ve tava sacları.', EN: 'Stainless steel floor, counter and pan sheets.' },
                 { TR: 'Gün Işığı ve Beyaz Led aydınlatma.', EN: 'Daylight and White LED lighting.' },

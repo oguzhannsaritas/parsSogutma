@@ -15,6 +15,7 @@ export interface ProductSpec {
 export interface Product {
     id: number;
     name: TranslatedString;
+    seoTitle?: TranslatedString;
     category: TranslatedString;
     type: TranslatedString;
     image: string;
