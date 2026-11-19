@@ -538,6 +538,7 @@ const displayNames: Record<number, TranslatedString> = {
     7: { TR: 'Cam Siperlikli Balık Mostra Dolabı', EN: 'Fish Display Cabinet with Glass Guard' },
     11: { TR: 'Kapaklı Balık Mostra Dolabı', EN: 'Lidded Fish Display Cabinet' },
     27: { TR: 'Servis Tipi Promosyon Dolabı', EN: 'Service Type Promotional Display Cabinet' },
+    30: { TR: 'Reyon Dolabı', EN: 'Display Cabinet' },
     53: { TR: 'Duvar Tipi Promosyon Dolabı', EN: 'Wall Type Promotional Display Cabinet' },
     41: { TR: 'Dikey Tip Dry Aged Dolabı', EN: 'Vertical Dry Aged Cabinet' },
     43: { TR: 'Duvar Tipi Dry Aged Dolabı', EN: 'Wall Type Dry Aged Cabinet' },

@@ -33,8 +33,8 @@ export const catalogModelGroups: Record<CategoryId, ModelGroupDefinition[]> = {
     ],
     reyon: [
         { id: 'dik-camli-reyonlar', name: { TR: 'Dik camlı reyonlar', EN: 'Upright glass display counters' }, productIds: [6, 17, 29] },
-        { id: 'duz-bombe-yarim-cam', name: { TR: 'Düz, bombe ve yarım camlı reyonlar', EN: 'Flat, curved and half-glass counters' }, productIds: [16, 18, 19, 30, 31, 32] },
-        { id: 'servis-teshir-reyonlari', name: { TR: 'Servis ve teşhir reyonları', EN: 'Service and display counters' }, productIds: [1, 13, 21, 22] },
+        { id: 'duz-bombe-yarim-cam', name: { TR: 'Düz, bombe ve yarım camlı reyonlar', EN: 'Flat, curved and half-glass counters' }, productIds: [16, 18, 19, 31, 32] },
+        { id: 'servis-teshir-reyonlari', name: { TR: 'Servis ve teşhir reyonları', EN: 'Service and display counters' }, productIds: [1, 13, 21, 22, 30] },
         { id: 'kuru-statik-uflemeli', name: { TR: 'Kuru, statik ve üflemeli reyonlar', EN: 'Dry-cooled, static and ventilated counters' }, productIds: [20, 28, 33] },
         { id: 'promosyon-dolaplari', name: { TR: 'Promosyon dolapları', EN: 'Promotional display cabinets' }, productIds: [27] },
     ],

@@ -193,8 +193,9 @@ function truncateDescription(value: string, maxLength = 160): string {
 
 export function getProductSeo(product: ProductSummary, language: SeoLanguage): PageSeo {
     const suffix = language === 'TR' ? 'Pars Soğutma' : 'Pars Cooling';
+    const title = product.seoTitle?.[language] ?? getProductDisplayName(product, language);
     return {
-        title: `${getProductDisplayName(product, language)} | ${suffix}`,
+        title: `${title} | ${suffix}`,
         description: getProductDescription(product, language),
         image: getProductMainImage(product),
     };

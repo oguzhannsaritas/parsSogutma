@@ -439,7 +439,7 @@ function ProductDetailView({ page }: { page: ProductPageData }) {
                                     >
                                         <img
                                             src={getProductThumbnailUrl(thumb)}
-                                            alt={`${product.name[language]} ürün görseli ${idx + 1}`}
+                                            alt={`${displayName} ürün görseli ${idx + 1}`}
                                             className="w-full h-full object-contain bg-white p-0 rounded-2xl"
                                             width={200}
                                             height={200}
@@ -542,7 +542,7 @@ function ProductDetailView({ page }: { page: ProductPageData }) {
                                                 <div className="relative rounded-2xl border border-gray-200 dark:border-neutral-700 bg-gray-50 dark:bg-neutral-800 overflow-hidden">
                                                     <img
                                                         src={drawingImages[selectedDrawingImage]}
-                                                        alt={`${product.name[language]} teknik çizim ${selectedDrawingImage + 1}`}
+                                                        alt={`${displayName} teknik çizim ${selectedDrawingImage + 1}`}
                                                         className="w-full h-auto object-contain rounded"
                                                         width={1400}
                                                         height={900}
@@ -770,8 +770,8 @@ function ProductDetailView({ page }: { page: ProductPageData }) {
                                     src={lightbox.kind === 'main' ? thumbnails[lightbox.index] : drawingImages[lightbox.index]}
                                     alt={
                                         lightbox.kind === 'main'
-                                            ? `${product.name[language]} görsel ${lightbox.index + 1}`
-                                            : `${product.name[language]} teknik çizim ${lightbox.index + 1}`
+                                            ? `${displayName} görsel ${lightbox.index + 1}`
+                                            : `${displayName} teknik çizim ${lightbox.index + 1}`
                                     }
                                     className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl bg-white dark:bg-neutral-900 select-none"
                                     draggable={false}
