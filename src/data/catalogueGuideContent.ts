@@ -5,8 +5,217 @@ const uprightGlassButcherImage = '/images/products/servisReyonlari/kasapDolabiDi
 const curvedGlassButcherImage = '/images/products/servisReyonlari/KasapReyonDolabiBombeCamli/kasapReyonDolabiBombeCamlix.webp';
 const openDairyImage = '/images/products/dikeyTipSogutuculuReyonlar/sutlukDolabi/sutlukDolabi8.webp';
 const halfHeightDairyImage = '/images/products/dikeyTipSogutuculuReyonlar/yarimBoySutlukDolabi/yarimBoySutlukDolabi5.webp';
+const kebabDisplayImage = '/images/products/servisReyonlari/kebapTeshirDolabi/kebapTeshirDolabix.webp';
+const mezzeDisplayImage = '/images/products/servisReyonlari/kebapMezeDolabi/kabapMezeDolabix1.webp';
+const cateringHygieneGuide = 'https://www.tarimorman.gov.tr/GKGM/Belgeler/Tuketici_Bilgi_Kosesi/Temp/iyi_hijyen_uygulama_rehberi/TopluTuketim_Yerleri_Hijyen_Uygulama_Kilavuzu.pdf';
+const newMoonImage = '/images/products/servisReyonlari/newMoonDüzCamliReyondolabi/newMoonDuzCamliReyondolabi.webp';
+const moonImage = '/images/products/servisReyonlari/KasapReyonDolabiBombeCamli/moonBombeCamliReyonDolabix.webp';
 
 export const catalogueGuideContent: Record<string, Record<CatalogLanguage, BlogArticleContent>> = {
+    'kebap-teshir-dolabi-meze-vitrini-yerlesimi': {
+        TR: {
+            sections: [
+                {
+                    heading: 'Şiş ve meze için iki servis noktası belirleyin',
+                    paragraphs: [
+                        'Krokide ocağı, mutfak girişini ve tabakların konacağı yeri işaretleyin. Kebap teşhir dolabının servis açıklığını ustanın tepsiyi alacağı tarafa çevirin. Meze teşhir dolabını müşterinin çeşitleri görebileceği, garsonun da hemen yanında tabak koyabileceği bir yerde değerlendirin.',
+                        'Kebap ve meze dolabı seçerken boş bir tepsi ve servis tabağıyla iki işi aynı anda deneyin. İki çalışan aynı noktada bekliyorsa vitrinlerin erişim yönünü veya tabak koyma yerini yeniden planlayın.',
+                    ],
+                    figures: [
+                        { image: kebabDisplayImage, alt: 'Kırmızı alt panelli kebap teşhir dolabının kavisli ön camı ve iç rafı', caption: 'Kebap Teşhir Dolabı', to: '/products/26' },
+                        { image: mezzeDisplayImage, alt: 'Meze teşhir dolabının aydınlatılmış cam rafları ve paslanmaz teşhir tabanı', caption: 'Meze Teşhir Dolabı', to: '/products/25' },
+                    ],
+                },
+                {
+                    heading: 'Kebap dolabı ölçülerini en uzun şişten alın',
+                    paragraphs: [
+                        'En uzun şişi sapıyla birlikte ölçün. Şişleri tepsiye serviste durdukları yönde dizin. Sap tepsinin dışına taşıyorsa toplam ölçüye ekleyin. Ardından boş tepsiyi iki elle kavrayıp servis açıklığından çıkarırken gereken boşluğu kontrol edin.',
+                        'Pars Kebap Teşhir Dolabı için katalogda 1250 ve 1875 mm gibi modül uzunlukları bulunur. Kullandığınız tepsiyi değerlendirmek için teknik çizimde kullanılabilir iç derinliği ve servis açıklığını ayrıca isteyin. Soğutmalı kebap dolabı ocağa yakın olacaksa konumu, ısı etkisini ve havalandırmayı yerleşim kesinleşmeden üreticiyle görüşün.',
+                    ],
+                },
+                {
+                    heading: 'Meze vitrininde arka sıradaki kaba ulaşmayı deneyin',
+                    paragraphs: [
+                        'Müşterinin durduğu yerden arka sıradaki mezenin adının okunup okunmadığına bakın. Garsonun öndeki kapları taşımadan o mezeyi servis edebilmesi için sık sipariş edilen çeşitleri erişimi kolay bölüme alın.',
+                        'Örneğin altı çeşit sunuyorsanız bir çalışan boşalan haydari kabını değiştirirken diğeri acılı ezmeyi tabağa alsın. Aynı rafa uzanıyorlarsa sık yenilenen kabı mutfak girişine yakın uca taşımayı deneyin. Dikey meze dolabında üst raftan dolu kabı çıkarırken alttaki servis alanının nasıl kullanıldığını da kontrol edin.',
+                    ],
+                    links: [
+                        { label: 'Dikey Meze Dolabı', to: '/products/12' },
+                        { label: 'Yatay ve dikey meze dolabı seçim rehberi', to: '/blog/meze-dolabi-secim-rehberi' },
+                    ],
+                },
+                {
+                    heading: 'Çiğ şiş ve servise hazır meze için alanları ayırın',
+                    paragraphs: [
+                        'Çiğ şişlerin teşhir ve hazırlık alanını servise hazır mezelerden ayrı planlayın. Çiğ et için ayrı maşa, tepsi ve çalışma yüzeyi kullanın. Çiğ tepsinin taşınacağı yolu krokiye çizip hazır mezenin porsiyonlandığı alanın dışında tutun. Bu ayrım çapraz bulaşma riskini azaltmaya yardımcı olur.',
+                    ],
+                    links: [{ label: 'Tarım ve Orman Bakanlığı’nın toplu tüketim yerleri için hijyen kılavuzu', to: cateringHygieneGuide }],
+                },
+                {
+                    heading: 'Teklif için ölçüleri ve servis krokisini paylaşın',
+                    paragraphs: [
+                        'Pars Soğutma’ya dolaplara ayırdığınız net uzunluk ve derinliği, en uzun şişin ölçüsünü ve aynı anda sergileyeceğiniz meze kaplarının sayısını gönderin. Ocağın, temiz tabakların ve mutfak girişinin yerini de gösterin. Ustanın ve garsonun çalıştığı noktalar görüldüğünde uygun model ve yerleşim birlikte değerlendirilebilir.',
+                    ],
+                },
+            ],
+            questions: [
+                { question: 'Kebap dolabının tepsime uyduğunu nasıl anlarım?', answer: 'En uzun şişi sapıyla birlikte tepsiye yerleştirip tepsinin kapladığı toplam alanı ölçün. Bu ölçüyü dolabın net iç derinliğiyle karşılaştırın ve tepsinin servis açıklığından rahatça çıkmasını kontrol edin.' },
+                { question: 'Meze vitrininin yanında nereye boş alan bırakmalıyım?', answer: 'Garsonun tabak koyacağı ve dolu kabı kaldıracağı yeri işaretleyin. Kap değişimiyle meze servisinin aynı anda yapılabildiğini deneyin.' },
+                { question: 'Soğutmalı kebap dolabını ocağın yanına koyabilir miyim?', answer: 'Planlanan konumu seçilen modelin kurulum talimatlarıyla birlikte değerlendirin. Ocağın ısı etkisini, havalandırmayı ve servis geçişini üreticiye gösterin.' },
+            ],
+        },
+        EN: {
+            sections: [
+                {
+                    heading: 'Set up separate service points for skewers and mezze',
+                    paragraphs: [
+                        'On the sketch, mark the grill, kitchen entrance and space for plates. Orient the kebab display’s service opening so the cook can reach the tray. Place the mezze display where customers can see the dishes and the server has room to set down a plate.',
+                        'Try both jobs at once with an empty tray and a serving plate. If two people have to wait for the same spot, reconsider how they reach the displays or where they put the plates.',
+                    ],
+                    figures: [
+                        { image: kebabDisplayImage, alt: 'Kebab display cabinet with curved front glass, an internal shelf and a red base', caption: 'Kebab Display Cabinet', to: '/products/26' },
+                        { image: mezzeDisplayImage, alt: 'Illuminated glass shelves and stainless display base of a mezze cabinet', caption: 'Mezze Display Cabinet', to: '/products/25' },
+                    ],
+                },
+                {
+                    heading: 'Size the kebab display using your longest skewer',
+                    paragraphs: [
+                        'Measure your longest skewer with its handle. Lay the skewers in the tray as you would during service and include any handles that extend beyond its edge. Then use an empty tray to check how much room you need to grip it with both hands and remove it through the service opening.',
+                        'The Pars Kebab Display Cabinet lists module lengths including 1,250 and 1,875 mm. Ask for the usable internal depth and the service opening dimensions to check the tray. If the cabinet will sit near the grill, discuss heat, ventilation and positioning with the manufacturer before finalising the layout.',
+                    ],
+                },
+                {
+                    heading: 'Try reaching the back row in the mezze display',
+                    paragraphs: [
+                        'From where the customer stands, check whether the label on the back row is legible. Give popular dishes an accessible spot so the server can reach them without moving other containers.',
+                        'If you serve six dishes, try having one person replace an empty haydari container while the other portions the spicy ezme. If they both reach for the same shelf, try moving the container you replenish most often closer to the kitchen entrance. For an upright mezze cabinet, see whether you can serve from below while removing a full dish from the upper shelf.',
+                    ],
+                    links: [
+                        { label: 'Upright Mezze Cabinet', to: '/products/12' },
+                        { label: 'Choosing a counter-height or upright mezze cabinet', to: '/blog/meze-dolabi-secim-rehberi' },
+                    ],
+                },
+                {
+                    heading: 'Separate raw skewers from ready-to-serve mezze',
+                    paragraphs: [
+                        'Plan separate display and work areas for raw skewers and ready-to-serve mezze. Use separate tongs, trays and work surfaces for raw meat. On the sketch, keep the raw tray’s route clear of the area where mezze is portioned. This separation helps reduce the risk of cross-contamination.',
+                    ],
+                    links: [{ label: 'Turkish Ministry of Agriculture and Forestry hygiene guide for catering businesses', to: cateringHygieneGuide }],
+                },
+                {
+                    heading: 'Send dimensions and a service sketch for a quote',
+                    paragraphs: [
+                        'Send Pars Cooling the available length and depth for the cabinets, the length of the longest skewer and the number of mezze dishes you plan to display at once. Mark the grill, clean plates and kitchen entrance. Knowing where the cook and server work helps us assess which model fits the layout.',
+                    ],
+                },
+            ],
+            questions: [
+                { question: 'How can I tell whether my tray will fit?', answer: 'Lay the longest skewer in the tray and measure the complete footprint, including the handle. Compare it with the usable cabinet depth and check that you can remove the tray through the service opening.' },
+                { question: 'Where should I leave room around the mezze display?', answer: 'Mark where the server will set down plates and lift out full dishes. Try replenishing a dish and serving a customer at the same time.' },
+                { question: 'Can I place the kebab display next to the grill?', answer: 'Check the planned position against the selected model’s installation instructions. Show the manufacturer the grill, ventilation and working space.' },
+            ],
+        },
+    },
+    'duz-camli-bombe-camli-reyon-dolabi-farklari': {
+        TR: {
+            sections: [
+                {
+                    heading: 'Dik, düz ve bombe cam arasındaki fark',
+                    paragraphs: [
+                        'Dik camlı reyon dolabı ifadesi camın duruşunu anlatır. Düz ve bombe cam ifadeleri ise yüzeyin biçimini tarif eder. Düz bir cam dik de eğimli de durabilir. Bir reyon dolabı için önden çekilmiş fotoğrafın yanında yan profili veya ölçülü kesiti inceleyin.',
+                    ],
+                    figures: [
+                        { image: newMoonImage, alt: 'NEW MOON reyon dolabının eğimli düz ön camı ve yan profili', caption: 'NEW MOON Düz Camlı Reyon Dolabı', to: '/products/18' },
+                        { image: moonImage, alt: 'MOON reyon dolabının kavisli ön camı ve köşe dönüşü', caption: 'MOON Bombe Camlı Reyon Dolabı', to: '/products/16' },
+                    ],
+                    table: {
+                        headers: ['Pars modeli', 'Ön camın profili', 'Mağazada kontrol edin'],
+                        rows: [
+                            ['FULL MOON', 'Dik ön cam', 'Camın üst kenarı veya raf hizası arka sırayı görmeyi zorlaştırıyor mu?'],
+                            ['NEW MOON', 'Eğimli düz ön cam', 'Ürünün etiketi karşıdan ve mağazaya giriş yönünden okunabiliyor mu?'],
+                            ['MOON', 'Kavisli ön cam', 'Cam ve gövdenin en öndeki noktasıyla karşı raf arasında ne kadar alan kalıyor?'],
+                        ],
+                    },
+                    links: [{ label: 'FULL MOON Dik Camlı Reyon Dolabı', to: '/products/17' }],
+                },
+                {
+                    heading: 'Aynı etiketi iki müşteri açısından okuyun',
+                    paragraphs: [
+                        'Mevcut reyonu değiştiriyorsanız müşterinin en sık sorduğu ürünü seçin. Örneğin tulum peynirinin adı önden okunuyor ama sıranın başından görünmüyorsa etiketi tepsinin girişe bakan kenarında deneyin. Camda bir spotun yansıması etiketi örtüyorsa aydınlatmanın yönünü de kontrol edin.',
+                        'Yeni bir mağazada soğutmalı teşhir dolabının yan çizimindeki en dış noktayı zeminde bantla işaretleyin. Bir kişi reyon önünde dururken diğeri sepetle arkasından geçsin. İki modeli karşılaştırırken karşı rafı ve müşterinin duracağı noktayı aynı tutun.',
+                    ],
+                },
+                {
+                    heading: 'Cam açılırken tepsi ve temizlik erişimini kontrol edin',
+                    paragraphs: [
+                        'Personel servisli bir soğutmalı reyonda en arkadaki tepsiyi iki elle çıkarmayı deneyin. Camın içini temizlerken hangi yönden erişileceğini üreticiye sorun. Ön cam açılıyorsa hareketini çizime ekleyin. Üst raf, aydınlatma veya öndeki stand bu hareket alanına giriyorsa yerlerini montajdan önce değerlendirin.',
+                    ],
+                    links: [{ label: 'Şarküteri reyon dolabı seçim rehberi', to: '/blog/sarkuteri-reyon-dolabi-secim-rehberi' }],
+                },
+                {
+                    heading: 'İki reyon dolabı fiyat teklifini aynı ölçülerle karşılaştırın',
+                    paragraphs: [
+                        'Tekliflerde aynı modül uzunluğunu, net teşhir derinliğini ve istediğiniz cam açılımını karşılaştırın. Sergilenecek ürüne uygun çalışma koşullarıyla soğutma donanımını da yazılı olarak isteyin. Montaj kapsamını ve bitişik tezgâhlarla birleşimi ayrıca kontrol edin.',
+                        'Pars Soğutma’ya model adını ve ürün bağlantısını, reyon için ayırdığınız alanın ölçülerini ve müşterinin hangi yönden yaklaşacağını gösteren bir fotoğraf gönderin. Bu bilgiler, doğru cam profili ve servis düzeninin seçilmesini kolaylaştırır.',
+                    ],
+                },
+            ],
+            questions: [
+                { question: 'Dik cam ile düz cam aynı şeyi mi anlatır?', answer: 'Dik cam, panelin yönünü belirtir. Düz cam, panelin yüzey biçimini belirtir. Örneğin NEW MOON modelinde düz panel eğimli durur.' },
+                { question: 'Bombe cam bir vitrinin kapasitesini nasıl etkiler?', answer: 'Modelin kesitinde kullanılabilir derinliği, raf yüksekliğini ve ön camla dolu tepsi arasında kalan boşluğu karşılaştırın. Kapasite hesabında sergileyeceğiniz kapların ölçülerini kullanın.' },
+                { question: 'Dar bir koridorda hangi ölçüyü karşılaştırmalıyım?', answer: 'Dolabın camı veya gövdesi dahil en öne çıkan noktayla karşı raf arasındaki net alanı ölçün. Ardından müşteri reyonun önünde durduğunda sepetle geçişi deneyin.' },
+            ],
+        },
+        EN: {
+            sections: [
+                {
+                    heading: 'How upright, flat and curved glass differ',
+                    paragraphs: [
+                        'Upright glass describes how the panel is positioned. Flat and curved describe the shape of its surface. Flat glass can sit upright or at an angle. Look at a side photo or a dimensioned section when you compare cabinets.',
+                    ],
+                    figures: [
+                        { image: newMoonImage, alt: 'Angled flat front glass and side profile of a NEW MOON display cabinet', caption: 'NEW MOON Flat-Glass Display Cabinet', to: '/products/18' },
+                        { image: moonImage, alt: 'MOON display cabinet with curved front glass and a corner section', caption: 'MOON Curved-Glass Display Cabinet', to: '/products/16' },
+                    ],
+                    table: {
+                        headers: ['Pars model', 'Front glass profile', 'What to check in the shop'],
+                        rows: [
+                            ['FULL MOON', 'Upright front glass', 'Does the top edge or a shelf obscure the back row?'],
+                            ['NEW MOON', 'Angled flat glass', 'Can shoppers read the label from the front and when approaching from the entrance?'],
+                            ['MOON', 'Curved front glass', 'How much room is left between the furthest point of the cabinet and the shelving opposite?'],
+                        ],
+                    },
+                    links: [{ label: 'FULL MOON Upright-Glass Display Cabinet', to: '/products/17' }],
+                },
+                {
+                    heading: 'Read the same label from two positions',
+                    paragraphs: [
+                        'If you are replacing a counter, pick a product customers often ask about. If the label on a cheese at the back can be read from the front but not from the head of the queue, try it on the edge of the tray facing the approaching shopper. If glare hides the label, check where the spotlights point.',
+                        'For a new shop, mark the outermost point of the display cabinet on the floor using its section drawing. Have someone stand at the display while another person passes with a basket. Keep the opposite shelf and the shopper’s position the same when comparing two models.',
+                    ],
+                },
+                {
+                    heading: 'Check tray and cleaning access with the glass open',
+                    paragraphs: [
+                        'For a staffed refrigerated counter, try removing the tray furthest away with both hands. Ask which side provides access to clean the inside of the glass. If the front glass opens, mark its movement on the sketch. Check for shelving, lights or a display stand in that space before installation.',
+                    ],
+                    links: [{ label: 'Guide to choosing a refrigerated deli display counter', to: '/blog/sarkuteri-reyon-dolabi-secim-rehberi' }],
+                },
+                {
+                    heading: 'Compare two display cabinet quotes on the same measurements',
+                    paragraphs: [
+                        'Compare the same module length, usable display depth and preferred glass opening. Ask for written details of the refrigeration equipment and the operating conditions for the products you will display. Check the installation scope and any joins to adjacent counters.',
+                        'Send Pars Cooling the model name and link, the measurements of the display area and a photo from the direction customers will approach. This helps us assess the glass profile and service layout for your shop.',
+                    ],
+                },
+            ],
+            questions: [
+                { question: 'Do upright and flat glass mean the same thing?', answer: 'Upright refers to the panel’s position. Flat refers to its surface shape. For example, the flat front glass on the NEW MOON sits at an angle.' },
+                { question: 'How does curved glass affect capacity?', answer: 'Use the section drawing to compare usable depth, shelf height and clearance between a full tray and the glass. Estimate capacity with the dimensions of the trays you plan to use.' },
+                { question: 'What should I measure in a narrow aisle?', answer: 'Measure the clear space between the outermost point of the cabinet and the shelving opposite. Then try passing with a basket while someone stands in front of the counter.' },
+            ],
+        },
+    },
     'kasap-dolabi-olculeri-et-teshir': {
         TR: {
             sections: [
@@ -266,7 +475,10 @@ export const catalogueGuideContent: Record<string, Record<CatalogLanguage, BlogA
                         'Soğutma sistemleri ve vitrin modelleri karşılaştırılırken meze kaplarının hangi yönden doldurulacağını ve personelin servis tabaklarını nereye koyacağını tarif edin. Endüstriyel soğutma ekipmanının çalışma koşullarını seçilen model üzerinden teyit edin.',
                         'Kale Restoran’ın Maltepe uygulamasında çok raflı meze teşhir dolabı mutfak açıklığının önünde duruyor. Müşteri cephesi servis alanına bakıyor. Fotoğraflarda tepsi yerleşimini ve vitrinin restoran içindeki konumunu birlikte inceleyebilirsiniz.',
                     ],
-                    links: [{ label: 'Kale Restoran meze vitrini uygulaması', to: '/referans/kale-restoran' }],
+                    links: [
+                        { label: 'Kebap teşhir dolabı ve meze vitrini yerleşimi', to: '/blog/kebap-teshir-dolabi-meze-vitrini-yerlesimi' },
+                        { label: 'Kale Restoran meze vitrini uygulaması', to: '/referans/kale-restoran' },
+                    ],
                 },
                 {
                     heading: 'Meze dolabı fiyatları ve özel ölçü imalatı',
@@ -301,7 +513,10 @@ export const catalogueGuideContent: Record<string, Record<CatalogLanguage, BlogA
                 {
                     heading: 'Review a restaurant display in use',
                     paragraphs: ['Check where dishes will enter the cabinet and where staff will set serving plates. Confirm the commercial refrigeration requirements for the chosen model and intended products.', 'At Kale Restoran in Maltepe, the multi-shelf mezze display sits in front of the kitchen opening and faces the service area. The photos show the tray layout and how the cabinet fits inside the restaurant.'],
-                    links: [{ label: 'Kale Restoran display project', to: '/referans/kale-restoran' }],
+                    links: [
+                        { label: 'Planning where to place kebab and mezze displays', to: '/blog/kebap-teshir-dolabi-meze-vitrini-yerlesimi' },
+                        { label: 'Kale Restoran display project', to: '/referans/kale-restoran' },
+                    ],
                 },
                 {
                     heading: 'Pricing and custom dimensions',
@@ -417,7 +632,13 @@ export const catalogueGuideContent: Record<string, Record<CatalogLanguage, BlogA
                             ['Farklı ürünleri bir araya getiren reyon', 'Her bölümün ölçüsü, ürün yerleşimi ve ilgili soğutma donanımı.'],
                         ],
                     },
-                    links: [{ label: 'Şarküteri dolabı', to: '/products/50' }, { label: 'Dik camlı reyon dolabı', to: '/products/17' }, { label: 'Statik soğutmalı reyon dolabı', to: '/products/28' }, { label: 'Üflemeli reyon dolabı', to: '/products/33' }],
+                    links: [
+                        { label: 'Şarküteri dolabı', to: '/products/50' },
+                        { label: 'Dik camlı reyon dolabı', to: '/products/17' },
+                        { label: 'Statik soğutmalı reyon dolabı', to: '/products/28' },
+                        { label: 'Üflemeli reyon dolabı', to: '/products/33' },
+                        { label: 'Düz, dik ve bombe camlı reyon dolabı karşılaştırması', to: '/blog/duz-camli-bombe-camli-reyon-dolabi-farklari' },
+                    ],
                 },
                 {
                     heading: 'Market şarküteri reyonu ölçüleri ve bir uygulama örneği',
@@ -455,7 +676,13 @@ export const catalogueGuideContent: Record<string, Record<CatalogLanguage, BlogA
                         headers: ['Use', 'Layout to check'],
                         rows: [['Staff-served cheese', 'Cutting, weighing, packaging and loading area.'], ['Packaged deli products', 'Customer access, package size and restocking.'], ['Multiple display zones', 'Section dimensions, product arrangement and refrigeration scope.']],
                     },
-                    links: [{ label: 'Deli display cabinet', to: '/products/50' }, { label: 'Upright-glass display counter', to: '/products/17' }, { label: 'Static refrigerated counter', to: '/products/28' }, { label: 'Ventilated refrigerated counter', to: '/products/33' }],
+                    links: [
+                        { label: 'Deli display cabinet', to: '/products/50' },
+                        { label: 'Upright-glass display counter', to: '/products/17' },
+                        { label: 'Static refrigerated counter', to: '/products/28' },
+                        { label: 'Ventilated refrigerated counter', to: '/products/33' },
+                        { label: 'Compare flat, upright and curved display glass', to: '/blog/duz-camli-bombe-camli-reyon-dolabi-farklari' },
+                    ],
                 },
                 {
                     heading: 'Deli counter measurements and a store example',
