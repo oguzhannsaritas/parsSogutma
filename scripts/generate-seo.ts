@@ -7,8 +7,9 @@ import path from 'node:path';
 import { products } from '../src/data/products/index';
 import { getCanonicalProductId, getCategoryPath, getProductCategory, getProductDisplayName, isCanonicalProduct, productCategories } from '../src/data/catalog';
 import { getReferencePath, projects } from '../src/data/references';
-import { blogArticles, findBlogArticle, getBlogArticlePath } from '../src/data/blog';
-import { blogArticleJsonLd, blogIndexJsonLd, getBlogArticleSeo } from '../src/seo/blog';
+import { blogArticles, blogIndexPaths, getBlogArticlePath, getBlogIndexPage } from '../src/data/blog';
+import { getPageName } from '../src/lib/pageModules';
+import { blogArticleJsonLd, blogIndexJsonLd, getBlogArticleSeo, getBlogIndexSeo } from '../src/seo/blog';
 import {
     absoluteUrl,
     breadcrumbJsonLd,
@@ -44,8 +45,7 @@ type ManifestChunk = { file: string; imports?: string[]; isEntry?: boolean };
 const buildManifest: Record<string, ManifestChunk> = JSON.parse(await readFile(path.join(distDir, '.vite/manifest.json'), 'utf8'));
 
 function routeModulePreloads(route: string): string {
-    const staticPages: Record<string, string> = { '/': 'Home', '/products': 'Products', '/references': 'References', '/about': 'About', '/contact': 'Contact', '/gallery': 'PhotoGallery', '/e-catalog': 'ECatalog', '/blog': 'Blog', '/404': 'NotFound' };
-    const page = staticPages[route] ?? (findBlogArticle(route) ? 'BlogArticle' : /^\/urunler\//.test(route) ? 'ProductCategory' : /^\/(products|urun|blog)\//.test(route) ? 'ProductDetail' : 'ReferenceDetail');
+    const page = getPageName(route);
     const visited = new Set<string>();
     const files = new Set<string>();
     const visit = (key: string) => {
@@ -141,16 +141,17 @@ async function writeSnapshot(snapshot: Snapshot) {
     await writeFile(destination, snapshotHtml(snapshot, page));
 }
 
-const staticRoutes = Object.keys(staticPageSeo);
+const staticRoutes = [...Object.keys(staticPageSeo), ...blogIndexPaths.slice(1)];
 for (const route of staticRoutes) {
-    const seo = staticPageSeo[route].TR;
+    const blogPage = getBlogIndexPage(route);
+    const seo = blogPage ? getBlogIndexSeo(blogPage, 'TR') : staticPageSeo[route].TR;
     await writeSnapshot({
         route,
         title: seo.title,
         description: seo.description,
         image: seo.image ?? DEFAULT_SOCIAL_IMAGE,
-        jsonLd: route === '/blog'
-            ? [organizationJsonLd(), blogIndexJsonLd('TR'), breadcrumbJsonLd([{ name: 'Ana Sayfa', path: '/' }, { name: 'Blog', path: '/blog' }])]
+        jsonLd: blogPage
+            ? [organizationJsonLd(), blogIndexJsonLd('TR', blogPage), breadcrumbJsonLd([{ name: 'Ana Sayfa', path: '/' }, { name: 'Blog', path: '/blog' }])]
             : [organizationJsonLd()],
     });
 }

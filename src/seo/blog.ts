@@ -1,4 +1,4 @@
-import { blogArticles, getBlogArticlePath, type BlogArticleSummary } from '../data/blog';
+import { blogIndexPaths, getBlogArticlePath, getBlogIndexArticles, type BlogArticleSummary } from '../data/blog';
 import { absoluteUrl, SITE_NAME, SITE_URL, staticPageSeo, type SeoLanguage } from './config';
 
 export function getBlogArticleSeo(article: BlogArticleSummary, language: SeoLanguage) {
@@ -9,19 +9,27 @@ export function getBlogArticleSeo(article: BlogArticleSummary, language: SeoLang
     };
 }
 
-export function blogIndexJsonLd(language: SeoLanguage) {
+export function getBlogIndexSeo(page: number, language: SeoLanguage) {
+    const seo = staticPageSeo['/blog'][language];
+    if (page === 1) return seo;
+    const pageLabel = language === 'TR' ? 'Sayfa' : 'Page';
+    return { ...seo, title: seo.title + ' · ' + pageLabel + ' ' + page };
+}
+
+export function blogIndexJsonLd(language: SeoLanguage, page: number) {
+    const url = SITE_URL + blogIndexPaths[page - 1];
     return {
         '@context': 'https://schema.org',
         '@type': 'CollectionPage',
-        '@id': SITE_URL + '/blog#blog',
-        url: SITE_URL + '/blog',
+        '@id': url + '#blog',
+        url,
         name: language === 'TR' ? 'Pars Soğutma Blog' : 'Pars Cooling Blog',
         description: staticPageSeo['/blog'][language].description,
         inLanguage: language === 'TR' ? 'tr-TR' : 'en',
         publisher: { '@id': SITE_URL + '/#organization' },
         mainEntity: {
             '@type': 'ItemList',
-            itemListElement: blogArticles.map((article, index) => ({
+            itemListElement: getBlogIndexArticles(page).map((article, index) => ({
                 '@type': 'ListItem',
                 position: index + 1,
                 url: SITE_URL + getBlogArticlePath(article),

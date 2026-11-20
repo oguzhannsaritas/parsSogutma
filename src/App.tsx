@@ -11,7 +11,7 @@ import { InitialPageProvider, useInitialPage } from './context/InitialPageContex
 import type { ProductPageData } from './lib/productData';
 import { lazyPages, type InitialRoutePage } from './lib/pageModules';
 import SeoManager from './seo/SeoManager';
-import { blogArticles, getBlogArticlePath } from './data/blog';
+import { blogArticles, blogIndexPaths, getBlogArticlePath } from './data/blog';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -58,7 +58,7 @@ export function AppContent({ initialProduct, initialPage }: AppProps) {
                   <Route path="/products/:id" element={<ProductDetail />} />
                   <Route path="/urunler/:categorySlug" element={<ProductCategory />} />
                   <Route path="/urun/:slug" element={<ProductDetail />} />
-                  <Route path="/blog" element={<Blog />} />
+                  {blogIndexPaths.map(path => <Route key={path} path={path} element={<Blog />} />)}
                   {blogArticles.map(article => <Route key={article.slug} path={getBlogArticlePath(article)} element={<BlogArticle />} />)}
                   <Route path="/blog/:legacySlug" element={<ProductDetail />} />
                   <Route path="/references" element={<References />} />
