@@ -1,6 +1,6 @@
 import { getReferenceSeo, referencePageJsonLd } from './references';
-import { findBlogArticle, getBlogArticlePath } from '../data/blog';
-import { blogArticleJsonLd, blogIndexJsonLd, getBlogArticleSeo } from './blog';
+import { blogIndexPaths, findBlogArticle, getBlogArticlePath, getBlogIndexPage } from '../data/blog';
+import { blogArticleJsonLd, blogIndexJsonLd, getBlogArticleSeo, getBlogIndexSeo } from './blog';
 import { useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
@@ -77,15 +77,16 @@ export default function SeoManager() {
                 ],
             };
         }
-        if (pathname === '/blog') {
+        const blogPage = getBlogIndexPage(pathname);
+        if (blogPage) {
             return {
-                ...staticPageSeo['/blog'][language],
+                ...getBlogIndexSeo(blogPage, language),
                 image: DEFAULT_SOCIAL_IMAGE,
-                canonicalPath: '/blog',
+                canonicalPath: blogIndexPaths[blogPage - 1],
                 type: 'website',
                 robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
                 jsonLd: [
-                    organizationJsonLd(), blogIndexJsonLd(language),
+                    organizationJsonLd(), blogIndexJsonLd(language, blogPage),
                     breadcrumbJsonLd([
                         { name: language === 'TR' ? 'Ana Sayfa' : 'Home', path: '/' },
                         { name: 'Blog', path: '/blog' },

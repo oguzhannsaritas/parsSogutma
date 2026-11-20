@@ -1,5 +1,6 @@
 import { spawnSync } from 'node:child_process';
 import { getCategoryPath, productCategories } from '../src/data/catalog';
+import { blogIndexPaths } from '../src/data/blog';
 const cases: Array<{ route: string; mobile?: boolean; dark?: boolean }> = [
     { route: '/' },
     ...productCategories.map(category => ({ route: getCategoryPath(category), mobile: ['sutluk', 'mutfak'].includes(category.id) })),
@@ -7,7 +8,9 @@ const cases: Array<{ route: string; mobile?: boolean; dark?: boolean }> = [
     { route: '/products/14', mobile: true, dark: true },
     { route: '/products?search=pasta' },
     { route: '/blog' },
+    ...blogIndexPaths.slice(1).map(route => ({ route, mobile: true, dark: true })),
     { route: '/blog/ozel-olcu-sogutma-dolabi-teklif-rehberi', mobile: true, dark: true },
+    { route: '/blog/pasta-dolabi-cikolata-dolabi-farki' },
 ];
 for (const test of cases) {
     const result = spawnSync(process.execPath, ['--import', 'tsx', 'scripts/check-hydration.ts', test.route], {

@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { JSDOM } from 'jsdom';
-import { findBlogArticle } from '../src/data/blog';
+import { blogIndexPaths, findBlogArticle, getBlogArticlePath, getBlogIndexArticles, getBlogIndexPage } from '../src/data/blog';
 import { blogContent } from '../src/data/blogContent';
 
 // A DOM correctness test, not a browser performance measurement. No remote
@@ -127,14 +127,25 @@ try {
         assert(container.querySelector('main a[href="/products/14"]'), 'Search query was not applied after hydration');
         assert(!container.querySelector('main a[href="/products/1"]'), 'Unfiltered cards remained after search');
     }
-    if (pathname === '/blog' || container.querySelector('[data-blog-article]')) {
+    const blogPage = getBlogIndexPage(pathname);
+    if (blogPage || container.querySelector('[data-blog-article]')) {
         const canonicalBefore = win.document.querySelector('link[rel="canonical"]')?.getAttribute('href');
         await act(async () => { container.querySelector<HTMLButtonElement>('button[aria-label="Toggle language"]')!.click(); });
         assert.equal(win.document.documentElement.lang, 'en', 'Blog language metadata did not update');
         assert.equal(win.document.querySelector('link[rel="canonical"]')?.getAttribute('href'), canonicalBefore, 'Language switch changed the blog address');
-        if (pathname === '/blog') {
+        if (blogPage) {
             assert.equal(container.querySelector('h1')?.textContent, 'Pars Cooling Blog');
-            assert(container.querySelector('main a[href="/blog/ozel-olcu-sogutma-dolabi-teklif-rehberi"]'));
+            const listing = () => [...container.querySelectorAll('section[aria-label="Blog articles"] article > a')].map(link => link.getAttribute('href'));
+            assert.deepEqual(listing(), getBlogIndexArticles(blogPage).map(getBlogArticlePath));
+            const destination = blogIndexPaths[blogPage];
+            if (destination) {
+                const link = container.querySelector<HTMLAnchorElement>('nav[aria-label="Blog pages"] a[href="' + destination + '"]')!;
+                await act(async () => { link.click(); });
+                assert.equal(win.location.pathname, destination);
+                assert.equal(win.document.querySelector('link[rel="canonical"]')?.getAttribute('href'), 'https://parsogutma.com' + destination);
+                assert.deepEqual(listing(), getBlogIndexArticles(blogPage + 1).map(getBlogArticlePath));
+                assert.equal(verticalPosition, 0, 'Pagination did not move to the top of the listing');
+            }
         } else {
             const article = findBlogArticle(pathname);
             assert(article, 'Article missing from the catalogue: ' + pathname);

@@ -251,7 +251,45 @@ export const blogArticles: BlogArticleSummary[] = [
         publishedOn: '2026-11-18',
         updatedOn: '2026-11-18',
     },
+    {
+        slug: 'pasta-dolabi-cikolata-dolabi-farki',
+        title: {
+            TR: 'Pasta Dolabı ile Çikolata Dolabı Arasındaki Farklar',
+            EN: 'What Is the Difference Between a Pastry and a Chocolate Display Cabinet?',
+        },
+        description: {
+            TR: 'Pasta ve çikolata dolaplarını raf düzeni, sıcaklık ve nem açısından karşılaştırın. Ürünlerin hangi koşullarda aynı vitrinde sergilenebileceğini öğrenin.',
+            EN: 'Compare pastry and chocolate display cabinets by shelf layout, temperature and humidity. Find out when cakes and chocolates can share a display.',
+        },
+        introduction: {
+            TR: 'Kremalı pastaları ve kutulu çikolataları aynı cam vitrinde sergilemek istiyorsanız önce her ürünün muhafaza koşullarını karşılaştırın. Pasta dolabında pastanın yüksekliği ve servis için ayrılan çalışma alanı önemlidir. Çikolata dolabında tepsi ve kutu düzeninin yanında sıcaklığın istikrarı ve nem de seçimi etkiler.',
+            EN: 'If you want to display cream cakes and boxed chocolates in one glass showcase, first compare the storage requirements of each product. Cake height and serving space matter when choosing a pastry cabinet. For a chocolate display, consider temperature stability and humidity alongside tray and box layout.',
+        },
+        topic: { TR: 'Pastane rehberi', EN: 'Bakery guide' },
+        image: '/images/products/unluMamuller/pastaCikolataDolabi/pastaCikolataDolabi11.webp',
+        imageAlt: { TR: 'Geniş camlı ön cephesi ve rafları görünen Pars Pasta ve Çikolata Dolabı', EN: 'Pars pastry and chocolate display cabinet with a wide glass front and shelving' },
+        relatedCategoryIds: ['pasta'],
+        publishedOn: '2026-11-20',
+        updatedOn: '2026-11-20',
+    },
 ];
+
+const articlesPerPage = 6;
+const articlesByDate = [...blogArticles].sort((a, b) => b.publishedOn.localeCompare(a.publishedOn));
+
+export const blogIndexPaths = Array.from(
+    { length: Math.max(1, Math.ceil(articlesByDate.length / articlesPerPage)) },
+    (_, index) => index === 0 ? '/blog' : '/blog/sayfa/' + (index + 1),
+);
+
+export function getBlogIndexPage(pathname: string): number | undefined {
+    const index = blogIndexPaths.indexOf(pathname.replace(/\/+$/, ''));
+    return index >= 0 ? index + 1 : undefined;
+}
+
+export function getBlogIndexArticles(page: number): BlogArticleSummary[] {
+    return articlesByDate.slice((page - 1) * articlesPerPage, page * articlesPerPage);
+}
 
 export function getBlogArticlePath(article: BlogArticleSummary): string {
     return '/blog/' + article.slug;
@@ -264,7 +302,7 @@ export function findBlogArticle(pathname: string): BlogArticleSummary | undefine
 
 export function getCategoryBlogArticles(categoryId: CategoryId): BlogArticleSummary[] {
     const selectionGuides: Partial<Record<CategoryId, string[]>> = {
-        pasta: ['pasta-teshir-dolabi-secim-rehberi'],
+        pasta: ['pasta-teshir-dolabi-secim-rehberi', 'pasta-dolabi-cikolata-dolabi-farki'],
         kasap: ['kasap-teshir-dolabi-yerlesim-model-secimi', 'et-aski-dolabi-dry-aged-dolabi-farki'],
         sutluk: ['acik-sutluk-cam-kapakli-sutluk-secimi'],
         meze: ['meze-dolabi-secim-rehberi'],

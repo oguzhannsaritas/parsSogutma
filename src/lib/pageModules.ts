@@ -1,5 +1,5 @@
 import { lazy, type ComponentType } from 'react';
-import { findBlogArticle } from '../data/blog';
+import { findBlogArticle, getBlogIndexPage } from '../data/blog';
 
 export const pageLoaders = {
     Home: () => import('../pages/Home'),
@@ -35,8 +35,9 @@ export const lazyPages: Record<PageName, ComponentType> = {
 };
 
 export function getPageName(pathname: string): PageName {
-    const routes: Record<string, PageName> = { '/': 'Home', '/products': 'Products', '/references': 'References', '/contact': 'Contact', '/about': 'About', '/gallery': 'PhotoGallery', '/e-catalog': 'ECatalog', '/blog': 'Blog' };
+    const routes: Record<string, PageName> = { '/': 'Home', '/products': 'Products', '/references': 'References', '/contact': 'Contact', '/about': 'About', '/gallery': 'PhotoGallery', '/e-catalog': 'ECatalog' };
     if (routes[pathname]) return routes[pathname];
+    if (getBlogIndexPage(pathname)) return 'Blog';
     if (findBlogArticle(pathname)) return 'BlogArticle';
     if (/^\/(products|urun|blog)\/[^/]+$/.test(pathname)) return 'ProductDetail';
     if (/^\/urunler\/[^/]+$/.test(pathname)) return 'ProductCategory';

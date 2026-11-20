@@ -7,14 +7,142 @@ export type BlogSection = {
     items?: string[];
     table?: { headers: string[]; rows: string[][] };
     links?: Array<{ label: string; to: string }>;
+    figures?: Array<{ image: string; alt: string; caption: string; to: string }>;
 };
 export type BlogArticleContent = {
     sections: BlogSection[];
     questions: Array<{ question: string; answer: string }>;
 };
 
+const pastryDisplayImage = '/images/products/unluMamuller/pastaDolabi/pastaDolabix.webp';
+const chocolateDisplayImage = '/images/products/unluMamuller/cikolataDolabi/cikolataDolabi2.webp';
+const chocolateStorageGuide = 'https://www.callebaut.com/en-AE/confectionery-shelf-life-good-storage-practices';
+const pastryChocolateComparison = '/blog/pasta-dolabi-cikolata-dolabi-farki';
+
 export const blogContent: Record<string, Record<CatalogLanguage, BlogArticleContent>> = {
     ...catalogueGuideContent,
+    'pasta-dolabi-cikolata-dolabi-farki': {
+        TR: {
+            sections: [
+                {
+                    heading: 'Pasta dolabı ve çikolata dolabı ne işe yarar?',
+                    paragraphs: [
+                        'Pasta teşhir dolabı, bütün pastaları, dilimleri ve ekler gibi porsiyon tatlıları servis sırasında görünür tutar. Soğuk muhafaza gerektiren yaş pastalar için ürününüze uygun soğutmalı versiyonu değerlendirin. Kuru pasta ve kurabiyeleri de ürün listenizde ayrı belirtin. Çok raflı modellerde pastanın yüksekliği ve tepsinin rahatça çıkarılması için gereken boşluk önemlidir.',
+                        'Çikolata dolabı, açık çikolataları ve hediye kutularını raflı bir cam vitrinde sergiler. Tepsi derinliği, kutu yüksekliği ve ürünlerin vitrinde nasıl yer değiştireceği raf planını belirler. Ürünlerinizin saklama koşullarını, vitrinin çalışma koşullarıyla birlikte değerlendirin.',
+                    ],
+                    figures: [
+                        { image: pastryDisplayImage, alt: 'Alçak camlı Pars yatay pasta vitrini içinde yan yana dizilmiş porsiyon tatlılar', caption: 'Yatay Pasta Teşhir Dolabı', to: '/products/68' },
+                        { image: chocolateDisplayImage, alt: 'Siyah gövdeli Pars çikolata dolabının cam rafları ve geniş ön cephesi', caption: 'Çikolata Dolabı', to: '/products/64' },
+                    ],
+                    table: {
+                        headers: ['Kontrol', 'Pasta teşhir dolabı', 'Çikolata dolabı'],
+                        rows: [
+                            ['Sergileme', 'Bütün pasta, dilim ve porsiyon tatlı', 'Tepsili çikolata ve kutulu ürün'],
+                            ['Raf düzeni', 'Pasta yüksekliği, tepsi ölçüsü ve servis boşluğu', 'Kutu yüksekliği, tepsi derinliği ve raf açıklığı'],
+                            ['Çalışma koşulları', 'Ürünün doğrulanmış muhafaza koşulları', 'Çikolatanın türüne göre sıcaklık istikrarı ve nem'],
+                        ],
+                    },
+                },
+                {
+                    heading: 'Pasta ve çikolata aynı vitrinde sergilenebilir mi?',
+                    paragraphs: [
+                        'Ürünlerin muhafaza koşulları uyumluysa ve seçilen vitrin bu koşulları servis boyunca koruyabiliyorsa birlikte teşhir değerlendirilebilir. Örneğin kremalı pasta ile kutulu sade çikolata için ürün gereksinimlerini ayrı ayrı belirleyin. Ardından dolabın çalışma aralığını ve ürünlerin duracağı raflardaki koşulları üreticiyle teyit edin.',
+                        'Farklı sıcaklık veya nem koşulları gerekiyorsa ayrı vitrinleri ya da birbirinden bağımsız çalıştığı doğrulanmış bölmeleri değerlendirin. Raf ayırıcıları ürünleri düzenlemek için kullanılabilir. Her bölümün kendi çalışma koşulunu sağlayabilmesi, seçilen donanıma bağlıdır.',
+                    ],
+                    links: [{ label: 'Pars Pasta ve Çikolata Dolabı modelini inceleyin', to: '/products/54' }],
+                },
+                {
+                    heading: 'Çikolata vitrininde sıcaklık ve nem neden önemli?',
+                    paragraphs: [
+                        'Callebaut, saf çikolatanın muhafazası için 12–18 °C aralığını öneriyor. Krema veya meyve gibi dolgular içeren çikolatalarda ürünün kendi saklama talimatını esas alın. Dolap teklifinde de seçilen versiyonun hangi koşulları sağlayabildiğini yazılı olarak doğrulayın.',
+                        'Soğuk çikolata daha sıcak ve nemli havaya çıktığında yüzeyde yoğuşma oluşabilir. Bu, yüzeyde şeker beyazlamasına yol açabilir. Vitrinin çalışacağı ortamın sıcaklığını, kapağın açılma sıklığını ve ürünlerin vitrinden nasıl çıkarılacağını üreticiyle paylaşın. Nem kontrolü gerekiyorsa teklif edilen donanımın bu işlevi nasıl sağladığını sorun.',
+                    ],
+                    links: [{ label: 'Callebaut çikolata muhafaza rehberi', to: chocolateStorageGuide }],
+                },
+                {
+                    heading: 'Tekliften önce hangi bilgileri hazırlamalısınız?',
+                    paragraphs: [
+                        'Yeni bir pastane vitrini seçiyorsanız bir günlük satış listesinden başlayın. Aynı anda vitrinde bulunacak ürünleri, miktarlarını ve kullanacağınız kapları yazın. Mevcut vitrini değiştiriyorsanız yeni dolabın yerleşeceği alanı ve servis yönünü fotoğrafta gösterin.',
+                    ],
+                    items: [
+                        'Yaş pasta, ekler, sade çikolata, dolgulu çikolata ve kutulu ürünleri ayrı listeleyin. Her ürünün saklama koşulunu ekleyin.',
+                        'En büyük pasta tabağının, tepsinin ve hediye kutusunun ölçülerini paylaşın.',
+                        'Dolabın yerleşeceği alanın net enini, derinliğini ve yükseklik sınırını belirtin.',
+                        'Teklifte çalışma sıcaklığı aralığını, gerekiyorsa nem kontrolünü ve varsa bağımsız bölmelerin nasıl çalıştığını doğrulayın.',
+                    ],
+                    links: [
+                        { label: 'Pasta ve çikolata dolabı modellerini karşılaştırın', to: '/urunler/pasta-cikolata-dolaplari' },
+                        { label: 'Yatay ve dikey modeller için pasta teşhir dolabı seçim rehberi', to: '/blog/pasta-teshir-dolabi-secim-rehberi' },
+                    ],
+                },
+            ],
+            questions: [
+                { question: 'Pasta dolabı kaç derece olmalı?', answer: 'Uygun aralığı pastanın içeriği ve doğrulanmış muhafaza talimatı belirler. Soğutmalı dolap seçerken bu aralığı üreticiyle paylaşın ve ürünlerin yerleşeceği raflarda nasıl kontrol edileceğini sorun.' },
+                { question: 'Çikolata dolabı seçiminde kaç raf gerekir?', answer: 'Raf sayısını aynı anda sergileyeceğiniz çeşitlere, kutu ve tepsilerin ölçülerine ve ürünleri servis sırasında nasıl alacağınıza göre belirleyin. Raf açıklığı ve kullanılabilir derinlik de raf sayısı kadar önemlidir.' },
+                { question: 'Pasta ve çikolata dolabı fiyatını neler etkiler?', answer: 'Ölçü, raf düzeni, cam ve kapak tipi, seçilen soğutma donanımı ve projeye özel kaplama teklif kapsamını etkiler. Aynı koşulları sağlayan modelleri donanım ve montaj kapsamıyla birlikte karşılaştırın.' },
+            ],
+        },
+        EN: {
+            sections: [
+                {
+                    heading: 'What do pastry and chocolate display cabinets do?',
+                    paragraphs: [
+                        'A pastry display cabinet keeps whole cakes, slices and individual desserts such as eclairs visible during service. Choose a refrigerated configuration that matches the storage requirements of chilled cakes. List dry pastries and cookies separately. For a cabinet with several shelves, check cake height and the clearance needed to remove trays.',
+                        'A chocolate display cabinet presents loose chocolates and gift boxes behind glass. Tray depth, box height and the way staff will move products during service all affect shelf layout. Match the cabinet’s working conditions to the storage requirements of the products on display.',
+                    ],
+                    figures: [
+                        { image: pastryDisplayImage, alt: 'Individual desserts lined up inside a low-glass Pars horizontal pastry display', caption: 'Horizontal Pastry Display Cabinet', to: '/products/68' },
+                        { image: chocolateDisplayImage, alt: 'Glass shelves and wide front of a black Pars chocolate display cabinet', caption: 'Chocolate Display Cabinet', to: '/products/64' },
+                    ],
+                    table: {
+                        headers: ['What to check', 'Pastry display cabinet', 'Chocolate display cabinet'],
+                        rows: [
+                            ['Products on display', 'Whole cakes, slices and individual desserts', 'Loose chocolates on trays and boxed products'],
+                            ['Shelf layout', 'Cake height, tray dimensions and serving clearance', 'Box height, tray depth and shelf clearance'],
+                            ['Working conditions', 'Verified storage requirements of the products', 'Temperature stability and humidity for the type of chocolate'],
+                        ],
+                    },
+                },
+                {
+                    heading: 'Can cakes and chocolates share one display?',
+                    paragraphs: [
+                        'A shared display can work when the products have compatible storage requirements and the selected cabinet maintains those conditions throughout service. For cream cakes and boxed pure chocolate, check the requirements of each product. Then confirm the operating range and conditions at the shelves where the items will sit.',
+                        'For different temperature or humidity needs, consider separate cabinets or compartments with confirmed independent operation. Shelf dividers help arrange products. The selected equipment determines whether compartments can maintain their own working conditions.',
+                    ],
+                    links: [{ label: 'Explore the Pars Pastry and Chocolate Display Cabinet', to: '/products/54' }],
+                },
+                {
+                    heading: 'Why do temperature and humidity matter for chocolate?',
+                    paragraphs: [
+                        'Callebaut recommends 12–18 °C for storing pure chocolate. For chocolates with fillings such as cream or fruit, follow the storage instructions for the specific product. Ask for written confirmation that the quoted cabinet configuration can maintain those conditions.',
+                        'Condensation can form when cold chocolate meets warmer, humid air and can lead to sugar bloom on the surface. Tell the cabinet manufacturer about the operating environment, how often the doors will open and how staff will remove products. If humidity control is required, ask how the quoted equipment provides it.',
+                    ],
+                    links: [{ label: 'Callebaut chocolate storage guide', to: chocolateStorageGuide }],
+                },
+                {
+                    heading: 'What information should you prepare for a quote?',
+                    paragraphs: [
+                        'Start with a typical day’s product list. Note what will be on display at the same time, how much you will display and which trays or containers you use. When replacing a cabinet, share photographs that show the space and serving direction.',
+                    ],
+                    items: [
+                        'List chilled cakes, eclairs, pure chocolate, filled chocolate and boxed products. Include the storage requirements for each.',
+                        'Share the dimensions of your largest cake plate, tray and gift box.',
+                        'Measure the usable width, depth and height of the cabinet location.',
+                        'Confirm the operating temperature range, any required humidity control and the operation of any independent compartments.',
+                    ],
+                    links: [
+                        { label: 'Compare pastry and chocolate display cabinet models', to: '/urunler/pasta-cikolata-dolaplari' },
+                        { label: 'Read the pastry display guide for horizontal and upright models', to: '/blog/pasta-teshir-dolabi-secim-rehberi' },
+                    ],
+                },
+            ],
+            questions: [
+                { question: 'What temperature should a pastry display cabinet run at?', answer: 'The right range depends on the cake and its verified storage instructions. Share the required range with the supplier and ask how it will be checked at the shelves where the products will sit.' },
+                { question: 'How many shelves should a chocolate display cabinet have?', answer: 'Use the quantity on display, box and tray dimensions and the way staff serve the products to choose shelf count. Check usable depth and clearance as well.' },
+                { question: 'What affects the price of a pastry or chocolate cabinet?', answer: 'Dimensions, shelf layout, glass and doors, refrigeration equipment and custom finishes affect the quotation. Compare models that meet the same storage requirements by equipment and installation scope.' },
+            ],
+        },
+    },
     'ozel-olcu-sogutma-dolabi-teklif-rehberi': {
         TR: {
             sections: [
@@ -257,6 +385,7 @@ export const blogContent: Record<string, Record<CatalogLanguage, BlogArticleCont
                         'Vitrinde yer alacak ürünleri bir liste hâline getirin. Bütün pastane ürünlerinin aynı muhafaza koşullarında tutulacağını varsaymayın. Ürünlerin ihtiyaçlarını seçilen dolabın teknik özellikleriyle karşılaştırın; çikolata veya kuru ürün için uygunluğu ayrıca sorun.',
                         'Soğutmalı bir teşhir dolabı, kuru ürün tezgâhı ve sıcak servis tezgâhı farklı amaçlara hizmet eder. Görünüşleri birbirine yakın olsa bile kullanım amacını ürün sayfası ve teklif kapsamı üzerinden doğrulayın.',
                     ],
+                    links: [{ label: 'Pasta dolabı ile çikolata dolabı arasındaki farklar', to: pastryChocolateComparison }],
                 },
                 {
                     heading: 'Yatay ve dikey modelleri servis düzeniyle karşılaştırın',
@@ -296,7 +425,7 @@ export const blogContent: Record<string, Record<CatalogLanguage, BlogArticleCont
         },
         EN: {
             sections: [
-                { heading: 'Group the products you intend to display', paragraphs: ['List the products that will go into the cabinet. Do not assume all bakery products require the same storage conditions. Compare their requirements with the selected model and confirm suitability for chocolate or dry products separately.', 'Refrigerated displays, dry counters and heated service counters have different purposes even when their appearance is similar. Verify the intended use in the model information and quote.'] },
+                { heading: 'Group the products you intend to display', paragraphs: ['List the products that will go into the cabinet. Do not assume all bakery products require the same storage conditions. Compare their requirements with the selected model and confirm suitability for chocolate or dry products separately.', 'Refrigerated displays, dry counters and heated service counters have different purposes even when their appearance is similar. Verify the intended use in the model information and quote.'], links: [{ label: 'Differences between pastry and chocolate display cabinets', to: pastryChocolateComparison }] },
                 { heading: 'Compare horizontal and vertical displays with the service layout', paragraphs: ['For horizontal, vertical or front-facing displays, consider customer viewing angles and the direction from which staff will serve products. Plan both the customer space and the working area behind the counter.', 'Shelf count alone is not enough. Check usable depth, shelf clearance and tray compatibility, including the space needed to remove trays and open doors.'] },
                 { heading: 'Start with tray dimensions', paragraphs: ['Describe the planned display quantity in trays or individual products. Share tray length and width, clearance for taller products and the number of trays you intend to use per shelf.', 'Product placement must remain compatible with air passages and staff access. Follow the selected model’s loading and operating instructions.'], items: ['Tray and plate dimensions.', 'Approximate product height.', 'Variety and quantity displayed at one time.', 'Access for loading, serving and cleaning.'] },
                 { heading: 'Explain space and finish preferences', paragraphs: ['Share the available length, depth and any height restriction. Mark cash registers, coffee equipment and adjacent service counters on a sketch. Clarify how the cabinet will meet neighbouring surfaces before production or installation.', 'Use reference images for glass design, colour and finish preferences, with notes identifying the details that matter. Assess appearance alongside product storage and service needs.'] },

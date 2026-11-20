@@ -62,6 +62,21 @@ export default function BlogArticle() {
                                     <h2 className="mb-4 text-xl font-semibold leading-snug sm:text-2xl">{section.heading}</h2>
                                     {section.paragraphs.map(paragraph => <p key={paragraph} className="mb-4 text-base leading-8 text-gray-600 dark:text-gray-300">{paragraph}</p>)}
                                     {section.items && <ul className="list-disc space-y-2 pl-5 text-base leading-8 text-gray-600 marker:text-[#0079ad] dark:text-gray-300">{section.items.map(item => <li key={item}>{item}</li>)}</ul>}
+                                    {section.figures && (
+                                        <div className="my-5 grid gap-4 sm:grid-cols-2">
+                                            {section.figures.map(figure => (
+                                                <figure key={figure.to} className="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700">
+                                                    <div className="aspect-[4/3] bg-white p-3">
+                                                        <img {...getResponsiveImageProps(figure.image, '(min-width: 1024px) 340px, (min-width: 640px) 45vw, 85vw', 480)}
+                                                            alt={figure.alt} loading="lazy" decoding="async" className="h-full w-full object-contain" />
+                                                    </div>
+                                                    <figcaption className="bg-gray-50 p-4 text-sm leading-6 dark:bg-gray-800">
+                                                        <Link to={figure.to} className="font-semibold text-[#0079ad] underline underline-offset-4 dark:text-sky-400">{figure.caption}</Link>
+                                                    </figcaption>
+                                                </figure>
+                                            ))}
+                                        </div>
+                                    )}
                                     {section.table && (
                                         <div className="mt-5 overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700" role="region" aria-label={section.heading} tabIndex={0}>
                                             <table className="w-full min-w-[480px] border-collapse text-left text-sm leading-7">
