@@ -272,6 +272,48 @@ export const blogArticles: BlogArticleSummary[] = [
         publishedOn: '2026-11-20',
         updatedOn: '2026-11-20',
     },
+    {
+        slug: 'kasap-dolabi-olculeri-et-teshir',
+        title: {
+            TR: 'Kasap dolabı ölçüleri ve et teşhir alanı',
+            EN: 'Butcher cabinet dimensions and meat display space',
+        },
+        description: {
+            TR: 'Kasap dolabı ölçülerini tava dizilimi, net teşhir alanı ve servis geçişiyle planlayın. Özel ölçü et teşhir dolabı teklifi için gerekenleri öğrenin.',
+            EN: 'Plan butcher cabinet dimensions around tray layout, usable display space and staff access. Prepare the measurements for a custom quote.',
+        },
+        introduction: {
+            TR: 'Kasap dolabı ölçülerini belirlemek için dükkânda dolaba ayrılan yere, vitrindeki kullanılabilir tava alanına ve tezgâhın arkasındaki servis boşluğuna ayrı ayrı bakın. Bu rehber, üç ölçüyü tek krokide birleştirerek et teşhir dolabı teklifine nasıl hazırlanacağınızı gösterir.',
+            EN: 'To size a butcher cabinet, check the space set aside for it, the usable area for display trays and the working space behind the counter. This guide shows how to put all three on one sketch for a meat display cabinet quote.',
+        },
+        topic: { TR: 'Et teşhir planı', EN: 'Meat display planning' },
+        image: '/images/products/servisReyonlari/kasapDolabi/kasapTeshirDolabix.webp',
+        imageAlt: { TR: 'Köşe dönüşlü Pars kasap teşhir dolabının cam cephesi ve paslanmaz teşhir yüzeyi', EN: 'Glass front and stainless display surface of a Pars corner butcher cabinet' },
+        relatedCategoryIds: ['kasap'],
+        publishedOn: '2026-11-20',
+        updatedOn: '2026-11-20',
+    },
+    {
+        slug: 'sutluk-dolabi-olculeri-raf-duzeni',
+        title: {
+            TR: 'Sütlük dolabı ölçüleri ve market raf düzeni',
+            EN: 'Dairy cabinet dimensions and grocery shelf layout',
+        },
+        description: {
+            TR: 'Sütlük dolabı ölçülerini ve market raf düzenini ambalajlara, raf derinliğine ve koridor boşluğuna göre planlayın. Örnek raf hesabını inceleyin.',
+            EN: 'Plan dairy cabinet dimensions and grocery shelving around product packaging, usable shelf depth and aisle space. See a sample shelf calculation.',
+        },
+        introduction: {
+            TR: 'Marketinizde sütlük dolabı için kaç raf gerektiğini öğrenmenin en pratik yolu, satacağınız ambalajları ölçüp her rafta kaç adet görünmesini istediğinizi belirlemektir. Raf planını koridor ve kapak ölçüleriyle birlikte hazırladığınızda, market dolabı modellerini aynı ürün dizilimi üzerinden karşılaştırabilirsiniz.',
+            EN: 'To work out how many shelves your dairy cabinet needs, measure the packages you will sell and decide how many units should face customers on each shelf. Pair that plan with aisle and door measurements to compare grocery display cabinets using the same product layout.',
+        },
+        topic: { TR: 'Market raf planı', EN: 'Grocery shelf planning' },
+        image: '/images/products/dikeyTipSogutuculuReyonlar/camKapakliSutlukDolabi/camKapakliSutlukDolabi10.webp',
+        imageAlt: { TR: 'Cam kapaklı Pars sütlük dolabının raflarına dizilmiş paketli ürünler ve şişeler', EN: 'Packaged products and bottles arranged on shelves in a Pars glass-door dairy cabinet' },
+        relatedCategoryIds: ['sutluk'],
+        publishedOn: '2026-11-20',
+        updatedOn: '2026-11-20',
+    },
 ];
 
 const articlesPerPage = 6;
@@ -303,8 +345,8 @@ export function findBlogArticle(pathname: string): BlogArticleSummary | undefine
 export function getCategoryBlogArticles(categoryId: CategoryId): BlogArticleSummary[] {
     const selectionGuides: Partial<Record<CategoryId, string[]>> = {
         pasta: ['pasta-teshir-dolabi-secim-rehberi', 'pasta-dolabi-cikolata-dolabi-farki'],
-        kasap: ['kasap-teshir-dolabi-yerlesim-model-secimi', 'et-aski-dolabi-dry-aged-dolabi-farki'],
-        sutluk: ['acik-sutluk-cam-kapakli-sutluk-secimi'],
+        kasap: ['kasap-teshir-dolabi-yerlesim-model-secimi', 'kasap-dolabi-olculeri-et-teshir', 'et-aski-dolabi-dry-aged-dolabi-farki'],
+        sutluk: ['acik-sutluk-cam-kapakli-sutluk-secimi', 'sutluk-dolabi-olculeri-raf-duzeni'],
         meze: ['meze-dolabi-secim-rehberi'],
         balik: ['balik-teshir-dolabi-secim-rehberi'],
         reyon: ['sarkuteri-reyon-dolabi-secim-rehberi'],

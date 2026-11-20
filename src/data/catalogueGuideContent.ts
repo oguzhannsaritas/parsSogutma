@@ -1,7 +1,234 @@
 import type { BlogArticleContent } from './blogContent';
 import type { CatalogLanguage } from './catalog';
 
+const uprightGlassButcherImage = '/images/products/servisReyonlari/kasapDolabiDikCamli/kasapDolabiDikCamlix.webp';
+const curvedGlassButcherImage = '/images/products/servisReyonlari/KasapReyonDolabiBombeCamli/kasapReyonDolabiBombeCamlix.webp';
+const openDairyImage = '/images/products/dikeyTipSogutuculuReyonlar/sutlukDolabi/sutlukDolabi8.webp';
+const halfHeightDairyImage = '/images/products/dikeyTipSogutuculuReyonlar/yarimBoySutlukDolabi/yarimBoySutlukDolabi5.webp';
+
 export const catalogueGuideContent: Record<string, Record<CatalogLanguage, BlogArticleContent>> = {
+    'kasap-dolabi-olculeri-et-teshir': {
+        TR: {
+            sections: [
+                {
+                    heading: 'Kasap dolabı için hangi ölçüler alınır?',
+                    paragraphs: [
+                        'Dolaba ayırdığınız hattın net uzunluğunu, derinliğini ve yükseklik sınırını ölçün. Kolon, duvar çıkıntısı, tartı ve yan tezgâhın yerini krokide işaretleyin. Köşe dönüşü varsa iki kolu ayrı ölçün. Bitişik tezgâhla aynı seviyede bir çalışma yüzeyi istiyorsanız mevcut tezgâhın yüksekliğini de yazın.',
+                        'Pars Kasap Teşhir Dolabı için katalogda 1875, 2500 ve 3125 mm gibi modül uzunlukları bulunur. Seçtiğiniz modülün yan paneller ve varsa köşe ya da birleşim parçalarıyla birlikte toplam dış ölçüsünü üretim çiziminde doğrulayın.',
+                    ],
+                    table: {
+                        headers: ['Ölçülecek alan', 'Krokiye yazılacak bilgi'],
+                        rows: [
+                            ['Dolabın oturacağı yer', 'Net uzunluk, derinlik, yükseklik sınırı ve köşe dönüşü'],
+                            ['Et teşhir alanı', 'Kullanılabilir tava eni ve derinliği, tava yüksekliği ve servis açıklığı'],
+                            ['Müşteri ve servis tarafı', 'Önde ve arkada kalan boşluk, ekipman ve açılan kapakların yeri'],
+                        ],
+                    },
+                    links: [{ label: 'Kasap Teşhir Dolabı modül seçenekleri', to: '/products/3' }],
+                },
+                {
+                    heading: 'Tava diziliminden net et teşhir alanını hesaplayın',
+                    paragraphs: [
+                        'Aynı anda vitrinde bulunacak ürünleri tava adediyle yazın. Her tavanın dış enini, derinliğini ve yüksekliğini ölçün. Vitrindeki teşhir yüzeyinin kullanılabilir ölçülerini ve hava kanallarına ayrılan alanı model çiziminden isteyin.',
+                        'Örneğin 32, 32 ve 26 cm eninde üç tava yan yana dizildiğinde 90 cm yer kaplar. Tava aralıkları ve varsa bölücüler için gereken payı ayrıca ekleyin. En derin tavanın ön cama ve servis açıklığına göre nasıl yerleştiğini çizimde kontrol edin.',
+                        'Dik camlı ve bombe camlı bir kasap reyon dolabında camla tava arasındaki boşluğu aynı yükseklikte karşılaştırın. Yüksek bir tava veya ürün kullanıyorsanız bu noktadaki açıklığı da ölçün.',
+                    ],
+                    figures: [
+                        { image: uprightGlassButcherImage, alt: 'Dik camlı kasap dolabının paslanmaz teşhir tabanı ve düz ön yüzü', caption: 'Dik Camlı Kasap Dolabı', to: '/products/5' },
+                        { image: curvedGlassButcherImage, alt: 'Bombe camlı kasap reyon dolabının kavisli ön camı ve iç rafları', caption: 'Bombe Camlı Kasap Reyon Dolabı', to: '/products/10' },
+                    ],
+                    links: [
+                        { label: 'Düz camlı kasap reyon dolabı', to: '/products/8' },
+                        { label: 'Kasap vitrini için cam ve model seçimi', to: '/blog/kasap-teshir-dolabi-yerlesim-model-secimi' },
+                    ],
+                },
+                {
+                    heading: 'Servis tarafını en büyük tavayla kontrol edin',
+                    paragraphs: [
+                        'Tezgâhın arkasındaki geçişi, dolabın servis kenarı ile karşısındaki en yakın engel arasında ölçün. Personelin en büyük tavayı tamamen çıkarıp tartı veya hazırlık tezgâhına götüreceği yolu krokiye çizin.',
+                        'Açılır cam ya da servis kapağı varsa açık konumdaki hareketini de gösterin. Siparişten önce seçilen modelde camın açılmasını, tavanın çıkarılmasını ve temizlik için yüzeylere erişimi üreticiyle birlikte kontrol edin.',
+                    ],
+                },
+                {
+                    heading: 'Özel ölçü kasap dolabı teklifi için hazırlık',
+                    paragraphs: [
+                        'Krokiyi, tava listesini ve model bağlantısını birlikte paylaşın. Kasap dolabı fiyatını değerlendirirken toplam dış ölçü, cam açılımı, soğutma grubu, nakliye ve kurulumun kapsamını yazılı olarak kontrol edin. Teslimat güzergâhındaki dar kapı ve dönüşlerin ölçülerini de ekleyin.',
+                    ],
+                    links: [{ label: 'Özel ölçü soğutma dolabı için teklif rehberi', to: '/blog/ozel-olcu-sogutma-dolabi-teklif-rehberi' }],
+                },
+            ],
+            questions: [
+                { question: 'Bir kasap dolabına kaç tava sığar?', answer: 'Her tavanın dış ölçüsünü ve aralarındaki payı kullanılabilir yüzey üzerinde hesaplayın. Tavanın servis açıklığından çıkabildiğini de kontrol edin.' },
+                { question: 'Modül uzunluğu dolabın toplam dış boyunu verir mi?', answer: 'Yerleşim için seçilen modülün, yan panellerin ve varsa birleşim parçalarının dahil olduğu toplam dış ölçüyü çizimden doğrulayın.' },
+                { question: 'Köşe kasap vitrini için hangi ölçüleri paylaşmalıyım?', answer: 'Köşenin iki kolunda ayrılan net uzunluğu, her kolun derinliğini ve dönüş açısını işaretleyin. Sabit ekipmanları ve servis yönünü gösteren bir kroki ekleyin.' },
+            ],
+        },
+        EN: {
+            sections: [
+                {
+                    heading: 'What do you need to measure for a butcher cabinet?',
+                    paragraphs: [
+                        'Measure the clear length, depth and height available. Mark columns, wall projections, scales and adjacent worktops on the sketch. For a corner counter, measure both runs separately. If you want the work surfaces to align, record the height of the existing counter.',
+                        'The Pars butcher display cabinet lists module lengths including 1,875, 2,500 and 3,125 mm. Confirm the overall dimensions in the production drawing, including side panels and any corner or joining pieces.',
+                    ],
+                    table: {
+                        headers: ['Area', 'What to mark on the sketch'],
+                        rows: [
+                            ['Cabinet space', 'Clear length, depth, height limit and any corner'],
+                            ['Meat display area', 'Usable tray width and depth, tray height and service opening'],
+                            ['Customer and service sides', 'Clear space at the front and back, equipment and cabinet openings'],
+                        ],
+                    },
+                    links: [{ label: 'Butcher display cabinet module options', to: '/products/3' }],
+                },
+                {
+                    heading: 'Calculate usable display space from your tray layout',
+                    paragraphs: [
+                        'List the products you want to display together and the number of trays you need for each. Measure each tray’s outside width, depth and height. Ask for a drawing showing the usable display area and any space reserved for air passages.',
+                        'For example, trays that are 32, 32 and 26 cm wide take up 90 cm side by side. Add any gaps and dividers separately. Check how the deepest tray fits between the front glass and the service opening.',
+                        'When comparing upright and curved glass, check the space between the glass and trays at the same height. If a tray or product stands higher, check the clearance at that height as well.',
+                    ],
+                    figures: [
+                        { image: uprightGlassButcherImage, alt: 'Stainless display base and flat front of an upright-glass butcher cabinet', caption: 'Upright-Glass Butcher Cabinet', to: '/products/5' },
+                        { image: curvedGlassButcherImage, alt: 'Curved front glass and shelves of a butcher display cabinet', caption: 'Curved-Glass Butcher Display Cabinet', to: '/products/10' },
+                    ],
+                    links: [
+                        { label: 'Flat-glass butcher display cabinet', to: '/products/8' },
+                        { label: 'Choosing glass and cabinet models for a butcher shop', to: '/blog/kasap-teshir-dolabi-yerlesim-model-secimi' },
+                    ],
+                },
+                {
+                    heading: 'Check service access with your largest tray',
+                    paragraphs: [
+                        'Measure the passage behind the counter from its service edge to the closest obstruction opposite. Draw the path staff will take when they remove the largest tray and carry it to the scales or prep counter.',
+                        'If the cabinet has an opening glass front or service door, mark how far it moves. Before ordering, check with the manufacturer that the glass can open, the tray can be removed and the surfaces are accessible for cleaning.',
+                    ],
+                },
+                {
+                    heading: 'Prepare a quote request for a custom butcher cabinet',
+                    paragraphs: [
+                        'Send the sketch, tray list and model link together. Check that the quote specifies the overall dimensions, glass opening, refrigeration unit, delivery and installation scope. Include the dimensions of tight doors and turns along the delivery route.',
+                    ],
+                    links: [{ label: 'How to request a quote for a custom refrigeration cabinet', to: '/blog/ozel-olcu-sogutma-dolabi-teklif-rehberi' }],
+                },
+            ],
+            questions: [
+                { question: 'How many trays fit in a butcher cabinet?', answer: 'Allow for each tray’s outer dimensions and any gaps in the usable display area. Check that the tray can also pass through the service opening.' },
+                { question: 'Does module length give me the overall length?', answer: 'Use the drawing to confirm the overall length with side panels and any joining pieces included.' },
+                { question: 'What should I measure for a corner butcher counter?', answer: 'Mark the clear length and depth of both runs and the angle of the corner. Add a sketch showing fixed equipment and the side staff will serve from.' },
+            ],
+        },
+    },
+    'sutluk-dolabi-olculeri-raf-duzeni': {
+        TR: {
+            sections: [
+                {
+                    heading: 'Raf planına ambalaj ölçülerinden başlayın',
+                    paragraphs: [
+                        'Süt, yoğurt, peynir ve içecekleri ayrı gruplarda listeleyin. Ambalajların en geniş yerini, derinliğini ve kapak dahil yüksekliğini ölçün. Her çeşitten müşterinin ön sırada kaç adet göreceğini ve arkasında kaç sıra bulunacağını yazın.',
+                        'Örneğin bir yoğurt kabı en geniş yerinde 11 cm ise ön sıradaki altı kap 66 cm yer kaplar. Bölücü ve ürünleri rahat kavramak için gereken boşluğu ayrıca hesaba katın. Arka sıraya ürün eklerken rafın kullanılabilir derinliğini ve dolabın yükleme sınırlarını kontrol edin.',
+                    ],
+                    table: {
+                        headers: ['Ürün grubu', 'Rafta neyi kontrol etmeli?'],
+                        rows: [
+                            ['Yoğurt kapları', 'Kapak çapı, yan yana kap sayısı ve kavrama boşluğu'],
+                            ['Süt kutuları ve şişeler', 'Kapak dahil yükseklik ve dik tutarak çıkarma payı'],
+                            ['Peynir paketleri', 'Paket derinliği, etiketin yönü ve arka sıraya erişim'],
+                        ],
+                    },
+                },
+                {
+                    heading: 'Sütlük dolabı ölçüleri ile net raf alanını karşılaştırın',
+                    paragraphs: [
+                        'Ürün sayfasındaki dış uzunlukla birlikte rafın net enini, kullanılabilir derinliğini ve üst rafın altına kadar olan açıklığı isteyin. Fiyatlık ve raf kenarı varsa en yüksek şişeyi çıkarırken bu parçaların erişime etkisini kontrol edin. Raf yüksekliği ayarlanabiliyorsa seçilen dizilimde her rafın taşıma sınırını da sorun.',
+                        'Pars Cam Kapaklı Sütlük Dolabı için katalogda 937, 1250, 1875, 2500, 2812, 3125 ve 3750 mm modül uzunlukları yer alır. Mağaza planında yan paneller dahil dış boyu, kapak hareketini ve raf iç ölçülerini ayrı gösterin.',
+                    ],
+                    figures: [
+                        { image: openDairyImage, alt: 'Açık sütlük dolabında mavi fiyatlık kenarları ve boş teşhir rafları', caption: 'Açık Sütlük Dolabı', to: '/products/39' },
+                        { image: halfHeightDairyImage, alt: 'Yarım boy sütlük dolabında öne eğimli alt raf ve üst raf açıklıkları', caption: 'Yarım Boy Sütlük Dolabı', to: '/products/37' },
+                    ],
+                    links: [{ label: 'Cam Kapaklı Sütlük Dolabı modül seçenekleri', to: '/products/38' }],
+                },
+                {
+                    heading: 'Kapak hareketini ve raf doldurmayı koridorda deneyin',
+                    paragraphs: [
+                        'Koridorun en dar yerini dolabın ön kenarıyla karşısındaki raf veya ekipman arasında ölçün. Çarpma kapakta kapının açık konumunu krokide gösterin. Sürgülü camda bir kanat yana kaydığında erişilebilen kısmı ölçün ve en geniş ambalajın açıklıktan rahat geçmesini kontrol edin.',
+                        'Personel ürün kasasından raf doldururken alışveriş sepetlerinin nereden geçeceğini planlayın. Kaya Çiftliği’nin Kağıthane mağazasında paketli ürünler üst raflarda, peynir çeşitleri alt teşhir alanında yer alıyor. Uygulama fotoğraflarında rafların ürün gruplarına nasıl ayrıldığını inceleyebilirsiniz.',
+                    ],
+                    links: [
+                        { label: 'Kaya Çiftliği açık sütlük uygulaması', to: '/referans/kaya-ciftligi' },
+                        { label: 'Açık ve cam kapaklı sütlük dolabı karşılaştırması', to: '/blog/acik-sutluk-cam-kapakli-sutluk-secimi' },
+                    ],
+                },
+                {
+                    heading: 'Sütlük ve market dolabı teklifi için raf planını paylaşın',
+                    paragraphs: [
+                        'Alan ölçülerini, koridor krokisini ve her rafta göstermek istediğiniz ürün listesini paylaşın. Özel ölçü sütlük dolabı fiyatını karşılaştırırken raf sayısını, kapak tipini, soğutma grubunu ve kurulum kapsamını aynı teklif üzerinde kontrol edin.',
+                    ],
+                    links: [{ label: 'Market Dolabı modelini inceleyin', to: '/products/49' }],
+                },
+            ],
+            questions: [
+                { question: 'Bir sütlük dolabında kaç raf gerekir?', answer: 'Her ambalajın yüksekliğini, önde kaç adet sergileneceğini ve arkaya kaç sıra konacağını belirleyin. Ardından raf planını seçilen modelin kullanılabilir ölçüleri ve yükleme sınırlarıyla karşılaştırın.' },
+                { question: 'İçecek şişeleri için raf yüksekliği nasıl ölçülür?', answer: 'En yüksek şişeyi kapağıyla birlikte ölçün. Şişeyi dik tutarak alabileceğiniz açıklığı ve varsa rafın ön kenarını hesaba katın.' },
+                { question: 'Sürgülü sütlük kapağı için hangi açıklığı ölçmeliyim?', answer: 'Kanat tamamen yana kaydığında raflara erişebildiğiniz net eni ölçün. Ürün doldururken kullandığınız en geniş ambalajı ve eliniz için gereken boşluğu karşılaştırın.' },
+            ],
+        },
+        EN: {
+            sections: [
+                {
+                    heading: 'Start the shelf plan with package measurements',
+                    paragraphs: [
+                        'List milk, yogurt, cheese and drinks separately. Measure each package at its widest point and record its depth and height, including the lid or cap. Decide how many units of each product will face the customer and how many rows will sit behind them.',
+                        'For example, six yogurt tubs that are 11 cm at their widest point take up 66 cm across the front. Allow extra space for dividers and for picking up a tub. For the back rows, check usable shelf depth and the cabinet’s loading limits.',
+                    ],
+                    table: {
+                        headers: ['Product group', 'What to check on the shelf'],
+                        rows: [
+                            ['Yogurt tubs', 'Lid diameter, tubs side by side and space to grip them'],
+                            ['Milk cartons and bottles', 'Height including the cap and room to lift them out upright'],
+                            ['Cheese packs', 'Package depth, label orientation and access to the back row'],
+                        ],
+                    },
+                },
+                {
+                    heading: 'Compare cabinet dimensions with usable shelf space',
+                    paragraphs: [
+                        'Alongside the overall cabinet length, ask for clear shelf width, usable depth and clearance to the underside of the shelf above. If there is a price strip or lip, check how it affects removal of the tallest bottle. If shelf height is adjustable, ask for each shelf’s load limit in your planned arrangement.',
+                        'The Pars glass-door dairy cabinet lists module lengths of 937, 1,250, 1,875, 2,500, 2,812, 3,125 and 3,750 mm. On the store plan, show the overall length with side panels, door movement and internal shelf dimensions separately.',
+                    ],
+                    figures: [
+                        { image: openDairyImage, alt: 'Open dairy cabinet with blue shelf rails and empty display shelves', caption: 'Open Dairy Cabinet', to: '/products/39' },
+                        { image: halfHeightDairyImage, alt: 'Low-height dairy cabinet with a sloping lower shelf and upper shelf openings', caption: 'Low-Height Dairy Cabinet', to: '/products/37' },
+                    ],
+                    links: [{ label: 'Glass-Door Dairy Cabinet module options', to: '/products/38' }],
+                },
+                {
+                    heading: 'Try the doors and restocking layout in the aisle',
+                    paragraphs: [
+                        'Measure the narrowest point between the cabinet front and the shelf or equipment opposite. Mark where a hinged door sits when open. For sliding glass, measure the opening when one panel is moved aside and check that the widest package passes through easily.',
+                        'Plan how shoppers with baskets can pass while staff restock from crates. In Kaya Çiftliği’s Kağıthane store, packaged products are on the upper shelves and cheeses are in the lower display area. The project photos show how the display is split by product group.',
+                    ],
+                    links: [
+                        { label: 'Kaya Çiftliği open dairy display project', to: '/referans/kaya-ciftligi' },
+                        { label: 'Compare open and glass-door dairy cabinets', to: '/blog/acik-sutluk-cam-kapakli-sutluk-secimi' },
+                    ],
+                },
+                {
+                    heading: 'Share the shelf plan when requesting a quote',
+                    paragraphs: [
+                        'Send the available dimensions, aisle sketch and list of products you want on each shelf. When comparing custom dairy cabinet quotes, check the shelf count, door type, refrigeration unit and installation scope together.',
+                    ],
+                    links: [{ label: 'Explore the Market Cabinet model', to: '/products/49' }],
+                },
+            ],
+            questions: [
+                { question: 'How many shelves do I need in a dairy cabinet?', answer: 'Record the height of each package and the planned front and back rows. Compare the layout with the cabinet’s usable dimensions and loading limits.' },
+                { question: 'How do I measure shelf height for bottles?', answer: 'Measure the tallest bottle with its cap. Allow enough clearance to lift it out upright, taking any shelf lip into account.' },
+                { question: 'What opening should I measure for a sliding dairy cabinet door?', answer: 'Slide the door fully to one side and measure the clear width available to reach the shelves. Allow for the widest package and enough space to hold it.' },
+            ],
+        },
+    },
     'meze-dolabi-secim-rehberi': {
         TR: {
             sections: [

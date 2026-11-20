@@ -319,7 +319,10 @@ export const blogContent: Record<string, Record<CatalogLanguage, BlogArticleCont
                         'Sütlük dolabı fiyatı ölçü, kapak tipi, raf düzeni ve projede istenen seçeneklere göre değişebilir. Özel ölçü sütlük dolabı için alan ölçülerinizi ve tercih ettiğiniz modeli paylaşın. Pars Soğutma, üretim talebini bu bilgiler üzerinden değerlendirip teklif hazırlar.',
                     ],
                     items: ['Ambalaj türleri, ölçüleri ve teşhir miktarı.', 'Kullanılabilir uzunluk, derinlik ve yükseklik.', 'Müşteri geçişi ile ürün yükleme alanı.', 'Açık, çarpma kapaklı veya sürgü kapaklı model tercihi.', 'Alan fotoğrafları, mevcut ekipmanlar ve uygulama adresi.'],
-                    links: [{ label: 'Özel ölçü soğutma dolabı teklif rehberi', to: '/blog/ozel-olcu-sogutma-dolabi-teklif-rehberi' }],
+                    links: [
+                        { label: 'Sütlük dolabı ölçüleri ve market raf düzeni', to: '/blog/sutluk-dolabi-olculeri-raf-duzeni' },
+                        { label: 'Özel ölçü soğutma dolabı teklif rehberi', to: '/blog/ozel-olcu-sogutma-dolabi-teklif-rehberi' },
+                    ],
                 },
             ],
             questions: [
@@ -365,7 +368,10 @@ export const blogContent: Record<string, Record<CatalogLanguage, BlogArticleCont
                         'Dairy cabinet prices can vary with dimensions, door type, shelving and project options. For a custom cabinet, share your measurements and preferred model. Pars Cooling uses these details to assess the manufacturing request and prepare a quote.',
                     ],
                     items: ['Package types, dimensions and intended display quantity.', 'Available length, depth and height.', 'Customer access and restocking space.', 'Open, hinged-door or sliding-door preference.', 'Site photos, nearby equipment and project address.'],
-                    links: [{ label: 'How to request a quote for a custom refrigeration cabinet', to: '/blog/ozel-olcu-sogutma-dolabi-teklif-rehberi' }],
+                    links: [
+                        { label: 'Dairy cabinet dimensions and grocery shelf layout', to: '/blog/sutluk-dolabi-olculeri-raf-duzeni' },
+                        { label: 'How to request a quote for a custom refrigeration cabinet', to: '/blog/ozel-olcu-sogutma-dolabi-teklif-rehberi' },
+                    ],
                 },
             ],
             questions: [
@@ -462,6 +468,7 @@ export const blogContent: Record<string, Record<CatalogLanguage, BlogArticleCont
                         'Dolabın tek parça veya farklı bölümlerle nasıl yerleşeceği, ilgili model ve projeye göre değerlendirilmelidir. Köşe ya da birleşim ihtiyacınız varsa bunu erken paylaşın. Bir fotoğraftan bütün ölçüleri çıkarmaya çalışmak yerine yazılı ölçü ve kroki kullanın.',
                     ],
                     items: ['Dolaba ayrılan uzunluk ve derinlik.', 'Müşteri tarafı ile personel tarafının konumu.', 'Kapılar, kolonlar ve sabit ekipmanlar.', 'Kap, tava ve çalışma yüzeyi ihtiyaçları.', 'Ürünlerin depodan reyona taşınacağı güzergâh.'],
+                    links: [{ label: 'Kasap dolabı ölçüleri ve et teşhir alanı', to: '/blog/kasap-dolabi-olculeri-et-teshir' }],
                 },
                 {
                     heading: 'Soğutma özelliklerini seçilen modelde doğrulayın',
@@ -488,7 +495,12 @@ export const blogContent: Record<string, Record<CatalogLanguage, BlogArticleCont
             sections: [
                 { heading: 'Define display needs and the service workflow', paragraphs: ['List the products and the containers or trays you intend to use. Consider their positions, staff access and customer viewing angles.', 'Assess display quantity separately from back-of-house stock. If you use a cold room or another storage area, show how products will move between storage and the counter.'] },
                 { heading: 'Review glass designs in practical terms', paragraphs: ['Glass design changes presentation and the line of the counter in the shop. Review the actual model’s section drawing, external depth and service side as well as its photos. A model name does not establish all technical differences.', 'Do not assume two similarly named cabinets are identical. Record the product code or link and compare the available information about glass, cabinet construction and refrigeration.'] },
-                { heading: 'Separate cabinet space from working space', paragraphs: ['Measure the clear space allocated to the cabinet rather than just the total wall length. Add doors, columns, cash registers, scales and adjacent counters to the sketch. Show the remaining staff working space separately.', 'Section arrangements and corner requirements depend on the actual model and project. Share these needs early. Use written dimensions and a sketch instead of estimating every measurement from a photo.'], items: ['Available cabinet length and depth.', 'Customer and staff sides.', 'Doors, columns and fixed equipment.', 'Tray, container and work-surface requirements.', 'The route from storage to the display counter.'] },
+                {
+                    heading: 'Separate cabinet space from working space',
+                    paragraphs: ['Measure the clear space allocated to the cabinet rather than just the total wall length. Add doors, columns, cash registers, scales and adjacent counters to the sketch. Show the remaining staff working space separately.', 'Section arrangements and corner requirements depend on the actual model and project. Share these needs early. Use written dimensions and a sketch instead of estimating every measurement from a photo.'],
+                    items: ['Available cabinet length and depth.', 'Customer and staff sides.', 'Doors, columns and fixed equipment.', 'Tray, container and work-surface requirements.', 'The route from storage to the display counter.'],
+                    links: [{ label: 'Butcher cabinet dimensions and meat display space', to: '/blog/kasap-dolabi-olculeri-et-teshir' }],
+                },
                 { heading: 'Verify model-specific refrigeration details', paragraphs: ['Check operating temperature, refrigeration arrangement and motor placement for the actual model. Do not apply one technical value to every butcher cabinet. Product requirements and cabinet suitability must be assessed together.', 'Plan a layout that preserves air passages and maintenance access. Use the selected model’s instructions for clearances and connection requirements. Photos and existing infrastructure details help explain the site.'] },
                 { heading: 'Complete your quote request with a model link', paragraphs: ['Send the model link, measurements, product list and finish preferences together. This defines the request more clearly than a general question about butcher cabinet prices.', 'Review equipment specifications, materials, appearance and site work separately in the quote. Clarify timing, delivery, installation and after-sales terms in writing. Custom manufacturing prices are prepared for the requirements provided.'] },
             ],
