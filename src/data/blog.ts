@@ -314,6 +314,48 @@ export const blogArticles: BlogArticleSummary[] = [
         publishedOn: '2026-11-20',
         updatedOn: '2026-11-20',
     },
+    {
+        slug: 'kebap-teshir-dolabi-meze-vitrini-yerlesimi',
+        title: {
+            TR: 'Kebap teşhir dolabı ve meze vitrini nereye yerleştirilmeli?',
+            EN: 'Where should kebab and mezze display cabinets go?',
+        },
+        description: {
+            TR: 'Ocakbaşında kebap teşhir dolabı ve meze vitrini için yer seçerken şiş boyunu, tepsi derinliğini ve çiğ et ile hazır mezenin servis yollarını planlayın.',
+            EN: 'Plan kebab and mezze display placement around skewer length, tray depth and separate routes for raw skewers and ready-to-serve dishes.',
+        },
+        introduction: {
+            TR: 'Müşteri bir porsiyon Adana kebap ile iki meze istediğinde tezgâhta iki iş başlar. Usta şişi ocağa götürürken garson haydariyi ve acılı ezmeyi porsiyonlar. Kebap teşhir dolabı ve meze vitrini için yer seçerken bu iki siparişin vitrinden ocağa veya servis tabağına nasıl ulaştığını izleyin.',
+            EN: 'An order for Adana kebab and two mezze dishes sets two people to work. The cook takes the skewer to the grill while a server portions the haydari and spicy ezme. To place the two displays, follow each item from the counter to the grill or the serving plate.',
+        },
+        topic: { TR: 'Ocakbaşı yerleşimi', EN: 'Grill restaurant layout' },
+        image: '/images/products/servisReyonlari/kebapMezeDolabi/kabapMezeDolabix.webp',
+        imageAlt: { TR: 'Ahşap görünümlü alt paneli ve cam rafları olan Pars kebap ve meze dolabı', EN: 'Pars kebab and mezze display cabinet with a wood-effect base and glass shelves' },
+        relatedCategoryIds: ['meze'],
+        publishedOn: '2026-11-20',
+        updatedOn: '2026-11-20',
+    },
+    {
+        slug: 'duz-camli-bombe-camli-reyon-dolabi-farklari',
+        title: {
+            TR: 'Düz camlı reyon dolabı mı, bombe camlı reyon dolabı mı?',
+            EN: 'Flat-glass or curved-glass deli display cabinet?',
+        },
+        description: {
+            TR: 'Düz, dik ve bombe camlı reyon dolabı modellerini müşteri görüşü, koridor genişliği ve cam açılımı açısından karşılaştırıp mağazanız için uygun vitrini seçin.',
+            EN: 'Compare flat, upright and curved glass on deli display cabinets by viewing angle, aisle clearance and access when the glass opens.',
+        },
+        introduction: {
+            TR: 'Müşteri şarküteri vitrininin yanından yaklaşırken ürünü yandan görür. Sipariş verirken öne geçer ve arka sıradaki peynirin etiketini okumak ister. Düz camlı ve bombe camlı reyon dolabı arasında karar verirken bu iki noktadan aynı ürüne bakın. Servis tarafında da personelin o tepsiye nasıl ulaşacağını deneyin.',
+            EN: 'Shoppers first see products from the side as they approach a deli counter. Then they stand in front and try to read the label on the cheese at the back. To compare flat and curved glass, look at the same product from both positions and try how staff will reach that tray.',
+        },
+        topic: { TR: 'Reyon camı seçimi', EN: 'Display glass selection' },
+        image: '/images/products/servisReyonlari/fullMoonDikCamliReyonDolabi/fullMoonDikCamliReyonDolabix.webp',
+        imageAlt: { TR: 'FULL MOON reyon dolabının dik ön camı ve paslanmaz teşhir alanı', EN: 'FULL MOON display cabinet with upright front glass and a stainless display area' },
+        relatedCategoryIds: ['reyon'],
+        publishedOn: '2026-11-20',
+        updatedOn: '2026-11-20',
+    },
 ];
 
 const articlesPerPage = 6;
@@ -347,9 +389,9 @@ export function getCategoryBlogArticles(categoryId: CategoryId): BlogArticleSumm
         pasta: ['pasta-teshir-dolabi-secim-rehberi', 'pasta-dolabi-cikolata-dolabi-farki'],
         kasap: ['kasap-teshir-dolabi-yerlesim-model-secimi', 'kasap-dolabi-olculeri-et-teshir', 'et-aski-dolabi-dry-aged-dolabi-farki'],
         sutluk: ['acik-sutluk-cam-kapakli-sutluk-secimi', 'sutluk-dolabi-olculeri-raf-duzeni'],
-        meze: ['meze-dolabi-secim-rehberi'],
+        meze: ['meze-dolabi-secim-rehberi', 'kebap-teshir-dolabi-meze-vitrini-yerlesimi'],
         balik: ['balik-teshir-dolabi-secim-rehberi'],
-        reyon: ['sarkuteri-reyon-dolabi-secim-rehberi'],
+        reyon: ['sarkuteri-reyon-dolabi-secim-rehberi', 'duz-camli-bombe-camli-reyon-dolabi-farklari'],
         'soguk-oda': ['soguk-oda-fiyati-nasil-hesaplanir', 'soguk-oda-pvc-serit-perde-secimi'],
         mutfak: ['paslanmaz-calisma-tezgahi-secim-rehberi'],
         sogutma: ['soguk-oda-sogutma-grubu-secim-rehberi'],
