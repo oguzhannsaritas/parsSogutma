@@ -14,8 +14,8 @@ export type BlogArticleContent = {
     questions: Array<{ question: string; answer: string }>;
 };
 
-const pastryDisplayImage = '/images/products/unluMamuller/pastaDolabi/pastaDolabix.webp';
-const chocolateDisplayImage = '/images/products/unluMamuller/cikolataDolabi/cikolataDolabi2.webp';
+const pastryDisplayImage = '/images/blog/yatay-pasta-teshir-dolabi.webp';
+const chocolateDisplayImage = '/images/blog/cikolata-dolabi.webp';
 const chocolateStorageGuide = 'https://www.callebaut.com/en-AE/confectionery-shelf-life-good-storage-practices';
 const pastryChocolateComparison = '/blog/pasta-dolabi-cikolata-dolabi-farki';
 
@@ -31,8 +31,8 @@ export const blogContent: Record<string, Record<CatalogLanguage, BlogArticleCont
                         'Çikolata dolabı, açık çikolataları ve hediye kutularını raflı bir cam vitrinde sergiler. Tepsi derinliği, kutu yüksekliği ve ürünlerin vitrinde nasıl yer değiştireceği raf planını belirler. Ürünlerinizin saklama koşullarını, vitrinin çalışma koşullarıyla birlikte değerlendirin.',
                     ],
                     figures: [
-                        { image: pastryDisplayImage, alt: 'Alçak camlı Pars yatay pasta vitrini içinde yan yana dizilmiş porsiyon tatlılar', caption: 'Yatay Pasta Teşhir Dolabı', to: '/products/68' },
-                        { image: chocolateDisplayImage, alt: 'Siyah gövdeli Pars çikolata dolabının cam rafları ve geniş ön cephesi', caption: 'Çikolata Dolabı', to: '/products/64' },
+                        { image: pastryDisplayImage, alt: 'Bronz gövdeli ve iki alçak cam bölmeli yatay pasta teşhir dolabı', caption: 'Yatay Pasta Teşhir Dolabı', to: '/products/68' },
+                        { image: chocolateDisplayImage, alt: 'Ahşap görünümlü panelleri ve cam rafları olan çikolata dolabı', caption: 'Çikolata Dolabı', to: '/products/64' },
                     ],
                     table: {
                         headers: ['Kontrol', 'Pasta teşhir dolabı', 'Çikolata dolabı'],
@@ -91,8 +91,8 @@ export const blogContent: Record<string, Record<CatalogLanguage, BlogArticleCont
                         'A chocolate display cabinet presents loose chocolates and gift boxes behind glass. Tray depth, box height and the way staff will move products during service all affect shelf layout. Match the cabinet’s working conditions to the storage requirements of the products on display.',
                     ],
                     figures: [
-                        { image: pastryDisplayImage, alt: 'Individual desserts lined up inside a low-glass Pars horizontal pastry display', caption: 'Horizontal Pastry Display Cabinet', to: '/products/68' },
-                        { image: chocolateDisplayImage, alt: 'Glass shelves and wide front of a black Pars chocolate display cabinet', caption: 'Chocolate Display Cabinet', to: '/products/64' },
+                        { image: pastryDisplayImage, alt: 'Bronze horizontal pastry display cabinet with two low glass compartments', caption: 'Horizontal Pastry Display Cabinet', to: '/products/68' },
+                        { image: chocolateDisplayImage, alt: 'Chocolate display cabinet with wood-effect panels and glass shelves', caption: 'Chocolate Display Cabinet', to: '/products/64' },
                     ],
                     table: {
                         headers: ['What to check', 'Pastry display cabinet', 'Chocolate display cabinet'],
