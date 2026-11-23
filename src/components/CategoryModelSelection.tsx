@@ -42,7 +42,7 @@ export default function CategoryModelSelection({ categoryId, models, language }:
     const { question, choices } = catalogModelSelections[categoryId];
 
     return (
-        <section id={modelSelectionId} aria-labelledby="model-selection-title" className="pars-panel pars-panel-tint mt-8 scroll-mt-28 p-5 sm:p-6 lg:p-8">
+        <section id={modelSelectionId} aria-labelledby="model-selection-title" className="pars-panel mt-8 scroll-mt-28 p-5 sm:p-6 lg:p-8">
             <h2 id="model-selection-title" className="text-xl font-bold md:text-2xl">{formatHeading(modelSelectionLabel[language], language)}</h2>
             <p className="mt-2 text-base leading-7 text-slate-700 dark:text-slate-300">{question[language]}</p>
             <ul data-model-selection-options className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

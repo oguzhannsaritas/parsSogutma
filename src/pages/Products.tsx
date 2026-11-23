@@ -20,6 +20,7 @@ import { ProductSummary } from "@/src/data/products/types.ts";
 import { getProductPath } from '../seo/config';
 import { getProductDisplayName } from '../data/catalog';
 import { CategoryLinks } from '../components/CatalogContent';
+import PageTitleBand from '../components/PageTitleBand';
 
 function uniqueProducts(items: ProductSummary[]): ProductSummary[] {
     const paths = new Set<string>();
@@ -712,12 +713,8 @@ export default function Products() {
     };
 
     return (
-        <div className="pars-canvas min-h-screen pb-16 pt-24">
-            <div className="pars-band mb-6 py-7 md:mb-9 md:py-14">
-                <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">
-                    <h1 className="text-3xl font-bold leading-tight tracking-tight md:text-4xl">{formatHeading(t('products.title'), language)}</h1>
-                </div>
-            </div>
+        <div className="pars-canvas min-h-screen pb-16 pt-24 transition-colors duration-300">
+            <PageTitleBand title={formatHeading(t('products.title'), language)} />
 
             <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
                 <CategoryLinks language={language} />

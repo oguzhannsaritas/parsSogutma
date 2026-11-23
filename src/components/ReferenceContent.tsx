@@ -12,7 +12,7 @@ export function ReferenceContent({ project, language }: { project: ReferenceProj
     const categories = productCategories.filter(category => project.categoryIds.includes(category.id));
     const exampleProduct = products.find(product => product.id === project.exampleProductId);
     return (
-        <section aria-labelledby="reference-details-title" data-reference-content={project.id} className="pars-panel pars-panel-tint mt-12 p-5 text-pars-navy dark:text-white sm:p-7 md:mt-16 md:p-9">
+        <section aria-labelledby="reference-details-title" data-reference-content={project.id} className="pars-panel mt-12 p-5 text-pars-navy dark:text-white sm:p-7 md:mt-16 md:p-9">
             <div className="max-w-4xl">
                 <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#0083bb] dark:text-[#72D5E3]">{project.location}</p>
                 <h2 id="reference-details-title" className="text-xl font-bold md:text-2xl">{formatHeading(copy.subject, language)}</h2>
