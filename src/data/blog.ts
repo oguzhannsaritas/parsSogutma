@@ -372,6 +372,54 @@ export const blogArticles: BlogArticleSummary[] = [
         updatedOn: '2026-11-20',
     },
     {
+        slug: 'endustriyel-mutfak-ekipmanlari-restoran-yerlesimi',
+        title: {
+            TR: 'Endüstriyel mutfak ekipmanları için restoran yerleşim planı',
+            EN: 'How to lay out commercial kitchen equipment in a restaurant',
+        },
+        description: {
+            TR: 'Restoran mutfağında tezgâh, buzdolabı, evye ve davlumbazı nereye koymalısınız? Hazırlık, pişirme ve bulaşık dönüşünü örnek bir öğle servisiyle planlayın.',
+            EN: 'Plan where to put worktops, refrigerators, sinks and hoods in a restaurant kitchen using a lunch service example.',
+        },
+        introduction: {
+            TR: 'Öğle servisinde aşçı salatayı tabağa alırken garson kirli tabaklarla mutfağa döner. İkisi de aynı tezgâha yöneliyorsa bulaşık dönüşü için ayrı bir yer planlayın. Endüstriyel mutfak ekipmanlarını seçmeden önce siparişin hazırlıktan servis çıkışına, kullanılmış tabağın da salondan yıkama alanına nasıl ulaştığını krokiye çizin.',
+            EN: 'During lunch service, a cook plates a salad as a server returns with used plates. If both head to the same counter, plan a separate drop-off for dirty dishes. Before choosing commercial kitchen equipment, draw the route from prep to the serving pass and the route back from the dining room to the dishwashing area.',
+        },
+        topic: { TR: 'Restoran mutfağı yerleşimi', EN: 'Restaurant kitchen layout' },
+        image: '/images/blog/paslanmaz-tezgah-alti-buzdolabi.webp',
+        imageAlt: {
+            TR: 'Dört kapaklı paslanmaz çelik tezgâh altı buzdolabı ve çalışma yüzeyi',
+            EN: 'Four-door stainless steel undercounter refrigerator with a worktop',
+        },
+        relatedCategoryIds: ['mutfak'],
+        publishedOn: '2026-11-23',
+        updatedOn: '2026-11-23',
+    },
+    {
+        slug: 'market-sogutma-sistemleri-merkezi-bireysel-karsilastirma',
+        title: {
+            TR: 'Merkezi ve bireysel market soğutma sistemleri nasıl seçilir?',
+            EN: 'How to choose between central and individual supermarket refrigeration',
+        },
+        description: {
+            TR: 'Market reyonları için merkezi soğutma sistemi ile bireysel grupları karşılaştırın. Kapasite, servis erişimi ve yeni reyon ihtiyacına göre seçim yapın.',
+            EN: 'Compare central and individual refrigeration systems for supermarket displays by capacity, service access and future expansion.',
+        },
+        introduction: {
+            TR: 'İki sütlük ve bir şarküteri reyonu harici bir soğutma grubundan beslenirken kendinden motorlu dondurma dolabı kendi ünitesiyle çalışabilir. Market soğutma sistemleri için teklif alırken ilk üç reyonu ortak grupta toplama veya şarküteriyi ayrı bir üniteye bağlama seçeneklerini çalışma koşulları, yerleşim ve bakım erişimi üzerinden karşılaştırın.',
+            EN: 'Two dairy displays and a deli counter can use remote refrigeration while a self-contained ice cream freezer runs on its own unit. When requesting supermarket refrigeration quotes, compare a shared group for the first three displays with a dedicated unit for the deli counter. Consider operating conditions, layout and service access.',
+        },
+        topic: { TR: 'Market soğutma sistemleri', EN: 'Supermarket refrigeration' },
+        image: '/images/blog/merkezi-market-sogutma-grubu.webp',
+        imageAlt: {
+            TR: 'Üç kompresörlü merkezi soğutma grubu, solunda kontrol panosu ve üstünde basınç göstergeleri',
+            EN: 'Central refrigeration rack with three compressors, a control panel at left and pressure gauges above',
+        },
+        relatedCategoryIds: ['sogutma'],
+        publishedOn: '2026-11-23',
+        updatedOn: '2026-11-23',
+    },
+    {
         slug: 'balik-teshir-dolabi-mostra-buzlu-sergileme',
         title: {
             TR: 'Balık teşhir dolabı ve balık mostrasında buzlu sergileme',
@@ -456,8 +504,8 @@ export function getCategoryBlogArticles(categoryId: CategoryId): BlogArticleSumm
         balik: ['balik-teshir-dolabi-secim-rehberi', 'balik-teshir-dolabi-mostra-buzlu-sergileme'],
         reyon: ['sarkuteri-reyon-dolabi-secim-rehberi', 'duz-camli-bombe-camli-reyon-dolabi-farklari'],
         'soguk-oda': ['soguk-hava-deposu-kurulumu-ekipmanlari', 'soguk-oda-fiyati-nasil-hesaplanir', 'soguk-oda-pvc-serit-perde-secimi'],
-        mutfak: ['paslanmaz-calisma-tezgahi-secim-rehberi'],
-        sogutma: ['soguk-oda-sogutma-grubu-secim-rehberi'],
+        mutfak: ['paslanmaz-calisma-tezgahi-secim-rehberi', 'endustriyel-mutfak-ekipmanlari-restoran-yerlesimi'],
+        sogutma: ['market-sogutma-sistemleri-merkezi-bireysel-karsilastirma', 'soguk-oda-sogutma-grubu-secim-rehberi'],
     };
     const slugs = [...(selectionGuides[categoryId] ?? [])];
     if (categoryId !== 'soguk-oda' && categoryId !== 'sogutma') {
