@@ -10,7 +10,7 @@ export default function RelatedBlogGuides({ categoryId, language }: {
     const articles = getCategoryBlogArticles(categoryId);
     if (!articles.length) return null;
     return (
-        <aside data-related-blog-guides={categoryId} className="pars-panel pars-panel-tint my-8 p-5 sm:p-6">
+        <aside data-related-blog-guides={categoryId} className="pars-panel my-8 p-5 sm:p-6">
             <h2 className="mb-3 text-lg font-semibold text-gray-900 dark:text-white">
                 {formatHeading(language === 'TR' ? 'İlgili seçim rehberleri' : 'Related buying guides', language)}
             </h2>

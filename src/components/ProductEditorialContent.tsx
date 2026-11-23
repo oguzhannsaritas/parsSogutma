@@ -28,7 +28,7 @@ export function ProductBuyerGuide({ product, language, content }: { product: Pro
     const questionsId = `product-questions-${product.id}`;
     return (
         <div data-product-buyer-guide={product.id} className="mt-8 space-y-6">
-            <section aria-labelledby={selectionId} className="pars-panel pars-panel-tint p-5 sm:p-6">
+            <section aria-labelledby={selectionId} className="pars-panel p-5 sm:p-6">
                 <h2 id={selectionId} className="mb-3 text-lg font-semibold text-gray-900 dark:text-white">{formatHeading(copy[language].selection, language)}</h2>
                 <ul className="list-disc space-y-2 pl-5 text-sm leading-7 text-gray-600 dark:text-gray-300">
                     {content.selection.map(item => <li key={item}>{item}</li>)}

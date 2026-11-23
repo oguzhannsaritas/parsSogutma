@@ -17,6 +17,7 @@ import {
 } from '../data/catalog';
 import { getProductMainImage, getProductPath } from '../seo/config';
 import ContactActions from './ContactActions';
+import PageTitleBand from './PageTitleBand';
 import RelatedBlogGuides from './RelatedBlogGuides';
 import CategoryModelSelection, { CatalogModelFacts, modelSelectionId, modelSelectionLabel } from './CategoryModelSelection';
 
@@ -37,11 +38,11 @@ const copy = {
 
 export function CategoryLinks({ language }: { language: CatalogLanguage }) {
     return (
-        <nav aria-labelledby="catalog-category-links" className="pars-panel pars-panel-tint mb-8 p-4 sm:p-6">
-            <h2 id="catalog-category-links" className="mb-4 text-lg font-bold text-pars-navy dark:text-white">{formatHeading(copy[language].groups, language)}</h2>
-            <div className="grid grid-cols-2 gap-2 sm:gap-3 md:grid-cols-3">
+        <nav aria-labelledby="catalog-category-links" className="mb-8">
+            <h2 id="catalog-category-links" className="mb-4 text-sm font-semibold text-pars-navy dark:text-white">{formatHeading(copy[language].groups, language)}</h2>
+            <div className="flex flex-wrap gap-2">
                 {productCategories.map(category => (
-                    <Link key={category.id} to={getCategoryPath(category)} className="pars-panel flex min-h-12 min-w-0 items-center justify-between gap-2 rounded-lg px-2.5 py-2 text-sm font-medium leading-snug text-pars-navy transition-colors hover:border-pars-blue hover:text-pars-link focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pars-blue dark:text-slate-100 dark:hover:border-pars-blue dark:hover:text-sky-300 sm:px-4">
+                    <Link key={category.id} to={getCategoryPath(category)} className="inline-flex min-w-0 items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-xs leading-snug text-gray-700 transition-colors hover:border-pars-blue hover:text-pars-link focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pars-blue dark:border-neutral-700 dark:bg-neutral-900 dark:text-gray-200 dark:hover:border-pars-blue dark:hover:text-sky-300 sm:text-sm">
                         <span className="min-w-0 break-words">{formatHeading(category.copy[language].name, language)}</span>
                         <ChevronRight size={16} aria-hidden="true" className="shrink-0 text-pars-link dark:text-sky-300" />
                     </Link>
@@ -77,32 +78,28 @@ export function CategoryContent({ category, products, language }: { category: Pr
     const related = productCategories.filter(item => category.related.includes(item.id));
     return (
         <div className="pars-canvas pb-16 pt-24 text-pars-navy dark:text-white">
-            <div className="pars-band">
-                <div className="container mx-auto px-4 pb-8 pt-5 sm:px-6 lg:px-12 lg:pb-12 lg:pt-7">
-                    <nav aria-label={language === 'TR' ? 'İçerik yolu' : 'Breadcrumb'} className="mb-6 flex flex-wrap items-center gap-2 text-sm text-slate-300">
-                        <Link to="/" className="hover:text-white hover:underline">{labels.home}</Link><ChevronRight size={14} aria-hidden="true" />
-                        <Link to="/products" className="hover:text-white hover:underline">{labels.products}</Link><ChevronRight size={14} aria-hidden="true" />
-                        <span aria-current="page" className="text-sky-200">{formatHeading(text.name, language)}</span>
-                    </nav>
-                    <header className="grid items-center gap-7 lg:grid-cols-[1.15fr_1fr] lg:gap-14">
-                        <div className="min-w-0">
-                            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-sky-200">Pars {language === 'TR' ? 'Soğutma' : 'Cooling'}</p>
-                            <h1 className="max-w-3xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl xl:text-5xl">{formatHeading(text.name, language)}</h1>
-                            <p className="mt-4 max-w-2xl text-base leading-7 text-slate-200 sm:mt-5">{text.intro}</p>
-                            <div className="mt-6"><ContactActions subject={text.name} language={language} /></div>
-                            <div className="mt-4 flex flex-wrap gap-x-5 gap-y-1">
-                                <a href={`#${modelSelectionId}`} className="inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-sky-200 hover:text-white hover:underline">{formatHeading(modelSelectionLabel[language], language)}<ArrowRight size={16} className="shrink-0" aria-hidden="true" /></a>
-                                <a href="#modeller" className="inline-flex min-h-10 items-center gap-2 text-sm font-medium text-slate-200 hover:text-white hover:underline">{formatHeading(labels.models, language)}<ArrowRight size={16} className="shrink-0" aria-hidden="true" /></a>
-                            </div>
-                        </div>
-                        <div className="pars-image-stage relative flex aspect-[8/5] max-h-[390px] min-w-0 items-center justify-center overflow-hidden rounded-2xl border border-white/60 p-3 sm:p-5">
-                            <img {...getResponsiveImageProps(getProductMainImage(featured), CATEGORY_IMAGE_SIZES)} alt={getProductDisplayName(featured, language)} fetchPriority="high" decoding="async" className="h-full w-full object-contain" />
-                            <span className="absolute bottom-3 right-3 rounded-full border border-pars-line bg-white px-3 py-1 text-xs font-medium text-slate-700">{models.length} {labels.modelCount}</span>
-                        </div>
-                    </header>
-                </div>
-            </div>
+            <PageTitleBand title={formatHeading(text.name, language)} />
             <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+                <nav aria-label={language === 'TR' ? 'İçerik yolu' : 'Breadcrumb'} className="mb-6 flex flex-wrap items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+                    <Link to="/" className="hover:text-pars-link hover:underline dark:hover:text-sky-300">{labels.home}</Link><ChevronRight size={14} aria-hidden="true" />
+                    <Link to="/products" className="hover:text-pars-link hover:underline dark:hover:text-sky-300">{labels.products}</Link><ChevronRight size={14} aria-hidden="true" />
+                    <span aria-current="page" className="font-semibold">{formatHeading(text.name, language)}</span>
+                </nav>
+                <div className="grid items-center gap-7 lg:grid-cols-[1.15fr_1fr] lg:gap-14">
+                    <div className="min-w-0">
+                        <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-pars-link dark:text-sky-300">Pars {language === 'TR' ? 'Soğutma' : 'Cooling'}</p>
+                        <p className="max-w-2xl text-base leading-7 text-slate-700 dark:text-slate-300">{text.intro}</p>
+                        <div className="mt-6"><ContactActions subject={text.name} language={language} /></div>
+                        <div className="mt-4 flex flex-wrap gap-x-5 gap-y-1">
+                            <a href={`#${modelSelectionId}`} className="inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-pars-link hover:underline dark:text-sky-300">{formatHeading(modelSelectionLabel[language], language)}<ArrowRight size={16} className="shrink-0" aria-hidden="true" /></a>
+                            <a href="#modeller" className="inline-flex min-h-10 items-center gap-2 text-sm font-medium hover:text-pars-link hover:underline dark:hover:text-sky-300">{formatHeading(labels.models, language)}<ArrowRight size={16} className="shrink-0" aria-hidden="true" /></a>
+                        </div>
+                    </div>
+                    <div className="relative flex aspect-[8/5] max-h-[390px] min-w-0 items-center justify-center overflow-hidden rounded-2xl border border-pars-line bg-white p-3 dark:border-slate-700 sm:p-5">
+                        <img {...getResponsiveImageProps(getProductMainImage(featured), CATEGORY_IMAGE_SIZES)} alt={getProductDisplayName(featured, language)} fetchPriority="high" decoding="async" className="h-full w-full object-contain" />
+                        <span className="absolute bottom-3 right-3 rounded-full border border-pars-line bg-white px-3 py-1 text-xs font-medium text-slate-700">{models.length} {labels.modelCount}</span>
+                    </div>
+                </div>
                 <CategoryModelSelection categoryId={category.id} models={models} language={language} />
                 <section id="modeller" aria-labelledby="category-models-title" className="scroll-mt-28 py-10 md:py-14">
                     <div className="mb-6 flex flex-wrap items-end justify-between gap-3"><h2 id="category-models-title" className="text-xl font-bold md:text-2xl">{formatHeading(labels.models, language)}</h2><span className="shrink-0 text-xs text-gray-500 dark:text-gray-400">{models.length} {labels.modelCount}</span></div>
@@ -146,7 +143,7 @@ export function CategoryContent({ category, products, language }: { category: Pr
                             );
                         })}
                     </div>
-                    <aside className="pars-panel pars-panel-tint self-start p-5 sm:p-6">
+                    <aside className="pars-panel self-start p-5 sm:p-6">
                         <h2 className="mb-4 text-lg font-bold">{formatHeading(labels.selection, language)}</h2>
                         <ul className="space-y-4 text-sm leading-6 text-gray-600 dark:text-gray-300">{text.criteria.map((criterion, index) => <li key={criterion} className="flex gap-3"><span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#009FE3]/10 text-xs font-semibold text-[#0083bb] dark:text-[#72D5E3]">{index + 1}</span><span>{criterion}</span></li>)}</ul>
                     </aside>
@@ -181,7 +178,7 @@ export function RelatedProducts({ product, products, language }: { product: Prod
     const related = getCategoryProducts(category, products).filter(item => item.id !== product.id).slice(0, 4);
     if (!related.length) return null;
     return (
-        <section data-related-products className="pars-panel pars-panel-tint mt-10 p-4 sm:p-6">
+        <section data-related-products className="pars-panel mt-10 p-4 sm:p-6">
             <div className="mb-6 flex flex-wrap items-center justify-between gap-3"><h2 className="text-xl font-bold text-gray-900 dark:text-white">{formatHeading(copy[language].relatedModels, language)}</h2><Link to={getCategoryPath(category)} className="inline-flex items-center gap-2 text-sm text-[#0083bb] dark:text-[#72D5E3]">{copy[language].allModels}<ArrowRight size={16} aria-hidden="true" /></Link></div>
             <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">{related.map(item => <CatalogProductCard key={item.id} product={item} language={language} />)}</div>
         </section>
@@ -204,7 +201,7 @@ export function CategoryReferences({ category, language }: { category: ProductCa
     const relevantProjects = projects.filter(project => project.categoryIds.includes(category.id));
     if (!relevantProjects.length) return null;
     return (
-        <section aria-labelledby="category-references-title" className="pars-panel pars-panel-tint p-5 sm:p-7">
+        <section aria-labelledby="category-references-title" className="pars-panel p-5 sm:p-7">
             <h2 id="category-references-title" className="mb-3 text-xl font-bold">{formatHeading(language === 'TR' ? 'Bu ürün grubuyla ilgili uygulamalar' : 'Installations for this product group', language)}</h2>
             <p className="mb-5 max-w-3xl text-base leading-7 text-slate-700 dark:text-slate-300">{language === 'TR' ? 'İlgili referans projelerinde teşhir düzenini ve mağaza içindeki yerleşimi inceleyin.' : 'Explore related reference projects to see display arrangements and shop layouts.'}</p>
             <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

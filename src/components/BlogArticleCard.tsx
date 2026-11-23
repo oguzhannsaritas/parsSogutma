@@ -11,7 +11,7 @@ export default function BlogArticleCard({ article, language, priority = false }:
     return (
         <article className="h-full">
             <Link to={getBlogArticlePath(article)} className="pars-panel group flex h-full flex-col overflow-hidden shadow-sm transition-colors hover:border-pars-blue focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pars-blue dark:hover:border-pars-blue">
-                <div className="pars-image-stage flex aspect-[16/9] items-center justify-center overflow-hidden border-b border-pars-line p-5 dark:border-slate-700 sm:p-8">
+                <div className="flex aspect-[16/9] items-center justify-center overflow-hidden border-b border-pars-line bg-white p-5 dark:border-slate-700 sm:p-8">
                     <img
                         {...getResponsiveImageProps(article.image, '(min-width: 1280px) 560px, (min-width: 768px) calc(50vw - 48px), calc(100vw - 64px)')}
                         alt={article.imageAlt[language]}
