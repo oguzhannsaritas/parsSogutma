@@ -13,8 +13,210 @@ const moonImage = '/images/products/servisReyonlari/KasapReyonDolabiBombeCamli/m
 const freshFishDisplayGuide = 'https://www.fao.org/4/x5893e/x5893e01.htm';
 const fishAndFisheryCode = 'https://www.fao.org/4/a1553e/a1553e00.pdf';
 const coldRoomLoadGuide = 'https://assets.danfoss.com/documents/latest/184239/BC380553550476en-000101.pdf';
+const kitchenVentilationGuide = 'https://handbook.ashrae.org/handbooks/A23/SI/a23_ch34/a23_ch34_si.aspx';
+const supermarketRefrigerationGuide = 'https://handbook.ashrae.org/handbooks/R26/SI/R26_Ch15/R26_ch15_si.aspx';
 
 export const catalogueGuideContent: Record<string, Record<CatalogLanguage, BlogArticleContent>> = {
+    'endustriyel-mutfak-ekipmanlari-restoran-yerlesimi': {
+        TR: {
+            sections: [
+                {
+                    heading: 'Hazırlık tezgâhında ne kadar boş yüzey gerekir?',
+                    paragraphs: [
+                        'Endüstriyel mutfak yerleşimi için menünüzde sık hazırlanan bir siparişi örnek alın. Salata hazırlarken 45 cm genişliğinde bir kesim tahtası ile 20 cm genişliğinde iki kap yan yana toplam 85 cm yer kaplar. Buna bitmiş tabağı bırakacağınız ve kapları kaldıracağınız alanı ekleyin. Evye veya damlalık aynı paslanmaz çalışma tezgâhındaysa kapladığı bölümü ayrıca işaretleyin.',
+                        'Tezgâh altı buzdolabını sipariş boyunca sık ulaşmanız gereken soğuk malzemeler için hazırlık noktasında değerlendirin. Yedek kasalar için dikey buzdolabı düşünüyorsanız mal kabulünden dolaba giden yolu da çizin. Kapaklar açıkken çalışma ve kasa taşıma için kalan alanı ölçün.',
+                    ],
+                    links: [
+                        { label: 'Tezgâh Altı Buzdolabı', to: '/products/79' },
+                        { label: 'Paslanmaz çalışma tezgâhı seçim rehberi', to: '/blog/paslanmaz-calisma-tezgahi-secim-rehberi' },
+                    ],
+                },
+                {
+                    heading: 'Pişirme hattını servis çıkışıyla birlikte planlayın',
+                    paragraphs: [
+                        'Ocak veya ızgaradan çıkan tabağın garsona nerede teslim edileceğini belirleyin. Aşçı tepsiyle ilerlerken bulaşık taşıyan personelle karşılaşıyorsa teslim yüzeyini pişirme hattına yaklaştırmayı deneyin. Yerleşimi ekipman soğukken boş bir tava ve servis tepsisiyle prova edin.',
+                        'Endüstriyel davlumbaz seçimi için pişirme cihazlarının türünü, yan yana kapladıkları alanı ve kanal için ayrılan güzergâhı aynı çizimde gösterin. Filtreye temizlik için hangi yönden erişileceğini kontrol edin. Egzoz debisini ve yerine verilecek havayı havalandırma projesinde pişirme cihazları, davlumbaz tipi ve mekân koşullarıyla birlikte değerlendirin.',
+                    ],
+                    links: [
+                        { label: 'Duvar Tipi Filtreli Davlumbaz', to: '/products/72' },
+                        { label: 'ASHRAE mutfak havalandırması rehberi', to: kitchenVentilationGuide },
+                    ],
+                },
+                {
+                    heading: 'Sebze yıkama, bulaşık ve temiz tabak için ayrı yer ayırın',
+                    paragraphs: [
+                        'Evyeli tezgâhın hangi işte kullanılacağını çizime yazın. Gıda yıkama noktasını hazırlık alanına, kullanılmış tabakların bırakılacağı yüzeyi bulaşık bölümünün girişine yerleştirin. Personelin ulaşabileceği ayrı bir el yıkama lavabosu planlayın.',
+                        'Temiz tabaklar için istif rafı seçerken bir tabak yığınının yüksekliğini ölçün. Yığını iki elle kavrayıp üst rafa çarpmadan kaldırabileceğiniz açıklığı bırakın. Rafı bulaşık alanının temiz çıkışına yakın konumlandırın ki temiz tabak almak için kirli sepetlerin üzerinden uzanmak gerekmesin.',
+                    ],
+                    links: [
+                        { label: 'Tek Evyeli Paslanmaz Tezgâh', to: '/products/82' },
+                        { label: 'Tel İstif Rafı', to: '/products/85' },
+                        { label: 'Tarım ve Orman Bakanlığının toplu tüketim yerleri için hijyen kılavuzu', to: cateringHygieneGuide },
+                    ],
+                },
+                {
+                    heading: 'Teklif için ölçülü mutfak krokisini paylaşın',
+                    paragraphs: [
+                        'Pars Soğutma’ya mutfağın ölçülü krokisini ve yoğun saatte hazırlanan başlıca yemekleri gönderin. Ürün kabulünü, servis çıkışını ve bulaşık dönüşünü işaretleyin. Mevcut elektrik, su, gider ve havalandırma bağlantılarını da ekleyin. Böylece ekipmanlar yerleştirildiğinde her noktada kimin nerede çalışacağı görülebilir.',
+                    ],
+                },
+            ],
+            questions: [
+                { question: 'Hazırlık tezgâhının net çalışma yüzeyi nasıl ölçülür?', answer: 'Kesim tahtası, kaplar ve servis tabağına ayrılacak yeri aynı yüzeyde işaretleyin. Evye ve damlalığın kapladığı alanı çıkarıp kapları kaldırmak için gereken boşluğu hesaba katın.' },
+                { question: 'Tezgâh altı buzdolabı için krokiye hangi ölçüler eklenir?', answer: 'Cihazın dış ölçülerini, kapağın açıkken kapladığı alanı ve personel geçişini gösterin. Havalandırma ve servis boşluğunu seçilen modelin kılavuzundan teyit edin.' },
+                { question: 'Bulaşık dönüşünü mutfak krokisinde nerede göstermeliyim?', answer: 'Salondan gelen kullanılmış tabakların bırakılacağı yeri bulaşık bölümünün girişinde işaretleyin. Temiz tabakları servis tarafına taşıyacağınız yolu da aynı çizimde gösterin.' },
+            ],
+        },
+        EN: {
+            sections: [
+                {
+                    heading: 'How much clear prep space do you need?',
+                    paragraphs: [
+                        'Start with a dish you make often. A 45 cm cutting board and two 20 cm containers take up 85 cm side by side. Allow room to set down the finished plate and lift the containers. Mark the space occupied by any sink or drainboard on the stainless steel worktop.',
+                        'Consider an undercounter refrigerator at the prep station for chilled ingredients you reach for throughout service. If you use an upright refrigerator for reserve stock, draw the route from receiving to that cabinet. Measure the working and carrying space left when the doors are open.',
+                    ],
+                    links: [
+                        { label: 'Undercounter Refrigerator', to: '/products/79' },
+                        { label: 'Guide to choosing a stainless steel worktable', to: '/blog/paslanmaz-calisma-tezgahi-secim-rehberi' },
+                    ],
+                },
+                {
+                    heading: 'Plan the cooking line around the serving pass',
+                    paragraphs: [
+                        'Decide where the cook will hand dishes from the range or grill to the server. If the route crosses the dirty-dish return, try moving the pass closer to the cooking line. Rehearse the layout while the equipment is cold, using an empty pan and a serving tray.',
+                        'To select a commercial kitchen hood, show the cooking appliances, their overall footprint and the proposed duct route on the drawing. Check how staff will reach the filters for cleaning. Have the exhaust and replacement airflow assessed for the appliances, hood and room as part of the ventilation design.',
+                    ],
+                    links: [
+                        { label: 'Wall-Mounted Filtered Hood', to: '/products/72' },
+                        { label: 'ASHRAE kitchen ventilation guide', to: kitchenVentilationGuide },
+                    ],
+                },
+                {
+                    heading: 'Separate produce washing, dirty dishes and clean plate storage',
+                    paragraphs: [
+                        'Label each sink by its purpose. Place produce washing near preparation and the used-plate drop-off at the entrance to the dishwashing area. Plan a separate handwashing basin that staff can reach easily.',
+                        'Measure a stack of clean plates when choosing a shelf. Leave enough clearance to grip the stack with both hands and lift it out. Position the shelf near the clean side of the dishwashing area so staff can collect plates without reaching over dirty racks.',
+                    ],
+                    links: [
+                        { label: 'Single-Sink Stainless Steel Table', to: '/products/82' },
+                        { label: 'Stackable Wire Shelf', to: '/products/85' },
+                        { label: 'Turkish Ministry of Agriculture and Forestry catering hygiene guide', to: cateringHygieneGuide },
+                    ],
+                },
+                {
+                    heading: 'Share a dimensioned kitchen layout for a quote',
+                    paragraphs: [
+                        'Send Pars Cooling a dimensioned sketch and the main dishes you serve at peak times. Mark receiving, the serving pass, the dish return and existing electrical, water, drain and ventilation connections. This shows where staff will work once the equipment is in place.',
+                    ],
+                },
+            ],
+            questions: [
+                { question: 'How do I measure usable prep surface?', answer: 'Mark the cutting board, containers and plating space on the same surface. Allow for the sink, drainboard and room to lift containers.' },
+                { question: 'What should I measure for an undercounter refrigerator?', answer: 'Show the cabinet dimensions, the space taken up by its open doors and the remaining staff passage. Confirm ventilation and service clearance in the model’s instructions.' },
+                { question: 'Where should I mark the dish return?', answer: 'Mark the drop-off for used plates at the entrance to dishwashing. On the same sketch, show how clean plates are taken back to service.' },
+            ],
+        },
+    },
+    'market-sogutma-sistemleri-merkezi-bireysel-karsilastirma': {
+        TR: {
+            sections: [
+                {
+                    heading: 'Hangi reyonlar aynı soğutma grubundan beslenebilir?',
+                    paragraphs: [
+                        'Merkezi soğutma sistemi birden fazla reyonun soğutma ihtiyacını ortak bir kompresör grubundan karşılar. Pars’ın merkezi gruplarında kompresörler yüke göre kademeli devreye girebilir. İki sütlüğün ve şarküteri reyonunun teknik föyündeki soğutma yükünü ve bu yükün verildiği buharlaşma sıcaklığını paylaşın. Proje ekibi hangi reyonların aynı devreden beslenebileceğini bu bilgilerle değerlendirir.',
+                        'Şarküteri reyonu mağazanın öbür ucundaysa ve yakınında uygun bir ünite yeri varsa bireysel soğutma grubu da değerlendirilebilir. Ortak gruptan bu reyona giden boru güzergâhıyla ayrı ünitenin kaplayacağı alanı ve bakım erişimini iki yerleşim çiziminde karşılaştırın.',
+                    ],
+                    links: [
+                        { label: 'Merkezi Soğutma Sistemleri', to: '/products/95' },
+                        { label: 'Bireysel Soğutma Grupları', to: '/products/96' },
+                        { label: 'ASHRAE market soğutması rehberi', to: supermarketRefrigerationGuide },
+                    ],
+                },
+                {
+                    heading: 'Bakım, arıza ve yeni reyon ihtiyaçlarını teklife yazın',
+                    paragraphs: [
+                        'Soğutma grubu seçimi için gelecekte eklemeyi düşündüğünüz reyonu da krokiye işleyin. Ek soğutma kapasitesi, elektrik bağlantısı ve boru güzergâhı bu reyonun yeriyle birlikte değerlendirilebilir. Bakım veya arızada çalışmaya devam etmesi gereken reyonları belirtin. Teknik ekipten hangi durumlarda bu ihtiyacın karşılanabileceğini yazılı olarak açıklamasını isteyin.',
+                    ],
+                    table: {
+                        headers: ['Karar konusu', 'Merkezi sistemde', 'Bireysel gruplarda'],
+                        rows: [
+                            ['Cihaz yeri', 'Ortak grubun servis alanı ve en uzak reyona boru güzergâhı', 'Her ünitenin yeri, havalandırması ve bakım erişimi'],
+                            ['Arıza veya bakım', 'Kalan kapasite ve kesintiye yol açabilecek ortak bileşenler', 'Her ünitenin beslediği reyonlar ve varsa ortak elektrik beslemesi'],
+                            ['Yeni reyon', 'Grubun ve hatların ek yükü karşılayacağı koşullar', 'Yeni ünite için yer, elektrik ve tesisat güzergâhı'],
+                        ],
+                    },
+                },
+                {
+                    heading: 'İki teklifteki kW değerlerini nasıl karşılaştırırsınız?',
+                    paragraphs: [
+                        'Soğutma kapasitesi, belirtilen çalışma koşullarında reyondan birim zamanda çekilebilen ısıyı ifade eder. Elektrik giriş gücü ise cihazın çalışırken şebekeden çektiği güçtür. İkisi de kW cinsinden verilebilir. Karşılaştırmada aynı reyon yükünü ve ortam koşullarını kullanın, teknik değerlerin hangi buharlaşma koşullarında verildiğini kontrol edin.',
+                        'Yıllık tüketim tahmini kWh cinsinden sunuluyorsa hangi çalışma sürelerinin ve elektrik tüketen bileşenlerin hesaba katıldığını sorun. Bir soğuk oda da kurulacaksa yükünü ve hedef sıcaklığını ayrı satırda verin. Ortak sistem, monoblok veya split ünite seçenekleri proje üzerinden değerlendirilebilir.',
+                    ],
+                    links: [{ label: 'Soğuk oda soğutma grubu seçim rehberi', to: '/blog/soguk-oda-sogutma-grubu-secim-rehberi' }],
+                },
+                {
+                    heading: 'Soğutma grubu fiyatları için aynı kapsamla teklif alın',
+                    paragraphs: [
+                        'Pars Soğutma’ya reyon listesini, modellerin teknik föylerini, olası ünite yerlerini ve yaklaşık boru güzergâhını gönderin. Cihazları, borulamayı, kontrol donanımını, montajı ve devreye almayı ayrı kalemler hâlinde isteyin. İki teklifte de hangi reyonların ve işlerin kapsandığını böylece görebilirsiniz.',
+                    ],
+                },
+            ],
+            questions: [
+                { question: 'Bir markette merkezi ve bireysel soğutma birlikte kullanılabilir mi?', answer: 'Projeye göre kullanılabilir. Her reyonun yükünü, çalışma koşullarını ve ünite yerini listeleyin. Hangi grubun hangi reyonu besleyeceğini teklif çiziminde gösterin.' },
+                { question: 'Merkezi sistemde bir kompresör durduğunda reyonlar çalışır mı?', answer: 'Kalan kompresör kapasitesine, kontrol tasarımına ve arızanın hangi bileşeni etkilediğine bağlıdır. Kritik reyonların hangi senaryolarda çalışmayı sürdürebildiğini proje ekibine sorun.' },
+                { question: 'Soğutma kapasitesi elektrik tüketimiyle aynı mı?', answer: 'Soğutma kapasitesi birim zamanda çekilen ısıyı, elektrik giriş gücü ise şebekeden çekilen gücü ifade eder. Bir süre boyunca kullanılan elektrik enerjisi kWh cinsinden karşılaştırılır.' },
+            ],
+        },
+        EN: {
+            sections: [
+                {
+                    heading: 'Which displays can share a refrigeration unit?',
+                    paragraphs: [
+                        'Central refrigeration serves several displays from a shared compressor rack. Pars central racks can bring compressors online in stages as load changes. For the two dairy displays and the deli counter, supply the refrigeration load and the evaporating temperature at which it is rated. The design team uses these figures to decide which displays can share a circuit.',
+                        'If the deli counter sits at the other end of the store and has space for a unit nearby, consider a dedicated refrigeration unit. Use two layout sketches to compare the pipe route from the shared rack with the footprint and service access for a dedicated unit.',
+                    ],
+                    links: [
+                        { label: 'Central Refrigeration Systems', to: '/products/95' },
+                        { label: 'Individual Refrigeration Units', to: '/products/96' },
+                        { label: 'ASHRAE guide to retail food store refrigeration', to: supermarketRefrigerationGuide },
+                    ],
+                },
+                {
+                    heading: 'Include maintenance, outages and expansion in the quote',
+                    paragraphs: [
+                        'Mark any display you may add in the future. The refrigeration capacity, power supply and pipe route can then be assessed alongside the position. List the displays you need to keep running during maintenance or a fault. Ask the designer to specify the conditions in which the proposed system can meet that need.',
+                    ],
+                    table: {
+                        headers: ['Decision', 'Central system', 'Dedicated units'],
+                        rows: [
+                            ['Equipment location', 'Rack service area and pipe route to the furthest display', 'Location, ventilation and service access for each unit'],
+                            ['Fault or maintenance', 'Remaining capacity and shared components that can cause an outage', 'Displays served by each unit and any shared power supply'],
+                            ['New display', 'Conditions under which the rack and lines can handle the additional load', 'Space, power and pipe route for a new unit'],
+                        ],
+                    },
+                },
+                {
+                    heading: 'How do you compare the kW figures in two quotes?',
+                    paragraphs: [
+                        'Refrigeration capacity is the rate of heat removal at the rated conditions. Electrical input is the power drawn by the equipment. Both can be listed in kW. Compare quotes using the same display loads and ambient conditions, and check the evaporating conditions used for the ratings.',
+                        'If a quote estimates annual energy use in kWh, ask which operating hours and electrical components it covers. List any cold room’s load and target temperature separately. A shared system, a monoblock or a split unit can then be assessed for that room.',
+                    ],
+                    links: [{ label: 'Guide to choosing a cold-room refrigeration unit', to: '/blog/soguk-oda-sogutma-grubu-secim-rehberi' }],
+                },
+                {
+                    heading: 'Request refrigeration quotes with the same scope',
+                    paragraphs: [
+                        'Send Pars Cooling the display list, model data sheets, potential unit locations and approximate pipe route. Ask for the units, pipework, controls, installation and commissioning to be listed separately. Then check which displays and work each quote covers.',
+                    ],
+                },
+            ],
+            questions: [
+                { question: 'Can a store combine central and individual refrigeration?', answer: 'Yes, depending on the design. List the load, operating conditions and unit location for each display. Ask the quote drawing to show which unit serves which display.' },
+                { question: 'Can displays keep running if one rack compressor stops?', answer: 'This depends on the remaining capacity, control design and the component affected. Ask the designer which faults would allow critical displays to continue running.' },
+                { question: 'Is refrigeration capacity the same as electricity consumption?', answer: 'Capacity is the rate of heat removal. Electrical input is the rate of electricity use. Energy used over time is compared in kWh.' },
+            ],
+        },
+    },
     'balik-teshir-dolabi-mostra-buzlu-sergileme': {
         TR: {
             sections: [
@@ -1038,7 +1240,11 @@ export const catalogueGuideContent: Record<string, Record<CatalogLanguage, BlogA
                         'Endüstriyel mutfak tezgâhının yakınında tezgâh altı buzdolabı veya dikey paslanmaz dolap bulunacaksa kapakların aynı koridora nasıl açıldığını kontrol edin. Soğutma ve hazırlık ekipmanları birlikte kullanılacağından, ürünün dolaptan çalışma yüzeyine taşınacağı yolu krokiye ekleyin.',
                         'Soğutma sistemleri ve tezgâh farklı ekipmanlardır. Ortak yerleşimde buzdolabının havalandırma ve servis boşluğunu seçilen modelin bilgilerine göre doğrulayın. Tezgâhın yan yüzeyi veya rafları bu alanı kapatmamalı.',
                     ],
-                    links: [{ label: 'Tezgâh altı buzdolabı', to: '/products/79' }, { label: 'Dikey paslanmaz buzdolabı', to: '/products/77' }],
+                    links: [
+                        { label: 'Tezgâh altı buzdolabı', to: '/products/79' },
+                        { label: 'Dikey paslanmaz buzdolabı', to: '/products/77' },
+                        { label: 'Endüstriyel mutfak ekipmanları için restoran yerleşim planı', to: '/blog/endustriyel-mutfak-ekipmanlari-restoran-yerlesimi' },
+                    ],
                 },
                 {
                     heading: 'Paslanmaz çalışma tezgâhı fiyatı ve özel ölçü teklifi',
@@ -1072,7 +1278,11 @@ export const catalogueGuideContent: Record<string, Record<CatalogLanguage, BlogA
                 {
                     heading: 'Plan the prep line around refrigeration equipment',
                     paragraphs: ['Check whether nearby undercounter or upright refrigerators open into the same aisle as the worktable. Show how staff will transfer products from refrigeration to the prep surface.', 'Confirm ventilation and service clearance for the exact refrigerator model. The table should fit without obstructing the available space for access or airflow.'],
-                    links: [{ label: 'Undercounter refrigerator', to: '/products/79' }, { label: 'Upright stainless steel refrigerator', to: '/products/77' }],
+                    links: [
+                        { label: 'Undercounter refrigerator', to: '/products/79' },
+                        { label: 'Upright stainless steel refrigerator', to: '/products/77' },
+                        { label: 'Guide to laying out a restaurant kitchen', to: '/blog/endustriyel-mutfak-ekipmanlari-restoran-yerlesimi' },
+                    ],
                 },
                 {
                     heading: 'Worktable pricing and custom dimensions',
@@ -1119,6 +1329,7 @@ export const catalogueGuideContent: Record<string, Record<CatalogLanguage, BlogA
                         'Soğuk odayı çizdikten sonra servis erişimini ve ünitenin bulunduğu alanın çevre koşullarını işaretleyin. Split soğutma grubu için iki ekipman yeri arasındaki olası güzergâhı gösterin. Monoblok için montaj açıklığı ve çevresindeki boşluk model çizimiyle doğrulanır.',
                         'Birden fazla soğutma noktası varsa her biri için ürün, oda veya reyon ölçüsü ve kullanım düzeni bilgilerini ayrı yazın. Böylece merkezi sistem ile bireysel grupların kapsadığı işler aynı liste üzerinden konuşulabilir.',
                     ],
+                    links: [{ label: 'Merkezi ve bireysel market soğutma sistemleri karşılaştırması', to: '/blog/market-sogutma-sistemleri-merkezi-bireysel-karsilastirma' }],
                 },
                 {
                     heading: 'Soğutma grubu fiyatı ve proje teklifi',
@@ -1154,6 +1365,7 @@ export const catalogueGuideContent: Record<string, Record<CatalogLanguage, BlogA
                 {
                     heading: 'Plan equipment location and service access',
                     paragraphs: ['Mark service clearance and ambient conditions around the unit. For a split unit, show a proposed route between the equipment positions. Check monoblock clearances against the selected unit’s drawing.', 'For multiple refrigeration loads, list product, room or cabinet dimensions and usage for each one. Compare which parts of the project a central or individual system would cover.'],
+                    links: [{ label: 'Compare central and individual supermarket refrigeration', to: '/blog/market-sogutma-sistemleri-merkezi-bireysel-karsilastirma' }],
                 },
                 {
                     heading: 'Refrigeration unit pricing and quotes',

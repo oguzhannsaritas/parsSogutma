@@ -5,6 +5,8 @@ export const responsiveImageManifest: Record<string, { width: number; height: nu
 "/images/blog/cikolata-dolabi.webp": {"width":1261,"height":1152,"widths":[160,320,480,640,960,1261]},
 "/images/blog/kasap-teshir-dolabi.webp": {"width":1535,"height":1024,"widths":[160,320,480,640,960,1280,1535]},
 "/images/blog/kebap-meze-dolabi.webp": {"width":1535,"height":1024,"widths":[160,320,480,640,960,1280,1535]},
+"/images/blog/merkezi-market-sogutma-grubu.webp": {"width":1536,"height":944,"widths":[160,320,480,640,960,1280,1536]},
+"/images/blog/paslanmaz-tezgah-alti-buzdolabi.webp": {"width":1000,"height":1000,"widths":[160,320,480,640,960,1000]},
 "/images/blog/pasta-cikolata-dolabi.webp": {"width":1536,"height":768,"widths":[160,320,480,640,960,1280,1536]},
 "/images/blog/reyon-dolabi.webp": {"width":1536,"height":512,"widths":[160,320,480,640,960,1280,1536]},
 "/images/blog/soguk-hava-deposu.webp": {"width":1152,"height":1152,"widths":[160,320,480,640,960,1152]},
