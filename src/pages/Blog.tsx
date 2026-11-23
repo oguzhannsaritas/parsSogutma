@@ -3,7 +3,6 @@ import { ArrowRight, ChevronRight } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import BlogArticleCard from '../components/BlogArticleCard';
 import ContactActions from '../components/ContactActions';
-import PageTitleBand from '../components/PageTitleBand';
 import { useLanguage } from '../context/LanguageContext';
 import { blogIndexPaths, getBlogIndexArticles, getBlogIndexPage } from '../data/blog';
 
@@ -16,9 +15,19 @@ export default function Blog() {
     const articles = getBlogIndexArticles(page);
     return (
         <div className="pars-canvas pb-16 pt-24 text-pars-navy dark:text-white md:pb-20">
-            <PageTitleBand title={formatHeading(tr ? 'Pars Soğutma Blog' : 'Pars Cooling Blog', language)} />
+            <header className="pars-band px-4 pb-9 pt-7 text-center sm:px-6 md:pb-12 md:pt-9">
+                <div className="mx-auto max-w-3xl">
+                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-sky-200 dark:text-pars-link">{tr ? 'Soğutma rehberi' : 'Refrigeration guides'}</p>
+                    <h1 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">{formatHeading(tr ? 'Pars Soğutma Blog' : 'Pars Cooling Blog', language)}</h1>
+                    <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-200 dark:text-slate-700">
+                        {tr
+                            ? 'İşletmenize uygun dolabı seçerken ihtiyaç duyacağınız bilgiler. Model karşılaştırmaları, yerleşim önerileri ve özel ölçü üretim için teklif rehberleri.'
+                            : 'Practical information for choosing a cabinet for your business. Explore model comparisons, layout considerations and guides to requesting a custom manufacturing quote.'}
+                    </p>
+                </div>
+            </header>
             <div className="mx-auto max-w-6xl px-4 sm:px-8">
-                <nav aria-label={tr ? 'Sayfa yolu' : 'Breadcrumb'} className="mb-6 flex flex-wrap items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+                <nav aria-label={tr ? 'Sayfa yolu' : 'Breadcrumb'} className="flex flex-wrap items-center gap-2 py-5 text-sm text-slate-600 dark:text-slate-300 md:py-6">
                     <Link to="/" className="hover:text-pars-link hover:underline dark:hover:text-sky-300">{tr ? 'Ana Sayfa' : 'Home'}</Link>
                     <ChevronRight size={14} aria-hidden="true" />
                     {page === 1 ? <span aria-current="page" className="font-semibold">Blog</span> : (
@@ -28,14 +37,6 @@ export default function Blog() {
                         </>
                     )}
                 </nav>
-                <div className="mb-8 max-w-3xl">
-                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-pars-link dark:text-sky-300">{tr ? 'Soğutma rehberi' : 'Refrigeration guides'}</p>
-                    <p className="max-w-2xl text-base leading-7 text-slate-700 dark:text-slate-300">
-                        {tr
-                            ? 'İşletmenize uygun dolabı seçerken ihtiyaç duyacağınız bilgiler. Model karşılaştırmaları, yerleşim önerileri ve özel ölçü üretim için teklif rehberleri.'
-                            : 'Practical information for choosing a cabinet for your business. Explore model comparisons, layout considerations and guides to requesting a custom manufacturing quote.'}
-                    </p>
-                </div>
                 <section aria-label={tr ? 'Blog yazıları' : 'Blog articles'} className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
                     {articles.map((article, index) => <BlogArticleCard key={article.slug} article={article} language={language} priority={index === 0} />)}
                 </section>
