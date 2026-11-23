@@ -371,6 +371,54 @@ export const blogArticles: BlogArticleSummary[] = [
         publishedOn: '2026-11-20',
         updatedOn: '2026-11-20',
     },
+    {
+        slug: 'balik-teshir-dolabi-mostra-buzlu-sergileme',
+        title: {
+            TR: 'Balık teşhir dolabı ve balık mostrasında buzlu sergileme',
+            EN: 'How to display fish on ice in a fish display counter',
+        },
+        description: {
+            TR: 'Balık teşhir dolabı ve balık mostrasında buz yatağını hazırlamayı, eriyen suyu tahliye etmeyi ve satış sonunda tezgâhı temizlemeyi öğrenin.',
+            EN: 'Prepare an ice bed for a fish display counter, check meltwater drainage and plan restocking and cleaning throughout the day.',
+        },
+        introduction: {
+            TR: 'Sabah buza yatırdığınız levrekler öğlene doğru tezgâhın bir köşesinde su içinde kalıyorsa önce eriyen buzun nereye aktığına bakın. Balık teşhir dolabı veya balık mostrası seçerken buz yatağını, tahliyeyi ve personelin tezgâha nereden ulaşacağını birlikte planlayın.',
+            EN: 'If the sea bass you laid on ice in the morning ends up sitting in a puddle by lunchtime, start by checking where the meltwater goes. When choosing a fish display counter, plan the ice bed, drainage and staff access together.',
+        },
+        topic: { TR: 'Buzlu balık teşhiri', EN: 'Fish display on ice' },
+        image: '/images/blog/cam-siperlikli-balik-mostra-dolabi.webp',
+        imageAlt: {
+            TR: 'Cam siperliği, paslanmaz sergileme tepsisi ve tepsi altındaki hortumu görünen balık mostrası',
+            EN: 'Fish display counter with a curved glass guard, stainless steel tray and hose below it',
+        },
+        relatedCategoryIds: ['balik'],
+        publishedOn: '2026-11-23',
+        updatedOn: '2026-11-23',
+    },
+    {
+        slug: 'soguk-hava-deposu-kurulumu-ekipmanlari',
+        title: {
+            TR: 'Soğuk hava deposu kurulumu için hangi ekipmanlar gerekir?',
+            EN: 'What equipment do you need to install a cold room?',
+        },
+        description: {
+            TR: 'Soğuk hava deposu kurulumu için panel, kapı ve soğutma grubunu ürün yüküne göre seçin. Ölçüleri ve günlük giriş miktarını bir market örneğiyle planlayın.',
+            EN: 'Plan cold-room panels, doors and refrigeration around product load. Use a grocery example to record dimensions and daily deliveries.',
+        },
+        introduction: {
+            TR: 'Bir marketin sabah teslimatında kasaların kapıdan geçmesi, raflara yerleşmesi ve soğuk kalması gerekir. Soğuk hava deposu kurulumu için panel, zemin, kapı, soğutma grubu ve sıcaklık takibini bu teslimat üzerinden planlayın. En yoğun günde kaç kasa geliyor ve ürünler depoya hangi sıcaklıkta giriyor?',
+            EN: 'During a grocery store’s morning delivery, crates have to fit through the door, reach the shelves and stay cold. Plan the cold room’s panels, floor, door, refrigeration and temperature monitoring around that delivery. How many crates arrive on the busiest day and what temperature are they when they enter?',
+        },
+        topic: { TR: 'Soğuk oda kurulumu', EN: 'Cold-room installation' },
+        image: '/images/blog/soguk-hava-deposu.webp',
+        imageAlt: {
+            TR: 'Kapısı yarı açık beyaz panelli soğuk hava deposu ve raflarındaki paketli ürünler',
+            EN: 'White-panel cold room with the door partly open and packaged products visible on the shelves',
+        },
+        relatedCategoryIds: ['soguk-oda'],
+        publishedOn: '2026-11-23',
+        updatedOn: '2026-11-23',
+    },
 ];
 
 const articlesPerPage = 6;
@@ -405,9 +453,9 @@ export function getCategoryBlogArticles(categoryId: CategoryId): BlogArticleSumm
         kasap: ['kasap-teshir-dolabi-yerlesim-model-secimi', 'kasap-dolabi-olculeri-et-teshir', 'et-aski-dolabi-dry-aged-dolabi-farki'],
         sutluk: ['acik-sutluk-cam-kapakli-sutluk-secimi', 'sutluk-dolabi-olculeri-raf-duzeni'],
         meze: ['meze-dolabi-secim-rehberi', 'kebap-teshir-dolabi-meze-vitrini-yerlesimi'],
-        balik: ['balik-teshir-dolabi-secim-rehberi'],
+        balik: ['balik-teshir-dolabi-secim-rehberi', 'balik-teshir-dolabi-mostra-buzlu-sergileme'],
         reyon: ['sarkuteri-reyon-dolabi-secim-rehberi', 'duz-camli-bombe-camli-reyon-dolabi-farklari'],
-        'soguk-oda': ['soguk-oda-fiyati-nasil-hesaplanir', 'soguk-oda-pvc-serit-perde-secimi'],
+        'soguk-oda': ['soguk-hava-deposu-kurulumu-ekipmanlari', 'soguk-oda-fiyati-nasil-hesaplanir', 'soguk-oda-pvc-serit-perde-secimi'],
         mutfak: ['paslanmaz-calisma-tezgahi-secim-rehberi'],
         sogutma: ['soguk-oda-sogutma-grubu-secim-rehberi'],
     };

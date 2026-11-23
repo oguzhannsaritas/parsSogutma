@@ -10,8 +10,221 @@ const mezzeDisplayImage = '/images/products/servisReyonlari/kebapMezeDolabi/kaba
 const cateringHygieneGuide = 'https://www.tarimorman.gov.tr/GKGM/Belgeler/Tuketici_Bilgi_Kosesi/Temp/iyi_hijyen_uygulama_rehberi/TopluTuketim_Yerleri_Hijyen_Uygulama_Kilavuzu.pdf';
 const newMoonImage = '/images/products/servisReyonlari/newMoonDüzCamliReyondolabi/newMoonDuzCamliReyondolabi.webp';
 const moonImage = '/images/products/servisReyonlari/KasapReyonDolabiBombeCamli/moonBombeCamliReyonDolabix.webp';
+const freshFishDisplayGuide = 'https://www.fao.org/4/x5893e/x5893e01.htm';
+const fishAndFisheryCode = 'https://www.fao.org/4/a1553e/a1553e00.pdf';
+const coldRoomLoadGuide = 'https://assets.danfoss.com/documents/latest/184239/BC380553550476en-000101.pdf';
 
 export const catalogueGuideContent: Record<string, Record<CatalogLanguage, BlogArticleContent>> = {
+    'balik-teshir-dolabi-mostra-buzlu-sergileme': {
+        TR: {
+            sections: [
+                {
+                    heading: 'Açılışta buz yatağını hazırlayın',
+                    paragraphs: [
+                        'Buzlu balık tezgâhını hazırlarken temiz yüzeye içme suyundan üretilmiş taze buz yayın. Yedek buzu kapaklı, temiz bir kapta tutun ve aktarım için ayrı bir temiz kürek kullanın. Kullanılacak buzla tezgâhtan çıkan buzu ayrı tutun.',
+                        'Taze bütün balığı uygun soğuk muhafazadan çıkarıp buz yatağına alın. Amaç ürünün sıcaklığını eriyen buza yakın tutmaktır. Soğutmalı balık dolabı kullanıyorsanız dolabın ekranındaki değerin yanında balığın sıcaklığını da temiz bir gıda termometresiyle, işletmenizin ölçüm yöntemine göre kontrol edin.',
+                    ],
+                    links: [{ label: 'FAO’nun taze balığı perakendede sergileme rehberi', to: freshFishDisplayGuide }],
+                },
+                {
+                    heading: 'Eriyen suyun giderden uzaklaştığını kontrol edin',
+                    paragraphs: [
+                        'Balık mostra dolabının çiziminde teşhir yüzeyinin su çıkışını ve dükkândaki gideri işaretleyin. Süzgeç varsa personelin temizlik için ulaşabildiğini kontrol edin. Montaj tesliminde reyon boşken suyun yüzeyden gidere akışını kurulum ekibiyle deneyin.',
+                        'Servis sırasında su birikirse etkilenen bölümdeki ürünün satışını durdurup ürün sıcaklığını ve durumunu işletmenizin gıda güvenliği prosedürüne göre değerlendirin. Boş bölümde bir tepsinin çıkışı örtüp örtmediğine ve süzgeçte pul birikip birikmediğine bakın. Birikme sürüyorsa bölümü yeniden yüklemeden önce tahliyeyi teknik ekibe kontrol ettirin.',
+                    ],
+                    links: [{ label: 'FAO ve DSÖ’nün balık ve su ürünleri uygulama rehberi', to: fishAndFisheryCode }],
+                },
+                {
+                    heading: 'Yoğun saatte balık reyonunu küçük partilerle yenileyin',
+                    paragraphs: [
+                        'Teşhirdeki miktarı satış hızına göre ayarlayın. Hamsi hızla satılıyorsa soğuk muhafazadan küçük partilerle yenileyin. Daha yavaş satılan çipurayı başta daha az yerleştirin. Yoğun saatlerde de buz yatağını ve ürün sıcaklığını izleyin.',
+                        'Yenileme provasını boş bir kasayla yapın. Cam siperlikli balık mostrasında en uzaktaki bölüme personelin nereden eriştiğine bakın. Kapaklı bir modelde ise açık kapağın yanında kasayı bırakacağınız yeri belirleyin.',
+                    ],
+                    links: [
+                        { label: 'Cam Siperlikli Balık Mostra Dolabı', to: '/products/7' },
+                        { label: 'Kapaklı Balık Mostra Dolabı', to: '/products/11' },
+                        { label: 'Balık teşhir ve mostra dolabı seçim rehberi', to: '/blog/balik-teshir-dolabi-secim-rehberi' },
+                    ],
+                },
+                {
+                    heading: 'Kapanışta balık tezgâhını temizleyin',
+                    paragraphs: [
+                        'Reyonu boşaltın ve kullanılmış buzu atın. Kalan ürünü işletmenizin gıda güvenliği planına göre değerlendirin. Çıkarılabilen tepsi ve süzgeci üreticinin talimatına göre sökün. Teşhir tabanından, köşelerden ve süzgeçten pulları uzaklaştırın. Temizlik ve dezenfeksiyonu işletmenizin planına ve kullanılan ürünlerin etiketine göre tamamlayın.',
+                        'Pars Soğutma’dan teklif alırken dolaba ayrılan alanı, dükkândaki giderin yerini ve yoğun saatte sergileyeceğiniz balık türleriyle miktarını paylaşın. Bu bilgilerle teşhir alanı ve su bağlantısı aynı çizimde değerlendirilebilir.',
+                    ],
+                    links: [{ label: 'Tarım ve Orman Bakanlığının hijyen uygulama kılavuzu', to: cateringHygieneGuide }],
+                },
+            ],
+            questions: [
+                { question: 'Balık mostrasında su birikmemesi için montajda neye bakılmalı?', answer: 'Boş reyonda suyun teşhir yüzeyinden gider bağlantısına kadar akışını kurulum ekibiyle kontrol edin. Varsa süzgecin çıkarılıp temizlenebildiğini de deneyin.' },
+                { question: 'Dolabın ekranındaki değer balığın sıcaklığını gösterir mi?', answer: 'Ekrandaki değerin neyi gösterdiğini modelin kılavuzundan teyit edin. Ürün sıcaklığını temiz bir gıda termometresi ve işletmenizin ölçüm yöntemiyle ayrıca kontrol edin.' },
+                { question: 'Buzlu balık tezgâhı ertesi güne nasıl hazırlanır?', answer: 'Kullanılmış buzu atın. Tezgâhı, tepsiyi ve giderin erişilebilir parçalarını temizleyin. Yeni servise temiz yüzey ve taze buzla başlayın.' },
+            ],
+        },
+        EN: {
+            sections: [
+                {
+                    heading: 'Prepare the ice bed before opening',
+                    paragraphs: [
+                        'Spread fresh ice made from potable water over a clean display surface. Store reserve ice in a clean, covered container and use a dedicated clean scoop. Keep reserve ice separate from ice that has already been on display.',
+                        'Transfer fresh whole fish from appropriate chilled storage onto the ice bed. Keep the fish close to the temperature of melting ice. When using a refrigerated counter, check the fish with a clean food thermometer according to your food safety procedure as well as reading the counter display.',
+                    ],
+                    links: [{ label: 'FAO guidance on displaying fresh fish in retail shops', to: freshFishDisplayGuide }],
+                },
+                {
+                    heading: 'Check that meltwater reaches the drain',
+                    paragraphs: [
+                        'Mark the counter’s outlet and the shop drain on the drawing. If there is a strainer, check that staff can reach it for cleaning. At handover, check how water flows from the empty counter to the drain with the installer.',
+                        'If water pools during service, stop selling from the affected section and assess the products and their temperature under your food safety procedure. With that section empty, look for a tray blocking the outlet or scales trapped in the strainer. If pooling continues, ask the installer to check the drain before restocking.',
+                    ],
+                    links: [{ label: 'FAO and WHO code of practice for fish and fishery products', to: fishAndFisheryCode }],
+                },
+                {
+                    heading: 'Restock in small batches during busy periods',
+                    paragraphs: [
+                        'Set the quantity on display according to how quickly each fish sells. Replenish fast-selling anchovies from chilled storage in small batches. Put out fewer of the slower-selling sea bream to start with. Keep checking the ice and product temperature during the rush.',
+                        'Use an empty crate to try the restocking route. For a glass-guard model, see where staff can reach the far end of the display. For a lidded model, decide where to set down the crate while the lid is open.',
+                    ],
+                    links: [
+                        { label: 'Glass-guard fish display counter', to: '/products/7' },
+                        { label: 'Lidded fish display counter', to: '/products/11' },
+                        { label: 'Guide to choosing a fish display counter', to: '/blog/balik-teshir-dolabi-secim-rehberi' },
+                    ],
+                },
+                {
+                    heading: 'Clean the fish counter at closing',
+                    paragraphs: [
+                        'Empty the counter and discard used ice. Assess remaining products under your food safety plan. Remove detachable trays and strainers as directed by the manufacturer. Clear scales from the surface, corners and strainer. Clean and disinfect according to your hygiene plan and the product labels.',
+                        'When requesting a Pars Cooling quote, share the counter location, shop drain position and the types and quantities of fish you display at peak times. This lets us plan the display surface and drain connection on the same drawing.',
+                    ],
+                    links: [{ label: 'Turkish Ministry of Agriculture and Forestry hygiene guide', to: cateringHygieneGuide }],
+                },
+            ],
+            questions: [
+                { question: 'How do I check for pooling at handover?', answer: 'With the counter empty, check how water flows from the display surface to the drain connection with the installer. Check basic access to remove and clean the strainer if fitted.' },
+                { question: 'Does the display reading show the temperature of the fish?', answer: 'Check the model’s instructions for what the display reading represents. Check product temperature separately with a clean food thermometer following your procedure.' },
+                { question: 'How should I prepare the counter for the next day?', answer: 'Discard used ice and clean the counter, tray and reachable parts of the drain. Start the next service with a clean surface and fresh ice.' },
+            ],
+        },
+    },
+    'soguk-hava-deposu-kurulumu-ekipmanlari': {
+        TR: {
+            sections: [
+                {
+                    heading: 'Stok miktarı ile günlük ürün girişini ayrı yazın',
+                    paragraphs: [
+                        'Her biri 12 kg olan 20 kasa teslim alan bir marketin günlük girişi 240 kg’dır. Aynı depoda bir seferde 600 kg ürün bulunabilir. Kapasite hesabına iki değeri de yazın. Ürün türünü, giriş sıcaklığını, hedef muhafaza sıcaklığını ve teslimat saatlerini de ekleyin.',
+                        'Kapının günde kaç kez açıldığını ve yüklemede yaklaşık ne kadar açık kaldığını paylaşın. Sabah tek seferde yüklenen bir depoyla gün boyu sık açılan bir oda için farklı soğutma yükleri hesaplanabilir.',
+                    ],
+                    table: {
+                        headers: ['Ekipman', 'Teklif için hazırlayın'],
+                        rows: [
+                            ['Panel ve zemin', 'Net iç ölçüler, hedef sıcaklık ve yüklü arabanın ağırlığı'],
+                            ['Kapı ve PVC şerit perde', 'Yüklü arabanın eni ve yüksekliği, koridor ve kapı trafiği'],
+                            ['Soğutma grubu', 'Ürün türü, günlük giriş, teslim sıcaklığı ve ortam koşulları'],
+                            ['Kontrol ünitesi', 'Sıcaklık gösterimi, kayıt ve alarm ihtiyacı'],
+                        ],
+                    },
+                    links: [
+                        { label: 'Soğuk Hava Deposu ürün bilgileri', to: '/products/97' },
+                        { label: 'Danfoss soğuk oda yük hesabı kılavuzu', to: coldRoomLoadGuide },
+                    ],
+                },
+                {
+                    heading: 'Paneli ve zemini raf planıyla birlikte seçin',
+                    paragraphs: [
+                        'Soğuk oda paneli için hedef oda sıcaklığını, çevre koşullarını ve kullanılabilir alanı üreticiyle paylaşın. Çizimde panel montajından sonra kalacak net iç ölçüleri isteyin. Rafları, taşıma arabasının dönüş alanını ve yürüyüş yönünü bu ölçülerle planlayın.',
+                        'Ürünler arabayla taşınacaksa arabanın yükle birlikte ağırlığını ve teker ölçüsünü paylaşın. Zemini ve kapı eşiğini buna göre değerlendirin. Montajdan önce eşikteki geçişi yüklü arabanın ölçüsüyle karşılaştırın.',
+                    ],
+                    links: [{ label: 'Soğuk Oda Panelleri', to: '/products/102' }],
+                },
+                {
+                    heading: 'Kapının net açıklığını yüklü arabayla kontrol edin',
+                    paragraphs: [
+                        'En geniş kasa veya paletle birlikte yüklü taşıma aracının toplam enini ve yüksekliğini ölçün. Menteşeli kapının açıkken koridorda kapladığı alanı çizime ekleyin. Sürgülü kapıda, kanadın kayacağı yanda kolon, raf veya tesisat olup olmadığını kontrol edin.',
+                        'Sık geçiş yapılan bir giriş için PVC şerit perde düşünüyorsanız askının altındaki net yüksekliği isteyin. Bu ölçüyü yüklü arabanın yüksekliğiyle karşılaştırın.',
+                    ],
+                    links: [
+                        { label: 'Menteşeli Soğuk Oda Kapısı', to: '/products/105' },
+                        { label: 'Sürgülü Soğuk Oda Kapısı', to: '/products/106' },
+                        { label: 'PVC şerit perde seçim rehberi', to: '/blog/soguk-oda-pvc-serit-perde-secimi' },
+                    ],
+                },
+                {
+                    heading: 'Soğutma grubunu ve sıcaklık takibini planlayın',
+                    paragraphs: [
+                        'Soğuk oda soğutma grubu seçilirken ürünün giriş sıcaklığı ve günlük miktarı, kapı trafiği, yalıtım ve çevre sıcaklığı birlikte değerlendirilir. İç ünitenin, yani evaporatörün, üfleme ve hava dönüş yönünü çizim üzerinde görün. Raflar dolduğunda bu yolları açık tutmak için gereken boşluğu kurulum ekibinden öğrenin.',
+                        'Kontrol ünitesinde sıcaklık geçmişi veya sınır aşıldığında uyarı istiyorsanız kayıt ve alarm özelliklerini teklife yazdırın. Teslim sırasında bir örnek kaydı açmalarını ve varsa alarmı göstermelerini isteyin. İlk mal kabulünde kapının kapanma saatini not etmek, kayıttaki bir değişimi yüklemeyle karşılaştırmaya yardımcı olur.',
+                        'Pars Soğutma’dan proje teklifi almak için kroki, en büyük yüklü arabanın ölçüleri, ürün türü, günlük ürün girişi ve hedef sıcaklığı paylaşın.',
+                    ],
+                    links: [{ label: 'Soğuk oda soğutma grubu seçim rehberi', to: '/blog/soguk-oda-sogutma-grubu-secim-rehberi' }],
+                },
+            ],
+            questions: [
+                { question: 'Soğuk oda teklifi için maksimum stoku mu, günlük girişi mi yazmalıyım?', answer: 'İki değeri ayrı yazın. Maksimum stok raf ve alan ihtiyacını tarif eder. Günlük giriş ve ürünün giriş sıcaklığı ise soğutma yükü hesabına girer.' },
+                { question: 'Menteşeli ve sürgülü soğuk oda kapısı nasıl karşılaştırılır?', answer: 'Yüklü arabanın eni ve yüksekliğiyle net kapı açıklığını karşılaştırın. Menteşeli kapının koridordaki açılma alanını, sürgülü kapının da duvar boyunca ihtiyaç duyduğu boşluğu kontrol edin.' },
+                { question: 'Sıcaklık ekranı olan her ünitede kayıt ve alarm var mı?', answer: 'Kayıt ve alarm seçenekleri kontrol ünitesine göre değişir. İstediğiniz kayıt, alarm ve uyarı özelliklerini teklifte ve devreye alma sırasında teyit edin.' },
+            ],
+        },
+        EN: {
+            sections: [
+                {
+                    heading: 'Record stock and daily deliveries separately',
+                    paragraphs: [
+                        'A shop receiving 20 crates of 12 kg each receives 240 kg per day. The same cold room might hold 600 kg at once. Give the sizing team both figures, along with the product type, incoming temperature, storage target and delivery times.',
+                        'Estimate how often the door opens and how long it stays open during loading. A room loaded once in the morning and a room opened frequently all day may have different refrigeration loads.',
+                    ],
+                    table: {
+                        headers: ['Equipment', 'Information for your quote'],
+                        rows: [
+                            ['Panels and floor', 'Clear internal dimensions, target temperature and loaded trolley weight'],
+                            ['Door and strip curtain', 'Loaded trolley width and height, corridor and doorway traffic'],
+                            ['Refrigeration unit', 'Product, daily intake, delivery temperature and ambient conditions'],
+                            ['Controller', 'Temperature display, logging and alarm requirements'],
+                        ],
+                    },
+                    links: [
+                        { label: 'Cold Storage Room product details', to: '/products/97' },
+                        { label: 'Danfoss cold room load calculation guide', to: coldRoomLoadGuide },
+                    ],
+                },
+                {
+                    heading: 'Plan panels and flooring around the shelf layout',
+                    paragraphs: [
+                        'Share the target temperature, surrounding conditions and available space with the panel supplier. Ask for the finished internal dimensions on the drawing. Use those dimensions to plan shelves, trolley turning space and staff routes.',
+                        'Record the weight of the loaded trolley and the size of its wheels. Use these details to discuss the floor and doorway threshold. Check the threshold against the loaded trolley’s dimensions before installation.',
+                    ],
+                    links: [{ label: 'Cold Room Panels', to: '/products/102' }],
+                },
+                {
+                    heading: 'Check the clear opening against the loaded trolley',
+                    paragraphs: [
+                        'Measure the total width and height of the trolley with its widest crate or pallet load. Mark the space a hinged door takes up in the corridor when open. For a sliding door, check the path along the wall for shelves, columns and utilities.',
+                        'If you consider a PVC strip curtain for a busy entrance, ask for the clear height below the mounting rail. Compare it with the loaded trolley height.',
+                    ],
+                    links: [
+                        { label: 'Hinged Cold Room Door', to: '/products/105' },
+                        { label: 'Sliding Cold Room Door', to: '/products/106' },
+                        { label: 'Cold-room PVC strip curtain guide', to: '/blog/soguk-oda-pvc-serit-perde-secimi' },
+                    ],
+                },
+                {
+                    heading: 'Plan refrigeration and temperature monitoring',
+                    paragraphs: [
+                        'When selecting refrigeration, consider incoming product temperature and daily quantity, doorway traffic, insulation and ambient temperature. Check discharge and return airflow around the evaporator on the drawing. Ask the installation team what clearance to keep around fully loaded shelving.',
+                        'Include logging and alarms in the quote if you need temperature history or a warning when a limit is exceeded. At handover, ask the team to show an example record and demonstrate any alarm. Note when the door closes on the first delivery so you can compare temperature changes with loading times.',
+                        'For a Pars Cooling project quote, send the sketch, dimensions of the largest loaded trolley, product type, daily intake and target temperature.',
+                    ],
+                    links: [{ label: 'Guide to choosing a cold-room refrigeration unit', to: '/blog/soguk-oda-sogutma-grubu-secim-rehberi' }],
+                },
+            ],
+            questions: [
+                { question: 'Should I give maximum stock or daily incoming quantity for a cold-room quote?', answer: 'Give both separately. Maximum stock helps define space and shelving. Daily intake and incoming product temperature are inputs for the refrigeration load.' },
+                { question: 'How do I compare hinged and sliding cold-room doors?', answer: 'Compare the loaded trolley with the clear opening. Check the hinged door’s swing in the corridor and the clearance a sliding leaf needs along the wall.' },
+                { question: 'Does every temperature display support logging and alarms?', answer: 'Logging and alarms vary by controller. Confirm the recording, alarm and notification features in the quote and during commissioning.' },
+            ],
+        },
+    },
     'kebap-teshir-dolabi-meze-vitrini-yerlesimi': {
         TR: {
             sections: [
@@ -563,6 +776,7 @@ export const catalogueGuideContent: Record<string, Record<CatalogLanguage, BlogA
                         'Endüstriyel soğutma ekipmanı seçerken sergilenecek ürünü ve çalışma ortamını açıklayın. Balık teşhirinde buz kullanılacaksa buzun nasıl yerleştirileceğini ve erime suyunun nasıl tahliye edileceğini model üzerinden konuşun. Su gideri gereken bir uygulamada gider konumunu proje fotoğrafında işaretleyin.',
                         'Soğutma sistemleri için verilen model bilgilerini incelerken temizlik yapılacak yüzeylere nasıl ulaşılacağını da sorun. Tepsi veya diğer parçaların çıkarılması, tezgâhın günlük kullanımıyla birlikte değerlendirilmelidir.',
                     ],
+                    links: [{ label: 'Balık mostrasında buzlu sergileme rehberi', to: '/blog/balik-teshir-dolabi-mostra-buzlu-sergileme' }],
                 },
                 {
                     heading: 'Balık teşhir dolabı fiyatları ve özel ölçü teklif',
@@ -596,6 +810,7 @@ export const catalogueGuideContent: Record<string, Record<CatalogLanguage, BlogA
                 {
                     heading: 'Refrigeration, cleaning and connection points',
                     paragraphs: ['Describe the products and working conditions when choosing industrial refrigeration equipment. If ice is part of your display, discuss the planned setup and how meltwater will be handled for the specific model.', 'If a drain is required, show where it can connect. Ask how staff will access surfaces and removable parts for routine cleaning.'],
+                    links: [{ label: 'Guide to displaying fish on ice', to: '/blog/balik-teshir-dolabi-mostra-buzlu-sergileme' }],
                 },
                 {
                     heading: 'Fish display pricing and custom dimensions',
@@ -725,7 +940,12 @@ export const catalogueGuideContent: Record<string, Record<CatalogLanguage, BlogA
                             ['Proje ve uygulama', 'Nakliye, montaj, devreye alma ve varsa ek işler.'],
                         ],
                     },
-                    links: [{ label: 'Soğuk oda panelleri', to: '/products/102' }, { label: 'Menteşeli soğuk oda kapısı', to: '/products/105' }, { label: 'Sürgülü soğuk oda kapısı', to: '/products/106' }],
+                    links: [
+                        { label: 'Soğuk oda panelleri', to: '/products/102' },
+                        { label: 'Menteşeli soğuk oda kapısı', to: '/products/105' },
+                        { label: 'Sürgülü soğuk oda kapısı', to: '/products/106' },
+                        { label: 'Soğuk hava deposu kurulumu ve ekipmanları', to: '/blog/soguk-hava-deposu-kurulumu-ekipmanlari' },
+                    ],
                 },
                 {
                     heading: 'Metrekare başına soğuk oda fiyatı neyi gösterir?',
@@ -764,7 +984,12 @@ export const catalogueGuideContent: Record<string, Record<CatalogLanguage, BlogA
                         headers: ['Cost item', 'Check in the quote'],
                         rows: [['Panels and floor', 'Insulation, panels, ceiling and floor work.'], ['Cold-room door', 'Clear opening, hinged or sliding design, frame or track.'], ['Refrigeration system', 'Equipment, controls and site connections.'], ['Site work', 'Delivery, installation, commissioning and any additional work.']],
                     },
-                    links: [{ label: 'Cold-room panels', to: '/products/102' }, { label: 'Hinged cold-room door', to: '/products/105' }, { label: 'Sliding cold-room door', to: '/products/106' }],
+                    links: [
+                        { label: 'Cold-room panels', to: '/products/102' },
+                        { label: 'Hinged cold-room door', to: '/products/105' },
+                        { label: 'Sliding cold-room door', to: '/products/106' },
+                        { label: 'Cold-room installation and equipment guide', to: '/blog/soguk-hava-deposu-kurulumu-ekipmanlari' },
+                    ],
                 },
                 {
                     heading: 'What do cold-room prices per square metre cover?',
