@@ -531,7 +531,7 @@ function ProductDetailView({ page }: { page: ProductPageData }) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="pars-quote mt-5 p-4 sm:p-5"><ContactActions subject={displayName} language={language} /></div>
+                                    <div className="pars-panel mt-5 p-4 sm:p-5"><ContactActions subject={displayName} language={language} /></div>
                                     <ProductBuyerGuide product={product} language={language} content={page.content[language]} />
                                 </motion.div>
                             )}

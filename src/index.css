@@ -57,9 +57,19 @@
     background: white;
   }
 
+  .pars-panel-tint {
+    border-color: #cddfec;
+    background: #e8f2fa;
+  }
+
   .dark .pars-panel {
     border-color: #334155;
     background: #172234;
+  }
+
+  .dark .pars-panel-tint {
+    border-color: #2d4a65;
+    background: #162a3f;
   }
 
   .pars-quote {
