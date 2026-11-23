@@ -1,10 +1,11 @@
+import { formatHeading } from '../lib/formatHeading';
 import { getResponsiveImageProps, HOME_IMAGE_SIZES } from '../lib/responsiveImages';
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowLeftRight, Fan, RefreshCw, Layers, Leaf, Lightbulb } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function SustainabilitySection() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
 
     const features = [
         { icon: <ArrowLeftRight className="md:size-[32px] size-5 " />, label: t('sust.slidingDoors') },
@@ -41,7 +42,7 @@ export default function SustainabilitySection() {
                 <div className="grid grid-cols-1 items-center justify-center text-center lg:grid-cols-2 gap-12 mb-5 md:mb-16">
                     <div className="space-y-0">
                         <h2 className="text-xl md:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-2">
-                            {t('sust.title')}
+                            {formatHeading(t('sust.title'), language)}
                         </h2>
 
                         <p className="text-gray-700 dark:text-gray-300 text-xs md:text-lg leading-relaxed">

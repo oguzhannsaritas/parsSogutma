@@ -1,3 +1,4 @@
+import { formatHeading } from '../lib/formatHeading';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getProductDisplayName, type CatalogLanguage, type CategoryId } from '../data/catalog';
@@ -41,17 +42,17 @@ export default function CategoryModelSelection({ categoryId, models, language }:
     const { question, choices } = catalogModelSelections[categoryId];
 
     return (
-        <section id={modelSelectionId} aria-labelledby="model-selection-title" className="mt-8 scroll-mt-28 rounded-3xl border border-sky-100 bg-sky-50/60 p-4 dark:border-sky-900 dark:bg-slate-900/60 sm:p-6 lg:p-8">
-            <h2 id="model-selection-title" className="text-xl font-bold md:text-2xl">{modelSelectionLabel[language]}</h2>
-            <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">{question[language]}</p>
+        <section id={modelSelectionId} aria-labelledby="model-selection-title" className="pars-panel pars-panel-tint mt-8 scroll-mt-28 p-5 sm:p-6 lg:p-8">
+            <h2 id="model-selection-title" className="text-xl font-bold md:text-2xl">{formatHeading(modelSelectionLabel[language], language)}</h2>
+            <p className="mt-2 text-base leading-7 text-slate-700 dark:text-slate-300">{question[language]}</p>
             <ul data-model-selection-options className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {choices.map(choice => {
                     const [label, description] = choice.copy[language];
-                    const linkClass = 'flex h-full items-start gap-3 rounded-2xl border border-gray-200 bg-white p-4 transition-colors hover:border-[#009FE3] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#009FE3] dark:border-slate-700 dark:bg-[#111827]';
+                    const linkClass = 'pars-panel flex h-full items-start gap-3 rounded-xl p-4 transition-colors hover:border-pars-blue focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pars-blue dark:hover:border-pars-blue';
                     const contents = <>
                         <span className="min-w-0 flex-1">
-                            <span className="block text-sm font-semibold leading-5">{label}</span>
-                            <span className="mt-1.5 block text-xs leading-5 text-gray-600 dark:text-gray-300">{description}</span>
+                            <span className="block text-base font-semibold leading-snug">{formatHeading(label, language)}</span>
+                            <span className="mt-1.5 block text-sm leading-6 text-slate-700 dark:text-slate-300">{description}</span>
                         </span>
                         <ArrowRight size={17} aria-hidden="true" className="mt-0.5 shrink-0 text-[#0083bb] dark:text-[#72D5E3]" />
                     </>;
@@ -69,12 +70,12 @@ export default function CategoryModelSelection({ categoryId, models, language }:
                 const comparisonModels = models.filter(model => choice.compareModelIds?.includes(model.id));
                 return (
                     <section key={id} id={id} aria-labelledby={`${id}-title`} tabIndex={-1} className="mt-6 hidden scroll-mt-28 border-t border-sky-200 pt-5 target:block dark:border-sky-900">
-                        <h3 id={`${id}-title`} className="mb-4 text-base font-semibold md:text-lg">{copy[language].compare}</h3>
+                        <h3 id={`${id}-title`} className="mb-4 text-base font-semibold md:text-lg">{formatHeading(copy[language].compare, language)}</h3>
                         <ul className="grid grid-cols-2 gap-2 sm:gap-4">
                             {comparisonModels.map(product => (
                                 <li key={product.id} className="min-w-0">
-                                    <Link to={getProductPath(product)} className="flex h-full flex-col gap-3 rounded-xl border border-gray-200 bg-white p-3 transition-colors hover:border-[#009FE3] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#009FE3] dark:border-slate-700 dark:bg-[#111827] sm:p-4">
-                                        <h4 className="break-words text-sm font-semibold leading-snug">{getProductDisplayName(product, language)}</h4>
+                                    <Link to={getProductPath(product)} className="pars-panel flex h-full flex-col gap-3 rounded-xl p-3 transition-colors hover:border-pars-blue focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pars-blue dark:hover:border-pars-blue sm:p-4">
+                                        <h4 className="break-words text-sm font-semibold leading-snug">{formatHeading(getProductDisplayName(product, language), language)}</h4>
                                         <CatalogModelFacts product={product} language={language} />
                                         <span className="mt-auto inline-flex items-center gap-1 text-xs font-medium text-[#0083bb] dark:text-[#72D5E3]">{copy[language].details}<ArrowRight size={14} aria-hidden="true" className="shrink-0" /></span>
                                     </Link>

@@ -1,8 +1,9 @@
+import { formatHeading } from '../lib/formatHeading';
 import { useLanguage } from '../context/LanguageContext';
 import { Link } from 'react-router-dom';
 
 export default function About() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <div className="bg-white dark:bg-[#111827]  min-h-screen transition-colors duration-300">
@@ -20,7 +21,7 @@ export default function About() {
           referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center mt-20  text-white">
-          <h1 className="text-2xl md:text-5xl font-bold mb-4">{t('about.title')}</h1>
+          <h1 className="text-2xl md:text-5xl font-bold mb-4">{formatHeading(t('about.title'), language)}</h1>
           <div className="flex items-center gap-2 text-xs md:text-sm font-bold tracking-wider uppercase">
             <Link to="/" className="hover:text-gray-300 transition-colors">{t('about.breadcrumb.home')}</Link>
             <span className="text-gray-400">/</span>
@@ -34,7 +35,7 @@ export default function About() {
           <div className="space-y-8">
 
             <div>
-              <h2 className="text-xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2 md:mb-6">{t('about.section1.title')}</h2>
+              <h2 className="text-xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2 md:mb-6">{formatHeading(t('about.section1.title'), language)}</h2>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-xs md:text-lg">
                 {t('about.section1.text')}
               </p>
@@ -52,7 +53,7 @@ export default function About() {
           </div>
 
           <div className="bg-gray-50 dark:bg-[#374151] shadow shadow-gray-400 p-6 md:p-10 rounded-xl">
-            <h2 className="text-xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 md:mb-8">{t('about.section2.title')}</h2>
+            <h2 className="text-xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 md:mb-8">{formatHeading(t('about.section2.title'), language)}</h2>
             <ul className="space-y-2 md:space-y-6">
               {[1, 2, 3, 4, 5].map((num) => (
                 <li key={num} className="flex gap-4 items-start">

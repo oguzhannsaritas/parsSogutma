@@ -1,3 +1,4 @@
+import { formatHeading } from '../lib/formatHeading';
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
@@ -18,7 +19,7 @@ const clients = [
 ];
 
 export default function References() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
     const [currentPage, setCurrentPage] = useState(1);
     const [direction, setDirection] = useState(1);
     const itemsPerPage = 6;
@@ -46,7 +47,7 @@ export default function References() {
             {/* Header Banner */}
             <div className="bg-[#111827] dark:bg-white text-white dark:text-black py-4 md:py-16 mb-12 transition-colors duration-300">
                 <div className="container mx-auto px-4 md:px-12 text-center">
-                    <h1 className="text-lg md:text-4xl font-bold mb-4">{t('menu.references')}</h1>
+                    <h1 className="text-lg md:text-4xl font-bold mb-4">{formatHeading(t('menu.references'), language)}</h1>
                     <div className="text-xs md:text-sm text-gray-400 dark:text-gray-600 flex items-center justify-center gap-2 uppercase tracking-wider">
                         <Link to="/" >{t('menu.home')}</Link>
                         <span>/</span>
@@ -117,7 +118,7 @@ export default function References() {
                                     </div>
                                     <div className="text-center">
                                         <h3 className="text-xs md:text-xl font-bold text-black dark:text-white group-hover:text-[#009FE3] transition-colors">
-                                            {project.title}
+                                            {formatHeading(project.title, language)}
                                         </h3>
                                         <p className="text-[10px] md:text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                                             {project.location}

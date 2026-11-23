@@ -24,7 +24,63 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --color-pars-navy: #111827;
+  --color-pars-blue: #009fe3;
+  --color-pars-link: #066f9d;
+  --color-pars-line: #dbe5ee;
+  --color-pars-call: #1968bd;
+  --color-pars-whatsapp: #137a42;
 }
+
+@layer components {
+  .pars-canvas {
+    background: #f1f5f9;
+  }
+
+  .dark .pars-canvas {
+    background: var(--color-pars-navy);
+  }
+
+  .pars-band {
+    border-bottom: 1px solid #25425d;
+    background: radial-gradient(ellipse at 82% 0%, #1b4361 0%, transparent 57%),
+      linear-gradient(115deg, var(--color-pars-navy) 38%, #14283d);
+    color: white;
+  }
+
+  .pars-panel {
+    border: 1px solid var(--color-pars-line);
+    border-radius: 1rem;
+    background: white;
+  }
+
+  .pars-panel-tint {
+    border-color: #cddfec;
+    background: #e8f2fa;
+  }
+
+  .dark .pars-panel {
+    border-color: #334155;
+    background: #172234;
+  }
+
+  .dark .pars-panel-tint {
+    border-color: #2d4a65;
+    background: #162a3f;
+  }
+
+  .pars-image-stage {
+    background: radial-gradient(ellipse at 50% 38%, #fff 30%, #e6eff7 100%);
+  }
+
+  .pars-quote {
+    border: 1px solid #37739e;
+    border-radius: 1rem;
+    background: linear-gradient(115deg, #153653, #0b527c);
+    color: white;
+  }
+}
+
 body {
     overflow-x: hidden;
 }

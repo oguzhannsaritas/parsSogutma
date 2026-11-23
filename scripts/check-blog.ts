@@ -3,11 +3,13 @@ import { readFile } from 'node:fs/promises';
 import { JSDOM } from 'jsdom';
 import { blogArticles, blogIndexPaths, getBlogArticlePath, getBlogIndexArticles, getBlogIndexPage } from '../src/data/blog';
 import { blogContent } from '../src/data/blogContent';
+import { formatHeading } from '../src/lib/formatHeading';
 import { getPageName } from '../src/lib/pageModules';
 import { SITE_URL } from '../src/seo/config';
 import vercel from '../vercel.json';
 
 const readPage = (route: string) => readFile('dist/' + (route === '/' ? 'index' : route.slice(1)) + '.html', 'utf8');
+assert.equal(formatHeading('İşletmeniz için doğru ışık', 'TR'), 'İşletmeniz İçin Doğru Işık');
 const sitemapIndex = await readFile('dist/sitemap.xml', 'utf8');
 const sitemapNames = [...sitemapIndex.matchAll(/<loc>(.*?)<\/loc>/g)].map(match => new URL(match[1]).pathname);
 const urls: string[] = [];
@@ -47,13 +49,14 @@ for (const route of blogPaths) {
     } else {
         const article = blogArticles.find(item => getBlogArticlePath(item) === route)!;
         assert.equal(getPageName(route), 'BlogArticle', 'New article was treated as an old product address');
-        assert.equal(doc.querySelector('main h1')?.textContent, article.title.TR);
+        assert.equal(doc.querySelector('main h1')?.textContent, formatHeading(article.title.TR, 'TR'));
         const body = doc.querySelector('[data-blog-article="' + article.slug + '"]')!;
         const posting = data.find(item => item['@type'] === 'BlogPosting');
         assert.equal(posting.headline, article.title.TR);
         assert.equal(posting.mainEntityOfPage['@id'], SITE_URL + route);
         assert.equal(posting.datePublished, article.publishedOn);
-        for (const section of blogContent[article.slug].TR.sections) {
+        for (const [index, section] of blogContent[article.slug].TR.sections.entries()) {
+            assert.equal(body.querySelector(`#bolum-${index + 1} h2`)?.textContent, formatHeading(section.heading, 'TR'));
             for (const paragraph of section.paragraphs) assert(body.textContent?.includes(paragraph), 'Incomplete article HTML: ' + route);
             for (const figure of section.figures ?? []) {
                 const link = [...body.querySelectorAll('figcaption a')].find(item => item.getAttribute('href') === figure.to);

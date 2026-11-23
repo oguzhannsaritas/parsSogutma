@@ -1,6 +1,8 @@
-import { ArrowRight } from 'lucide-react';
+import { formatHeading } from '../lib/formatHeading';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import BlogArticleCard from '../components/BlogArticleCard';
+import ContactActions from '../components/ContactActions';
 import { useLanguage } from '../context/LanguageContext';
 import { blogIndexPaths, getBlogIndexArticles, getBlogIndexPage } from '../data/blog';
 
@@ -12,27 +14,29 @@ export default function Blog() {
     const pageLabel = tr ? 'Sayfa' : 'Page';
     const articles = getBlogIndexArticles(page);
     return (
-        <div className="bg-white pb-16 pt-32 text-gray-950 dark:bg-[#111827] dark:text-white md:pb-24 md:pt-40">
-            <div className="mx-auto max-w-6xl px-5 sm:px-8">
-                <nav aria-label={tr ? 'Sayfa yolu' : 'Breadcrumb'} className="mb-8 flex flex-wrap gap-2 text-xs text-gray-500 dark:text-gray-400">
-                    <Link to="/" className="hover:text-[#0079ad]">{tr ? 'Ana Sayfa' : 'Home'}</Link>
-                    <span aria-hidden="true">/</span>
-                    {page === 1 ? <span aria-current="page">Blog</span> : (
-                        <>
-                            <Link to="/blog" className="hover:text-[#0079ad]">Blog</Link>
-                            <span aria-hidden="true">/</span><span aria-current="page">{pageLabel} {page}</span>
-                        </>
-                    )}
-                </nav>
-                <header className="mb-10 max-w-3xl md:mb-14">
-                    <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#0079ad] dark:text-sky-400">{tr ? 'Soğutma rehberi' : 'Refrigeration guides'}</p>
-                    <h1 className="mb-5 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">{tr ? 'Pars Soğutma Blog' : 'Pars Cooling Blog'}</h1>
-                    <p className="max-w-2xl text-base leading-8 text-gray-600 dark:text-gray-300 sm:text-lg">
+        <div className="pars-canvas pb-16 pt-24 text-pars-navy dark:text-white md:pb-20">
+            <div className="pars-band px-4 pb-9 pt-7 text-center sm:px-6 md:pb-12 md:pt-9">
+                <header className="mx-auto max-w-3xl">
+                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-sky-200">{tr ? 'Soğutma rehberi' : 'Refrigeration guides'}</p>
+                    <h1 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">{formatHeading(tr ? 'Pars Soğutma Blog' : 'Pars Cooling Blog', language)}</h1>
+                    <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-200">
                         {tr
                             ? 'İşletmenize uygun dolabı seçerken ihtiyaç duyacağınız bilgiler. Model karşılaştırmaları, yerleşim önerileri ve özel ölçü üretim için teklif rehberleri.'
                             : 'Practical information for choosing a cabinet for your business. Explore model comparisons, layout considerations and guides to requesting a custom manufacturing quote.'}
                     </p>
                 </header>
+            </div>
+            <div className="mx-auto max-w-6xl px-4 sm:px-8">
+                <nav aria-label={tr ? 'Sayfa yolu' : 'Breadcrumb'} className="flex flex-wrap items-center gap-2 py-5 text-sm text-slate-600 dark:text-slate-300 md:py-6">
+                    <Link to="/" className="hover:text-pars-link hover:underline dark:hover:text-sky-300">{tr ? 'Ana Sayfa' : 'Home'}</Link>
+                    <ChevronRight size={14} aria-hidden="true" />
+                    {page === 1 ? <span aria-current="page" className="font-semibold">Blog</span> : (
+                        <>
+                            <Link to="/blog" className="hover:text-pars-link hover:underline dark:hover:text-sky-300">Blog</Link>
+                            <ChevronRight size={14} aria-hidden="true" /><span aria-current="page" className="font-semibold">{pageLabel} {page}</span>
+                        </>
+                    )}
+                </nav>
                 <section aria-label={tr ? 'Blog yazıları' : 'Blog articles'} className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
                     {articles.map((article, index) => <BlogArticleCard key={article.slug} article={article} language={language} priority={index === 0} />)}
                 </section>
@@ -45,9 +49,9 @@ export default function Blog() {
                                 return (
                                     <li key={path}>
                                         <Link to={path} aria-label={pageLabel + ' ' + number} aria-current={active ? 'page' : undefined}
-                                            className={'flex size-11 items-center justify-center rounded-md text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0079ad] ' + (active
-                                                ? 'bg-[#0079ad] text-white dark:bg-[#72D5E3] dark:text-slate-950'
-                                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700')}>
+                                            className={'flex size-11 items-center justify-center rounded-lg border text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pars-blue ' + (active
+                                                ? 'border-pars-link bg-pars-link text-white dark:border-sky-300 dark:bg-sky-300 dark:text-slate-950'
+                                                : 'pars-panel text-slate-700 hover:border-pars-blue hover:text-pars-link dark:text-slate-100 dark:hover:border-pars-blue dark:hover:text-sky-300')}>
                                             {number}
                                         </Link>
                                     </li>
@@ -56,14 +60,17 @@ export default function Blog() {
                         </ul>
                     </nav>
                 )}
-                <aside className="mt-12 rounded-2xl bg-gray-50 p-6 dark:bg-gray-800 sm:flex sm:items-center sm:justify-between sm:gap-8 sm:p-8">
+                <aside className="pars-quote mt-12 p-5 sm:p-7 lg:flex lg:items-center lg:justify-between lg:gap-8">
                     <div>
-                        <h2 className="mb-2 text-lg font-semibold">{tr ? 'İşletmenizin ölçülerine göre değerlendirelim.' : 'Let’s review your available space.'}</h2>
-                        <p className="text-sm leading-7 text-gray-600 dark:text-gray-300">{tr ? 'Alan ölçülerini ve sergileyeceğiniz ürünleri paylaşarak teklif talep edebilirsiniz.' : 'Share your dimensions and the products you will display to request a quote.'}</p>
+                        <h2 className="mb-2 text-xl font-bold">{formatHeading(tr ? 'İşletmenizin ölçülerine göre değerlendirelim.' : 'Let’s review your available space.', language)}</h2>
+                        <p className="max-w-xl text-base leading-7 text-slate-100">{tr ? 'Alan ölçülerini ve sergileyeceğiniz ürünleri paylaşarak teklif talep edebilirsiniz.' : 'Share your dimensions and the products you will display to request a quote.'}</p>
                     </div>
-                    <Link to="/contact" className="mt-5 inline-flex shrink-0 items-center gap-2 rounded-lg bg-[#0079ad] px-5 py-3 text-sm font-semibold text-white hover:bg-[#00658f] sm:mt-0">
-                        {tr ? 'Teklif için iletişime geçin' : 'Contact us for a quote'}<ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </Link>
+                    <div className="mt-5 lg:mt-0 lg:shrink-0">
+                        <ContactActions subject={tr ? 'soğutma dolabı' : 'a refrigeration cabinet'} language={language} />
+                        <Link to="/contact" className="mt-2 inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-sky-100 hover:text-white hover:underline">
+                            {tr ? 'Teklif için iletişime geçin' : 'Contact us for a quote'}<ArrowRight size={15} className="shrink-0" aria-hidden="true" />
+                        </Link>
+                    </div>
                 </aside>
             </div>
         </div>

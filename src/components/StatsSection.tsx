@@ -1,9 +1,10 @@
+import { formatHeading } from '../lib/formatHeading';
 import { Smile, Truck, Package, Headphones, Building2 } from 'lucide-react';
 import { motion } from 'motion/react';
 import {useLanguage} from "@/src/context/LanguageContext.tsx";
 
 export default function StatsSection() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
     const stats = [
         {
             icon: <Smile  className="text-black dark:text-white size-5 md:size-[32px]" />,
@@ -66,7 +67,7 @@ export default function StatsSection() {
                     </p>
 
                     <h2 className="text-lg md:text-4xl font-bold flex relative md:top-5 justify-center items-center text-white dark:text-black">
-                        {t('stats.whatWeHaveDoneSoFar')}
+                        {formatHeading(t('stats.whatWeHaveDoneSoFar'), language)}
                     </h2>
                 </div>
 

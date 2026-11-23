@@ -1,3 +1,4 @@
+import { formatHeading } from '../lib/formatHeading';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
@@ -5,7 +6,7 @@ import { Home, ArrowLeft } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function NotFound() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
 
     return (
         <main className="min-h-[calc(100vh-80px)] bg-[#f8f9fa] dark:bg-[#111827] flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 mb-20  transition-colors duration-300">
@@ -22,7 +23,7 @@ export default function NotFound() {
                     <div className="absolute inset-0 flex items-center justify-center">
                         <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-4 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700">
                             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                                {t('notfound.title')}
+                                {formatHeading(t('notfound.title'), language)}
                             </h2>
                         </div>
                     </div>

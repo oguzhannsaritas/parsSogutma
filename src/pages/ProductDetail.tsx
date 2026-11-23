@@ -1,3 +1,4 @@
+import { formatHeading } from '../lib/formatHeading';
 import { useInitialPage } from '../context/InitialPageContext';
 import { getContainedImageProps, PRODUCT_IMAGE_SIZES } from '../lib/responsiveImages';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
@@ -9,7 +10,8 @@ import { products } from '../data/productSummaries';
 import { findProductByIdentifier, getProductImages, getProductPath } from '../seo/config';
 import { getProductThumbnailUrl } from '../lib/productImages';
 import { getCategoryPath, getProductCategory, getProductDisplayName, isCanonicalProduct } from '../data/catalog';
-import { ContactActions, RelatedProducts } from '../components/CatalogContent';
+import { RelatedProducts } from '../components/CatalogContent';
+import ContactActions from '../components/ContactActions';
 import { ProductBuyerGuide, ProductIntroduction } from '../components/ProductEditorialContent';
 import { ProductSpecificationDetails } from '../components/ProductSpecificationDetails';
 import { loadProductPageData, type ProductPageData } from '../lib/productData';
@@ -165,7 +167,7 @@ export default function ProductDetail() {
     if (!foundProduct) {
         return (
             <div className="min-h-screen pt-32 text-center">
-                <h1 className="text-2xl font-bold dark:text-white">{t('product.notFoundButton')}</h1>
+                <h1 className="text-2xl font-bold dark:text-white">{formatHeading(t('product.notFoundButton'), language)}</h1>
                 <button
                     aria-label="Back to Product"
                     onClick={() => navigate('/products')}
@@ -180,7 +182,7 @@ export default function ProductDetail() {
 
     if (result?.id === modelId && result.failed) return (
         <div className="min-h-screen pt-32 text-center dark:text-white" role="alert">
-            <h1 className="text-2xl font-bold">{language === 'TR' ? 'Ürün bilgileri yüklenemedi' : 'Unable to load product information'}</h1>
+            <h1 className="text-2xl font-bold">{formatHeading(language === 'TR' ? 'Ürün bilgileri yüklenemedi' : 'Unable to load product information', language)}</h1>
             <button className="mt-4 text-[#0083bb] hover:underline" type="button" onClick={() => { setResult(undefined); setAttempt(value => value + 1); }}>
                 {language === 'TR' ? 'Tekrar deneyin' : 'Try again'}
             </button>
@@ -387,7 +389,7 @@ function ProductDetailView({ page }: { page: ProductPageData }) {
                 </div>
 
                 <h1 className="text-lg md:text-4xl font-bold mb-2 md:mb-12 text-gray-900 dark:text-white">
-                    {displayName}
+                    {formatHeading(displayName, language)}
                 </h1>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16">
@@ -529,7 +531,7 @@ function ProductDetailView({ page }: { page: ProductPageData }) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="mt-5"><ContactActions subject={displayName} language={language} /></div>
+                                    <div className="pars-quote mt-5 p-4 sm:p-5"><ContactActions subject={displayName} language={language} /></div>
                                     <ProductBuyerGuide product={product} language={language} content={page.content[language]} />
                                 </motion.div>
                             )}
