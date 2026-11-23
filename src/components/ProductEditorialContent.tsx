@@ -1,3 +1,4 @@
+import { formatHeading } from '../lib/formatHeading';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import type { Product } from '../data/products/types';
@@ -26,18 +27,18 @@ export function ProductBuyerGuide({ product, language, content }: { product: Pro
     const selectionId = `product-selection-${product.id}`;
     const questionsId = `product-questions-${product.id}`;
     return (
-        <div data-product-buyer-guide={product.id} className="mt-8 space-y-8">
-            <section aria-labelledby={selectionId}>
-                <h2 id={selectionId} className="mb-3 text-lg font-semibold text-gray-900 dark:text-white">{copy[language].selection}</h2>
+        <div data-product-buyer-guide={product.id} className="mt-8 space-y-6">
+            <section aria-labelledby={selectionId} className="pars-panel pars-panel-tint p-5 sm:p-6">
+                <h2 id={selectionId} className="mb-3 text-lg font-semibold text-gray-900 dark:text-white">{formatHeading(copy[language].selection, language)}</h2>
                 <ul className="list-disc space-y-2 pl-5 text-sm leading-7 text-gray-600 dark:text-gray-300">
                     {content.selection.map(item => <li key={item}>{item}</li>)}
                 </ul>
             </section>
-            <section aria-labelledby={questionsId}>
-                <h2 id={questionsId} className="mb-3 text-lg font-semibold text-gray-900 dark:text-white">{copy[language].questions}</h2>
-                <div className="divide-y divide-gray-200 rounded-2xl border border-gray-200 px-4 dark:divide-neutral-700 dark:border-neutral-700 sm:px-5">
+            <section aria-labelledby={questionsId} className="pars-panel p-5 sm:p-6">
+                <h2 id={questionsId} className="mb-3 text-lg font-semibold text-gray-900 dark:text-white">{formatHeading(copy[language].questions, language)}</h2>
+                <div className="divide-y divide-pars-line border-t border-pars-line dark:divide-slate-700 dark:border-slate-700">
                     {content.questions.map(item => <details key={item.question} className="py-4">
-                        <summary className="cursor-pointer text-sm font-medium leading-6 text-gray-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0083bb] dark:text-white">{item.question}</summary>
+                        <summary className="cursor-pointer text-base font-medium leading-7 text-gray-900 marker:text-pars-link focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pars-blue dark:text-white dark:marker:text-sky-300">{formatHeading(item.question, language)}</summary>
                         <p className="mt-3 text-sm leading-7 text-gray-600 dark:text-gray-300">{item.answer}</p>
                     </details>)}
                 </div>

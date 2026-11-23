@@ -1,3 +1,4 @@
+import { formatHeading } from '../lib/formatHeading';
 import { ReferenceContent } from '../components/ReferenceContent';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
@@ -58,7 +59,7 @@ export default function ReferenceDetail() {
     if (!project) {
         return (
             <div className="min-h-screen pt-32 text-center bg-white dark:bg-neutral-900 text-black dark:text-white">
-                <h1 className="text-2xl font-bold">{t('references.notFound')}</h1>
+                <h1 className="text-2xl font-bold">{formatHeading(t('references.notFound'), language)}</h1>
                 <button onClick={() => navigate('/references')} className="mt-4 text-blue-600 hover:underline">
                     {t('references.back')}
                 </button>
@@ -70,7 +71,7 @@ export default function ReferenceDetail() {
         <div className="bg-white dark:bg-[#111827] h-auto md:min-h-screen pt-24 pb-16 transition-colors duration-300">
             <div className="bg-[#111827] dark:bg-white text-white dark:text-black py-4 md:py-16 mb-12">
                 <div className="container mx-auto px-4 md:px-12 text-center">
-                    <h1 className="text-lg md:text-4xl font-bold mb-4">{project.title}</h1>
+                    <h1 className="text-lg md:text-4xl font-bold mb-4">{formatHeading(project.title, language)}</h1>
                     <div className="text-xs md:text-sm text-gray-400 flex items-center justify-center gap-2 uppercase tracking-wider">
                         <Link to="/" className="hover:text-white dark:hover:text-black">{t('menu.home')}</Link>
                         <span>/</span>

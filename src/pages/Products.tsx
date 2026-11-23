@@ -1,3 +1,4 @@
+import { formatHeading } from '../lib/formatHeading';
 import { useInitialPage } from '../context/InitialPageContext';
 import { getResponsiveImageProps, CARD_IMAGE_SIZES } from '../lib/responsiveImages';
 import React, { useState, useMemo, useEffect, useRef } from 'react';
@@ -90,7 +91,7 @@ function ProductCard({
         <Link
             to={getProductPath(product)}
             onClick={handleClick}
-            className="group cursor-pointer border border-gray-300 dark:border-neutral-800 hover:border-gray-500 dark:hover:border-neutral-600 hover:shadow-lg transition-all duration-300 bg-white dark:bg-[#1a2232] p-2 sm:p-3 lg:p-4 flex flex-col rounded-xl"
+            className="pars-panel group flex min-w-0 cursor-pointer flex-col rounded-xl p-2 shadow-sm transition-all duration-300 hover:border-pars-blue hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pars-blue dark:hover:border-pars-blue sm:p-3 lg:p-4"
             onMouseLeave={() => setCurrentImage(0)}
         >
             <div
@@ -126,7 +127,7 @@ function ProductCard({
 
             <div className="space-y-1 flex-grow flex flex-col justify-end">
                 <h3 className="font-bold text-xs sm:text-sm md:text-base lg:text-lg text-gray-900 dark:text-white transition-colors leading-tight line-clamp-2">
-                    {getProductDisplayName(product, language)}
+                    {formatHeading(getProductDisplayName(product, language), language)}
                 </h3>
 
                 <p className="text-xs sm:text-sm md:text-sm text-gray-700 dark:text-gray-300 leading-tight truncate">
@@ -711,15 +712,15 @@ export default function Products() {
     };
 
     return (
-        <div className="bg-white dark:bg-[#111827] min-h-screen pt-24 pb-16 transition-colors duration-300">
-            <div className="bg-[#111827] dark:bg-white text-white dark:text-black py-4 md:py-16 mb-8 md:mb-12 transition-colors duration-300">
+        <div className="pars-canvas min-h-screen pb-16 pt-24">
+            <div className="pars-band mb-6 py-7 md:mb-9 md:py-14">
                 <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">
-                    <h1 className="text-lg md:text-4xl font-bold">{t('products.title')}</h1>
+                    <h1 className="text-3xl font-bold leading-tight tracking-tight md:text-4xl">{formatHeading(t('products.title'), language)}</h1>
                 </div>
             </div>
 
             <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-                <CategoryLinks language={language} className="mb-8" />
+                <CategoryLinks language={language} />
                 <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6 lg:mb-8 pb-4 border-b border-gray-200 dark:border-neutral-700 gap-4">                    <div className="text-xs md:text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
                         <Link to="/" >{t('products.breadcrumb.home')}</Link>
                         <ChevronRight size={14} />
@@ -956,7 +957,7 @@ export default function Products() {
                             </div>
                         </div>
 
-                        <h2 className="sr-only">{t('products.filter')}</h2>
+                        <h2 className="sr-only">{formatHeading(t('products.filter'), language)}</h2>
 
                         <div className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-0 space-y-6 lg:space-y-8">
                             {filterCategories.map((category) => (
@@ -968,7 +969,7 @@ export default function Products() {
                                         onClick={() => toggleCategory(category.id)}
                                     >
                                         <h3 className="font-bold text-xs sm:text-base md:text-[15px] uppercase text-gray-900 dark:text-white group-hover:text-[#009FE3] dark:group-hover:text-[#009FE3] transition-colors leading-tight">
-                                            {category.title}
+                                            {formatHeading(category.title, language)}
                                         </h3>
                                         <div className="p-1.5 rounded-full transition-colors bg-transparent dark:bg-transparent">
                                             {expandedCategories.includes(category.id) ? (
@@ -1063,7 +1064,7 @@ export default function Products() {
                     </motion.div>
 
                     <div className="w-full lg:w-3/4">
-                        <h2 className="sr-only">{t('products.title')}</h2>
+                        <h2 className="sr-only">{formatHeading(t('products.title'), language)}</h2>
 
                         <div
                             className={`grid gap-3 sm:gap-4 md:gap-6 lg:gap-8 ${

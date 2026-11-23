@@ -3,6 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { JSDOM } from 'jsdom';
 import { blogIndexPaths, findBlogArticle, getBlogArticlePath, getBlogIndexArticles, getBlogIndexPage } from '../src/data/blog';
 import { blogContent } from '../src/data/blogContent';
+import { formatHeading } from '../src/lib/formatHeading';
 
 // A DOM correctness test, not a browser performance measurement. No remote
 // resources or tracking scripts are executed in this environment.
@@ -149,9 +150,9 @@ try {
         } else {
             const article = findBlogArticle(pathname);
             assert(article, 'Article missing from the catalogue: ' + pathname);
-            assert.equal(container.querySelector('h1')?.textContent, article.title.EN);
+            assert.equal(container.querySelector('h1')?.textContent, formatHeading(article.title.EN, 'EN'));
             const [{ question, answer: expectedAnswer }] = blogContent[article.slug].EN.questions;
-            const answer = [...container.querySelectorAll<HTMLDetailsElement>('details')].find(details => details.querySelector('summary')?.textContent === question);
+            const answer = [...container.querySelectorAll<HTMLDetailsElement>('details')].find(details => details.querySelector('summary')?.textContent === formatHeading(question, 'EN'));
             assert(answer, 'Blog question stayed in the previous language');
             await act(async () => { answer.querySelector('summary')!.click(); });
             assert(answer.open, 'Blog answer cannot be opened after hydration');

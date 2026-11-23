@@ -15,6 +15,7 @@ import vercel from '../vercel.json';
 import { getLegacyProductRedirects } from './legacy-product-redirects';
 import { catalogModelGroups, getCategoryModelGroups } from '../src/data/catalogModelGroups';
 import { CategoryContent } from '../src/components/CatalogContent';
+import { formatHeading } from '../src/lib/formatHeading';
 import { JSDOM } from 'jsdom';
 
 const dist = path.join(process.cwd(), 'dist');
@@ -105,10 +106,10 @@ for (const category of productCategories) {
         assert(category.copy[language].name && category.copy[language].intro && category.copy[language].questions.length, `Missing ${language} content in ${category.id}`);
         if (language === 'EN' && catalogModelGroups[category.id]) {
             const translated = JSDOM.fragment(renderToStaticMarkup(createElement(MemoryRouter, null, createElement(CategoryContent, { category, products, language }))));
-            assert.equal(translated.querySelector('#model-selection-title')?.textContent, 'Find the right model for my business');
+            assert.equal(translated.querySelector('#model-selection-title')?.textContent, 'Find The Right Model For My Business');
             const englishLinks = [...translated.querySelectorAll('[data-model-selection-options] a[href]')];
             assert.deepEqual(englishLinks.map(link => link.getAttribute('href')), selectionLinks.map(link => link.getAttribute('href')));
-            for (const group of getCategoryModelGroups(category.id, models)) assert.equal(translated.querySelector(`#model-group-${group.id}`)?.textContent, group.name.EN, `Subgroup translation missing: ${category.id}/${group.id}`);
+            for (const group of getCategoryModelGroups(category.id, models)) assert.equal(translated.querySelector(`#model-group-${group.id}`)?.textContent, formatHeading(group.name.EN, 'EN'), `Subgroup translation missing: ${category.id}/${group.id}`);
         }
     }
 }
@@ -139,9 +140,9 @@ for (const language of ['TR', 'EN'] as const) {
             assert(output.includes(`href="${getCategoryPath(category)}"`), `Product group unreachable: ${product.id}`);
             for (const item of text.selection) assert(output.includes(escapedText(item)), `Selection advice absent: ${product.id} ${language}`);
             for (const item of text.questions) {
-                assert(output.includes(escapedText(item.question)) && output.includes(escapedText(item.answer)), `Question or answer absent: ${product.id} ${language}`);
+                assert(output.includes(escapedText(formatHeading(item.question, language))) && output.includes(escapedText(item.answer)), `Question or answer absent: ${product.id} ${language}`);
             }
-            const questionsMarkup = output.match(new RegExp(`<section aria-labelledby="product-questions-${product.id}">([\\s\\S]*?)<\\/section>`))?.[1];
+            const questionsMarkup = output.match(new RegExp(`<section\\b[^>]*aria-labelledby="product-questions-${product.id}"[^>]*>([\\s\\S]*?)<\\/section>`))?.[1];
             assert(questionsMarkup, `Questions section missing: ${product.id}`);
             assert.equal((questionsMarkup.match(/<details(?:\s|>)/g) ?? []).length, text.questions.length, `Questions must have accessible disclosure controls: ${product.id}`);
         }
