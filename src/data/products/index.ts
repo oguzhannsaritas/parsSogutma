@@ -153,7 +153,6 @@ export const products: Product[] = [
             technicalSpecification:[
                 { TR: 'Kasap Teşhir Dolabı İçten ve dıştan motorlu soğutma grubu', EN: 'Butcher Showcase Cabinet Internal and external motor cooling unit' },
                 { TR: 'Aksiyel fanlı soğutma.', EN: 'Axial fan cooling.' },
-                { TR: ' Reyon Dolabı Isıtma tava ve hazır yemek versiyonu.', EN: ' Display Cabinet Heating pan and ready meal version.' },
                 { TR: 'Kullanım kolaylığı sağlayan ergonomik tasarım.', EN: 'Ergonomic design providing ease of use.' },
                 { TR: 'Önden yukarı doğru açılan amortisörlü ve Devirme camlar.', EN: 'Front-upward opening shock absorber and Tilt glasses.' },
                 { TR: 'Reyon Dolabı Camları Temperli Kırılmaz Camdır.', EN: 'Display Cabinet Glasses are Tempered Unbreakable Glass.' },
