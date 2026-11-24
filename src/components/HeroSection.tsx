@@ -59,7 +59,7 @@ export default function HeroSection() {
         1: '/products?cat=vertical',
         2: '/products?cat=kitchen',
         3: '/products?cat=market',
-        4: '/products?cat=coldStorage',
+        4: '/urunler/soguk-hava-depolari',
         5: '/products?cat=coolingSystems',
         6: '/products?cat=coolingAisles',
         7: '/products?cat=bakery',
