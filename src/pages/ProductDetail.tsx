@@ -487,7 +487,7 @@ function ProductDetailView({ page }: { page: ProductPageData }) {
                             </div>
                         </div>
 
-                        <div className="mb-12 min-h-[300px]">
+                        <div className={activeTab === 'about' ? 'mb-5' : 'mb-12 min-h-[300px]'}>
                             {activeTab === 'about' && (
                                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
                                     <ProductIntroduction product={product} language={language} content={page.content[language]} />
@@ -531,8 +531,6 @@ function ProductDetailView({ page }: { page: ProductPageData }) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="pars-panel mt-5 p-4 sm:p-5"><ContactActions subject={displayName} language={language} /></div>
-                                    <ProductBuyerGuide product={product} language={language} content={page.content[language]} />
                                 </motion.div>
                             )}
 
@@ -696,6 +694,12 @@ function ProductDetailView({ page }: { page: ProductPageData }) {
                                 )}
                             </AnimatePresence>
                         </div>
+                        {activeTab === 'about' && (
+                            <>
+                                <div className="pars-panel mt-5 p-4 sm:p-5"><ContactActions subject={displayName} language={language} /></div>
+                                <ProductBuyerGuide product={product} language={language} content={page.content[language]} />
+                            </>
+                        )}
                     </div>
                 </div>
             </div>
