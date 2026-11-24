@@ -13,6 +13,10 @@ function choice(href: string, TR: ChoiceCopy, EN: ChoiceCopy, compareModelIds?: 
     return { href, copy: { TR, EN }, compareModelIds };
 }
 
+export const catalogModelDescriptions: Partial<Record<number, Partial<TranslatedString>>> = {
+    3: { TR: 'Köşe dönüşlü kasap teşhir yerleşimini ve kullanılabilir modül ölçülerini inceleyin.' },
+};
+
 export const catalogModelSelections: Record<CategoryId, { question: TranslatedString; choices: ModelChoice[] }> = {
     reyon: {
         question: { TR: 'Ürünleri nasıl sunuyorsunuz?', EN: 'How do you display and serve your products?' },
