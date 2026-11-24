@@ -2,7 +2,7 @@ import { formatHeading } from '../lib/formatHeading';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getProductDisplayName, type CatalogLanguage, type CategoryId } from '../data/catalog';
-import { catalogModelSelections } from '../data/catalogModelSelections';
+import { catalogModelDescriptions, catalogModelSelections } from '../data/catalogModelSelections';
 import type { ProductSummary } from '../data/products/types';
 import { getProductDescription, getProductPath } from '../seo/config';
 
@@ -17,7 +17,8 @@ const copy = {
 export function CatalogModelFacts({ product, language }: { product: ProductSummary; language: CatalogLanguage }) {
     const description = getProductDescription(product, language);
     const firstSentenceEnd = description.indexOf('. ');
-    const note = firstSentenceEnd < 0 ? description : description.slice(0, firstSentenceEnd + 1);
+    const note = catalogModelDescriptions[product.id]?.[language]
+        ?? (firstSentenceEnd < 0 ? description : description.slice(0, firstSentenceEnd + 1));
     const modules = product.specs.modules.trim();
     // Lists separated by commas or slashes are the catalogue's lengths in millimetres.
     // VENUS has one unconfirmed entry. Omit it until the catalogue value is confirmed.
