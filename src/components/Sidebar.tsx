@@ -112,7 +112,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                         { label: t('menu.bakery'), path: '/products?cat=bakery' },
                         { label: t('menu.industrialKitchen'), path: '/products?cat=kitchen' },
                         { label: t('menu.marketEquip'), path: '/products?cat=market' },
-                        { label: t('menu.coldStorage'), path: '/products?cat=coldStorage' },
+                        { label: t('menu.coldStorage'), path: '/urunler/soguk-hava-depolari' },
                         { label: t('menu.coolingSystems'), path: '/products?cat=coolingSystems' },
                         { label: t('menu.coolingAisles'), path: '/products?cat=coolingAisles' }
                     ]
