@@ -57,10 +57,10 @@ export default function HeroSection() {
     ];
     const slideProductRoutes: Record<number, string> = {
         1: '/products?cat=vertical',
-        2: '/products?cat=kitchen',
+        2: '/urunler/endustriyel-mutfak-ekipmanlari',
         3: '/products?cat=market',
         4: '/urunler/soguk-hava-depolari',
-        5: '/products?cat=coolingSystems',
+        5: '/urunler/sogutma-gruplari-sistemleri',
         6: '/products?cat=coolingAisles',
         7: '/products?cat=bakery',
     };
