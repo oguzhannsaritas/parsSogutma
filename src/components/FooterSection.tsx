@@ -12,6 +12,8 @@ import { useLanguage } from '../context/LanguageContext';
 import { getCategoryPath, productCategories } from '../data/catalog';
 type OpenId = 'kurumsal' | 'urunler' | 'iletisim' | null;
 
+const phoneLinkClass = 'text-xs lg:text-sm underline-offset-4 hover:text-white hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white';
+
 export default function FooterSection() {
     const { t, language } = useLanguage();
     const [open, setOpen] = React.useState<OpenId>(null);
@@ -218,8 +220,8 @@ export default function FooterSection() {
                                         </div>
 
                                         <div className="flex flex-col items-center leading-tight">
-                                            <span className="text-xs lg:text-sm mb-1">+90 543 170 72 77</span>
-                                            <span className="text-xs lg:text-sm">+90 537 645 82 91</span>
+                                            <a href="tel:+905431707277" className={`${phoneLinkClass} mb-1`}>+90 543 170 72 77</a>
+                                            <a href="tel:+905376458291" className={phoneLinkClass}>+90 537 645 82 91</a>
                                         </div>
                                     </li>
                                     <li className="flex items-center gap-4">
@@ -242,6 +244,7 @@ export default function FooterSection() {
 
                                 <div
                                     id="footer-panel-iletisim"
+                                    inert={open !== 'iletisim'}
                                     className={`grid transition-all duration-300 ease-in-out ${
                                         open === 'iletisim'
                                             ? 'grid-rows-[1fr] opacity-100'
@@ -264,8 +267,8 @@ export default function FooterSection() {
                                                     </div>
 
                                                     <div className="flex flex-col items-center leading-tight">
-                                                        <span className="text-xs lg:text-sm mb-1">+90 543 170 72 77</span>
-                                                        <span className="text-xs lg:text-sm">+90 537 645 82 91</span>
+                                                        <a href="tel:+905431707277" className={`${phoneLinkClass} mb-1`}>+90 543 170 72 77</a>
+                                                        <a href="tel:+905376458291" className={phoneLinkClass}>+90 537 645 82 91</a>
                                                     </div>
                                                 </li>
 
