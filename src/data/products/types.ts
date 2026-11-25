@@ -4,6 +4,11 @@ export interface TranslatedString {
     EN: string;
 }
 
+export interface ProductTechnicalFact {
+    label: TranslatedString;
+    value: string | TranslatedString;
+}
+
 export interface ProductSpec {
   modules: string;
   sidePanel: number | string;
@@ -26,6 +31,7 @@ export interface Product {
         sidePanel: number | string;
         temp: string;
         temperatureNote?: TranslatedString;
+        technicalOverview?: ProductTechnicalFact[];
         optionalAccessory: TranslatedString[];
         technicalSpecification: TranslatedString[];
     };
