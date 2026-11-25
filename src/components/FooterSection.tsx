@@ -12,7 +12,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { getCategoryPath, productCategories } from '../data/catalog';
 type OpenId = 'kurumsal' | 'urunler' | 'iletisim' | null;
 
-const phoneLinkClass = 'text-xs lg:text-sm underline-offset-4 hover:text-white hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white';
+const contactLinkClass = 'text-xs lg:text-sm underline-offset-4 hover:text-white hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white';
 
 export default function FooterSection() {
     const { t, language } = useLanguage();
@@ -49,6 +49,23 @@ export default function FooterSection() {
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
+
+    const whatsappLink = (
+        <a
+            href="https://wa.me/905431707277"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={language === 'TR'
+                ? 'WhatsApp ile +90 543 170 72 77 numarasına mesaj gönderin'
+                : 'Send a WhatsApp message to +90 543 170 72 77'}
+            className={`flex items-center gap-4 ${contactLinkClass}`}
+        >
+            <span className="w-8 h-8 rounded-full bg-white text-[#0f172a] flex items-center justify-center flex-shrink-0">
+                <LucideMessageCircleMore size={16} aria-hidden="true" />
+            </span>
+            <span>+90 543 170 72 77</span>
+        </a>
+    );
 
     return (
         <section className="w-full bg-white dark:bg-[#111827] transition-colors duration-300">
@@ -220,8 +237,8 @@ export default function FooterSection() {
                                         </div>
 
                                         <div className="flex flex-col items-center leading-tight">
-                                            <a href="tel:+905431707277" className={`${phoneLinkClass} mb-1`}>+90 543 170 72 77</a>
-                                            <a href="tel:+905376458291" className={phoneLinkClass}>+90 537 645 82 91</a>
+                                            <a href="tel:+905431707277" className={`${contactLinkClass} mb-1`}>+90 543 170 72 77</a>
+                                            <a href="tel:+905376458291" className={contactLinkClass}>+90 537 645 82 91</a>
                                         </div>
                                     </li>
                                     <li className="flex items-center gap-4">
@@ -230,12 +247,7 @@ export default function FooterSection() {
                                         </div>
                                         <span className="text-xs lg:text-sm">info@parsogutma.com</span>
                                     </li>
-                                    <li className="flex items-center gap-4">
-                                        <div className="w-8 h-8 rounded-full bg-white text-[#0f172a] flex items-center justify-center flex-shrink-0">
-                                            <LucideMessageCircleMore size={16} aria-hidden="true" />
-                                        </div>
-                                        <span className="text-xs lg:text-sm">+90 543 170 72 77</span>
-                                    </li>
+                                    <li className="flex">{whatsappLink}</li>
                                 </ul>
                             </div>
 
@@ -267,8 +279,8 @@ export default function FooterSection() {
                                                     </div>
 
                                                     <div className="flex flex-col items-center leading-tight">
-                                                        <a href="tel:+905431707277" className={`${phoneLinkClass} mb-1`}>+90 543 170 72 77</a>
-                                                        <a href="tel:+905376458291" className={phoneLinkClass}>+90 537 645 82 91</a>
+                                                        <a href="tel:+905431707277" className={`${contactLinkClass} mb-1`}>+90 543 170 72 77</a>
+                                                        <a href="tel:+905376458291" className={contactLinkClass}>+90 537 645 82 91</a>
                                                     </div>
                                                 </li>
 
@@ -279,12 +291,7 @@ export default function FooterSection() {
                                                     <span>info@parsogutma.com</span>
                                                 </li>
 
-                                                <li className="flex items-center gap-4">
-                                                    <div className="w-8 h-8 rounded-full bg-white text-[#0f172a] flex items-center justify-center flex-shrink-0">
-                                                        <LucideMessageCircleMore size={16} aria-hidden="true" />
-                                                    </div>
-                                                    <span className="text-xs lg:text-sm">+90 543 170 72 77</span>
-                                                </li>
+                                                <li className="flex">{whatsappLink}</li>
                                             </ul>
                                         </div>
                                     </div>

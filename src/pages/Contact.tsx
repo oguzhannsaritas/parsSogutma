@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
+const phoneLinkClass = 'underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4';
+
 export default function Contact() {
     const { t } = useLanguage();
 
@@ -79,10 +81,10 @@ export default function Contact() {
                 </span>
                                 <div className="flex-1">
                                     <p className="text-[#005A8E] dark:text-[#38BDF8] text-[10px] md:text-sm font-bold">
-                                        : +90 543 170 72 77
+                                        : <a href="tel:+905431707277" className={phoneLinkClass}>+90 543 170 72 77</a>
                                     </p>
                                     <p className="text-[#005A8E] dark:text-[#38BDF8] font-bold text-[10px] md:text-sm">
-                                        +90 537 645 82 91
+                                        <a href="tel:+905376458291" className={phoneLinkClass}>+90 537 645 82 91</a>
                                     </p>
                                 </div>
                             </div>
