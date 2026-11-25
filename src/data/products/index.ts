@@ -9,10 +9,9 @@ const stainlessSteel = technicalFact('Gövde', 'Body', { TR: 'Paslanmaz çelik',
 const refrigeratorAmbient = technicalFact('Ortam koşulu', 'Ambient conditions', { TR: 'Tropikal, 43 °C', EN: 'Tropical, 43 °C' });
 const refrigeratorPowerSupply = technicalFact('Elektrik beslemesi', 'Power supply', '220–230 V · 50–60 Hz');
 
-// Pars e-catalog p. 31 and matching images in the Empero fan-cooled upright product sheets.
-function uprightRefrigeratorOverview(model: string, width: number, capacity: number): ProductTechnicalFact[] {
+// Pars e-catalog p. 31 and the matching manufacturer's product sheets.
+function uprightRefrigeratorOverview(width: number, capacity: number): ProductTechnicalFact[] {
     return [
-        technicalFact('Katalog modeli', 'Catalogue model', `Empero ${model}`),
         technicalFact('Dış ölçüler (en × derinlik × yükseklik)', 'External dimensions (W × D × H)', `${width} × 800 × 2050 mm`),
         technicalFact('Kapasite', 'Capacity', `${capacity} L`),
         stainlessSteel,
@@ -3485,7 +3484,7 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '0 – +5 °C',
-            technicalOverview: uprightRefrigeratorOverview('EMP.140.80.03', 1400, 1400),
+            technicalOverview: uprightRefrigeratorOverview(1400, 1400),
             technicalSpecification:[
                 { TR: 'Dikey Tip Buzdolabı Paslanmaz Çift Kapılı Camlı Paslanmaz Çelikten Üretilmektedir.', EN: 'Vertical refrigerator is made of stainless steel with double glass doors.' },
                 { TR: 'Çalışma aralığı 0/+5 ºC (tropikal 43 ºC)', EN: 'Operating range 0/+5 °C (tropical 43 °C).' },
@@ -3529,7 +3528,7 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '0 – +5 °C',
-            technicalOverview: uprightRefrigeratorOverview('EMP.140.80.01', 1400, 1400),
+            technicalOverview: uprightRefrigeratorOverview(1400, 1400),
             technicalSpecification:[
                 { TR: 'Paslanmaz Dikey Tip Buzdolabı Çift Kapılı Paslanmaz Çelikten Üretilmektedir.', EN: 'Stainless vertical refrigerator with double doors is made of stainless steel.' },
                 { TR: 'Çalışma aralığı 0/+5 ºC (tropikal 43 ºC)', EN: 'Operating range 0/+5 °C (tropical 43 °C).' },
@@ -3576,7 +3575,7 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '0 – +5 °C',
-            technicalOverview: uprightRefrigeratorOverview('EMP.70.80.03', 700, 700),
+            technicalOverview: uprightRefrigeratorOverview(700, 700),
             technicalSpecification:[
                 { TR: 'Dikey Tip Buzdolabı Camlı Paslanmaz Çelikten Üretilmektedir.', EN: 'Vertical glass-door refrigerator is made of stainless steel.' },
                 { TR: 'Çalışma aralığı 0/+5 ºC (tropikal 43 ºC)', EN: 'Operating range 0/+5 °C (tropical 43 °C).' },
@@ -3620,7 +3619,7 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '0 – +5 °C',
-            technicalOverview: uprightRefrigeratorOverview('EMP.70.80.01', 700, 700),
+            technicalOverview: uprightRefrigeratorOverview(700, 700),
             technicalSpecification:[
                 { TR: 'Paslanmaz Buzdolabı Dikey Tip Paslanmaz Çelikten Üretilmektedir.', EN: 'Vertical stainless refrigerator is made of stainless steel.' },
                 { TR: 'Çalışma aralığı 0/+5 ºC (tropikal 43 ºC)', EN: 'Operating range 0/+5 °C (tropical 43 °C).' },
