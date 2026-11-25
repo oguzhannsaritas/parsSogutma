@@ -84,7 +84,7 @@ for (const category of productCategories) {
     }
     if (category.id === 'pasta') {
         const venusLengths = categoryDom.querySelector('#model-15 [data-catalog-module-lengths]')?.textContent;
-        assert(venusLengths?.includes('2812') && !venusLengths.includes('31255'), 'Show only confirmed VENUS module lengths');
+        assert.equal(venusLengths, '937 · 1250 · 1875 · 2500 · 2812 · 3125', 'Show the confirmed VENUS module lengths');
     }
     const visibleModelUrls = [...categoryDom.querySelectorAll<HTMLAnchorElement>('#modeller a[href^="/products/"]')].map(link => `${SITE_URL}${link.getAttribute('href')}`);
     assert.equal(new Set(visibleModelUrls).size, models.length, `A model was omitted or duplicated in subgroup cards: ${category.id}`);

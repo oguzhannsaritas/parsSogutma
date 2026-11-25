@@ -110,10 +110,10 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                     path: '#',
                     children: [
                         { label: t('menu.bakery'), path: '/products?cat=bakery' },
-                        { label: t('menu.industrialKitchen'), path: '/products?cat=kitchen' },
+                        { label: t('menu.industrialKitchen'), path: '/urunler/endustriyel-mutfak-ekipmanlari' },
                         { label: t('menu.marketEquip'), path: '/products?cat=market' },
                         { label: t('menu.coldStorage'), path: '/urunler/soguk-hava-depolari' },
-                        { label: t('menu.coolingSystems'), path: '/products?cat=coolingSystems' },
+                        { label: t('menu.coolingSystems'), path: '/urunler/sogutma-gruplari-sistemleri' },
                         { label: t('menu.coolingAisles'), path: '/products?cat=coolingAisles' }
                     ]
                 }

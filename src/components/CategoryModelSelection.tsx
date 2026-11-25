@@ -21,9 +21,8 @@ export function CatalogModelFacts({ product, language }: { product: ProductSumma
         ?? (firstSentenceEnd < 0 ? description : description.slice(0, firstSentenceEnd + 1));
     const modules = product.specs.modules.trim();
     // Lists separated by commas or slashes are the catalogue's lengths in millimetres.
-    // VENUS has one unconfirmed entry. Omit it until the catalogue value is confirmed.
     const lengths = /^\d+(?:\s*[,/]\s*\d+)+$/.test(modules)
-        ? modules.split(/\s*[,/]\s*/).filter(length => product.id !== 15 || length !== '31255')
+        ? modules.split(/\s*[,/]\s*/)
         : [];
 
     return (

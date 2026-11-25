@@ -702,7 +702,7 @@ export const products: Product[] = [
             '/images/products/servisReyonlari/venusPastaTeshirDolabi/venusPastaTeshirDolabi4.jpg',
         ],
         specs: {
-            modules: ' 937 / 1250 / 1875 / 2500 / 2812 / 31255',
+            modules: ' 937 / 1250 / 1875 / 2500 / 2812 / 3125',
             sidePanel: 40,
             temp: 'M2 (-1 / +7 C°) / M1 (-1 / +5 C°) / H1 (+1 / +10 C°)',
             optionalAccessory:[
