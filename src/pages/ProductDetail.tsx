@@ -7,7 +7,7 @@ import { ChevronRight, ChevronLeft, LayoutGrid, Maximize2, X } from 'lucide-reac
 import { useLanguage } from '../context/LanguageContext';
 import { motion, AnimatePresence } from 'motion/react';
 import { products } from '../data/productSummaries';
-import { findProductByIdentifier, getProductImages, getProductPath } from '../seo/config';
+import { findProductByIdentifier, getProductImages, getProductPath, getProductTemperature } from '../seo/config';
 import { getProductThumbnailUrl } from '../lib/productImages';
 import { getCategoryPath, getProductCategory, getProductDisplayName, isCanonicalProduct } from '../data/catalog';
 import { RelatedProducts } from '../components/CatalogContent';
@@ -236,13 +236,31 @@ function ProductDetailView({ page }: { page: ProductPageData }) {
 
     const drawingImages = Array.isArray((product as any).drawingImage) ? (product as any).drawingImage : [];
 
-    const specs = (product as any).specs || {
-        modules: [937, 1250, 1875, 2500],
-        sidePanel: 40,
-        temp: 'M1 (-1/+5°C) - M2 (-1/+7°C)',
-        optionalAccessory: [],
-        technicalSpecification: [],
-    };
+    const { specs } = product;
+    const temperatureLabel = t('product.table.temp');
+    const specificationSections = [
+        {
+            title: language === 'TR' ? 'Teknik Özellikler' : 'Technical Specifications',
+            rows: specs.technicalOverview?.map(({ label, value }) => ({
+                label: label[language],
+                value: typeof value === 'string' ? value : value[language],
+            })) ?? [],
+        },
+        {
+            title: t('product.table.modules'),
+            rows: [
+                { label: t('product.table.length'), value: specs.modules },
+                { label: t('product.table.sidePanel'), value: specs.sidePanel },
+            ],
+        },
+        {
+            title: temperatureLabel,
+            rows: [{ label: temperatureLabel, value: getProductTemperature(product, language) }],
+        },
+    ].map(section => ({
+        ...section,
+        rows: section.rows.filter(({ value }) => !/^[-–—\s]*$/.test(String(value ?? ''))),
+    })).filter(section => section.rows.length > 0);
 
     const tabs = [
         { id: 'about', label: t('product.tabs.about') },
@@ -491,46 +509,25 @@ function ProductDetailView({ page }: { page: ProductPageData }) {
                             {activeTab === 'about' && (
                                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
                                     <ProductIntroduction product={product} language={language} content={page.content[language]} />
-                                    <div className="border border-gray-200 dark:border-neutral-700 rounded-2xl overflow-hidden bg-white dark:bg-transparent">
-                                        <div className="bg-gray-50 dark:text-black px-6 py-3 border-b border-gray-200 dark:border-neutral-700 text-xs md:text-sm font-bold text-gray-700 ">
-                                            {t('product.table.modules')}
+                                    {specificationSections.length > 0 && (
+                                        <div data-product-specifications className="overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-neutral-700 dark:bg-transparent">
+                                            {specificationSections.map(({ title, rows }) => (
+                                                <section key={title} className="border-t border-gray-200 first:border-t-0 dark:border-neutral-700">
+                                                    <h2 className="border-b border-gray-200 bg-gray-50 px-6 py-3 text-xs font-bold text-gray-700 dark:border-neutral-700 dark:text-black md:text-sm">
+                                                        {title}
+                                                    </h2>
+                                                    <dl className="divide-y divide-gray-200 dark:divide-neutral-700">
+                                                        {rows.map(({ label, value }) => (
+                                                            <div key={label} className="grid grid-cols-2">
+                                                                <dt className="border-r border-gray-200 p-4 text-xs text-gray-600 dark:border-neutral-700 dark:text-white md:text-sm">{label}</dt>
+                                                                <dd className="break-words p-4 text-xs font-medium text-black dark:text-white md:text-sm">{value}</dd>
+                                                            </div>
+                                                        ))}
+                                                    </dl>
+                                                </section>
+                                            ))}
                                         </div>
-
-                                        <div className="divide-y divide-gray-200 dark:divide-neutral-700">
-                                            <div className="grid grid-cols-2">
-                                                <div className="p-4 text-xs md:text-sm text-gray-600 dark:text-white border-r border-gray-200 dark:border-neutral-700">
-                                                    {t('product.table.length')}
-                                                </div>
-                                                <div className="p-4 text-xs md:text-sm font-medium text-black dark:text-white">
-                                                    {specs.modules}
-                                                </div>
-                                            </div>
-
-                                            <div className="grid grid-cols-2">
-                                                <div className="p-4 text-xs md:text-sm text-gray-600 dark:text-white border-r border-gray-200 dark:border-neutral-700">
-                                                    {t('product.table.sidePanel')}
-                                                </div>
-                                                <div className="p-4 text-xs md:text-sm font-medium text-black dark:text-white">
-                                                    {specs.sidePanel}
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="bg-gray-50  px-6 py-3 border-y border-gray-200 dark:border-neutral-700 text-xs md:text-sm font-bold text-gray-700 dark:text-black mt-4">
-                                            {t('product.table.temp')}
-                                        </div>
-
-                                        <div className="divide-y   ">
-                                            <div className="grid grid-cols-2 ">
-                                                <div className="p-4 text-xs md:text-sm text-gray-600 dark:text-white border-r border-gray-200 dark:border-neutral-700">
-                                                    {t('product.table.temp')}
-                                                </div>
-                                                <div className="p-4 text-xs md:text-sm font-medium text-black dark:text-white">
-                                                    {product.specs.temperatureNote?.[language] ?? specs.temp}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    )}
                                 </motion.div>
                             )}
 

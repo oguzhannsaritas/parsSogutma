@@ -1,5 +1,56 @@
-import { Product } from './types'
+import type { Product, ProductTechnicalFact, TranslatedString } from './types';
 
+const technicalFact = (labelTR: string, labelEN: string, value: string | TranslatedString): ProductTechnicalFact => ({
+    label: { TR: labelTR, EN: labelEN },
+    value,
+});
+
+const stainlessSteel = technicalFact('Gövde', 'Body', { TR: 'Paslanmaz çelik', EN: 'Stainless steel' });
+const refrigeratorAmbient = technicalFact('Ortam koşulu', 'Ambient conditions', { TR: 'Tropikal, 43 °C', EN: 'Tropical, 43 °C' });
+const refrigeratorPowerSupply = technicalFact('Elektrik beslemesi', 'Power supply', '220–230 V · 50–60 Hz');
+
+// Pars e-catalog p. 31 and matching images in the Empero fan-cooled upright product sheets.
+function uprightRefrigeratorOverview(model: string, width: number, capacity: number): ProductTechnicalFact[] {
+    return [
+        technicalFact('Katalog modeli', 'Catalogue model', `Empero ${model}`),
+        technicalFact('Dış ölçüler (en × derinlik × yükseklik)', 'External dimensions (W × D × H)', `${width} × 800 × 2050 mm`),
+        technicalFact('Kapasite', 'Capacity', `${capacity} L`),
+        stainlessSteel,
+        refrigeratorAmbient,
+    ];
+}
+
+const undercounterRefrigeratorOverview = [stainlessSteel, refrigeratorAmbient, refrigeratorPowerSupply];
+
+const worktopLength = technicalFact('Uzunluk', 'Length', { TR: 'Sipariş ölçüsüne göre üretilir', EN: 'Made to order' });
+const worktopMaterial = technicalFact('Üst tabla', 'Worktop', { TR: 'Paslanmaz çelik', EN: 'Stainless steel' });
+const ventilationSizing = technicalFact('Ölçü ve hava debisi', 'Dimensions and airflow', {
+    TR: 'Pişirme hattı ve havalandırma projesine göre belirlenir',
+    EN: 'Selected for the cooking line and ventilation design',
+});
+
+// The same rack heights are listed in the Pars e-catalog (p. 33), in centimetres.
+const rackOverview = [
+    technicalFact('Raf sistemi yüksekliği', 'Shelving system height', '36, 86, 137, 150, 160, 183, 216, 244 cm'),
+    technicalFact('Raf aralığı ayarı', 'Shelf spacing adjustment', { TR: '10 cm aralıklarla', EN: 'In 10 cm increments' }),
+];
+
+const refrigerationCapacity = technicalFact('Soğutma kapasitesi', 'Refrigeration capacity', {
+    TR: 'Proje ısı yükü, hedef oda sıcaklığı ve dış ortam koşullarına göre seçilir',
+    EN: 'Selected for the project heat load, target room temperature and outdoor conditions',
+});
+const coldRoomDimensions = technicalFact('Oda iç ölçüleri (en × boy × yükseklik)', 'Internal room dimensions (W × L × H)', {
+    TR: 'Yerleşim ve depolama ihtiyacına göre projelendirilir',
+    EN: 'Designed for the site layout and storage requirements',
+});
+const coldRoomInsulation = technicalFact('Panel dolgusu', 'Panel core', { TR: '42 kg/m³ poliüretan', EN: '42 kg/m³ polyurethane' });
+const stripCurtainOverview = [
+    technicalFact('Perde tipi', 'Curtain type', { TR: 'PVC şeritli', EN: 'PVC strip' }),
+    technicalFact('Ölçü ve şerit seçimi', 'Sizing and strip selection', {
+        TR: 'Net geçiş açıklığı, geçiş sıklığı ve ortam sıcaklığına göre',
+        EN: 'Based on the clear opening, traffic frequency and ambient temperature',
+    }),
+];
 
 export const products: Product[] = [
     {
@@ -3310,6 +3361,7 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: [stainlessSteel, ventilationSizing],
             technicalSpecification:[
                 { TR: 'Orta Tip Paslanmaz Davlumbaz toplama bölgeleri yeterli hacim ve büyüklüğe sahiptir.', EN: 'Medium-type stainless steel hoods have collection areas with sufficient volume and size.' },
                 { TR: 'Havanın hacmini karşılama genişliğine sahip tasarımda ürünlerdir.', EN: 'They are designed with a width that can handle the required air volume.' },
@@ -3338,6 +3390,7 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: [stainlessSteel, ventilationSizing],
             technicalSpecification:[
                 { TR: 'Kutu tipi paslanmaz davlumbazlar tamamı ile Avrupa standartlarında üretilen davlumbazlardır.', EN: 'Box-type stainless steel hoods are manufactured fully to European standards.' },
                 { TR: 'Bu ürünler üretilirken havanın ve sesin gücü özellikle değerlendirilmektedir.', EN: 'Airflow and noise performance are specifically considered during manufacturing.' },
@@ -3371,6 +3424,7 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: [stainlessSteel, ventilationSizing],
             technicalSpecification:[
                 { TR: 'Duvar tipi filtreli davlumbaz özellikleri bakımından farklılık gösterir.', EN: 'Wall-mounted filtered hoods vary in terms of features.' },
                 { TR: 'Filtrenin çeşitli özellikleri fiyat açısından değişkenlik oluşmasını sağlar.', EN: 'Different filter specifications create price variations.' },
@@ -3401,6 +3455,7 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: [stainlessSteel, ventilationSizing],
             technicalSpecification:[
                 { TR: 'Duvar Tipi Davlumbaz; Endüstriyel mutfak ürünlerinden bir diğeri duvar tipi davlumbaz olarak karşımıza çıkar.', EN: 'Wall-Type Hood is another product category used in industrial kitchens.' },
                 { TR: 'Davlumbazlar buharlaşma ile ortaya çıkan yemek kokularının birbirine ve havaya karışmasına engel olarak ortamdan uzaklaştırılmasını sağlar.', EN: 'Hoods help remove cooking odors created by evaporation, preventing them from mixing into the air and spreading.' },
@@ -3429,12 +3484,13 @@ export const products: Product[] = [
         specs: {
             modules: '-',
             sidePanel: "-",
-            temp: '-',
+            temp: '0 – +5 °C',
+            technicalOverview: uprightRefrigeratorOverview('EMP.140.80.03', 1400, 1400),
             technicalSpecification:[
                 { TR: 'Dikey Tip Buzdolabı Paslanmaz Çift Kapılı Camlı Paslanmaz Çelikten Üretilmektedir.', EN: 'Vertical refrigerator is made of stainless steel with double glass doors.' },
                 { TR: 'Çalışma aralığı 0/+5 ºC (tropikal 43 ºC)', EN: 'Operating range 0/+5 °C (tropical 43 °C).' },
                 { TR: '220-230V -1 +N  50-60 Hz elektrik gücü.', EN: 'Power supply 220–230V, 1+N, 50–60 Hz.' },
-                { TR: '“CFC Free” R-134 A soğutucu gaz.', EN: '“CFC Free” R-134a refrigerant gas.' },
+                { TR: 'Soğutucu akışkan tipi cihazın model ve seri etiketinden teyit edilir.', EN: 'Confirm the refrigerant type on the unit nameplate.' },
                 { TR: '40 kg/m³ yoğunluk.', EN: '40 kg/m³ density.' },
                 { TR: 'Sıcaklık ve defrost kontrollü dijital gösterge.', EN: 'Digital display with temperature and defrost control.' },
                 { TR: 'Defrost esnasında otomatik su buharlaştırma.', EN: 'Automatic water evaporation during defrost.' },
@@ -3450,7 +3506,6 @@ export const products: Product[] = [
                 { TR: 'Monoblok tasarım', EN: 'Monoblock design.' },
                 { TR: 'Otomatik fan kesme switchi ve led aydınlatma', EN: 'Automatic fan cut-off switch and LED lighting.' },
                 { TR: 'Üçlü yalıtım bölgesiyle ısı kaybını azaltan değiştirilebilir manyetik conta', EN: 'Replaceable magnetic gasket that reduces heat loss with triple insulation zones.' },
-                { TR: 'Düşük enerji tüketimi için 40-42 Kg/m3 yoğunlukta 60 mm izolasyonlu, çevre dostu HFC-Free poliüretan duvarlar', EN: 'Eco-friendly HFC-free polyurethane walls with 60 mm insulation (40–42 kg/m³ density) for low energy consumption.' },
                 { TR: 'Suya dayanıklı ön tasarım (IP21)', EN: 'Water-resistant front design (IP21).' },
                 { TR: 'Fan soğutmalı tasarım', EN: 'Fan-cooled design.' },
                 { TR: 'Cihazların herhangi bir alana rahatça adapte edilebilmesi için yönü değiştirilebilir kapılar', EN: 'Reversible doors for easy adaptation to any space.' },
@@ -3473,12 +3528,13 @@ export const products: Product[] = [
         specs: {
             modules: '-',
             sidePanel: "-",
-            temp: '-',
+            temp: '0 – +5 °C',
+            technicalOverview: uprightRefrigeratorOverview('EMP.140.80.01', 1400, 1400),
             technicalSpecification:[
                 { TR: 'Paslanmaz Dikey Tip Buzdolabı Çift Kapılı Paslanmaz Çelikten Üretilmektedir.', EN: 'Stainless vertical refrigerator with double doors is made of stainless steel.' },
                 { TR: 'Çalışma aralığı 0/+5 ºC (tropikal 43 ºC)', EN: 'Operating range 0/+5 °C (tropical 43 °C).' },
                 { TR: '220-230V -1 +N  50-60 Hz elektrik gücü.', EN: 'Power supply 220–230V, 1+N, 50–60 Hz.' },
-                { TR: '“CFC Free” R-134 A soğutucu gaz.', EN: '“CFC Free” R-134a refrigerant gas.' },
+                { TR: 'Soğutucu akışkan tipi cihazın model ve seri etiketinden teyit edilir.', EN: 'Confirm the refrigerant type on the unit nameplate.' },
                 { TR: '40 kg/m³ yoğunluk.', EN: '40 kg/m³ density.' },
                 { TR: 'Sıcaklık ve defrost kontrollü dijital gösterge.', EN: 'Digital display with temperature and defrost control.' },
                 { TR: 'Defrost esnasında otomatik su buharlaştırma.', EN: 'Automatic water evaporation during defrost.' },
@@ -3494,7 +3550,6 @@ export const products: Product[] = [
                 { TR: 'Monoblok tasarım', EN: 'Monoblock design.' },
                 { TR: 'Otomatik fan kesme switchi ve led aydınlatma', EN: 'Automatic fan cut-off switch and LED lighting.' },
                 { TR: 'Üçlü yalıtım bölgesiyle ısı kaybını azaltan değiştirilebilir manyetik conta', EN: 'Replaceable magnetic gasket that reduces heat loss with triple insulation zones.' },
-                { TR: 'Düşük enerji tüketimi için 40-42 Kg/m3 yoğunlukta 60 mm izolasyonlu, çevre dostu HFC-Free poliüretan duvarlar', EN: 'Eco-friendly HFC-free polyurethane walls with 60 mm insulation (40–42 kg/m³ density) for low energy consumption.' },
                 { TR: 'Suya dayanıklı ön tasarım (IP21)', EN: 'Water-resistant front design (IP21).' },
                 { TR: 'Fan soğutmalı tasarım', EN: 'Fan-cooled design.' },
                 { TR: 'Cihazların herhangi bir alana rahatça adapte edilebilmesi için yönü değiştirilebilir kapılar', EN: 'Reversible doors for easy adaptation to any space.' },
@@ -3520,12 +3575,13 @@ export const products: Product[] = [
         specs: {
             modules: '-',
             sidePanel: "-",
-            temp: '-',
+            temp: '0 – +5 °C',
+            technicalOverview: uprightRefrigeratorOverview('EMP.70.80.03', 700, 700),
             technicalSpecification:[
                 { TR: 'Dikey Tip Buzdolabı Camlı Paslanmaz Çelikten Üretilmektedir.', EN: 'Vertical glass-door refrigerator is made of stainless steel.' },
                 { TR: 'Çalışma aralığı 0/+5 ºC (tropikal 43 ºC)', EN: 'Operating range 0/+5 °C (tropical 43 °C).' },
                 { TR: '220-230V -1 +N  50-60 Hz elektrik gücü.', EN: 'Power supply 220–230V, 1+N, 50–60 Hz.' },
-                { TR: '“CFC Free” R-134 A soğutucu gaz.', EN: '“CFC Free” R-134a refrigerant gas.' },
+                { TR: 'Soğutucu akışkan tipi cihazın model ve seri etiketinden teyit edilir.', EN: 'Confirm the refrigerant type on the unit nameplate.' },
                 { TR: '40 kg/m³ yoğunluk.', EN: '40 kg/m³ density.' },
                 { TR: 'Sıcaklık ve defrost kontrollü dijital gösterge.', EN: 'Digital display with temperature and defrost control.' },
                 { TR: 'Defrost esnasında otomatik su buharlaştırma.', EN: 'Automatic water evaporation during defrost.' },
@@ -3541,7 +3597,6 @@ export const products: Product[] = [
                 { TR: 'Monoblok tasarım', EN: 'Monoblock design.' },
                 { TR: 'Otomatik fan kesme switchi ve led aydınlatma', EN: 'Automatic fan cut-off switch and LED lighting.' },
                 { TR: 'Üçlü yalıtım bölgesiyle ısı kaybını azaltan değiştirilebilir manyetik conta', EN: 'Replaceable magnetic gasket that reduces heat loss with triple insulation zones.' },
-                { TR: 'Düşük enerji tüketimi için 40-42 Kg/m3 yoğunlukta 60 mm izolasyonlu, çevre dostu HFC-Free poliüretan duvarlar', EN: 'Eco-friendly HFC-free polyurethane walls with 60 mm insulation (40–42 kg/m³ density) for low energy consumption.' },
                 { TR: 'Suya dayanıklı ön tasarım (IP21)', EN: 'Water-resistant front design (IP21).' },
                 { TR: 'Fan soğutmalı tasarım', EN: 'Fan-cooled design.' },
                 { TR: 'Cihazların herhangi bir alana rahatça adapte edilebilmesi için yönü değiştirilebilir kapılar.', EN: 'Reversible doors for easy adaptation to any space.' },
@@ -3564,12 +3619,13 @@ export const products: Product[] = [
         specs: {
             modules: '-',
             sidePanel: "-",
-            temp: '-',
+            temp: '0 – +5 °C',
+            technicalOverview: uprightRefrigeratorOverview('EMP.70.80.01', 700, 700),
             technicalSpecification:[
                 { TR: 'Paslanmaz Buzdolabı Dikey Tip Paslanmaz Çelikten Üretilmektedir.', EN: 'Vertical stainless refrigerator is made of stainless steel.' },
                 { TR: 'Çalışma aralığı 0/+5 ºC (tropikal 43 ºC)', EN: 'Operating range 0/+5 °C (tropical 43 °C).' },
                 { TR: '220-230V -1 +N  50-60 Hz elektrik gücü.', EN: 'Power supply 220–230V, 1+N, 50–60 Hz.' },
-                { TR: '“CFC Free” R-134 A soğutucu gaz.', EN: '“CFC Free” R-134a refrigerant gas.' },
+                { TR: 'Soğutucu akışkan tipi cihazın model ve seri etiketinden teyit edilir.', EN: 'Confirm the refrigerant type on the unit nameplate.' },
                 { TR: '40 kg/m³ yoğunluk.', EN: '40 kg/m³ density.' },
                 { TR: 'Sıcaklık ve defrost kontrollü dijital gösterge.', EN: 'Digital display with temperature and defrost control.' },
                 { TR: 'Defrost esnasında otomatik su buharlaştırma.', EN: 'Automatic water evaporation during defrost.' },
@@ -3585,7 +3641,6 @@ export const products: Product[] = [
                 { TR: 'Monoblok tasarım', EN: 'Monoblock design.' },
                 { TR: 'Otomatik fan kesme switchi ve led aydınlatma', EN: 'Automatic fan cut-off switch and LED lighting.' },
                 { TR: 'Üçlü yalıtım bölgesiyle ısı kaybını azaltan değiştirilebilir manyetik conta', EN: 'Replaceable magnetic gasket that reduces heat loss with triple insulation zones.' },
-                { TR: 'Düşük enerji tüketimi için 40-42 Kg/m3 yoğunlukta 60 mm izolasyonlu, çevre dostu HFC-Free poliüretan duvarlar', EN: 'Eco-friendly HFC-free polyurethane walls with 60 mm insulation (40–42 kg/m³ density) for low energy consumption.' },
                 { TR: 'Suya dayanıklı ön tasarım (IP21)', EN: 'Water-resistant front design (IP21).' },
                 { TR: 'Fan soğutmalı tasarım', EN: 'Fan-cooled design.' },
                 { TR: 'Cihazların herhangi bir alana rahatça adapte edilebilmesi için yönü değiştirilebilir kapılar', EN: 'Reversible doors for easy adaptation to any space.' },
@@ -3608,7 +3663,8 @@ export const products: Product[] = [
         specs: {
             modules: '-',
             sidePanel: "-",
-            temp: '-',
+            temp: '0 – +5 °C',
+            technicalOverview: undercounterRefrigeratorOverview,
             technicalSpecification:[
                 { TR: 'Tezgah Altı Dolap Camlı Paslanmaz Çelikten Üretilmektedir.', EN: 'Under-counter cabinet with glass doors is made of stainless steel.' },
                 { TR: 'Çalışma aralığı 0/+5 ºC (tropikal 43 ºC)', EN: 'Operating range 0/+5 °C (tropical 43 °C).' },
@@ -3652,7 +3708,8 @@ export const products: Product[] = [
         specs: {
             modules: '-',
             sidePanel: "-",
-            temp: '-',
+            temp: '0 – +5 °C',
+            technicalOverview: undercounterRefrigeratorOverview,
             technicalSpecification:[
                 { TR: 'Tezgah Altı Buzdolabı Paslanmaz Çelikten Üretilmektedir.', EN: 'Under-counter refrigerator is made of stainless steel.' },
                 { TR: 'Çalışma aralığı 0/+5 ºC (tropikal 43 ºC)', EN: 'Operating range 0/+5 °C (tropical 43 °C).' },
@@ -3698,6 +3755,10 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: [
+                worktopMaterial,
+                technicalFact('Tabla alnı / arka sırt', 'Worktop front edge / upstand', "40 / 60 mm"),
+            ],
             technicalSpecification:[
                 { TR: 'Çalışma Tezgahı Ara Raflı, Taban Raflı, Paslanmaz Çelikten Üretilmektedir.', EN: 'Worktable with mid-shelf and base shelf is made of stainless steel.' },
                 { TR: 'Üst Tabla Paslanmaz Sacdan Üretilmektedir.', EN: 'Top work surface is produced from stainless sheet metal.' },
@@ -3728,9 +3789,15 @@ export const products: Product[] = [
             '/images/products/endustriyelMutfakEkipmanlari/calismaTezgahiTabanRafli/calismaTezgahiTabanRaflix.webp',
         ],
         specs: {
-            modules: '850',
-            sidePanel: "700",
+            modules: '-',
+            sidePanel: '-',
             temp: '-',
+            technicalOverview: [
+                worktopLength,
+                technicalFact('Derinlik', 'Depth', { TR: "600 veya 700 mm", EN: "600 or 700 mm" }),
+                technicalFact('Çalışma yüksekliği', 'Worktop height', "850 mm"),
+                worktopMaterial,
+            ],
             technicalSpecification:[
                 { TR: 'Çalışma Tezgahı Taban Raflı Paslanmaz Çelikten Üretilmektedir.', EN: 'Base-shelf worktable is made of stainless steel.' },
                 { TR: 'Üst Tabla Paslanmaz Sacdan Üretilmektedir.', EN: 'Top work surface is produced from stainless sheet metal.' },
@@ -3765,6 +3832,11 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: [
+                worktopLength,
+                worktopMaterial,
+                technicalFact('Evye gözü ölçüsü', 'Sink bowl dimensions', "400 × 400 × 250 mm"),
+            ],
             technicalSpecification:[
                 { TR: 'Tek Evyeli Tezgah Paslanmaz Çelikten Üretilmektedir.', EN: 'Single-sink worktable is made of stainless steel.' },
                 { TR: 'Üst Tabla Paslanmaz Sacdan Üretilmektedir.', EN: 'Top work surface is produced from stainless sheet metal.' },
@@ -3801,9 +3873,10 @@ export const products: Product[] = [
             '/images/products/endustriyelMutfakEkipmanlari/sogukOdaRafi/sogukOdaRafi.webp',
         ],
         specs: {
-            modules: '36-86-137-150-160-183-216-244',
+            modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: rackOverview,
             technicalSpecification:[
                 { TR: 'Soğuk Oda Rafı', EN: 'Cold Room Shelf' },
                 { TR: 'Tamamı 304 Kalite Cr-Ni paslanmaz çelik transmisyon telden imal edilmiştir.', EN: 'Manufactured entirely from 304 grade Cr-Ni stainless steel transmission wire.' },
@@ -3835,9 +3908,10 @@ export const products: Product[] = [
             '/images/products/endustriyelMutfakEkipmanlari/sogukOdaRafi/sogukOdaRafi.webp',
         ],
         specs: {
-            modules: '36-86-137-150-160-183-216-244',
+            modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: rackOverview,
             technicalSpecification:[
                 { TR: 'Paslanmaz Tel Raf Tamamı 304 Kalite Cr-Ni paslanmaz çelik transmisyon telden imal edilmiştir.', EN: 'Stainless wire shelf is manufactured entirely from 304 grade Cr-Ni stainless steel transmission wire.' },
                 { TR: 'Parlak yüzeyler için elektropolisaj yapılmıştır.', EN: 'Electropolishing is applied for shiny surfaces.' },
@@ -3868,9 +3942,10 @@ export const products: Product[] = [
             '/images/products/endustriyelMutfakEkipmanlari/sogukOdaRafi/sogukOdaRafi.webp',
         ],
         specs: {
-            modules: '36-86-137-150-160-183-216-244',
+            modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: rackOverview,
             technicalSpecification:[
                 { TR: 'Tamamı 304 Kalite Cr-Ni paslanmaz çelik transmisyon telden imal edilmiştir.', EN: 'Manufactured entirely from 304 grade Cr-Ni stainless steel transmission wire.' },
                 { TR: 'Parlak yüzeyler için elektropolisaj yapılmıştır.', EN: 'Electropolishing is applied for shiny surfaces.' },
@@ -3907,6 +3982,7 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: [worktopLength, worktopMaterial],
             technicalSpecification:[
                 { TR: 'Paslanmaz Evyeli Dolaplı Tezgah', EN: 'Stainless Cabinet Worktable with Sink' },
                 { TR: 'Evyeli Dolaplı Çalışma Tezgahları Paslanmaz Çelikten Üretilmektedir.', EN: 'Cabinet worktables with sinks are made of stainless steel.' },
@@ -3949,6 +4025,7 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: [worktopLength, worktopMaterial],
             technicalSpecification:[
                 { TR: 'Çalışma Tezgahları Paslanmaz Çelikten Üretilmektedir.', EN: 'Worktables are made of stainless steel.' },
                 { TR: 'Taban Raflı , Taban ve Ara Raflı , Çekmeceli , Polietilen Tezgahlı , Paslanmaz Tezgahlı gibi Çeşitli Modellerde üretimi yapılamaktadır.', EN: 'Available in various models such as base shelf, base + mid shelf, drawer units, polyethylene tops, and stainless worktops.' },
@@ -4071,6 +4148,9 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: [
+                technicalFact('Yerleşim ölçüleri', 'Dimensions', { TR: "Mağaza planı ve teşhir düzenine göre belirlenir", EN: "Sized for the shop layout and display arrangement" }),
+            ],
             technicalSpecification:[
                 { TR: 'Manav dükkanları için yapılmış mimari çalışmalara manav dizaynı denir.', EN: 'Architectural projects designed for greengrocer shops are called greengrocer design.' },
                 { TR: 'Günümüzde hele de discount marketlerin arması ve virüslerin hayatımıza girmesiyle beraber bütün gıda sektörü kendisini çek-up yapma fırsatı bulmuştur.', EN: 'Today, especially with the rise of discount markets and viruses entering our lives, the entire food sector has had the opportunity to reassess itself.' },
@@ -4170,6 +4250,10 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: [
+                technicalFact('Uygulama', 'Application', { TR: "Soğuk ve donmuş muhafaza odaları", EN: "Chilled and frozen storage rooms" }),
+                refrigerationCapacity,
+            ],
             technicalSpecification:[
                 { TR: 'Endüstriyel Soğutma Sistemleri Soğuk ve donmuş muhafaza odaları şartlarına uygun olarak üretilir.', EN: 'Industrial refrigeration systems are manufactured to meet the requirements of cold and frozen storage rooms.' },
                 { TR: 'Split Soğutma Sistemleri', EN: 'Split Refrigeration Systems' },
@@ -4216,6 +4300,10 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: [
+                technicalFact('Montaj ölçüleri', 'Mounting dimensions', { TR: "Seçilen monoblok ünitenin teknik çizimine göre", EN: "As specified in the selected monoblock unit drawing" }),
+                refrigerationCapacity,
+            ],
             technicalSpecification:[
                 { TR: 'Hermetik kompresörlü ve hava soğutmalı kondenserlidir.', EN: 'Equipped with a hermetic compressor and an air-cooled condenser.' },
                 { TR: 'Elektrik panosu ve tüm kontrol elemanları ile birlikte kompakt olarak sevk edilir.', EN: 'Delivered as a compact unit with the electrical panel and all control components.' },
@@ -4263,13 +4351,16 @@ export const products: Product[] = [
             '/images/products/sogutmaSistemleri/splitSogutmaGrubu/splitSogutmaGrubu1.webp',
             '/images/products/sogutmaSistemleri/splitSogutmaGrubu/splitSogutmaGrubu3.webp',
         ],
-        drawingImage:[
-            '/images/products/sogutmaSistemleri/splitSogutmaGrubu/splitSogutmaGrubux.webp',
-        ],
         specs: {
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            temperatureNote: { TR: "Soğuk veya donmuş muhafaza için hedef oda sıcaklığına göre grup seçilir.", EN: "Select the unit for the room’s target temperature in chilled or frozen storage." },
+            technicalOverview: [
+                technicalFact('Ünite düzeni', 'Unit arrangement', { TR: "Oda içi evaporatör ve hava soğutmalı dış ünite", EN: "Indoor evaporator and air-cooled outdoor unit" }),
+                technicalFact('Ünite ölçüleri', 'Unit dimensions', { TR: "İç ve dış ünitelerin seçilen modellerine göre", EN: "Depend on the selected indoor and outdoor unit models" }),
+                refrigerationCapacity,
+            ],
             technicalSpecification:[
                 { TR: 'Dünya standartlarına uygun üretim', EN: 'Manufactured to global standards.' },
                 { TR: 'Yüksek verimli soğutma', EN: 'High-efficiency cooling.' },
@@ -4332,6 +4423,10 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: [
+                technicalFact('Uygulama', 'Application', { TR: "Birden fazla oda veya reyon için merkezi soğutma", EN: "Central refrigeration for multiple rooms or display cases" }),
+                refrigerationCapacity,
+            ],
             technicalSpecification:[
                 { TR: 'Yarı Hermetik, scroll veya vidalı kompresörlüdür.', EN: 'Equipped with semi-hermetic, scroll, or screw compressors.' },
                 { TR: 'Hava veya su soğutmalı kondenserli olarak üretilir.', EN: 'Manufactured with air-cooled or water-cooled condensers.' },
@@ -4366,6 +4461,10 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: [
+                technicalFact('Ünite ölçüleri', 'Unit dimensions', { TR: "Seçilen soğutma grubunun modeline göre", EN: "Depend on the selected refrigeration unit model" }),
+                refrigerationCapacity,
+            ],
             technicalSpecification:[
                 { TR: 'Yarı Hermetik, scroll veya vidalı kompresörlüdür.', EN: 'Equipped with semi-hermetic, scroll, or screw compressors.' },
                 { TR: 'Hava veya su soğutmalı kondenserli olarak üretilir.', EN: 'Manufactured with air-cooled or water-cooled condensers.' },
@@ -4405,6 +4504,12 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            temperatureNote: { TR: "Depolanacak ürün ve muhafaza koşullarına göre projede belirlenir.", EN: "Specified for the stored product and required storage conditions." },
+            technicalOverview: [
+                coldRoomDimensions,
+                technicalFact('Panel kalınlığı seçenekleri', 'Panel thickness options', "60, 80, 100, 120, 160 mm"),
+                coldRoomInsulation,
+            ],
             technicalSpecification:[
                 { TR: 'Soğuk Hava Depoları Panel Kalınlıkları 60, 80 ,100 ,120, 160 mm kalınlığında panel seçeneği.', EN: 'Cold storage panel thickness options: 60, 80, 100, 120 and 160 mm.' },
                 { TR: 'Soğuk Odalar İstenildiğinde kolaylıkla sökülerek fire vermeden tekrar kurabilme özelliği.', EN: 'Cold rooms can be easily dismantled and reinstalled without waste when needed.' },
@@ -4447,7 +4552,12 @@ export const products: Product[] = [
         specs: {
             modules: '-',
             sidePanel: "-",
-            temp: '-',
+            temp: '-18 °C',
+            technicalOverview: [
+                coldRoomDimensions,
+                technicalFact('Panel kalınlığı seçenekleri', 'Panel thickness options', "100, 120, 160 mm"),
+                coldRoomInsulation,
+            ],
             technicalSpecification:[
                 { TR: '-18 Derece Soğuk Hava Deposu Panel Kalınlıkları 100 ,120, 160 mm kalınlığında panel seçeneği.', EN: '-18°C cold storage panel thickness options: 100, 120 and 160 mm.' },
                 { TR: '-18 Derece Soğuk Hava Deposu İstenildiğinde kolaylıkla sökülerek fire vermeden tekrar kurabilme özelliği.', EN: '-18°C cold storage rooms can be easily dismantled and reinstalled without waste when needed.' },
@@ -4492,6 +4602,7 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: stripCurtainOverview,
             technicalSpecification:[
                 { TR: 'Ürün güneş ışığında sararmaya ve çatlamaya karşı direnç sağlayacak bir ultraviyole engelleyici içermektedir.', EN: 'The product contains a UV blocker to resist yellowing and cracking under sunlight.' },
                 { TR: 'Bileşimine alev geciktirici bir madde eklenerek yanması önlenmiştir.', EN: 'A flame-retardant additive is included to help prevent burning.' },
@@ -4544,6 +4655,7 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: stripCurtainOverview,
             technicalSpecification:[
                 { TR: 'Ürün güneş ışığında sararmaya ve çatlamaya karşı direnç sağlayacak bir ultraviyole engelleyici içermektedir.', EN: 'The product contains a UV blocker to resist yellowing and cracking under sunlight.' },
                 { TR: 'Bileşimine alev geciktirici bir madde eklenerek yanması önlenmiştir.', EN: 'A flame-retardant additive is included to help prevent burning.' },
@@ -4596,6 +4708,7 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: stripCurtainOverview,
             technicalSpecification:[
                 { TR: 'Ürün güneş ışığında sararmaya ve çatlamaya karşı direnç sağlayacak bir ultraviyole engelleyici içermektedir.', EN: 'The product contains a UV blocker to resist yellowing and cracking under sunlight.' },
                 { TR: 'Bileşimine alev geciktirici bir madde eklenerek yanması önlenmiştir.', EN: 'A flame-retardant additive is included to help prevent burning.' },
@@ -4646,6 +4759,12 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: [
+                technicalFact('Panel genişliği', 'Panel width', "116 cm"),
+                technicalFact('Panel uzunluğu', 'Panel length', { TR: "13,50 m’ye kadar", EN: "Up to 13.50 m" }),
+                technicalFact('Panel kalınlığı seçenekleri', 'Panel thickness options', "60, 80, 100, 120, 150, 200 mm"),
+                technicalFact('Panel dolgusu', 'Panel core', { TR: "40–42 kg/m³ poliüretan", EN: "40–42 kg/m³ polyurethane" }),
+            ],
             technicalSpecification:[
                 { TR: 'Soğuk Oda Panelleri, Soğuk Hava Deposunun dış ortam şartlarından izole edilmesini sağlayan yalıtımlı panellerdir.', EN: 'Cold room panels are insulated panels that isolate cold storage from external conditions.' },
                 { TR: 'Soğuk zincirin en önemli halkalarından biri olan Soğuk Oda Panelleri, Pars Soğutma Sistemleri tarafından uluslararası standartlara uygun olarak üretilmektedir.', EN: 'As one of the most important links in the cold chain, cold room panels are manufactured by Pars Cooling Systems in accordance with international standards.' },
@@ -4691,6 +4810,7 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: stripCurtainOverview,
             technicalSpecification:[
                 { TR: 'Ürün güneş ışığında sararmaya ve çatlamaya karşı direnç sağlayacak bir ultraviyole engelleyici içermektedir.', EN: 'The product contains a UV blocker to resist yellowing and cracking under sunlight.' },
                 { TR: 'Bileşimine alev geciktirici bir madde eklenerek yanması önlenmiştir.', EN: 'A flame-retardant additive is included to help prevent burning.' },
@@ -4743,6 +4863,9 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: [
+                technicalFact('Aksesuar seçimi', 'Accessory selection', { TR: "Oda planı ve panel birleşimlerine göre", EN: "Based on the room plan and panel joints" }),
+            ],
             technicalSpecification:[
                 { TR: 'Soğuk Hava Depoları Panel Kalınlıkları 60, 80 ,100 ,120, 160 mm kalınlığında panel seçeneği.', EN: 'Cold storage panel thickness options: 60, 80, 100, 120 and 160 mm.' },
                 { TR: 'Soğuk Odalar İstenildiğinde kolaylıkla sökülerek fire vermeden tekrar kurabilme özelliği.', EN: 'Cold rooms can be easily dismantled and reinstalled without waste when needed.' },
@@ -4789,6 +4912,10 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: [
+                technicalFact('Kapı geçiş ölçüsü', 'Clear door opening', { TR: "Sipariş ölçüsüne göre üretilir", EN: "Made to order" }),
+                technicalFact('Kapı yalıtım kalınlığı', 'Door insulation thickness', { TR: "80 veya 100 mm", EN: "80 or 100 mm" }),
+            ],
             technicalSpecification:[
                 { TR: 'Sürgülü kapı ve menteşeli kapı seçenekleri.', EN: 'Sliding door and hinged door options.' },
                 { TR: '42 kg/m3 poliüretan yoğunluğu.', EN: '42 kg/m³ polyurethane density.' },
@@ -4838,6 +4965,10 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: [
+                technicalFact('Kapı geçiş ölçüsü', 'Clear door opening', { TR: "270 × 290 cm’ye kadar", EN: "Up to 270 × 290 cm" }),
+                technicalFact('Kapı yalıtım kalınlığı', 'Door insulation thickness', "80, 100, 120 mm"),
+            ],
             technicalSpecification:[
                 { TR: 'Soğuk Hava Depoları Panel Kalınlıkları 60, 80 ,100 ,120, 160 mm kalınlığında panel seçeneği.', EN: 'Cold storage panel thickness options: 60, 80, 100, 120 and 160 mm.' },
                 { TR: 'Soğuk Odalar İstenildiğinde kolaylıkla sökülerek fire vermeden tekrar kurabilme özelliği.', EN: 'Cold rooms can be easily dismantled and reinstalled without waste when needed.' },
@@ -4888,9 +5019,14 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: [
+                worktopLength,
+                technicalFact('Üst tabla', 'Worktop', { TR: "Polietilen", EN: "Polyethylene" }),
+                technicalFact('Taban rafı', 'Base shelf', { TR: "Paslanmaz çelik", EN: "Stainless steel" }),
+            ],
             technicalSpecification:[
                 { TR: 'Çalışma Tezgahı Polietilen Tablalı Taban Raflı Çelikten Üretilmektedir.', EN: 'Workbench (Poly Top) with Base Shelf worktable is made of stainless steel.' },
-                { TR: 'Üst Tabla Paslanmaz Sacdan Üretilmektedir.', EN: 'Top work surface is produced from stainless sheet metal.' },
+                { TR: 'Polietilen üst tabla.', EN: 'Polyethylene worktop.' },
                 { TR: 'Evyeler İsteğe göre tek , çift ve üç evyeli olacak şekilde üretilebilmektedir.', EN: 'Sinks can be produced as single, double, or triple upon request.' },
                 { TR: 'Dolaplı Çalışma Tezgahı Sürgülü Ve Kapılı Olarak Üretimi yapılabilmektedir.', EN: 'Worktables with cabinets can be produced with sliding doors or hinged doors.' },
                 { TR: 'Taban Raflı , Taban ve Ara Raflı , Çekmeceli , Polietilen Tezgahlı , Paslanmaz Tezgahlı gibi Çeşitli Modellerde üretimi yapılamaktadır.', EN: 'Available in various models such as base shelf, base + mid shelf, drawer units, polyethylene tops, and stainless worktops.' },
@@ -4900,10 +5036,6 @@ export const products: Product[] = [
                 { TR: 'Ayarlanabilir Plastik Rotil Ayaklıdır.', EN: 'Includes adjustable plastic swivel feet.' },
                 { TR: 'Ürün konstrüksiyonu paslanmaz çelikten mamuldür', EN: 'The product structure is made of stainless steel.' },
                 { TR: 'Ürün demontedir', EN: 'The product is supplied disassembled.' },
-                { TR: 'Ürün sol damlalıklı', EN: 'The product has a left-side drainboard.' },
-                { TR: 'Üst tabla alınları 40 mm ve sırt 60 mm', EN: 'Top front edge is 40 mm and the back upstand is 60 mm.' },
-                { TR: 'Üst tabla pres baskı imal edilip bölgesel indirimli', EN: 'The top is press-formed with locally reinforced bends.' },
-                { TR: 'Üst tablaya 1 adet 400x400x250 mm ölçülü pres baskı monoblok evye gözü dikiş kaynak yöntemiyle kaynaklı', EN: 'One 400×400×250 mm press-formed monoblock sink bowl is seam-welded to the top.' },
                 { TR: 'Tezgah ayakları 40×40 kutu profil', EN: 'Table legs are made from 40×40 box profile.' },
                 { TR: 'Paslanmaz çelik taban raflı', EN: 'Includes a stainless steel base shelf.' },
                 { TR: 'Ayarlanabilir plastik rotil ayaklı', EN: 'Equipped with adjustable plastic swivel feet.' },
@@ -4929,6 +5061,7 @@ export const products: Product[] = [
             modules: '-',
             sidePanel: "-",
             temp: '-',
+            technicalOverview: [worktopLength, worktopMaterial],
             technicalSpecification:[
                 { TR: 'Paslanmaz  Dolaplı Çalışma Tezgah', EN: 'Stainless Cabinet Workbench' },
                 { TR: 'Paslanmaz  Dolaplı Çalışma Tezgahları Paslanmaz Çelikten Üretilmektedir.', EN: ' Stainless Cabinet worktables with sinks are made of stainless steel.' },
